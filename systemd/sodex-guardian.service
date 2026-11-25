@@ -1,0 +1,22 @@
+[Unit]
+Description=SoDEX Guardian Daemon — 24/7 autonomous engine health monitor
+After=network.target
+Wants=sodex-twin-watchdog.service sodex-sentinel.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/anantara-sakti
+EnvironmentFile=%h/anantara-sakti/.env
+ExecStart=/usr/bin/python3 -u anantara/sodex_guardian_daemon.py \
+    --db twin_engine.db \
+    --engine-log logs/twin_live.log \
+    --signal data/GUARDIAN_RESTART_SIGNAL \
+    --log logs/guardian.log \
+    --fast 60 \
+    --slow 1200
+Restart=on-failure
+RestartSec=15
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

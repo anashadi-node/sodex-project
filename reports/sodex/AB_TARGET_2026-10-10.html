@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PENGUKURAN DUA TAFSIR TARGET (A & B)</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>PENGUKURAN DUA TAFSIR TARGET (A & B)</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-definisi-yang-diukur">1. Definisi yang diukur</a></li>
+<li class="t2"><a href="#2-ringkasan-verdict-track-gate-twoway-penetapan-resmi">2. Ringkasan verdict — track gate (TWOWAY, penetapan resmi)</a></li>
+<li class="t2"><a href="#3-bottom-line-uang-semua-mesin-sinyal">3. Bottom line uang (semua mesin, sinyal)</a></li>
+<li class="t2"><a href="#4-tuas-long-vs-short-diukur-dengan-uang-bukan-wr">4. Tuas LONG vs SHORT — diukur dengan UANG, bukan WR</a></li>
+<li class="t2"><a href="#5-lima-koreksi-pemahaman-hasil-audit-pengukuran-ini">5. Lima koreksi pemahaman (hasil audit pengukuran ini)</a></li>
+<li class="t2"><a href="#6-yang-sudah-terukur-apa-yang-lolos-dan-apa-yang-tidak">6. Yang sudah terukur: apa yang lolos dan apa yang tidak</a></li>
+<li class="t2"><a href="#7-batas-yang-perlu-keputusan-anda">7. Batas & yang perlu keputusan Anda</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 10-Okt-2026 · <strong>Sifat:</strong> read-only, tanpa order · <strong>Skrip:</strong> <code>scripts/research/ab_measure.py</code>
+<strong>Data:</strong> 16 berkas <code>data/paper_test_*_state.json</code> → 10 mesin berisi trade, 2.259 baris (sinyal 2.049 · kontrol 210 · 39 baris fallback-entrytime), wallet $242,79
+<strong>Artefak angka:</strong> <code>reports/sodex/AB_MEASURE_2026-10-10.json</code></p>
+<hr>
+<h2 id="1-definisi-yang-diukur">1. Definisi yang diukur</h2>
+<table>
+<thead>
+<tr>
+<th>Tafsir</th>
+<th>Rumus</th>
+<th>Arti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A — Akumulasi (mean)</strong></td>
+<td>mean window ≥ 0,8%</td>
+<td>Rata-rata hasil per window menembus 0,8% (inilah gerbang <strong>resmi</strong> <code>sodex_maturation_tracker.py</code>)</td>
+</tr>
+<tr>
+<td><strong>B — Konsistensi</strong></td>
+<td><strong>median &gt; 0</strong> DAN <strong>hit(≥0,8%) ≥ 50%</strong></td>
+<td>Separuh window harus untung, dan separuh window menembus 0,8%</td>
+</tr>
+</tbody>
+</table>
+<p>Diukur pada <strong>2 panjang window</strong> × <strong>2 gaya grid</strong> × <strong>3 periode</strong>:</p>
+<ul>
+<li>Window <strong>30 jam</strong> = definisi resmi tracker · Window <strong>48 jam</strong> = satuan literal target.</li>
+<li>Grid <strong>FIXED</strong> = jangkar tetap 03-Agu-2026Z, window kosong <strong>dilewati</strong> (sebanding antar subset).</li>
+<li>Grid <strong>TRACKER</strong> = grid span data, window kosong <strong>= 0,0%</strong> (definisi resmi).</li>
+<li>Periode: <strong>train</strong> (&lt;1-Okt) · <strong>seen</strong> (1–10 Okt) · <strong>semua</strong> (histori penuh).</li>
+</ul>
+<p>Metode tambahan: <strong>bootstrap 2.000×</strong> untuk CI95 mean &amp; median, <strong>t-test</strong> mean vs 0,8%, dan penanda "lolos keyakinan" = <strong>CI95 batas bawah &gt; 0</strong> (bukan sekadar titik estimasi).</p>
+<hr>
+<h2 id="2-ringkasan-verdict-track-gate-twoway-penetapan-resmi">2. Ringkasan verdict — track gate (TWOWAY, penetapan resmi)</h2>
+<table>
+<thead>
+<tr>
+<th>Window</th>
+<th>Gaya</th>
+<th>Periode</th>
+<th>nw</th>
+<th>mean</th>
+<th>CI95 mean</th>
+<th>median</th>
+<th>hit ≥0,8%</th>
+<th>A (titik)</th>
+<th>A (keyakinan)</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30j</td>
+<td>fixed</td>
+<td>train</td>
+<td>45</td>
+<td><strong>+3,398%</strong></td>
+<td>(−0,524 · 8,143)</td>
+<td>+0,167%</td>
+<td>44,4%</td>
+<td><strong>LOLOS</strong></td>
+<td>tidak</td>
+<td>gagal</td>
+</tr>
+<tr>
+<td>30j</td>
+<td>tracker</td>
+<td>train</td>
+<td>44</td>
+<td><strong>+3,476%</strong></td>
+<td>(−0,366 · 8,172)</td>
+<td>+1,881%</td>
+<td>52,3%</td>
+<td><strong>LOLOS</strong></td>
+<td>tidak</td>
+<td><strong>LOLOS</strong></td>
+</tr>
+<tr>
+<td>30j</td>
+<td>fixed</td>
+<td>seen</td>
+<td>6</td>
+<td>−10,542%</td>
+<td>(−17,651 · −5,242)</td>
+<td>−7,893%</td>
+<td>0,0%</td>
+<td>gagal</td>
+<td>tidak</td>
+<td>gagal</td>
+</tr>
+<tr>
+<td>30j</td>
+<td>fixed</td>
+<td>semua</td>
+<td>50</td>
+<td>+1,794%</td>
+<td>(−2,081 · 6,029)</td>
+<td>−1,521%</td>
+<td>40,0%</td>
+<td><strong>LOLOS</strong></td>
+<td>tidak</td>
+<td>gagal</td>
+</tr>
+<tr>
+<td>48j</td>
+<td>fixed</td>
+<td>train</td>
+<td>29</td>
+<td><strong>+5,273%</strong></td>
+<td>(−1,382 · 13,158)</td>
+<td>+2,268%</td>
+<td>58,6%</td>
+<td><strong>LOLOS</strong></td>
+<td>tidak</td>
+<td><strong>LOLOS</strong></td>
+</tr>
+<tr>
+<td>48j</td>
+<td>tracker</td>
+<td>train</td>
+<td>27</td>
+<td><strong>+5,664%</strong></td>
+<td>(−1,509 · 13,252)</td>
+<td>+1,268%</td>
+<td>51,9%</td>
+<td><strong>LOLOS</strong></td>
+<td>tidak</td>
+<td><strong>LOLOS</strong></td>
+</tr>
+<tr>
+<td>48j</td>
+<td>fixed</td>
+<td>seen</td>
+<td>5</td>
+<td>−12,651%</td>
+<td>(−20,219 · −6,765)</td>
+<td>−8,824%</td>
+<td>0,0%</td>
+<td>gagal</td>
+<td>tidak</td>
+<td>gagal</td>
+</tr>
+<tr>
+<td>48j</td>
+<td>fixed</td>
+<td>semua</td>
+<td>33</td>
+<td>+2,717%</td>
+<td>(−3,765 · 9,903)</td>
+<td>+0,959%</td>
+<td>51,5%</td>
+<td><strong>LOLOS</strong></td>
+<td>tidak</td>
+<td><strong>LOLOS</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baca:</strong> A (titik) lolos di train &amp; semua-histori; <strong>A (keyakinan) TIDAK PERNAH lolos</strong> — semua CI95 mean memuat 0 (t≈1,2; p≈0,10–0,12). <strong>B bersifat pisau tipis</strong>: hanya bergeser dari "gagal" ke "LOLOS" karena gaya grid &amp; panjang window berubah (median +0,167% vs +1,881%; hit 44,4% vs 52,3%). Di jendela seen (Okt) <strong>semua gagal, sangat negatif</strong> (mean −10,5% / window, hit 0%).</p>
+<hr>
+<h2 id="3-bottom-line-uang-semua-mesin-sinyal">3. Bottom line uang (semua mesin, sinyal)</h2>
+<table>
+<thead>
+<tr>
+<th>Periode</th>
+<th>n</th>
+<th><strong>net $</strong></th>
+<th>WR</th>
+<th>mean/trade</th>
+<th>median/trade</th>
+<th>LONG $</th>
+<th>SHORT $</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>train (&lt;1-Okt)</td>
+<td>1.779</td>
+<td><strong>+531,66</strong></td>
+<td>40,8%</td>
+<td>+0,299</td>
+<td>−1,640</td>
+<td>+730,50</td>
+<td><strong>−198,84</strong></td>
+</tr>
+<tr>
+<td>seen (1–10 Okt)</td>
+<td>272</td>
+<td><strong>−690,20</strong></td>
+<td>28,3%</td>
+<td>−2,537</td>
+<td>−2,930</td>
+<td>−685,34</td>
+<td>−4,86</td>
+</tr>
+<tr>
+<td><strong>semua</strong></td>
+<td><strong>2.051</strong></td>
+<td><strong>−158,54</strong></td>
+<td>39,1%</td>
+<td>−0,077</td>
+<td>−1,750</td>
+<td>+45,16</td>
+<td><strong>−203,70</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Rincian per mesin (semua histori): <strong>hanya 3 mesin net-positif</strong> — twoway <strong>+$219,02</strong>, realwide <strong>+$98,79</strong>, swing <strong>+$45,76</strong> (Σ +$363,57). <strong>Tujuh mesin net-negatif</strong> — aster −$135,28 · hyperliquid −$174,68 · pasar_anantara_trade −$140,18 · portfolio −$48,27 · shortbear −$14,75 · donchian −$6,99 · spot_swing_v2 −$1,95 (Σ −$522,11).</p>
+<hr>
+<h2 id="4-tuas-long-vs-short-diukur-dengan-uang-bukan-wr">4. Tuas LONG vs SHORT — diukur dengan UANG, bukan WR</h2>
+<table>
+<thead>
+<tr>
+<th>Buku</th>
+<th>n</th>
+<th>WR</th>
+<th><strong>net $</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHORT twoway</td>
+<td>42</td>
+<td>33,3%</td>
+<td>−56,60</td>
+</tr>
+<tr>
+<td>SHORT pasar_anantara_trade</td>
+<td>40</td>
+<td>37,5%</td>
+<td><strong>−121,28</strong></td>
+</tr>
+<tr>
+<td>SHORT portfolio</td>
+<td>24</td>
+<td>41,7%</td>
+<td>−11,07</td>
+</tr>
+<tr>
+<td>SHORT shortbear (mesin khusus short)</td>
+<td>36</td>
+<td><strong>50,0%</strong></td>
+<td><strong>−14,75</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL SHORT</strong></td>
+<td><strong>142</strong></td>
+<td>43,7%</td>
+<td><strong>−203,70</strong></td>
+</tr>
+<tr>
+<td>LONG semua mesin</td>
+<td>1.909</td>
+<td>39,4%</td>
+<td><strong>+45,16</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan tuas sisi:</strong> setiap buku SHORT <strong>kehilangan uang</strong>, termasuk mesin khusus short dengan WR 50,0% → <strong>WR tinggi ≠ untung</strong> (biaya + payoff asimetris menelan ekspektasi). "Memperbanyak SHORT" <strong>bukan</strong> tuas; ini juga sudah ditegaskan protokol R4/R5 ("memperbanyak SHORT = mesin baru, bukan gate").</p>
+<hr>
+<h2 id="5-lima-koreksi-pemahaman-hasil-audit-pengukuran-ini">5. Lima koreksi pemahaman (hasil audit pengukuran ini)</h2>
+<ol>
+<li><strong>Sharpe:</strong> kebutuhan Sharpe tahunan untuk 0,8%/48j adalah <strong>≈0,57</strong> (σ terukur 255,7%/th), <strong>bukan ≈4,6</strong> (klaim lama mengandaikan σ 71%).</li>
+<li><strong>Mean ≠ median:</strong> buku ini <strong>mean positif tapi median negatif</strong> (ekor kanan menopang rata-rata). Karena itu A bisa "lolos" bersamaan dengan B "gagal".</li>
+<li><strong>WR ≠ uang:</strong> klaim "SHORT WR 44,1% &gt; LONG 25,4%" tidak boleh dipakai sebagai dasar tuas — pada data yang sama SHORT ber-uang <strong>negatif</strong>.</li>
+<li><strong>Universe tercampur:</strong> R3C memakai <strong>9 track</strong> (glob semua <code>paper_test_*</code>), protokol R3/R4/R5 memakai <strong>7 track</strong>; <strong>200 baris</strong> ada di luar set protokol. Angka dari dua universe ini <strong>tidak boleh dicampur</strong> (mis. holdout R3C n=272 vs R3B n=236).</li>
+<li><strong>B bersifat pisau tipis:</strong> median mendekati 0 dan hit mendekati 50% → perubahan definisi grid/window membalik verdict. B wajib dipatok pada <strong>satu grid tetap + satu jam mulai tetap</strong> sebelum dipakai sebagai gerbang.</li>
+</ol>
+<hr>
+<h2 id="6-yang-sudah-terukur-apa-yang-lolos-dan-apa-yang-tidak">6. Yang sudah terukur: apa yang lolos dan apa yang tidak</h2>
+<table>
+<thead>
+<tr>
+<th>Pertanyaan</th>
+<th>Jawaban terukur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lolos A (mean titik) ?</td>
+<td><strong>Ya</strong> untuk twoway (train +3,4%; semua +1,8%; 48j +2,7%..+5,7%) — tapi <strong>tidak</strong> untuk buku penuh (semua-histori mean pooled −1,19%)</td>
+</tr>
+<tr>
+<td>Lolos A dengan keyakinan 95% ?</td>
+<td><strong>TIDAK ADA</strong> mesin apa pun (semua CI95 memuat 0)</td>
+</tr>
+<tr>
+<td>Lolos B ?</td>
+<td><strong>Bersyarat</strong>: twoway train pada grid tracker/48j <strong>lolos</strong>; grid fixed 30j <strong>gagal</strong> → terlalu tipis untuk dijadikan verdict</td>
+</tr>
+<tr>
+<td>Di jendela seen (Okt) ?</td>
+<td><strong>Semua mesin &amp; buku penuh gagal</strong>, tangan negatif besar (buku −$690,20)</td>
+</tr>
+<tr>
+<td>Ada mesin yang bertahan di Okt ?</td>
+<td><strong>Tidak</strong> — 3 mesin positif pun jatuh (subset 3 mesin di Okt: mean −18,9%/window, −$321,42)</td>
+</tr>
+<tr>
+<td>Tuas terbesar yang terukur</td>
+<td><strong>Seleksi mesin</strong>: −$522,11 dari 7 mesin rugi vs +$363,57 dari 3 mesin untung (selisih <strong>$885,68</strong> sepanjang histori)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="7-batas-yang-perlu-keputusan-anda">7. Batas &amp; yang perlu keputusan Anda</h2>
+<p><strong>Batas (jujur):</strong>
+1. Ukuran seen hanya 4–8 window (10 hari) → <strong>underpowered</strong>; dinyatakan, bukan dijadikan verdict.
+2. Seleksi "3 mesin positif" adalah <strong>pemilihan in-sample</strong> → <strong>belum</strong> bukti OOS; wajib uji forward.
+3. Metrik window mengasumsikan window saling bebas; autokorelasi membuat CI agak optimistis.
+4. Buku penuh mencampur skala notional antar mesin (indikatif); metrik resmi tetap <strong>twoway-only</strong>.</p>
+<p><strong>Keputusan yang saya butuhkan (wewenang user — definisi target):</strong>
+1. <strong>A atau B atau keduanya</strong> yang menjadi definisi resmi target 0,8%?
+2. Bila B: pakai <strong>grid tetap 30j</strong> (resmi tracker) atau <strong>48j</strong> (satuan target)? (hasilnya berbeda: gagal vs lolos di train)
+3. Izin meletakkan <strong>pra-registrasi</strong> untuk uji forward <strong>seleksi mesin</strong> (drop mesin net-negatif) — hipotesis, ambang, dan tanggal verdict dibekukan dulu, tanpa menyentuh data masa depan.</p>
+<p><strong>Reproduksi:</strong></p>
+<pre><code class="language-bash">cd ~/anantara-sakti
+/usr/bin/python3 scripts/research/ab_measure.py        # seluruh tabel A &amp; B
+</code></pre>
+</body>
+</html>

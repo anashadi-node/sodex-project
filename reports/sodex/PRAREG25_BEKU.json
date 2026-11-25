@@ -1,0 +1,33 @@
+{
+ "protokol": "PRAREG-25-v1",
+ "dibekukan_utc": "2026-10-09T16:31:07+00:00",
+ "sha256_protokol": "a256d35025c2a8883a16a78134a096247cfd042ac694d5e9985a77030a8d704f",
+ "baris": 70,
+ "disetujui": {
+  "oleh": "Anas",
+  "tanggal": "2026-10-09",
+  "opsi": "PRAREG-25 breadth"
+ },
+ "perubahan_tunggal": "universe 6 -> top-20 likuid dari pool tetap; sinyal identik (uji ekuivalensi wajib)",
+ "arms": {
+  "S-A_kontrol": "divN, vol-target 25%",
+  "S-B_primer": "tanpa divN, cap Sigma_w<=1,00"
+ },
+ "gerbang": [
+  "a Sharpe>=BTC",
+  "b maxDD<=50%BTC",
+  "c positif >=2/3 subperiode",
+  "d blok20 positif >=60% dan median>0",
+  "e p<0,025 (Bonferroni 2 lengan)",
+  "h DSR>0 dgn n_trials=80",
+  "f >=0,10%/48j",
+  "g eksposur>=0,30 (S-B)"
+ ],
+ "pool": 66,
+ "pool_layak": 66,
+ "topn": 20,
+ "lookback_volume": 30,
+ "max_bobot": 1.0,
+ "biaya_utama_bps": 25,
+ "n_trials_dsr_jujur": 80
+}

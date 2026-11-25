@@ -1,0 +1,52 @@
+{
+  "id": "PRAREG-12",
+  "judul": "Uji FORWARD-only MACD_FADE_H48 (kandidat tunggal) — verdict mesin dari data pasca-beku",
+  "tanggal_beku": "2026-10-08",
+  "status": "TERBEKU sebelum data forward dievaluasi (bar pasca-commit PRAREG-12 ini)",
+  "disetujui": "Mas Anas, 8-Okt-2026 (approve Opsi 2)",
+  "latar": [
+    "TA10 (0743210): MACD_FADE_H48 = satu-satunya arm mendekati lolos. SoDEX: IC +0,0659, gross +30,93 bps, net +25,62 bps, t 2,03 (p 0,0425), S_ann 2,71, S_fee2x 2,15, seg 3/3 — TAPI |t_ctrl| 2,92 (gagal R4') dan BH gagal.",
+    "Binance: net +15,48 bps, t 2,95 (p 0,0032), |t_ctrl| 0,16 lulus, tapi S_ann 1,63 < 2,30 dan S_fee2x 0,93 < 1,80.",
+    "Karena arm dipilih post-hoc dari 16 arm TA10, verdict historis = DESKRIPTIF. Verdict mesin hanya sah dari data FORWARD dengan protokol beku ini."
+  ],
+  "arm_diuji": {
+    "utama": "SoDEX 1h MACD_FADE_H48",
+    "konfirmasi": "Binance 1h MACD_FADE_H48 (R1: tanda IC sama & |IC_sod| >= 0,5|IC_bin|)"
+  },
+  "definisi_sinyal_beku": {
+    "konstruksi": "MACD_FADE = -(MACD_HIST / c); MACD_HIST = ema(c,12)-ema(c,26) - ema(ema(c,12)-ema(c,26),9); lalu zscore_xsec per bar",
+    "implementasi": "identik ta10_fade_study.py@0743210 (FADE_MAP entri ('MACD_FADE','MACD_HIST',-1.0) via ta7.build_ta_signals) — WAJIB import beku, dilarang menulis ulang",
+    "agregasi": "identik xs.run_mech (rank_w, excess market-neutral, to L1, nw_t lag=48, 3 segmen, PPY=365*24/hold)"
+  },
+  "jendela_forward": {
+    "definisi": "HANYA bar 1h dengan timestamp > waktu beku (commit PRAREG-12 ini). Walk-forward non-overlap hold 48 jam (dihitung dari bar pertama pasca-beku).",
+    "data_sumber": "SoDEX: data/sodex_klines/1h (recorder systemd, refresh 6 jam). Binance: scripts/research/binance_pull_klines_paged.py (penarikan data SAH; tanpa mengubah prareg).",
+    "n_min_verdict": 40,
+    "catatan_n": "n=40 window 48 jam = ~80 hari forward (perkiraan tuntas ~26-Des-2026). Look interim n=10/20/30 HANYA deskriptif, BUKAN verdict, dan diprareg di sini agar bukan p-hacking.",
+    "stop_futility": "Jika pada n>=20 window: net_bps <= 0 DAN t_NW <= -1,5 -> FALSIFIED lebih awal (aturan memperketat, bukan melonggarkan)."
+  },
+  "gerbang_mesin_identik_panel_beku": {
+    "R3_turnover": "to <= 1,5",
+    "R4_kontrol": "|t_ctrl| < 2,0 (seed 20261007)",
+    "R5": "t >= 1,96 dan net_bps > 0 dan gross_bps > 0",
+    "S_ann": ">= 2,30 (PPY 365*24/48)",
+    "S_fee2x": ">= 1,80 (fee_mult 2,0)",
+    "segmen": "3 dari 3 segmen positif net",
+    "BH": "FDR q = 0,10 atas arm yang diuji (2: sodex utama + binance konfirmasi)",
+    "mutu_panel": "corr(IC, gross) > 0",
+    "biaya": "SoDEX fee_oneway 0,0004; Binance 0,0005 (beku PRAREG-10)"
+  },
+  "aturan_keputusan": {
+    "LULUS_MESIN": "semua gerbang di atas terpenuhi pada n>=40 (dan tidak kena stop_futility). Lulus = kandidat mesin -> lanjut ke validasi GO-LIVE terpisah (model biaya, kapasitas, korelasi antar-mesin), BUKAN izin live langsung.",
+    "FALSIFIED": "stop_futility kena ATAU pada n>=40 ada gerbang wajib gagal (terutama |t_ctrl|>=2 atau S_ann<2,3).",
+    "TIDAK_KONKLUSIF": "n belum mencapai 40 dan tidak ada stop_futility -> lanjut mengumpulkan data, tanpa klaim apa pun."
+  },
+  "deklarasi_risiko": [
+    "Seleksi arm post-hoc (1 dari 16 TA10) = multiple testing; uji forward hanya memitigasi sebagian.",
+    "Daya uji terbatas: n=40 window memberi galat baku t lebih besar dari panel historis n=146; lulus di n=40 tetap kandidat, bukan bukti final.",
+    "Pasar forward bisa beda rezim dari sampel Okt-2025..Okt-2026; hasil forward adalah satu-satunya verdict yang sah menurut protokol keluarga ini.",
+    "Look interim diprareg di sini semata-mata agar tidak menjadi p-hacking; TIDAK ada ambang yang boleh diubah berdasarkan hasil interim.",
+    "Protokol ini TIDAK mengubah status paper/freeze venue (SoDEX freeze 30-09 tetap berlaku; lane uang stop)."
+  ],
+  "output_rencana": "reports/sodex/TA12_FORWARD_MACDFADE.json (ditulis hanya saat evaluasi n>=10/20/30/40 dijalankan); skrip evaluasi ta12_forward_eval.py WAJIB import beku (xs, ta7) tanpa modifikasi ambang"
+}

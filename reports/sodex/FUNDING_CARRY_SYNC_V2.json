@@ -1,0 +1,69 @@
+{
+ "config": {
+  "hys": 0.5,
+  "min_hold_days": 7.0
+ },
+ "train_universe": 145,
+ "selected": [
+  "AKTUSDT",
+  "GRASSUSDT",
+  "FARTCOINUSDT",
+  "KASUSDT",
+  "WIFUSDT",
+  "VIRTUALUSDT",
+  "MORPHOUSDT",
+  "ONDOUSDT",
+  "ORDIUSDT",
+  "1000BONKUSDT"
+ ],
+ "symbols": {
+  "WIFUSDT": {
+   "events": 3866,
+   "mean_event_bps": -0.0413
+  },
+  "VIRTUALUSDT": {
+   "events": 3262,
+   "mean_event_bps": -0.2861
+  },
+  "MORPHOUSDT": {
+   "events": 2212,
+   "mean_event_bps": -0.1896
+  },
+  "ONDOUSDT": {
+   "events": 3262,
+   "mean_event_bps": 0.0355
+  },
+  "ORDIUSDT": {
+   "events": 3866,
+   "mean_event_bps": 0.2438
+  }
+ },
+ "errors": [
+  "AKTUSDT: klines tidak ada",
+  "GRASSUSDT: klines tidak ada",
+  "FARTCOINUSDT: klines tidak ada",
+  "KASUSDT: klines tidak ada",
+  "1000BONKUSDT: klines tidak ada"
+ ],
+ "portfolio": {
+  "n": 625,
+  "mean_bps": -0.076,
+  "sd": 7.634,
+  "t": -0.25,
+  "sr_ann": -0.19
+ },
+ "naive_no_basis": {
+  "n": 85,
+  "mean_bps": 0.721,
+  "sd": 5.826,
+  "t": 1.14,
+  "sr_ann": 2.37
+ },
+ "leverage_for_target": null,
+ "years_to_t411": null,
+ "test_start": "2025-01-01",
+ "test_end": "2026-10-24",
+ "status": "FAIL",
+ "verdict": "NO-GO",
+ "generated_utc": "2026-10-25T08:14:39.767032+00:00"
+}

@@ -1,0 +1,39 @@
+{
+ "catatan": "DESKRIPTIF \u2014 bukan uji hipotesis, tidak mengubah vonis PRAREG-25",
+ "btc_sharpe": 0.9523558365156588,
+ "n_hari": 2975,
+ "diag": {
+  "S-A_kontrol_divN": {
+   "se_gap_annual": 0.37459469581260346,
+   "gap_obs_annual": 0.11580991413572841,
+   "t_implied": 0.30916058190440593,
+   "gap_dibutuhkan_p0.025": 0.7342056037927027,
+   "kelipatan_kurang": 6.3397474151670545,
+   "p_implied_normal": 0.3785996885536944,
+   "n_boot": 2000,
+   "alpha_harian_pct": 0.012505019903557646,
+   "alpha_tahunan_pct": 4.564332264798541,
+   "t_alpha": 1.945628344379217,
+   "beta": 0.05623356339044402,
+   "se_alpha_harian_pct": 0.006427239785894242,
+   "r2": 0.2515524403994549,
+   "n": 2975
+  },
+  "S-B_primer_tanpa_divN": {
+   "se_gap_annual": 0.3556223216675219,
+   "gap_obs_annual": -0.030239723597922215,
+   "t_implied": -0.08503325510088175,
+   "gap_dibutuhkan_p0.025": 0.6970197504683429,
+   "kelipatan_kurang": null,
+   "p_implied_normal": 0.5338825236516351,
+   "n_boot": 2000,
+   "alpha_harian_pct": 0.05457363831746978,
+   "alpha_tahunan_pct": 19.919377985876473,
+   "t_alpha": 1.268934786077906,
+   "beta": 0.47585282090912584,
+   "se_alpha_harian_pct": 0.04300744129345607,
+   "r2": 0.3495958896476865,
+   "n": 2975
+  }
+ }
+}

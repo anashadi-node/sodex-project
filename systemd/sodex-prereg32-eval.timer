@@ -1,0 +1,10 @@
+[Unit]
+Description=PRAREG-32 evaluator harian 01:40 UTC (forward 27-Okt s.d. 26-Nov-2026, verdict 27-Nov)
+
+[Timer]
+OnCalendar=*-*-* 01:40:00 UTC
+Persistent=true
+Unit=sodex-prereg32-eval.service
+
+[Install]
+WantedBy=timers.target

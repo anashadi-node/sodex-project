@@ -1,0 +1,22 @@
+{
+ "generated_utc": "2026-10-07T10:39:21.185574+00:00",
+ "n_symbols": 76,
+ "n_symbols_common": 15,
+ "n_days_common": 337,
+ "n_eq_rwa": 1,
+ "n_crypto": 14,
+ "pair_corr": {
+  "mean": 0.5949604297599758,
+  "median": 0.6047877411689638,
+  "p75": 0.778943804045759,
+  "p90": 0.8255357674013099,
+  "p10": 0.3561847943792412
+ },
+ "block_crypto_crypto": 0.6364434883767296,
+ "block_eqrwa_eqrwa": NaN,
+ "block_cross": NaN,
+ "n_effective_bets": 2.3235220757149553,
+ "pc1_variance_share": 0.6457434543298072,
+ "rho_inf_theoretical_equicorr": 1.607812508186075,
+ "sharpe_multiplier_if_6_engines_rho_median": 1.4910763902255588
+}

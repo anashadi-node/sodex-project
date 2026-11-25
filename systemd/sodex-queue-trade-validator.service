@@ -1,0 +1,9 @@
+[Unit]
+Description=SoDEX QIP public-trade forward validator (read-only)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/sodex_queue_trade_validator.py --notional 10 --ratio-floor 4500 --output /home/USER/anantara-sakti/data/sodex_queue_trade_validation_forward.json
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_queue_trade_validator.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_queue_trade_validator.log

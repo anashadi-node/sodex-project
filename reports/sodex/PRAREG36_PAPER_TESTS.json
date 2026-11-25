@@ -1,0 +1,145 @@
+{
+ "utc": "2026-10-26T03:02:43.247722+00:00",
+ "n_uji": 21,
+ "lulus": 21,
+ "gagal": [],
+ "hasil": [
+  {
+   "id": "D01",
+   "uji": "evaluasi deterministik (dua run identik)",
+   "lulus": true,
+   "bukti": "M_B2=0.04423, n=30"
+  },
+  {
+   "id": "D02",
+   "uji": "G2 mendeteksi target dimanipulasi 1e-6",
+   "lulus": true,
+   "bukti": "selisih=1"
+  },
+  {
+   "id": "D03",
+   "uji": "G1 menolak ledger bolong",
+   "lulus": true,
+   "bukti": "gap=['2025-03-11']"
+  },
+  {
+   "id": "D04",
+   "uji": "baris duplikat tidak menggandakan hari",
+   "lulus": true,
+   "bukti": "n=30"
+  },
+  {
+   "id": "D05",
+   "uji": "G1 menolak backfill berlebih (>3)",
+   "lulus": true,
+   "bukti": "backfill=4"
+  },
+  {
+   "id": "D06",
+   "uji": "G1 menolak funding kosong di jendela",
+   "lulus": true,
+   "bukti": "hilang=30 hari"
+  },
+  {
+   "id": "A01",
+   "uji": "akuntansi biaya+funding eksak (hari entry & hari stabil)",
+   "lulus": true,
+   "bukti": "entry -0.00200000 vs -0.00200000 | stabil -0.00010000 vs -0.00010000"
+  },
+  {
+   "id": "A02",
+   "uji": "pemisahan lapisan: gross 1x, perp (L-1)x",
+   "lulus": true,
+   "bukti": "gross=1.0000, target total=1.0000, perp=1.0000"
+  },
+  {
+   "id": "A03",
+   "uji": "anti-lookahead: target hari-H tidak dipakai hari-H",
+   "lulus": true,
+   "bukti": "return hari lompatan=0.00e+00"
+  },
+  {
+   "id": "R01",
+   "uji": "record idempoten (run kedua tidak menambah baris)",
+   "lulus": true,
+   "bukti": "604 -> 604, ditulis=[]"
+  },
+  {
+   "id": "R02",
+   "uji": "3 proses record bersamaan -> tetap 1 baris (flock)",
+   "lulus": true,
+   "bukti": "baris rec=1"
+  },
+  {
+   "id": "R03",
+   "uji": "apply dua kali: putaran kedua 0 order",
+   "lulus": true,
+   "bukti": "order 2 -> 0"
+  },
+  {
+   "id": "R04",
+   "uji": "eksekutor menolak direktori tanpa ledger",
+   "lulus": true,
+   "bukti": "SystemExit bersih"
+  },
+  {
+   "id": "R05",
+   "uji": "notional < 10 USDC dibuang",
+   "lulus": true,
+   "bukti": "0 order"
+  },
+  {
+   "id": "R06",
+   "uji": "5 penanda live semuanya ditolak",
+   "lulus": true,
+   "bukti": "lolos=tidak ada"
+  },
+  {
+   "id": "X01",
+   "uji": "ambang likuidasi L=1,5 sesuai analitis",
+   "lulus": true,
+   "bukti": "a*=-0.6653 (-66.5%)"
+  },
+  {
+   "id": "X02",
+   "uji": "bootstrap: seri naik -> p~0, turun -> p~1",
+   "lulus": true,
+   "bukti": "p_naik=0.0, p_turun=1.0"
+  },
+  {
+   "id": "X03",
+   "uji": "ambang BH 2 sel = 0,025",
+   "lulus": true,
+   "bukti": "p_bh=0.025"
+  },
+  {
+   "id": "S01",
+   "uji": "base rate 30-hari: peluang lolos G3 & G4 secara kebetulan",
+   "lulus": true,
+   "bukti": "1729 jendela | M>=0,010: 41.0% | MDD>=-35%: 100.0% | keduanya: 41.0%"
+  },
+  {
+   "id": "S02",
+   "uji": "daya uji: M terkecil yang bisa signifikan (p=0,025, n=30)",
+   "lulus": true,
+   "bukti": "sd harian=1.39% -> M_min=0.1077 %/5j (target 0,010)"
+  },
+  {
+   "id": "S03",
+   "uji": "sebaran M 30-hari (p10/p50/p90)",
+   "lulus": true,
+   "bukti": "-0.0375 / 0.0004 / 0.0741 %/5j"
+  }
+ ],
+ "base_rate": {
+  "n_jendela": 1729,
+  "p_M_ge_target": 0.4100636205899364,
+  "p_mdd_ok": 1.0,
+  "p_keduanya": 0.4100636205899364,
+  "p10_M": -0.03745944375046495,
+  "p50_M": 0.0003872469017895952,
+  "p90_M": 0.07405929591026263,
+  "M_detect_p025": 0.10773653706571869,
+  "sd_harian": 0.0138506949519927
+ }
+}

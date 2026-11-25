@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RCA OPSI-1 (MAKER ENTRY) — Mengapa Gagal dan Apakah Bisa Diperbaiki</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>RCA OPSI-1 (MAKER ENTRY) — Mengapa Gagal dan Apakah Bisa Diperbaiki</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-pernyataan-deviasi-tanpa-menyebut-penyebab">1. Pernyataan deviasi (tanpa menyebut penyebab)</a></li>
+<li class="t2"><a href="#2-matriks-is-is-not-kepner-tregoe">2. Matriks IS / IS NOT (Kepner-Tregoe)</a></li>
+<li class="t2"><a href="#3-hipotesis-penyebab-dan-pengujiannya">3. Hipotesis penyebab dan pengujiannya</a></li>
+<li class="t2"><a href="#4-bottleneck-toc-kesalahan-saya-sendiri">4. Bottleneck (TOC) — kesalahan saya sendiri</a></li>
+<li class="t2"><a href="#5-kelayakan-market-making-uji-tambahan-wajib">5. Kelayakan market-making (uji tambahan wajib)</a></li>
+<li class="t2"><a href="#6-problem-solving-a3">6. Problem solving (A3)</a></li>
+<li class="t2"><a href="#7-keterbatasan-yang-dinyatakan-terbuka">7. Keterbatasan yang dinyatakan terbuka</a></li>
+<li class="t2"><a href="#8-keputusan">8. Keputusan</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 23 Oktober 2026 · <strong>Snapshot:</strong> <code>sodex_20261023_0515</code> (beku)
+<strong>Data:</strong> 861 trade berharga; 5m 30 hari (15 simbol), 1m 7 hari (15 simbol); L2 10 simbol
+<strong>Status:</strong> SELESAI — verdict <strong>DITOLAK</strong>, termasuk varian perbaikannya.</p>
+<hr>
+<h2 id="1-pernyataan-deviasi-tanpa-menyebut-penyebab">1. Pernyataan deviasi (tanpa menyebut penyebab)</h2>
+<blockquote>
+<p><strong>Objek:</strong> eksekusi entry pasif (maker) pada keluarga mesin SoDEX.
+<strong>Defect:</strong> hasil bersih per trade <strong>tetap negatif ekstrem</strong> (−66,6 bps) dan <strong>tanda manfaatnya
+berbalik</strong> antara periode latih (−32,1 bps) dan periode uji (+25,5 bps).</p>
+</blockquote>
+<p>Bukan "maker itu buruk" — melainkan: pada kondisi apa maker menolong dan pada kondisi apa merusak.</p>
+<hr>
+<h2 id="2-matriks-is-is-not-kepner-tregoe">2. Matriks IS / IS NOT (Kepner-Tregoe)</h2>
+<table>
+<thead>
+<tr>
+<th>Dimensi</th>
+<th>IS (gagal)</th>
+<th>IS NOT (tidak gagal)</th>
+<th>Distinction</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WHAT</strong></td>
+<td>Limit dipasang <strong>di harga entry</strong> (X=0) → net −45,4 bps; yang terisi justru trade rugi</td>
+<td>Limit dipasang <strong>20 bps lebih baik</strong> → −20,7 bps</td>
+<td>jarak limit dari harga acuan</td>
+<td>kedalaman limit</td>
+</tr>
+<tr>
+<td><strong>WHERE</strong></td>
+<td>Sisi <strong>entry</strong> (membuka posisi)</td>
+<td>Sisi <strong>exit TP</strong> sudah pasif dan tidak pernah merusak</td>
+<td>sisi eksekusi</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>WHEN</strong></td>
+<td>Oktober (chop): menolong +25 bps. Latih (tren): merusak −32 bps</td>
+<td>5m 30 hari: membaik monoton pada seluruh rentang</td>
+<td>rezim tren vs chop</td>
+<td>rezim pasar</td>
+</tr>
+<tr>
+<td><strong>EXTENT</strong></td>
+<td>74,5% terisi; terisi gross −86 vs tidak terisi −85 (1m)</td>
+<td>Pada X=0, 20 trade <strong>tidak terisi</strong> punya baseline <strong>+60,1 bps</strong></td>
+<td>siapa yang terisi</td>
+<td>seleksi diri</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DISTINCTION kunci:</strong> yang membedakan bukan "pasif vs agresif", melainkan <strong>apakah limit berada
+di harga tempat pasar sedang bergerak menjauh</strong> atau <strong>di harga yang harus diraih pasar</strong>.</p>
+<p><strong>CHANGE kunci:</strong> tidak ada perubahan kode/venue. Yang berubah adalah <strong>rezim</strong> — dan itu yang
+membalik tanda manfaat.</p>
+<hr>
+<h2 id="3-hipotesis-penyebab-dan-pengujiannya">3. Hipotesis penyebab dan pengujiannya</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Hipotesis</th>
+<th>Uji</th>
+<th>Hasil</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>Limit di harga acuan = adverse selection by construction</td>
+<td>Bagi populasi X=0 menjadi terisi vs tidak terisi</td>
+<td>terisi <strong>−51,03</strong>, tidak terisi <strong>+60,10</strong> bps → selisih <strong>111 bps</strong></td>
+<td><strong>LOLOS SEMUA DIMENSI</strong></td>
+</tr>
+<tr>
+<td>H2</td>
+<td>Fee maker lebih murah → cukup menutup</td>
+<td>Hitung Δ fee</td>
+<td>hanya <strong>+1,66 bps</strong> vs selisih seleksi 111 bps</td>
+<td>DITOLAK</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>Masalah resolusi data (5m terlalu kasar)</td>
+<td>Ulang di 1m</td>
+<td>arah sama, magnitudo <strong>lebih kecil</strong> (+25 vs +45)</td>
+<td>DITOLAK (bukan artefak)</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>Field high/low tertukar</td>
+<td>Cek struktur bar + validasi bid&lt;ask</td>
+<td><code>h</code>&gt; <code>l</code> benar; 0 pelanggaran</td>
+<td>DITOLAK</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>Coverage data (bar tidak menutupi window)</td>
+<td>Fungsi <code>covers()</code> + hitung ulang</td>
+<td>98 trade tanpa data dikeluarkan; hasil tidak berubah arah</td>
+<td>DITOLAK</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Root cause terverifikasi: H1 — adverse selection struktural.</strong>
+Bukti pembalikan (verifikasi prediktif): <em>jika</em> H1 benar, <em>maka</em> memperdalam limit harus
+memperkecil selisih terisi-vs-tidak-terisi secara monoton. Terukur:</p>
+<table>
+<thead>
+<tr>
+<th>Kedalaman X</th>
+<th>Terisi (baseline)</th>
+<th>Tidak terisi</th>
+<th>Selisih seleksi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 bps</td>
+<td>−51,03</td>
+<td><strong>+60,10</strong></td>
+<td><strong>111,1 bps</strong></td>
+</tr>
+<tr>
+<td>10 bps</td>
+<td>−48,65</td>
+<td>−18,42</td>
+<td>30,2 bps</td>
+</tr>
+<tr>
+<td>20 bps</td>
+<td>−53,32</td>
+<td>−20,89</td>
+<td>32,4 bps</td>
+</tr>
+</tbody>
+</table>
+<p>Prediksi terpenuhi (111 → ~31 bps), <strong>tetapi</strong> populasi "tidak terisi" sendiri sudah negatif
+(−20,9 bps). Artinya: memperdalam limit memindahkan Anda ke populasi yang lebih buruk,
+bukan ke populasi yang menguntungkan.</p>
+<hr>
+<h2 id="4-bottleneck-toc-kesalahan-saya-sendiri">4. Bottleneck (TOC) — kesalahan saya sendiri</h2>
+<table>
+<thead>
+<tr>
+<th>Langkah TOC</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identify</strong></td>
+<td>Constraint = <strong>gross edge sinyal</strong>, bukan biaya. Pada populasi tercakup: <strong>−42,07 bps/trade</strong>.</td>
+</tr>
+<tr>
+<td><strong>Exploit</strong></td>
+<td>Perbaikan eksekusi maksimal terukur: <strong>+21,36 bps</strong> (X=20). Sisa defisit <strong>−20,71 bps</strong>.</td>
+</tr>
+<tr>
+<td><strong>Subordinate</strong></td>
+<td>Tidak ada konfigurasi eksekusi yang bisa menutup sisa itu.</td>
+</tr>
+<tr>
+<td><strong>Elevate</strong></td>
+<td>Hanya sinyal baru (bukan eksekusi) yang bisa.</td>
+</tr>
+<tr>
+<td><strong>Repeat</strong></td>
+<td>Setelah eksekusi diperbaiki, constraint tetap sinyal.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesalahan metodologis yang harus dicatat:</strong> opsi-1 menyerang <strong>biaya</strong> (6,49 bps) sementara
+<strong>constraint</strong> adalah <strong>edge sinyal</strong> (−42 s/d −91 bps). Itu optimasi pada non-constraint —
+kesalahan TOC klasik. Perbaikan 21 bps terlihat besar, tetapi 21 &lt; 42.</p>
+<hr>
+<h2 id="5-kelayakan-market-making-uji-tambahan-wajib">5. Kelayakan market-making (uji tambahan wajib)</h2>
+<p>Karena arah berikutnya adalah MM, aritmetikanya diuji lebih dulu.</p>
+<p><strong>Ambang:</strong> MM di top-of-book hanya hidup bila spread <strong>&gt; 2 × fee maker = 2,28 bps</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>Spread median</th>
+<th>Layak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUI</td>
+<td>1,03 bps</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>CL</td>
+<td>1,01</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>0,97</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>0,42</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>LIT</td>
+<td>0,30</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>XAUT / ZEC</td>
+<td>0,25</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>HYPE</td>
+<td>0,13</td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>BTC</td>
+<td><strong>0,12</strong></td>
+<td>tidak</td>
+</tr>
+<tr>
+<td>SNDK</td>
+<td>0,08</td>
+<td>tidak</td>
+</tr>
+</tbody>
+</table>
+<p><strong>0 dari 10 simbol lolos.</strong> MM di touch mustahil secara aritmetika: Anda membayar 2,28 bps
+untuk menangkap ≤ 1,03 bps.</p>
+<p><strong>MM di kedalaman</strong> (quote X bps dari mid, isi bila tersentuh ≤15 menit, keluar 30/60 menit):</p>
+<table>
+<thead>
+<tr>
+<th>X</th>
+<th>Simbol positif</th>
+<th>Rata-rata</th>
+<th>Median/simbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 bps</td>
+<td><strong>0/15</strong></td>
+<td>−6,10</td>
+<td>−5,53</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>0/15</strong></td>
+<td>−6,02</td>
+<td>−6,03</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>0/15</strong></td>
+<td>−6,18</td>
+<td>−6,08</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>0/15</strong></td>
+<td>−6,41</td>
+<td>−6,52</td>
+</tr>
+</tbody>
+</table>
+<p>(hold 60m: 0/15, −6,8 s/d −7,4). <strong>Tidak ada edge mean-reversion setelah wick</strong> pada periode ini —
+harga cenderung melanjutkan, bukan kembali.</p>
+<p><strong>Kesimpulan MM:</strong> tidak layak di SoDEX pada tier fee sekarang, baik di touch maupun di kedalaman.</p>
+<hr>
+<h2 id="6-problem-solving-a3">6. Problem solving (A3)</h2>
+<p><strong>Background.</strong> Target 0,8%/window 30j butuh 3,08 bps net/trade. Biaya nyata 6,49 bps RT →
+gross wajib 9,57 bps.</p>
+<p><strong>Current.</strong> Gross pada populasi tercakup <strong>−42,07 bps</strong>; 7 hari terakhir <strong>−90,80 bps</strong>.
+Eksekusi terbaik yang mungkin menutup 21,36 bps.</p>
+<p><strong>Goal.</strong> Gross ≥ +9,57 bps secara konsisten, atau hentikan alokasi.</p>
+<p><strong>Root cause.</strong> Sinyal tidak punya edge arah; eksekusi pasif menambah seleksi merugikan.</p>
+<p><strong>Countermeasures.</strong>
+1. <strong>Dilarang</strong> memakai maker entry di harga acuan (X=0) — terbukti seleksi 111 bps.
+2. Jika kelak entry pasif dipakai: wajib kedalaman ≥10 bps, window ≤30 menit, dan terdaftar
+   sebagai trial baru (n_trials bertambah).
+3. <strong>Jangan</strong> menjadikan MM sebagai jalur penyelamat — aritmetika fee vs spread menolaknya.
+4. Satu-satunya jalur tersisa: sinyal arah baru dengan edge gross ≥10 bps, diuji pra-registrasi
+   terpisah, dengan modal risiko nol sampai lolos.</p>
+<p><strong>Follow-up.</strong> Verdict tetap 25 Nov. Data L2 tetap direkam (biaya nol, opsi terbuka bila tier fee
+berubah — mis. rebate maker atau volume tier).</p>
+<hr>
+<h2 id="7-keterbatasan-yang-dinyatakan-terbuka">7. Keterbatasan yang dinyatakan terbuka</h2>
+<ol>
+<li>Uji fill memakai OHLC, bukan antrean orderbook → fill nyata lebih rendah; arah kesimpulan
+   (ditolak) tidak berubah karena variant sudah diberi keuntungan maksimum.</li>
+<li>Exit dianggap sama dengan ledger → konservatif untuk varian (stop ikut menjauh, tidak dihitung).</li>
+<li>Uji MM memakai sampel Sep 22 – Okt 22 (satu rezim). Kesimpulan "tidak layak" berlaku untuk
+   rezim ini; pada rezim lain tanda bisa berubah — yang berarti MM menjadi taruhan rezim,
+   bukan edge netral pasar.</li>
+<li>Uji MM mengabaikan biaya inventory/hedge dan asumsi fill di level (tanpa antrean).</li>
+</ol>
+<hr>
+<h2 id="8-keputusan">8. Keputusan</h2>
+<p><strong>Opsi 1: DITOLAK, termasuk varian kedalaman.</strong> Tidak ada konfigurasi eksekusi yang menutup
+selisih 42–91 bps. Rekomendasi: hentikan keluarga mesin ini, jangan alokasikan modal,
+dan jangan menggantinya dengan market-making di venue ini.</p>
+</body>
+</html>

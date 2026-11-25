@@ -1,0 +1,139 @@
+{
+ "generated_utc": "2026-10-25T08:10:28.515000+00:00",
+ "sifat": "DESKRIPTIF IN-SAMPLE \u2014 n minggu ~9, bukan bukti forward",
+ "wallet_usd": 243.02,
+ "target_pct_per_window": 0.8,
+ "n_window_total": 59,
+ "variants": {
+  "tanpa_gate": {
+   "n_window": 59,
+   "mean_pct": 1.404,
+   "median_pct": -0.296,
+   "hit_pct": 49.2,
+   "total_usd": 201.29,
+   "ci95_block_mingguan": [
+    -5.751,
+    8.987
+   ],
+   "lolos_0_8": true
+  },
+  "vol>=30": {
+   "n_window": 44,
+   "mean_pct": 2.468,
+   "median_pct": 0.057,
+   "hit_pct": 50.0,
+   "total_usd": 263.87,
+   "ci95_block_mingguan": [
+    -6.027,
+    10.619
+   ],
+   "lolos_0_8": true
+  },
+  "vol>=33": {
+   "n_window": 29,
+   "mean_pct": 2.526,
+   "median_pct": 1.124,
+   "hit_pct": 51.7,
+   "total_usd": 178.02,
+   "ci95_block_mingguan": [
+    -7.429,
+    11.921
+   ],
+   "lolos_0_8": true
+  },
+  "vol>=35": {
+   "n_window": 18,
+   "mean_pct": 8.796,
+   "median_pct": 4.061,
+   "hit_pct": 66.7,
+   "total_usd": 384.76,
+   "ci95_block_mingguan": [
+    -0.64,
+    19.737
+   ],
+   "lolos_0_8": true
+  },
+  "vol>median_90d": {
+   "n_window": 31,
+   "mean_pct": 3.563,
+   "median_pct": 1.851,
+   "hit_pct": 54.8,
+   "total_usd": 268.41,
+   "ci95_block_mingguan": [
+    -6.943,
+    11.696
+   ],
+   "lolos_0_8": true
+  },
+  "prereg26_14d_net_pos": {
+   "n_window": 59,
+   "mean_pct": 1.411,
+   "median_pct": 0.0,
+   "hit_pct": 32.2,
+   "total_usd": 202.33,
+   "lolos_0_8": true
+  }
+ },
+ "matematika_target": [
+  {
+   "n_trade_per_window": 5,
+   "size_frac_wallet": 0.25,
+   "butuh_net_bps_per_trade": 64.0
+  },
+  {
+   "n_trade_per_window": 5,
+   "size_frac_wallet": 0.5,
+   "butuh_net_bps_per_trade": 32.0
+  },
+  {
+   "n_trade_per_window": 5,
+   "size_frac_wallet": 1.0,
+   "butuh_net_bps_per_trade": 16.0
+  },
+  {
+   "n_trade_per_window": 9,
+   "size_frac_wallet": 0.25,
+   "butuh_net_bps_per_trade": 35.6
+  },
+  {
+   "n_trade_per_window": 9,
+   "size_frac_wallet": 0.5,
+   "butuh_net_bps_per_trade": 17.8
+  },
+  {
+   "n_trade_per_window": 9,
+   "size_frac_wallet": 1.0,
+   "butuh_net_bps_per_trade": 8.9
+  },
+  {
+   "n_trade_per_window": 15,
+   "size_frac_wallet": 0.25,
+   "butuh_net_bps_per_trade": 21.3
+  },
+  {
+   "n_trade_per_window": 15,
+   "size_frac_wallet": 0.5,
+   "butuh_net_bps_per_trade": 10.7
+  },
+  {
+   "n_trade_per_window": 15,
+   "size_frac_wallet": 1.0,
+   "butuh_net_bps_per_trade": 5.3
+  },
+  {
+   "n_trade_per_window": 25,
+   "size_frac_wallet": 0.25,
+   "butuh_net_bps_per_trade": 12.8
+  },
+  {
+   "n_trade_per_window": 25,
+   "size_frac_wallet": 0.5,
+   "butuh_net_bps_per_trade": 6.4
+  },
+  {
+   "n_trade_per_window": 25,
+   "size_frac_wallet": 1.0,
+   "butuh_net_bps_per_trade": 3.2
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=Re-run SoDEX CAMEO scalp research hourly
+Requires=sodex-cameo-scalp-research.service
+
+[Timer]
+OnBootSec=5min
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

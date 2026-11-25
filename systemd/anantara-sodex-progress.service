@@ -1,0 +1,16 @@
+[Unit]
+Description=ANANTARA SAKTI SoDEX Paper Progress Report (harian, read-only)
+Documentation=https://github.com/anashadi/anantara-sakti
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+Environment="PATH=/home/USER/anantara-sakti/.venv-research/bin:/usr/bin:/bin"
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python3 scripts/sodex_progress_report.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_progress_report.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_progress_report_error.log
+
+[Install]
+WantedBy=default.target

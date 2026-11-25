@@ -1,0 +1,80 @@
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:45: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  line = f'{dt.datetime.utcnow().isoformat()}Z {msg}'
+/home/USER/anantara-sakti/scripts/research/sig_search_daemon.py:39: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  d['newest'] = dt.datetime.utcfromtimestamp(bars[-1]['t'] / 1000).isoformat()

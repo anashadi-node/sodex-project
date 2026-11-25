@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUDIT PRAREG-26 — DENOMINATOR & VERIFIKASI GANDA</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>AUDIT PRAREG-26 — DENOMINATOR & VERIFIKASI GANDA</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-satu-paragraf">1. Ringkasan satu paragraf</a></li>
+<li class="t2"><a href="#2-temuan-a1-denominator-fail-open-bug-nyata-diperbaiki">2. Temuan A1 — Denominator *fail-open* (BUG NYATA, DIPERBAIKI)</a></li>
+<li class="t2"><a href="#3-temuan-a2-kriteria-5-t380-pada-m5-invarian-terhadap-denominator">3. Temuan A2 — Kriteria #5 (t≥3,80 pada M5) invarian terhadap denominator</a></li>
+<li class="t2"><a href="#4-temuan-a3-verifikasi-ganda-3-perbedaan-replikasi-semuanya-di-kode-audit">4. Temuan A3 — Verifikasi ganda: 3 perbedaan replikasi, semuanya di kode audit</a></li>
+<li class="t2"><a href="#5-status-forward-per-2026-10-25-0752z">5. Status forward per 2026-10-25 07:52Z</a></li>
+<li class="t2"><a href="#6-risiko-forward-yang-harus-dinyatakan-sekarang">6. Risiko forward yang harus dinyatakan sekarang</a></li>
+<li class="t2"><a href="#7-batas-audit-ini">7. Batas audit ini</a></li>
+<li class="t2"><a href="#8-rekomendasi-falsifiable">8. Rekomendasi falsifiable</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 2026-10-25 07:5x UTC (14:5x WIB)
+<strong>Status:</strong> DESKRIPTIF/AUDIT — bukan amandemen, bukan pra-registrasi baru
+<strong>Objek audit:</strong> <code>scripts/research/prereg26_mesin_seleksi.py</code>, <code>scripts/sodex_maturation_tracker.py</code>,
+<code>reports/sodex/PRAREG26_MESIN_SELEKSI_STATUS.json</code>, protokol <code>PRAREG_26_MESIN_SELEKSI.md</code>
++ <code>AMANDEMEN_PRAREG26_JADWAL_2026-10-19.md</code></p>
+<hr>
+<h2 id="1-ringkasan-satu-paragraf">1. Ringkasan satu paragraf</h2>
+<p>Audit ganda menemukan <strong>satu bug nyata yang sudah diperbaiki</strong> (denominator wallet <em>fail-open</em> saat
+mark-to-market spot gagal → wallet understated 21–31% → semua % ROI ter-inflasi) dan
+<strong>tiga perbedaan replikasi yang semuanya berada di kode audit saya sendiri, bukan di skrip
+produksi</strong>. Setelah perbaikan, replikasi independen mereproduksi angka produksi <strong>persis</strong>
+(2.195 trade, 166 trade forward, 14 titik keputusan, 7 window, 0 subset, 0,525 window/hari).
+Kesimpulan: <strong>logika PRAREG-26 valid</strong>, tetapi <strong>kriteria subset (M3/M4) hampir pasti gagal
+pada 25-Nov</strong> karena 9/9 mesin yang aktif 14 hari terakhir semuanya net negatif (−$345,10).</p>
+<hr>
+<h2 id="2-temuan-a1-denominator-fail-open-bug-nyata-diperbaiki">2. Temuan A1 — Denominator <em>fail-open</em> (BUG NYATA, DIPERBAIKI)</h2>
+<p><strong>Kelas bug:</strong> sama dengan kelas <code>rc=0, orderID=0</code> (Rule 7 riset-penelitian: harness wajib fail-closed).</p>
+<p><strong>Mekanisme:</strong>
+1. <code>sodex_realtime_sync.py</code> menulis <code>spot_equity_usd</code> hanya bila mark harga spot berhasil.
+2. Snapshot 2026-10-25 07:48Z: <code>spot_mark_error = "HTTP 429 Too Many Requests"</code> → kunci
+   <code>spot_equity_usd</code> <strong>tidak ada</strong>.
+3. <code>sodex_maturation_tracker._read_live_wallet()</code> membaca <code>spot_equity_usd or 0</code> → spot = 0.
+4. Guard <code>spot + perps &gt;= 20</code> <strong>lolos</strong> karena perps = $184,97 → wallet dilaporkan <strong>$184,97</strong>
+   padahal wallet sebenarnya <strong>$243,02</strong> (spot vUSDC $49,28 + posisi spot kecil + perps).
+5. Semua metrik % (window mean/median/hit, target 0,8%) dihitung di denominator yang
+   <strong>terlalu kecil</strong> → <strong>ter-inflasi 31,4%</strong>.</p>
+<p><strong>Dampak terukur:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Denominator</th>
+<th>Target 0,8%</th>
+<th>PnL $1,48 terbaca</th>
+<th>Status gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$184,97 (bug)</td>
+<td>$1,48</td>
+<td><strong>0,80%</strong></td>
+<td>LOLOS (palsu)</td>
+</tr>
+<tr>
+<td>$243,02 (benar)</td>
+<td>$1,94</td>
+<td><strong>0,61%</strong></td>
+<td>GAGAL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fix (surgical, sudah diterapkan):</strong>
+- Fallback <code>spot_vusdc.total</code> bila <code>spot_equity_usd</code> absen.
+- Label eksplisit <code>+SPOT_UNMARKED(lower-bound)</code> pada <code>wallet_source</code> bila <code>spot_mark_error</code> ada,
+  sehingga denominasi <em>lower-bound</em> tidak pernah lagi dipakai diam-diam.
+- Verifikasi sesudah fix: tracker 07:50Z → <code>$243,02 [onchain_snapshot@10-25 07:50Z]</code>.</p>
+<p><strong>Catatan penting:</strong> angka $262,77 pada status 01:25Z <strong>bukan</strong> bug — snapshot saat itu punya
+mark spot lengkap; wallet memang bergerak $262,77 → $243,02 dalam ~6 jam (spot vUSDC berubah).
+Bug hanya terjadi pada jendela ketika mark gagal.</p>
+<hr>
+<h2 id="3-temuan-a2-kriteria-5-t380-pada-m5-invarian-terhadap-denominator">3. Temuan A2 — Kriteria #5 (t≥3,80 pada M5) invarian terhadap denominator</h2>
+<p>M5 = (M1_window − M2_window)/wallet per window. Pembagi sama untuk semua window →
+<strong>statistik t dari uji berpasangan tidak berubah</strong> oleh skala denominator
+(t = mean(d)/sd(d)·√n). Artinya:</p>
+<ul>
+<li>Kriteria <strong>#5 tidak terpengaruh</strong> bug A1.</li>
+<li>Kriteria <strong>#2 (M1 ≥ 0,8%), #3 (median M3 &gt; 0), #4 (hit ≥ 50%)</strong> terpengaruh karena absolut.</li>
+</ul>
+<p>Kesimpulan metodologis: laporan yang hanya menyajikan t tanpa level % absolut bisa lolos
+meski denominator salah — karena itu audit level-per-level (Rule 8) wajib.</p>
+<hr>
+<h2 id="4-temuan-a3-verifikasi-ganda-3-perbedaan-replikasi-semuanya-di-kode-audit">4. Temuan A3 — Verifikasi ganda: 3 perbedaan replikasi, semuanya di kode audit</h2>
+<p>Replikasi independen (<code>scripts/research/audit_prereg26_independen.py</code>, ditulis dari nol, tanpa
+mengimpor fungsi skrip produksi) pertama kali menghasilkan angka berbeda. Ketiganya <strong>cacat
+replikasi</strong>, bukan cacat skrip:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Gejala</th>
+<th>Akar masalah di replikasi</th>
+<th>Perbaikan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>57 vs 166 trade forward</td>
+<td>hanya membaca kunci <code>closed</code>; file memakai <code>closed</code>/<code>closed_trades</code>/<code>trades</code></td>
+<td>fallback 3 kunci</td>
+</tr>
+<tr>
+<td>2</td>
+<td>306 vs 166</td>
+<td>field waktu beda skema: <code>exit_ts</code> / <code>exit_time</code> / <code>exit_iso</code></td>
+<td>fallback 3 skema</td>
+</tr>
+<tr>
+<td>3</td>
+<td>306 vs 166 (sisa)</td>
+<td>trade kontrol <code>track=RANDOM</code> ikut terhitung (filter salah field: <code>label/reason</code> vs <code>track/arm/regime</code>)</td>
+<td>filter RANDOM benar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hasil akhir — cocok persis:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>Script produksi</th>
+<th>Replikasi audit</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trade universe dibaca</td>
+<td>2.195</td>
+<td>2.195</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Titik keputusan (00:00Z)</td>
+<td>14</td>
+<td>14</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Trade forward penuh</td>
+<td>166</td>
+<td>166</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Trade forward subset</td>
+<td>0</td>
+<td>0</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Window 30j berisi</td>
+<td>7</td>
+<td>7</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Laju window/hari</td>
+<td>0,525</td>
+<td>0,525</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Mesin terpilih terakhir</td>
+<td><code>[]</code></td>
+<td><code>[]</code></td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Integritas dokumen:</strong> sha256 <code>PRAREG_26_MESIN_SELEKSI.md</code> dan
+<code>AMANDEMEN_PRAREG26_JADWAL_2026-10-19.md</code> <strong>cocok</strong> dengan berkas <code>.sha256</code> masing-masing →
+tidak ada perubahan protokol diam-diam.</p>
+<hr>
+<h2 id="5-status-forward-per-2026-10-25-0752z">5. Status forward per 2026-10-25 07:52Z</h2>
+<pre><code>wallet               : $243,02 (snapshot on-chain 07:50Z, mark lengkap)
+titik keputusan      : 14 (12-Okt → 25-Okt, 00:00Z)
+trade forward penuh  : 166
+trade forward subset : 0          &lt;- belum pernah ada mesin lolos seleksi
+window 30j berisi    : 7 / 12 minimum
+laju                 : 0,525/hari  → proyeksi 23,1 window pada 25-Nov (ON_TRACK data)
+verdict              : MENUNGGU (terencana 25-Nov-2026); cadangan 30-Nov
+</code></pre>
+<h2 id="6-risiko-forward-yang-harus-dinyatakan-sekarang">6. Risiko forward yang harus dinyatakan sekarang</h2>
+<p>Statistik 14 hari per mesin (dari replikasi independen):</p>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">net USD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>swing</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">−94,29</td>
+</tr>
+<tr>
+<td>twoway</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">−102,91</td>
+</tr>
+<tr>
+<td>realwide</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">−65,73</td>
+</tr>
+<tr>
+<td>spot_swing_v2</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">−19,80</td>
+</tr>
+<tr>
+<td>donchian</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">−69,13</td>
+</tr>
+<tr>
+<td>hyperliquid</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">−89,77</td>
+</tr>
+<tr>
+<td>aster</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">−83,56</td>
+</tr>
+<tr>
+<td>portfolio</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">−7,74</td>
+</tr>
+<tr>
+<td>shortbear</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">−5,10</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>170</strong></td>
+<td style="text-align: right;"><strong>−345,10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>9 dari 9 mesin aktif net negatif.</strong> Aturan seleksi (≥20 trade &amp; net&gt;0 dalam 14 hari) karena itu
+menghasilkan himpunan kosong di <strong>14 dari 14 titik keputusan</strong>. Konsekuensi:</p>
+<ul>
+<li>M3 (median subset) = 0 → kriteria #3 gagal.</li>
+<li>M4 (hit-rate subset) = 0% → kriteria #4 gagal.</li>
+<li>Verdict 25-Nov <strong>akan</strong> "TIDAK LOLOS" kecuali minimal satu mesin berbalik positif dengan ≥20
+  trade dalam 14 hari sebelum verdict.</li>
+</ul>
+<p>Ini <strong>bukan</strong> alasan mengubah aturan sekarang (itu akan menjadi data snooping). Ini alasan
+mencatat risiko di muka, sesuai disiplin pra-registrasi.</p>
+<hr>
+<h2 id="7-batas-audit-ini">7. Batas audit ini</h2>
+<ol>
+<li>Audit mereproduksi <strong>aturan</strong>, bukan menilai kualitas ekonomi mesin. Mesin yang net negatif
+   tetap net negatif.</li>
+<li>Denominator bergerak mengikuti wallet live; angka % historis berubah bila wallet berubah
+   (properti definisi "total modal", bukan bug). Yang diperbaiki hanyalah <em>fail-open</em> saat mark gagal.</li>
+<li>Tidak ada trade baru yang dihasilkan audit; semua angka berasal dari state paper yang ada.</li>
+<li>Window dihitung dari <strong>exit_ts</strong> (konvensi tracker &amp; protokol); konvensi entry tidak diuji
+   ulang di sini.</li>
+</ol>
+<hr>
+<h2 id="8-rekomendasi-falsifiable">8. Rekomendasi falsifiable</h2>
+<table>
+<thead>
+<tr>
+<th>Rekomendasi</th>
+<th>Cara memverifikasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pertahankan fix fail-closed denominator</td>
+<td>Injeksi snapshot tanpa <code>spot_equity_usd</code> + <code>spot_mark_error</code>; wallet wajib ≈ perps+spot_vusdc dan label memuat <code>SPOT_UNMARKED</code></td>
+</tr>
+<tr>
+<td>Jalankan audit independen setiap minggu sampai verdict</td>
+<td>Angka harus cocok persis dengan script produksi; selisih &gt;0 = investigasi</td>
+</tr>
+<tr>
+<td>Jangan ubah aturan seleksi sebelum verdict</td>
+<td>Jika diubah: tulis amandemen + naikkan ambang t sesuai protokol §6</td>
+</tr>
+<tr>
+<td>Catat verdict "TIDAK LOLOS (subset kosong)" sebagai hasil sah</td>
+<td>Bukan kegagalan harness; kegagalan seleksi ekonomi mesin</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

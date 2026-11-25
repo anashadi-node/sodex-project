@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riset Mendalam: Metode & Mode Trading HOLD 30 / 48 / 72 Jam untuk Venue SoDEX</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Riset Mendalam: Metode & Mode Trading HOLD 30 / 48 / 72 Jam untuk Venue SoDEX</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-eksekutif">1. Ringkasan eksekutif</a></li>
+<li class="t2"><a href="#2-pertanyaan-riset-definisi-target-yang-mengikat">2. Pertanyaan riset & definisi target yang mengikat</a></li>
+<li class="t2"><a href="#3-data-temuan-forensik-era-mirror-sodex">3. Data: temuan forensik era "mirror" SoDEX</a></li>
+<li class="t2"><a href="#4-taksonomi-7-keluarga-metode-dunia-status-uji">4. Taksonomi 7 keluarga metode dunia + status uji</a></li>
+<li class="t2"><a href="#5-uji-1-panel-cross-sectional-diperluas-ke-h24304872">5. Uji #1 — Panel cross-sectional diperluas ke H24/30/48/72</a></li>
+<li class="t3"><a href="#5b-uji-1b-gelombang-2-5-mekanisme-literatur-baru-25-okt-siang">5b. Uji #1b — Gelombang 2: 5 mekanisme literatur baru (25-Okt, siang)</a></li>
+<li class="t2"><a href="#6-uji-2-time-series-momentum-breakout">6. Uji #2 — Time-series momentum & breakout</a></li>
+<li class="t2"><a href="#7-uji-3-verifikasi-n-kecil">7. Uji #3 — Verifikasi n kecil</a></li>
+<li class="t2"><a href="#8-tiga-cacat-metodologi-yang-ditemukan">8. Tiga cacat metodologi yang ditemukan</a></li>
+<li class="t2"><a href="#8b-verifikasi-patch-harness-v2-2026-10-25">8b. Verifikasi patch (harness v2 — 2026-10-25)</a></li>
+<li class="t2"><a href="#9-yang-mati-yang-belum-teruji-yang-masih-mungkin">9. Yang mati, yang belum teruji, yang masih mungkin</a></li>
+<li class="t2"><a href="#10-rekomendasi-falsifiable-cara-verifikasi">10. Rekomendasi falsifiable + cara verifikasi</a></li>
+<li class="t2"><a href="#11-keterbatasan-keyakinan-dan-lampiran">11. Keterbatasan, keyakinan, dan lampiran</a></li>
+</ul>
+</nav>
+<p><strong>Divisi Riset &amp; Penelitian — Anantara Sakti</strong>
+Tanggal: 25 Oktober 2026 · Versi 1.0 · Status: <strong>DESKRIPTIF</strong> (bukan pra-registrasi, bukan izin live)
+Standar: <code>riset-penelitian</code> v1.0.0 (12 aturan) · Falsification-first · Fail-closed</p>
+<hr>
+<h2 id="1-ringkasan-eksekutif">1. Ringkasan eksekutif</h2>
+<p><strong>Pertanyaan:</strong> metode/mode trading apa yang paling cocok untuk HOLD 30/48/72 jam di venue SoDEX?</p>
+<p><strong>Jawaban jujur:</strong> <strong>tidak ada</strong> dari metode yang bisa diuji di venue ini yang lolos gerbang
+statistik pada horizon tersebut. Total <strong>202 trial baru</strong> dijalankan hari ini (150
+gelombang-1: 120 cross-sectional + 30 time-series; 52 gelombang-2: 5 mekanisme literatur
+baru × 4 hold × 3 tag), ditambah <strong>8 verifikasi ulang kandidat</strong> dengan 200 permutasi per
+kandidat. Hasil: <strong>0 lolos</strong>.</p>
+<p>Lima temuan yang mengubah keputusan:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Temuan</th>
+<th>Angka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Panel CS + 5 mekanisme literatur baru pada H24–72: nol lolos gate</td>
+<td>172 trial CS (120 + 52), 0 pass di semua tag</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Time-series momentum <strong>kalah dari beli-tahan</strong> di kedua venue</td>
+<td>SoDEX real: TSMOM −41,05 bps/72j vs bench +38,44; Binance: 28,45 vs 34,82</td>
+</tr>
+<tr>
+<td>3</td>
+<td>"Signifikan" H72 di panel adalah <strong>artefak bandwidth Newey-West</strong></td>
+<td>RANGEPOS_H72: t=5,42 (lag=hold) → t=1,61 (lag=1); CI95 [−2,0; +42,9] memuat nol</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Data SoDEX sebelum 12-Jun-2026 adalah <strong>mirror Binance sintetis</strong></td>
+<td>n=0 di semua simbol, harga corr 1,0000, volume fabrikasi; 67% bar panel lama</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Gap ke target tetap <strong>4–5×</strong></td>
+<td>target 80 bps/30j; kandidat terbaik real-era 6,6–17,6 bps dan tidak signifikan</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Konsekuensi:</strong> jangan tambah mesin sinyal baru ke H30/48/72. Tuas yang tersisa bukan
+"cari sinyal lain", melainkan <strong>seleksi mesin (meta/ensemble)</strong> dan <strong>gate rezim</strong> — dua-
+satunya keluarga yang literatur beri ★★★★★ dan yang menyerang constraint WR/konsistensi.</p>
+<hr>
+<h2 id="2-pertanyaan-riset-definisi-target-yang-mengikat">2. Pertanyaan riset &amp; definisi target yang mengikat</h2>
+<p>Hipotesis yang diuji (falsifiable):</p>
+<blockquote>
+<p><strong>H1:</strong> Terdapat mekanisme sinyal (cross-sectional atau directional) yang, setelah biaya
+taker SoDEX, menghasilkan mean bersih ≥ 80 bps per window 30 jam dengan t ≥ 2,0,
+CI95 tak memuat nol, dan bertahan di ≥ 3 segmen waktu.</p>
+</blockquote>
+<p>Kriteria gagal (harus bisa gagal — kalau tidak, bukan sains):
+mean &lt; 80 bps <strong>atau</strong> t &lt; 2,0 <strong>atau</strong> CI memuat nol <strong>atau</strong> segmen tidak konsisten <strong>atau</strong>
+kontrol negatif ikut signifikan.</p>
+<p>Ekonomi yang mengikat:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai</th>
+<th>Sumber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target</td>
+<td>0,8% dari TOTAL modal per window 30 jam (akumulasi)</td>
+<td>Memory + amandemen target A/B</td>
+</tr>
+<tr>
+<td>Fee taker SoDEX</td>
+<td>4,0 bps/sisi (≈6,5–6,7 bps round-trip)</td>
+<td>docs/sodex/AUDIT_BIAYA_AKUN</td>
+</tr>
+<tr>
+<td>Gross wajib</td>
+<td>≥ <strong>9,57 bps</strong>/trade untuk BEP</td>
+<td>turunan fee + slip</td>
+</tr>
+<tr>
+<td>Turnover rata-rata mekanisme panel</td>
+<td>1,29–1,36 × gross</td>
+<td>hasil uji hari ini</td>
+</tr>
+<tr>
+<td><strong>Funding-drag (Hold 30j)</strong></td>
+<td><strong>3,75–11,25 bps</strong> per window</td>
+<td>peta literatur gel.-1 (analisis Binance)</td>
+</tr>
+<tr>
+<td><strong>Funding-drag (Hold 72j)</strong></td>
+<td><strong>9–27 bps</strong> — bisa 2–5× fee</td>
+<td>peta literatur gel.-1</td>
+</tr>
+</tbody>
+</table>
+<p>Artinya: bukan hanya butuh <em>arah</em> benar — butuh edge kotor <strong>≥ 10 bps</strong> hanya untuk impas.
+Dan di horizon panjang, <strong>funding mengambil porsi biaya terbesar</strong>: pada H72, funding-drag
+sendirian bisa melewati ambang 9,57 bps. Semua hasil "net" di dokumen ini = net-of-fee
+TANPA funding — sehingga hasil H48/H72 di sini adalah <strong>batas atas</strong>; kondisi riil bisa
+lebih buruk. (Data funding SoDEX baru ada sejak 2-Okt: 22,7 hari — belum cukup untuk
+menyejarahi-kan drag.)</p>
+<hr>
+<h2 id="3-data-temuan-forensik-era-mirror-sodex">3. Data: temuan forensik era "mirror" SoDEX</h2>
+<p>Ini temuan paling penting hari ini karena <strong>mengubah cara membaca semua panel lama</strong>.</p>
+<p><strong>Bukti 1 — tidak ada trade.</strong> Semua bar 1h SoDEX sebelum 2026-06-12 memiliki <code>n = 0</code>
+(jumlah trade nol) di <strong>semua</strong> simbol, sementara <code>v</code> dan <code>q</code> (volume) tetap &gt; 0.</p>
+<p><strong>Bukti 2 — harga bukan karangan.</strong> Setelah koreksi bug threshold epoch (1748736000000 =
+Jun-2025, bukan 2026), harga bar era itu <strong>sejajar timestamp</strong> dan <strong>mengikuti Binance</strong>
+dalam ±0,1% (korelasi close ≈ 1,0000 pada sampel berpasangan).</p>
+<p><strong>Bukti 3 — volume fabrikasi.</strong> Volume bar era mirror berskala tetap (~$1–2 juta/jam untuk
+BTC) dan <strong>tidak</strong> mengikuti pola volume Binance; ini bukan volume venue.</p>
+<p><strong>Kesimpulan forensik:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Era</th>
+<th>Rentang</th>
+<th>Bar (95 simbol)</th>
+<th>Sifat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mirror/phantom</td>
+<td>2025-10-12 → 2026-06-12</td>
+<td>5 713</td>
+<td>Harga = mirror Binance, n=0, volume sintetis</td>
+</tr>
+<tr>
+<td><strong>Real</strong></td>
+<td><strong>2026-06-12 → 2026-10-25</strong></td>
+<td><strong>3 244</strong></td>
+<td>Perdagangan venue sungguhan</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implikasi langsung:</strong>
+1. Semua hasil panel yang dihitung pada <code>sodex_full</code> adalah <strong>campuran 64% data proxy Binance
+   + 36% data venue</strong>. Verdict "SoDEX" dari panel lama harus dibaca sebagai "proxy Binance".
+2. PRAREG-3 (reversal 21 jam) membagi IS/OOS pada bar ke-5120 — IS-nya (Okt-25→Mei-26)
+   <strong>seluruhnya era mirror</strong>. Jadi "IS t=4,25 → OOS t=0,38" bukan semata overfit; itu
+   <strong>pergantian jenis data</strong>. Falsifikasinya tetap sah, interpretasinya berubah.
+3. Untuk verdict venue, satu-satunya bukti sah adalah <code>sodex_real</code> — 4,4 bulan, 3 244 bar.</p>
+<hr>
+<h2 id="4-taksonomi-7-keluarga-metode-dunia-status-uji">4. Taksonomi 7 keluarga metode dunia + status uji</h2>
+<p>Sintesis dari 26 sumber primer (jurnal JF/JFE/RFS/JFQA/FAJ, SSRN, arXiv, Quantpedia,
+Alpha Architect, Robot Wealth, Concretum) — peta lengkap: <code>/home/USER/peta-literatur-perps-hold-30-72-jam.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Keluarga</th>
+<th>Kecocokan 30–72j</th>
+<th>Bukti literatur</th>
+<th>Status di Anantara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Trend / time-series momentum</td>
+<td>★★★★</td>
+<td>Kuat (1–4 minggu)</td>
+<td><strong>DIUJI hari ini → kalah dari beli-tahan</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mean-reversion / fade</td>
+<td>★★</td>
+<td>Sedang, meluruh cepat</td>
+<td>Diuji (REV_L1/L3, REV_VOL, REV_IDIO, LTREV, RANGEPOS) → negatif/tidak stabil</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Breakout / vol-expansion</td>
+<td>★★★</td>
+<td>Hanya kuat bila di-ensemble</td>
+<td>Diuji hari ini → <strong>n terlalu kecil, INVALID</strong> (bukan terbukti salah)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Carry / funding</td>
+<td>★★ (overlay)</td>
+<td>Kuat tapi butuh 2 leg</td>
+<td>Ditutup: plafon ekonomi 3,6× di bawah lantai; data funding 22 hari</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Vol-regime / kalender</td>
+<td>★★★★ (gate)</td>
+<td>Paling konsisten</td>
+<td>Sudah dipakai sebagai gate di CEX; belum diuji di SoDEX</td>
+</tr>
+<tr>
+<td>6</td>
+<td>OI / forced-flow</td>
+<td>★★★</td>
+<td>Mekanisme nyata, bukti kuantitatif tipis</td>
+<td>Diuji (PRAREG-30) → gagal; collector OI 15s baru jalan</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Meta / ensemble / seleksi mesin</td>
+<td>★★★★★</td>
+<td>Kuat (Zarattini; López de Prado; Robot Wealth)</td>
+<td><strong>BELUM diuji</strong> — dan ini tuas utama yang tersisa</td>
+</tr>
+</tbody>
+</table>
+<p>Catatan: peringkat ★ = kekuatan bukti × kesesuaian horizon × biaya implementasi di venue
+ber-fee 4 bps/sisi, bukan skor akademik.</p>
+<hr>
+<h2 id="5-uji-1-panel-cross-sectional-diperluas-ke-h24304872">5. Uji #1 — Panel cross-sectional diperluas ke H24/30/48/72</h2>
+<p><strong>Motivasi:</strong> panel beku 7-Okt hanya menguji H2/H5 (bar harian) dan H24/H48 (bar 1 jam).
+Hold <strong>30 jam</strong> tidak pernah diuji di mana pun; hold <strong>72 jam</strong> hanya diuji sebagai sinyal
+single-name (grid 1.080), bukan cross-sectional.</p>
+<p><strong>Alat:</strong> <code>scripts/research/panel_extend_h30h72_descriptive.py</code> — memakai harness beku
+<code>xsec_mech_study.run_mech</code> <strong>tanpa modifikasi</strong> (fee 4 bps, kontrol negatif shuffle-per-bar,
+t Newey-West, 3 segmen, BH-FDR q=0,10).</p>
+<p><strong>Hasil:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Bar</th>
+<th>Simbol</th>
+<th>Trial</th>
+<th>BH-pass</th>
+<th>Gate-pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sodex_full</code></td>
+<td>8 957</td>
+<td>95</td>
+<td>36</td>
+<td>4 (semua negatif)</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td><code>sodex_real</code></td>
+<td>3 244</td>
+<td>95</td>
+<td>36</td>
+<td>4</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td><code>binance_full</code></td>
+<td>24 276</td>
+<td>54</td>
+<td>48</td>
+<td>30 (mayoritas negatif)</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Kandidat positif teratas (dan mengapa gugur):</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Tag</th>
+<th>mean (bps)</th>
+<th>t</th>
+<th>n</th>
+<th>S</th>
+<th>WR</th>
+<th>Gugur karena</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RANGEPOS_H72</td>
+<td>sodex_real</td>
+<td>+17,56</td>
+<td>4,20</td>
+<td>44</td>
+<td>2,00</td>
+<td>0,57</td>
+<td>n &lt; 100; segmen tak bisa dihitung; <strong>t artefak</strong> (lihat §7)</td>
+</tr>
+<tr>
+<td>RANGEPOS_H48</td>
+<td>sodex_full</td>
+<td>+10,17</td>
+<td>1,95</td>
+<td>155</td>
+<td>—</td>
+<td>0,55</td>
+<td>t &lt; 2,0</td>
+</tr>
+<tr>
+<td>RANGEPOS_H24</td>
+<td>sodex_real</td>
+<td>+5,15</td>
+<td>0,84</td>
+<td>134</td>
+<td>—</td>
+<td>0,53</td>
+<td>jauh dari target</td>
+</tr>
+<tr>
+<td>LTREV_L180_H72</td>
+<td>sodex_real</td>
+<td>+22,99</td>
+<td>2,27</td>
+<td>42</td>
+<td>—</td>
+<td>0,57</td>
+<td>n=42, t artefak, CI memuat nol</td>
+</tr>
+<tr>
+<td>MOM_L63_H30</td>
+<td>binance_full</td>
+<td>+10,89</td>
+<td>1,92</td>
+<td>806</td>
+<td>—</td>
+<td>0,52</td>
+<td>t &lt; 2,0; seg+ hanya 2/3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bukti bahwa angka negatif besar di panel bukan "temuan" melainkan artefak konstruksi:</strong>
+<code>MOM_L21_H24</code> di <code>sodex_real</code> = −24,15 (t = −2,94) <strong>tetapi kontrol acaknya</strong> = t = −4,85.
+Kontrol yang lebih negatif dari sinyal berarti kerugian berasal dari <strong>konstruksi long-short
+pada dispersi cross-sectional yang miring</strong> — bukan dari informasi momentum. Aturan 9 bekerja
+sebagaimana mestinya: sinyal yang tidak bisa mengalahkan kontrolnya = nol.</p>
+<p><strong>Kesimpulan Uji #1:</strong> H30 dan H72 cross-sectional tidak menghasilkan apa pun yang lolos.
+Tidak ada alasan menambah mesin CS ke horizon ini.</p>
+<h3 id="5b-uji-1b-gelombang-2-5-mekanisme-literatur-baru-25-okt-siang">5b. Uji #1b — Gelombang 2: 5 mekanisme literatur baru (25-Okt, siang)</h3>
+<p>Sumber: peta literatur gelombang-2 (<code>docs/sodex/PETA_LITERATUR_METODE_BARU_2026-10-25.md</code>,
+12 metode; 5 yang bisa jalan dengan data OHLCV venue langsung diuji). Harness beku tanpa
+modifikasi, BH-FDR dalam keluarga sendiri (16–20 key per tag).</p>
+<table>
+<thead>
+<tr>
+<th>Mekanisme</th>
+<th>Sumber</th>
+<th>Definisi sinyal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RESMOM_L168</td>
+<td>Blitz/Huij/Martens JEF 2011</td>
+<td>momentum residu vs BTC (rolling beta 168j)</td>
+</tr>
+<tr>
+<td>RAMOM_L168</td>
+<td>Daniel-Moskowitz JFE 2016 (versi rank)</td>
+<td>momentum 168j / vol 168j</td>
+</tr>
+<tr>
+<td>ANCHOR_720</td>
+<td>George-Hwang JF 2004</td>
+<td>px / max-rolling 720j (proksi 52w — era real 4,4 bln)</td>
+</tr>
+<tr>
+<td>BVDOWN_L168</td>
+<td>IFR-A 2023</td>
+<td>downside semivariance 168j (long RV- tinggi)</td>
+</tr>
+<tr>
+<td>VOLPREM_L168</td>
+<td>Gervais JF 2001</td>
+<td>dollar-volume 168j (long volume tinggi)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hasil: 52 trial, 0 lolos gate.</strong> Poin penting:</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>BH-pass</th>
+<th>Terkuat</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sodex_real</td>
+<td>TIDAK ADA</td>
+<td>—</td>
+<td>semua mean −7,0..+5,5 bps, t −1,61..+0,73; 9 dari 20 tanda NEGATIF</td>
+</tr>
+<tr>
+<td>sodex_full</td>
+<td>TIDAK ADA</td>
+<td>RAMOM_H48 +11,06 t=2,19 (S 1,19)</td>
+<td>di bawah gate</td>
+</tr>
+<tr>
+<td>binance_full</td>
+<td>7 key</td>
+<td>RAMOM_H72 +22,22 t=3,10 S=1,39; BVDOWN_H72 +30,60 t=3,02 S=1,32</td>
+<td>lihat bawah</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kasus RAMOM_L168_H72 (Binance, t=3,10, BH-pass, kontrol bersih t=0,53, n=334, seg+ 3):</strong>
+satu-satunya kandidat yang melewati mayoritas gate pada horizon 72 jam — tapi S=1,39 &lt; 2,3,
+mean 22,2 bps ≪ 80 bps target, dan <strong>gagal bereplikasi di SoDEX real</strong> (H72: −4,88 t=−0,38,
+n=42; H48: +4,16 t=0,42). Di BVDOWN, kontrol acak Binance H72 (t=−2,44) dan sodex_real H30
+(t=−7,11) lebih negatif dari sinyal → sinyal tidak mengalahkan konstruksinya di venue target.
+Anchoring 52w harus dibaca dengan caveat: anchor dipendekkan ke 720j karena era real hanya
+4,4 bulan — bukan uji George-Hwang yang sesungguhnya. VOLPREM mati konsisten (t 0,34–0,38).</p>
+<p><strong>Kesimpulan Uji #1b:</strong> tidak ada yang lolos; satu pola momentum-risk-adjusted di Binance
+72j dicatat sebagai petunjuk forward (PETA #2), bukan dasar alokasi modal. Konfirmasi
+replikasi di SoDEX real adalah syarat mutlak sebelum uji lanjutan.</p>
+<hr>
+<h2 id="6-uji-2-time-series-momentum-breakout">6. Uji #2 — Time-series momentum &amp; breakout</h2>
+<p><strong>Celah yang ditemukan:</strong> <code>run_mech</code> <strong>selalu</strong> market-neutral (<code>excess = fwd − fwd.mean()</code>)
+dan rank-weight. Artinya keluarga dengan bukti literatur <strong>terkuat</strong> untuk 30–72 jam —
+time-series momentum directional (Dobrynskaya 2026; Han/Kang/Ryu RAPS; Zarattini 2026) —
+<strong>secara arsitektur tidak bisa diuji</strong> oleh harness beku. Ini bukan asumsi: sudah
+diverifikasi di kode (baris 209–215 <code>xsec_mech_study.py</code>).</p>
+<p><strong>Alat baru:</strong> <code>scripts/research/ts_mech_h30h72.py</code> — TSMOM (sign return L=168j/336j) dan
+Donchian breakout, gross exposure 1,0, <strong>benchmark beli-tahan wajib</strong> sebagai pembanding.</p>
+<p><strong>Hasil SoDEX real era (3 244 bar, 95 simbol):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mekanisme</th>
+<th>H</th>
+<th>mean (bps)</th>
+<th>t</th>
+<th>S</th>
+<th>Bench mean</th>
+<th>Bench S</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TSMOM_L168</td>
+<td>24</td>
+<td>−5,45</td>
+<td>−0,77</td>
+<td>−0,66</td>
+<td>+13,05</td>
+<td>1,09</td>
+<td>kalah</td>
+</tr>
+<tr>
+<td>TSMOM_L168</td>
+<td>30</td>
+<td>+1,69</td>
+<td>0,16</td>
+<td>0,18</td>
+<td>+16,63</td>
+<td>1,15</td>
+<td>kalah</td>
+</tr>
+<tr>
+<td>TSMOM_L168</td>
+<td>48</td>
+<td>−15,82</td>
+<td>−2,90</td>
+<td>−1,09</td>
+<td>+26,95</td>
+<td>1,14</td>
+<td>kalah (signifikan negatif)</td>
+</tr>
+<tr>
+<td>TSMOM_L168</td>
+<td>72</td>
+<td>−41,05</td>
+<td>−5,50</td>
+<td>−1,56</td>
+<td>+38,44</td>
+<td>1,06</td>
+<td>kalah (signifikan negatif)</td>
+</tr>
+<tr>
+<td>TSMOM_L336</td>
+<td>72</td>
+<td>+40,44</td>
+<td>2,62</td>
+<td>1,94</td>
+<td>+38,44</td>
+<td>1,06</td>
+<td><strong>= beta</strong>, bukan alpha</td>
+</tr>
+<tr>
+<td>BRK_L168/L336</td>
+<td>semua</td>
+<td>—</td>
+<td>nan</td>
+<td>nan</td>
+<td>—</td>
+<td>—</td>
+<td><strong>n = 1–3 → INVALID</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hasil Binance full (24 276 bar, 54 simbol, 5,5 tahun):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mekanisme</th>
+<th>H</th>
+<th>mean (bps)</th>
+<th>t</th>
+<th>S</th>
+<th>Bench mean</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TSMOM_L336</td>
+<td>30</td>
+<td>+12,85</td>
+<td>1,26</td>
+<td>0,70</td>
+<td>+14,57</td>
+<td>kalah dari beli-tahan</td>
+</tr>
+<tr>
+<td>TSMOM_L336</td>
+<td>48</td>
+<td>+18,25</td>
+<td>1,21</td>
+<td>0,64</td>
+<td>+23,89</td>
+<td>kalah</td>
+</tr>
+<tr>
+<td>TSMOM_L336</td>
+<td>72</td>
+<td>+28,45</td>
+<td>1,92</td>
+<td>0,68</td>
+<td>+34,82</td>
+<td>kalah</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan Uji #2 (dua venue, 30 trial, 0 pass):</strong>
+1. Time-series momentum di 2024–2026 <strong>tidak mengalahkan beli-tahan</strong> — persis peringatan
+   literatur bahwa trend crypto pasca-2021 adalah <strong>beta</strong>, bukan alpha.
+2. Di SoDEX real era, momentum 7 hari justru <strong>terbalik</strong> di 48–72 jam (t −2,90 / −5,50,
+   n 42–63) — tanda bahwa token ekuitas + kripto di venue ini mean-reverting di horizon itu.
+   Namun n kecil &amp; lag NW besar → status: <strong>petunjuk, bukan bukti</strong>.
+3. Breakout <strong>tidak teruji</strong>, bukan terbukti gagal: desain ternary (±1/0) dengan syarat ≥20
+   nama aktif serentak membuatnya jarang menyala (n=1–25). Perlu versi rank
+   (jarak ke high 168j sebagai skor kontinu) sebelum boleh disebut gugur.</p>
+<hr>
+<h2 id="7-uji-3-verifikasi-n-kecil">7. Uji #3 — Verifikasi n kecil</h2>
+<p><strong>Masalah:</strong> <code>xsec_mech_study.nw_t</code> meng-clamp lag ke <code>min(lag, n−1)</code>. Untuk H72 dengan
+n=44, lag efektif = 43 — bandwidth ≈ n. Estimator Newey-West dengan bandwidth sebesar sampel
+<strong>bias turun</strong> → t inflasi. Semua "signifikan" di H48/H72 dengan n ≤ hold wajib dicurigai.</p>
+<p><strong>Alat:</strong> <code>scripts/research/verify_small_n_h30h72.py</code> — t_plain, t_nw(lag=1), t_nw(lag=hold),
+t_nw(lag=n/4), bootstrap blok stasioner 5 000×, permutasi 200×.</p>
+<p><strong>Hasil (8 kandidat, 8 GAGAL):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>n</th>
+<th>mean bps</th>
+<th>t_plain</th>
+<th>t_lag1</th>
+<th>t_lag_hold</th>
+<th>CI95 bootstrap</th>
+<th>p_perm</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RANGEPOS_H24</td>
+<td>134</td>
+<td>+5,30</td>
+<td>0,81</td>
+<td>0,78</td>
+<td>0,86</td>
+<td>[−8,0; +19,0]</td>
+<td>0,005</td>
+<td>GAGAL</td>
+</tr>
+<tr>
+<td>RANGEPOS_H30</td>
+<td>107</td>
+<td>+6,62</td>
+<td>0,84</td>
+<td>0,81</td>
+<td>1,15</td>
+<td>[−9,7; +22,8]</td>
+<td>0,035</td>
+<td>GAGAL</td>
+</tr>
+<tr>
+<td>RANGEPOS_H48</td>
+<td>66</td>
+<td>−3,76</td>
+<td>−0,30</td>
+<td>−0,31</td>
+<td>−1,19</td>
+<td>[−20,9; +13,6]</td>
+<td>0,460</td>
+<td>GAGAL</td>
+</tr>
+<tr>
+<td><strong>RANGEPOS_H72</strong></td>
+<td><strong>44</strong></td>
+<td><strong>+20,68</strong></td>
+<td><strong>1,39</strong></td>
+<td><strong>1,61</strong></td>
+<td><strong>5,42</strong></td>
+<td><strong>[−2,0; +42,9]</strong></td>
+<td>0,045</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>LTREV_L180_H72</td>
+<td>42</td>
+<td>+21,88</td>
+<td>0,84</td>
+<td>0,95</td>
+<td>2,07</td>
+<td>[−22,4; +69,7]</td>
+<td>0,135</td>
+<td>GAGAL</td>
+</tr>
+<tr>
+<td>REV_IDIO_H30</td>
+<td>106</td>
+<td>+7,50</td>
+<td>0,80</td>
+<td>0,84</td>
+<td>0,90</td>
+<td>[−9,8; +26,4]</td>
+<td>0,035</td>
+<td>GAGAL</td>
+</tr>
+<tr>
+<td>MOM_L63_H72</td>
+<td>44</td>
+<td>+2,82</td>
+<td>0,09</td>
+<td>0,11</td>
+<td>0,38</td>
+<td>[−37,2; +44,6]</td>
+<td>0,265</td>
+<td>GAGAL</td>
+</tr>
+<tr>
+<td>MOM_L21_H24</td>
+<td>134</td>
+<td>−24,26</td>
+<td>−2,66</td>
+<td>−2,43</td>
+<td>−2,94</td>
+<td>[−43,4; −3,3]</td>
+<td>0,875</td>
+<td>GAGAL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Studi kasus RANGEPOS_H72:</strong> panel melaporkan t = 4,20; dengan lag=hold menjadi 5,42;
+dengan lag=1 <strong>turun ke 1,61</strong>; bootstrap CI95 [−2,0; +42,9] <strong>memuat nol</strong>. Setelah patch
+harness v2 (lag sah = 11, lihat §8b) angka finalnya <strong>t = 2,00</strong> — tetap tidak lolos. Ini contoh
+sempurna bahwa satu angka t bisa dibuat terlihat "signifikan" hanya dari pilihan bandwidth.
+Angka itu <strong>bukan edge</strong> — dan jika dipakai untuk mengalokasikan modal di n=44, itu
+pertaruhan, bukan strategi.</p>
+<hr>
+<h2 id="8-tiga-cacat-metodologi-yang-ditemukan">8. Tiga cacat metodologi yang ditemukan</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Cacat</th>
+<th>Dampak</th>
+<th>Perbaikan</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>nw_t(lag=hold)</code> saat n ≤ 2×hold</td>
+<td>t H48/H72 inflasi (4,20 → 2,00 dengan lag sah; ekstrem 5,42 pada lag=n−1)</td>
+<td><code>safe_lag = min(hold, max(1, n//4))</code>, laporkan <code>t_lag</code>, tolak t bila n&lt;8</td>
+<td><strong>DIPATCH 2026-10-25</strong> — lihat §8b</td>
+</tr>
+<tr>
+<td>2</td>
+<td>~~Kontrol shuffle tidak sah untuk sinyal ternary~~ <strong>DIKOREKSI</strong>: shuffle <strong>per bar lintas nama</strong> (<code>xsec_mech_study</code> baris 212–224) = permutasi peringkat yang <strong>SAH</strong> untuk sinyal kontinu maupun ternary</td>
+<td>Bukan cacat validitas; yang nyata adalah <strong>daya rendah</strong>: sinyal ternary penuh nol (mis. 2 dari 25 nama non-nol) → permutasi nyaris tidak mengubah bobot → t_kontrol ≈ t_sinyal secara mekanis, sehingga kontrol tidak informatif</td>
+<td>Laporkan fraksi ties/kerapatan sinyal bersama t_kontrol; bila ingin daya lebih tinggi, bandingkan dengan sinyal biner acak berkerapatan sama (bukan mengganti jenis kontrol)</td>
+<td><strong>DIKOREKSI 2026-10-25</strong> (audit ulang kode)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Segmen butuh n ≥ 90 (3×30) → H72 (n 42–45) tak punya segmen</td>
+<td>Kandidat H72 tak bisa diuji stabilitas</td>
+<td>Segmen tetap disyaratkan n≥90 (<strong>gate tidak dilonggarkan</strong>); tambah penanda eksplisit <code>segments_untested: true</code> agar "tak teruji" tidak muncul sebagai <code>None</code> mengambang</td>
+<td><strong>DIPATCH 2026-10-25</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ketiganya <strong>tidak</strong> membatalkan verdict (semua jalan menuju arah yang sama: gagal), tetapi
+wajib diperbaiki sebelum trial berikutnya — kalau tidak, kita akan terus "menemukan"
+signifikansi palsu di horizon panjang.</p>
+<hr>
+<h2 id="8b-verifikasi-patch-harness-v2-2026-10-25">8b. Verifikasi patch (harness v2 — 2026-10-25)</h2>
+<p>Patch diterapkan ke <code>xsec_mech_study.py</code> (<code>HARNESS_VERSION = "v2-2026-10-25-nwlag"</code>,
+<code>safe_lag</code>, <code>t_lag</code>, <code>segments_untested</code>), lalu <strong>seluruh panel dijalankan ulang</strong> dari sumber
+data yang sama. Panel beku 7-Okt (<code>PRAREG_PANEL_PANJANG_*</code>) <strong>tidak disentuh</strong> — mtime tetap
+2026-10-07/08, md5 tetap; hanya panel turunan yang dihitung ulang.</p>
+<p><strong>Uji unit (kunci perilaku):</strong> <code>tests/test_xsec_harness_nwfix.py</code> — 6/6 lulus
+(<code>lag ≤ n//4</code>, <code>n&lt;8 → t=nan</code>, <code>segments_untested</code> benar, <code>nw_t</code> NaN untuk n kecil).</p>
+<p><strong>Dampak pada hasil (404 baris trial dibandingkan, seluruh berkas):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Panel</th>
+<th style="text-align: right;">Trial</th>
+<th style="text-align: right;">t terbaik <strong>sebelum</strong></th>
+<th style="text-align: right;">t terbaik <strong>sesudah</strong></th>
+<th style="text-align: right;">lag</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Sharpe</th>
+<th>Lulus?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoDEX real (H30–72)</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">4,20</td>
+<td style="text-align: right;"><strong>2,00</strong></td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">2,30</td>
+<td>0</td>
+</tr>
+<tr>
+<td>SoDEX full</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">1,95</td>
+<td style="text-align: right;">1,94</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">1,43</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Binance full</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">1,92</td>
+<td style="text-align: right;">1,92</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">806</td>
+<td style="text-align: right;">1,49</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Lit-gel.2 SoDEX real</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">0,73</td>
+<td style="text-align: right;">0,73</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">0,99</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Lit-gel.2 SoDEX full</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">2,19</td>
+<td style="text-align: right;"><strong>1,75</strong></td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">152</td>
+<td style="text-align: right;">1,19</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Lit-gel.2 Binance</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">3,10</td>
+<td style="text-align: right;">3,10</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">334</td>
+<td style="text-align: right;">1,39</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TS SoDEX real</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">2,62</td>
+<td style="text-align: right;"><strong>1,81</strong></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1,94</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TS Binance</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">1,92</td>
+<td style="text-align: right;">1,92</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">332</td>
+<td style="text-align: right;">0,68</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SoDEX real — 5 teratas setelah koreksi (venue yang diminta):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mekanisme</th>
+<th style="text-align: right;">t baru</th>
+<th style="text-align: right;">t lama</th>
+<th style="text-align: right;">lag</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Sharpe</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RANGEPOS_H72 (fee 1×)</td>
+<td style="text-align: right;">2,00</td>
+<td style="text-align: right;">4,20</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">2,30</td>
+<td>tidak lolos (ambang 3,48–3,61)</td>
+</tr>
+<tr>
+<td>RANGEPOS_H72 (fee+slip)</td>
+<td style="text-align: right;">1,88</td>
+<td style="text-align: right;">3,91</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">2,16</td>
+<td>tidak lolos</td>
+</tr>
+<tr>
+<td>LTREV_L180_H72</td>
+<td style="text-align: right;">1,17</td>
+<td style="text-align: right;">2,27</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">1,46</td>
+<td>tidak lolos</td>
+</tr>
+<tr>
+<td>RANGEPOS_H30</td>
+<td style="text-align: right;">1,16</td>
+<td style="text-align: right;">1,14</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">1,40</td>
+<td>tidak lolos</td>
+</tr>
+<tr>
+<td>LTREV_L180_H72 (fee+slip)</td>
+<td style="text-align: right;">1,13</td>
+<td style="text-align: right;">2,20</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">1,41</td>
+<td>tidak lolos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan:</strong></p>
+<ol>
+<li>Patch bersifat <strong>bedah</strong>: Binance (n besar, <code>lag=hold</code> sudah sah) <strong>tidak berubah sama sekali</strong>
+   (Δt = 0,00); yang berubah hanya trial dengan n ≤ 4×hold — tepat seperti desain.</li>
+<li>Inflasi terbesar ada di H72 SoDEX real: <strong>4,20 → 2,00</strong> (−52%). Ini membalik status
+   RANGEPOS_H72 dari "kandidat kuat" menjadi "tidak signifikan setelah koreksi bandwidth".</li>
+<li><strong>Tidak ada satu pun</strong> dari 404 baris yang lulus gate, sebelum maupun sesudah patch
+   (0 → 0). Verdict tidak berubah; yang berubah adalah <strong>kekuatan klaim</strong> — sekarang
+   angka yang tersisa sudah tidak bisa dituduh sebagai artefak lag.</li>
+<li>Sharpe annual hampir tidak bergeser (perbedaan kecil berasal dari data yang ter-refresh,
+   bukan dari patch): Sharpe tidak memakai lag NW, jadi ini uji konsistensi tambahan.</li>
+</ol>
+<hr>
+<h2 id="9-yang-mati-yang-belum-teruji-yang-masih-mungkin">9. Yang mati, yang belum teruji, yang masih mungkin</h2>
+<p><strong>Mati (dengan bukti, jangan diulang tanpa alasan baru):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Keluarga</th>
+<th>Bukti kematian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Momentum cross-sectional L21/L63</td>
+<td>PRAREG-28/29 + panel hari ini; kontrol negatif lebih kuat dari sinyal</td>
+</tr>
+<tr>
+<td>Reversal 21 jam</td>
+<td>PRAREG-3 OOS t=0,38; artefak harga basi (14–31% bar equity return nol)</td>
+</tr>
+<tr>
+<td>Reversal harian RANGEPOS</td>
+<td>PRAREG-1/2 + verifikasi hari ini (8/8 gagal)</td>
+</tr>
+<tr>
+<td>Carry/funding satelit</td>
+<td>PRAREG-23-H2: plafon 3,6× di bawah lantai; data 22 hari</td>
+</tr>
+<tr>
+<td>Maker / market-making</td>
+<td>Spread 0,08–1,03 bps &lt; fee 2,28 bps → mustahil secara aritmetika</td>
+</tr>
+<tr>
+<td>Short-only</td>
+<td>Semua buku negatif (memory: 7 mesin −$522 vs 3 mesin +$363)</td>
+</tr>
+<tr>
+<td>Time-series momentum 30–72j</td>
+<td>Uji hari ini: kalah dari beli-tahan di 2 venue</td>
+</tr>
+<tr>
+<td>Grid single-name 1.080 uji</td>
+<td>0 lolos BH (docs/HASIL_72J_DAN_GRID_1080)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Belum teruji (layak, dengan syarat data):</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Jalur</th>
+<th>Syarat</th>
+<th>Cara uji falsifiable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><strong>Seleksi mesin / meta-labeling</strong></td>
+<td>riwayat ≥ 300 trade/mesin</td>
+<td>pilih 3 mesin teratas rolling 30 hari; bandingkan WR/expectancy vs semua-mesin; kontrol = pilih acak</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Breakout versi <strong>rank kontinu</strong></td>
+<td>OHLCV</td>
+<td>jarak-ke-high 168j sebagai skor; uji H30/48/72 dengan harness yang diperbaiki</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Gate rezim (HMM/vol bucket)</td>
+<td>OHLCV + vol</td>
+<td>matikan mesin saat rezim X; uji ΔPnL vs tanpa gate</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Event/kalender 24–72j (listing, unlock, makro)</td>
+<td>kalender event</td>
+<td>event study: abnormal return window ±72j, bootstrap</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Lead-lag BTC → alt</td>
+<td>OHLCV 1m/1h</td>
+<td>regresi lag; uji OOS; kontrol = acak pasangan</td>
+</tr>
+<tr>
+<td>F</td>
+<td>OI/forced-flow forward</td>
+<td>collector 15s ≥ 60 hari</td>
+<td>pra-registrasi sekarang, verdict 25-Nov</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan §9:</strong> dari 7 keluarga, 1 sudah mati total (5, 6), 1 belum diuji dan paling
+menjanjikan (7 = meta/seleksi mesin), 4 mati untuk horizon ini. Tidak ada jalur sinyal baru
+yang punya bukti kuat dan belum dicoba <strong>kecuali</strong> B dan F — keduanya butuh data/perbaikan
+alat dulu, bukan opini.</p>
+<hr>
+<h2 id="10-rekomendasi-falsifiable-cara-verifikasi">10. Rekomendasi falsifiable + cara verifikasi</h2>
+<p><strong>R1 — Jangan tambah mesin sinyal H30/48/72. (Keputusan: sekarang)</strong>
+Dasar: 120 trial CS + 30 TS + 8 verifikasi = 0 lolos. Menambah mesin = multiple testing
+tanpa kekuatan.</p>
+<p><strong>R2 — Perbaiki harness sebelum trial berikutnya. (SELESAI 2026-10-25)</strong>
+<code>lag = min(hold, max(1, n//4))</code> + <code>t_lag</code> transparan + <code>segments_untested</code> eksplisit; gate tidak
+dilonggarkan. <strong>Verifikasi terpenuhi:</strong> panel dijalankan ulang (harness v2), H48/H72 berubah
+(4,20 → 2,00; 2,62 → 1,81; 2,19 → 1,75), Binance n besar tidak berubah (Δt = 0,00), 0 dari 404
+baris lulus sebelum maupun sesudah. Uji unit: <code>tests/test_xsec_harness_nwfix.py</code> 6/6 lulus.</p>
+<p><strong>R3 — Uji jalur A (seleksi mesin), pra-registrasi terpisah. (1 hari desain)</strong>
+Hipotesis: memilih 3 mesin teratas rolling 30 hari menghasilkan expectancy bersih &gt; semua-
+mesin, dengan WR lebih tinggi.
+<strong>Lulus jika:</strong> Δnet &gt; 0, t ≥ 2,0, kontrol pemilihan acak gagal, dan hasil bertahan di
+2 segmen. <strong>Gagal jika:</strong> delta ≤ 0 atau kontrol ikut menang.
+Bukti pendukung internal: 3 mesin +$363,57 vs 7 mesin −$522,11 (buku 2 051 trade).</p>
+<p><strong>R4 — Pra-registrasi F (OI/forced-flow forward) sekarang, verdict 25-Nov.</strong>
+Collector <code>anantara-forced-flow</code> sudah jalan (OI 15s). Syarat n ≥ 60. Tanpa pra-registrasi
+sekarang, data 60 hari akan habis untuk post-hoc.</p>
+<p><strong>R5 — Uji ulang RANGEPOS_H72 hanya jika n ≥ 100 forward.</strong>
+Bukan sekarang. Angka sekarang = pertaruhan, bukan edge.</p>
+<hr>
+<h2 id="11-keterbatasan-keyakinan-dan-lampiran">11. Keterbatasan, keyakinan, dan lampiran</h2>
+<p><strong>Keterbatasan yang harus dibaca sebelum memakai dokumen ini:</strong>
+1. Era real SoDEX hanya 4,4 bulan (3 244 bar). Semua verdict venue ber-n kecil.
+2. Volume era mirror fabrikasi → semua analisis volume/likuiditas <strong>hanya sah</strong> di era real.
+3. Breakout belum teruji (n terlalu kecil) — jangan dikutip sebagai "gagal".
+4. Panel Binance memakai 54 simbol top; hasil tidak otomatis berlaku untuk 95 simbol SoDEX.
+5. Semua hasil = <strong>deskriptif historis</strong>, bukan OOS forward. Yang menentukan adalah forward.
+6. Hasil net = net-of-fee saja; funding-drag H30–72j (3,75–27 bps) belum termasuk → angka
+   H48/H72 = batas atas kondisi riil.
+7. Konteks multiple-testing (peta gel.-1): best-of-200 strategi nol-skill bisa mencetak
+   Sharpe 2,12 (PSR 0,9999, DSR 0,81); N=250 trial → E[max Sharpe] ≈ 1,34. Dengan 210 trial
+   hari ini, ambang S 2,3 + BH-FDR adalah minimum, bukan kemewahan.</p>
+<p><strong>Tingkat keyakinan:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Klaim</th>
+<th>Keyakinan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tidak ada metode CS H30/72 yang lolos gate</td>
+<td><strong>Tinggi</strong> (120 trial, kontrol jalan, konsisten)</td>
+</tr>
+<tr>
+<td>TS momentum ≤ beli-tahan di 2 venue</td>
+<td><strong>Tinggi</strong> (5,5 th Binance + 4,4 bln SoDEX)</td>
+</tr>
+<tr>
+<td>RANGEPOS_H72 bukan edge</td>
+<td><strong>Tinggi</strong> (bootstrap + permutasi + lag sah)</td>
+</tr>
+<tr>
+<td>Era mirror = data sintetis</td>
+<td><strong>Tinggi</strong> (n=0 + corr 1,0000 + volume tetap)</td>
+</tr>
+<tr>
+<td>Breakout gagal</td>
+<td><strong>Rendah</strong> — belum teruji, jangan dikutip</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lampiran — artefak &amp; reproduksi:</strong></p>
+<pre><code>reports/sodex/PANEL_EXTEND_H30H72_sodex_full.json     36 trial
+reports/sodex/PANEL_EXTEND_H30H72_sodex_real.json     36 trial
+reports/sodex/PANEL_EXTEND_H30H72_binance_full.json   48 trial
+reports/sodex/TS_MECH_H30H72_sodex_real.json          14 trial
+reports/sodex/TS_MECH_H30H72_binance_full.json        16 trial
+reports/sodex/LIT_NEW_MECHS_H30H72_sodex_full.json    16 trial (gelombang 2)
+reports/sodex/LIT_NEW_MECHS_H30H72_sodex_real.json    16 trial (gelombang 2)
+reports/sodex/LIT_NEW_MECHS_H30H72_binance_full.json  20 trial (gelombang 2)
+reports/sodex/VERIFIKASI_N_KECIL_H30H72_sodex_real.json  8 kandidat, 200 permutasi
+reports/sodex/LEDGER_TRIAL_H30H72_2026-10-25.json     ledger ringkas semua gelombang
+reports/sodex/AUDIT_NWFIX_DIFF.json                    404 baris: t lama vs t baru (harness v2)
+reports/sodex/AUDIT_PRAREG26_INDEPENDEN.json           replikasi independen PRAREG-26
+reports/sodex/*_pre_nwfix.json                         artefak pra-patch (pembanding, jangan dihapus)
+scripts/research/panel_extend_h30h72_descriptive.py
+scripts/research/ts_mech_h30h72.py
+scripts/research/lit_new_mechs_h30h72.py
+scripts/research/verify_small_n_h30h72.py
+scripts/research/audit_prereg26_independen.py          audit ganda PRAREG-26 (ditulis dari nol)
+tests/test_xsec_harness_nwfix.py                       6 test: safe_lag, nan n&lt;8, segmen
+tests/test_sodex_wallet_failclosed.py                  3 test: denominator fail-closed
+docs/sodex/AUDIT_PRAREG26_DENOMINATOR_2026-10-25.md    memo audit denominator + replikasi
+docs/sodex/PETA_LITERATUR_METODE_BARU_2026-10-25.md   12 metode, sitasi + link
+</code></pre>
+<p>Reproduksi:</p>
+<pre><code class="language-bash">/usr/bin/python3 scripts/research/panel_extend_h30h72_descriptive.py sodex_full sodex_real binance_full
+/usr/bin/python3 scripts/research/ts_mech_h30h72.py sodex_real binance_full
+/usr/bin/python3 scripts/research/lit_new_mechs_h30h72.py sodex_real sodex_full binance_full
+/usr/bin/python3 scripts/research/verify_small_n_h30h72.py
+</code></pre>
+<p><strong>Sumber literatur utama (26 total di peta):</strong> Dobrynskaya (SSRN 3913263); Han/Kang/Ryu
+(SSRN 4675565); Zarattini et al., <em>Catching Crypto Trends</em> (SFI RP 25-80); López de Prado,
+<em>Advances in Financial Machine Learning</em> ch. 3; Robot Wealth (meta-labelling, index-of-
+strategies); Quantpedia; Applied Economics Letters (crypto reversals 2020); VSE WP 2023/01/03.</p>
+<hr>
+<p><em>Dokumen ini deskriptif. Tidak ada parameter produksi, target, atau gerbang yang diubah.
+Semua angka dapat direproduksi dari artefak di atas.</em></p>
+</body>
+</html>

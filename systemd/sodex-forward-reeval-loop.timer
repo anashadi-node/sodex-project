@@ -1,0 +1,11 @@
+[Unit]
+Description=Run SoDEX D0.3 forward evidence re-evaluation loop every 6h
+Requires=sodex-forward-reeval-loop.service
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=6h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

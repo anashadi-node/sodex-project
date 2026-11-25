@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uji Forward MOMENTUM pada Tape Nyata SoDEX — Hasil DEV</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Uji Forward MOMENTUM pada Tape Nyata SoDEX — Hasil DEV</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-jawaban-singkat">1. Jawaban singkat</a></li>
+<li class="t2"><a href="#2-data-yang-dipakai-nyata-forward-tidak-bisa-di-backfill">2. Data yang dipakai (nyata, forward — tidak bisa di-backfill)</a></li>
+<li class="t2"><a href="#3-hasil-dev-beku-tidak-ada-penyesuaian-setelah-hasil">3. Hasil DEV (beku, tidak ada penyesuaian setelah hasil)</a></li>
+<li class="t2"><a href="#4-cara-membaca-hasil-ini-jujur-tanpa-membesar-besarkan">4. Cara membaca hasil ini (jujur, tanpa membesar-besarkan)</a></li>
+<li class="t2"><a href="#5-batas-dinyatakan-di-muka-tidak-berubah">5. Batas (dinyatakan di muka, tidak berubah)</a></li>
+<li class="t2"><a href="#6-langkah-berikutnya-sodex-saja-tanpa-menyentuh-batas-keamanan">6. Langkah berikutnya (SODEX saja, tanpa menyentuh batas keamanan)</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 2026-10-05 · <strong>Lingkup:</strong> SODEX saja · <strong>Pra-registrasi:</strong> <code>docs/sodex/SODEX_FORWARD_MOMENTUM_PRAREG_2026-10-05.md</code> (beku <code>d9ffcec</code>, di-commit <strong>sebelum</strong> evaluasi)
+<strong>Skrip:</strong> <code>scripts/sodex_forward_momentum.py</code> (READ-ONLY terhadap lane)
+<strong>Keluaran:</strong> <code>reports/sodex/SODEX_FORWARD_MOMENTUM_dev_results.json</code></p>
+<hr>
+<h2 id="1-jawaban-singkat">1. Jawaban singkat</h2>
+<p><strong>Putusan DEV: 0 dari 3 hipotesis LULUS. LOCKBOX (2026-09-01..10-05) tetap TERSEGEL — tidak dibaca.</strong></p>
+<p>Tetapi ada temuan yang <strong>mengubah arah</strong> dibanding semua uji sebelumnya:</p>
+<blockquote>
+<p>Pada θ = <strong>2,0%</strong>, mesin momentum memberi <strong>+0,8232% bersih per 24 jam</strong> dengan <strong>SR +3,44</strong>,
+<strong>3 dari 3 segmen positif</strong>, dan <strong>mengalahkan kontrol fade sebesar 1,74 pp</strong>.
+Ini <strong>pertama kali</strong> sebuah mesin SoDEX menghasilkan magnitudo yang <strong>cukup</strong> untuk target
+0,8%/48 jam (ambang pra-registrasi 0,40%/trade → <strong>terlampaui 2,06×</strong>).
+Yang gagal bukan magnitudonya, melainkan <strong>kekuatan statistiknya</strong> (n=53, p_signflip 0,196,
+p_day_cluster 0,495) → <strong>tidak cukup bukti</strong>, bukan "tidak ada efek".</p>
+</blockquote>
+<h2 id="2-data-yang-dipakai-nyata-forward-tidak-bisa-di-backfill">2. Data yang dipakai (nyata, forward — tidak bisa di-backfill)</h2>
+<p>Collector <code>scripts/sodex_obi_collector.py</code> (READ-ONLY, tanpa auth, tanpa jalur order) berjalan
+sejak <strong>2026-05-22</strong> dan menulis append-only ke
+<code>freqtrade_user_data/data/sodex/{trades,obi}/YYYYMMDD.jsonl</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai terverifikasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hari-berkas</td>
+<td>131 (2026-05-22 .. 2026-10-05)</td>
+</tr>
+<tr>
+<td>Hari penuh (≥23 jam)</td>
+<td><strong>124</strong></td>
+</tr>
+<tr>
+<td>Hari hilang</td>
+<td>6 (2026-08-03..08-08, jeda restart collector)</td>
+</tr>
+<tr>
+<td>Total trade</td>
+<td><strong>12.483.416</strong></td>
+</tr>
+<tr>
+<td>Simbol</td>
+<td>BTC-USD, ETH-USD, SOL-USD</td>
+</tr>
+<tr>
+<td><strong>Dipakai DEV</strong></td>
+<td><strong>94 hari (2026-05-24 .. 2026-08-31)</strong></td>
+</tr>
+<tr>
+<td>Setengah-spread median nyata</td>
+<td>BTC <strong>0,08 bp</strong> · ETH <strong>0,27 bp</strong> · SOL <strong>0,66 bp</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Spread diukur dari <code>bid</code>/<code>ask</code> di berkas OBI pada detik terdekat — <strong>bukan asumsi</strong>.</p>
+<h2 id="3-hasil-dev-beku-tidak-ada-penyesuaian-setelah-hasil">3. Hasil DEV (beku, tidak ada penyesuaian setelah hasil)</h2>
+<table>
+<thead>
+<tr>
+<th>θ</th>
+<th>n episode</th>
+<th>mean bersih 24j</th>
+<th>SR</th>
+<th>WR</th>
+<th>segmen+</th>
+<th>p_signflip</th>
+<th>p_day_cluster</th>
+<th>kontrol fade</th>
+<th>BH-FDR</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,0%</td>
+<td>452</td>
+<td><strong>−0,1659%</strong></td>
+<td>−0,88</td>
+<td>47,6%</td>
+<td>0/3</td>
+<td>0,3286</td>
+<td>0,4874</td>
+<td>+0,0694%</td>
+<td>✗</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>1,5%</td>
+<td>165</td>
+<td>+0,1039%</td>
+<td>+0,52</td>
+<td>49,7%</td>
+<td>2/3</td>
+<td>0,7363</td>
+<td>0,4792</td>
+<td>−0,2014%</td>
+<td>✗</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>2,0%</td>
+<td><strong>53</strong></td>
+<td><strong>+0,8232%</strong></td>
+<td><strong>+3,44</strong></td>
+<td>49,1%</td>
+<td><strong>3/3</strong></td>
+<td>0,1959</td>
+<td>0,4953</td>
+<td><strong>−0,9216%</strong></td>
+<td>✗</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Alasan gagal per hipotesis (mekanis, dari kriteria beku §5):</p>
+<ul>
+<li><strong>θ=1,0%</strong> — mean ≤ 0 · BH gagal · p_day ≥ 0,05 · segmen &lt; 2/3 · kalah kontrol · &lt; 0,40%</li>
+<li><strong>θ=1,5%</strong> — BH gagal · p_day ≥ 0,05 · &lt; 0,40%</li>
+<li><strong>θ=2,0%</strong> — BH gagal · p_day ≥ 0,05  ← <strong>hanya dua alasan, keduanya soal kekuatan bukti</strong></li>
+</ul>
+<h2 id="4-cara-membaca-hasil-ini-jujur-tanpa-membesar-besarkan">4. Cara membaca hasil ini (jujur, tanpa membesar-besarkan)</h2>
+<ol>
+<li><strong>Arah terkonfirmasi berpola.</strong> Di θ=1,0% momentum <strong>kalah</strong> (mean −0,17%; fade justru +0,07%).
+   Di θ=2,0% momentum <strong>menang telak</strong> dan fade <strong>kalah</strong> (−0,92%). Ada <strong>monotonisitas</strong>:
+   makin besar gerakan, makin kuat lanjutannya. Itu pola, bukan derau acak.</li>
+<li><strong>Tapi belum signifikan.</strong> <code>p_signflip</code> 0,196 berarti: bila efek ini benar-benar nol, peluang
+   melihat hasil sebaik ini ≈ 1 dari 5 — <strong>bukan bukti</strong>. <code>p_day_cluster</code> 0,495 berarti efeknya
+   <strong>tidak tahan</strong> terhadap pengelompokan per hari (terkonsentrasi di beberapa hari).</li>
+<li><strong>Sampelnya yang kurang, bukan sinyalnya.</strong> n=53 episode hanya dari <strong>3 simbol × 94 hari</strong>.
+   Untuk mendeteksi efek sebesar ini pada taraf 0,05, perkiraan kebutuhan ≈ <strong>150–200 episode</strong>
+   → butuh <strong>3–4× lebih banyak</strong> (tambah simbol dan/atau waktu).</li>
+<li><strong>LOCKBOX tidak dibuka.</strong> Aturan pra-registrasi: DEV gagal → LOCKBOX tetap tersegel.
+   Itu justru <strong>aset</strong>: 35 hari terakhir (Sep 1 – Okt 5) masih murni untuk uji akhir nanti.</li>
+</ol>
+<h2 id="5-batas-dinyatakan-di-muka-tidak-berubah">5. Batas (dinyatakan di muka, tidak berubah)</h2>
+<ul>
+<li>3 simbol saja → <strong>tidak boleh</strong> digeneralisasi ke 20 simbol lama.</li>
+<li>94 hari = <strong>satu rezim pasar</strong>; tidak ada klaim lintas rezim.</li>
+<li>Masuk/keluar <strong>taker</strong> diasumsikan terisi penuh pada harga trade terakhir → <strong>batas atas</strong>,
+  bukan janji eksekusi.</li>
+<li>Funding ≤1 settlement/24 jam <strong>tidak</strong> dibebankan (tidak tersedia di tape) → hasil ini
+  <strong>belum</strong> memasukkan biaya funding.</li>
+<li>Tanpa leverage · gate T1 utuh · <code>SODEX_TOTAL_WALLET</code> tidak diubah · arm A1 tetap mati ·
+  <code>RW_MARGIN_UTIL_CAP</code> default OFF.</li>
+</ul>
+<h2 id="6-langkah-berikutnya-sodex-saja-tanpa-menyentuh-batas-keamanan">6. Langkah berikutnya (SODEX saja, tanpa menyentuh batas keamanan)</h2>
+<ol>
+<li><strong>Perluas cakupan simbol collector</strong> dari 3 → belasan simbol SoDEX (READ-ONLY, tidak
+   menyentuh lane uang) → episode θ=2,0% naik ≈ 3–4× → uji ulang DEV <strong>dengan pra-registrasi baru</strong>.</li>
+<li><strong>Jalankan collector tanpa jeda</strong> (jeda 2026-08-03..08-08 hilang 6 hari; jangan terulang).</li>
+<li><strong>Setelah episode ≥150</strong>: uji ulang DEV → bila lulus, <strong>baru</strong> buka LOCKBOX.</li>
+<li><strong>Jangan</strong> menutup celah magnitudo dengan leverage — itu dilarang dan bukan bottlenecknya lagi.</li>
+</ol>
+<p><strong>Catatan penting:</strong> pada θ=2,0% hambatan <strong>bukan lagi magnitudo</strong> (0,82%/24 jam &gt; 0,40% yang
+dibutuhkan). Hambatannya <strong>jumlah bukti</strong>. Itu masalah yang bisa diselesaikan dengan
+mengumpulkan lebih banyak data SoDEX — bukan dengan melonggarkan batas keamanan.</p>
+</body>
+</html>

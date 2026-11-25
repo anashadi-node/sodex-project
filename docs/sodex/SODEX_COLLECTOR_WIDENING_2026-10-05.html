@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perluasan Cakupan Collector SoDEX + Guard Anti-Jeda + Penghitung Episode</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Perluasan Cakupan Collector SoDEX + Guard Anti-Jeda + Penghitung Episode</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#latar-mengapa-ini-dilakukan">Latar: mengapa ini dilakukan</a></li>
+<li class="t2"><a href="#step-1-perluasan-simbol-collector-3-20">Step 1 — Perluasan simbol collector (3 → 20)</a></li>
+<li class="t2"><a href="#step-2-guard-anti-jeda-sodex-collector-guard">Step 2 — Guard anti-jeda (`sodex-collector-guard`)</a></li>
+<li class="t2"><a href="#step-3-penghitung-episode-pemicu-re-uji-sodex-episode-count">Step 3 — Penghitung episode + pemicu re-uji (`sodex-episode-count`)</a></li>
+<li class="t2"><a href="#batas-catatan-jujur">Batas & catatan jujur</a></li>
+<li class="t2"><a href="#berkas">Berkas</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 2026-10-05 · <strong>Lingkup:</strong> SODEX saja · <strong>Persetujuan user:</strong> Opsi 1, 2 &amp; 3 (berurutan)
+<strong>Sifat:</strong> READ-ONLY terhadap lane uang — tidak menyentuh gate T1, leverage, sizing, target,
+<code>SODEX_TOTAL_WALLET</code>, arm A1, maupun <code>RW_MARGIN_UTIL_CAP</code>.</p>
+<hr>
+<h2 id="latar-mengapa-ini-dilakukan">Latar: mengapa ini dilakukan</h2>
+<p>Uji forward momentum (<code>docs/sodex/SODEX_FORWARD_MOMENTUM_2026-10-05.md</code>) menghasilkan
+<strong>0/3 LULUS</strong>, tetapi menemukan bahwa pada <strong>θ=2,0%</strong> magnitudonya <strong>sudah cukup</strong>
+(+0,8232% bersih/24 jam; ambang pra-registrasi 0,40%/trade terlampaui 2,06×; SR +3,44;
+3/3 segmen positif). Yang gagal adalah <strong>kekuatan bukti</strong>: n=53 episode →
+<code>p_signflip</code> 0,196, <code>p_day_cluster</code> 0,495.</p>
+<p><strong>Bottleneck bergeser</strong>: dari <em>magnitudo edge</em> menjadi <em>jumlah episode</em>. Karena itu tiga
+langkah ini dikerjakan — semuanya menambah bukti <strong>tanpa</strong> melonggarkan batas keamanan.</p>
+<h2 id="step-1-perluasan-simbol-collector-3-20">Step 1 — Perluasan simbol collector (3 → 20)</h2>
+<p>Unit: <code>anantara-obi.service</code> (READ-ONLY, tanpa auth, tanpa jalur order).
+Drop-in: <code>~/.config/systemd/user/anantara-obi.service.d/10-symbols.conf</code>
+(disalin ke <code>systemd/</code> di repo).</p>
+<p><strong>Aturan pemilihan OBJEKTIF — bukan pilih-pilih:</strong>
+semua pasar SoDEX dengan <strong>quoteVolume 24 jam &gt; 50.000 USD</strong>, diambil dari endpoint publik
+<code>/api/v1/perps/markets/tickers</code> (<strong>92 pasar</strong> terdaftar; <strong>20 lolos</strong> ambang).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Simbol</th>
+<th>quoteVol 24j</th>
+<th>spread</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>BTC-USD</td>
+<td>55,1 jt</td>
+<td>0,12 bp</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ETH-USD</td>
+<td>48,5 jt</td>
+<td>0,37 bp</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ZEC-USD</td>
+<td>3,63 jt</td>
+<td>0,52 bp</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SOL-USD</td>
+<td>1,95 jt</td>
+<td>0,83 bp</td>
+</tr>
+<tr>
+<td>5</td>
+<td>DOGE-USD</td>
+<td>1,61 jt</td>
+<td>1,04 bp</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SUI-USD</td>
+<td>1,51 jt</td>
+<td>0,81 bp</td>
+</tr>
+<tr>
+<td>7</td>
+<td>XAUT-USD</td>
+<td>1,27 jt</td>
+<td>0,24 bp</td>
+</tr>
+<tr>
+<td>8</td>
+<td>QNT-USD</td>
+<td>1,22 jt</td>
+<td>0,79 bp</td>
+</tr>
+<tr>
+<td>9</td>
+<td>BNB-USD</td>
+<td>914 rb</td>
+<td>1,27 bp</td>
+</tr>
+<tr>
+<td>10</td>
+<td>PONS-USD</td>
+<td>754 rb</td>
+<td>2,51 bp</td>
+</tr>
+<tr>
+<td>11</td>
+<td>LIT-USD</td>
+<td>558 rb</td>
+<td>0,51 bp</td>
+</tr>
+<tr>
+<td>12</td>
+<td>HYPE-USD</td>
+<td>435 rb</td>
+<td>0,11 bp</td>
+</tr>
+<tr>
+<td>13</td>
+<td>AAVE-USD</td>
+<td>362 rb</td>
+<td>0,55 bp</td>
+</tr>
+<tr>
+<td>14</td>
+<td>XRP-USD</td>
+<td>302 rb</td>
+<td>0,66 bp</td>
+</tr>
+<tr>
+<td>15</td>
+<td>US500-USD</td>
+<td>245 rb</td>
+<td>0,13 bp</td>
+</tr>
+<tr>
+<td>16</td>
+<td>UNI-USD</td>
+<td>223 rb</td>
+<td>1,11 bp</td>
+</tr>
+<tr>
+<td>17</td>
+<td>ARB-USD</td>
+<td>173 rb</td>
+<td>0,97 bp</td>
+</tr>
+<tr>
+<td>18</td>
+<td>SNDK-USD</td>
+<td>90,6 rb</td>
+<td>0,06 bp</td>
+</tr>
+<tr>
+<td>19</td>
+<td>AVAX-USD</td>
+<td>74,1 rb</td>
+<td>0,91 bp</td>
+</tr>
+<tr>
+<td>20</td>
+<td>SPCX-USD</td>
+<td>57,3 rb</td>
+<td>0,63 bp</td>
+</tr>
+</tbody>
+</table>
+<p>Semua 17 simbol baru diuji endpoint-nya lebih dulu: <strong>orderbook 200 &amp; trades 200</strong> ✓.</p>
+<p><strong>Efek sampling:</strong> latensi orderbook terukur ≈ 0,17 s/panggilan → sweep 20 simbol ≈ 7–10 s
+(sebelumnya 3 simbol ≈ 4 s). Analisis memakai bar 1 menit, jadi kepadatan ini tetap memadai.
+<code>OBI_POLL=4.0</code> tidak diubah agar tidak menyimpang dari data lama.</p>
+<p><strong>Terverifikasi setelah restart:</strong> 20 simbol menulis di <code>obi_*.jsonl</code> dan <code>trades_*.jsonl</code>,
+baris terbaru <strong>0,1 menit</strong> lalu.</p>
+<h2 id="step-2-guard-anti-jeda-sodex-collector-guard">Step 2 — Guard anti-jeda (<code>sodex-collector-guard</code>)</h2>
+<p><code>Restart=always</code> pada unit sudah menangani proses yang <strong>mati</strong>. Yang <strong>tidak</strong> tercakup:
+proses <strong>hidup tapi macet</strong> — persis pola yang diduga menyebabkan jeda <strong>2026-08-03..08-08</strong>
+(6 hari data hilang).</p>
+<p><code>scripts/sodex_collector_guard.py</code> (READ-ONLY):
+- membaca baris terbaru <code>obi_*.jsonl</code> + <code>trades_*.jsonl</code> (256 KB terakhir, cepat);
+- mendeteksi: unit tidak aktif · baris terbaru &gt; <strong>15 menit</strong> · simbol &lt; 20;
+- bila bermasalah → <strong>restart unit</strong> + notifikasi Telegram, dibatasi <strong>3 restart/jam</strong>
+  (anti-loop), lalu <strong>memverifikasi pemulihan</strong> (baris baru &lt; 5 menit);
+- toleran pergantian hari UTC (berkas hari baru belum ada &lt; 20 menit).</p>
+<p>Timer: <code>sodex-collector-guard.timer</code>, <strong>tiap 10 menit</strong>.
+<strong>Uji dua arah berhasil:</strong> jalur normal → <code>OK — 20 simbol, baris terbaru 0,1 menit lalu</code>;
+jalur deteksi (ambang dipaksa 0) → mendeteksi → restart → <strong>pemulihan BERHASIL</strong>.</p>
+<h2 id="step-3-penghitung-episode-pemicu-re-uji-sodex-episode-count">Step 3 — Penghitung episode + pemicu re-uji (<code>sodex-episode-count</code>)</h2>
+<p><code>scripts/sodex_episode_counter.py</code> (READ-ONLY) menghitung episode independen pada θ=2,0%
+dan melaporkan kapan ambang <strong>150 episode</strong> tercapai → pemicu re-uji DEV dengan
+<strong>pra-registrasi BARU</strong>.</p>
+<p><strong>SEGEL LOCKBOX DIHORMATI SECARA EKSPLISIT:</strong>
+- BTC/ETH/SOL pada <strong>2026-09-01..2026-10-05 = LOCKBOX → tidak pernah dibaca</strong>;
+- simbol baru dihitung sejak 2026-10-05 (mereka tidak punya lockbox);
+- keluaran mencatat <code>lockbox_read: false</code>.</p>
+<p><strong>Hasil hitung saat ini:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Episode θ=2,0%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basis DEV (BTC/ETH/SOL, 94 hari)</td>
+<td><strong>54</strong></td>
+</tr>
+<tr>
+<td>Simbol baru (17 simbol, hari ke-1)</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>54 / 150</strong></td>
+</tr>
+<tr>
+<td>Laju proyeksi</td>
+<td>≈ 3,83 episode/hari</td>
+</tr>
+<tr>
+<td><strong>Perkiraan capai 150</strong></td>
+<td><strong>≈ 2026-10-31</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Timer: <code>sodex-episode-count.timer</code>, <strong>harian 08:30 WIB</strong> (<code>Persistent=true</code>).
+Saat ≥150 → <strong>notifikasi Telegram otomatis</strong> dengan instruksi: tulis pra-registrasi baru,
+jalankan re-uji DEV; lockbox lama tetap tersegel.</p>
+<h2 id="batas-catatan-jujur">Batas &amp; catatan jujur</h2>
+<ul>
+<li>17 simbol baru = pasar <strong>lebih kecil</strong> (quoteVol 57 rb–3,6 jt) → spread lebih lebar dan
+  likuiditas lebih tipis; hasilnya <strong>harus distratifikasi</strong> (kecil vs besar) di re-uji nanti.</li>
+<li>Termasuk instrumen <strong>non-kripto</strong> (XAUT, US500, SNDK, SILVER-like) → dinamika bisa berbeda;
+  stratifikasi juga disarankan.</li>
+<li>Perluasan simbol <strong>tidak</strong> mengubah pra-registrasi lama; re-uji nanti <strong>wajib</strong> memakai
+  pra-registrasi baru (ambang, sampel, lockbox baru) sebelum evaluasi.</li>
+<li><strong>Tidak ada</strong> perubahan pada: gate T1 · leverage · sizing · target 0,8%/48 jam ·
+  <code>SODEX_TOTAL_WALLET</code> · arm A1 (tetap mati) · <code>RW_MARGIN_UTIL_CAP</code> (default OFF).</li>
+</ul>
+<h2 id="berkas">Berkas</h2>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Peran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts/sodex_collector_guard.py</code></td>
+<td>guard anti-jeda</td>
+</tr>
+<tr>
+<td><code>scripts/sodex_episode_counter.py</code></td>
+<td>penghitung episode + pemicu</td>
+</tr>
+<tr>
+<td><code>systemd/sodex-collector-guard.{service,timer}</code></td>
+<td>jadwal guard 10 menit</td>
+</tr>
+<tr>
+<td><code>systemd/sodex-episode-count.{service,timer}</code></td>
+<td>jadwal hitung harian</td>
+</tr>
+<tr>
+<td><code>systemd/anantara-obi.service.d/10-symbols.conf</code></td>
+<td>perluasan 20 simbol</td>
+</tr>
+<tr>
+<td><code>reports/sodex/SODEX_FORWARD_EPISODE_COUNT.json</code></td>
+<td>keluaran hitung</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

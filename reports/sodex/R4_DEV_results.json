@@ -1,0 +1,115 @@
+{
+ "phase": "DEV",
+ "range": [
+  "2022-10-01",
+  "2025-09-30"
+ ],
+ "protocol": "R4 \u00a75 + R4_HIPOTESIS_H1_H5 (DIBEKUKAN)",
+ "cost_per_trade": 0.004,
+ "hypotheses": {
+  "H1": {
+   "n_windows": 547,
+   "mean48_pct": -0.2102,
+   "sr_annual": -0.831,
+   "p_signflip": 0.1522,
+   "p_day_cluster": 0.1491,
+   "p_worst": 0.1522,
+   "segments_pct": [
+    -0.159,
+    -0.243,
+    -0.229
+   ],
+   "segments_positive": 0,
+   "cost_2x_positive": false,
+   "n_trades_total": 5670,
+   "bh_pass": false,
+   "dsr": 0.0058
+  },
+  "H2": {
+   "n_windows": 547,
+   "mean48_pct": 0.0562,
+   "sr_annual": 0.386,
+   "p_signflip": 0.5138,
+   "p_day_cluster": 0.5091,
+   "p_worst": 0.5138,
+   "segments_pct": [
+    0.109,
+    0.07,
+    -0.01
+   ],
+   "segments_positive": 2,
+   "cost_2x_positive": true,
+   "n_trades_total": 5670,
+   "bh_pass": false,
+   "dsr": 0.2941
+  },
+  "H3": {
+   "n_windows": 548,
+   "mean48_pct": -0.3538,
+   "sr_annual": -92.999,
+   "p_signflip": 0.0,
+   "p_day_cluster": 0.0,
+   "p_worst": 0.0,
+   "segments_pct": [
+    -0.37,
+    -0.329,
+    -0.362
+   ],
+   "segments_positive": 0,
+   "cost_2x_positive": false,
+   "n_trades_total": 5670,
+   "bh_pass": false,
+   "dsr": 0.0
+  },
+  "H4": {
+   "n_windows": 547,
+   "mean48_pct": -0.1322,
+   "sr_annual": -0.897,
+   "p_signflip": 0.1245,
+   "p_day_cluster": 0.1257,
+   "p_worst": 0.1257,
+   "segments_pct": [
+    -0.204,
+    -0.084,
+    -0.108
+   ],
+   "segments_positive": 0,
+   "cost_2x_positive": false,
+   "n_trades_total": 5670,
+   "bh_pass": false,
+   "dsr": 0.0012
+  },
+  "H5": {
+   "n_windows": 547,
+   "mean48_pct": -0.1018,
+   "sr_annual": -0.452,
+   "p_signflip": 0.4375,
+   "p_day_cluster": 0.4332,
+   "p_worst": 0.4375,
+   "segments_pct": [
+    -0.261,
+    0.016,
+    -0.059
+   ],
+   "segments_positive": 1,
+   "cost_2x_positive": false,
+   "n_trades_total": 5670,
+   "bh_pass": false,
+   "dsr": 0.0256
+  }
+ },
+ "passed_bh": [],
+ "pbo": 0.6468,
+ "control_p_random_entry": {
+  "H1": 0.5398,
+  "H4": 0.6393,
+  "H5": 0.6306
+ },
+ "verdict": {
+  "H1": "FAIL",
+  "H2": "FAIL",
+  "H3": "FAIL",
+  "H4": "FAIL",
+  "H5": "FAIL"
+ }
+}

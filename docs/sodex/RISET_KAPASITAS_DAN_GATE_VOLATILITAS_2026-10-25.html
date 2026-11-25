@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RISET KAPASITAS GROSS & GATE VOLATILITAS — JALAN MENUJU 0,8%/WINDOW SoDEX</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>RISET KAPASITAS GROSS & GATE VOLATILITAS — JALAN MENUJU 0,8%/WINDOW SoDEX</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#0-ringkasan-eksekutif-angka-dulu">0. Ringkasan eksekutif (angka dulu)</a></li>
+<li class="t2"><a href="#1-pertanyaan-penelitian">1. Pertanyaan penelitian</a></li>
+<li class="t2"><a href="#2-metode">2. Metode</a></li>
+<li class="t2"><a href="#3-temuan-1-biaya-riil-1139-bpstrade-hanya-3-mesin-yang-gross-biaya">3. Temuan 1 — Biaya riil 11,39 bps/trade; hanya 3 mesin yang gross > biaya</a></li>
+<li class="t2"><a href="#4-temuan-2-edge-3-mesin-berbalik-tanda-25-sep-2026">4. Temuan 2 — Edge 3 mesin berbalik tanda ~25-Sep-2026</a></li>
+<li class="t2"><a href="#5-temuan-3-matematika-target-8916-bps-net-per-trade">5. Temuan 3 — Matematika target: 8,9–16 bps net per trade</a></li>
+<li class="t2"><a href="#6-temuan-4-volatilitas-7-hari-sebelumnya-adalah-kandidat-pemisah-n-minggu-kecil">6. Temuan 4 — Volatilitas 7 hari sebelumnya adalah kandidat pemisah (n minggu kecil!)</a></li>
+<li class="t2"><a href="#7-temuan-5-kenapa-prareg-26-hampir-pasti-gagal-mekanisme-bukan-nasib">7. Temuan 5 — Kenapa PRAREG-26 hampir pasti gagal (mekanisme, bukan nasib)</a></li>
+<li class="t2"><a href="#8-keputusan-prareg-31-beku-forward">8. Keputusan: PRAREG-31 (beku, forward)</a></li>
+<li class="t2"><a href="#9-limitasi-jujur-ini-yang-bisa-membatalkan-kesimpulan">9. Limitasi (jujur, ini yang bisa membatalkan kesimpulan)</a></li>
+<li class="t2"><a href="#10-rekomendasi-falsifiable">10. Rekomendasi (falsifiable)</a></li>
+<li class="t2"><a href="#11-berkas-reproduksibilitas">11. Berkas & reproduksibilitas</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 2026-10-25 · <strong>Venue:</strong> SoDEX perps · <strong>Mode:</strong> penelitian, READ-ONLY (tanpa order)
+<strong>Target yang diuji:</strong> ≥ <strong>0,8% dari TOTAL modal wallet per window 30 jam</strong>, akumulasi, harga mati
+<strong>Wallet acuan:</strong> $243,02 → target = <strong>$1,94/window</strong>
+<strong>Sifat dokumen:</strong> DESKRIPTIF + desain uji forward. <strong>Tidak ada klaim bahwa target sudah tercapai.</strong></p>
+<hr>
+<h2 id="0-ringkasan-eksekutif-angka-dulu">0. Ringkasan eksekutif (angka dulu)</h2>
+<ol>
+<li><strong>Biaya riil rata-rata buku = 11,39 bps/trade</strong>, bukan 6,5 bps. Gross buku penuh hanya <strong>+3,43 bps</strong> → net <strong>−7,96 bps/trade</strong>. Secara struktural buku ini rugi sebelum memilih sinyal.</li>
+<li><strong>Hanya 3 dari 10 mesin</strong> yang gross-nya pernah konsisten di atas biaya: <strong>twoway (+20,18), realwide (+15,59), donchian (+14,98)</strong> bps.</li>
+<li><strong>Edge ketiganya berbalik tanda sekitar 2026-09-25.</strong> 30 hari terakhir: twoway −$181,83 (gross −33,5 bps), realwide −$127,60 (−41,1), donchian −$88,63 (−39,6). Kombinasi ketiganya: <strong>−8,19%/window</strong>, hit 35%.</li>
+<li><strong>Padahal pada rezim sebelumnya ketiganya melewati target:</strong> kombinasi 3 mesin, 59 window, <strong>mean +1,404%/window</strong> (median −0,30%, hit 49,2%) — artinya target 0,8% <em>pernah</em> terlampaui rata-rata, tetapi tidak stabil (median negatif).</li>
+<li><strong>Kandidat penjelas yang bisa diukur ex-ante:</strong> gross mingguan naik seiring <strong>volatilitas BTC 7 hari sebelumnya</strong> (r = 0,55–0,59; median gross per kuartil vol: <strong>−50,5 → +6,0 → +16,4 → +30,1 bps</strong>).</li>
+<li><strong>Gate parameter-free</strong> (<code>vol7 ≥ median 12 window terakhir</code>) in-sample: <strong>mean 3,563%/window, median +1,851%, hit 54,8%</strong> (31 window ON dari 59) vs tanpa gate 1,404% / −0,296% / 49,2%. <strong>CI95 blok mingguan [−6,94; +11,70] memuat nol</strong> → belum bukti.</li>
+<li><strong>Karena itu seluruh klaim di atas ditutup dengan uji forward beku: PRAREG-31</strong>, hash <code>525227e7…</code>, forward 26-Okt→25-Nov, 12 window minimum, kriteria A–E, kontrol gate acak ber-duty sama.</li>
+<li><strong>PRAREG-26 (14d net&gt;0) diukur ulang:</strong> aturan itu menghasilkan <strong>hit 32,2%</strong> dan buku praktis kosong — ia memilih mesin <em>setelah</em> edge berbalik. Ini alasan mekanis kenapa verdict 25-Nov kemungkinan besar <strong>TIDAK LOLOS</strong>, bukan karena aturannya "salah tulis".</li>
+</ol>
+<p><strong>Kesimpulan satu baris:</strong> target 0,8%/window tidak dicapai oleh pemilihan sinyal; yang tersisa dan bisa diuji adalah <strong>kapan mesin di-deploy</strong> — dan itu sekarang diuji forward, bukan diklaim.</p>
+<hr>
+<h2 id="1-pertanyaan-penelitian">1. Pertanyaan penelitian</h2>
+<p>Target 0,8% per window 30 jam pada wallet $243,02 berarti <strong>$1,94 net per 30 jam</strong>, akumulasi, tanpa kompromi harga. Pertanyaannya bukan "sinyal apa yang bagus" tetapi tiga pertanyaan yang lebih tajam:</p>
+<ul>
+<li><strong>Q1 (kapasitas):</strong> berapa bps gross yang benar-benar ditangkap mesin, dan berapa yang dimakan biaya?</li>
+<li><strong>Q2 (struktur):</strong> apakah buku rugi karena <strong>alpha-nya hilang</strong> atau karena <strong>biayanya terlalu besar</strong>? Dua dunia ini punya obat yang berbeda.</li>
+<li><strong>Q3 (waktu):</strong> kalau alpha ada tapi tidak stabil, apakah ada variabel <strong>ex-ante</strong> yang memisahkan periode hidup dan mati?</li>
+</ul>
+<hr>
+<h2 id="2-metode">2. Metode</h2>
+<table>
+<thead>
+<tr>
+<th>Aspek</th>
+<th>Keputusan</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sumber trade</td>
+<td><code>data/paper_test_*_state.json</code>, 10 mesin universe beku</td>
+<td>Data uang-paper, bukan uang nyata; tidak ada look-ahead</td>
+</tr>
+<tr>
+<td>Gross</td>
+<td><code>sign(direction) × (exit/entry − 1) × 1e4</code>; pakai <code>gross_pct</code> bila tersedia</td>
+<td>Memisahkan pergerakan harga dari biaya</td>
+</tr>
+<tr>
+<td>Net</td>
+<td><code>net_pct</code>/<code>pnl_pct</code> dari state (model biaya paper masing-masing mesin)</td>
+<td>Net adalah yang dibayar wallet</td>
+</tr>
+<tr>
+<td>Biaya</td>
+<td><code>gross − net</code> per trade</td>
+<td>Mengukur biaya <em>riil</em> per mesin, bukan asumsi 6,5 bps</td>
+</tr>
+<tr>
+<td>Kontrol</td>
+<td>trade berlabel <code>RANDOM</code> (track/arm/regime) dikecualikan</td>
+<td>Kontrol negatif tidak boleh masuk buku</td>
+</tr>
+<tr>
+<td>Dedupe</td>
+<td><code>(engine, pair, entry_ts, exit_ts)</code> unik</td>
+<td>Rule 12: dedup sebelum menghitung</td>
+</tr>
+<tr>
+<td>Window</td>
+<td>grid 30 jam, jangkar 2026-08-03Z, bucket <code>exit_ts</code>, window kosong = 0,0%</td>
+<td>Definisi resmi <code>AMANDEMEN_TARGET_AB</code></td>
+</tr>
+<tr>
+<td>CI</td>
+<td><strong>block bootstrap per minggu</strong> (bukan per trade)</td>
+<td>Trade dalam seminggu tidak independen</td>
+</tr>
+<tr>
+<td>Harness</td>
+<td>v2 (<code>safe_lag</code>, <code>t_lag</code>, <code>segments_untested</code>)</td>
+<td>Patch 25-Okt: NW lag=hold menginflasi t</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Periode:</strong> seluruh histori paper (Agu–Okt 2026). Forward PRAREG-31 mulai 2026-10-26.</p>
+<hr>
+<h2 id="3-temuan-1-biaya-riil-1139-bpstrade-hanya-3-mesin-yang-gross-biaya">3. Temuan 1 — Biaya riil 11,39 bps/trade; hanya 3 mesin yang gross &gt; biaya</h2>
+<p><code>scripts/research/gross_capacity_audit.py</code> → 1.959 trade bersih (RANDOM dikecualikan):</p>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">gross bps</th>
+<th style="text-align: right;">net bps</th>
+<th style="text-align: right;">biaya bps</th>
+<th style="text-align: right;">hold (jam)</th>
+<th>Diagnosis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>twoway</td>
+<td style="text-align: right;">436</td>
+<td style="text-align: right;"><strong>+20,18</strong></td>
+<td style="text-align: right;">+12,59</td>
+<td style="text-align: right;">7,59</td>
+<td style="text-align: right;">13</td>
+<td>alpha &gt; biaya</td>
+</tr>
+<tr>
+<td>realwide</td>
+<td style="text-align: right;">268</td>
+<td style="text-align: right;"><strong>+15,59</strong></td>
+<td style="text-align: right;">+8,78</td>
+<td style="text-align: right;">6,80</td>
+<td style="text-align: right;">7</td>
+<td>alpha &gt; biaya</td>
+</tr>
+<tr>
+<td>donchian</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;"><strong>+14,98</strong></td>
+<td style="text-align: right;">+7,82</td>
+<td style="text-align: right;">7,16</td>
+<td style="text-align: right;">5</td>
+<td>alpha &gt; biaya</td>
+</tr>
+<tr>
+<td>shortbear</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">+39,98</td>
+<td style="text-align: right;">−48,41</td>
+<td style="text-align: right;"><strong>88,40</strong></td>
+<td style="text-align: right;">5</td>
+<td>biaya model ekstrem (funding?) — tidak tradeable</td>
+</tr>
+<tr>
+<td>swing</td>
+<td style="text-align: right;">419</td>
+<td style="text-align: right;">+6,48</td>
+<td style="text-align: right;">+1,24</td>
+<td style="text-align: right;">5,24</td>
+<td style="text-align: right;">3</td>
+<td>tipis, di bawah ambang</td>
+</tr>
+<tr>
+<td>aster</td>
+<td style="text-align: right;">243</td>
+<td style="text-align: right;">−8,26</td>
+<td style="text-align: right;">−27,03</td>
+<td style="text-align: right;">18,77</td>
+<td style="text-align: right;">10</td>
+<td>alpha negatif</td>
+</tr>
+<tr>
+<td>hyperliquid</td>
+<td style="text-align: right;">214</td>
+<td style="text-align: right;">−17,54</td>
+<td style="text-align: right;">−37,76</td>
+<td style="text-align: right;">20,22</td>
+<td style="text-align: right;">10</td>
+<td>alpha negatif</td>
+</tr>
+<tr>
+<td>portfolio</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">−40,51</td>
+<td style="text-align: right;">−49,28</td>
+<td style="text-align: right;">8,77</td>
+<td style="text-align: right;">7</td>
+<td>alpha negatif</td>
+</tr>
+<tr>
+<td>pasar_anantara_trade</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">−96,98</td>
+<td style="text-align: right;">−102,06</td>
+<td style="text-align: right;">5,08</td>
+<td style="text-align: right;">9</td>
+<td>alpha sangat negatif</td>
+</tr>
+<tr>
+<td>spot_swing_v2</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;"><em>tidak terukur</em></td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
+<td>state tidak menyimpan pnl_pct (celah data)</td>
+</tr>
+<tr>
+<td><strong>Buku penuh</strong></td>
+<td style="text-align: right;"><strong>1.959</strong></td>
+<td style="text-align: right;"><strong>+3,43</strong></td>
+<td style="text-align: right;"><strong>−7,96</strong></td>
+<td style="text-align: right;"><strong>11,39</strong></td>
+<td style="text-align: right;">7</td>
+<td><strong>rugi struktural</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan:</strong> biaya bukan angka kecil yang bisa diabaikan — ia <strong>3,3× gross buku penuh</strong>. Setiap diskusi "sinyal" yang tidak menyebut 11,4 bps ini adalah diskusi yang belum lengkap.</p>
+<hr>
+<h2 id="4-temuan-2-edge-3-mesin-berbalik-tanda-25-sep-2026">4. Temuan 2 — Edge 3 mesin berbalik tanda ~25-Sep-2026</h2>
+<p><code>scripts/research/engine_trend_window.py</code>, gross bps per minggu:</p>
+<table>
+<thead>
+<tr>
+<th>Minggu</th>
+<th style="text-align: right;">twoway</th>
+<th style="text-align: right;">realwide</th>
+<th style="text-align: right;">donchian</th>
+<th style="text-align: right;">swing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>08-29→09-05</td>
+<td style="text-align: right;">+21,6</td>
+<td style="text-align: right;">−22,8</td>
+<td style="text-align: right;">+20,3</td>
+<td style="text-align: right;">−52,2</td>
+</tr>
+<tr>
+<td>09-05→09-12</td>
+<td style="text-align: right;">+17,0</td>
+<td style="text-align: right;">+9,7</td>
+<td style="text-align: right;">+2,3</td>
+<td style="text-align: right;">−3,5</td>
+</tr>
+<tr>
+<td>09-12→09-19</td>
+<td style="text-align: right;"><strong>+119,5</strong></td>
+<td style="text-align: right;">+44,9</td>
+<td style="text-align: right;">+28,4</td>
+<td style="text-align: right;">+12,5</td>
+</tr>
+<tr>
+<td>09-19→09-26</td>
+<td style="text-align: right;"><strong>+24,9</strong></td>
+<td style="text-align: right;"><strong>+40,3</strong></td>
+<td style="text-align: right;"><strong>+88,1</strong></td>
+<td style="text-align: right;"><strong>+35,3</strong></td>
+</tr>
+<tr>
+<td>09-26→10-03</td>
+<td style="text-align: right;">−39,1</td>
+<td style="text-align: right;">−50,7</td>
+<td style="text-align: right;">−42,3</td>
+<td style="text-align: right;">−40,4</td>
+</tr>
+<tr>
+<td>10-03→10-10</td>
+<td style="text-align: right;">−73,1</td>
+<td style="text-align: right;">−77,3</td>
+<td style="text-align: right;">−37,1</td>
+<td style="text-align: right;">−50,4</td>
+</tr>
+<tr>
+<td>10-17→10-24</td>
+<td style="text-align: right;">−70,9</td>
+<td style="text-align: right;">−42,9</td>
+<td style="text-align: right;">−110,7</td>
+<td style="text-align: right;">−15,3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>30 hari terakhir (net):</strong> twoway −45,57 bps (n=133), realwide −50,64 (n=84), donchian −48,96 (n=60).</p>
+<p><strong>Agregasi window 30 jam (seluruh histori):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Buku</th>
+<th style="text-align: right;">window</th>
+<th style="text-align: right;">mean %</th>
+<th style="text-align: right;">median %</th>
+<th style="text-align: right;">hit %</th>
+<th style="text-align: right;">total $</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>twoway</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">+1,168</td>
+<td style="text-align: right;">−1,34</td>
+<td style="text-align: right;">48,3</td>
+<td style="text-align: right;">+164,66</td>
+</tr>
+<tr>
+<td>realwide</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">+0,586</td>
+<td style="text-align: right;">−0,41</td>
+<td style="text-align: right;">47,9</td>
+<td style="text-align: right;">+68,36</td>
+</tr>
+<tr>
+<td>swing</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">+0,206</td>
+<td style="text-align: right;">−5,66</td>
+<td style="text-align: right;">38,5</td>
+<td style="text-align: right;">+25,97</td>
+</tr>
+<tr>
+<td><strong>KOMBINASI 3</strong></td>
+<td style="text-align: right;"><strong>59</strong></td>
+<td style="text-align: right;"><strong>+1,404</strong></td>
+<td style="text-align: right;"><strong>−0,72</strong></td>
+<td style="text-align: right;"><strong>49,2</strong></td>
+<td style="text-align: right;"><strong>+201,29</strong></td>
+</tr>
+<tr>
+<td>Kombinasi 3, <strong>30 hari terakhir</strong></td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;"><strong>−8,19</strong></td>
+<td style="text-align: right;">−3,46</td>
+<td style="text-align: right;">35,0</td>
+<td style="text-align: right;">−398,06</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Poin penting:</strong> target 0,8% <strong>pernah</strong> terlampaui rata-rata (+1,404%), tetapi <strong>median negatif</strong> → buku ini adalah "beberapa minggu besar + banyak minggu kecil rugi". Itu profil yang tidak boleh di-sizing besar dan tidak boleh diklaim stabil.</p>
+<hr>
+<h2 id="5-temuan-3-matematika-target-8916-bps-net-per-trade">5. Temuan 3 — Matematika target: 8,9–16 bps net per trade</h2>
+<p><code>scripts/research/vol_gate_simulation.py</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Trade/window</th>
+<th style="text-align: right;">Ukuran posisi</th>
+<th style="text-align: right;">Net bps/trade yang dibutuhkan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">25% wallet</td>
+<td style="text-align: right;">64,0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">50% wallet</td>
+<td style="text-align: right;">32,0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">100% wallet</td>
+<td style="text-align: right;">16,0</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">50% wallet</td>
+<td style="text-align: right;">17,8</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">100% wallet</td>
+<td style="text-align: right;">8,9</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">50% wallet</td>
+<td style="text-align: right;">10,7</td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">50% wallet</td>
+<td style="text-align: right;">6,4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implikasi:</strong> pada 9 trade/window dengan ukuran penuh, dibutuhkan <strong>8,9 bps net/trade</strong>. twoway pada minggu baik memberi ~15 bps net — cukup. Pada minggu buruk memberi −45 bps — tidak cukup, dan itulah yang terjadi sekarang. <strong>Target bukan mustahil secara matematis; yang tidak ada adalah stabilitas.</strong></p>
+<hr>
+<h2 id="6-temuan-4-volatilitas-7-hari-sebelumnya-adalah-kandidat-pemisah-n-minggu-kecil">6. Temuan 4 — Volatilitas 7 hari sebelumnya adalah kandidat pemisah (n minggu kecil!)</h2>
+<p><code>scripts/research/regime_conditioning.py</code> — fitur dihitung dari 7 hari <strong>sebelum</strong> minggu berjalan (tanpa look-ahead), 30 titik (4 mesin × ~8 minggu):</p>
+<table>
+<thead>
+<tr>
+<th>Uji</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>korelasi gross vs vol7 SoDEX</td>
+<td><strong>r = 0,553</strong></td>
+</tr>
+<tr>
+<td>korelasi gross vs vol7 Binance</td>
+<td><strong>r = 0,593</strong></td>
+</tr>
+<tr>
+<td>korelasi gross vs ret7 BTC</td>
+<td>r = 0,512</td>
+</tr>
+<tr>
+<td>median gross, kuartil vol 26–30%</td>
+<td><strong>−50,5 bps</strong></td>
+</tr>
+<tr>
+<td>kuartil 30–32%</td>
+<td>+6,0 bps</td>
+</tr>
+<tr>
+<td>kuartil 32–35%</td>
+<td>+16,4 bps</td>
+</tr>
+<tr>
+<td>kuartil 35–42%</td>
+<td><strong>+30,1 bps</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Simulasi gate (59 window 30 jam, in-sample):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Varian</th>
+<th style="text-align: right;">window ON</th>
+<th style="text-align: right;">mean %</th>
+<th style="text-align: right;">median %</th>
+<th style="text-align: right;">hit %</th>
+<th>CI95 blok mingguan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tanpa gate</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">1,404</td>
+<td style="text-align: right;">−0,296</td>
+<td style="text-align: right;">49,2</td>
+<td>[−5,75; +8,99]</td>
+</tr>
+<tr>
+<td>vol ≥ 30%</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">2,468</td>
+<td style="text-align: right;">+0,057</td>
+<td style="text-align: right;">50,0</td>
+<td>[−6,03; +10,62]</td>
+</tr>
+<tr>
+<td>vol ≥ 33%</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">2,526</td>
+<td style="text-align: right;">+1,124</td>
+<td style="text-align: right;">51,7</td>
+<td>[−7,43; +11,92]</td>
+</tr>
+<tr>
+<td>vol ≥ 35%</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">8,796</td>
+<td style="text-align: right;">+4,061</td>
+<td style="text-align: right;">66,7</td>
+<td>[−0,64; +19,74]</td>
+</tr>
+<tr>
+<td><strong>vol ≥ median 90d (parameter-free)</strong></td>
+<td style="text-align: right;"><strong>31</strong></td>
+<td style="text-align: right;"><strong>3,563</strong></td>
+<td style="text-align: right;"><strong>+1,851</strong></td>
+<td style="text-align: right;"><strong>54,8</strong></td>
+<td><strong>[−6,94; +11,70]</strong></td>
+</tr>
+<tr>
+<td>PRAREG-26 (14d net&gt;0)</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">1,411</td>
+<td style="text-align: right;">0,000</td>
+<td style="text-align: right;"><strong>32,2</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yang boleh dan tidak boleh disimpulkan:</strong></p>
+<ul>
+<li><strong>Boleh:</strong> ada gradien yang konsisten antara vol pra-minggu dan gross mesin; gradien itu <strong>cukup besar untuk layak diuji forward</strong>.</li>
+<li><strong>Tidak boleh:</strong> "gate ini menghasilkan 3,56%/window". CI95 memuat nol; ambang 30/33/35 dipilih setelah melihat data; n efektif hanya ~9 minggu (4 mesin dalam minggu yang sama tidak independen).</li>
+</ul>
+<hr>
+<h2 id="7-temuan-5-kenapa-prareg-26-hampir-pasti-gagal-mekanisme-bukan-nasib">7. Temuan 5 — Kenapa PRAREG-26 hampir pasti gagal (mekanisme, bukan nasib)</h2>
+<p>Aturan PRAREG-26: mesin lolos bila <strong>14 hari terakhir net &gt; 0</strong>. Diukur pada grid 30 jam: <strong>hit 32,2%</strong>, mean 1,411%, median 0,000 (buku flat di mayoritas window karena tidak ada mesin lolos).</p>
+<p>Mekanismenya:</p>
+<ol>
+<li>Edge berbalik ~25-Sep. Aturan 14-hari butuh ~14 hari untuk "melihat" pembalikan; selama itu ia masih memilih mesin yang baru saja mati.</li>
+<li>Setelah 9-Okt, semua mesin negatif → subset kosong → buku FLAT → 0% (bukan rugi, tapi juga tidak bisa mencapai 0,8%).</li>
+<li>Saat edge kembali hidup, aturan yang sama butuh 14 hari lagi untuk mengizinkan mesin masuk — terlambat.</li>
+</ol>
+<p><strong>Jadi PRAREG-26 bukan "salah tulis"; ia adalah filter anti-momentum pada kualitas edge.</strong> Hasilnya: buku kosong 14/14 titik keputusan dan M3/M4 tidak akan terpenuhi. Ini konsisten dengan audit denominator 25-Okt (9/9 mesin 14d negatif, −$345,10 pada snapshot 00:00Z; −$548,29 pada snapshot 08:00Z).</p>
+<hr>
+<h2 id="8-keputusan-prareg-31-beku-forward">8. Keputusan: PRAREG-31 (beku, forward)</h2>
+<p>Karena gate adalah <strong>satu-satunya kandidat yang melewati matematika target tanpa mengubah sinyal</strong>, ia didaftarkan sebagai uji forward, bukan di-deploy:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dokumen beku</td>
+<td><code>docs/sodex/PRAREG31_GATE_VOLATILITAS.md</code></td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td><code>525227e733d63b9faeefb85f96c0d46c312b092dd59f94379c1459f74c20eb86</code></td>
+</tr>
+<tr>
+<td>Aturan gate</td>
+<td><code>vol7(t) ≥ median(vol7 12 window sebelumnya)</code>, vol7 = pstdev(log ret 1h BTC SoDEX, 168 jam) × √8760 × 100, bar close ≤ t</td>
+</tr>
+<tr>
+<td>Buku</td>
+<td>twoway + realwide + donchian (universe beku)</td>
+</tr>
+<tr>
+<td>Forward</td>
+<td>window start ≥ 2026-10-26T00:00Z, end ≤ 2026-11-25T00:00Z</td>
+</tr>
+<tr>
+<td>Minimum data</td>
+<td>12 window usable; &lt; 12 → <strong>DATA KURANG</strong></td>
+</tr>
+<tr>
+<td>Kriteria lolos</td>
+<td>A: M1 ≥ 0,8% · B: median &gt; 0 &amp; hit ≥ 50% · C: t paired ≥ 2,0 · D: p permutasi &lt; 0,05 (kontrol gate acak duty sama) · E: tidak ada pelanggaran aturan</td>
+</tr>
+<tr>
+<td>Evaluator</td>
+<td><code>scripts/research/prereg31_gate_eval.py</code> → <code>reports/sodex/PRAREG31_STATUS.json</code></td>
+</tr>
+<tr>
+<td>Status hari ini</td>
+<td><strong>DATA KURANG</strong> (23 window forward terdaftar, 0 usable — forward belum mulai)</td>
+</tr>
+<tr>
+<td>Registri</td>
+<td><code>reports/sodex/PRAREG31_REGISTRY.jsonl</code></td>
+</tr>
+<tr>
+<td>Pengawal harian</td>
+<td>cron 07:00 WIB: snapshot mesin + audit PRAREG-26 + evaluator PRAREG-31</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kontrol negatif wajib:</strong> gate acak dengan jumlah window ON sama (10.000 permutasi). Kalau gate acak sama baiknya, yang bekerja bukan volatilitas — hanya "tidak selalu di pasar".</p>
+<hr>
+<h2 id="9-limitasi-jujur-ini-yang-bisa-membatalkan-kesimpulan">9. Limitasi (jujur, ini yang bisa membatalkan kesimpulan)</h2>
+<ol>
+<li><strong>n efektif ~9 minggu</strong>, bukan 59 window: window dalam minggu yang sama berkorelasi. Block bootstrap dipakai justru karena itu, dan hasilnya CI lebar.</li>
+<li><strong>Ambang absolut (30/33/35) dipilih setelah melihat data</strong> — hanya deskriptif; yang diuji forward adalah aturan median (parameter-free).</li>
+<li><strong>Zona abu-abu 27–33%:</strong> gate ON di 22-Okt (vol 33,3 &gt; median 32,3) padahal mesin sedang rugi. Gate tidak sempurna; forward test akan mengukur seberapa tidak sempurna.</li>
+<li><strong>Biaya model berbeda antar mesin</strong> (aster 18,8 bps; shortbear 88,4 bps) — angka biaya bukan satu angka universal; angka 11,39 adalah rata-rata tertimbang n.</li>
+<li><strong>spot_swing_v2 tidak terukur</strong> (state tidak menyimpan pnl_pct) — satu mesin hilang dari audit; tidak mengubah kesimpulan karena gross-nya historis tipis.</li>
+<li><strong>Klines BTC SoDEX stale ~5 jam</strong> saat analisis (bar terakhir 03:00Z). Untuk forward, evaluator menandai window FLAT bila stale &gt; 6 jam — dan itu berarti <strong>kolektor klines harus hidup</strong>, kalau tidak PRAREG-31 akan berakhir DATA KURANG.</li>
+<li><strong>Semua ini paper trading</strong> dengan model fill <code>poll</code>; biaya nyata bisa lebih tinggi (slippage, spread SoDEX tipis).</li>
+</ol>
+<hr>
+<h2 id="10-rekomendasi-falsifiable">10. Rekomendasi (falsifiable)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Aksi</th>
+<th>Kriteria berhasil</th>
+<th>Biaya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Jalankan PRAREG-31 sampai 25-Nov (pengawal harian sudah aktif)</td>
+<td>12 window usable; verdict A–E dihitung otomatis</td>
+<td>0 (read-only)</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Perbaiki celah data <code>spot_swing_v2</code> (simpan <code>pnl_pct</code>) agar audit berikutnya 10/10 mesin</td>
+<td>audit gross 10/10 lengkap</td>
+<td>~1 jam</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Kalau PRAREG-31 gagal pada C/D (gate tidak mengalahkan acak): hentikan jalur gate, jangan tambah ambang baru</td>
+<td>keputusan berhenti tercatat</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Kalau PRAREG-31 lolos A–D: baru boleh dibahas deployment (flag on/off mesin), dengan sizing ≤ 50% wallet dan kill-switch</td>
+<td>pembahasan deployment, bukan eksekusi otomatis</td>
+<td>1 hari</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Jangan mengubah PRAREG-26 (tetap verdict 25-Nov) — mengubahnya sekarang = data snooping</td>
+<td>hash tetap <code>OK</code></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="11-berkas-reproduksibilitas">11. Berkas &amp; reproduksibilitas</h2>
+<pre><code>scripts/research/gross_capacity_audit.py        audit kapasitas gross (1.959 trade)
+scripts/research/engine_trend_window.py         tren mingguan + agregasi window 30 jam
+scripts/research/regime_conditioning.py         fitur vol/ret ex-ante vs gross
+scripts/research/vol_gate_simulation.py         simulasi gate + matematika target
+scripts/research/prereg31_gate_eval.py          evaluator aturan beku PRAREG-31
+scripts/research/prereg26_engine_snapshot.py    snapshot 14-hari per mesin (pengawal harian)
+tests/test_prereg31_gate.py                     6 test: no-look-ahead, fail-closed, stale→FLAT
+reports/sodex/GROSS_CAPACITY_AUDIT.json
+reports/sodex/ENGINE_TREND_WINDOW.json
+reports/sodex/REGIME_CONDITIONING.json
+reports/sodex/VOL_GATE_SIMULATION.json
+reports/sodex/PRAREG31_STATUS.json
+reports/sodex/PRAREG31_REGISTRY.jsonl
+reports/sodex/PRAREG26_ENGINE_SNAPSHOT.json
+docs/sodex/PRAREG31_GATE_VOLATILITAS.md (+ .sha256)
+</code></pre>
+<p><strong>Reproduksi:</strong></p>
+<pre><code class="language-bash">cd ~/anantara-sakti
+/usr/bin/python3 scripts/research/gross_capacity_audit.py
+/usr/bin/python3 scripts/research/engine_trend_window.py
+/usr/bin/python3 scripts/research/regime_conditioning.py
+/usr/bin/python3 scripts/research/vol_gate_simulation.py
+/usr/bin/python3 scripts/research/prereg31_gate_eval.py
+/usr/bin/python3 -m pytest tests/test_prereg31_gate.py -q
+sha256sum -c docs/sodex/PRAREG31_GATE_VOLATILITAS.md.sha256
+</code></pre>
+<hr>
+<p><em>Laporan riset 2026-10-25 — angka dapat berubah setiap hari; verdict hanya boleh diambil dari window forward PRAREG-31, bukan dari dokumen ini.</em></p>
+</body>
+</html>

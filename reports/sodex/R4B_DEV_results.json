@@ -1,0 +1,137 @@
+{
+ "phase": "DEV",
+ "tier": "binance",
+ "range": [
+  "2022-10-01",
+  "2025-09-30"
+ ],
+ "protocol": "R4B_PROTOKOL_H6_H10_2026-10-05 (DIBEKUKAN)",
+ "cost_per_trade": 0.004,
+ "hypotheses": {
+  "H6": {
+   "trades_total": 304,
+   "trades_per_sym_year": 9.21,
+   "drag_pct_year": 3.68,
+   "edge_gross_median_pct": -0.184,
+   "min_gross_required_pct": 6.0,
+   "budget_ok": false,
+   "n_windows": 532,
+   "mean48_pct": 0.0003,
+   "sr_annual": 0.111,
+   "p_signflip": 0.8457,
+   "p_day_cluster": 0.8505,
+   "segments_pct": [
+    -0.003,
+    0.003,
+    0.001
+   ],
+   "segments_positive": 2,
+   "cost_2x_positive": true,
+   "control_p": 0.21393034825870647,
+   "bh_pass": false,
+   "dsr": 0.1585
+  },
+  "H10": {
+   "trades_total": 308,
+   "trades_per_sym_year": 9.33,
+   "drag_pct_year": 3.73,
+   "edge_gross_median_pct": -1.012,
+   "min_gross_required_pct": 6.0,
+   "budget_ok": false,
+   "n_windows": 539,
+   "mean48_pct": -0.0057,
+   "sr_annual": -1.651,
+   "p_signflip": 0.0037,
+   "p_day_cluster": 0.0054,
+   "segments_pct": [
+    -0.005,
+    -0.006,
+    -0.006
+   ],
+   "segments_positive": 0,
+   "cost_2x_positive": false,
+   "control_p": 0.9751243781094527,
+   "bh_pass": false,
+   "dsr": 0.0
+  },
+  "H7": {
+   "trades_total": 331,
+   "trades_per_sym_year": 10.03,
+   "drag_pct_year": 4.01,
+   "edge_gross_median_pct": -1.954,
+   "min_gross_required_pct": 12.4,
+   "budget_ok": false,
+   "n_windows": 547,
+   "mean48_pct": -0.0897,
+   "sr_annual": -0.37,
+   "p_signflip": 0.5246,
+   "p_day_cluster": 0.5195,
+   "segments_pct": [
+    -0.271,
+    0.11,
+    -0.107
+   ],
+   "segments_positive": 1,
+   "cost_2x_positive": false,
+   "control_p": 0.681592039800995,
+   "bh_pass": false,
+   "dsr": 0.0332
+  },
+  "H8": {
+   "trades_total": 136,
+   "trades_per_sym_year": 4.12,
+   "drag_pct_year": 1.65,
+   "edge_gross_median_pct": 0.395,
+   "min_gross_required_pct": 6.0,
+   "budget_ok": false,
+   "n_windows": 547,
+   "mean48_pct": 0.0108,
+   "sr_annual": 2.648,
+   "p_signflip": 0.0,
+   "p_day_cluster": 0.0,
+   "segments_pct": [
+    -0.006,
+    0.037,
+    0.001
+   ],
+   "segments_positive": 2,
+   "cost_2x_positive": true,
+   "control_p": 0.004975124378109453,
+   "bh_pass": false,
+   "dsr": 1.0
+  },
+  "H9": {
+   "trades_total": 177,
+   "trades_per_sym_year": 5.36,
+   "drag_pct_year": 2.15,
+   "edge_gross_median_pct": 1.101,
+   "min_gross_required_pct": 6.0,
+   "budget_ok": false,
+   "n_windows": 547,
+   "mean48_pct": -0.0297,
+   "sr_annual": -0.211,
+   "p_signflip": 0.7208,
+   "p_day_cluster": 0.7138,
+   "segments_pct": [
+    0.0,
+    -0.02,
+    -0.069
+   ],
+   "segments_positive": 0,
+   "cost_2x_positive": false,
+   "control_p": 0.9800995024875622,
+   "bh_pass": false,
+   "dsr": 0.0608
+  }
+ },
+ "pbo": 0.25,
+ "passed_bh": [],
+ "verdict": {
+  "H6": "FAIL",
+  "H10": "FAIL",
+  "H7": "FAIL",
+  "H8": "FAIL",
+  "H9": "FAIL"
+ },
+ "bar_hours": 1
+}

@@ -1,0 +1,3866 @@
+{
+ "summary": {
+  "generated_utc": "2026-10-04T22:32:29.131889+00:00",
+  "data_dir": "/data/perps",
+  "n_symbols": 57,
+  "data_end_dates": [
+   "2026-05-21"
+  ],
+  "fees": {
+   "sodex_rt_bps": 8.0
+  },
+  "horizon_h": 48,
+  "threshold": 0.004
+ },
+ "symbols": [
+  {
+   "symbol": "1000PEPE-USD",
+   "n_rows": 3689,
+   "n_train": 2971,
+   "n_oos": 547,
+   "data_start": "2025-12-18",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 56.907,
+   "F1_n_selected": 485,
+   "F1_frac_selected": 0.8867,
+   "F1_acc_unselected": 56.49,
+   "F1_unsel_ci95": [
+    52.3,
+    60.59
+   ],
+   "F2_n_oos": 547,
+   "F2_n_effective": 11.4,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    28.01,
+    78.73
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 485,
+   "F4_frac_traded": 0.8867,
+   "F4_net_bps_mean": 29.65,
+   "F4_net_bps_ci95": [
+    -0.82,
+    60.12
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 154,
+     "net_bps": 97.62,
+     "ci95": [
+      67.04,
+      128.2
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 168,
+     "net_bps": 93.82,
+     "ci95": [
+      47.65,
+      139.99
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 163,
+     "net_bps": -100.7,
+     "ci95": [
+      -168.14,
+      -33.26
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OKOKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "AAVE-USD",
+   "n_rows": 4918,
+   "n_train": 4016,
+   "n_oos": 731,
+   "data_start": "2025-10-28",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 46.557,
+   "F1_n_selected": 668,
+   "F1_frac_selected": 0.9138,
+   "F1_acc_unselected": 46.512,
+   "F1_unsel_ci95": [
+    42.92,
+    50.14
+   ],
+   "F2_n_oos": 731,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    24.81,
+    69.88
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 668,
+   "F4_frac_traded": 0.9138,
+   "F4_net_bps_mean": 8.64,
+   "F4_net_bps_ci95": [
+    -19.4,
+    36.68
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 224,
+     "net_bps": 35.95,
+     "ci95": [
+      -18.99,
+      90.89
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 216,
+     "net_bps": -25.66,
+     "ci95": [
+      -58.54,
+      7.21
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 228,
+     "net_bps": 14.3,
+     "ci95": [
+      -39.11,
+      67.71
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "---",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ADA-USD",
+   "n_rows": 4927,
+   "n_train": 4024,
+   "n_oos": 732,
+   "data_start": "2025-10-27",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 42.746,
+   "F1_n_selected": 641,
+   "F1_frac_selected": 0.8757,
+   "F1_acc_unselected": 43.716,
+   "F1_unsel_ci95": [
+    40.16,
+    47.33
+   ],
+   "F2_n_oos": 732,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    24.81,
+    69.88
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 641,
+   "F4_frac_traded": 0.8757,
+   "F4_net_bps_mean": -52.21,
+   "F4_net_bps_ci95": [
+    -72.82,
+    -31.6
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 222,
+     "net_bps": -52.63,
+     "ci95": [
+      -73.25,
+      -32.01
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 205,
+     "net_bps": -118.56,
+     "ci95": [
+      -157.22,
+      -79.91
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 214,
+     "net_bps": 11.79,
+     "ci95": [
+      -31.16,
+      54.74
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "AMD-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 72.924,
+   "F1_n_selected": 277,
+   "F1_frac_selected": 0.9203,
+   "F1_acc_unselected": 71.429,
+   "F1_unsel_ci95": [
+    66.08,
+    76.24
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.6875,
+   "F2_neff_ci95": [
+    30.0,
+    90.32
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 277,
+   "F4_frac_traded": 0.9203,
+   "F4_net_bps_mean": 101.66,
+   "F4_net_bps_ci95": [
+    38.32,
+    165.01
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 86,
+     "net_bps": -51.59,
+     "ci95": [
+      -228.65,
+      125.46
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 94,
+     "net_bps": 291.63,
+     "ci95": [
+      241.68,
+      341.59
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 97,
+     "net_bps": 53.44,
+     "ci95": [
+      -7.09,
+      113.98
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "-OK-",
+   "NEG_null_acc_mean": 45.891,
+   "NEG_null_acc_sd": 2.505,
+   "NEG_null_acc_min": 42.857,
+   "NEG_null_acc_max": 50.831,
+   "NEG_acc_above_null_by": 25.537,
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "AMZN-USD",
+   "n_rows": 2652,
+   "n_train": 2090,
+   "n_oos": 391,
+   "data_start": "2026-01-30",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 45.427,
+   "F1_n_selected": 328,
+   "F1_frac_selected": 0.8389,
+   "F1_acc_unselected": 46.036,
+   "F1_unsel_ci95": [
+    41.16,
+    50.99
+   ],
+   "F2_n_oos": 391,
+   "F2_n_effective": 8.1,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    21.52,
+    78.48
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 328,
+   "F4_frac_traded": 0.8389,
+   "F4_net_bps_mean": -23.3,
+   "F4_net_bps_ci95": [
+    -39.34,
+    -7.27
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 104,
+     "net_bps": 44.99,
+     "ci95": [
+      22.34,
+      67.64
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 110,
+     "net_bps": -90.12,
+     "ci95": [
+      -115.23,
+      -65.01
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 114,
+     "net_bps": -21.14,
+     "ci95": [
+      -50.06,
+      7.79
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OKno-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "APT-USD",
+   "n_rows": 3184,
+   "n_train": 2542,
+   "n_oos": 471,
+   "data_start": "2026-01-08",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 43.855,
+   "F1_n_selected": 415,
+   "F1_frac_selected": 0.8811,
+   "F1_acc_unselected": 44.374,
+   "F1_unsel_ci95": [
+    39.95,
+    48.89
+   ],
+   "F2_n_oos": 471,
+   "F2_n_effective": 9.8,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7539,
+   "F2_neff_ci95": [
+    16.82,
+    68.73
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 415,
+   "F4_frac_traded": 0.8811,
+   "F4_net_bps_mean": -35.04,
+   "F4_net_bps_ci95": [
+    -82.26,
+    12.18
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 143,
+     "net_bps": 120.26,
+     "ci95": [
+      73.23,
+      167.3
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 134,
+     "net_bps": 62.34,
+     "ci95": [
+      -38.92,
+      163.6
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 138,
+     "net_bps": -290.53,
+     "ci95": [
+      -364.24,
+      -216.81
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OK-no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ARB-USD",
+   "n_rows": 3184,
+   "n_train": 2542,
+   "n_oos": 471,
+   "data_start": "2026-01-08",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 44.762,
+   "F1_n_selected": 420,
+   "F1_frac_selected": 0.8917,
+   "F1_acc_unselected": 44.798,
+   "F1_unsel_ci95": [
+    40.37,
+    49.31
+   ],
+   "F2_n_oos": 471,
+   "F2_n_effective": 9.8,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7539,
+   "F2_neff_ci95": [
+    16.82,
+    68.73
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 420,
+   "F4_frac_traded": 0.8917,
+   "F4_net_bps_mean": -144.95,
+   "F4_net_bps_ci95": [
+    -201.91,
+    -87.99
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 134,
+     "net_bps": -124.12,
+     "ci95": [
+      -204.22,
+      -44.01
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 151,
+     "net_bps": -284.27,
+     "ci95": [
+      -396.46,
+      -172.09
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 135,
+     "net_bps": -9.8,
+     "ci95": [
+      -101.04,
+      81.45
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ASTER-USD",
+   "n_rows": 4918,
+   "n_train": 4016,
+   "n_oos": 731,
+   "data_start": "2025-10-28",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 54.61,
+   "F1_n_selected": 564,
+   "F1_frac_selected": 0.7715,
+   "F1_acc_unselected": 53.078,
+   "F1_unsel_ci95": [
+    49.45,
+    56.67
+   ],
+   "F2_n_oos": 731,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    30.12,
+    75.19
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 564,
+   "F4_frac_traded": 0.7715,
+   "F4_net_bps_mean": 57.63,
+   "F4_net_bps_ci95": [
+    35.97,
+    79.29
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 195,
+     "net_bps": -25.76,
+     "ci95": [
+      -53.17,
+      1.66
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 162,
+     "net_bps": 202.03,
+     "ci95": [
+      160.17,
+      243.9
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 207,
+     "net_bps": 23.16,
+     "ci95": [
+      -12.97,
+      59.29
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "-OK-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "AVAX-USD",
+   "n_rows": 3712,
+   "n_train": 2991,
+   "n_oos": 550,
+   "data_start": "2025-12-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 44.158,
+   "F1_n_selected": 505,
+   "F1_frac_selected": 0.9182,
+   "F1_acc_unselected": 44.364,
+   "F1_unsel_ci95": [
+    40.26,
+    48.54
+   ],
+   "F2_n_oos": 550,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    21.27,
+    71.99
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 505,
+   "F4_frac_traded": 0.9182,
+   "F4_net_bps_mean": -26.96,
+   "F4_net_bps_ci95": [
+    -51.74,
+    -2.19
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 175,
+     "net_bps": -34.17,
+     "ci95": [
+      -60.23,
+      -8.11
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 164,
+     "net_bps": 25.43,
+     "ci95": [
+      -24.62,
+      75.48
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 166,
+     "net_bps": -71.13,
+     "ci95": [
+      -120.07,
+      -22.19
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "no-no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "AXS-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 56.171,
+   "F1_n_selected": 397,
+   "F1_frac_selected": 0.9683,
+   "F1_acc_unselected": 56.341,
+   "F1_unsel_ci95": [
+    51.5,
+    61.06
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    26.66,
+    81.12
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 397,
+   "F4_frac_traded": 0.9683,
+   "F4_net_bps_mean": -32.6,
+   "F4_net_bps_ci95": [
+    -80.36,
+    15.16
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 130,
+     "net_bps": 162.75,
+     "ci95": [
+      111.8,
+      213.7
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 131,
+     "net_bps": 11.25,
+     "ci95": [
+      -87.94,
+      110.43
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 136,
+     "net_bps": -261.57,
+     "ci95": [
+      -335.4,
+      -187.74
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OK-no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "BCH-USD",
+   "n_rows": 3712,
+   "n_train": 2991,
+   "n_oos": 550,
+   "data_start": "2025-12-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 50.0,
+   "F1_n_selected": 458,
+   "F1_frac_selected": 0.8327,
+   "F1_acc_unselected": 49.818,
+   "F1_unsel_ci95": [
+    45.66,
+    53.98
+   ],
+   "F2_n_oos": 550,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    28.01,
+    78.73
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 458,
+   "F4_frac_traded": 0.8327,
+   "F4_net_bps_mean": -36.38,
+   "F4_net_bps_ci95": [
+    -71.73,
+    -1.04
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 154,
+     "net_bps": -0.3,
+     "ci95": [
+      -21.46,
+      20.87
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 143,
+     "net_bps": 181.91,
+     "ci95": [
+      138.08,
+      225.75
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 161,
+     "net_bps": -264.79,
+     "ci95": [
+      -341.79,
+      -187.8
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "-OKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "BERA-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 40.71,
+   "F1_n_selected": 366,
+   "F1_frac_selected": 0.8927,
+   "F1_acc_unselected": 41.707,
+   "F1_unsel_ci95": [
+    37.03,
+    46.54
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.88,
+    73.34
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 366,
+   "F4_frac_traded": 0.8927,
+   "F4_net_bps_mean": -154.06,
+   "F4_net_bps_ci95": [
+    -198.42,
+    -109.7
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 117,
+     "net_bps": -50.66,
+     "ci95": [
+      -111.72,
+      10.41
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 120,
+     "net_bps": 95.87,
+     "ci95": [
+      43.89,
+      147.84
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 129,
+     "net_bps": -480.34,
+     "ci95": [
+      -553.06,
+      -407.63
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "-OKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "BNB-USD",
+   "n_rows": 4927,
+   "n_train": 4024,
+   "n_oos": 732,
+   "data_start": "2025-10-27",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 50.715,
+   "F1_n_selected": 629,
+   "F1_frac_selected": 0.8593,
+   "F1_acc_unselected": 50.0,
+   "F1_unsel_ci95": [
+    46.39,
+    53.61
+   ],
+   "F2_n_oos": 732,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    30.12,
+    75.19
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 629,
+   "F4_frac_traded": 0.8593,
+   "F4_net_bps_mean": 26.75,
+   "F4_net_bps_ci95": [
+    12.65,
+    40.86
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 203,
+     "net_bps": -25.53,
+     "ci95": [
+      -44.79,
+      -6.28
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 235,
+     "net_bps": 43.75,
+     "ci95": [
+      22.64,
+      64.86
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 191,
+     "net_bps": 61.42,
+     "ci95": [
+      30.12,
+      92.71
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "noOKOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "BTC-USD",
+   "n_rows": 5298,
+   "n_train": 4339,
+   "n_oos": 788,
+   "data_start": "2025-10-12",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 58.307,
+   "F1_n_selected": 638,
+   "F1_frac_selected": 0.8096,
+   "F1_acc_unselected": 56.726,
+   "F1_unsel_ci95": [
+    53.24,
+    60.14
+   ],
+   "F2_n_oos": 788,
+   "F2_n_effective": 16.4,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.8036,
+   "F2_neff_ci95": [
+    33.18,
+    76.9
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 638,
+   "F4_frac_traded": 0.8096,
+   "F4_net_bps_mean": 22.99,
+   "F4_net_bps_ci95": [
+    8.09,
+    37.89
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 214,
+     "net_bps": 13.7,
+     "ci95": [
+      -12.75,
+      40.16
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 214,
+     "net_bps": 125.94,
+     "ci95": [
+      104.45,
+      147.43
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 210,
+     "net_bps": -72.45,
+     "ci95": [
+      -94.42,
+      -50.49
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "-OKno",
+   "NEG_null_acc_mean": 49.467,
+   "NEG_null_acc_sd": 1.992,
+   "NEG_null_acc_min": 45.812,
+   "NEG_null_acc_max": 52.792,
+   "NEG_acc_above_null_by": 7.259,
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "COIN-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 54.779,
+   "F1_n_selected": 272,
+   "F1_frac_selected": 0.9037,
+   "F1_acc_unselected": 53.488,
+   "F1_unsel_ci95": [
+    47.84,
+    59.04
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.76,
+    81.24
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 272,
+   "F4_frac_traded": 0.9037,
+   "F4_net_bps_mean": -104.82,
+   "F4_net_bps_ci95": [
+    -159.15,
+    -50.49
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 89,
+     "net_bps": -227.21,
+     "ci95": [
+      -326.75,
+      -127.67
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 88,
+     "net_bps": -0.91,
+     "ci95": [
+      -99.76,
+      97.95
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 95,
+     "net_bps": -86.42,
+     "ci95": [
+      -165.8,
+      -7.04
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "no-no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "COPPER-USD",
+   "n_rows": 1547,
+   "n_train": 1151,
+   "n_oos": 225,
+   "data_start": "2026-03-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 32.335,
+   "F1_n_selected": 167,
+   "F1_frac_selected": 0.7422,
+   "F1_acc_unselected": 37.333,
+   "F1_unsel_ci95": [
+    31.28,
+    43.82
+   ],
+   "F2_n_oos": 225,
+   "F2_n_effective": 4.7,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    11.76,
+    76.93
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 167,
+   "F4_frac_traded": 0.7422,
+   "F4_net_bps_mean": -60.28,
+   "F4_net_bps_ci95": [
+    -104.18,
+    -16.39
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 42,
+     "net_bps": 308.98,
+     "ci95": [
+      249.49,
+      368.48
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 61,
+     "net_bps": -319.92,
+     "ci95": [
+      -367.9,
+      -271.95
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 64,
+     "net_bps": -55.15,
+     "ci95": [
+      -71.61,
+      -38.68
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OKnono",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "CRCL-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 39.695,
+   "F1_n_selected": 262,
+   "F1_frac_selected": 0.8704,
+   "F1_acc_unselected": 41.528,
+   "F1_unsel_ci95": [
+    36.1,
+    47.17
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.76,
+    81.24
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 262,
+   "F4_frac_traded": 0.8704,
+   "F4_net_bps_mean": -158.79,
+   "F4_net_bps_ci95": [
+    -230.49,
+    -87.09
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 86,
+     "net_bps": -239.56,
+     "ci95": [
+      -382.6,
+      -96.52
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 87,
+     "net_bps": -68.2,
+     "ci95": [
+      -211.25,
+      74.84
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 89,
+     "net_bps": -169.29,
+     "ci95": [
+      -244.2,
+      -94.38
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "no-no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "DASH-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 66.833,
+   "F1_n_selected": 401,
+   "F1_frac_selected": 0.978,
+   "F1_acc_unselected": 66.585,
+   "F1_unsel_ci95": [
+    61.88,
+    70.98
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.5078,
+   "F2_neff_ci95": [
+    35.42,
+    87.94
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 401,
+   "F4_frac_traded": 0.978,
+   "F4_net_bps_mean": 161.87,
+   "F4_net_bps_ci95": [
+    55.47,
+    268.28
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 134,
+     "net_bps": 319.07,
+     "ci95": [
+      38.03,
+      600.11
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 136,
+     "net_bps": 374.5,
+     "ci95": [
+      328.51,
+      420.48
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 131,
+     "net_bps": -219.66,
+     "ci95": [
+      -343.26,
+      -96.07
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OKOKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "DOGE-USD",
+   "n_rows": 5029,
+   "n_train": 4110,
+   "n_oos": 748,
+   "data_start": "2025-10-23",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 34.75,
+   "F1_n_selected": 659,
+   "F1_frac_selected": 0.881,
+   "F1_acc_unselected": 35.829,
+   "F1_unsel_ci95": [
+    32.47,
+    39.33
+   ],
+   "F2_n_oos": 748,
+   "F2_n_effective": 15.6,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.4545,
+   "F2_neff_ci95": [
+    18.48,
+    61.36
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 659,
+   "F4_frac_traded": 0.881,
+   "F4_net_bps_mean": -65.64,
+   "F4_net_bps_ci95": [
+    -91.51,
+    -39.78
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 219,
+     "net_bps": -97.33,
+     "ci95": [
+      -130.53,
+      -64.13
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 223,
+     "net_bps": -130.35,
+     "ci95": [
+      -179.15,
+      -81.55
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 217,
+     "net_bps": 32.83,
+     "ci95": [
+      -14.97,
+      80.62
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ENA-USD",
+   "n_rows": 3712,
+   "n_train": 2991,
+   "n_oos": 550,
+   "data_start": "2025-12-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 57.937,
+   "F1_n_selected": 504,
+   "F1_frac_selected": 0.9164,
+   "F1_acc_unselected": 57.273,
+   "F1_unsel_ci95": [
+    53.1,
+    61.34
+   ],
+   "F2_n_oos": 550,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.5488,
+   "F2_neff_ci95": [
+    35.38,
+    84.83
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 504,
+   "F4_frac_traded": 0.9164,
+   "F4_net_bps_mean": -9.74,
+   "F4_net_bps_ci95": [
+    -66.93,
+    47.45
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 156,
+     "net_bps": 94.2,
+     "ci95": [
+      46.29,
+      142.12
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 176,
+     "net_bps": -152.33,
+     "ci95": [
+      -280.42,
+      -24.23
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 172,
+     "net_bps": 41.89,
+     "ci95": [
+      -49.64,
+      133.41
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OKno-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ETH-USD",
+   "n_rows": 5201,
+   "n_train": 4257,
+   "n_oos": 773,
+   "data_start": "2025-10-16",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 42.262,
+   "F1_n_selected": 672,
+   "F1_frac_selected": 0.8693,
+   "F1_acc_unselected": 42.82,
+   "F1_unsel_ci95": [
+    39.38,
+    46.34
+   ],
+   "F2_n_oos": 773,
+   "F2_n_effective": 16.1,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.8036,
+   "F2_neff_ci95": [
+    23.1,
+    66.82
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 672,
+   "F4_frac_traded": 0.8693,
+   "F4_net_bps_mean": -62.33,
+   "F4_net_bps_ci95": [
+    -80.03,
+    -44.62
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 200,
+     "net_bps": -57.32,
+     "ci95": [
+      -91.99,
+      -22.65
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 226,
+     "net_bps": 4.27,
+     "ci95": [
+      -23.5,
+      32.04
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 246,
+     "net_bps": -127.58,
+     "ci95": [
+      -155.34,
+      -99.82
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "no-no",
+   "NEG_null_acc_mean": 48.279,
+   "NEG_null_acc_sd": 1.884,
+   "NEG_null_acc_min": 46.184,
+   "NEG_null_acc_max": 52.523,
+   "NEG_acc_above_null_by": -5.459,
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "EWY-USD",
+   "n_rows": 1547,
+   "n_train": 1151,
+   "n_oos": 225,
+   "data_start": "2026-03-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 33.143,
+   "F1_n_selected": 175,
+   "F1_frac_selected": 0.7778,
+   "F1_acc_unselected": 34.222,
+   "F1_unsel_ci95": [
+    28.33,
+    40.64
+   ],
+   "F2_n_oos": 225,
+   "F2_n_effective": 4.7,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    11.76,
+    76.93
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 175,
+   "F4_frac_traded": 0.7778,
+   "F4_net_bps_mean": -220.67,
+   "F4_net_bps_ci95": [
+    -283.97,
+    -157.37
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 56,
+     "net_bps": -183.12,
+     "ci95": [
+      -323.29,
+      -42.94
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 68,
+     "net_bps": -414.08,
+     "ci95": [
+      -487.91,
+      -340.26
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 51,
+     "net_bps": -4.02,
+     "ci95": [
+      -86.62,
+      78.59
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "FIL-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 55.496,
+   "F1_n_selected": 373,
+   "F1_frac_selected": 0.9098,
+   "F1_acc_unselected": 53.659,
+   "F1_unsel_ci95": [
+    48.82,
+    58.43
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    26.66,
+    81.12
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 373,
+   "F4_frac_traded": 0.9098,
+   "F4_net_bps_mean": 69.43,
+   "F4_net_bps_ci95": [
+    -10.56,
+    149.41
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 118,
+     "net_bps": -67.15,
+     "ci95": [
+      -261.98,
+      127.69
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 135,
+     "net_bps": 67.17,
+     "ci95": [
+      -56.34,
+      190.69
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 120,
+     "net_bps": 206.26,
+     "ci95": [
+      135.93,
+      276.58
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "--OK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "GOOGL-USD",
+   "n_rows": 2652,
+   "n_train": 2090,
+   "n_oos": 391,
+   "data_start": "2026-01-30",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 67.169,
+   "F1_n_selected": 332,
+   "F1_frac_selected": 0.8491,
+   "F1_acc_unselected": 65.217,
+   "F1_unsel_ci95": [
+    60.37,
+    69.77
+   ],
+   "F2_n_oos": 391,
+   "F2_n_effective": 8.1,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7266,
+   "F2_neff_ci95": [
+    30.57,
+    86.32
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 332,
+   "F4_frac_traded": 0.8491,
+   "F4_net_bps_mean": 58.48,
+   "F4_net_bps_ci95": [
+    36.09,
+    80.87
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 115,
+     "net_bps": 138.5,
+     "ci95": [
+      110.63,
+      166.36
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 110,
+     "net_bps": -34.31,
+     "ci95": [
+      -84.47,
+      15.86
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 107,
+     "net_bps": 67.86,
+     "ci95": [
+      40.93,
+      94.79
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "OK-OK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "HBAR-USD",
+   "n_rows": 3184,
+   "n_train": 2542,
+   "n_oos": 471,
+   "data_start": "2026-01-08",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 52.657,
+   "F1_n_selected": 414,
+   "F1_frac_selected": 0.879,
+   "F1_acc_unselected": 51.168,
+   "F1_unsel_ci95": [
+    46.66,
+    55.65
+   ],
+   "F2_n_oos": 471,
+   "F2_n_effective": 9.8,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    23.66,
+    76.34
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 414,
+   "F4_frac_traded": 0.879,
+   "F4_net_bps_mean": -18.52,
+   "F4_net_bps_ci95": [
+    -42.48,
+    5.44
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 147,
+     "net_bps": -61.26,
+     "ci95": [
+      -89.62,
+      -32.9
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 139,
+     "net_bps": -32.93,
+     "ci95": [
+      -85.15,
+      19.28
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 128,
+     "net_bps": 46.21,
+     "ci95": [
+      6.68,
+      85.73
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "no-OK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "HOOD-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 36.398,
+   "F1_n_selected": 261,
+   "F1_frac_selected": 0.8671,
+   "F1_acc_unselected": 37.542,
+   "F1_unsel_ci95": [
+    32.26,
+    43.14
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.6875,
+   "F2_neff_ci95": [
+    9.68,
+    70.0
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 261,
+   "F4_frac_traded": 0.8671,
+   "F4_net_bps_mean": -85.04,
+   "F4_net_bps_ci95": [
+    -112.58,
+    -57.49
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 86,
+     "net_bps": -157.32,
+     "ci95": [
+      -191.02,
+      -123.61
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 77,
+     "net_bps": -32.49,
+     "ci95": [
+      -93.38,
+      28.4
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 98,
+     "net_bps": -62.89,
+     "ci95": [
+      -107.3,
+      -18.48
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "no-no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "HYPE-USD",
+   "n_rows": 4918,
+   "n_train": 4016,
+   "n_oos": 731,
+   "data_start": "2025-10-28",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 52.217,
+   "F1_n_selected": 699,
+   "F1_frac_selected": 0.9562,
+   "F1_acc_unselected": 52.12,
+   "F1_unsel_ci95": [
+    48.5,
+    55.72
+   ],
+   "F2_n_oos": 731,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    30.12,
+    75.19
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 699,
+   "F4_frac_traded": 0.9562,
+   "F4_net_bps_mean": 73.63,
+   "F4_net_bps_ci95": [
+    31.92,
+    115.34
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 230,
+     "net_bps": 52.34,
+     "ci95": [
+      8.38,
+      96.29
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 229,
+     "net_bps": -37.03,
+     "ci95": [
+      -80.78,
+      6.71
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 240,
+     "net_bps": 199.63,
+     "ci95": [
+      95.54,
+      303.71
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "OK-OK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "INTC-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 43.662,
+   "F1_n_selected": 284,
+   "F1_frac_selected": 0.9435,
+   "F1_acc_unselected": 43.854,
+   "F1_unsel_ci95": [
+    38.36,
+    49.5
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.76,
+    81.24
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 284,
+   "F4_frac_traded": 0.9435,
+   "F4_net_bps_mean": 3.72,
+   "F4_net_bps_ci95": [
+    -86.84,
+    94.27
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 89,
+     "net_bps": 731.12,
+     "ci95": [
+      572.4,
+      889.84
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 99,
+     "net_bps": -702.61,
+     "ci95": [
+      -760.44,
+      -644.79
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 96,
+     "net_bps": 57.76,
+     "ci95": [
+      -21.75,
+      137.26
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OKno-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "LINK-USD",
+   "n_rows": 5029,
+   "n_train": 4110,
+   "n_oos": 748,
+   "data_start": "2025-10-23",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 51.074,
+   "F1_n_selected": 605,
+   "F1_frac_selected": 0.8088,
+   "F1_acc_unselected": 51.337,
+   "F1_unsel_ci95": [
+    47.76,
+    54.9
+   ],
+   "F2_n_oos": 748,
+   "F2_n_effective": 15.6,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    28.0,
+    72.0
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 605,
+   "F4_frac_traded": 0.8088,
+   "F4_net_bps_mean": 28.25,
+   "F4_net_bps_ci95": [
+    5.03,
+    51.47
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 214,
+     "net_bps": -1.27,
+     "ci95": [
+      -28.44,
+      25.9
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 179,
+     "net_bps": 33.58,
+     "ci95": [
+      -14.9,
+      82.06
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 212,
+     "net_bps": 53.54,
+     "ci95": [
+      9.39,
+      97.69
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "--OK",
+   "NEG_null_acc_mean": 49.813,
+   "NEG_null_acc_sd": 2.161,
+   "NEG_null_acc_min": 45.053,
+   "NEG_null_acc_max": 52.406,
+   "NEG_acc_above_null_by": 1.524,
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "LIT-USD",
+   "n_rows": 3370,
+   "n_train": 2700,
+   "n_oos": 499,
+   "data_start": "2025-12-31",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 27.594,
+   "F1_n_selected": 453,
+   "F1_frac_selected": 0.9078,
+   "F1_acc_unselected": 29.659,
+   "F1_unsel_ci95": [
+    25.82,
+    33.81
+   ],
+   "F2_n_oos": 499,
+   "F2_n_effective": 10.4,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.3438,
+   "F2_neff_ci95": [
+    10.78,
+    60.32
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 453,
+   "F4_frac_traded": 0.9078,
+   "F4_net_bps_mean": -488.85,
+   "F4_net_bps_ci95": [
+    -572.43,
+    -405.27
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 150,
+     "net_bps": -4.85,
+     "ci95": [
+      -68.95,
+      59.26
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 155,
+     "net_bps": -508.98,
+     "ci95": [
+      -607.9,
+      -410.07
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 148,
+     "net_bps": -958.32,
+     "ci95": [
+      -1155.33,
+      -761.31
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "-nono",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "LTC-USD",
+   "n_rows": 4918,
+   "n_train": 4016,
+   "n_oos": 731,
+   "data_start": "2025-10-28",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 57.638,
+   "F1_n_selected": 635,
+   "F1_frac_selected": 0.8687,
+   "F1_acc_unselected": 56.635,
+   "F1_unsel_ci95": [
+    53.02,
+    60.18
+   ],
+   "F2_n_oos": 731,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.6072,
+   "F2_neff_ci95": [
+    35.75,
+    80.18
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 635,
+   "F4_frac_traded": 0.8687,
+   "F4_net_bps_mean": 27.29,
+   "F4_net_bps_ci95": [
+    12.3,
+    42.28
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 219,
+     "net_bps": 23.83,
+     "ci95": [
+      6.56,
+      41.11
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 215,
+     "net_bps": 109.41,
+     "ci95": [
+      88.1,
+      130.72
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 201,
+     "net_bps": -56.8,
+     "ci95": [
+      -89.98,
+      -23.61
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OKOKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "MON-USD",
+   "n_rows": 3735,
+   "n_train": 3010,
+   "n_oos": 554,
+   "data_start": "2025-12-16",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 44.376,
+   "F1_n_selected": 489,
+   "F1_frac_selected": 0.8827,
+   "F1_acc_unselected": 44.224,
+   "F1_unsel_ci95": [
+    40.14,
+    48.39
+   ],
+   "F2_n_oos": 554,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7744,
+   "F2_neff_ci95": [
+    19.33,
+    68.05
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 489,
+   "F4_frac_traded": 0.8827,
+   "F4_net_bps_mean": -83.78,
+   "F4_net_bps_ci95": [
+    -145.83,
+    -21.73
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 164,
+     "net_bps": 48.49,
+     "ci95": [
+      -72.52,
+      169.49
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 144,
+     "net_bps": 0.65,
+     "ci95": [
+      -113.71,
+      115.0
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 181,
+     "net_bps": -270.79,
+     "ci95": [
+      -352.74,
+      -188.83
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "--no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "MU-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 65.371,
+   "F1_n_selected": 283,
+   "F1_frac_selected": 0.9402,
+   "F1_acc_unselected": 64.452,
+   "F1_unsel_ci95": [
+    58.89,
+    69.65
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.6875,
+   "F2_neff_ci95": [
+    30.0,
+    90.32
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 283,
+   "F4_frac_traded": 0.9402,
+   "F4_net_bps_mean": 154.95,
+   "F4_net_bps_ci95": [
+    65.91,
+    243.99
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 87,
+     "net_bps": -123.47,
+     "ci95": [
+      -361.55,
+      114.6
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 96,
+     "net_bps": 377.68,
+     "ci95": [
+      274.24,
+      481.11
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 100,
+     "net_bps": 183.34,
+     "ci95": [
+      101.36,
+      265.33
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "-OKOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "NEAR-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 40.256,
+   "F1_n_selected": 390,
+   "F1_frac_selected": 0.9512,
+   "F1_acc_unselected": 40.0,
+   "F1_unsel_ci95": [
+    35.37,
+    44.81
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.5078,
+   "F2_neff_ci95": [
+    12.06,
+    64.58
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 390,
+   "F4_frac_traded": 0.9512,
+   "F4_net_bps_mean": -242.61,
+   "F4_net_bps_ci95": [
+    -305.52,
+    -179.71
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 130,
+     "net_bps": -636.08,
+     "ci95": [
+      -763.2,
+      -508.96
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 132,
+     "net_bps": -122.98,
+     "ci95": [
+      -182.98,
+      -62.97
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 128,
+     "net_bps": 33.63,
+     "ci95": [
+      -60.81,
+      128.07
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "NVDA-USD",
+   "n_rows": 2652,
+   "n_train": 2090,
+   "n_oos": 391,
+   "data_start": "2026-01-30",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 47.262,
+   "F1_n_selected": 347,
+   "F1_frac_selected": 0.8875,
+   "F1_acc_unselected": 47.57,
+   "F1_unsel_ci95": [
+    42.67,
+    52.52
+   ],
+   "F2_n_oos": 391,
+   "F2_n_effective": 8.1,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    21.52,
+    78.48
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 347,
+   "F4_frac_traded": 0.8875,
+   "F4_net_bps_mean": 7.82,
+   "F4_net_bps_ci95": [
+    -30.87,
+    46.51
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 117,
+     "net_bps": 180.89,
+     "ci95": [
+      107.63,
+      254.14
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 118,
+     "net_bps": -282.4,
+     "ci95": [
+      -330.88,
+      -233.92
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 112,
+     "net_bps": 132.78,
+     "ci95": [
+      96.81,
+      168.75
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "OKnoOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ONDO-USD",
+   "n_rows": 3735,
+   "n_train": 3010,
+   "n_oos": 554,
+   "data_start": "2025-12-16",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 50.312,
+   "F1_n_selected": 481,
+   "F1_frac_selected": 0.8682,
+   "F1_acc_unselected": 50.0,
+   "F1_unsel_ci95": [
+    45.85,
+    54.15
+   ],
+   "F2_n_oos": 554,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    25.38,
+    74.62
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 481,
+   "F4_frac_traded": 0.8682,
+   "F4_net_bps_mean": -148.26,
+   "F4_net_bps_ci95": [
+    -247.2,
+    -49.33
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 122,
+     "net_bps": -24.53,
+     "ci95": [
+      -142.24,
+      93.18
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 184,
+     "net_bps": -825.4,
+     "ci95": [
+      -1010.85,
+      -639.96
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 175,
+     "net_bps": 477.44,
+     "ci95": [
+      377.69,
+      577.19
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "-noOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "OP-USD",
+   "n_rows": 3184,
+   "n_train": 2542,
+   "n_oos": 471,
+   "data_start": "2026-01-08",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 43.973,
+   "F1_n_selected": 448,
+   "F1_frac_selected": 0.9512,
+   "F1_acc_unselected": 44.374,
+   "F1_unsel_ci95": [
+    39.95,
+    48.89
+   ],
+   "F2_n_oos": 471,
+   "F2_n_effective": 9.8,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7539,
+   "F2_neff_ci95": [
+    16.82,
+    68.73
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 448,
+   "F4_frac_traded": 0.9512,
+   "F4_net_bps_mean": -231.46,
+   "F4_net_bps_ci95": [
+    -298.42,
+    -164.49
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 152,
+     "net_bps": -361.58,
+     "ci95": [
+      -457.69,
+      -265.47
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 149,
+     "net_bps": -211.94,
+     "ci95": [
+      -363.88,
+      -60.0
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 147,
+     "net_bps": -116.69,
+     "ci95": [
+      -202.84,
+      -30.53
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "nonono",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ORCL-USD",
+   "n_rows": 1547,
+   "n_train": 1151,
+   "n_oos": 225,
+   "data_start": "2026-03-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 50.917,
+   "F1_n_selected": 218,
+   "F1_frac_selected": 0.9689,
+   "F1_acc_unselected": 50.667,
+   "F1_unsel_ci95": [
+    44.18,
+    57.13
+   ],
+   "F2_n_oos": 225,
+   "F2_n_effective": 4.7,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    11.76,
+    76.93
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 218,
+   "F4_frac_traded": 0.9689,
+   "F4_net_bps_mean": -54.29,
+   "F4_net_bps_ci95": [
+    -93.41,
+    -15.16
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 75,
+     "net_bps": -100.38,
+     "ci95": [
+      -173.24,
+      -27.52
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 72,
+     "net_bps": -91.06,
+     "ci95": [
+      -140.43,
+      -41.7
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 71,
+     "net_bps": 31.7,
+     "ci95": [
+      -42.67,
+      106.06
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "PENGU-USD",
+   "n_rows": 3688,
+   "n_train": 2971,
+   "n_oos": 546,
+   "data_start": "2025-12-18",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 60.446,
+   "F1_n_selected": 493,
+   "F1_frac_selected": 0.9029,
+   "F1_acc_unselected": 57.143,
+   "F1_unsel_ci95": [
+    52.96,
+    61.23
+   ],
+   "F2_n_oos": 546,
+   "F2_n_effective": 11.4,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.5488,
+   "F2_neff_ci95": [
+    35.38,
+    84.83
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 493,
+   "F4_frac_traded": 0.9029,
+   "F4_net_bps_mean": 171.89,
+   "F4_net_bps_ci95": [
+    114.97,
+    228.8
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 168,
+     "net_bps": 343.84,
+     "ci95": [
+      244.74,
+      442.93
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 166,
+     "net_bps": 221.29,
+     "ci95": [
+      133.23,
+      309.35
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 159,
+     "net_bps": -61.38,
+     "ci95": [
+      -159.93,
+      37.18
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OKOK-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "PLTR-USD",
+   "n_rows": 2051,
+   "n_train": 1579,
+   "n_oos": 301,
+   "data_start": "2026-02-24",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 57.303,
+   "F1_n_selected": 267,
+   "F1_frac_selected": 0.887,
+   "F1_acc_unselected": 55.482,
+   "F1_unsel_ci95": [
+    49.83,
+    60.99
+   ],
+   "F2_n_oos": 301,
+   "F2_n_effective": 6.3,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.76,
+    81.24
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 267,
+   "F4_frac_traded": 0.887,
+   "F4_net_bps_mean": 41.02,
+   "F4_net_bps_ci95": [
+    18.29,
+    63.75
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 82,
+     "net_bps": 123.54,
+     "ci95": [
+      102.09,
+      144.98
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 84,
+     "net_bps": 110.53,
+     "ci95": [
+      55.4,
+      165.66
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 101,
+     "net_bps": -83.78,
+     "ci95": [
+      -100.15,
+      -67.41
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "OKOKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "SILVER-USD",
+   "n_rows": 2776,
+   "n_train": 2195,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 60.795,
+   "F1_n_selected": 352,
+   "F1_frac_selected": 0.8585,
+   "F1_acc_unselected": 59.268,
+   "F1_unsel_ci95": [
+    54.45,
+    63.92
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    26.66,
+    81.12
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 352,
+   "F4_frac_traded": 0.8585,
+   "F4_net_bps_mean": 210.8,
+   "F4_net_bps_ci95": [
+    157.55,
+    264.04
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 111,
+     "net_bps": 45.89,
+     "ci95": [
+      -46.33,
+      138.12
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 118,
+     "net_bps": 295.75,
+     "ci95": [
+      232.13,
+      359.38
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 123,
+     "net_bps": 278.11,
+     "ci95": [
+      170.58,
+      385.63
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "-OKOK",
+   "NEG_null_acc_mean": 48.439,
+   "NEG_null_acc_sd": 2.639,
+   "NEG_null_acc_min": 42.439,
+   "NEG_null_acc_max": 52.927,
+   "NEG_acc_above_null_by": 10.829,
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "SKHX-USD",
+   "n_rows": 1546,
+   "n_train": 1150,
+   "n_oos": 225,
+   "data_start": "2026-03-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 59.5,
+   "F1_n_selected": 200,
+   "F1_frac_selected": 0.8889,
+   "F1_acc_unselected": 57.333,
+   "F1_unsel_ci95": [
+    50.8,
+    63.62
+   ],
+   "F2_n_oos": 225,
+   "F2_n_effective": 4.7,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    23.07,
+    88.24
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 200,
+   "F4_frac_traded": 0.8889,
+   "F4_net_bps_mean": 106.26,
+   "F4_net_bps_ci95": [
+    31.31,
+    181.21
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 75,
+     "net_bps": 186.12,
+     "ci95": [
+      73.43,
+      298.8
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 69,
+     "net_bps": 99.12,
+     "ci95": [
+      -63.56,
+      261.8
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 56,
+     "net_bps": 8.12,
+     "ci95": [
+      -82.0,
+      98.24
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OK--",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "SOL-USD",
+   "n_rows": 5076,
+   "n_train": 4150,
+   "n_oos": 755,
+   "data_start": "2025-10-21",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 55.832,
+   "F1_n_selected": 643,
+   "F1_frac_selected": 0.8517,
+   "F1_acc_unselected": 54.967,
+   "F1_unsel_ci95": [
+    51.4,
+    58.48
+   ],
+   "F2_n_oos": 755,
+   "F2_n_effective": 15.7,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.8036,
+   "F2_neff_ci95": [
+    33.18,
+    76.9
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 643,
+   "F4_frac_traded": 0.8517,
+   "F4_net_bps_mean": 39.57,
+   "F4_net_bps_ci95": [
+    16.36,
+    62.78
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 205,
+     "net_bps": -7.52,
+     "ci95": [
+      -39.9,
+      24.86
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 226,
+     "net_bps": 119.8,
+     "ci95": [
+      85.94,
+      153.67
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 212,
+     "net_bps": -0.42,
+     "ci95": [
+      -50.37,
+      49.54
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "-OK-",
+   "NEG_null_acc_mean": 47.691,
+   "NEG_null_acc_sd": 1.432,
+   "NEG_null_acc_min": 44.238,
+   "NEG_null_acc_max": 50.464,
+   "NEG_acc_above_null_by": 7.276,
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "SUI-USD",
+   "n_rows": 3712,
+   "n_train": 2991,
+   "n_oos": 550,
+   "data_start": "2025-12-17",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 52.361,
+   "F1_n_selected": 487,
+   "F1_frac_selected": 0.8855,
+   "F1_acc_unselected": 51.818,
+   "F1_unsel_ci95": [
+    47.64,
+    55.97
+   ],
+   "F2_n_oos": 550,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    28.01,
+    78.73
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 487,
+   "F4_frac_traded": 0.8855,
+   "F4_net_bps_mean": -106.4,
+   "F4_net_bps_ci95": [
+    -180.53,
+    -32.27
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 153,
+     "net_bps": -63.51,
+     "ci95": [
+      -93.6,
+      -33.41
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 168,
+     "net_bps": -307.57,
+     "ci95": [
+      -496.47,
+      -118.67
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 166,
+     "net_bps": 57.66,
+     "ci95": [
+      -34.81,
+      150.14
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "TRUMP-USD",
+   "n_rows": 3184,
+   "n_train": 2542,
+   "n_oos": 471,
+   "data_start": "2026-01-08",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 57.727,
+   "F1_n_selected": 440,
+   "F1_frac_selected": 0.9342,
+   "F1_acc_unselected": 56.263,
+   "F1_unsel_ci95": [
+    51.75,
+    60.67
+   ],
+   "F2_n_oos": 471,
+   "F2_n_effective": 9.8,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7539,
+   "F2_neff_ci95": [
+    31.27,
+    83.18
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 440,
+   "F4_frac_traded": 0.9342,
+   "F4_net_bps_mean": 63.12,
+   "F4_net_bps_ci95": [
+    26.57,
+    99.66
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 142,
+     "net_bps": 34.94,
+     "ci95": [
+      -1.75,
+      71.64
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 153,
+     "net_bps": 11.85,
+     "ci95": [
+      -40.04,
+      63.73
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 145,
+     "net_bps": 144.81,
+     "ci95": [
+      56.52,
+      233.09
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "--OK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "TRX-USD",
+   "n_rows": 3184,
+   "n_train": 2542,
+   "n_oos": 471,
+   "data_start": "2026-01-08",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 63.611,
+   "F1_n_selected": 360,
+   "F1_frac_selected": 0.7643,
+   "F1_acc_unselected": 62.633,
+   "F1_unsel_ci95": [
+    58.18,
+    66.88
+   ],
+   "F2_n_oos": 471,
+   "F2_n_effective": 9.8,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7539,
+   "F2_neff_ci95": [
+    31.27,
+    83.18
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 360,
+   "F4_frac_traded": 0.7643,
+   "F4_net_bps_mean": 9.53,
+   "F4_net_bps_ci95": [
+    -3.87,
+    22.94
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 98,
+     "net_bps": -101.37,
+     "ci95": [
+      -135.88,
+      -66.86
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 155,
+     "net_bps": 29.66,
+     "ci95": [
+      17.04,
+      42.27
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 107,
+     "net_bps": 81.95,
+     "ci95": [
+      72.26,
+      91.64
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "noOKOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "TSLA-USD",
+   "n_rows": 2652,
+   "n_train": 2090,
+   "n_oos": 391,
+   "data_start": "2026-01-30",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 37.574,
+   "F1_n_selected": 338,
+   "F1_frac_selected": 0.8645,
+   "F1_acc_unselected": 37.34,
+   "F1_unsel_ci95": [
+    32.69,
+    42.24
+   ],
+   "F2_n_oos": 391,
+   "F2_n_effective": 8.1,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7266,
+   "F2_neff_ci95": [
+    13.68,
+    69.43
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 338,
+   "F4_frac_traded": 0.8645,
+   "F4_net_bps_mean": -51.72,
+   "F4_net_bps_ci95": [
+    -91.81,
+    -11.63
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 101,
+     "net_bps": -90.12,
+     "ci95": [
+      -185.43,
+      5.2
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 126,
+     "net_bps": -169.31,
+     "ci95": [
+      -196.39,
+      -142.23
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 111,
+     "net_bps": 116.7,
+     "ci95": [
+      46.36,
+      187.04
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "-noOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "UNI-USD",
+   "n_rows": 4917,
+   "n_train": 4015,
+   "n_oos": 731,
+   "data_start": "2025-10-28",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 59.451,
+   "F1_n_selected": 656,
+   "F1_frac_selected": 0.8974,
+   "F1_acc_unselected": 58.96,
+   "F1_unsel_ci95": [
+    55.36,
+    62.47
+   ],
+   "F2_n_oos": 731,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.6072,
+   "F2_neff_ci95": [
+    35.75,
+    80.18
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 656,
+   "F4_frac_traded": 0.8974,
+   "F4_net_bps_mean": 6.17,
+   "F4_net_bps_ci95": [
+    -24.77,
+    37.12
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 220,
+     "net_bps": 94.63,
+     "ci95": [
+      70.47,
+      118.79
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 222,
+     "net_bps": -109.58,
+     "ci95": [
+      -173.55,
+      -45.61
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 214,
+     "net_bps": 35.32,
+     "ci95": [
+      -24.62,
+      95.26
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OKno-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "VIRTUAL-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 44.297,
+   "F1_n_selected": 377,
+   "F1_frac_selected": 0.9195,
+   "F1_acc_unselected": 44.39,
+   "F1_unsel_ci95": [
+    39.66,
+    49.23
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.88,
+    73.34
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 377,
+   "F4_frac_traded": 0.9195,
+   "F4_net_bps_mean": -147.36,
+   "F4_net_bps_ci95": [
+    -226.48,
+    -68.24
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 128,
+     "net_bps": -627.4,
+     "ci95": [
+      -786.04,
+      -468.77
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 131,
+     "net_bps": 309.68,
+     "ci95": [
+      207.97,
+      411.4
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 118,
+     "net_bps": -134.03,
+     "ci95": [
+      -211.88,
+      -56.18
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "noOKno",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "WIF-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 39.335,
+   "F1_n_selected": 361,
+   "F1_frac_selected": 0.8805,
+   "F1_acc_unselected": 40.976,
+   "F1_unsel_ci95": [
+    36.32,
+    45.8
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    18.88,
+    73.34
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 361,
+   "F4_frac_traded": 0.8805,
+   "F4_net_bps_mean": -74.67,
+   "F4_net_bps_ci95": [
+    -139.4,
+    -9.94
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 124,
+     "net_bps": 10.25,
+     "ci95": [
+      -142.53,
+      163.02
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 128,
+     "net_bps": 5.8,
+     "ci95": [
+      -54.0,
+      65.61
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 109,
+     "net_bps": -265.77,
+     "ci95": [
+      -361.76,
+      -169.78
+     ],
+     "verdict": "no"
+    }
+   ],
+   "F5_seg_verdicts": "--no",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "WLD-USD",
+   "n_rows": 3688,
+   "n_train": 2971,
+   "n_oos": 546,
+   "data_start": "2025-12-18",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 39.165,
+   "F1_n_selected": 503,
+   "F1_frac_selected": 0.9212,
+   "F1_acc_unselected": 40.659,
+   "F1_unsel_ci95": [
+    36.62,
+    44.83
+   ],
+   "F2_n_oos": 546,
+   "F2_n_effective": 11.4,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    21.27,
+    71.99
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 503,
+   "F4_frac_traded": 0.9212,
+   "F4_net_bps_mean": -69.63,
+   "F4_net_bps_ci95": [
+    -108.85,
+    -30.4
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 172,
+     "net_bps": -93.25,
+     "ci95": [
+      -134.35,
+      -52.15
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 159,
+     "net_bps": -94.33,
+     "ci95": [
+      -172.91,
+      -15.74
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 172,
+     "net_bps": -23.17,
+     "ci95": [
+      -101.73,
+      55.38
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "nono-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "WLFI-USD",
+   "n_rows": 4917,
+   "n_train": 4015,
+   "n_oos": 731,
+   "data_start": "2025-10-28",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 53.303,
+   "F1_n_selected": 666,
+   "F1_frac_selected": 0.9111,
+   "F1_acc_unselected": 53.078,
+   "F1_unsel_ci95": [
+    49.45,
+    56.67
+   ],
+   "F2_n_oos": 731,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    30.12,
+    75.19
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 666,
+   "F4_frac_traded": 0.9111,
+   "F4_net_bps_mean": -16.75,
+   "F4_net_bps_ci95": [
+    -78.69,
+    45.2
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 218,
+     "net_bps": -146.51,
+     "ci95": [
+      -218.13,
+      -74.9
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 228,
+     "net_bps": -70.33,
+     "ci95": [
+      -221.23,
+      80.58
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 220,
+     "net_bps": 167.37,
+     "ci95": [
+      97.87,
+      236.87
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "no-OK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "XAUT-USD",
+   "n_rows": 4743,
+   "n_train": 3867,
+   "n_oos": 705,
+   "data_start": "2025-11-04",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 40.336,
+   "F1_n_selected": 476,
+   "F1_frac_selected": 0.6752,
+   "F1_acc_unselected": 42.411,
+   "F1_unsel_ci95": [
+    38.81,
+    46.09
+   ],
+   "F2_n_oos": 705,
+   "F2_n_effective": 14.7,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.6072,
+   "F2_neff_ci95": [
+    19.82,
+    64.25
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 476,
+   "F4_frac_traded": 0.6752,
+   "F4_net_bps_mean": -43.96,
+   "F4_net_bps_ci95": [
+    -57.42,
+    -30.51
+   ],
+   "F4_positive": false,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 177,
+     "net_bps": -112.47,
+     "ci95": [
+      -129.01,
+      -95.92
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 186,
+     "net_bps": -2.07,
+     "ci95": [
+      -27.43,
+      23.3
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 3,
+     "n": 113,
+     "net_bps": -5.62,
+     "ci95": [
+      -25.88,
+      14.63
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "no--",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "XMR-USD",
+   "n_rows": 2779,
+   "n_train": 2198,
+   "n_oos": 410,
+   "data_start": "2026-01-25",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 66.94,
+   "F1_n_selected": 366,
+   "F1_frac_selected": 0.8927,
+   "F1_acc_unselected": 65.854,
+   "F1_unsel_ci95": [
+    61.14,
+    70.28
+   ],
+   "F2_n_oos": 410,
+   "F2_n_effective": 8.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.5078,
+   "F2_neff_ci95": [
+    35.42,
+    87.94
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 366,
+   "F4_frac_traded": 0.8927,
+   "F4_net_bps_mean": 131.79,
+   "F4_net_bps_ci95": [
+    101.24,
+    162.35
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 129,
+     "net_bps": 258.34,
+     "ci95": [
+      205.57,
+      311.11
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 115,
+     "net_bps": -80.8,
+     "ci95": [
+      -124.33,
+      -37.27
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 3,
+     "n": 122,
+     "net_bps": 198.38,
+     "ci95": [
+      158.15,
+      238.61
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "OKnoOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "XPL-USD",
+   "n_rows": 3735,
+   "n_train": 3010,
+   "n_oos": 554,
+   "data_start": "2025-12-16",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 51.44,
+   "F1_n_selected": 521,
+   "F1_frac_selected": 0.9404,
+   "F1_acc_unselected": 51.625,
+   "F1_unsel_ci95": [
+    47.47,
+    55.76
+   ],
+   "F2_n_oos": 554,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    25.38,
+    74.62
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 521,
+   "F4_frac_traded": 0.9404,
+   "F4_net_bps_mean": 41.65,
+   "F4_net_bps_ci95": [
+    -10.21,
+    93.51
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 174,
+     "net_bps": -50.32,
+     "ci95": [
+      -107.22,
+      6.58
+     ],
+     "verdict": "-"
+    },
+    {
+     "seg": 2,
+     "n": 176,
+     "net_bps": 206.11,
+     "ci95": [
+      94.95,
+      317.27
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 171,
+     "net_bps": -34.04,
+     "ci95": [
+      -121.62,
+      53.54
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "-OK-",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "XRP-USD",
+   "n_rows": 4927,
+   "n_train": 4024,
+   "n_oos": 732,
+   "data_start": "2025-10-27",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 54.198,
+   "F1_n_selected": 655,
+   "F1_frac_selected": 0.8948,
+   "F1_acc_unselected": 54.508,
+   "F1_unsel_ci95": [
+    50.89,
+    58.08
+   ],
+   "F2_n_oos": 732,
+   "F2_n_effective": 15.2,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 1.0,
+   "F2_neff_ci95": [
+    30.12,
+    75.19
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 655,
+   "F4_frac_traded": 0.8948,
+   "F4_net_bps_mean": 15.81,
+   "F4_net_bps_ci95": [
+    -0.53,
+    32.14
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 207,
+     "net_bps": -86.83,
+     "ci95": [
+      -103.63,
+      -70.04
+     ],
+     "verdict": "no"
+    },
+    {
+     "seg": 2,
+     "n": 244,
+     "net_bps": 67.08,
+     "ci95": [
+      45.81,
+      88.34
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 204,
+     "net_bps": 58.63,
+     "ci95": [
+      19.59,
+      97.67
+     ],
+     "verdict": "OK"
+    }
+   ],
+   "F5_seg_verdicts": "noOKOK",
+   "BH_FDR_pass": false
+  },
+  {
+   "symbol": "ZEC-USD",
+   "n_rows": 3735,
+   "n_train": 3010,
+   "n_oos": 554,
+   "data_start": "2025-12-16",
+   "data_end": "2026-05-21",
+   "F1_acc_as_reported": 64.107,
+   "F1_n_selected": 521,
+   "F1_frac_selected": 0.9404,
+   "F1_acc_unselected": 62.996,
+   "F1_unsel_ci95": [
+    58.9,
+    66.91
+   ],
+   "F2_n_oos": 554,
+   "F2_n_effective": 11.5,
+   "F2_shrink_factor": 48.0,
+   "F2_p_binom_neff": 0.7744,
+   "F2_neff_ci95": [
+    31.95,
+    80.67
+   ],
+   "F2_ambiguous": true,
+   "F4_n_trades": 521,
+   "F4_frac_traded": 0.9404,
+   "F4_net_bps_mean": 453.02,
+   "F4_net_bps_ci95": [
+    352.73,
+    553.31
+   ],
+   "F4_positive": true,
+   "F5_segments": [
+    {
+     "seg": 1,
+     "n": 179,
+     "net_bps": 431.39,
+     "ci95": [
+      314.87,
+      547.92
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 2,
+     "n": 176,
+     "net_bps": 987.23,
+     "ci95": [
+      764.54,
+      1209.92
+     ],
+     "verdict": "OK"
+    },
+    {
+     "seg": 3,
+     "n": 166,
+     "net_bps": -90.05,
+     "ci95": [
+      -208.38,
+      28.28
+     ],
+     "verdict": "-"
+    }
+   ],
+   "F5_seg_verdicts": "OKOK-",
+   "BH_FDR_pass": false
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=PRAREG-23b Mode A paper-forward recorder + paper EKSEKUSI di buku nyata (DRY-RUN, tanpa order, fail-closed)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti/scripts/research/mode_a_20261026
+ExecStart=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore paper_forward.py record forward
+ExecStart=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore paper_exec.py run forward
+StandardOutput=append:/home/USER/anantara-sakti/logs/prereg23b_record.log
+StandardError=append:/home/USER/anantara-sakti/logs/prereg23b_record.log
+Nice=10

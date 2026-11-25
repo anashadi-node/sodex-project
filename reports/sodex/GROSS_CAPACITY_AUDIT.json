@@ -1,0 +1,128 @@
+{
+ "generated_utc": "2026-10-25T08:09:01.638816+00:00",
+ "per_engine": {
+  "aster": {
+   "n": 243,
+   "gross_mean_bps": -8.26,
+   "gross_median_bps": -203.02,
+   "net_mean_bps": -27.03,
+   "net_median_bps": -211.97,
+   "cost_mean_bps": 18.77,
+   "cost_median_bps": 9.0,
+   "share_gross_pos": 0.379,
+   "share_gross_gt_cost": 0.358,
+   "hold_h_median": 9.7
+  },
+  "donchian": {
+   "n": 206,
+   "gross_mean_bps": 14.98,
+   "gross_median_bps": -201.92,
+   "net_mean_bps": 7.82,
+   "net_median_bps": -207.42,
+   "cost_mean_bps": 7.16,
+   "cost_median_bps": 6.4,
+   "share_gross_pos": 0.369,
+   "share_gross_gt_cost": 0.369,
+   "hold_h_median": 4.9
+  },
+  "hyperliquid": {
+   "n": 214,
+   "gross_mean_bps": -17.54,
+   "gross_median_bps": -201.43,
+   "net_mean_bps": -37.76,
+   "net_median_bps": -210.59,
+   "cost_mean_bps": 20.22,
+   "cost_median_bps": 7.5,
+   "share_gross_pos": 0.327,
+   "share_gross_gt_cost": 0.304,
+   "hold_h_median": 9.9
+  },
+  "pasar_anantara_trade": {
+   "n": 46,
+   "gross_mean_bps": -96.98,
+   "gross_median_bps": -153.75,
+   "net_mean_bps": -102.06,
+   "net_median_bps": -158.86,
+   "cost_mean_bps": 5.08,
+   "cost_median_bps": 4.4,
+   "share_gross_pos": 0.348,
+   "share_gross_gt_cost": 0.348,
+   "hold_h_median": 8.8
+  },
+  "portfolio": {
+   "n": 86,
+   "gross_mean_bps": -40.51,
+   "gross_median_bps": -150.63,
+   "net_mean_bps": -49.28,
+   "net_median_bps": -155.5,
+   "cost_mean_bps": 8.77,
+   "cost_median_bps": 4.63,
+   "share_gross_pos": 0.407,
+   "share_gross_gt_cost": 0.384,
+   "hold_h_median": 6.8
+  },
+  "realwide": {
+   "n": 268,
+   "gross_mean_bps": 15.59,
+   "gross_median_bps": -13.42,
+   "net_mean_bps": 8.78,
+   "net_median_bps": -20.73,
+   "cost_mean_bps": 6.8,
+   "cost_median_bps": 4.67,
+   "share_gross_pos": 0.481,
+   "share_gross_gt_cost": 0.474,
+   "hold_h_median": 7.2
+  },
+  "shortbear": {
+   "n": 41,
+   "gross_mean_bps": 39.98,
+   "gross_median_bps": 45.99,
+   "net_mean_bps": -48.41,
+   "net_median_bps": -58.0,
+   "cost_mean_bps": 88.4,
+   "cost_median_bps": 103.99,
+   "share_gross_pos": 0.512,
+   "share_gross_gt_cost": 0.488,
+   "hold_h_median": 5.0
+  },
+  "spot_swing_v2": {
+   "n": 0
+  },
+  "swing": {
+   "n": 419,
+   "gross_mean_bps": 6.48,
+   "gross_median_bps": -101.13,
+   "net_mean_bps": 1.24,
+   "net_median_bps": -105.57,
+   "cost_mean_bps": 5.24,
+   "cost_median_bps": 3.9,
+   "share_gross_pos": 0.348,
+   "share_gross_gt_cost": 0.348,
+   "hold_h_median": 2.9
+  },
+  "twoway": {
+   "n": 436,
+   "gross_mean_bps": 20.18,
+   "gross_median_bps": -34.16,
+   "net_mean_bps": 12.59,
+   "net_median_bps": -44.46,
+   "cost_mean_bps": 7.59,
+   "cost_median_bps": 5.9,
+   "share_gross_pos": 0.424,
+   "share_gross_gt_cost": 0.408,
+   "hold_h_median": 12.9
+  }
+ },
+ "total": {
+  "n": 1959,
+  "gross_mean_bps": 3.43,
+  "gross_median_bps": -100.65,
+  "net_mean_bps": -7.96,
+  "net_median_bps": -106.11,
+  "cost_mean_bps": 11.39,
+  "cost_median_bps": 4.9,
+  "share_gross_pos": 0.393,
+  "share_gross_gt_cost": 0.382,
+  "hold_h_median": 6.9
+ }
+}

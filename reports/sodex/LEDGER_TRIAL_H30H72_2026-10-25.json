@@ -1,0 +1,130 @@
+{
+ "generated_utc": "2026-10-25T03:47:30.730701+00:00",
+ "judul": "LEDGER TRIAL H30/48/72 \u2014 SoDEX & Binance (25-Okt-2026)",
+ "status": "DESKRIPTIF \u2014 tidak mengubah registry strategi (reports/sodex/sodex_trial_registry.json)",
+ "standar": "riset-penelitian v1.0.0",
+ "artefak": [
+  {
+   "file": "reports/sodex/PANEL_EXTEND_H30H72_sodex_full.json",
+   "tag": "sodex_full",
+   "family": "xsec",
+   "bar": 8957,
+   "simbol": 95,
+   "trial": 36,
+   "pass": 0,
+   "mean_positif": 11,
+   "t_terkuat": {
+    "REV_L3_H72": -6.38
+   }
+  },
+  {
+   "file": "reports/sodex/PANEL_EXTEND_H30H72_sodex_real.json",
+   "tag": "sodex_real",
+   "family": "xsec",
+   "bar": 3244,
+   "simbol": 95,
+   "trial": 36,
+   "pass": 0,
+   "mean_positif": 13,
+   "t_terkuat": {
+    "RANGEPOS_H72": 4.2
+   }
+  },
+  {
+   "file": "reports/sodex/PANEL_EXTEND_H30H72_binance_full.json",
+   "tag": "binance_full",
+   "family": "xsec",
+   "bar": 24276,
+   "simbol": 54,
+   "trial": 48,
+   "pass": 0,
+   "mean_positif": 9,
+   "t_terkuat": {
+    "BASIS_H24": -10.48
+   }
+  },
+  {
+   "file": "reports/sodex/TS_MECH_H30H72_sodex_real.json",
+   "tag": "sodex_real",
+   "family": "ts",
+   "bar": 3244,
+   "simbol": 95,
+   "trial": 14,
+   "pass": 0,
+   "mean_positif": 8,
+   "t_terkuat": {
+    "TSMOM_L168_H72": -5.5
+   }
+  },
+  {
+   "file": "reports/sodex/TS_MECH_H30H72_binance_full.json",
+   "tag": "binance_full",
+   "family": "ts",
+   "bar": 24276,
+   "simbol": 54,
+   "trial": 16,
+   "pass": 0,
+   "mean_positif": 9,
+   "t_terkuat": {
+    "BRK_L168_H24": -4.16
+   }
+  },
+  {
+   "file": "reports/sodex/VERIFIKASI_N_KECIL_H30H72_sodex_real.json",
+   "kandidat": 8,
+   "lulus": 0,
+   "permutasi_per_kandidat": 200,
+   "bootstrap": 5000
+  },
+  {
+   "file": "reports/sodex/LIT_NEW_MECHS_H30H72_sodex_full.json",
+   "tag": "sodex_full",
+   "family": "lit_new",
+   "bar": 8957,
+   "simbol": 95,
+   "trial": 16,
+   "pass": 0,
+   "bh_pass": null,
+   "t_terkuat": {
+    "RAMOM_L168_H48": 2.19
+   }
+  },
+  {
+   "file": "reports/sodex/LIT_NEW_MECHS_H30H72_sodex_real.json",
+   "tag": "sodex_real",
+   "family": "lit_new",
+   "bar": 3244,
+   "simbol": 95,
+   "trial": 16,
+   "pass": 0,
+   "bh_pass": null,
+   "t_terkuat": {
+    "RAMOM_L168_H30": 0.73
+   }
+  },
+  {
+   "file": "reports/sodex/LIT_NEW_MECHS_H30H72_binance_full.json",
+   "tag": "binance_full",
+   "family": "lit_new",
+   "bar": 24276,
+   "simbol": 54,
+   "trial": 20,
+   "pass": 0,
+   "bh_pass": [
+    "RESMOM_L168_H72",
+    "RAMOM_L168_H24",
+    "RAMOM_L168_H30",
+    "RAMOM_L168_H48",
+    "RAMOM_L168_H72",
+    "BVDOWN_L168_H48",
+    "BVDOWN_L168_H72"
+   ],
+   "t_terkuat": {
+    "RAMOM_L168_H72": 3.1
+   }
+  }
+ ],
+ "total_trial": 210,
+ "total_pass": 0,
+ "gelombang2": "5 mekanisme literatur (RESMOM/RAMOM/ANCHOR_720/BVDOWN/VOLPREM); 0 pass; RAMOM_H72 Binance t=3,10 S=1,39 BH-pass tapi gagal replikasi sodex_real"
+}

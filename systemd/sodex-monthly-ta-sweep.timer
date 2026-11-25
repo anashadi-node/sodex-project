@@ -1,0 +1,10 @@
+[Unit]
+Description=Anantara Sakti - SoDEX sweep bulanan (tanggal 1 setiap bulan, 06:30 WIB)
+
+[Timer]
+OnCalendar=*-*-01 06:30:00
+Persistent=true
+Unit=sodex-monthly-ta-sweep.service
+
+[Install]
+WantedBy=timers.target

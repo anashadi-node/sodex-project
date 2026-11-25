@@ -1,0 +1,11 @@
+[Unit]
+Description=PRAREG-33 carry saham-perp paper-forward recorder (DRY-RUN, tanpa order, fail-closed)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti/scripts/research/carry_20261026
+ExecStart=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore carry_forward.py record /home/USER/anantara-sakti/scripts/research/carry_20261026/forward
+StandardOutput=append:/home/USER/anantara-sakti/logs/carry_record.log
+StandardError=append:/home/USER/anantara-sakti/logs/carry_record.log
+Nice=10

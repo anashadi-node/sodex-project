@@ -1,0 +1,11 @@
+[Unit]
+Description=Jalankan S1 uji forward SOL setiap 24 jam (status + akumulasi jendela)
+Requires=sodex-s1-sol-forward.service
+
+[Timer]
+OnBootSec=25min
+OnUnitActiveSec=24h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

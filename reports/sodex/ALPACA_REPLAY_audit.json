@@ -1,0 +1,151 @@
+{
+ "file": "/home/USER/anantara-sakti/data/alpaca/paper_trades.jsonl",
+ "n": 456499,
+ "sumber_label": "REPLAY/simulasi atas data historis (tanggal sintetis)",
+ "rentang_closed_utc": [
+  "1970-10-15",
+  "2026-10-02"
+ ],
+ "agregat": {
+  "ALL": {
+   "n": 456499,
+   "menang_pct": 50.65,
+   "net_pct": 0.02373,
+   "gross_pct": 0.02511,
+   "cost_pct": 0.00138,
+   "pred_p": 0.6031,
+   "exposure": 0.4655,
+   "total_net_pct": 10833.9
+  },
+  "strategy=B5_REGIME_MOMENTUM": {
+   "n": 456499,
+   "menang_pct": 50.65,
+   "net_pct": 0.02373,
+   "gross_pct": 0.02511,
+   "cost_pct": 0.00138,
+   "pred_p": 0.6031,
+   "exposure": 0.4655,
+   "total_net_pct": 10833.9
+  },
+  "project=ALPACA_US_EQUITIES": {
+   "n": 456499,
+   "menang_pct": 50.65,
+   "net_pct": 0.02373,
+   "gross_pct": 0.02511,
+   "cost_pct": 0.00138,
+   "pred_p": 0.6031,
+   "exposure": 0.4655,
+   "total_net_pct": 10833.9
+  },
+  "source=alpaca_etf_momentum_next_bar_paper": {
+   "n": 456499,
+   "menang_pct": 50.65,
+   "net_pct": 0.02373,
+   "gross_pct": 0.02511,
+   "cost_pct": 0.00138,
+   "pred_p": 0.6031,
+   "exposure": 0.4655,
+   "total_net_pct": 10833.9
+  },
+  "mode=PAPER_SIGNAL": {
+   "n": 456499,
+   "menang_pct": 50.65,
+   "net_pct": 0.02373,
+   "gross_pct": 0.02511,
+   "cost_pct": 0.00138,
+   "pred_p": 0.6031,
+   "exposure": 0.4655,
+   "total_net_pct": 10833.9
+  }
+ },
+ "kalibrasi": {
+  "0.5-0.6": {
+   "n": 188767,
+   "pred_p": 0.5729,
+   "aktual_wr": 0.4933,
+   "selisih": -0.0796
+  },
+  "0.6-0.7": {
+   "n": 267732,
+   "pred_p": 0.6244,
+   "aktual_wr": 0.5159,
+   "selisih": -0.1085
+  }
+ },
+ "simbol_top": [
+  {
+   "symbol": "KO",
+   "n": 8391,
+   "wr_pct": 49.48,
+   "net_pct": 0.01955
+  },
+  {
+   "symbol": "PG",
+   "n": 8383,
+   "wr_pct": 48.93,
+   "net_pct": 0.00989
+  },
+  {
+   "symbol": "XOM",
+   "n": 8371,
+   "wr_pct": 49.64,
+   "net_pct": 0.02079
+  },
+  {
+   "symbol": "JNJ",
+   "n": 8283,
+   "wr_pct": 48.92,
+   "net_pct": 0.01897
+  },
+  {
+   "symbol": "RTX",
+   "n": 8256,
+   "wr_pct": 49.32,
+   "net_pct": 0.0268
+  },
+  {
+   "symbol": "MCD",
+   "n": 8179,
+   "wr_pct": 50.29,
+   "net_pct": 0.02807
+  },
+  {
+   "symbol": "GE",
+   "n": 7971,
+   "wr_pct": 48.41,
+   "net_pct": 0.02373
+  },
+  {
+   "symbol": "PEP",
+   "n": 7940,
+   "wr_pct": 46.57,
+   "net_pct": 0.01181
+  },
+  {
+   "symbol": "WMT",
+   "n": 7934,
+   "wr_pct": 48.37,
+   "net_pct": 0.02827
+  },
+  {
+   "symbol": "NEE",
+   "n": 7910,
+   "wr_pct": 47.99,
+   "net_pct": 0.02208
+  },
+  {
+   "symbol": "HON",
+   "n": 7909,
+   "wr_pct": 48.68,
+   "net_pct": 0.01786
+  },
+  {
+   "symbol": "CVX",
+   "n": 7873,
+   "wr_pct": 49.12,
+   "net_pct": 0.01241
+  }
+ ],
+ "brier": 0.00953,
+ "ece": 0.09656
+}

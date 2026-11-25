@@ -1,0 +1,19 @@
+[Unit]
+Description=SoDEX PIN-Maker approved real-live paired maker canary
+After=network-online.target sodex-book-recorder.service
+Wants=network-online.target sodex-book-recorder.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+Environment=CONFIRM_LIVE=YES
+ExecStart=/usr/bin/python3 -u /home/USER/anantara-sakti/scripts/sodex_pin_maker.py --approved-live --pair XPL-USD --notional 20 --ttl 60 --close-ttl 60 --loss-cap 0.25 --max-rt 100 --interval 1
+Restart=on-failure
+RestartSec=15
+TimeoutStopSec=20
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_pin_maker.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_pin_maker.log
+
+[Install]
+WantedBy=default.target

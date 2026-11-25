@@ -1,0 +1,106 @@
+{
+ "phase": "DEV",
+ "tier": "bar",
+ "fill_model": "bar",
+ "range": [
+  "2022-10-01",
+  "2025-09-30"
+ ],
+ "theta": [
+  0.03,
+  0.05,
+  0.08
+ ],
+ "stop_atr": 1.5,
+ "hold_h": 24,
+ "cluster_h": 24,
+ "protocol": "docs/sodex/R4D_PROTOKOL_H13_2026-10-05.md (beku d63e7ee)",
+ "hypotheses": {
+  "H13a": {
+   "n_windows": 547,
+   "mean48_pct": 0.0547,
+   "sr_annual": 0.592,
+   "p_signflip": 0.3081,
+   "p_day_cluster": 0.3093,
+   "segments_pct": [
+    0.1293,
+    -0.0054,
+    0.0396
+   ],
+   "trades": 1675,
+   "events_clustered": 1676,
+   "gross_median_pct": -0.086,
+   "min_gross_required_pct": 0.164,
+   "budget_ok": false,
+   "slip_median_pct": 0.02,
+   "stop_rate_pct": 37.5,
+   "p5_pct": -6.848,
+   "worst_pct": -26.982,
+   "skew": 1.11,
+   "control_p": 0.004975124378109453,
+   "dsr": 0.569,
+   "segments_positive": 2
+  },
+  "H13b": {
+   "n_windows": 547,
+   "mean48_pct": 0.049,
+   "sr_annual": 0.576,
+   "p_signflip": 0.3345,
+   "p_day_cluster": 0.3295,
+   "segments_pct": [
+    0.153,
+    0.0164,
+    -0.0229
+   ],
+   "trades": 502,
+   "events_clustered": 502,
+   "gross_median_pct": 0.567,
+   "min_gross_required_pct": 0.164,
+   "budget_ok": true,
+   "slip_median_pct": 0.02,
+   "stop_rate_pct": 36.1,
+   "p5_pct": -8.992,
+   "worst_pct": -20.645,
+   "skew": 1.39,
+   "control_p": 0.004975124378109453,
+   "dsr": 0.563,
+   "segments_positive": 2
+  },
+  "H13c": {
+   "n_windows": 547,
+   "mean48_pct": 0.0099,
+   "sr_annual": 0.224,
+   "p_signflip": 0.7001,
+   "p_day_cluster": 0.71,
+   "segments_pct": [
+    0.0301,
+    0.0464,
+    -0.0471
+   ],
+   "trades": 114,
+   "events_clustered": 114,
+   "gross_median_pct": 0.313,
+   "min_gross_required_pct": 0.164,
+   "budget_ok": true,
+   "slip_median_pct": 0.02,
+   "stop_rate_pct": 35.9,
+   "p5_pct": -10.501,
+   "worst_pct": -16.379,
+   "skew": 1.24,
+   "control_p": 0.004975124378109453,
+   "dsr": 0.321,
+   "segments_positive": 2
+  }
+ },
+ "bh_pass": {
+  "H13a": false,
+  "H13b": false,
+  "H13c": false
+ },
+ "pbo": 0.5634920634920635,
+ "verdict": {
+  "H13a": "FAIL",
+  "H13b": "FAIL",
+  "H13c": "FAIL"
+ }
+}

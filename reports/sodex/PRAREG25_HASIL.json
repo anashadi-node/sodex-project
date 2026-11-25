@@ -1,0 +1,569 @@
+{
+ "protokol": "PRAREG-25-v1-frozen-2026-10-09",
+ "pool": 66,
+ "universe_topn": 20,
+ "lookback_volume_hari": 30,
+ "max_bobot": 1.0,
+ "bonferroni": 0.025,
+ "n_trials_dsr": 80,
+ "arms": {
+  "S-A_kontrol_divN": true,
+  "S-B_primer_tanpa_divN": false
+ },
+ "simbol_delisting": [
+  "EOSUSDT",
+  "MATICUSDT",
+  "MKRUSDT",
+  "OCEANUSDT",
+  "OMGUSDT",
+  "RENUSDT",
+  "SRMUSDT",
+  "TOMOUSDT",
+  "WAVESUSDT"
+ ],
+ "rebalance_log_head": [
+  {
+   "tanggal": "2017-08-17",
+   "dipilih": 0,
+   "kandidat": 0,
+   "top5": []
+  },
+  {
+   "tanggal": "2017-08-31",
+   "dipilih": 0,
+   "kandidat": 0,
+   "top5": []
+  },
+  {
+   "tanggal": "2017-09-30",
+   "dipilih": 2,
+   "kandidat": 2,
+   "top5": [
+    "BTCUSDT",
+    "ETHUSDT"
+   ]
+  }
+ ],
+ "rebalance_log_tail": [
+  {
+   "tanggal": "2026-08-31",
+   "dipilih": 20,
+   "kandidat": 55,
+   "top5": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "BNBUSDT"
+   ]
+  },
+  {
+   "tanggal": "2026-09-30",
+   "dipilih": 20,
+   "kandidat": 54,
+   "top5": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "ZECUSDT",
+    "SOLUSDT",
+    "XRPUSDT"
+   ]
+  },
+  {
+   "tanggal": "2026-10-09",
+   "dipilih": 20,
+   "kandidat": 54,
+   "top5": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "ZECUSDT",
+    "SOLUSDT",
+    "XRPUSDT"
+   ]
+  }
+ ],
+ "n_rebalance": 112,
+ "terverifikasi": {
+  "btc_bh": {
+   "n_hari": 2975,
+   "sharpe": 0.9523558365156588,
+   "ret_total_pct": 2861.3301625705562,
+   "mdd_pct": -83.18705353076483,
+   "pct_per_48j": 0.22803935561008792,
+   "cagr_pct": 51.542818042886736,
+   "eksposur_rata": 1.0,
+   "blok_positif_pct": 55.4054054054054,
+   "blok_median_pct": 1.9887632611976347,
+   "n_blok": 148
+  },
+  "ew_pool": {
+   "n_hari": 2975,
+   "sharpe": 0.8123884798389898,
+   "ret_total_pct": 1199.5359051107116,
+   "mdd_pct": -90.43265018860825,
+   "pct_per_48j": 0.17255827697308934,
+   "cagr_pct": 36.97763226445916,
+   "blok_positif_pct": 50.0,
+   "blok_median_pct": -0.05793518080445259,
+   "n_blok": 148
+  },
+  "S-A_kontrol_divN": {
+   "25bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.0679857113393998,
+     "ret_total_pct": 91.2712441422346,
+     "mdd_pct": -13.014788139300325,
+     "pct_per_48j": 0.04359299098866121,
+     "cagr_pct": 8.278873260511265,
+     "eksposur_rata": 0.07765522920405474,
+     "blok_positif_pct": 39.189189189189186,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "sub_periode": {
+     "2019-2021": 1.7423527277090767,
+     "2022-2023": 0.3492965685953734,
+     "2024-2026": 1.0113081411559497
+    },
+    "p_vs_btc": 0.392,
+    "dsr": 0.7223783588355385,
+    "dsr_raw": {
+     "n": 2976,
+     "sr_per_period": 0.05589153428402311,
+     "sr_annualized": 1.0678062631803007,
+     "sr0_expected_max": 0.044972944670283295,
+     "sr0_annualized": 0.8592069015059599,
+     "dsr": 0.7223783588355385,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.009745316094765229,
+    "turnover_tahunan_x": 3.5570403745893087
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.1382664729802776,
+     "ret_total_pct": 99.78476027992149,
+     "mdd_pct": -11.87147516222259,
+     "pct_per_48j": 0.046520925318604966,
+     "cagr_pct": 8.85874588756488,
+     "eksposur_rata": 0.07765522920405474,
+     "blok_positif_pct": 39.86486486486486,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "sub_periode": {
+     "2019-2021": 1.7980667036421119,
+     "2022-2023": 0.4632683096013198,
+     "2024-2026": 1.0911267486192084
+    },
+    "p_vs_btc": 0.3015,
+    "dsr": 0.7846760811971663,
+    "dsr_raw": {
+     "n": 2976,
+     "sr_per_period": 0.059569579371191936,
+     "sr_annualized": 1.13807521590542,
+     "sr0_expected_max": 0.04497771164994068,
+     "sr0_annualized": 0.8592979745244379,
+     "dsr": 0.7846760811971663,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.009745316094765229,
+    "turnover_tahunan_x": 3.5570403745893087
+   },
+   "kontribusi_koin": {
+    "BNBUSDT": 0.11821606709990873,
+    "BTCUSDT": 0.09840733011576584,
+    "ETHUSDT": 0.07682815163170016,
+    "TRXUSDT": 0.06860628896049864,
+    "ADAUSDT": 0.06405782217438405,
+    "XRPUSDT": 0.04937926545814247,
+    "SOLUSDT": 0.04110996168815187,
+    "LINKUSDT": 0.04046254256403349,
+    "LTCUSDT": 0.03987368377784967,
+    "VETUSDT": 0.02888391388184945
+   },
+   "kontribusi_koin_terburuk": {
+    "IOTAUSDT": -0.005731624610594288,
+    "GRTUSDT": -0.004427876041534611,
+    "SANDUSDT": -0.004314647761778686,
+    "WAVESUSDT": -0.004212493387971963,
+    "THETAUSDT": -0.0038454249923531294
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": true,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "h_dsr_gt_0": true,
+     "f_pct48_ge_0.10": false,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 3
+   }
+  },
+  "S-B_primer_tanpa_divN": {
+   "25bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 0.9219608136278677,
+     "ret_total_pct": 1711.26846566678,
+     "mdd_pct": -81.49327750482614,
+     "pct_per_48j": 0.19485441368494172,
+     "cagr_pct": 42.65562087676531,
+     "eksposur_rata": 0.651027671648668,
+     "blok_positif_pct": 38.513513513513516,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "sub_periode": {
+     "2019-2021": 1.8423333973915914,
+     "2022-2023": -0.4390021647005943,
+     "2024-2026": 0.7194312825505574
+    },
+    "p_vs_btc": 0.5235,
+    "dsr": 0.5700451869086717,
+    "dsr_raw": {
+     "n": 2976,
+     "sr_per_period": 0.04824952607163856,
+     "sr_annualized": 0.9218059012830581,
+     "sr0_expected_max": 0.04496400984298334,
+     "sr0_annualized": 0.8590362018700751,
+     "dsr": 0.5700451869086717,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.093485779663769,
+    "turnover_tahunan_x": 34.122309577275686
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.0153785285634105,
+     "ret_total_pct": 2657.71104964185,
+     "mdd_pct": -77.99756186446032,
+     "pct_per_48j": 0.22316437428462343,
+     "cagr_pct": 50.20355352955617,
+     "eksposur_rata": 0.651027671648668,
+     "blok_positif_pct": 40.54054054054054,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "sub_periode": {
+     "2019-2021": 1.9098149658886472,
+     "2022-2023": -0.2711951160908969,
+     "2024-2026": 0.8366036800871769
+    },
+    "p_vs_btc": 0.414,
+    "dsr": 0.6693682436691814,
+    "dsr_raw": {
+     "n": 2976,
+     "sr_per_period": 0.05313841115841262,
+     "sr_annualized": 1.015207919719299,
+     "sr0_expected_max": 0.04496957489279862,
+     "sr0_annualized": 0.859142521997511,
+     "dsr": 0.6693682436691814,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.093485779663769,
+    "turnover_tahunan_x": 34.122309577275686
+   },
+   "kontribusi_koin": {
+    "BTCUSDT": 0.8426425251635616,
+    "BNBUSDT": 0.7027548692810285,
+    "ETHUSDT": 0.5906451437305672,
+    "TRXUSDT": 0.5205460304783448,
+    "ADAUSDT": 0.46778700964645886,
+    "VETUSDT": 0.28899234590002887,
+    "XRPUSDT": 0.28169260731704177,
+    "LTCUSDT": 0.2378378571284787,
+    "SOLUSDT": 0.23231494108575,
+    "LINKUSDT": 0.1695898268301892
+   },
+   "kontribusi_koin_terburuk": {
+    "SANDUSDT": -0.05816574802206636,
+    "IOTAUSDT": -0.04832987341258861,
+    "ARUSDT": -0.045527218864185016,
+    "CHZUSDT": -0.04374960637655795,
+    "WAVESUSDT": -0.0422016268316505
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": false,
+     "b_mdd_le_50pct_btc": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "h_dsr_gt_0": true,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 2
+   }
+  }
+ },
+ "penuh_termasuk_ekstensi": {
+  "btc_bh": {
+   "n_hari": 3340,
+   "sharpe": 0.8297069865343243,
+   "ret_total_pct": 1915.6938153087456,
+   "mdd_pct": -83.18705353076483,
+   "pct_per_48j": 0.18001503973286148,
+   "cagr_pct": 38.85112118088434,
+   "eksposur_rata": 1.0,
+   "blok_positif_pct": 53.89221556886228,
+   "blok_median_pct": 1.761392051304722,
+   "n_blok": 167
+  },
+  "ew_pool": {
+   "n_hari": 3340,
+   "sharpe": 0.6922608726757186,
+   "ret_total_pct": 604.0062463066578,
+   "mdd_pct": -90.43265018860825,
+   "pct_per_48j": 0.11693160772916489,
+   "cagr_pct": 23.77256164274508,
+   "blok_positif_pct": 47.90419161676647,
+   "blok_median_pct": -0.7152605833008807,
+   "n_blok": 167
+  },
+  "S-A_kontrol_divN": {
+   "25bps": {
+    "stats": {
+     "n_hari": 3341,
+     "sharpe": 0.9551981669021009,
+     "ret_total_pct": 87.53483515794318,
+     "mdd_pct": -13.014788139300325,
+     "pct_per_48j": 0.03764817641829232,
+     "cagr_pct": 7.110946190393785,
+     "eksposur_rata": 0.07721997826225872,
+     "blok_positif_pct": 37.724550898203596,
+     "blok_median_pct": -0.0571628442891825,
+     "n_blok": 167
+    },
+    "sub_periode": {
+     "2019-2021": 1.7423527277090767,
+     "2022-2023": 0.3492965685953734,
+     "2024-2026": 0.6547351597461276
+    },
+    "p_vs_btc": 0.357,
+    "dsr": 0.6676109741824525,
+    "dsr_raw": {
+     "n": 3341,
+     "sr_per_period": 0.04998987418304811,
+     "sr_annualized": 0.9550552052659037,
+     "sr0_expected_max": 0.04243789426166545,
+     "sr0_annualized": 0.8107748314532022,
+     "dsr": 0.6676109741824525,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.010251429741510278,
+    "turnover_tahunan_x": 3.7417718556512516
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 3341,
+     "sharpe": 1.0312941788168482,
+     "ret_total_pct": 97.43057251129046,
+     "mdd_pct": -11.87147516222259,
+     "pct_per_48j": 0.04072764523830319,
+     "cagr_pct": 7.714370559934047,
+     "eksposur_rata": 0.07721997826225872,
+     "blok_positif_pct": 38.32335329341317,
+     "blok_median_pct": -0.025780520725438016,
+     "n_blok": 167
+    },
+    "sub_periode": {
+     "2019-2021": 1.7980667036421119,
+     "2022-2023": 0.4632683096013198,
+     "2024-2026": 0.7502308928296786
+    },
+    "p_vs_btc": 0.2975,
+    "dsr": 0.7457991345351958,
+    "dsr_raw": {
+     "n": 3341,
+     "sr_per_period": 0.053972325357328696,
+     "sr_annualized": 1.0311398281194608,
+     "sr0_expected_max": 0.0424422811340272,
+     "sr0_annualized": 0.8108586425319936,
+     "dsr": 0.7457991345351958,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.010251429741510278,
+    "turnover_tahunan_x": 3.7417718556512516
+   },
+   "kontribusi_koin": {
+    "BNBUSDT": 0.11227673131755263,
+    "BTCUSDT": 0.09454064039820287,
+    "ETHUSDT": 0.07415823287432678,
+    "TRXUSDT": 0.06820352281121908,
+    "ADAUSDT": 0.06139546266380413,
+    "XRPUSDT": 0.04931151032662735,
+    "SOLUSDT": 0.04230952031332529,
+    "LINKUSDT": 0.04151816251001353,
+    "LTCUSDT": 0.03664885601354515,
+    "VETUSDT": 0.02888391388184945
+   },
+   "kontribusi_koin_terburuk": {
+    "IOTAUSDT": -0.005731624610594288,
+    "GRTUSDT": -0.004427876041534611,
+    "SANDUSDT": -0.004314647761778686,
+    "WAVESUSDT": -0.004212493387971963,
+    "THETAUSDT": -0.0038454249923531294
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": true,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "h_dsr_gt_0": true,
+     "f_pct48_ge_0.10": false,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 3
+   }
+  },
+  "S-B_primer_tanpa_divN": {
+   "25bps": {
+    "stats": {
+     "n_hari": 3341,
+     "sharpe": 0.7775225297017024,
+     "ret_total_pct": 1107.391519912109,
+     "mdd_pct": -81.49327750482614,
+     "pct_per_48j": 0.14923110468210155,
+     "cagr_pct": 31.27757057484677,
+     "eksposur_rata": 0.6629317721882005,
+     "blok_positif_pct": 37.125748502994014,
+     "blok_median_pct": -0.4693593473429014,
+     "n_blok": 167
+    },
+    "sub_periode": {
+     "2019-2021": 1.8423333973915914,
+     "2022-2023": -0.4390021647005943,
+     "2024-2026": 0.26462311745282413
+    },
+    "p_vs_btc": 0.5635,
+    "dsr": 0.46046495216223565,
+    "dsr_raw": {
+     "n": 3341,
+     "sr_per_period": 0.040691298184052135,
+     "sr_annualized": 0.7774061602436382,
+     "sr0_expected_max": 0.042428958515533084,
+     "sr0_annualized": 0.8106041142630488,
+     "dsr": 0.46046495216223565,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.10376127864370836,
+    "turnover_tahunan_x": 37.87286670495355
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 3341,
+     "sharpe": 0.8837264473363419,
+     "ret_total_pct": 1937.8246872467705,
+     "mdd_pct": -77.99756186446032,
+     "pct_per_48j": 0.18061595261522623,
+     "cagr_pct": 39.00320363435779,
+     "eksposur_rata": 0.6629317721882005,
+     "blok_positif_pct": 38.92215568862275,
+     "blok_median_pct": -0.05612398392820239,
+     "n_blok": 167
+    },
+    "sub_periode": {
+     "2019-2021": 1.9098149658886472,
+     "2022-2023": -0.2711951160908969,
+     "2024-2026": 0.4212431855276471
+    },
+    "p_vs_btc": 0.432,
+    "dsr": 0.5861324010207822,
+    "dsr_raw": {
+     "n": 3341,
+     "sr_per_period": 0.04624943330644352,
+     "sr_annualized": 0.8835941826574097,
+     "sr0_expected_max": 0.04243407968517176,
+     "sr0_annualized": 0.810701954071618,
+     "dsr": 0.5861324010207822,
+     "n_trials": 80
+    },
+    "turnover_rata_harian": 0.10376127864370836,
+    "turnover_tahunan_x": 37.87286670495355
+   },
+   "kontribusi_koin": {
+    "BTCUSDT": 0.813472776276767,
+    "BNBUSDT": 0.6262452134664198,
+    "ETHUSDT": 0.5668345546453702,
+    "TRXUSDT": 0.4921349557866424,
+    "ADAUSDT": 0.43983138911307745,
+    "VETUSDT": 0.28899234590002887,
+    "XRPUSDT": 0.2749752615572267,
+    "SOLUSDT": 0.24139566393714068,
+    "LINKUSDT": 0.1918443430051734,
+    "LTCUSDT": 0.18883337734881336
+   },
+   "kontribusi_koin_terburuk": {
+    "SANDUSDT": -0.05816574802206636,
+    "IOTAUSDT": -0.04832987341258861,
+    "ARUSDT": -0.045527218864185016,
+    "CHZUSDT": -0.04374960637655795,
+    "WAVESUSDT": -0.0422016268316505
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": false,
+     "b_mdd_le_50pct_btc": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "h_dsr_gt_0": true,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 2
+   }
+  }
+ },
+ "sensitivitas": {
+  "top3_kontributor": [
+   "BTCUSDT",
+   "BNBUSDT",
+   "ETHUSDT"
+  ],
+  "tanpa_top3": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": 0.6651625915039946,
+    "ret_total_pct": 471.247698389942,
+    "mdd_pct": -82.12284591528007,
+    "pct_per_48j": 0.11718236348559063,
+    "cagr_pct": 23.82915029433139,
+    "eksposur_rata": 0.5586920296147789,
+    "blok_positif_pct": 37.83783783783784,
+    "blok_median_pct": 0.0,
+    "n_blok": 148
+   },
+   "p_vs_btc": 0.7655
+  },
+  "tanpa_delisting": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": 0.9669181722288615,
+    "ret_total_pct": 2045.1781045229634,
+    "mdd_pct": -79.2293454039117,
+    "pct_per_48j": 0.20624786089040725,
+    "cagr_pct": 45.64685700966815,
+    "eksposur_rata": 0.6423877991795475,
+    "blok_positif_pct": 39.86486486486486,
+    "blok_median_pct": 0.0,
+    "n_blok": 148
+   },
+   "p_vs_btc": 0.4825
+  }
+ }
+}

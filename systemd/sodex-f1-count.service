@@ -1,0 +1,9 @@
+[Unit]
+Description=SODEX F1 count-only (read-only, anti-intip)
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python3 scripts/sodex_prereg_f1.py --count-only
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_f1_count.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_f1_count.log
+Nice=10

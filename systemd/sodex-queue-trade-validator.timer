@@ -1,0 +1,12 @@
+[Unit]
+Description=Re-evaluate SoDEX QIP forward evidence every 30 minutes
+Requires=sodex-queue-trade-validator.service
+
+[Timer]
+OnBootSec=2min
+OnCalendar=*:0/30
+Persistent=true
+RandomizedDelaySec=15
+
+[Install]
+WantedBy=timers.target

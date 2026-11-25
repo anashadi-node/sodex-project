@@ -1,0 +1,12 @@
+[Unit]
+Description=Mode A LIVE spot SoDEX (arm A) — TERKUNCI: butuh LIVE_ARMED.json + CONFIRM_LIVE=YES (lihat docs/sodex/GO_LIVE_01DES_RUNBOOK.md)
+After=network-online.target sodex-prereg23b-record.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti/scripts/research/mode_a_20261026
+# CONFIRM_LIVE sengaja TIDAK di sini. User menambah lewat: systemctl --user edit sodex-modea-live.service  ->  [Service]\nEnvironment=CONFIRM_LIVE=YES
+ExecStart=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore mode_a_live.py run --live
+StandardOutput=append:/home/USER/anantara-sakti/logs/modea_live.log
+StandardError=append:/home/USER/anantara-sakti/logs/modea_live.log
+Nice=5

@@ -1,0 +1,191 @@
+{
+  "archive_start_utc": "2026-10-02T11:00:00+00:00",
+  "coverage_pct": 0.0,
+  "exact_coverage_pct": 0.0,
+  "funding_history_path": "/home/USER/anantara-sakti/data/sodex_funding/funding_history.jsonl",
+  "funding_rate_history_path": "/home/USER/anantara-sakti/data/sodex_funding/funding_rates_history.jsonl",
+  "generated_utc": "2026-10-05T16:32:03.241192+00:00",
+  "mapped": [],
+  "n_exact": 0,
+  "n_in_window": 0,
+  "n_missing": 0,
+  "n_ok": 0,
+  "n_pre_archive": 42,
+  "n_rate_estimated": 0,
+  "n_short_trades": 42,
+  "pre_archive": [
+    {
+      "exit": "2026-08-07T13:52:54.051612+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-08T03:59:41.832094+00:00",
+      "symbol": "SOL"
+    },
+    {
+      "exit": "2026-08-11T13:53:02.029693+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-11T15:38:09.872629+00:00",
+      "symbol": "ETH"
+    },
+    {
+      "exit": "2026-08-11T18:43:33.360189+00:00",
+      "symbol": "BTC"
+    },
+    {
+      "exit": "2026-08-12T09:26:57.134239+00:00",
+      "symbol": "ETH"
+    },
+    {
+      "exit": "2026-08-12T16:07:42.193216+00:00",
+      "symbol": "SOL"
+    },
+    {
+      "exit": "2026-08-12T22:03:32.069179+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-13T23:12:15.040959+00:00",
+      "symbol": "BTC"
+    },
+    {
+      "exit": "2026-08-14T00:07:17.878036+00:00",
+      "symbol": "SOL"
+    },
+    {
+      "exit": "2026-08-14T23:35:51.421693+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-14T23:35:51.421693+00:00",
+      "symbol": "ETH"
+    },
+    {
+      "exit": "2026-08-15T05:16:58.770426+00:00",
+      "symbol": "BTC"
+    },
+    {
+      "exit": "2026-08-15T11:03:20.679642+00:00",
+      "symbol": "SOL"
+    },
+    {
+      "exit": "2026-08-16T14:04:42.274509+00:00",
+      "symbol": "BTC"
+    },
+    {
+      "exit": "2026-08-16T17:05:08.107977+00:00",
+      "symbol": "SOL"
+    },
+    {
+      "exit": "2026-08-16T18:05:10.742786+00:00",
+      "symbol": "ETH"
+    },
+    {
+      "exit": "2026-08-17T16:08:20.979567+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-28T14:57:01.384897+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-29T14:19:51.001168+00:00",
+      "symbol": "AAVE"
+    },
+    {
+      "exit": "2026-08-30T04:06:01.193516+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-08-30T11:12:02.658809+00:00",
+      "symbol": "BCH"
+    },
+    {
+      "exit": "2026-08-30T11:12:02.658809+00:00",
+      "symbol": "ONDO"
+    },
+    {
+      "exit": "2026-08-30T11:12:02.658809+00:00",
+      "symbol": "ADA"
+    },
+    {
+      "exit": "2026-08-30T11:12:02.658809+00:00",
+      "symbol": "XAUT"
+    },
+    {
+      "exit": "2026-08-30T11:12:02.658809+00:00",
+      "symbol": "SILVER"
+    },
+    {
+      "exit": "2026-08-30T11:12:02.658809+00:00",
+      "symbol": "ARB"
+    },
+    {
+      "exit": "2026-08-30T23:46:22.601940+00:00",
+      "symbol": "ADA"
+    },
+    {
+      "exit": "2026-08-31T00:35:38.164859+00:00",
+      "symbol": "AVAX"
+    },
+    {
+      "exit": "2026-08-31T17:12:28.643714+00:00",
+      "symbol": "XAUT"
+    },
+    {
+      "exit": "2026-08-31T18:44:54.730579+00:00",
+      "symbol": "SUI"
+    },
+    {
+      "exit": "2026-08-31T18:44:54.730579+00:00",
+      "symbol": "ETH"
+    },
+    {
+      "exit": "2026-08-31T18:44:54.730579+00:00",
+      "symbol": "ENA"
+    },
+    {
+      "exit": "2026-09-01T03:37:04.807864+00:00",
+      "symbol": "AAVE"
+    },
+    {
+      "exit": "2026-09-01T03:41:06.358227+00:00",
+      "symbol": "LIT"
+    },
+    {
+      "exit": "2026-09-01T05:29:11.014727+00:00",
+      "symbol": "XRP"
+    },
+    {
+      "exit": "2026-09-01T05:29:11.014727+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-09-02T05:46:49.789146+00:00",
+      "symbol": "SUI"
+    },
+    {
+      "exit": "2026-09-02T22:22:36.206110+00:00",
+      "symbol": "DOGE"
+    },
+    {
+      "exit": "2026-09-02T22:27:39.585538+00:00",
+      "symbol": "ETH"
+    },
+    {
+      "exit": "2026-09-02T23:52:56.241195+00:00",
+      "symbol": "ONDO"
+    },
+    {
+      "exit": "2026-09-03T00:07:09.281505+00:00",
+      "symbol": "XRP"
+    }
+  ],
+  "rate_estimated_coverage_pct": 0.0,
+  "reason": "no short trade inside rate-archive window; n_pre_archive=42 excluded (exited before archive start) -> fail-closed",
+  "snapshot_path": "/home/USER/anantara-sakti/data/sodex_real_sync_snapshot.json",
+  "trade_path": "/home/USER/anantara-sakti/data/paper_test_twoway_state.json",
+  "verdict": "FAIL_CLOSED"
+}

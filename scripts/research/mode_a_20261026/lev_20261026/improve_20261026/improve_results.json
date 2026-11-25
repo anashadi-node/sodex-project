@@ -1,0 +1,231 @@
+{
+ "utc": "2026-10-26T03:14:38.344782+00:00",
+ "hasil": {
+  "V0_B2_long_1.5": {
+   "train": {
+    "n": 1096,
+    "M_per5h_pct": 0.01337,
+    "mdd_pct": -21.5,
+    "sd_harian_pct": 1.344,
+    "sharpe": 0.91,
+    "hit30": 0.37,
+    "cum_pct": 83.1
+   },
+   "oos": {
+    "n": 662,
+    "M_per5h_pct": 0.01464,
+    "mdd_pct": -29.93,
+    "sd_harian_pct": 1.462,
+    "sharpe": 0.92,
+    "hit30": 0.474,
+    "cum_pct": 48.2
+   },
+   "full": {
+    "n": 1758,
+    "M_per5h_pct": 0.01385,
+    "mdd_pct": -29.93,
+    "sd_harian_pct": 1.389,
+    "sharpe": 0.91,
+    "hit30": 0.405,
+    "cum_pct": 171.3
+   },
+   "mdd_full": -29.93,
+   "L_mean": 1.5
+  },
+  "V6_sym_1.5": {
+   "train": {
+    "n": 1096,
+    "M_per5h_pct": 0.01244,
+    "mdd_pct": -66.83,
+    "sd_harian_pct": 2.847,
+    "sharpe": 0.4,
+    "hit30": 0.351,
+    "cum_pct": 23.5
+   },
+   "oos": {
+    "n": 662,
+    "M_per5h_pct": 0.0159,
+    "mdd_pct": -39.76,
+    "sd_harian_pct": 2.658,
+    "sharpe": 0.55,
+    "hit30": 0.436,
+    "cum_pct": 31.1
+   },
+   "full": {
+    "n": 1758,
+    "M_per5h_pct": 0.01374,
+    "mdd_pct": -66.83,
+    "sd_harian_pct": 2.776,
+    "sharpe": 0.45,
+    "hit30": 0.376,
+    "cum_pct": 61.9
+   },
+   "mdd_full": -66.83,
+   "L_mean": 1.5
+  },
+  "V7_sym_2.0": {
+   "train": {
+    "n": 1096,
+    "M_per5h_pct": 0.01641,
+    "mdd_pct": -78.67,
+    "sd_harian_pct": 3.796,
+    "sharpe": 0.4,
+    "hit30": 0.35,
+    "cum_pct": 7.7
+   },
+   "oos": {
+    "n": 662,
+    "M_per5h_pct": 0.02105,
+    "mdd_pct": -50.11,
+    "sd_harian_pct": 3.544,
+    "sharpe": 0.54,
+    "hit30": 0.428,
+    "cum_pct": 28.4
+   },
+   "full": {
+    "n": 1758,
+    "M_per5h_pct": 0.01816,
+    "mdd_pct": -78.67,
+    "sd_harian_pct": 3.702,
+    "sharpe": 0.45,
+    "hit30": 0.372,
+    "cum_pct": 38.3
+   },
+   "mdd_full": -78.67,
+   "L_mean": 2.0
+  },
+  "V8_sym_vt25": {
+   "train": {
+    "n": 1096,
+    "M_per5h_pct": 0.01195,
+    "mdd_pct": -52.39,
+    "sd_harian_pct": 2.147,
+    "sharpe": 0.51,
+    "hit30": 0.395,
+    "cum_pct": 46.0
+   },
+   "oos": {
+    "n": 662,
+    "M_per5h_pct": 0.01192,
+    "mdd_pct": -32.48,
+    "sd_harian_pct": 1.958,
+    "sharpe": 0.56,
+    "hit30": 0.406,
+    "cum_pct": 28.6
+   },
+   "full": {
+    "n": 1758,
+    "M_per5h_pct": 0.01194,
+    "mdd_pct": -52.39,
+    "sd_harian_pct": 2.077,
+    "sharpe": 0.53,
+    "hit30": 0.392,
+    "cum_pct": 87.7
+   },
+   "mdd_full": -52.39,
+   "L_mean": 1.21
+  },
+  "V9_sym_vt30": {
+   "train": {
+    "n": 1096,
+    "M_per5h_pct": 0.01377,
+    "mdd_pct": -54.89,
+    "sd_harian_pct": 2.324,
+    "sharpe": 0.54,
+    "hit30": 0.387,
+    "cum_pct": 54.2
+   },
+   "oos": {
+    "n": 662,
+    "M_per5h_pct": 0.01403,
+    "mdd_pct": -33.71,
+    "sd_harian_pct": 2.136,
+    "sharpe": 0.6,
+    "hit30": 0.419,
+    "cum_pct": 34.2
+   },
+   "full": {
+    "n": 1758,
+    "M_per5h_pct": 0.01387,
+    "mdd_pct": -54.89,
+    "sd_harian_pct": 2.254,
+    "sharpe": 0.56,
+    "hit30": 0.392,
+    "cum_pct": 106.9
+   },
+   "mdd_full": -54.89,
+   "L_mean": 1.21
+  },
+  "V10_B2_vt25": {
+   "train": {
+    "n": 1096,
+    "M_per5h_pct": 0.01391,
+    "mdd_pct": -31.64,
+    "sd_harian_pct": 1.371,
+    "sharpe": 0.93,
+    "hit30": 0.402,
+    "cum_pct": 87.7
+   },
+   "oos": {
+    "n": 662,
+    "M_per5h_pct": 0.01869,
+    "mdd_pct": -28.4,
+    "sd_harian_pct": 1.494,
+    "sharpe": 1.15,
+    "hit30": 0.51,
+    "cum_pct": 68.2
+   },
+   "full": {
+    "n": 1758,
+    "M_per5h_pct": 0.01571,
+    "mdd_pct": -31.64,
+    "sd_harian_pct": 1.418,
+    "sharpe": 1.02,
+    "hit30": 0.438,
+    "cum_pct": 215.6
+   },
+   "mdd_full": -31.64,
+   "L_mean": 1.21
+  }
+ },
+ "vs_baseline": {
+  "V6_sym_1.5": {
+   "dM": -0.00011,
+   "dhit30": -0.029,
+   "p_boot": 0.549,
+   "bh_lolos": false
+  },
+  "V7_sym_2.0": {
+   "dM": 0.00431,
+   "dhit30": -0.033,
+   "p_boot": 0.4153,
+   "bh_lolos": false
+  },
+  "V8_sym_vt25": {
+   "dM": -0.00191,
+   "dhit30": -0.013,
+   "p_boot": 0.6242,
+   "bh_lolos": false
+  },
+  "V9_sym_vt30": {
+   "dM": 2e-05,
+   "dhit30": -0.013,
+   "p_boot": 0.5453,
+   "bh_lolos": false
+  },
+  "V10_B2_vt25": {
+   "dM": 0.00186,
+   "dhit30": 0.033,
+   "p_boot": 0.1978,
+   "bh_lolos": false
+  }
+ },
+ "alpha_beta": {
+  "beta_btc": 0.302,
+  "alpha_per5h_pct": 0.00966,
+  "t_alpha": 1.71,
+  "korelasi": 0.574
+ },
+ "target_per5h_pct": 0.01,
+ "catatan": "Adopsi hanya bila hit30 naik di TRAIN dan OOS, MDD >= -35%, dan BH lolos."
+}

@@ -1,0 +1,59 @@
+{
+ "id": "PRAREG14_MACRO_BTC_OVERLAY_FAST",
+ "judul": "Overlay rezim BTC definisi CEPAT (EMA10/EMA30 1D) pada kandidat fade H48 - uji ulang interaksi rezim x sinyal pasca-PRAREG-13",
+ "tanggal_prareg_utc": "2026-10-08",
+ "status": "TERBEKU - ditulis & di-commit SEBELUM evaluasi dijalankan (disiplin protokol SODEX)",
+ "pilar": "Pilar 4 - ekosistem reaktif-antisipatif",
+ "latar": "PRAREG-13 (rezim lambat EMA50/EMA200) = 0/18 sel lolos; rezim BULL praktis tak teruji di SoDEX (72 bar). Keputusan Mas Anas (Opsi A): uji ulang dengan definisi rezim LEBIH CEPAT agar ketiga rezim punya sampel. Tidak ada gerbang, target, atau parameter yang berubah.",
+ "seleksi_definisi_dideklarasikan": "Pemilihan EMA10/30 didasarkan HANYA pada hitungan distribusi bar rezim (power analysis), TANPA melihat sinyal/PnL apa pun. Probe 4 kandidat (EMA10/30, EMA20/50, EMA5/20, SLOPE_EMA20_L5) pada panel beku: EMA10/30 paling seimbang (SoDEX hari BULL/CHOP/BEAR = 53/60/143; transisi 49). Kandidat lain: BULL 17-58 hari tapi CHOP 15-76 tidak seimbang. Probe tersimpan di scratch/ (di luar repo) dan dideklarasikan di sini.",
+ "ekspektasi_n_dari_probe_dideklarasikan_sebelum_hasil": {
+  "catatan": "Estimasi n window ~ bar_rezim/48 (window non-overlap 48 bar, terbukti cocok dengan TA13 aktual +-2).",
+  "sodex": {"BULL": 26, "CHOP": 30, "BEAR": 71},
+  "binance": {"BULL": 62, "CHOP": 63, "BEAR": 75},
+  "konsekuensi": "Sel SoDEX BULL dan CHOP diperkirakan n<40 -> status MONITOR tanpa verdict. Ini keterbatasan panjang panel SoDEX (257 hari), DITERIMA SEBELUM hasil, bukan alasan menurunkan N_MIN."
+ },
+ "definisi_rezim": {
+  "sumber": "kolom BTCUSDT pada panel beku venue (ta7.load_px_sodex / ta7.load_px_binance), close 1D (resample '1D'.last())",
+  "aturan": "EMA10 & EMA30 atas close 1D (span=10/30, adjust=False). BULL jika close > EMA10 > EMA30; BEAR jika close < EMA10 < EMA30; selain itu CHOP",
+  "no_lookahead": "rezim hari D hanya dipakai mulai bar 1h pertama hari ber-data berikutnya (st.shift(1) pada baris harian, konvensi identik TA13)",
+  "tiga_rezim": ["BULL", "CHOP", "BEAR"],
+  "catatan": "Sama seperti PRAREG-13: rezim dihitung dari panel beku itu sendiri sehingga reproduksi deterministik."
+ },
+ "definisi_sinyal": {
+  "mesin": "scripts/research/xsec_mech_study.py :: run_mech (BEKU, tidak diubah)",
+  "arms": ["MACD_FADE_H48", "KONFL_FADE_H48", "BB_POS_H48"],
+  "sumber_sinyal": {
+   "MACD_FADE_H48": "build_ta_signals.MACD_HIST * -1",
+   "KONFL_FADE_H48": "build_ta_signals.KONFLUENSI * -1",
+   "BB_POS_H48": "build_ta_signals.BB_POS * +1"
+  },
+  "hold": [48],
+  "overlay": "Sinyal hanya aktif pada bar yang rezimnya == R; bar lain diset NaN (Series.mask axis=0, pola TA13 yang sudah diperbaiki). run_mech melewati bar dengan nama < MIN_NAMES.",
+  "tanpa_ubah": "fee_oneway, turnover, kontrol shuffle arah-acak (seed 20261007), segmen positif, dan BH: identik dengan TA10/TA13. Tidak ada parameter yang diubah."
+ },
+ "venue": {
+  "diuji": ["sodex", "binance"],
+  "r1_lintas_venue": "syarat tambahan untuk sel yang sama: tanda IC sama DAN |IC_sodex| >= 0,5 * |IC_binance|"
+ },
+ "keluarga_hipotesis": {
+  "jumlah": 18,
+  "komposisi": "3 arm x 3 rezim x 2 venue",
+  "bh": "BH FDR q=0,10 diterapkan pada keluarga 18 p-value (bukan per-sel)"
+ },
+ "gerbang_prareg": {
+  "R_gross": "gross_bps > 0",
+  "R_net": "net_bps > 0",
+  "R_to": "turnover <= 1,5",
+  "R4prime": "|t_ctrl| < 2,0",
+  "R5": "t >= 1,96",
+  "S_ann_min": 2.3,
+  "S_fee2x_min": 1.8,
+  "seg_min": 3,
+  "bh_q": 0.1,
+  "corr_ic_pos": true,
+  "n_min_per_sel": 40,
+  "bila_n_kurang": "status MONITOR, tanpa verdict dan tanpa klaim (TIDAK diturunkan walau SoDEX BULL/CHOP diperkirakan di bawah 40)"
+ },
+ "status_verdict": "HISTORIS-DESKRIPTIF. Lulus gerbang di sini HANYA menandai kandidat untuk harness forward baru (PRAREG-15). Tidak mengubah status mesin mana pun; tidak dipakai menyatakan edge nyata. Verdict mesin tetap hanya dari data forward.",
+ "yang_tidak_dilakukan": "Tidak mengubah skrip beku; tidak mengubah target 0,8% atau parameter risiko; tidak menurunkan N_MIN; tidak menyentuh berkas proyek lain; tidak menulis kredensial."
+}

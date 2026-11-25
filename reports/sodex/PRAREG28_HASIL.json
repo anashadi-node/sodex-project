@@ -1,0 +1,482 @@
+{
+ "protokol": "PRAREG-28-v1-frozen-2026-10-22",
+ "pool": 66,
+ "k_list": [
+  14,
+  7
+ ],
+ "leg_frac": 0.25,
+ "n_trials_before": 130,
+ "n_look": 2,
+ "simbol_delisting": [
+  "EOSUSDT",
+  "MATICUSDT",
+  "MKRUSDT",
+  "OCEANUSDT",
+  "OMGUSDT",
+  "RENUSDT",
+  "SRMUSDT",
+  "TOMOUSDT",
+  "WAVESUSDT"
+ ],
+ "n_rebalance_universe": 112,
+ "K14_terverifikasi": {
+  "n_empty_days": 317,
+  "n_hari_total": 2976,
+  "25bps": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": 0.05158423915647166,
+    "ret_total_pct": -21.986980708978386,
+    "mdd_pct": -69.03792918931876,
+    "pct_per_48j": -0.016685063482491103,
+    "cagr_pct": -2.9993766735192273,
+    "eksposur_rata": 0.8931451612903226,
+    "blok_positif_pct": 34.45945945945946,
+    "blok_median_pct": -0.7042584590096934,
+    "n_blok": 148,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 0.21992428388999233,
+    "2022-2023": 0.3954293960816288,
+    "2024-2026": -0.9738186918843089
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.006611537066785356,
+   "turnover_tahunan_x": 137.00786850358423,
+   "kontribusi_top5": {
+    "LUNAUSDT": 0.6716571391712486,
+    "XRPUSDT": 0.39162114078639737,
+    "ADAUSDT": 0.3633035763978879,
+    "CRVUSDT": 0.2862474720491479,
+    "BTCUSDT": 0.26758517187898373
+   },
+   "kontribusi_bottom5": {
+    "MATICUSDT": -0.19441344168970032,
+    "EOSUSDT": -0.15592436760360096,
+    "WAVESUSDT": -0.15014858142321016,
+    "CHZUSDT": -0.09075086655863171,
+    "LINKUSDT": -0.08358247429172896
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": true,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  },
+  "10bps": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": 0.7314749534699309,
+    "ret_total_pct": 318.2630922973576,
+    "mdd_pct": -42.59738455250089,
+    "pct_per_48j": 0.09621160692392383,
+    "cagr_pct": 19.184409777403168,
+    "eksposur_rata": 0.8931451612903226,
+    "blok_positif_pct": 43.24324324324324,
+    "blok_median_pct": 0.0,
+    "n_blok": 148,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 0.8330838220670623,
+    "2022-2023": 1.1867725323299785,
+    "2024-2026": -0.034664656921890906
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.2950956322603824,
+   "turnover_tahunan_x": 137.00786850358423,
+   "kontribusi_top5": {
+    "LUNAUSDT": 0.6716571391712486,
+    "XRPUSDT": 0.39162114078639737,
+    "ADAUSDT": 0.3633035763978879,
+    "CRVUSDT": 0.2862474720491479,
+    "BTCUSDT": 0.26758517187898373
+   },
+   "kontribusi_bottom5": {
+    "MATICUSDT": -0.19441344168970032,
+    "EOSUSDT": -0.15592436760360096,
+    "WAVESUSDT": -0.15014858142321016,
+    "CHZUSDT": -0.09075086655863171,
+    "LINKUSDT": -0.08358247429172896
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": true,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  }
+ },
+ "K14_ekstensi": {
+  "n_empty_days": 317,
+  "n_hari_total": 3341,
+  "25bps": {
+   "stats": {
+    "n_hari": 3341,
+    "sharpe": -0.004376606388941525,
+    "ret_total_pct": -34.27436616819109,
+    "mdd_pct": -71.65415983603522,
+    "pct_per_48j": -0.02511993161961046,
+    "cagr_pct": -4.481442131110902,
+    "eksposur_rata": 0.9048189164920682,
+    "blok_positif_pct": 35.32934131736527,
+    "blok_median_pct": -0.7186909907035854,
+    "n_blok": 167,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 0.21992428388999233,
+    "2022-2023": 0.3954293960816288,
+    "2024-2026": -0.8235974586974055
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.00417782270002659,
+   "turnover_tahunan_x": 138.53649107053775,
+   "kontribusi_top5": {
+    "LUNAUSDT": 0.6807455569805927,
+    "XRPUSDT": 0.3957765305656645,
+    "ADAUSDT": 0.33529907835122863,
+    "UNIUSDT": 0.28666625851298766,
+    "BTCUSDT": 0.274166709074201
+   },
+   "kontribusi_bottom5": {
+    "MATICUSDT": -0.19441344168970032,
+    "EOSUSDT": -0.15592436760360096,
+    "WAVESUSDT": -0.15014858142321016,
+    "FILUSDT": -0.09936721175140599,
+    "AXSUSDT": -0.09705734407548862
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": false,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  },
+  "10bps": {
+   "stats": {
+    "n_hari": 3341,
+    "sharpe": 0.6949618105584718,
+    "ret_total_pct": 342.1571719797483,
+    "mdd_pct": -42.59738455250089,
+    "pct_per_48j": 0.08902465136546578,
+    "cagr_pct": 17.632798860328535,
+    "eksposur_rata": 0.9048189164920682,
+    "blok_positif_pct": 44.31137724550898,
+    "blok_median_pct": 0.0,
+    "n_blok": 167,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 0.8330838220670623,
+    "2022-2023": 1.1867725323299785,
+    "2024-2026": 0.10220230727922444
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.29992280032232865,
+   "turnover_tahunan_x": 138.53649107053775,
+   "kontribusi_top5": {
+    "LUNAUSDT": 0.6807455569805927,
+    "XRPUSDT": 0.3957765305656645,
+    "ADAUSDT": 0.33529907835122863,
+    "UNIUSDT": 0.28666625851298766,
+    "BTCUSDT": 0.274166709074201
+   },
+   "kontribusi_bottom5": {
+    "MATICUSDT": -0.19441344168970032,
+    "EOSUSDT": -0.15592436760360096,
+    "WAVESUSDT": -0.15014858142321016,
+    "FILUSDT": -0.09936721175140599,
+    "AXSUSDT": -0.09705734407548862
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": true,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  }
+ },
+ "K7_terverifikasi": {
+  "n_empty_days": 317,
+  "n_hari_total": 2976,
+  "25bps": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": -0.2549364601868749,
+    "ret_total_pct": -62.24631271347032,
+    "mdd_pct": -85.28477924464978,
+    "pct_per_48j": -0.06544141637410128,
+    "cagr_pct": -11.260908731635123,
+    "eksposur_rata": 0.8931451612903226,
+    "blok_positif_pct": 33.78378378378378,
+    "blok_median_pct": -0.9745021180935454,
+    "n_blok": 148,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 0.41611373925209816,
+    "2022-2023": -0.376636631693453,
+    "2024-2026": -2.499349778246497
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.0004142460615225163,
+   "turnover_tahunan_x": 190.0857694892473,
+   "kontribusi_top5": {
+    "LUNAUSDT": 0.548365955223459,
+    "ADAUSDT": 0.5016394674050776,
+    "BNBUSDT": 0.3212581014709068,
+    "ATOMUSDT": 0.3024252824357128,
+    "SOLUSDT": 0.28728206574618487
+   },
+   "kontribusi_bottom5": {
+    "CHZUSDT": -0.17639829639294066,
+    "THETAUSDT": -0.13103234774186123,
+    "LINKUSDT": -0.08846247867739386,
+    "MKRUSDT": -0.07895430311495777,
+    "NEOUSDT": -0.0720149809848338
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": false,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": false,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  },
+  "10bps": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": 0.7116216563911618,
+    "ret_total_pct": 288.00826792213263,
+    "mdd_pct": -55.49334193303146,
+    "pct_per_48j": 0.09116091224408152,
+    "cagr_pct": 18.091891778979317,
+    "eksposur_rata": 0.8931451612903226,
+    "blok_positif_pct": 43.91891891891892,
+    "blok_median_pct": 0.0,
+    "n_blok": 148,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 1.2551369476480183,
+    "2022-2023": 0.7948349911995211,
+    "2024-2026": -1.127630199473498
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.2752238183944943,
+   "turnover_tahunan_x": 190.0857694892473,
+   "kontribusi_top5": {
+    "LUNAUSDT": 0.548365955223459,
+    "ADAUSDT": 0.5016394674050776,
+    "BNBUSDT": 0.3212581014709068,
+    "ATOMUSDT": 0.3024252824357128,
+    "SOLUSDT": 0.28728206574618487
+   },
+   "kontribusi_bottom5": {
+    "CHZUSDT": -0.17639829639294066,
+    "THETAUSDT": -0.13103234774186123,
+    "LINKUSDT": -0.08846247867739386,
+    "MKRUSDT": -0.07895430311495777,
+    "NEOUSDT": -0.0720149809848338
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": true,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  }
+ },
+ "K7_ekstensi": {
+  "n_empty_days": 317,
+  "n_hari_total": 3341,
+  "25bps": {
+   "stats": {
+    "n_hari": 3341,
+    "sharpe": -0.2793408153540953,
+    "ret_total_pct": -67.96394563884817,
+    "mdd_pct": -87.16378729514848,
+    "pct_per_48j": -0.06811855582523618,
+    "cagr_pct": -11.693699260889423,
+    "eksposur_rata": 0.9048189164920682,
+    "blok_positif_pct": 34.73053892215569,
+    "blok_median_pct": -1.0204252155259663,
+    "n_blok": 167,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 0.41611373925209816,
+    "2022-2023": -0.376636631693453,
+    "2024-2026": -1.7496164122478404
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.0002709102885066761,
+   "turnover_tahunan_x": 191.38738401676144,
+   "kontribusi_top5": {
+    "ADAUSDT": 0.5518869290142907,
+    "LUNAUSDT": 0.5467532641569491,
+    "SOLUSDT": 0.333113188947415,
+    "XLMUSDT": 0.3284518490006072,
+    "ATOMUSDT": 0.3024252824357128
+   },
+   "kontribusi_bottom5": {
+    "CHZUSDT": -0.15057481483281962,
+    "THETAUSDT": -0.13103234774186123,
+    "FILUSDT": -0.13008478868915063,
+    "MKRUSDT": -0.07895430311495777,
+    "NEOUSDT": -0.0720149809848338
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": false,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": false,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  },
+  "10bps": {
+   "stats": {
+    "n_hari": 3341,
+    "sharpe": 0.7073771874112315,
+    "ret_total_pct": 346.00392165745956,
+    "mdd_pct": -55.49334193303146,
+    "pct_per_48j": 0.08954366168829608,
+    "cagr_pct": 17.744173221266113,
+    "eksposur_rata": 0.9048189164920682,
+    "blok_positif_pct": 44.91017964071856,
+    "blok_median_pct": 0.0,
+    "n_blok": 167,
+    "eksposur_net_rata": 0.0,
+    "eksposur_net_abs_rata": 0.0
+   },
+   "sub_periode": {
+    "2019-2021": 1.2551369476480183,
+    "2022-2023": 0.7948349911995211,
+    "2024-2026": -0.44852676716667306
+   },
+   "p_value": 0.0,
+   "alpha_bonferroni": 0.00019083969465648855,
+   "dsr": 0.3126904672569739,
+   "turnover_tahunan_x": 191.38738401676144,
+   "kontribusi_top5": {
+    "ADAUSDT": 0.5518869290142907,
+    "LUNAUSDT": 0.5467532641569491,
+    "SOLUSDT": 0.333113188947415,
+    "XLMUSDT": 0.3284518490006072,
+    "ATOMUSDT": 0.3024252824357128
+   },
+   "kontribusi_bottom5": {
+    "CHZUSDT": -0.15057481483281962,
+    "THETAUSDT": -0.13103234774186123,
+    "FILUSDT": -0.13008478868915063,
+    "MKRUSDT": -0.07895430311495777,
+    "NEOUSDT": -0.0720149809848338
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_gt_0": true,
+     "b_mdd_abs_le_20pct": false,
+     "c_positif_min_2dari3": true,
+     "d_blok20_60pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_floor": false,
+     "g_dsr_gt_0.95": false
+    }
+   }
+  }
+ },
+ "sensitivitas_K14": {
+  "top3_kontributor_abs": {
+   "LUNAUSDT": 0.6716571391712486,
+   "XRPUSDT": 0.39162114078639737,
+   "ADAUSDT": 0.3633035763978879
+  },
+  "tanpa_top3": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": -0.42744023012174687,
+    "ret_total_pct": -74.1903163431475,
+    "mdd_pct": -84.33248221486286,
+    "pct_per_48j": -0.0909814650335461,
+    "cagr_pct": -15.305265512325573,
+    "eksposur_rata": 0.7985915098566309,
+    "blok_positif_pct": 33.78378378378378,
+    "blok_median_pct": -1.229512162119062,
+    "n_blok": 148
+   }
+  },
+  "tanpa_delisting": {
+   "stats": {
+    "n_hari": 2976,
+    "sharpe": 0.42428379338002276,
+    "ret_total_pct": 92.85574442011522,
+    "mdd_pct": -55.67323227695928,
+    "pct_per_48j": 0.0441476646072525,
+    "cagr_pct": 8.388489111123132,
+    "eksposur_rata": 0.8196404569892474,
+    "blok_positif_pct": 37.16216216216216,
+    "blok_median_pct": -1.0896580999859407,
+    "n_blok": 148
+   }
+  }
+ }
+}

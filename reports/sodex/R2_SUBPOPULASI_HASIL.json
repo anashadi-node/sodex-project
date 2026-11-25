@@ -1,0 +1,181 @@
+{
+ "protokol": "R2_SUBPOPULASI",
+ "families": {
+  "twoway/regime": {
+   "k": 2,
+   "obs_max": 0.008744528528856689,
+   "p_family": 0.3547290541891622,
+   "rows": [
+    {
+     "g": "BEAR_MOMENTUM",
+     "n_disc": 42,
+     "med_disc": 0.0,
+     "n_hold": 0,
+     "med_hold": 0.0,
+     "hit_hold": 0.0
+    },
+    {
+     "g": "MOMENTUM",
+     "n_disc": 169,
+     "med_disc": 0.008744528528856689,
+     "n_hold": 179,
+     "med_hold": -5.408084987976634,
+     "hit_hold": 0.4
+    }
+   ]
+  },
+  "twoway/sess": {
+   "k": 3,
+   "obs_max": 0.08376904515136983,
+   "p_family": 0.34713057388522295,
+   "rows": [
+    {
+     "g": "ASIA_00-08",
+     "n_disc": 64,
+     "med_disc": 0.0,
+     "n_hold": 66,
+     "med_hold": 0.0,
+     "hit_hold": 0.45
+    },
+    {
+     "g": "EU_08-16",
+     "n_disc": 85,
+     "med_disc": 0.08376904515136983,
+     "n_hold": 68,
+     "med_hold": -2.636259792234476,
+     "hit_hold": 0.3
+    },
+    {
+     "g": "US_16-24",
+     "n_disc": 62,
+     "med_disc": 0.0,
+     "n_hold": 77,
+     "med_hold": 1.5109289412218903,
+     "hit_hold": 0.5
+    }
+   ]
+  },
+  "twoway/sym": {
+   "k": 1,
+   "obs_max": 0.0,
+   "p_family": 0.9840031993601279,
+   "rows": [
+    {
+     "g": "DOGE",
+     "n_disc": 33,
+     "med_disc": 0.0,
+     "n_hold": 12,
+     "med_hold": 0.0,
+     "hit_hold": 0.2
+    }
+   ]
+  },
+  "twoway/side": {
+   "k": 2,
+   "obs_max": 0.008744528528856689,
+   "p_family": 0.36372725454909016,
+   "rows": [
+    {
+     "g": "LONG",
+     "n_disc": 169,
+     "med_disc": 0.008744528528856689,
+     "n_hold": 211,
+     "med_hold": -4.271763609273652,
+     "hit_hold": 0.4
+    },
+    {
+     "g": "SHORT",
+     "n_disc": 42,
+     "med_disc": 0.0,
+     "n_hold": 0,
+     "med_hold": 0.0,
+     "hit_hold": 0.0
+    }
+   ]
+  },
+  "realwide/regime": {
+   "k": 1,
+   "obs_max": 0.0,
+   "p_family": 1.0,
+   "rows": [
+    {
+     "g": "MOMENTUM_RELAXED",
+     "n_disc": 130,
+     "med_disc": 0.0,
+     "n_hold": 121,
+     "med_hold": 0.0,
+     "hit_hold": 0.38095238095238093
+    }
+   ]
+  },
+  "realwide/sess": {
+   "k": 3,
+   "obs_max": 0.0,
+   "p_family": 1.0,
+   "rows": [
+    {
+     "g": "ASIA_00-08",
+     "n_disc": 47,
+     "med_disc": 0.0,
+     "n_hold": 55,
+     "med_hold": -1.2950679790752837,
+     "hit_hold": 0.19047619047619047
+    },
+    {
+     "g": "EU_08-16",
+     "n_disc": 51,
+     "med_disc": 0.0,
+     "n_hold": 59,
+     "med_hold": 0.0,
+     "hit_hold": 0.3333333333333333
+    },
+    {
+     "g": "US_16-24",
+     "n_disc": 32,
+     "med_disc": 0.0,
+     "n_hold": 25,
+     "med_hold": 0.0,
+     "hit_hold": 0.09523809523809523
+    }
+   ]
+  },
+  "realwide/sym": {
+   "k": 0
+  },
+  "realwide/side": {
+   "k": 1,
+   "obs_max": 0.0,
+   "p_family": 1.0,
+   "rows": [
+    {
+     "g": "L",
+     "n_disc": 130,
+     "med_disc": 0.0,
+     "n_hold": 139,
+     "med_hold": -0.1281173112065988,
+     "hit_hold": 0.38095238095238093
+    }
+   ]
+  }
+ },
+ "candidates": [],
+ "twoway": {
+  "n": 422,
+  "nw": 50,
+  "nd": 30,
+  "nh": 20,
+  "median_all": -1.771772123424435,
+  "hit_all": 0.4
+ },
+ "realwide": {
+  "n": 269,
+  "nw": 51,
+  "nd": 30,
+  "nh": 21,
+  "median_all": 0.0,
+  "hit_all": 0.35294117647058826
+ },
+ "n_trials_tests": 13,
+ "verdict": "R2_NEGATIF",
+ "catatan_daya": "hold-out windows: {'twoway': 20, 'realwide': 21}"
+}

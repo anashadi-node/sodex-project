@@ -1,0 +1,11 @@
+[Unit]
+Description=Anantara Sakti - SoDEX collector anti-gap guard (read-only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python3 /home/USER/anantara-sakti/scripts/sodex_collector_guard.py
+# Guard menulis sendiri ke logs/sodex_collector_guard.log; keluaran lain ke journal.
+TimeoutStartSec=180

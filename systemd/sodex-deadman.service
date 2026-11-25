@@ -1,0 +1,19 @@
+[Unit]
+Description=SoDEX Deadman — rem otomatis 3% harian + denyut + likuidasi penuh
+Documentation=file:///home/USER/anantara-sakti/anantara/sodex_deadman.py
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 -u anantara/sodex_deadman.py --loop --cycle 120
+Restart=always
+RestartSec=10
+# JANGAN pernah menambah auto-resume: setelah KILL, hanya user yang menghapus.
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:/home/USER/anantara-sakti/logs/deadman.log
+StandardError=append:/home/USER/anantara-sakti/logs/deadman.log
+
+[Install]
+WantedBy=default.target

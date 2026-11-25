@@ -1,0 +1,110 @@
+{
+ "phase": "DEV",
+ "tier": "t1",
+ "fill_model": "1-menit",
+ "range": [
+  "2023-10-01",
+  "2025-09-30"
+ ],
+ "theta": [
+  0.03,
+  0.05,
+  0.08
+ ],
+ "stop_atr": 1.5,
+ "hold_h": 24,
+ "cluster_h": 24,
+ "fair": true,
+ "hold_exact": true,
+ "use_funding": true,
+ "hold_cost_per24h": 0.00024,
+ "protocol": "docs/sodex/R4D_PROTOKOL_H13_2026-10-05.md (beku d63e7ee)",
+ "hypotheses": {
+  "H13a": {
+   "n_windows": 365,
+   "mean48_pct": -0.0751,
+   "sr_annual": -0.676,
+   "p_signflip": 0.3432,
+   "p_day_cluster": 0.3428,
+   "segments_pct": [
+    -0.0609,
+    -0.0982,
+    -0.0662
+   ],
+   "trades": 1203,
+   "events_clustered": 1676,
+   "gross_median_pct": -0.988,
+   "min_gross_required_pct": 0.372,
+   "budget_ok": false,
+   "slip_median_pct": 0.2479,
+   "stop_rate_pct": 41.7,
+   "p5_pct": -7.421,
+   "worst_pct": -13.74,
+   "skew": 0.986,
+   "control_p": 1.0,
+   "dsr": 0.033,
+   "segments_positive": 0
+  },
+  "H13b": {
+   "n_windows": 365,
+   "mean48_pct": -0.0505,
+   "sr_annual": -0.582,
+   "p_signflip": 0.4204,
+   "p_day_cluster": 0.4243,
+   "segments_pct": [
+    -0.0131,
+    -0.1297,
+    -0.0085
+   ],
+   "trades": 320,
+   "events_clustered": 502,
+   "gross_median_pct": -1.841,
+   "min_gross_required_pct": 0.57,
+   "budget_ok": false,
+   "slip_median_pct": 0.4459,
+   "stop_rate_pct": 44.9,
+   "p5_pct": -9.353,
+   "worst_pct": -15.622,
+   "skew": 0.673,
+   "control_p": 1.0,
+   "dsr": 0.047,
+   "segments_positive": 0
+  },
+  "H13c": {
+   "n_windows": 365,
+   "mean48_pct": -0.0153,
+   "sr_annual": -0.319,
+   "p_signflip": 0.6639,
+   "p_day_cluster": 0.6576,
+   "segments_pct": [
+    0.0479,
+    -0.0411,
+    -0.053
+   ],
+   "trades": 77,
+   "events_clustered": 114,
+   "gross_median_pct": -2.742,
+   "min_gross_required_pct": 0.606,
+   "budget_ok": false,
+   "slip_median_pct": 0.482,
+   "stop_rate_pct": 43.0,
+   "p5_pct": -10.23,
+   "worst_pct": -11.627,
+   "skew": 0.612,
+   "control_p": 0.004975124378109453,
+   "dsr": 0.101,
+   "segments_positive": 1
+  }
+ },
+ "bh_pass": {
+  "H13a": false,
+  "H13b": false,
+  "H13c": false
+ },
+ "pbo": 0.5753968253968254,
+ "verdict": {
+  "H13a": "FAIL",
+  "H13b": "FAIL",
+  "H13c": "FAIL"
+ }
+}

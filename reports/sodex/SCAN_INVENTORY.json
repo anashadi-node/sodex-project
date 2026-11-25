@@ -1,0 +1,7407 @@
+[
+{
+"p": "sodex_rewards_ocr.txt",
+"size": 539,
+"mtime": "2026-06-14"
+},
+{
+"p": "sodex_ocr_test.txt",
+"size": 539,
+"mtime": "2026-06-14"
+},
+{
+"p": "cex_vs_sodex_riset.json",
+"size": 17658,
+"mtime": "2026-09-02"
+},
+{
+"p": "EKOSISTEM_ANANTARA_SAKTI_MASTER_DOKUMEN.html",
+"size": 953033,
+"mtime": "2026-09-26"
+},
+{
+"p": "triage_anantara_sakti_20260926.md",
+"size": 18166,
+"mtime": "2026-09-26"
+},
+{
+"p": "sodex_ocr_out.txt",
+"size": 580,
+"mtime": "2026-06-14"
+},
+{
+"p": "SoDEX_sideways_bear_playbook_memo.md",
+"size": 19828,
+"mtime": "2026-09-06"
+},
+{
+"p": ".hermes/cache/scratch/sodex.txt",
+"size": 391769,
+"mtime": "2026-10-25"
+},
+{
+"p": ".hermes/cache/web/sodex.com-b893ea53f2.md",
+"size": 21344,
+"mtime": "2026-09-02"
+},
+{
+"p": ".hermes/cache/web/sodex.com-1c63a391ecb6bb6d.cache.md",
+"size": 813,
+"mtime": "2026-09-02"
+},
+{
+"p": ".hermes/cache/web/sodex.com-ce70fdf37648c75f.cache.md",
+"size": 2650,
+"mtime": "2026-09-02"
+},
+{
+"p": ".hermes/cache/web/sodex.com-5c4aa345035b8f19.cache.md",
+"size": 21344,
+"mtime": "2026-09-02"
+},
+{
+"p": ".hermes/skills/software-development/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/skills/software-development/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/skills/research/quantitative-trading-analytics/references/anantara-ledger-contract.md",
+"size": 3560,
+"mtime": "2026-10-04"
+},
+{
+"p": ".hermes/skills/research/quantitative-trading-analytics/references/sodex-funding-attribution.md",
+"size": 4121,
+"mtime": "2026-10-04"
+},
+{
+"p": ".hermes/skills/research/trading-system-audit/references/sodex-live-halt-rca.md",
+"size": 1124,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/skills/research/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/installs/8f187687540a47e8/bootstrap/anantara-sakti.json",
+"size": 492,
+"mtime": "2026-10-09"
+},
+{
+"p": ".hermes/installs/8f187687540a47e8/bootstrap/sodex.json",
+"size": 492,
+"mtime": "2026-10-09"
+},
+{
+"p": ".hermes/installs/8f187687540a47e8/bootstrap/sodex-cex-monitor.json",
+"size": 492,
+"mtime": "2026-10-09"
+},
+{
+"p": ".hermes/attachments/sodex_2x_blueprint_20260906.html",
+"size": 24585,
+"mtime": "2026-09-06"
+},
+{
+"p": ".hermes/attachments/sodex_corrected_blueprint_20260906.html",
+"size": 19936,
+"mtime": "2026-09-06"
+},
+{
+"p": ".hermes/scripts/sodex_expanded_watcher.sh.bak-20260930_1320",
+"size": 2917,
+"mtime": "2026-09-30"
+},
+{
+"p": ".hermes/scripts/audit_sodex_cex_cron.py",
+"size": 385,
+"mtime": "2026-09-30"
+},
+{
+"p": ".hermes/scripts/sodex_expanded_watcher.sh",
+"size": 3710,
+"mtime": "2026-09-30"
+},
+{
+"p": ".hermes/scripts/anantara_arm_watch.py",
+"size": 718,
+"mtime": "2026-09-30"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_d6a52e1d/SODEX_UNTRACKED_EVIDENCE_PACK_2026-09-14.md",
+"size": 10984,
+"mtime": "2026-09-14"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/RISET_VENUE_SODEX_2026-10-07.html",
+"size": 78181,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/PRAREG_PANEL_PANJANG_sodex_1d.json",
+"size": 39804,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/rerun_sodex_1h.log",
+"size": 2336,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/sodex_edge_census.json",
+"size": 9888,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/UNIVERSE_SODEX_1D.json",
+"size": 9786,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/RISET_VENUE_SODEX_2026-10-07.md",
+"size": 48531,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/RISET_VENUE_SODEX_2026-10-07.pdf",
+"size": 787615,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_8e776d73/PRAREG_PANEL_PANJANG_sodex_1h.json",
+"size": 43013,
+"mtime": "2026-10-07"
+},
+{
+"p": ".hermes/kanban/boards/anantara/attachments/t_1a284d87/SODEX_D05_ARM_SPLIT_VERIFY.md",
+"size": 18940,
+"mtime": "2026-10-04"
+},
+{
+"p": ".hermes/profiles/pregain/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/pregain/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/pregain/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/riset/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/riset/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/riset/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/lokal/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/lokal/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/lokal/skills/research/trading-system-audit/references/sodex-live-halt-rca.md",
+"size": 1124,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/lokal/skills/research/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/logs/sodex_cex_monitor_health.log",
+"size": 350496,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/logs/sodex_cex_monitor_pulse.log",
+"size": 83715,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/logs/sodex_cex_deep_loop.log",
+"size": 1353,
+"mtime": "2026-09-17"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/logs/sodex_cex_daily_report.log",
+"size": 275,
+"mtime": "2026-09-17"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/scripts/sodex_cex_deep_loop_6h.py",
+"size": 4504,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/scripts/sodex_cex_health_5min.py",
+"size": 7072,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/scripts/sodex_cex_pulse_30min.py",
+"size": 4286,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/scripts/sodex_cex_weekly_audit.py",
+"size": 8900,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/scripts/sodex_cex_daily_report.py",
+"size": 7831,
+"mtime": "2026-09-19"
+},
+{
+"p": ".hermes/profiles/sodex-cex-monitor/reports/DAILY_SODEX_CEX_20260916.md",
+"size": 917,
+"mtime": "2026-09-17"
+},
+{
+"p": ".hermes/profiles/hl-harvest/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/hl-harvest/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/hl-harvest/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/anantara-sakti/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/anantara-sakti/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/anantara-sakti/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/intelijen/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/intelijen/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/intelijen/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/robinhood/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/robinhood/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/robinhood/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/keamanan/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/keamanan/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/keamanan/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/auditor/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/auditor/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/auditor/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/villa-agency/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/villa-agency/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/villa-agency/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/astronacci/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/astronacci/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/astronacci/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/alpaca/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/alpaca/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/alpaca/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/sodex/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/sodex/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/sodex/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": ".hermes/profiles/cex-binance/skills/.archive/trading-system-audit/references/sodex-session-audit-patterns.md",
+"size": 2738,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/cex-binance/skills/.archive/system-audit-methodology/references/sodex-triple-audit-case-study.md",
+"size": 5149,
+"mtime": "2026-08-30"
+},
+{
+"p": ".hermes/profiles/cex-binance/skills/.archive/system-audit-methodology/references/sodex-subsystem-inventory.md",
+"size": 5024,
+"mtime": "2026-09-01"
+},
+{
+"p": "hermes-config-backup-20260920_002920/sodex.config.yaml",
+"size": 7518,
+"mtime": "2026-09-20"
+},
+{
+"p": "hermes-config-backup-20260920_002920/sodex-cex-monitor.config.yaml",
+"size": 2450,
+"mtime": "2026-09-20"
+},
+{
+"p": "hermes-config-backup-20260920_002920/anantara-sakti.config.yaml",
+"size": 7518,
+"mtime": "2026-09-20"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob_SOL-USD.json",
+"size": 1693,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_pyREADME.md",
+"size": 10156,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_symbols.json",
+"size": 107070,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ref_authentication.md",
+"size": 4310,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ref_trading.md",
+"size": 6766,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob500_SOL-USD.json",
+"size": 1695,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_booktickers.json",
+"size": 8132,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob_BTC-USD.json",
+"size": 2128,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_markets.json",
+"size": 18,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_perps.go",
+"size": 11851,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_README.md",
+"size": 10090,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_tickers.json",
+"size": 43855,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob_ETH-USD.json",
+"size": 2109,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ref_market-data.md",
+"size": 2359,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob500_BTC-USD.json",
+"size": 8964,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_perps.json",
+"size": 18,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob_DOGE-USD.json",
+"size": 1629,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob500_ETH-USD.json",
+"size": 2270,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_sdk_tree.json",
+"size": 24190,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_SKILL.md",
+"size": 12452,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ref_account-query.md",
+"size": 2444,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_ob500_DOGE-USD.json",
+"size": 1632,
+"mtime": "2026-10-01"
+},
+{
+"p": "venue_factsheet/raw/sodex_feerate.json",
+"size": 144,
+"mtime": "2026-10-01"
+},
+{
+"p": "hermes-config-backup-20260920_145946/sodex.config.yaml",
+"size": 5628,
+"mtime": "2026-09-20"
+},
+{
+"p": "hermes-config-backup-20260920_145946/sodex-cex-monitor.config.yaml",
+"size": 2447,
+"mtime": "2026-09-20"
+},
+{
+"p": "hermes-config-backup-20260920_145946/anantara-sakti.config.yaml",
+"size": 5628,
+"mtime": "2026-09-20"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_stock_audit_final_20260729.md",
+"size": 3648,
+"mtime": "2026-07-29"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_anantara_sakti_day1.md",
+"size": 3109,
+"mtime": "2026-05-17"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/feedback_sodex_hands_off.md",
+"size": 1700,
+"mtime": "2026-06-01"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_winner_intel_20260723.md",
+"size": 11654,
+"mtime": "2026-07-23"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_deep_learner_20260707.md",
+"size": 3093,
+"mtime": "2026-07-07"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_directional_backtest_20260728.md",
+"size": 7008,
+"mtime": "2026-07-30"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_swing_realwide_20260802.md",
+"size": 16890,
+"mtime": "2026-08-21"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_watchdog_systemd_20260628.md",
+"size": 2560,
+"mtime": "2026-06-28"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_wallet_audit_20260728.md",
+"size": 8782,
+"mtime": "2026-07-28"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_sopoints_research.md",
+"size": 3382,
+"mtime": "2026-05-26"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_leaderboard_forensics_20260729.md",
+"size": 4854,
+"mtime": "2026-07-29"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_twin_engine_audit_20260617.md",
+"size": 25106,
+"mtime": "2026-06-22"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_7w_7d_audit_20260729.md",
+"size": 7333,
+"mtime": "2026-07-29"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_profit_session_20260703.md",
+"size": 8601,
+"mtime": "2026-07-04"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_paper_cleanup_20260829.md",
+"size": 6258,
+"mtime": "2026-08-29"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_bearproof_pve_20260626.md",
+"size": 16603,
+"mtime": "2026-06-27"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_leaderboard_decode_20260713.md",
+"size": 26520,
+"mtime": "2026-07-14"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_15wallet_audit_20260730.md",
+"size": 4529,
+"mtime": "2026-07-31"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_two_sided_20260722.md",
+"size": 4013,
+"mtime": "2026-07-22"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_alt_methods_20260704.md",
+"size": 3266,
+"mtime": "2026-07-04"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_sodex_restart_hydra_20260703.md",
+"size": 3282,
+"mtime": "2026-07-03"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/feedback_sodex_target_final_fixed.md",
+"size": 2358,
+"mtime": "2026-08-21"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_signal_architecture_sodex.md",
+"size": 3988,
+"mtime": "2026-07-18"
+},
+{
+"p": ".claude/projects/-home-anashadi-anantara-sakti/memory/project_cex_vs_sodex.md",
+"size": 1990,
+"mtime": "2026-05-21"
+},
+{
+"p": "Downloads/Rekomendasi_Metodologi_ANANTARA_SAKTI_SoDEX.docx",
+"size": 51466,
+"mtime": "2026-07-15"
+},
+{
+"p": "Downloads/SODEX_AUDIT_ILMIAH_V3 FABLE.md",
+"size": 24514,
+"mtime": "2026-07-12"
+},
+{
+"p": "Downloads/ANANTARA_MASTER_Evidence_V2_Supplement.html",
+"size": 19444,
+"mtime": "2026-10-01"
+},
+{
+"p": "Downloads/ANANTARA_MASTER_Evidence_Research_Technical_Reference_V1.html",
+"size": 98727,
+"mtime": "2026-10-01"
+},
+{
+"p": "Downloads/EKOSISTEM_ANANTARA_SAKTI_DOKUMEN_KOMPREHENSIF.html",
+"size": 323243,
+"mtime": "2026-09-26"
+},
+{
+"p": "Downloads/Anantara Top Pre-Gain&Loser Scan SystemULTIMATE.html",
+"size": 64491,
+"mtime": "2026-05-30"
+},
+{
+"p": "Downloads/ANANTARA_SAKTI_v3.1_Final.html",
+"size": 240875,
+"mtime": "2026-05-09"
+},
+{
+"p": "Downloads/PERINTAH_1_SoDEX.md",
+"size": 8255,
+"mtime": "2026-10-01"
+},
+{
+"p": "Downloads/ANANTARA_SAKTI_DOKUMEN_REKOMENDASI_KOMPREHENSIF.html",
+"size": 29749,
+"mtime": "2026-07-15"
+},
+{
+"p": "Downloads/ANANTARA_SAKTI_Master_Summary.html",
+"size": 35473,
+"mtime": "2026-05-17"
+},
+{
+"p": "Downloads/anantara-10-sinyal-swing-1-30jam.html",
+"size": 45439,
+"mtime": "2026-08-21"
+},
+{
+"p": "Downloads/EKOSISTEM_ANANTARA_SAKTI_MASTER_DOKUMEN.html",
+"size": 953033,
+"mtime": "2026-09-26"
+},
+{
+"p": "Downloads/SODEX_FARMING_MASTERPLAN_FABLE_v2.md",
+"size": 22343,
+"mtime": "2026-06-11"
+},
+{
+"p": "Downloads/Rekomendasi_Metodologi_ANANTARA_SAKTI_SoDEX.html",
+"size": 117833,
+"mtime": "2026-07-15"
+},
+{
+"p": "Downloads/Anantara_Backtest_v3_ULTIMATE.html",
+"size": 67614,
+"mtime": "2026-06-04"
+},
+{
+"p": "Downloads/sodex_twin_engine.py",
+"size": 38245,
+"mtime": "2026-06-11"
+},
+{
+"p": "Downloads/Riset_SoDEX_Lanjutan_Komprehensif.pdf",
+"size": 37348,
+"mtime": "2026-07-15"
+},
+{
+"p": "Downloads/REKOMENDASI_HERMES_SODEX_2026-10-09.html",
+"size": 45322,
+"mtime": "2026-10-09"
+},
+{
+"p": "Downloads/SODEX_INSIGHT_RADIKAL.md",
+"size": 18284,
+"mtime": "2026-07-05"
+},
+{
+"p": "Downloads/AUDIT_EKOSISTEM_ANANTARA_SAKTI_2026-06-12.md",
+"size": 24109,
+"mtime": "2026-06-12"
+},
+{
+"p": "Downloads/GPT Rekomendasi_Upgrade_Quant_Engine_SoDEX.html",
+"size": 19562,
+"mtime": "2026-07-18"
+},
+{
+"p": "Downloads/Anantara Sakti Top Pre-Gain&Loser Scan System.html",
+"size": 39828,
+"mtime": "2026-05-30"
+},
+{
+"p": "Downloads/QUANTEX-DeltaNeutral-Maker-Cycling-SoDEX.html",
+"size": 40460,
+"mtime": "2026-06-02"
+},
+{
+"p": "Downloads/ANANTARA_SAKTI_ClaudeCode_Master.html",
+"size": 119328,
+"mtime": "2026-05-09"
+},
+{
+"p": "Downloads/ANANTARA_SAKTI_SoDEX_Master_Research_Spec_V2.html",
+"size": 27757,
+"mtime": "2026-10-22"
+},
+{
+"p": "Downloads/SODEX_FARMING_MASTERPLAN_FABLE.md",
+"size": 21756,
+"mtime": "2026-06-11"
+},
+{
+"p": "Downloads/ANANTARA_SoDEX_Swing_Strategies_FINAL_V1.html",
+"size": 38580,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/SODEX.md",
+"size": 8635,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_side_breakdown.py",
+"size": 3325,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_target_policy.py",
+"size": 28973,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_learning_gate_forced_pause.py",
+"size": 754,
+"mtime": "2026-09-10"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_d05b_exit_geometry.py",
+"size": 7053,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_forward_loop_guard.py",
+"size": 11467,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_funding_coverage_selftest.py",
+"size": 6432,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_stability_check.py",
+"size": 1243,
+"mtime": "2026-09-19"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_mode_audit.py",
+"size": 1662,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_event_barbell.py",
+"size": 4762,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_recovery_monitor.py",
+"size": 9931,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_honest_ratio_gate.py",
+"size": 9120,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_event_runway.py",
+"size": 1828,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_e2dir_amplifier.py",
+"size": 6578,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_twin_engine_e2.py",
+"size": 58505,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_quant_stat_engine.py",
+"size": 9831,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_live_watchdog.py",
+"size": 9804,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_harness_btc_cache.py",
+"size": 7859,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_farmable_scanner.py",
+"size": 3583,
+"mtime": "2026-07-19"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_twin_b60.py",
+"size": 7568,
+"mtime": "2026-09-29"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_wallet_denominator.py",
+"size": 3430,
+"mtime": "2026-09-15"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_queue_trade_validator.py",
+"size": 2391,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_scalp_microstructure.py",
+"size": 1306,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_long_entry_filter_study.py",
+"size": 4235,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_spot_live_test_mapping.py",
+"size": 14407,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_opportunity_lab.py",
+"size": 3703,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_84h_supervisor.py",
+"size": 8376,
+"mtime": "2026-06-20"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_watchdog_policy.py",
+"size": 2881,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_funding_mapper.py",
+"size": 8453,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_funding_collector.py",
+"size": 5677,
+"mtime": "2026-06-29"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_safety_guardian.py",
+"size": 18414,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_alt3_harness.py",
+"size": 4752,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_intel_layer_macro_policy.py",
+"size": 1477,
+"mtime": "2026-09-16"
+},
+{
+"p": "anantara-sakti/tests/test_paper_test_pasar_anantara_cex.py",
+"size": 2572,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_adaptive_selector.py",
+"size": 4495,
+"mtime": "2026-07-20"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_target_distance.py",
+"size": 5743,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_anantara_knowledge_compile.py",
+"size": 6590,
+"mtime": "2026-06-10"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_spot_sell_recovery.py",
+"size": 6481,
+"mtime": "2026-07-09"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_r3_reliability.py",
+"size": 5833,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_paper_test_pasar_anantara_trade.py",
+"size": 4629,
+"mtime": "2026-09-12"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_e1_recovery_gate.py",
+"size": 4142,
+"mtime": "2026-07-08"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_public_trade_recorder.py",
+"size": 1314,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_deadman_switch.py",
+"size": 3644,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_market_ticker_scanner.py",
+"size": 1952,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_lane_target_projection.py",
+"size": 5094,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_d05_edge_leak_audit.py",
+"size": 5331,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_perps_short_live_venue_fmt.py",
+"size": 5570,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_normalized_equity.py",
+"size": 5291,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_maker_order.py",
+"size": 20752,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_order_surface_audit.py",
+"size": 1266,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_queue_fill_lab.py",
+"size": 2779,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_radical_gate.py",
+"size": 5897,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_spot_farming.py",
+"size": 245174,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_d04_blocker_rca.py",
+"size": 4935,
+"mtime": "2026-10-03"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_prereg_f3.py",
+"size": 3369,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_micro_pilot.py",
+"size": 27866,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_spec4_harness.py",
+"size": 5430,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_e1_autopilot.py",
+"size": 2928,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_monitor_eval.py",
+"size": 45652,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_pin_maker.py",
+"size": 12404,
+"mtime": "2026-07-22"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_volume_planner.py",
+"size": 7720,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_regime_gate_study.py",
+"size": 5362,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_system_map.py",
+"size": 3661,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_guardian_daemon.py",
+"size": 19367,
+"mtime": "2026-07-15"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_state_integrity.py",
+"size": 1742,
+"mtime": "2026-09-11"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_autonomous_guardian.py",
+"size": 2089,
+"mtime": "2026-06-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_wallet_failclosed.py",
+"size": 2555,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_deep_learner.py",
+"size": 50083,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_realtime_sync.py",
+"size": 4368,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_quant_calibration_harvest.py",
+"size": 13329,
+"mtime": "2026-07-18"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_swing_data_safety.py",
+"size": 1394,
+"mtime": "2026-09-11"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_maturation_window.py",
+"size": 9611,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_book_recorder.py",
+"size": 2664,
+"mtime": "2026-07-19"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_mtf_scalp_lab.py",
+"size": 1839,
+"mtime": "2026-08-22"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_prereg_f1.py",
+"size": 4662,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_ta_probability_gate.py",
+"size": 1813,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_forward_reeval_loop.py",
+"size": 2866,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_refresh_intel_snapshot.py",
+"size": 2400,
+"mtime": "2026-07-08"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_progress_report.py",
+"size": 1384,
+"mtime": "2026-09-15"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_project_structure.py",
+"size": 3797,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_telegram_guard.py",
+"size": 1229,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_live_entry_reconciliation.py",
+"size": 4817,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_obi_collector_levels.py",
+"size": 2589,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_f3_liquidity.py",
+"size": 4895,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_model_falsification.py",
+"size": 7897,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_watchlist_gate_accelerator.py",
+"size": 2423,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_reconciliation_audit.py",
+"size": 5687,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_live_short_accelerator.py",
+"size": 14430,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_harness_reeval.py",
+"size": 7691,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_live_readiness_report.py",
+"size": 1368,
+"mtime": "2026-10-03"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_two_sided_shadow.py",
+"size": 1378,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/tests/test_paper_test_pasar_anantara.py",
+"size": 3816,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_funding_rate_collector.py",
+"size": 2028,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_normalized_equity_tiling.py",
+"size": 5048,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/tests/test_sodex_ratio_sprt.py",
+"size": 2479,
+"mtime": "2026-07-19"
+},
+{
+"p": "anantara-sakti/archive/papertracks_20260908/anantara-paper-combined.service",
+"size": 750,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/archive/papertracks_20260908/anantara-paper-fast.service",
+"size": 790,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/archive/papertracks_20260908/anantara-paper-combined-scs.service",
+"size": 760,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/archive/papertracks_20260908/anantara-paper-spot-swing.service",
+"size": 867,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/root_files/ANANTARA_SAKTI_Research_Review.html",
+"size": 35104,
+"mtime": "2026-05-30"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/root_files/ANANTARA_SAKTI_Blueprint_Paripurna.html",
+"size": 47368,
+"mtime": "2026-05-30"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_FARMING_AUDIT_REKOMENDASI_2026-06-12.pdf",
+"size": 291399,
+"mtime": "2026-06-12"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SISTEM_ANANTARA_SAKTI_AUDIT_REKOMENDASI_2026-06-13.md",
+"size": 30057,
+"mtime": "2026-06-13"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SISTEM_ANANTARA_SAKTI_AUDIT_REKOMENDASI_2026-06-13.pdf",
+"size": 35834,
+"mtime": "2026-06-13"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_RADICAL_RESEARCH_2026-07-08.md",
+"size": 5863,
+"mtime": "2026-07-08"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_FARMING_OVERHAUL_RESULTS_2026-06-29.md",
+"size": 13081,
+"mtime": "2026-06-30"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/AUDIT_EKOSISTEM_ANANTARA_SAKTI_2026-06-12.pdf",
+"size": 283862,
+"mtime": "2026-06-12"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_FARMING_ENGINE_UPGRADE_2026-07-11.md",
+"size": 7151,
+"mtime": "2026-07-11"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_FARMING_AUDIT_REKOMENDASI_2026-06-12.md",
+"size": 23040,
+"mtime": "2026-06-12"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_FARMING_VOLUME_STRATEGY_2026-06-30.md",
+"size": 8977,
+"mtime": "2026-06-30"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/AUDIT_EKOSISTEM_ANANTARA_SAKTI_2026-06-12.md",
+"size": 24109,
+"mtime": "2026-06-12"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_FARMING_AUDIT_ROOT_CAUSE_2026-06-29.md",
+"size": 38012,
+"mtime": "2026-06-29"
+},
+{
+"p": "anantara-sakti/archive/ekosistem_20260912/reports_lama/SODEX_12WALLET_AUDIT_20260714.html",
+"size": 42192,
+"mtime": "2026-07-14"
+},
+{
+"p": "anantara-sakti/systemd/sodex-s1-sol-forward.timer",
+"size": 223,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/paper-test-pasar-anantara-cex.service",
+"size": 681,
+"mtime": "2026-09-16"
+},
+{
+"p": "anantara-sakti/systemd/sodex-honest-ratio-gate.timer",
+"size": 160,
+"mtime": "2026-07-20"
+},
+{
+"p": "anantara-sakti/systemd/sodex-queue-trade-validator.timer",
+"size": 234,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/sodex-sentinel.service",
+"size": 630,
+"mtime": "2026-07-15"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-combined.service",
+"size": 750,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/sodex-public-trade-recorder.service",
+"size": 701,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-fast.service",
+"size": 790,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/sodex-forward-reeval-loop.service",
+"size": 526,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/systemd/sodex-honest-ratio-gate.service",
+"size": 559,
+"mtime": "2026-07-20"
+},
+{
+"p": "anantara-sakti/systemd/anantara-spot-livetest.service",
+"size": 804,
+"mtime": "2026-08-06"
+},
+{
+"p": "anantara-sakti/systemd/sodex-monthly-ta-sweep.service",
+"size": 348,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/systemd/sodex-honest-ratio-report.service",
+"size": 561,
+"mtime": "2026-07-18"
+},
+{
+"p": "anantara-sakti/systemd/sodex-monthly-ta-sweep.timer",
+"size": 214,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/systemd/sodex-forward-loop-guard.timer",
+"size": 219,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/sodex-84h-supervisor.service",
+"size": 608,
+"mtime": "2026-06-20"
+},
+{
+"p": "anantara-sakti/systemd/sodex-two-sided-shadow.service",
+"size": 590,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/sodex-quant-stat.service",
+"size": 726,
+"mtime": "2026-07-18"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-swing-atrvol.service",
+"size": 1667,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/systemd/sodex-episode-count.timer",
+"size": 239,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-hyperliquid.service",
+"size": 812,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-aster.service",
+"size": 788,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/systemd/sodex-market-ticker-scanner.service",
+"size": 594,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/systemd/sodex-funding-rate-collector.timer",
+"size": 198,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/systemd/sodex-ta16-forward.timer",
+"size": 191,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/systemd/sodex-queue-trade-validator.service",
+"size": 535,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/sodex-rangepos-forward.timer",
+"size": 204,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/systemd/sodex-cameo-scalp-research.service",
+"size": 482,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/sodex-qip-xaut-pilot.service",
+"size": 1072,
+"mtime": "2026-07-22"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-watchdog.service",
+"size": 596,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/systemd/sodex-cameo-scalp-research.timer",
+"size": 218,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/sodex-monitor-eval.timer",
+"size": 257,
+"mtime": "2026-06-30"
+},
+{
+"p": "anantara-sakti/systemd/sodex-forward-reeval-loop.timer",
+"size": 216,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-realwide-atrvol.service",
+"size": 1646,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/systemd/anantara-orderflow-validate.timer",
+"size": 237,
+"mtime": "2026-08-11"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-swing-partial.service",
+"size": 881,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-spot-swing-v2.service",
+"size": 797,
+"mtime": "2026-09-03"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-learning.timer",
+"size": 155,
+"mtime": "2026-08-06"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-realwide-watchdog.service",
+"size": 629,
+"mtime": "2026-08-06"
+},
+{
+"p": "anantara-sakti/systemd/sodex-s1-sol-forward.service",
+"size": 478,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/sodex-quant-stat.timer",
+"size": 241,
+"mtime": "2026-07-17"
+},
+{
+"p": "anantara-sakti/systemd/sodex-capital-report.service",
+"size": 481,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-twoway-p27.service",
+"size": 1287,
+"mtime": "2026-10-21"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-swing-strict.service",
+"size": 1929,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-pasar-anantara-trade.service",
+"size": 746,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-realwide-watchdog.timer",
+"size": 177,
+"mtime": "2026-08-06"
+},
+{
+"p": "anantara-sakti/systemd/sodex-forward-loop-guard.service",
+"size": 596,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-realwide-atrvolopen.service",
+"size": 1796,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/systemd/sodex-monitor-eval.service",
+"size": 542,
+"mtime": "2026-06-18"
+},
+{
+"p": "anantara-sakti/systemd/sodex-collector-guard.service",
+"size": 441,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/anantara-orderflow-validate.service",
+"size": 648,
+"mtime": "2026-08-11"
+},
+{
+"p": "anantara-sakti/systemd/sodex-klines-forward.timer",
+"size": 197,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-combined-scs.service",
+"size": 760,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-pasar-anantara.service",
+"size": 713,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-twoway.service",
+"size": 901,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/anantara-sodex-progress.service",
+"size": 653,
+"mtime": "2026-08-31"
+},
+{
+"p": "anantara-sakti/systemd/sodex-ta16-forward.service",
+"size": 734,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/systemd/sodex-funding-rate-collector.service",
+"size": 480,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/systemd/sodex-rangepos-forward.service",
+"size": 810,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-spot-swing.service",
+"size": 822,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-spot-ratchet.service",
+"size": 808,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-learning.service",
+"size": 557,
+"mtime": "2026-08-06"
+},
+{
+"p": "anantara-sakti/systemd/sodex-f1-count.service",
+"size": 399,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/systemd/anantara-orderflow-capture.service",
+"size": 726,
+"mtime": "2026-08-11"
+},
+{
+"p": "anantara-sakti/systemd/sodex-capital-report.timer",
+"size": 189,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/systemd/sodex-twin-watchdog.service",
+"size": 544,
+"mtime": "2026-06-15"
+},
+{
+"p": "anantara-sakti/systemd/anantara-perps-short-livetest.service",
+"size": 825,
+"mtime": "2026-08-06"
+},
+{
+"p": "anantara-sakti/systemd/sodex-mvfunding-p9-rerun.timer",
+"size": 231,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/sodex-guardian.service",
+"size": 585,
+"mtime": "2026-07-15"
+},
+{
+"p": "anantara-sakti/systemd/anantara-sodex-progress.timer",
+"size": 233,
+"mtime": "2026-08-31"
+},
+{
+"p": "anantara-sakti/systemd/sodex-f1-count.timer",
+"size": 129,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/systemd/sodex-honest-ratio-report.timer",
+"size": 176,
+"mtime": "2026-07-18"
+},
+{
+"p": "anantara-sakti/systemd/sodex-klines-forward.service",
+"size": 780,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-realwide.service",
+"size": 974,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/sodex-pin-maker.service",
+"size": 773,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/systemd/sodex-collector-guard.timer",
+"size": 222,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-swing.service",
+"size": 973,
+"mtime": "2026-08-13"
+},
+{
+"p": "anantara-sakti/systemd/anantara-obi.service",
+"size": 526,
+"mtime": "2026-08-09"
+},
+{
+"p": "anantara-sakti/systemd/sodex-episode-count.service",
+"size": 345,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/sodex-mvfunding-p9-rerun.service",
+"size": 497,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/systemd/anantara-paper-watchdog.timer",
+"size": 182,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/freqtrade_user_data/strategies/AnantaraTrendFocused_v4.py",
+"size": 94478,
+"mtime": "2026-09-16"
+},
+{
+"p": "anantara-sakti/freqtrade_user_data/strategies/AnantaraTrendFollow_v2.py",
+"size": 45035,
+"mtime": "2026-06-12"
+},
+{
+"p": "anantara-sakti/freqtrade_user_data/strategies/AnantaraRandomControl_v1.py",
+"size": 3480,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/logs/sodex_progress_report_error.log",
+"size": 0,
+"mtime": "2026-08-31"
+},
+{
+"p": "anantara-sakti/logs/sodex_l2_collector.log",
+"size": 994,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_forced_flow_collector.log",
+"size": 152,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/logs/sodex_collector_guard.log",
+"size": 297551,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/paper_pasar_anantara_trade.log",
+"size": 649812,
+"mtime": "2026-09-14"
+},
+{
+"p": "anantara-sakti/logs/sodex_realsync_error.log",
+"size": 1298,
+"mtime": "2026-09-17"
+},
+{
+"p": "anantara-sakti/logs/paper_pasar_anantara_error.log",
+"size": 0,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/logs/sodex_venue_7d.out",
+"size": 2134,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_s1_sol_forward.log",
+"size": 2497,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/paper_pasar_anantara.log",
+"size": 8785,
+"mtime": "2026-09-14"
+},
+{
+"p": "anantara-sakti/logs/paper_pasar_anantara_cex_error.log",
+"size": 0,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/logs/sodex_cex_monitor_health.log",
+"size": 5208989,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_cex_monitor_pulse.log",
+"size": 3265516,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_f1_count.log",
+"size": 1559,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_venue_7d.err",
+"size": 0,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_monitor_eval.log",
+"size": 17893611,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_watchdog_error.log",
+"size": 3246,
+"mtime": "2026-09-17"
+},
+{
+"p": "anantara-sakti/logs/sodex_klines_forward.log",
+"size": 133910,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_cex_weekly_audit.log",
+"size": 1704,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/logs/sodex_obi_collector.log",
+"size": 444576,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_monthly_ta_sweep.log",
+"size": 17428,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/logs/paper_pasar_anantara_cex.log",
+"size": 64566,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_ta16_forward.log",
+"size": 27287,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_forward_reeval_loop.log",
+"size": 80765,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_funding_rate_collector.log",
+"size": 754068,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/paper_pasar_anantara_trade_error.log",
+"size": 0,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/logs/sodex_venue_7d.log",
+"size": 2993,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_forward_loop_guard.log",
+"size": 117022,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_rangepos_forward.log",
+"size": 59958,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_cex_deep_loop.log",
+"size": 609278,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_p9_rerun.log",
+"size": 1940,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_cex_daily_report.log",
+"size": 8670,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_watchdog.log",
+"size": 9322257,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_realsync.log",
+"size": 9688072,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/logs/sodex_progress_report.log",
+"size": 132236,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/docs/SODEX_SWING_PHILOSOPHY_AND_MAP_20260802.md",
+"size": 12591,
+"mtime": "2026-08-02"
+},
+{
+"p": "anantara-sakti/docs/SODEX_SYSTEM_MAP.md",
+"size": 8839,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/docs/SODEX_V2_BUG_REPORT.md",
+"size": 2364,
+"mtime": "2026-06-16"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_COMPLETION.md",
+"size": 3259,
+"mtime": "2026-06-10"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_MASTERPLAN_2026-06-18.md",
+"size": 9498,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/docs/SODEX_SCS_RECOMMENDATION_20260802.md",
+"size": 12491,
+"mtime": "2026-08-02"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_STATUS_2026-06-26.md",
+"size": 22611,
+"mtime": "2026-06-26"
+},
+{
+"p": "anantara-sakti/docs/DOKUMENTASI_EKOSISTEM_ANANTARA_2026-09-30.md",
+"size": 34348,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_DOCTRINE.md",
+"size": 8833,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/docs/DOKUMENTASI_EKOSISTEM_ANANTARA_2026-09-30.pdf",
+"size": 652950,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/docs/SODEX_ARCHITECTURE_MAP.md",
+"size": 6999,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/docs/SODEX_20W_COMPREHENSIVE_AUDIT.html",
+"size": 19514,
+"mtime": "2026-07-31"
+},
+{
+"p": "anantara-sakti/docs/SODEX_QSF_RESEARCH_2026-07-21.md",
+"size": 3667,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/docs/SODEX_MONITOR_EVALUATION.md",
+"size": 1965,
+"mtime": "2026-06-18"
+},
+{
+"p": "anantara-sakti/docs/SODEX_ROADMAP_13SEP_LIVE_READY.md",
+"size": 3664,
+"mtime": "2026-08-26"
+},
+{
+"p": "anantara-sakti/docs/SODEX_WATCHLIST_GATE.md",
+"size": 4533,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FULL_STATE_20260802.html",
+"size": 280,
+"mtime": "2026-08-02"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_RESEARCH_REPORT_2026-07-08.html",
+"size": 19695,
+"mtime": "2026-07-08"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_HANDOVER_2026-06-25.md",
+"size": 51262,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/docs/SODEX_QIP_RESEARCH_2026-07-21.md",
+"size": 4677,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_COMPREHENSIVE.md",
+"size": 17946,
+"mtime": "2026-07-03"
+},
+{
+"p": "anantara-sakti/docs/SODEX_17W_TRADING_AUDIT.html",
+"size": 36304,
+"mtime": "2026-07-29"
+},
+{
+"p": "anantara-sakti/docs/SODEX_PROJECT_STRUCTURE.md",
+"size": 12551,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/docs/DOKUMENTASI_EKOSISTEM_ANANTARA_2026-09-30.html",
+"size": 59820,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/docs/SODEX_QUANT_STAT_ANALYTIC_TRADING_RESEARCH_2026-07-16.md",
+"size": 9361,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_HANDOFF.md",
+"size": 17144,
+"mtime": "2026-06-08"
+},
+{
+"p": "anantara-sakti/docs/ANANTARA_KNOWLEDGE_WORKFLOW.md",
+"size": 3961,
+"mtime": "2026-06-10"
+},
+{
+"p": "anantara-sakti/docs/SODEX_7W_7D_AUDIT.html",
+"size": 28577,
+"mtime": "2026-07-29"
+},
+{
+"p": "anantara-sakti/docs/SODEX_KOMPREHENSIF_AWAM_20260816.html",
+"size": 42291,
+"mtime": "2026-08-25"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_AZ_REPORT_2026-07-12.md",
+"size": 16799,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/docs/SODEX_STOCK_AUDIT_20260728.md",
+"size": 14013,
+"mtime": "2026-07-29"
+},
+{
+"p": "anantara-sakti/docs/SODEX_LATEST_MAP_STRUCTURE_TARGET_ASSESSMENT_2026-07-16.md",
+"size": 10226,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/docs/SODEX_API_KEY_ROTATION_AMAN_2026-09-04.md",
+"size": 1608,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/docs/VARIATIONAL_VS_SODEX_COMPLETE_COMPARISON_2026-07-23.html",
+"size": 86295,
+"mtime": "2026-07-23"
+},
+{
+"p": "anantara-sakti/docs/SODEX_8W_24H_AUDIT.html",
+"size": 27230,
+"mtime": "2026-07-29"
+},
+{
+"p": "anantara-sakti/docs/SODEX_COMPENDIUM_FOR_MYTHOS.md",
+"size": 59366,
+"mtime": "2026-06-11"
+},
+{
+"p": "anantara-sakti/docs/SODEX_4H_TEST_REPORT_2026-06-20.md",
+"size": 10432,
+"mtime": "2026-06-20"
+},
+{
+"p": "anantara-sakti/docs/SODEX_TA_PROBABILITY_GATE_AUDIT_2026-07-16.md",
+"size": 3463,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/docs/SODEX_17W_AUDIT_20260729.md",
+"size": 24390,
+"mtime": "2026-07-29"
+},
+{
+"p": "anantara-sakti/docs/ANANTARA_MULTI_PROJECT_COMPREHENSIVE_REPORT_2026-07-19.html",
+"size": 128791,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/docs/SODEX_CAMEO_SCALP_RESEARCH_2026-07-21.md",
+"size": 4085,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/docs/SODEX_4W_AUDIT.html",
+"size": 10365,
+"mtime": "2026-07-31"
+},
+{
+"p": "anantara-sakti/docs/VARIATIONAL_VS_SODEX_AUDIT_2026-07-23.md",
+"size": 9746,
+"mtime": "2026-07-23"
+},
+{
+"p": "anantara-sakti/docs/SODEX_E2_RESEARCH_2026-06-20.md",
+"size": 11973,
+"mtime": "2026-06-21"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_STATUS_2026-06-25.md",
+"size": 17788,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/docs/SODEX_FARMING_AZ_REPORT_2026-07-12.html",
+"size": 16056,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/docs/SODEX_RADICAL_84H_PLAN.md",
+"size": 6092,
+"mtime": "2026-06-20"
+},
+{
+"p": "anantara-sakti/docs/evidence/ANANTARA_MASTER_Evidence_V2_Supplement.html",
+"size": 19444,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/docs/evidence/ANANTARA_MASTER_Evidence_Research_Technical_Reference_V1.html",
+"size": 98727,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/docs/archive/src_draft_20260527/sodex_integration.py",
+"size": 9778,
+"mtime": "2026-05-27"
+},
+{
+"p": "anantara-sakti/docs/superpowers/specs/2026-06-29-sodex-farming-radical-overhaul-design.md",
+"size": 14784,
+"mtime": "2026-06-29"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/EKOSISTEM_ANANTARA_SAKTI_MASTER_DOKUMEN.pdf",
+"size": 1988982,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/EKOSISTEM_ANANTARA_SAKTI_DOKUMEN_KOMPREHENSIF.pdf",
+"size": 710090,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/EKOSISTEM_ANANTARA_SAKTI_DOKUMEN_KOMPREHENSIF.html",
+"size": 323243,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/EKOSISTEM_ANANTARA_SAKTI_MASTER_DOKUMEN.html",
+"size": 953033,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/EKOSISTEM_ANANTARA_SAKTI_MASTER_DOKUMEN.md",
+"size": 639705,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/EKOSISTEM_ANANTARA_SAKTI_DOKUMEN_KOMPREHENSIF.md",
+"size": 210452,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/_parts_v2/01_sodex.md",
+"size": 59174,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/v3_clean/EKOSISTEM_ANANTARA_SAKTI_V3_CLEAN.html",
+"size": 76354,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/v3_clean/EKOSISTEM_ANANTARA_SAKTI_V3_CLEAN.pdf",
+"size": 197531,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/v3_clean/RENCANA_MAKER_MIGRATION_SODEX.md",
+"size": 2426,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/v3_clean/AUDIT_REKONSILIASI_FEE_PNL_SODEX.md",
+"size": 2475,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/docs/ekosistem-2026-09-26/v3_clean/EKOSISTEM_ANANTARA_SAKTI_V3_CLEAN.md",
+"size": 45724,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/docs/research/PRAREG_LIST1_SODEX_NEWLISTING_SHORT_2026-10-09.md",
+"size": 3113,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/research/PRAREG_LB3_SODEX_PERAKUN_2026-10-09.md",
+"size": 2509,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/research/PRAREG_LB2_SODEX_LEADERBOARD_2026-10-09.md",
+"size": 2539,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/research/HASIL_LIST1_SODEX_NEWLISTING_SHORT_2026-10-09.md",
+"size": 4293,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/handover/RISET_TO_DIVISI_2026-10-01/PERINTAH_1_SoDEX.md",
+"size": 8255,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/docs/handover/RISET_TO_DIVISI_2026-10-01/harness/anantara_harness.py",
+"size": 15991,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/docs/sodex/STRUKTUR_BIAYA_EKSEKUSI_SODEX_2026-10-07.md",
+"size": 7666,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_FORWARD_MOMENTUM_2026-10-05.html",
+"size": 10884,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/RISET_SODEX_R4_R4B_LAPORAN_2026-10-05.html",
+"size": 45709,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ALT2_H5_HASIL_2026-10-07.md",
+"size": 5048,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ALT3_HASIL_2026-10-07.md",
+"size": 5690,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ANALISIS_PROBABILITAS_TARGET_2026-10-08.md",
+"size": 6023,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_F2_CLOSED_2026-10-06.md",
+"size": 2828,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/docs/sodex/RISET_VENUE_SODEX_2026-10-07.html",
+"size": 78181,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_PRAREG5_FILL_MAKER_2026-10-07.md",
+"size": 7914,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_COLLECTOR_WIDENING_2026-10-05.html",
+"size": 11693,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_PRAREG5_RESULTS_2026-10-07.md",
+"size": 8791,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ALT_TOP4_PRAREG_2026-10-07.md",
+"size": 8508,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_PROXY_LAB_2026-10-06.md",
+"size": 3617,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_F1_PRAREG_2026-10-06.md",
+"size": 7817,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ALT_TOP4_HASIL_2026-10-07.md",
+"size": 5364,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/RCA_SODEX_2026-10-23.md",
+"size": 17034,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_FORWARD_MOMENTUM_2026-10-05.md",
+"size": 5202,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/RISET_SODEX_R4_R4B_LAPORAN_2026-10-05.pdf",
+"size": 424437,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_COLLECTOR_WIDENING_2026-10-05.md",
+"size": 5753,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_EVALUATOR_AUDIT_2026-10-07.md",
+"size": 4292,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/RCA_SODEX_2026-10-23.pdf",
+"size": 287495,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_RECOVERY_MONITOR_RCA_2026-10-06.md",
+"size": 5316,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ALT3_PRAREG_2026-10-07.md",
+"size": 6337,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_ALT2_H5_PRAREG_2026-10-07.md",
+"size": 4192,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_FORWARD_MOMENTUM_2026-10-05.pdf",
+"size": 129985,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_COLLECTOR_WIDENING_2026-10-05.pdf",
+"size": 165216,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_TWIN_ENGINE_AUDIT_2026-10-06.md",
+"size": 6737,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_SCAN_AUDIT_2026-10-06.md",
+"size": 8806,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_F3_PRAREG_2026-10-06.md",
+"size": 8838,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_PRAREG3_RANGEPOS_QUINTILE_2026-10-07.md",
+"size": 5683,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_RISET_PEMBANDING_DAN_TARGET_2026-10-09.md",
+"size": 7930,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_SPEC4_HASIL_2026-10-07.md",
+"size": 14059,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_FORWARD_MOMENTUM_PRAREG_2026-10-05.md",
+"size": 4304,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/RISET_SODEX_R4_R4B_LAPORAN_2026-10-05.md",
+"size": 28676,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_SPEC4_PRAREG_2026-10-07.md",
+"size": 5402,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_COLLECTOR_BREADTH_STATUS_2026-10-07.md",
+"size": 6850,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/RISET_VENUE_SODEX_2026-10-07.md",
+"size": 48531,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/RCA_SODEX_2026-10-23.html",
+"size": 28050,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_PRAREG4_RANGEPOS_SODEX_1H_2026-10-07.md",
+"size": 6327,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/VALIDASI_PRAREG4_SODEX_1H_HASIL_2026-10-07.md",
+"size": 7082,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_F3_RATECHECK_C3_DISSECTION_2026-10-09.md",
+"size": 4371,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_INVENTARIS_KELUARGA_SINYAL_2026-10-08.md",
+"size": 7403,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_F2_PRAREG_DRAFT_2026-10-06.md",
+"size": 4377,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/docs/sodex/SODEX_LAJU_EPISODE_RISET_2026-10-07.md",
+"size": 10713,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/docs/sodex/RISET_VENUE_SODEX_2026-10-07.pdf",
+"size": 787615,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/secrets/sodex.env.template",
+"size": 386,
+"mtime": "2026-06-13"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261024_0900.sql.gz",
+"size": 3696080,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261023_0900.sql.gz",
+"size": 3696080,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261022_0900.sql.gz",
+"size": 374,
+"mtime": "2026-10-22"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261025_0900.sql.gz",
+"size": 495158,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261025_0900.sql.gz",
+"size": 3696080,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261020_0900.sql.gz",
+"size": 3696077,
+"mtime": "2026-10-20"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261023_0900.sql.gz",
+"size": 495165,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261019_0900.sql.gz",
+"size": 369,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261024_0900.sql.gz",
+"size": 495149,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261021_0900.sql.gz",
+"size": 371,
+"mtime": "2026-10-21"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261024_0900.sql.gz",
+"size": 370,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261018_0900.sql.gz",
+"size": 3696077,
+"mtime": "2026-10-18"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261022_0900.sql.gz",
+"size": 3696076,
+"mtime": "2026-10-22"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261020_0900.sql.gz",
+"size": 495162,
+"mtime": "2026-10-20"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261025_0900.sql.gz",
+"size": 371,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261020_0900.sql.gz",
+"size": 369,
+"mtime": "2026-10-20"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261018_0900.sql.gz",
+"size": 369,
+"mtime": "2026-10-18"
+},
+{
+"p": "anantara-sakti/backups/sodex_data_20261025_0900.tar.gz",
+"size": 1046032438,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261019_0900.sql.gz",
+"size": 3696072,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261018_0900.sql.gz",
+"size": 495161,
+"mtime": "2026-10-18"
+},
+{
+"p": "anantara-sakti/backups/sodex_data_20261024_0900.tar.gz",
+"size": 1042896480,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261022_0900.sql.gz",
+"size": 495170,
+"mtime": "2026-10-22"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261019_0900.sql.gz",
+"size": 495146,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_20261021_0900.sql.gz",
+"size": 3696081,
+"mtime": "2026-10-21"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_bybit_20261021_0900.sql.gz",
+"size": 495156,
+"mtime": "2026-10-21"
+},
+{
+"p": "anantara-sakti/backups/db_anantara_paradex_20261023_0900.sql.gz",
+"size": 368,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.2.bak",
+"size": 38153,
+"mtime": "2026-07-06"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.5.pre-v8.0.bak",
+"size": 44762,
+"mtime": "2026-07-07"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraRandomControl_v1.py.bak",
+"size": 2948,
+"mtime": "2026-06-28"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.bak",
+"size": 34674,
+"mtime": "2026-06-28"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.1.bak",
+"size": 37655,
+"mtime": "2026-07-06"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.3.prebugfix.bak",
+"size": 42422,
+"mtime": "2026-07-06"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.3.pre-v7.4.bak",
+"size": 42748,
+"mtime": "2026-07-06"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.0.bak",
+"size": 36070,
+"mtime": "2026-07-05"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.pre-hook.bak",
+"size": 46809,
+"mtime": "2026-07-17"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/AnantaraTrendFocused_v4.py.v7.4.pre-v7.5.bak",
+"size": 43819,
+"mtime": "2026-07-07"
+},
+{
+"p": "anantara-sakti/backups/pre_improvement_20260628/anantara_daemon.py.bak",
+"size": 262600,
+"mtime": "2026-06-28"
+},
+{
+"p": "anantara-sakti/backups/pre_overhaul_20260629/sodex_twin_engine.py",
+"size": 256274,
+"mtime": "2026-06-29"
+},
+{
+"p": "anantara-sakti/backups/pre_overhaul_20260629/sodex_governor.py",
+"size": 11504,
+"mtime": "2026-06-29"
+},
+{
+"p": "anantara-sakti/deploy/systemd/sodex-autonomous-research.service",
+"size": 826,
+"mtime": "2026-06-08"
+},
+{
+"p": "anantara-sakti/scripts/sodex_quant_stat_engine.py",
+"size": 23060,
+"mtime": "2026-07-18"
+},
+{
+"p": "anantara-sakti/scripts/sodex_obi_collector.py",
+"size": 5573,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/scripts/sodex_directional_backtest.py",
+"size": 14343,
+"mtime": "2026-07-28"
+},
+{
+"p": "anantara-sakti/scripts/test_pasar_anantara_contrarian.py",
+"size": 3187,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_stock_paper_test.py",
+"size": 6070,
+"mtime": "2026-07-28"
+},
+{
+"p": "anantara-sakti/scripts/sodex_wallet_denominator.py",
+"size": 7822,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_order_surface_audit.py",
+"size": 7789,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_harness_reeval.py",
+"size": 42787,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_alt_top4_study.py",
+"size": 11921,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_deadman_switch.py",
+"size": 6934,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_h5_meanrev_study.py",
+"size": 7760,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_recovery_monitor.py",
+"size": 22624,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/scripts/analyze_pasar_anantara_direction.py",
+"size": 1857,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_d05b_exit_geometry.py",
+"size": 18479,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_edge_census.py",
+"size": 20909,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_dashboard_gen.py",
+"size": 12172,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_s1_sol_forward.py",
+"size": 8773,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_lane_target_projection.py",
+"size": 6693,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_reconciliation_audit.py",
+"size": 10339,
+"mtime": "2026-07-22"
+},
+{
+"p": "anantara-sakti/scripts/sodex_live_watchdog.py",
+"size": 16716,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/scripts/sodex_micro_discovery.py",
+"size": 7155,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/scripts/sodex_regime_gate_study.py",
+"size": 13116,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_perps_short_live_test.py",
+"size": 13892,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/verify_sodex_api_key.py",
+"size": 1707,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_spot_monitor.py",
+"size": 9492,
+"mtime": "2026-06-11"
+},
+{
+"p": "anantara-sakti/scripts/sodex_safety_guardian.py",
+"size": 47208,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/build_sodex_cli.sh",
+"size": 868,
+"mtime": "2026-05-20"
+},
+{
+"p": "anantara-sakti/scripts/probe_sodex_unpriced.py",
+"size": 1227,
+"mtime": "2026-09-13"
+},
+{
+"p": "anantara-sakti/scripts/sodex_autonomous_guardian.py",
+"size": 22781,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_autonomous_research.py",
+"size": 27788,
+"mtime": "2026-06-11"
+},
+{
+"p": "anantara-sakti/scripts/sodex_trials_registry.py",
+"size": 3635,
+"mtime": "2026-10-22"
+},
+{
+"p": "anantara-sakti/scripts/sodex_backfill_klines.py",
+"size": 5934,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_opportunity_lab.py",
+"size": 24488,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_side_breakdown.py",
+"size": 5740,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_normalized_equity.py",
+"size": 12249,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/diag_sodex_snapshot.py",
+"size": 1063,
+"mtime": "2026-09-13"
+},
+{
+"p": "anantara-sakti/scripts/sodex_e1_recovery_gate.py",
+"size": 7205,
+"mtime": "2026-07-08"
+},
+{
+"p": "anantara-sakti/scripts/sodex_84h_supervisor.py",
+"size": 21059,
+"mtime": "2026-06-20"
+},
+{
+"p": "anantara-sakti/scripts/sodex_spot_daemon.py",
+"size": 35670,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_live_readiness_report.py",
+"size": 6252,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_downloader.py",
+"size": 7800,
+"mtime": "2026-05-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_event_runway.py",
+"size": 5536,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/scripts/sodex_ratio_sprt.py",
+"size": 6394,
+"mtime": "2026-07-19"
+},
+{
+"p": "anantara-sakti/scripts/sodex_sig03_xsec_momentum.py",
+"size": 7690,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/scripts/probe_sodex_perps_markets.py",
+"size": 1552,
+"mtime": "2026-09-13"
+},
+{
+"p": "anantara-sakti/scripts/sodex_forward_reeval_loop.py",
+"size": 11954,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_spot_collector.py",
+"size": 4847,
+"mtime": "2026-05-27"
+},
+{
+"p": "anantara-sakti/scripts/sodex_window_sim.py",
+"size": 5658,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/scripts/sodex_live_short_accelerator.py",
+"size": 13454,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_fetch_binance_1m.py",
+"size": 3585,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_mvfunding_p9_rerun.py",
+"size": 5007,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_long_entry_filter_study.py",
+"size": 10093,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/diagnose_pasar_anantara_monotonic.py",
+"size": 2797,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/anantara_knowledge_compile.py",
+"size": 33705,
+"mtime": "2026-06-10"
+},
+{
+"p": "anantara-sakti/scripts/sodex_maker_paper_test.py",
+"size": 6219,
+"mtime": "2026-07-14"
+},
+{
+"p": "anantara-sakti/scripts/sodex_mode2_metrics.py",
+"size": 7403,
+"mtime": "2026-05-28"
+},
+{
+"p": "anantara-sakti/scripts/sodex_maker_order.py",
+"size": 18755,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_maturation_tracker.py",
+"size": 17790,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/scripts/sodex_profit_scan.py",
+"size": 5045,
+"mtime": "2026-07-03"
+},
+{
+"p": "anantara-sakti/scripts/sodex_scalp_microstructure.py",
+"size": 6442,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_honest_ratio_gate.py",
+"size": 17596,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_queue_fill_lab.py",
+"size": 17431,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/test_pasar_anantara_contrarian_extreme.py",
+"size": 2535,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_volume_churn.py",
+"size": 28684,
+"mtime": "2026-08-11"
+},
+{
+"p": "anantara-sakti/scripts/paper_test_pasar_anantara.py",
+"size": 16663,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_auto_trader.py",
+"size": 12124,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/scripts/sodex_capital_plan.py",
+"size": 6240,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/scripts/sodex_two_sided_shadow.py",
+"size": 9511,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_monitor_eval.py",
+"size": 70622,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_gate_monitor.py",
+"size": 2293,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_regime_source_discovery.py",
+"size": 4443,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_spot_live_test.py",
+"size": 18535,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_r3_reliability.py",
+"size": 17751,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/gen_sodex_audit_html.py",
+"size": 19681,
+"mtime": "2026-07-14"
+},
+{
+"p": "anantara-sakti/scripts/sodex_d04_blocker_rca.py",
+"size": 12423,
+"mtime": "2026-10-03"
+},
+{
+"p": "anantara-sakti/scripts/sodex_scan_audit.py",
+"size": 11485,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/scripts/sodex_wallet_forensic_7d.py",
+"size": 25924,
+"mtime": "2026-07-28"
+},
+{
+"p": "anantara-sakti/scripts/sodex_market_ticker_scanner.py",
+"size": 6271,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/scripts/sodex_target_distance.py",
+"size": 7735,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_collector_guard.py",
+"size": 6353,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/paper_test_pasar_anantara_trade.py",
+"size": 11925,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_build_minutes.py",
+"size": 4501,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_maker_paper_v2.py",
+"size": 6948,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_radical_gate.py",
+"size": 10794,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_e2dir_amplifier.py",
+"size": 10282,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_profit_engine.py",
+"size": 7859,
+"mtime": "2026-07-31"
+},
+{
+"p": "anantara-sakti/scripts/sodex_monthly_ta_sweep.sh",
+"size": 2653,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/scripts/sodex_episode_counter.py",
+"size": 4559,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_queue_trade_validator.py",
+"size": 14856,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_e1_autopilot.py",
+"size": 49106,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_prereg_f2.py",
+"size": 13528,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/scripts/sodex_spot_sell_recovery.py",
+"size": 10408,
+"mtime": "2026-07-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_profit_report.py",
+"size": 7284,
+"mtime": "2026-07-03"
+},
+{
+"p": "anantara-sakti/scripts/sodex_public_trade_recorder.py",
+"size": 4532,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/scripts/sodex_project_structure.py",
+"size": 10536,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_rate_check.py",
+"size": 5071,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_prereg_f1.py",
+"size": 12073,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_mode_audit.py",
+"size": 8314,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/scripts/sodex_adaptive_selector.py",
+"size": 12701,
+"mtime": "2026-07-20"
+},
+{
+"p": "anantara-sakti/scripts/sodex_refresh_intel_snapshot.py",
+"size": 7013,
+"mtime": "2026-07-08"
+},
+{
+"p": "anantara-sakti/scripts/sodex_window_planner.py",
+"size": 7638,
+"mtime": "2026-09-28"
+},
+{
+"p": "anantara-sakti/scripts/sodex_volume_planner.py",
+"size": 30855,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_realtime_sync.py",
+"size": 9876,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_deep_learn.py",
+"size": 5575,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/scripts/sodex_target_policy.py",
+"size": 24680,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/calibrate_pasar_anantara.py",
+"size": 4788,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_forward_loop_guard.py",
+"size": 14414,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_quant_calibration_harvest.py",
+"size": 18402,
+"mtime": "2026-07-18"
+},
+{
+"p": "anantara-sakti/scripts/sodex_tape_fade_sim.py",
+"size": 6368,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_mtf_scalp_lab.py",
+"size": 17451,
+"mtime": "2026-08-22"
+},
+{
+"p": "anantara-sakti/scripts/analyze_pasar_anantara_distribution.py",
+"size": 4131,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/scripts/sodex_farmable_scanner.py",
+"size": 7985,
+"mtime": "2026-07-19"
+},
+{
+"p": "anantara-sakti/scripts/sodex_paper_trader.py",
+"size": 10398,
+"mtime": "2026-07-28"
+},
+{
+"p": "anantara-sakti/scripts/sodex_progress_report.py",
+"size": 8109,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_trend_rider.py",
+"size": 37342,
+"mtime": "2026-08-11"
+},
+{
+"p": "anantara-sakti/scripts/sodex_alt3_xsec_study.py",
+"size": 12707,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_hype_maker.py",
+"size": 18025,
+"mtime": "2026-08-01"
+},
+{
+"p": "anantara-sakti/scripts/sodex_pin_maker.py",
+"size": 28620,
+"mtime": "2026-07-22"
+},
+{
+"p": "anantara-sakti/scripts/sodex_proxy_lab.py",
+"size": 6318,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/scripts/sodex_system_map.py",
+"size": 24127,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_watchlist_gate_accelerator.py",
+"size": 15597,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/sodex_model_falsification.py",
+"size": 15637,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_regime_counterfactual.py",
+"size": 4154,
+"mtime": "2026-09-15"
+},
+{
+"p": "anantara-sakti/scripts/sodex_paper_config.py",
+"size": 8494,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/scripts/sodex_forward_momentum.py",
+"size": 9530,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/sodex_spec4_micro.py",
+"size": 18969,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_d05_edge_leak_audit.py",
+"size": 17362,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/scripts/sodex_stability_check.py",
+"size": 5132,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/paper_test_pasar_anantara_cex.py",
+"size": 11609,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/scripts/sodex_book_recorder.py",
+"size": 8388,
+"mtime": "2026-07-19"
+},
+{
+"p": "anantara-sakti/scripts/sodex_event_barbell.py",
+"size": 6664,
+"mtime": "2026-06-25"
+},
+{
+"p": "anantara-sakti/scripts/sodex_tickers_snapshot.py",
+"size": 2954,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_funding_mapper.py",
+"size": 13245,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/scripts/audit_sodex_cex_deterministik.py",
+"size": 6042,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/scripts/sodex_funding_rate_collector.py",
+"size": 5273,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/scripts/sodex_prereg_f3.py",
+"size": 15878,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/sodex_trend_scanner.py",
+"size": 4125,
+"mtime": "2026-07-23"
+},
+{
+"p": "anantara-sakti/scripts/sodex_micro_pilot.py",
+"size": 35221,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/scripts/sodex_ta_probability_gate.py",
+"size": 14829,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/scripts/systemd-user/anantara-sodex-twin-watchdog.service",
+"size": 680,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/scripts/research/backtest_freqai_sodex.py",
+"size": 5780,
+"mtime": "2026-05-20"
+},
+{
+"p": "anantara-sakti/scripts/research/sim_sodex_farming.py",
+"size": 5360,
+"mtime": "2026-05-24"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_48h_candidate_screen.py",
+"size": 11532,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_mom_l21_venue_test.py",
+"size": 9397,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_distance_to_target.py",
+"size": 6807,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_stability_battery.py",
+"size": 5569,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_forced_flow_collector.py",
+"size": 10189,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_pull_1m_window.py",
+"size": 5024,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_compatibility_filter.py",
+"size": 6402,
+"mtime": "2026-09-24"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_pull_klines.py",
+"size": 3057,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_pull_klines_paged.py",
+"size": 5014,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/prereg23_h2_carry_sodex.py",
+"size": 4969,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_venue_7d.py",
+"size": 13101,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_diversification_census.py",
+"size": 5577,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/rangepos_sodex_1h_prereg4.py",
+"size": 8654,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_xsec_study.py",
+"size": 8008,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_extreme_sweep.py",
+"size": 13058,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_collect_l2.py",
+"size": 7640,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/scripts/research/audit_sodex_snapshot.py",
+"size": 4012,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_probe_history.py",
+"size": 3652,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/scripts/research/sodex_breadth_budget.py",
+"size": 5008,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation_forward.json",
+"size": 82839,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation_min_notional_10.json",
+"size": 65312,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/data/sodex_watchdog_prev.json",
+"size": 55,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_gate_opened.log",
+"size": 931,
+"mtime": "2026-10-21"
+},
+{
+"p": "anantara-sakti/data/sodex_real_sync_snapshot.json",
+"size": 27704,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/paper_test_shortbear_sodex_mark_execution_state.json",
+"size": 69,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_real_positions_snapshot.json",
+"size": 761,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/data/sodex_maturation_status.json",
+"size": 3658,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_phantom_resolve_20260921T141037Z.json",
+"size": 245,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/data/sodex_micro_pilot.jsonl",
+"size": 179216,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/data/sodex_public_trades.db",
+"size": 74747904,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_phantom_resolve_20260925T143757Z.json",
+"size": 677,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/paper_test_pasar_anantara_trade_state.json",
+"size": 27237,
+"mtime": "2026-09-14"
+},
+{
+"p": "anantara-sakti/data/sodex_spot_sell_support_packet.json",
+"size": 4219,
+"mtime": "2026-07-09"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation_n2.json",
+"size": 22705,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_decision_ledger.jsonl",
+"size": 251810,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_book_recorder.db",
+"size": 218566656,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/paper_pasar_anantara_cex_state.json",
+"size": 1850633,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_edge_census.json",
+"size": 9918,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_deep_learning.jsonl",
+"size": 3395075,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_trend_scan.json",
+"size": 1274,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation_inside_both_n5.json",
+"size": 18608,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/data/paper_test_pasar_anantara_trade.jsonl",
+"size": 23379,
+"mtime": "2026-09-12"
+},
+{
+"p": "anantara-sakti/data/sodex_learned_params.json",
+"size": 10505,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_quant_calibration.jsonl",
+"size": 957102,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/SODEX_SPOT_SELL_VERIFIED",
+"size": 252,
+"mtime": "2026-07-09"
+},
+{
+"p": "anantara-sakti/data/sodex_pin_maker_state.json",
+"size": 516,
+"mtime": "2026-08-02"
+},
+{
+"p": "anantara-sakti/data/sodex_farmable_pairs.json",
+"size": 271,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_go_live_resume_20260920T150726Z.json",
+"size": 944,
+"mtime": "2026-09-20"
+},
+{
+"p": "anantara-sakti/data/sodex_market_tickers.json",
+"size": 2649,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/data/sodex_watchdog_manual_perps_risk.json",
+"size": 18,
+"mtime": "2026-09-16"
+},
+{
+"p": "anantara-sakti/data/sodex_watchdog_manual_perps.json",
+"size": 18,
+"mtime": "2026-09-14"
+},
+{
+"p": "anantara-sakti/data/sodex_e1_recovery_operator_card.md",
+"size": 1221,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/data/sodex_state_adopt_20260925T153324Z.json",
+"size": 364,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/sodex_forward_loop_guard_state.json",
+"size": 192,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_pin_maker_hood_state.json",
+"size": 981,
+"mtime": "2026-07-23"
+},
+{
+"p": "anantara-sakti/data/sodex_profit_baseline.json",
+"size": 69,
+"mtime": "2026-07-17"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation_inside_n2.json",
+"size": 35463,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/data/sodex_phantom_resolve_20260921T141742Z.json",
+"size": 256,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/data/sodex_r3_reliability.json",
+"size": 757,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/data/sodex_qip_xaut_pilot_state.json",
+"size": 513,
+"mtime": "2026-07-22"
+},
+{
+"p": "anantara-sakti/data/sodex_watchdog_alerts.jsonl",
+"size": 13832503,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/paper_pasar_anantara_state.json",
+"size": 851579,
+"mtime": "2026-09-14"
+},
+{
+"p": "anantara-sakti/data/sodex_stability_alerts.jsonl",
+"size": 6340039,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/paper_test_shortbear_sodex_mark_execution_telemetry.jsonl",
+"size": 63740249,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_quant_calibration_summary.json",
+"size": 19701,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_phantom_resolve_20260925T1510Z.json",
+"size": 223,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/sodex_collector_guard_state.json",
+"size": 74,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation_inside_both_n2.json",
+"size": 41293,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/data/sodex_watchdog_alerts.jsonl.test_pollution_archive_2026-09-04",
+"size": 1329,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/data/sodex_queue_trade_validation.json",
+"size": 17704,
+"mtime": "2026-07-21"
+},
+{
+"p": "anantara-sakti/data/sodex_recovery_notify_state.json",
+"size": 132,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/data/sodex_stock_paper_test.json",
+"size": 2686,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_watchdog_spot_residuals.json",
+"size": 292,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/data/sodex_gate_monitor_state.json",
+"size": 196,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/sodex_ratio_sprt.json",
+"size": 309,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/SODEX_SPOT_SELL_BLOCKED.resolved_20260930",
+"size": 246,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/data/sodex_adaptive_selection.json",
+"size": 259,
+"mtime": "2026-08-03"
+},
+{
+"p": "anantara-sakti/data/sodex_pin_maker_xaut_state.json",
+"size": 526,
+"mtime": "2026-07-23"
+},
+{
+"p": "anantara-sakti/data/sodex_book_recorder.db?mode=ro",
+"size": 0,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/data/monitor/sodex_expanded_pool_history.jsonl",
+"size": 1072129,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/monitor/sodex_guard_latest.json",
+"size": 11339,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/monitor/sodex_robust_latest.json",
+"size": 59989,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/monitor/sodex_robust_expanded_latest.json",
+"size": 98554,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/monitor/sodex_2pct_watcher.log",
+"size": 262122,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/rutin_divisi/audit_sodex_cex_state.json",
+"size": 853,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/data/snapshots/sodex_20261023_0515/paper_test_shortbear_sodex_mark_execution_state.json",
+"size": 5396,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/data/snapshots/sodex_20261023_0515/paper_test_pasar_anantara_trade_state.json",
+"size": 27237,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/data/research/sodex_expanded_opportunity_pool.md",
+"size": 3007,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/sodex_expanded_opportunity_pool.json",
+"size": 9531,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/sodex_live_canary_plan.json",
+"size": 7550,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/sodex_compatibility_filter.json",
+"size": 35747,
+"mtime": "2026-09-24"
+},
+{
+"p": "anantara-sakti/data/research/mode_router_simulation_report_target2_expanded_sodex_overlap.json",
+"size": 14839,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/sodex_12m_hybrid_audit.json",
+"size": 927,
+"mtime": "2026-09-24"
+},
+{
+"p": "anantara-sakti/data/research/sodex_aggressive_gated_policy.md",
+"size": 1957,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/sodex_live_canary_plan.md",
+"size": 2621,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/sodex_compatibility_filter_expanded.json",
+"size": 34943,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/data/research/binance_36m_signal_report_target2_expanded_sodex_overlap.json",
+"size": 372347,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/knowledge/sodex_profit_research_v1.json",
+"size": 4089,
+"mtime": "2026-07-30"
+},
+{
+"p": "anantara-sakti/knowledge/sodex_profit_research_v2.json",
+"size": 862,
+"mtime": "2026-07-30"
+},
+{
+"p": "anantara-sakti/knowledge/sodex_comprehensive_research_v3.json",
+"size": 1556,
+"mtime": "2026-07-30"
+},
+{
+"p": "anantara-sakti/knowledge/SODEX_FORENSIC_14_WALLETS_LEARNING_2026-07-16.md",
+"size": 6878,
+"mtime": "2026-07-16"
+},
+{
+"p": "anantara-sakti/knowledge/index/SoDEX Farming Knowledge.md",
+"size": 9650,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/index/Anantara Knowledge Index.md",
+"size": 758,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_regime_paper_signal.py.md",
+"size": 646,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-experiment_registry.py.md",
+"size": 828,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_offline_paper_lab.py.md",
+"size": 941,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_mtf_scalp_lab.py.md",
+"size": 792,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-sodex-README.md.md",
+"size": 642,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-anantara_daemon.py.md",
+"size": 435,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_e1_autopilot.py.md",
+"size": 926,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-perps_volume_engine.py.md",
+"size": 518,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_events.py.md",
+"size": 742,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_mode_audit.py.md",
+"size": 567,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-code-quality.md.md",
+"size": 1377,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_system_map.py.md",
+"size": 760,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-deployment-checklist.md.md",
+"size": 2061,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_pre_sentiment.py.md",
+"size": 669,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_MONITOR_EVALUATION.md.md",
+"size": 765,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_deep_learner.py.md",
+"size": 793,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_STOCK_AUDIT_20260728.md.md",
+"size": 2175,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_paper.py.md",
+"size": 555,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_consciousness.py.md",
+"size": 550,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_attention.py.md",
+"size": 707,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_QIP_RESEARCH_2026-07-21.md.md",
+"size": 838,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_order_plan.py.md",
+"size": 720,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_radical_gate.py.md",
+"size": 621,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_improve.py.md",
+"size": 647,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_order_payload_validator.py.md",
+"size": 889,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_scalp_microstructure.py.md",
+"size": 615,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-swing_deep_learner.py.md",
+"size": 915,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_AZ_REPORT_2026-07-12.md.md",
+"size": 2040,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_obi_collector.py.md",
+"size": 519,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_model_server.py.md",
+"size": 660,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_event_runway.py.md",
+"size": 552,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_spot_daemon.py.md",
+"size": 1166,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_wallet_forensic_7d.py.md",
+"size": 756,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_e2dir_amplifier.py.md",
+"size": 740,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_market_variational.py.md",
+"size": 609,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_volume_churn.py.md",
+"size": 884,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/freqtrade_user_data-strategies-AnantaraTrendFocused_v4.py.md",
+"size": 660,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_mode2_metrics.py.md",
+"size": 574,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_deep_learner.py.md",
+"size": 1143,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_engines.py.md",
+"size": 833,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sentiment_collector.py.md",
+"size": 719,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_spot_governor.py.md",
+"size": 717,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_stats.py.md",
+"size": 767,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_QSF_RESEARCH_2026-07-21.md.md",
+"size": 822,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_project_gate.py.md",
+"size": 613,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/deploy-systemd-sodex-autonomous-research.service.md",
+"size": 1249,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/data-sodex-research-autonomous_status.json.md",
+"size": 1064,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_QUANT_STAT_ANALYTIC_TRADING_RESEARCH_2026-07-16.md.md",
+"size": 1256,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_behavioral.py.md",
+"size": 639,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_target_policy.py.md",
+"size": 995,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_micro_pilot.py.md",
+"size": 1544,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_STATUS_2026-06-26.md.md",
+"size": 2205,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-cex_learning_analyzer.py.md",
+"size": 595,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_dashboard.py.md",
+"size": 521,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_maker_paper_test.py.md",
+"size": 497,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_market_sentinel.py.md",
+"size": 529,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_monitor_eval.py.md",
+"size": 1395,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_learner.py.md",
+"size": 622,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_state_io.py.md",
+"size": 503,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_market_ticker_scanner.py.md",
+"size": 588,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-model_registry.py.md",
+"size": 498,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_downloader.py.md",
+"size": 514,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_deep_learn.py.md",
+"size": 543,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-ground_truth.py.md",
+"size": 874,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-sodex-api-patterns.md.md",
+"size": 1591,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_ground_truth.py.md",
+"size": 656,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/SODEX.md.md",
+"size": 2127,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_84h_supervisor.py.md",
+"size": 784,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_directional.py.md",
+"size": 506,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_4H_TEST_REPORT_2026-06-20.md.md",
+"size": 1943,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_sweep.py.md",
+"size": 792,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_farming.py.md",
+"size": 1648,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_execution.py.md",
+"size": 1097,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_public_event_collector.py.md",
+"size": 799,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_wide_farm.py.md",
+"size": 570,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/freqtrade_user_data-strategies-AnantaraTrendFollow_v2.py.md",
+"size": 660,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-cex_deep_loop.py.md",
+"size": 606,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_signal.py.md",
+"size": 529,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_COMPREHENSIVE.md.md",
+"size": 2347,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_guardian_daemon.py.md",
+"size": 996,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_validation_gates.py.md",
+"size": 1064,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_shadow_broker.py.md",
+"size": 709,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_LATEST_MAP_STRUCTURE_TARGET_ASSESSMENT_2026-07-16.md.md",
+"size": 1249,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-ai_agent_framework.py.md",
+"size": 628,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_safety_guardian.py.md",
+"size": 1183,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_order_observer.py.md",
+"size": 690,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_bridge.py.md",
+"size": 562,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-architecture-decisions.md.md",
+"size": 1329,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-platform_guard.py.md",
+"size": 763,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_swing_1d3d.py.md",
+"size": 582,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_backtest.py.md",
+"size": 621,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_HANDOFF.md.md",
+"size": 2018,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_profit_report.py.md",
+"size": 575,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_ratio_sprt.py.md",
+"size": 605,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-superpowers-specs-2026-06-29-sodex-farming-radical-overhaul-design.md.md",
+"size": 1776,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_SCS_RECOMMENDATION_20260802.md.md",
+"size": 2263,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-adaptive_gate_applier.py.md",
+"size": 530,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_trend_rider.py.md",
+"size": 951,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_long_scanner.py.md",
+"size": 533,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-VARIATIONAL_VS_SODEX_AUDIT_2026-07-23.md.md",
+"size": 1365,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_measure.py.md",
+"size": 611,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-anantara-daily-briefing.md.md",
+"size": 708,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_event_barbell.py.md",
+"size": 575,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_ephemeris.py.md",
+"size": 792,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_SWING_PHILOSOPHY_AND_MAP_20260802.md.md",
+"size": 1743,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-calibration.py.md",
+"size": 522,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-__init__.py.md",
+"size": 326,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/data-sodex-research-autonomous_learning.json.md",
+"size": 573,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-monitoring-rules.md.md",
+"size": 1437,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_autonomous_guardian.py.md",
+"size": 809,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_spot_live_test.py.md",
+"size": 699,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_perps_short_live_test.py.md",
+"size": 698,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-performance.py.md",
+"size": 477,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_RADICAL_84H_PLAN.md.md",
+"size": 991,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_STATUS_2026-06-25.md.md",
+"size": 2448,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-forecast.py.md",
+"size": 556,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_pin_maker.py.md",
+"size": 658,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_watchlist_gate_accelerator.py.md",
+"size": 814,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_etf_momentum.py.md",
+"size": 717,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-hermes_bridge.py.md",
+"size": 1803,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-auto_research_pregain.py.md",
+"size": 1042,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_deadman_switch.py.md",
+"size": 741,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/grafana-dashboards-anantara-overview.json.md",
+"size": 640,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_adaptive_selector.py.md",
+"size": 758,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-farming_registry.py.md",
+"size": 510,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-obi_analyzer.py.md",
+"size": 592,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-intelligence.py.md",
+"size": 507,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_auto_trader.py.md",
+"size": 693,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-scalp_predictor.py.md",
+"size": 666,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_project_gate.py.md",
+"size": 626,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-gen_sodex_audit_html.py.md",
+"size": 507,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_quant_stat_engine.py.md",
+"size": 1028,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_refresh_intel_snapshot.py.md",
+"size": 695,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_adaptive_config.py.md",
+"size": 587,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_event_shock_guard.py.md",
+"size": 740,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_ta_probability_gate.py.md",
+"size": 728,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_paper_daemon.py.md",
+"size": 692,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-funding_harvest.py.md",
+"size": 659,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_ablation.py.md",
+"size": 616,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-risk_metrics.py.md",
+"size": 580,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_order_surface_audit.py.md",
+"size": 553,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-cex_bootstrap_monitor.py.md",
+"size": 606,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-forecast_accuracy.py.md",
+"size": 493,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_stock_paper_test.py.md",
+"size": 528,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_deep_learner.py.md",
+"size": 768,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-constitution.py.md",
+"size": 836,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_swing_candidate.py.md",
+"size": 807,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_live_short_accelerator.py.md",
+"size": 719,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_DOCTRINE.md.md",
+"size": 905,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_autonomous_research.py.md",
+"size": 877,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_profit_engine.py.md",
+"size": 542,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-radical_scanner.py.md",
+"size": 539,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_monitor.py.md",
+"size": 563,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_behavior_adaptation.py.md",
+"size": 871,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_WATCHLIST_GATE.md.md",
+"size": 720,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_HANDOVER_2026-06-25.md.md",
+"size": 2195,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_spot_farm.py.md",
+"size": 510,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-directional_predictor.py.md",
+"size": 557,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_queue_fill_lab.py.md",
+"size": 810,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-platform_selfaudit.py.md",
+"size": 733,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_event_study.py.md",
+"size": 801,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-license_gateway.py.md",
+"size": 654,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_autopilot.py.md",
+"size": 583,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_autofarm.py.md",
+"size": 1041,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_intel_layer.py.md",
+"size": 765,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_probability_model.py.md",
+"size": 677,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-evaluator.py.md",
+"size": 420,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_TA_PROBABILITY_GATE_AUDIT_2026-07-16.md.md",
+"size": 1167,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_validation.py.md",
+"size": 1160,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_pipeline.py.md",
+"size": 598,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-trading-rules.md.md",
+"size": 1112,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_client.py.md",
+"size": 561,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_evaluation.py.md",
+"size": 675,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_market_intel.py.md",
+"size": 667,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-anantara-trade-review.md.md",
+"size": 832,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-ANANTARA_KNOWLEDGE_WORKFLOW.md.md",
+"size": 843,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_signal.py.md",
+"size": 622,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_PROJECT_STRUCTURE.md.md",
+"size": 1065,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_quant_calibration_harvest.py.md",
+"size": 696,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-market_sentinel.py.md",
+"size": 950,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_intel_layer.py.md",
+"size": 568,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_public_trade_recorder.py.md",
+"size": 600,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_two_sided_shadow.py.md",
+"size": 654,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_spot_scanner.py.md",
+"size": 582,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_CAMEO_SCALP_RESEARCH_2026-07-21.md.md",
+"size": 927,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_scan.py.md",
+"size": 1082,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_reconciliation_audit.py.md",
+"size": 659,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_submit_dry_run.py.md",
+"size": 830,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_COMPENDIUM_FOR_MYTHOS.md.md",
+"size": 2759,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_V2_BUG_REPORT.md.md",
+"size": 981,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_e1_recovery_gate.py.md",
+"size": 591,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_queue_trade_validator.py.md",
+"size": 735,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_paper_trader.py.md",
+"size": 632,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_data_ingest.py.md",
+"size": 645,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_daemon.py.md",
+"size": 730,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-cex_pair_blocklist.py.md",
+"size": 700,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_funding_collector.py.md",
+"size": 613,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_spot_sell_recovery.py.md",
+"size": 694,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_submit_preflight.py.md",
+"size": 678,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_farmable_scanner.py.md",
+"size": 638,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sosovalue_macro.py.md",
+"size": 1236,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_project_structure.py.md",
+"size": 593,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-security-guidelines.md.md",
+"size": 1976,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_directional_backtest.py.md",
+"size": 655,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_SYSTEM_MAP.md.md",
+"size": 1017,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_batch_paper.py.md",
+"size": 775,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/freqtrade_user_data-strategies-AnantaraRandomControl_v1.py.md",
+"size": 542,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_pregain_scanner.py.md",
+"size": 874,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-anantara-weekly-reflection.md.md",
+"size": 706,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_circuit_breaker.py.md",
+"size": 679,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_auto_eval.py.md",
+"size": 517,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_paper_reconcile.py.md",
+"size": 721,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_volume_planner.py.md",
+"size": 878,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_profit_scan.py.md",
+"size": 507,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-binance-api-patterns.md.md",
+"size": 1944,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_trend_scanner.py.md",
+"size": 489,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_E2_RESEARCH_2026-06-20.md.md",
+"size": 1678,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_features.py.md",
+"size": 564,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-mode5_gate.py.md",
+"size": 484,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_public_data.py.md",
+"size": 775,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-signal_tracker.py.md",
+"size": 672,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_governor.py.md",
+"size": 580,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-sodex_twin_engine.py.md",
+"size": 1890,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_hype_maker.py.md",
+"size": 666,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_intraday_readiness.py.md",
+"size": 622,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_opportunity_lab.py.md",
+"size": 1011,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_autotrader.py.md",
+"size": 858,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_honest_ratio_gate.py.md",
+"size": 828,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-anantara_knowledge_compile.py.md",
+"size": 1380,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-hl_harvest.py.md",
+"size": 1401,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_spot_collector.py.md",
+"size": 521,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_17W_AUDIT_20260729.md.md",
+"size": 2299,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_crossref.py.md",
+"size": 572,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_maker_paper_v2.py.md",
+"size": 481,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-mode8_learner.py.md",
+"size": 578,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_data_collector.py.md",
+"size": 561,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-market_regime.py.md",
+"size": 592,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-pregain_signals.py.md",
+"size": 631,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-whale_tracker.py.md",
+"size": 524,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_spot_monitor.py.md",
+"size": 654,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/scripts-sodex_book_recorder.py.md",
+"size": 646,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-astronacci_agent.py.md",
+"size": 740,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_MASTERPLAN_2026-06-18.md.md",
+"size": 1565,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-alpaca_project.py.md",
+"size": 589,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/docs-SODEX_FARMING_COMPLETION.md.md",
+"size": 956,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/articles/anantara-skills-docker-config.md.md",
+"size": 1809,
+"mtime": "2026-08-14"
+},
+{
+"p": "anantara-sakti/knowledge/reports/Anantara Knowledge Slides.md",
+"size": 634,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/knowledge/reports/Anantara Knowledge Brief.md",
+"size": 614,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/grafana/provisioning/dashboards/anantara.yml",
+"size": 249,
+"mtime": "2026-05-19"
+},
+{
+"p": "anantara-sakti/grafana/dashboards/anantara-overview.json",
+"size": 50591,
+"mtime": "2026-05-21"
+},
+{
+"p": "anantara-sakti/anantara/sodex_spot_farm.py",
+"size": 6392,
+"mtime": "2026-06-09"
+},
+{
+"p": "anantara-sakti/anantara/sodex_wide_farm.py",
+"size": 8908,
+"mtime": "2026-06-09"
+},
+{
+"p": "anantara-sakti/anantara/sodex_signal.py",
+"size": 5764,
+"mtime": "2026-05-22"
+},
+{
+"p": "anantara-sakti/anantara/sodex_guardian_daemon.py",
+"size": 23776,
+"mtime": "2026-08-22"
+},
+{
+"p": "anantara-sakti/anantara/sodex_intel_layer.py",
+"size": 14342,
+"mtime": "2026-09-16"
+},
+{
+"p": "anantara-sakti/anantara/sodex_event_shock_guard.py",
+"size": 10318,
+"mtime": "2026-06-10"
+},
+{
+"p": "anantara-sakti/anantara/sodex_pregain_scanner.py",
+"size": 24425,
+"mtime": "2026-06-09"
+},
+{
+"p": "anantara-sakti/anantara/anantara_daemon.py",
+"size": 339447,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/anantara/sodex_deep_learner.py",
+"size": 82240,
+"mtime": "2026-07-12"
+},
+{
+"p": "anantara-sakti/anantara/sodex_funding_collector.py",
+"size": 9025,
+"mtime": "2026-06-29"
+},
+{
+"p": "anantara-sakti/anantara/sodex_twin_engine.py",
+"size": 269893,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/anantara/sodex_farming.py",
+"size": 173699,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/anantara/sodex_governor.py",
+"size": 11504,
+"mtime": "2026-05-24"
+},
+{
+"p": "anantara-sakti/anantara/sodex_state_io.py",
+"size": 1474,
+"mtime": "2026-06-11"
+},
+{
+"p": "anantara-sakti/anantara/sodex_autofarm.py",
+"size": 60288,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/anantara/sodex_measure.py",
+"size": 12834,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/anantara/sodex_model_server.py",
+"size": 10388,
+"mtime": "2026-05-26"
+},
+{
+"p": "anantara-sakti/anantara/sodex_spot_governor.py",
+"size": 22241,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/anantara/sodex_directional.py",
+"size": 7530,
+"mtime": "2026-05-24"
+},
+{
+"p": "anantara-sakti/anantara/skills/sodex-api-patterns.md",
+"size": 8141,
+"mtime": "2026-05-27"
+},
+{
+"p": "anantara-sakti/anantara/skills/anantara-weekly-reflection.md",
+"size": 1791,
+"mtime": "2026-05-18"
+},
+{
+"p": "anantara-sakti/anantara/skills/anantara-daily-briefing.md",
+"size": 1248,
+"mtime": "2026-05-18"
+},
+{
+"p": "anantara-sakti/anantara/skills/anantara-trade-review.md",
+"size": 2994,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/anantara/systemd/anantara-truth-metrics.service",
+"size": 560,
+"mtime": "2026-06-13"
+},
+{
+"p": "anantara-sakti/anantara/systemd/sodex-deep-learner.service",
+"size": 899,
+"mtime": "2026-07-07"
+},
+{
+"p": "anantara-sakti/anantara/systemd/anantara-daemon.service",
+"size": 766,
+"mtime": "2026-05-18"
+},
+{
+"p": "anantara-sakti/anantara/systemd/anantara-guard.service",
+"size": 1466,
+"mtime": "2026-06-13"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261022.md",
+"size": 2990,
+"mtime": "2026-10-23"
+},
+{
+"p": "anantara-sakti/reports/ANANTARA_SAKTI_COMPREHENSIVE_AUDIT_2026-07-31.html",
+"size": 6699,
+"mtime": "2026-07-31"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260924.md",
+"size": 3847,
+"mtime": "2026-09-25"
+},
+{
+"p": "anantara-sakti/reports/SODEX_BLUEPRINT_VERIFIKASI_2026-09-06.md",
+"size": 3721,
+"mtime": "2026-09-06"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261008.md",
+"size": 3213,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/reports/SODEX_SECURITY_IMPLEMENTATION_2026-08-30.md",
+"size": 5723,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261006.md",
+"size": 3213,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/SODEX_SWING_AUDIT_V2_2026-08-30.md",
+"size": 13453,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260921.md",
+"size": 3847,
+"mtime": "2026-09-22"
+},
+{
+"p": "anantara-sakti/reports/WEEKLY_AUDIT_SODEX_CEX_20260927.md",
+"size": 4075,
+"mtime": "2026-09-28"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261023.md",
+"size": 2989,
+"mtime": "2026-10-24"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261011.md",
+"size": 4205,
+"mtime": "2026-10-12"
+},
+{
+"p": "anantara-sakti/reports/SODEX_LIVE_HALT_RCA_20260919.md",
+"size": 3624,
+"mtime": "2026-09-19"
+},
+{
+"p": "anantara-sakti/reports/sodex_cex_focused_scientific_stats.md",
+"size": 8349,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/reports/SODEX_CEX_PROGRESS_2026-09-21_2122_WIB.md",
+"size": 5737,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261005.md",
+"size": 3130,
+"mtime": "2026-10-06"
+},
+{
+"p": "anantara-sakti/reports/SODEX_MATURATION_AUDIT_2026-09-04.md",
+"size": 3621,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261018.md",
+"size": 2987,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/reports/SODEX_IMPROVEMENT_V3_2026-08-30.md",
+"size": 5173,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260919.md",
+"size": 4029,
+"mtime": "2026-09-20"
+},
+{
+"p": "anantara-sakti/reports/sodex_shortbear_realwide_bottleneck_audit_20260917.json",
+"size": 16354,
+"mtime": "2026-09-18"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260928.md",
+"size": 3816,
+"mtime": "2026-09-29"
+},
+{
+"p": "anantara-sakti/reports/SODEX_SPOTSWING_V4_IMPROVE_2026-09-03.md",
+"size": 3394,
+"mtime": "2026-09-03"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261019.md",
+"size": 2990,
+"mtime": "2026-10-20"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PERPS_SHORT_DISABLED_2026-09-04.md",
+"size": 2259,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_VENUE_REPLACEMENT_RESEARCH_2026-09-02.md",
+"size": 7581,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/reports/WEEKLY_AUDIT_SODEX_CEX_20260920.md",
+"size": 4096,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/reports/SODEX_HASIL_3RISET_2026-09-06.md",
+"size": 2969,
+"mtime": "2026-09-06"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RCA_A3_RECOVERY_PLAN_2026-09-15.md",
+"size": 7429,
+"mtime": "2026-09-15"
+},
+{
+"p": "anantara-sakti/reports/SODEX_BEAR_RCA_IMPROVE_2026-09-09.md",
+"size": 2489,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260929.md",
+"size": 3922,
+"mtime": "2026-09-30"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261001.md",
+"size": 4061,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PAPER_REPORT_WSOSO_AUDIT_2026-09-07.md",
+"size": 2664,
+"mtime": "2026-09-07"
+},
+{
+"p": "anantara-sakti/reports/SODEX_IMPLEMENTATION_ARCHITECTURE_2026-09-02.md",
+"size": 3255,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261013.md",
+"size": 1135,
+"mtime": "2026-10-14"
+},
+{
+"p": "anantara-sakti/reports/PLATFORM_MOCK_ANANTARA.html",
+"size": 37243,
+"mtime": "2026-09-13"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260925.md",
+"size": 3975,
+"mtime": "2026-09-26"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RISET_LENGKAP_2026-09-05.pdf",
+"size": 207354,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_TRIPLE_CHECK_2026-09-07.md",
+"size": 4123,
+"mtime": "2026-09-07"
+},
+{
+"p": "anantara-sakti/reports/sodex_cex_scientific_audit_20260920.json",
+"size": 37850,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/reports/sodex_approved_recommendations_validation_20260917.md",
+"size": 4493,
+"mtime": "2026-09-18"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261007.md",
+"size": 2988,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261020.md",
+"size": 2990,
+"mtime": "2026-10-21"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260926.md",
+"size": 4162,
+"mtime": "2026-09-27"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PROGRESS_LIVE_PREP_2026-09-05.md",
+"size": 1393,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_DIVISION_AUDIT_2026-09-11_R2.md",
+"size": 6317,
+"mtime": "2026-09-11"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261004.md",
+"size": 3129,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_CLI_FATAL_MISMATCH_2026-09-04.md",
+"size": 2908,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/reports/SODEX_MATURATION_BABAK2_2026-09-04.md",
+"size": 3741,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/reports/SODEX_DIVISION_AUDIT_2026-09-11.md",
+"size": 11443,
+"mtime": "2026-09-11"
+},
+{
+"p": "anantara-sakti/reports/SODEX_MULTIVENUE_PAPER_START_2026-09-02.md",
+"size": 3346,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260923.md",
+"size": 3717,
+"mtime": "2026-09-24"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RECOVERY_MONITOR_LATEST.md",
+"size": 2348,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260920.md",
+"size": 3492,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261010.md",
+"size": 2988,
+"mtime": "2026-10-11"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261002.md",
+"size": 3848,
+"mtime": "2026-10-03"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RISET_LENGKAP_2026-09-05.md",
+"size": 7117,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_DOUBLECHECK_SECURITY_AUDIT_2026-08-30.md",
+"size": 7474,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/reports/sodex_dashboard.html",
+"size": 12538,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex_cex_division_audit_snapshot_20260920.json",
+"size": 40038,
+"mtime": "2026-09-20"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PROGRESS_IMPROVING_2026-08-31.md",
+"size": 4412,
+"mtime": "2026-08-31"
+},
+{
+"p": "anantara-sakti/reports/SODEX_2X_ACTION_PLAN_2026-09-06.md",
+"size": 3459,
+"mtime": "2026-09-06"
+},
+{
+"p": "anantara-sakti/reports/sodex_shortbear_realwide_bottleneck_audit_20260917.md",
+"size": 5995,
+"mtime": "2026-09-18"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RECOVERY_MONITOR_LATEST.json",
+"size": 11111,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RISET_PORTFOLIO_SHORT_2026-09-05.md",
+"size": 2947,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/PLATFORM_SAAS_ANANTARA.html",
+"size": 25617,
+"mtime": "2026-09-13"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261021.md",
+"size": 2990,
+"mtime": "2026-10-22"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260930.md",
+"size": 3977,
+"mtime": "2026-10-01"
+},
+{
+"p": "anantara-sakti/reports/SODEX_AUDIT_2026-08-30.md",
+"size": 13504,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PAPER_PASAR_ROBUSTNESS_2026-09-09.md",
+"size": 1325,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/SODEX_SPOTSWING_ROOTCAUSE_2026-09-03.md",
+"size": 4169,
+"mtime": "2026-09-03"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261003.md",
+"size": 3838,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/reports/SODEX_CEX_AUDIT_2026-09-28.md",
+"size": 4848,
+"mtime": "2026-09-28"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260922.md",
+"size": 3848,
+"mtime": "2026-09-23"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261017.md",
+"size": 4206,
+"mtime": "2026-10-18"
+},
+{
+"p": "anantara-sakti/reports/SODEX_FUNDING_CARRY_STATUS_2026-09-05.md",
+"size": 2057,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_STATUS_3APPROVAL_2026-09-06.md",
+"size": 2582,
+"mtime": "2026-09-06"
+},
+{
+"p": "anantara-sakti/reports/SODEX_OPPOSITE_TARGET_FEASIBILITY_2026-09-10.md",
+"size": 5630,
+"mtime": "2026-09-10"
+},
+{
+"p": "anantara-sakti/reports/sodex_cex_scientific_audit_20260920_175846.md",
+"size": 35457,
+"mtime": "2026-09-21"
+},
+{
+"p": "anantara-sakti/reports/SODEX_REALWIDE_N50_STATISTICAL_AUDIT_2026-09-04.md",
+"size": 3273,
+"mtime": "2026-09-04"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20260927.md",
+"size": 4047,
+"mtime": "2026-09-28"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PELAJARAN_BEARISH_2026-09-05.md",
+"size": 2585,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_SPOTSWING_V4_2026-09-03.md",
+"size": 3001,
+"mtime": "2026-09-03"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261025.md",
+"size": 2989,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261012.md",
+"size": 4246,
+"mtime": "2026-10-13"
+},
+{
+"p": "anantara-sakti/reports/SODEX_SWING_AUDIT_V3_FINAL_2026-08-30.md",
+"size": 12041,
+"mtime": "2026-08-30"
+},
+{
+"p": "anantara-sakti/reports/SODEX_PAPER_PASAR_ANANTARA_2026-09-08.md",
+"size": 2535,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/SODEX_DOUBLE_AUDIT_TARGET_2026-09-05.md",
+"size": 4805,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261009.md",
+"size": 3214,
+"mtime": "2026-10-10"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RISET_BEARISH_MENDALAM_2026-09-05.md",
+"size": 2613,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/WEEKLY_AUDIT_SODEX_CEX_20260919.md",
+"size": 4032,
+"mtime": "2026-09-19"
+},
+{
+"p": "anantara-sakti/reports/WEEKLY_AUDIT_SODEX_CEX_20261018.md",
+"size": 3721,
+"mtime": "2026-10-19"
+},
+{
+"p": "anantara-sakti/reports/SODEX_VENUE_RESEARCH_2026-09-02.md",
+"size": 5203,
+"mtime": "2026-09-02"
+},
+{
+"p": "anantara-sakti/reports/WEEKLY_AUDIT_SODEX_CEX_20261004.md",
+"size": 3720,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/SODEX_REGIME_COUNTERFACTUAL_2026-09-15.json",
+"size": 1047,
+"mtime": "2026-09-15"
+},
+{
+"p": "anantara-sakti/reports/SODEX_LIVE_READINESS_2026-09-05.md",
+"size": 2102,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/DAILY_SODEX_CEX_20261014.md",
+"size": 4206,
+"mtime": "2026-10-15"
+},
+{
+"p": "anantara-sakti/reports/SODEX_RISET_PARALEL_SINTESIS_2026-09-05.md",
+"size": 1897,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/WEEKLY_AUDIT_SODEX_CEX_20261011.md",
+"size": 3720,
+"mtime": "2026-10-12"
+},
+{
+"p": "anantara-sakti/reports/cex/paper_pasar_anantara_cex_20260909_004736.json",
+"size": 67961,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/cex/AUDIT_SODEX.json",
+"size": 1065,
+"mtime": "2026-10-09"
+},
+{
+"p": "anantara-sakti/reports/cex/paper_pasar_anantara_cex_20260915_140540.json",
+"size": 67977,
+"mtime": "2026-09-15"
+},
+{
+"p": "anantara-sakti/reports/html/SODEX_RISET_LENGKAP_2026-09-05.html",
+"size": 10903,
+"mtime": "2026-09-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_SPREAD_CENSUS_2026-10-07.json",
+"size": 12442,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/LIT_NEW_MECHS_H30H72_sodex_full.json",
+"size": 43339,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/paper_pasar_anantara_20260908_222104.json",
+"size": 26417,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_FORWARD_MOMENTUM_dev_results.json",
+"size": 2773,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_spec4_20261007_SYNTHETIC_REVERIFY.json",
+"size": 28186,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_LIVE_READINESS.md",
+"size": 1788,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_wallet_forensic_7d_20260906_230006.json",
+"size": 3361,
+"mtime": "2026-09-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_wallet_forensic_7d_20260727_231459.json",
+"size": 48482,
+"mtime": "2026-07-28"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_FORWARD_EPISODE_COUNT.json",
+"size": 620,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/PANEL_EXTEND_H30H72_sodex_full_pre_nwfix.json",
+"size": 85836,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/ANGGARAN_BREADTH_SODEX.json",
+"size": 2955,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_lane_target_projection.json",
+"size": 2593,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_spec4_20261007_SYNTHETIC.json",
+"size": 28189,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_48H_CANDIDATE_SCREEN.json",
+"size": 48339,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_h5_meanrev_20261007.json",
+"size": 4597,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_D05_EDGE_LEAK.md",
+"size": 4397,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/PRAREG_PANEL_PANJANG_sodex_1d.json",
+"size": 39804,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_trial_registry.json",
+"size": 64513,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/LIT_NEW_MECHS_H30H72_sodex_full_pre_nwfix.json",
+"size": 37742,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/LIT_NEW_MECHS_H30H72_sodex_real.json",
+"size": 40782,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_HARNESS_REEVAL_2026-10-02.md",
+"size": 7319,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_D05_EDGE_LEAK.json",
+"size": 11010,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/paper_pasar_anantara_20260909_002226.json",
+"size": 26433,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/sodex/LIT_NEW_MECHS_H30H72_sodex_real_pre_nwfix.json",
+"size": 35222,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_D05B_EXIT_GEOMETRY.json",
+"size": 3091,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/VERIFIKASI_N_KECIL_H30H72_sodex_real.json",
+"size": 3644,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_wallet_forensic_7d_20260727_231459.md",
+"size": 16417,
+"mtime": "2026-07-28"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_trial_registry.json.bak_20261022",
+"size": 54296,
+"mtime": "2026-10-22"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_D04_BLOCKER_RCA.md",
+"size": 2496,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_D04_BLOCKER_RCA.json",
+"size": 6547,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/TS_MECH_H30H72_sodex_real.json",
+"size": 33236,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_funding_rate_collector_latest.json",
+"size": 1976,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_trial_registry_20261002.json",
+"size": 956,
+"mtime": "2026-10-04"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_forward_reeval_loop.jsonl",
+"size": 435115,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_alt3_xsec_20261007.json",
+"size": 6635,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/paper_pasar_anantara_20260908_222211.json",
+"size": 26416,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/sodex/PANEL_EXTEND_H30H72_sodex_real.json",
+"size": 92570,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/PENJELASAN_AWAM_STRATEGI_TARGET_SODEX.md",
+"size": 24224,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/PANEL_EXTEND_H30H72_sodex_full.json",
+"size": 98386,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/PAPER_ARENA_SODEX.json",
+"size": 3139,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_normalized_equity_20261002.json",
+"size": 225871,
+"mtime": "2026-10-02"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_alt3_xsec_20261007_TANPA_BREADTH.json",
+"size": 4393,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/UNIVERSE_SODEX_1D.json",
+"size": 9786,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_model_falsification_2026-10-05.json",
+"size": 66496,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/PRAREG4_RANGEPOS_SODEX_1H.json",
+"size": 7858,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_wallet_forensic_7d_20260906_230006.md",
+"size": 3654,
+"mtime": "2026-09-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/TAPE_SODEX_fade_results.json",
+"size": 5395,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_harness_reeval_20261002.json",
+"size": 234325,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/TS_MECH_H30H72_sodex_real_pre_nwfix.json",
+"size": 28408,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/SENSUS_DIVERSIFIKASI_SODEX.json",
+"size": 616,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_spec4_20261007.json",
+"size": 28200,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_forward_reeval_latest.json",
+"size": 4878,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/PANEL_EXTEND_H30H72_sodex_real_pre_nwfix.json",
+"size": 80139,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/JARAK_KE_TARGET_SODEX.json",
+"size": 1302,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/PRAREG5_FILL_MAKER_SODEX_1H.json",
+"size": 34625,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/PENJELASAN_AWAM_STRATEGI_TARGET_SODEX.pdf",
+"size": 360348,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_alt_top4_20261007.json",
+"size": 4767,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/SODEX_D05B_EXIT_GEOMETRY.md",
+"size": 2419,
+"mtime": "2026-10-25"
+},
+{
+"p": "anantara-sakti/reports/sodex/sodex_funding_map_20261002.json",
+"size": 4504,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/PENJELASAN_AWAM_STRATEGI_TARGET_SODEX.html",
+"size": 39637,
+"mtime": "2026-10-05"
+},
+{
+"p": "anantara-sakti/reports/sodex/paper_pasar_anantara_20260908_222506.json",
+"size": 26416,
+"mtime": "2026-09-09"
+},
+{
+"p": "anantara-sakti/reports/sodex/PRAREG_PANEL_PANJANG_sodex_1h.json",
+"size": 43013,
+"mtime": "2026-10-08"
+},
+{
+"p": "anantara-sakti/reports/sodex/archive_bug_annualisasi_20261007/PRAREG_PANEL_PANJANG_sodex_1d.json",
+"size": 39804,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/reports/sodex/archive_bug_annualisasi_20261007/PRAREG_PANEL_PANJANG_sodex_1h.json",
+"size": 43069,
+"mtime": "2026-10-07"
+},
+{
+"p": "anantara-sakti/bin/sodex",
+"size": 11466840,
+"mtime": "2026-05-20"
+},
+{
+"p": "Documents/KIMI Metodologi_Bug_Bounty_DeFi_SoSoValue_SoDEX_Hyperliquid.pdf",
+"size": 78577,
+"mtime": "2026-06-07"
+},
+{
+"p": "Documents/AUDIT_EKOSISTEM_ANANTARA_SAKTI_2026-06-12.pdf",
+"size": 283862,
+"mtime": "2026-06-12"
+},
+{
+"p": "Documents/DeepSeek Bug Bounty sodex soso hunter.odt",
+"size": 50140,
+"mtime": "2026-06-07"
+},
+{
+"p": "Documents/AUDIT_EKOSISTEM_ANANTARA_SAKTI_2026-06-12.md",
+"size": 24109,
+"mtime": "2026-06-12"
+},
+{
+"p": "Documents/Metodologi_Bug_Bounty_DeFi_SoSoValue_SoDEX_Hyperliquid.pdf",
+"size": 62572,
+"mtime": "2026-06-07"
+},
+{
+"p": "Documents/Anantara Sakti/ANANTARA_SAKTI_Research_Review_Upgrade.html",
+"size": 49307,
+"mtime": "2026-05-16"
+},
+{
+"p": "Documents/Anantara Sakti/ANANTARA_SAKTI_NoN8N_Automation.html",
+"size": 57024,
+"mtime": "2026-05-16"
+},
+{
+"p": "Documents/Anantara Sakti/ANANTARA_SAKTI_Master_Summary.html",
+"size": 35473,
+"mtime": "2026-05-16"
+},
+{
+"p": "Documents/Anantara Sakti/ANANTARA_SAKTI_ClaudeCode_Skills_DeepResearch.html",
+"size": 75134,
+"mtime": "2026-05-17"
+},
+{
+"p": "Documents/Anantara Sakti/ANANTARA_SAKTI_Complete_Setup_Guide.html",
+"size": 46290,
+"mtime": "2026-05-17"
+},
+{
+"p": "backups/anantara-dirty-2026-10-01.patch",
+"size": 2480317,
+"mtime": "2026-10-01"
+},
+{
+"p": "backups/anantara-dirty-2026-10-01.untracked.tgz",
+"size": 346449790,
+"mtime": "2026-10-01"
+},
+{
+"p": "backups/anantara-dirty-2026-10-01.files.txt",
+"size": 9161,
+"mtime": "2026-10-01"
+},
+{
+"p": "backups/anantara-dirty-2026-10-01.untracked.txt",
+"size": 1041907,
+"mtime": "2026-10-01"
+},
+{
+"p": "backups/sdb-hardening-20261005_full/profiles_env/sodex-cex-monitor.env.20261005-131048.bak",
+"size": 25965,
+"mtime": "2026-09-30"
+},
+{
+"p": "backups/sdb-hardening-20261005_full/profiles_env/anantara-sakti.env.20261005-131048.bak",
+"size": 25275,
+"mtime": "2026-09-07"
+},
+{
+"p": "backups/sdb-hardening-20261005_full/profiles_env/sodex.env.20261005-131048.bak",
+"size": 25369,
+"mtime": "2026-09-26"
+},
+{
+"p": ".config/browser-harness/tmp/bu-anantara-dashboard.log",
+"size": 425,
+"mtime": "2026-09-13"
+},
+{
+"p": ".config/browser-harness/runtime/bu-anantara-dashboard.sock",
+"size": 0,
+"mtime": "2026-09-13"
+},
+{
+"p": ".config/browser-harness/runtime/bu-anantara-dashboard.pid",
+"size": 7,
+"mtime": "2026-09-13"
+},
+{
+"p": ".config/systemd/user/sodex-r4-monitor.timer",
+"size": 191,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/sodex-s1-sol-forward.timer",
+"size": 223,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/sodex-r5-monitor.timer",
+"size": 197,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/anantara-paper-shortbear-variants.service",
+"size": 743,
+"mtime": "2026-09-12"
+},
+{
+"p": ".config/systemd/user/paper-test-pasar-anantara-cex.service",
+"size": 680,
+"mtime": "2026-09-09"
+},
+{
+"p": ".config/systemd/user/sodex-p3-eval.service",
+"size": 367,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-research-gate-refresh.service",
+"size": 1134,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/sodex-forward-reeval-loop.service",
+"size": 526,
+"mtime": "2026-10-02"
+},
+{
+"p": ".config/systemd/user/anantara-rutin-divisi.timer",
+"size": 230,
+"mtime": "2026-09-30"
+},
+{
+"p": ".config/systemd/user/sodex-l2-collector.service",
+"size": 501,
+"mtime": "2026-10-23"
+},
+{
+"p": ".config/systemd/user/anantara-spot-livetest.service",
+"size": 807,
+"mtime": "2026-09-07"
+},
+{
+"p": ".config/systemd/user/sodex-monthly-ta-sweep.service",
+"size": 348,
+"mtime": "2026-10-08"
+},
+{
+"p": ".config/systemd/user/sodex-monthly-ta-sweep.timer",
+"size": 214,
+"mtime": "2026-10-08"
+},
+{
+"p": ".config/systemd/user/sodex-forward-loop-guard.timer",
+"size": 219,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-spot-liquidator.service",
+"size": 1133,
+"mtime": "2026-09-30"
+},
+{
+"p": ".config/systemd/user/anantara-sentiment.service",
+"size": 616,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/anantara-forced-flow.service",
+"size": 563,
+"mtime": "2026-10-24"
+},
+{
+"p": ".config/systemd/user/anantara-paper-swing-atrvol.service",
+"size": 1667,
+"mtime": "2026-09-25"
+},
+{
+"p": ".config/systemd/user/sodex-episode-count.timer",
+"size": 239,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-paper-hyperliquid.service",
+"size": 812,
+"mtime": "2026-09-02"
+},
+{
+"p": ".config/systemd/user/anantara-paper-aster.service",
+"size": 788,
+"mtime": "2026-09-02"
+},
+{
+"p": ".config/systemd/user/sodex-sig-search.service",
+"size": 577,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-perps-short-livetest.service.DISABLED_2026-09-04_belum_tervalidasi",
+"size": 825,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/sodex-p3-eval.timer",
+"size": 141,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-realwide-livetest.service",
+"size": 782,
+"mtime": "2026-09-07"
+},
+{
+"p": ".config/systemd/user/anantara-paper-spot-momadx.service",
+"size": 1674,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/anantara-truth-metrics.service",
+"size": 560,
+"mtime": "2026-06-13"
+},
+{
+"p": ".config/systemd/user/sodex-funding-rate-collector.timer",
+"size": 198,
+"mtime": "2026-10-02"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-watchdog.service",
+"size": 664,
+"mtime": "2026-09-04"
+},
+{
+"p": ".config/systemd/user/sodex-ta16-forward.timer",
+"size": 191,
+"mtime": "2026-10-08"
+},
+{
+"p": ".config/systemd/user/sodex-paper-arena.timer",
+"size": 170,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-paper-swing.service.bak.20260830",
+"size": 973,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/sodex-campaign-eval.service",
+"size": 449,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/sodex-rangepos-forward.timer",
+"size": 204,
+"mtime": "2026-10-09"
+},
+{
+"p": ".config/systemd/user/anantara-paper-twoway.service.bak.20260830",
+"size": 901,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/anantara-spot-liquidator.timer",
+"size": 216,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/sodex-window-planner.timer",
+"size": 222,
+"mtime": "2026-09-28"
+},
+{
+"p": ".config/systemd/user/anantara-paper-watchdog.service",
+"size": 596,
+"mtime": "2026-08-01"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-realsync.timer",
+"size": 155,
+"mtime": "2026-09-04"
+},
+{
+"p": ".config/systemd/user/anantara-kanban-dispatch.service",
+"size": 420,
+"mtime": "2026-09-26"
+},
+{
+"p": ".config/systemd/user/anantara-uni-target-close.service",
+"size": 738,
+"mtime": "2026-09-30"
+},
+{
+"p": ".config/systemd/user/sodex-r4-monitor.service",
+"size": 423,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/sodex-monitor-eval.timer",
+"size": 257,
+"mtime": "2026-06-30"
+},
+{
+"p": ".config/systemd/user/sodex-prereg26-mesin.timer",
+"size": 224,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/sodex-forward-reeval-loop.timer",
+"size": 216,
+"mtime": "2026-10-02"
+},
+{
+"p": ".config/systemd/user/anantara-paper-realwide-atrvol.service",
+"size": 1646,
+"mtime": "2026-09-26"
+},
+{
+"p": ".config/systemd/user/anantara-meeting-dor.service",
+"size": 364,
+"mtime": "2026-09-14"
+},
+{
+"p": ".config/systemd/user/anantara-orderflow-validate.timer",
+"size": 237,
+"mtime": "2026-08-11"
+},
+{
+"p": ".config/systemd/user/sodex-venue-7d.service",
+"size": 656,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-stop-guard.service",
+"size": 637,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/anantara-regime-nowcast.service",
+"size": 472,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/anantara-paper-swing-partial.service",
+"size": 881,
+"mtime": "2026-08-13"
+},
+{
+"p": ".config/systemd/user/anantara-paper-spot-swing-v2.service",
+"size": 797,
+"mtime": "2026-09-03"
+},
+{
+"p": ".config/systemd/user/anantara-paper-learning.timer",
+"size": 153,
+"mtime": "2026-08-12"
+},
+{
+"p": ".config/systemd/user/anantara-paper-realwide-watchdog.service",
+"size": 629,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/sodex-s1-sol-forward.service",
+"size": 478,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-regime-nowcast.timer",
+"size": 231,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/anantara-paper-twoway-p27.service",
+"size": 1316,
+"mtime": "2026-10-21"
+},
+{
+"p": ".config/systemd/user/anantara-paper-swing-strict.service",
+"size": 1929,
+"mtime": "2026-09-25"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-realsync.service",
+"size": 636,
+"mtime": "2026-09-04"
+},
+{
+"p": ".config/systemd/user/anantara-research-gate-refresh.timer",
+"size": 201,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/anantara-paper-realwide-watchdog.timer",
+"size": 177,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/sodex-forward-loop-guard.service",
+"size": 596,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-paper-realwide-atrvolopen.service",
+"size": 1796,
+"mtime": "2026-09-26"
+},
+{
+"p": ".config/systemd/user/sodex-monitor-eval.service",
+"size": 542,
+"mtime": "2026-06-18"
+},
+{
+"p": ".config/systemd/user/anantara-meeting-dor.timer",
+"size": 244,
+"mtime": "2026-09-14"
+},
+{
+"p": ".config/systemd/user/sodex-collector-guard.service",
+"size": 441,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/sodex-r5-monitor.service",
+"size": 430,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/anantara-sentiment.timer",
+"size": 170,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-recovery-monitor.service",
+"size": 497,
+"mtime": "2026-09-15"
+},
+{
+"p": ".config/systemd/user/sodex-paper-arena.service",
+"size": 316,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-orderflow-validate.service",
+"size": 648,
+"mtime": "2026-08-11"
+},
+{
+"p": ".config/systemd/user/sodex-klines-forward.timer",
+"size": 197,
+"mtime": "2026-10-07"
+},
+{
+"p": ".config/systemd/user/anantara-paper-donchian.service",
+"size": 840,
+"mtime": "2026-08-21"
+},
+{
+"p": ".config/systemd/user/anantara-paper-twoway.service",
+"size": 946,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-progress.service",
+"size": 653,
+"mtime": "2026-08-31"
+},
+{
+"p": ".config/systemd/user/sodex-ta16-forward.service",
+"size": 734,
+"mtime": "2026-10-08"
+},
+{
+"p": ".config/systemd/user/anantara-paper-spot-swing.service.bak.20260830",
+"size": 822,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/sodex-funding-rate-collector.service",
+"size": 480,
+"mtime": "2026-10-02"
+},
+{
+"p": ".config/systemd/user/sodex-rangepos-forward.service",
+"size": 810,
+"mtime": "2026-10-09"
+},
+{
+"p": ".config/systemd/user/anantara-spot-liquidator.service.bak.20260930_211250",
+"size": 839,
+"mtime": "2026-09-30"
+},
+{
+"p": ".config/systemd/user/anantara-paper-spot-ratchet.service",
+"size": 808,
+"mtime": "2026-10-09"
+},
+{
+"p": ".config/systemd/user/anantara-paper-learning.service",
+"size": 557,
+"mtime": "2026-08-06"
+},
+{
+"p": ".config/systemd/user/sodex-f1-count.service",
+"size": 399,
+"mtime": "2026-10-06"
+},
+{
+"p": ".config/systemd/user/anantara-orderflow-capture.service",
+"size": 726,
+"mtime": "2026-08-11"
+},
+{
+"p": ".config/systemd/user/anantara-paper-portfolio.service",
+"size": 737,
+"mtime": "2026-09-05"
+},
+{
+"p": ".config/systemd/user/anantara-daemon.service",
+"size": 1595,
+"mtime": "2026-09-21"
+},
+{
+"p": ".config/systemd/user/sodex-p3-binance-book.service",
+"size": 649,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/sodex-mvfunding-p9-rerun.timer",
+"size": 231,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-progress.timer",
+"size": 233,
+"mtime": "2026-08-31"
+},
+{
+"p": ".config/systemd/user/anantara-paper-cex-momadx.service",
+"size": 1609,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/sodex-window-planner.service",
+"size": 462,
+"mtime": "2026-09-28"
+},
+{
+"p": ".config/systemd/user/sodex-f1-count.timer",
+"size": 129,
+"mtime": "2026-10-06"
+},
+{
+"p": ".config/systemd/user/anantara-paper-shortbear.service",
+"size": 742,
+"mtime": "2026-09-05"
+},
+{
+"p": ".config/systemd/user/anantara-dashboard.service",
+"size": 501,
+"mtime": "2026-09-07"
+},
+{
+"p": ".config/systemd/user/sodex-klines-forward.service",
+"size": 780,
+"mtime": "2026-10-07"
+},
+{
+"p": ".config/systemd/user/anantara-paper-realwide.service",
+"size": 1019,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/sodex-campaign-eval.timer",
+"size": 151,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/anantara-paper-realwide.service.bak.20260830",
+"size": 974,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-watchdog.timer",
+"size": 168,
+"mtime": "2026-09-04"
+},
+{
+"p": ".config/systemd/user/sodex-collector-guard.timer",
+"size": 222,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/sodex-prereg26-mesin.service",
+"size": 444,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/anantara-rutin-divisi.service",
+"size": 479,
+"mtime": "2026-09-30"
+},
+{
+"p": ".config/systemd/user/anantara-paper-swing.service",
+"size": 1018,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/anantara-obi.service",
+"size": 526,
+"mtime": "2026-08-09"
+},
+{
+"p": ".config/systemd/user/sodex-episode-count.service",
+"size": 345,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-guard.service",
+"size": 1466,
+"mtime": "2026-06-13"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-twin-watchdog.service",
+"size": 680,
+"mtime": "2026-09-26"
+},
+{
+"p": ".config/systemd/user/anantara-sodex-recovery-monitor.timer",
+"size": 222,
+"mtime": "2026-09-15"
+},
+{
+"p": ".config/systemd/user/sodex-mvfunding-p9-rerun.service",
+"size": 497,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/anantara-paper-watchdog.timer",
+"size": 182,
+"mtime": "2026-08-01"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-r4-monitor.timer",
+"size": 191,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-s1-sol-forward.timer",
+"size": 223,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-r5-monitor.timer",
+"size": 197,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-rutin-divisi.timer",
+"size": 230,
+"mtime": "2026-09-30"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-monthly-ta-sweep.timer",
+"size": 214,
+"mtime": "2026-10-08"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-forward-loop-guard.timer",
+"size": 219,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-episode-count.timer",
+"size": 239,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-p3-eval.timer",
+"size": 141,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-funding-rate-collector.timer",
+"size": 198,
+"mtime": "2026-10-02"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-ta16-forward.timer",
+"size": 191,
+"mtime": "2026-10-08"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-paper-arena.timer",
+"size": 170,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-rangepos-forward.timer",
+"size": 204,
+"mtime": "2026-10-09"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-spot-liquidator.timer",
+"size": 216,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-window-planner.timer",
+"size": 222,
+"mtime": "2026-09-28"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-sodex-realsync.timer",
+"size": 155,
+"mtime": "2026-09-04"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-monitor-eval.timer",
+"size": 257,
+"mtime": "2026-06-30"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-prereg26-mesin.timer",
+"size": 224,
+"mtime": "2026-10-10"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-forward-reeval-loop.timer",
+"size": 216,
+"mtime": "2026-10-02"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-orderflow-validate.timer",
+"size": 237,
+"mtime": "2026-08-11"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-paper-learning.timer",
+"size": 153,
+"mtime": "2026-08-12"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-regime-nowcast.timer",
+"size": 231,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-research-gate-refresh.timer",
+"size": 201,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-paper-realwide-watchdog.timer",
+"size": 177,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-meeting-dor.timer",
+"size": 244,
+"mtime": "2026-09-14"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-sentiment.timer",
+"size": 170,
+"mtime": "2026-08-02"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-klines-forward.timer",
+"size": 197,
+"mtime": "2026-10-07"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-mvfunding-p9-rerun.timer",
+"size": 231,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-sodex-progress.timer",
+"size": 233,
+"mtime": "2026-08-31"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-f1-count.timer",
+"size": 129,
+"mtime": "2026-10-06"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-campaign-eval.timer",
+"size": 151,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-sodex-watchdog.timer",
+"size": 168,
+"mtime": "2026-09-04"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/sodex-collector-guard.timer",
+"size": 222,
+"mtime": "2026-10-05"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-sodex-recovery-monitor.timer",
+"size": 222,
+"mtime": "2026-09-15"
+},
+{
+"p": ".config/systemd/user/timers.target.wants/anantara-paper-watchdog.timer",
+"size": 182,
+"mtime": "2026-08-01"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-queue-trade-validator.timer",
+"size": 234,
+"mtime": "2026-07-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-sentinel.service",
+"size": 630,
+"mtime": "2026-07-15"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-stock-paper-test.timer",
+"size": 397,
+"mtime": "2026-07-28"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-public-trade-recorder.service",
+"size": 771,
+"mtime": "2026-07-28"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-volume-churn.service",
+"size": 1058,
+"mtime": "2026-07-25"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-honest-ratio-gate.service",
+"size": 559,
+"mtime": "2026-07-20"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-honest-ratio-report.service",
+"size": 561,
+"mtime": "2026-07-18"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-deadman.service",
+"size": 488,
+"mtime": "2026-06-24"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-84h-supervisor.service",
+"size": 608,
+"mtime": "2026-06-20"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-two-sided-shadow.service",
+"size": 590,
+"mtime": "2026-07-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-quant-stat.service",
+"size": 726,
+"mtime": "2026-07-18"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-sprt-report.timer",
+"size": 157,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-deadman.timer",
+"size": 237,
+"mtime": "2026-06-24"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-market-ticker-scanner.service",
+"size": 594,
+"mtime": "2026-07-12"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-adaptive-selector.service",
+"size": 493,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-queue-trade-validator.service",
+"size": 535,
+"mtime": "2026-07-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-cameo-scalp-research.service",
+"size": 482,
+"mtime": "2026-07-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-farmable-scan.service",
+"size": 559,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-adaptive-selector.timer",
+"size": 150,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-guardian.timer",
+"size": 227,
+"mtime": "2026-06-23"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-qip-xaut-pilot.service",
+"size": 1072,
+"mtime": "2026-07-22"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-cameo-scalp-research.timer",
+"size": 218,
+"mtime": "2026-07-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-stock-paper-test.service",
+"size": 468,
+"mtime": "2026-07-28"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-farmable-scan.timer",
+"size": 162,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/anantara-autotrader.service",
+"size": 559,
+"mtime": "2026-07-31"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/anantara-spot.service",
+"size": 409,
+"mtime": "2026-05-26"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-capital-report.service",
+"size": 481,
+"mtime": "2026-06-25"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-e1-autopilot.service",
+"size": 578,
+"mtime": "2026-06-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-monitor-eval.service",
+"size": 542,
+"mtime": "2026-06-18"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-deep-learner.service",
+"size": 899,
+"mtime": "2026-07-07"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-book-recorder.service",
+"size": 632,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-sprt-report.service",
+"size": 567,
+"mtime": "2026-07-19"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-capital-report.timer",
+"size": 189,
+"mtime": "2026-06-25"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-twin-watchdog.service",
+"size": 964,
+"mtime": "2026-06-28"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-autonomous-research.service",
+"size": 826,
+"mtime": "2026-06-08"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-guardian.service",
+"size": 585,
+"mtime": "2026-07-15"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-pin-maker.service",
+"size": 773,
+"mtime": "2026-07-21"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/sodex-safety-guardian.service",
+"size": 589,
+"mtime": "2026-06-20"
+},
+{
+"p": ".config/systemd/user/_archived_legacy/anantara-obi.service",
+"size": 389,
+"mtime": "2026-05-22"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-shortbear-variants.service",
+"size": 743,
+"mtime": "2026-09-12"
+},
+{
+"p": ".config/systemd/user/default.target.wants/paper-test-pasar-anantara-cex.service",
+"size": 680,
+"mtime": "2026-09-09"
+},
+{
+"p": ".config/systemd/user/default.target.wants/sodex-l2-collector.service",
+"size": 501,
+"mtime": "2026-10-23"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-forced-flow.service",
+"size": 563,
+"mtime": "2026-10-24"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-hyperliquid.service",
+"size": 812,
+"mtime": "2026-09-02"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-aster.service",
+"size": 788,
+"mtime": "2026-09-02"
+},
+{
+"p": ".config/systemd/user/default.target.wants/sodex-sig-search.service",
+"size": 577,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-spot-momadx.service",
+"size": 1674,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-truth-metrics.service",
+"size": 560,
+"mtime": "2026-06-13"
+},
+{
+"p": ".config/systemd/user/default.target.wants/sodex-venue-7d.service",
+"size": 656,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-stop-guard.service",
+"size": 637,
+"mtime": "2026-09-29"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-swing-partial.service",
+"size": 881,
+"mtime": "2026-08-13"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-spot-swing-v2.service",
+"size": 797,
+"mtime": "2026-09-03"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-twoway-p27.service",
+"size": 1316,
+"mtime": "2026-10-21"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-swing-strict.service",
+"size": 1929,
+"mtime": "2026-09-25"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-realwide-atrvolopen.service",
+"size": 1796,
+"mtime": "2026-09-26"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-donchian.service",
+"size": 840,
+"mtime": "2026-08-21"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-twoway.service",
+"size": 946,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-spot-ratchet.service",
+"size": 808,
+"mtime": "2026-10-09"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-orderflow-capture.service",
+"size": 726,
+"mtime": "2026-08-11"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-portfolio.service",
+"size": 737,
+"mtime": "2026-09-05"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-daemon.service",
+"size": 1595,
+"mtime": "2026-09-21"
+},
+{
+"p": ".config/systemd/user/default.target.wants/sodex-p3-binance-book.service",
+"size": 649,
+"mtime": "2026-10-25"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-cex-momadx.service",
+"size": 1609,
+"mtime": "2026-09-20"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-shortbear.service",
+"size": 742,
+"mtime": "2026-09-05"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-dashboard.service",
+"size": 501,
+"mtime": "2026-09-07"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-realwide.service",
+"size": 1019,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-paper-swing.service",
+"size": 1018,
+"mtime": "2026-08-30"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-obi.service",
+"size": 526,
+"mtime": "2026-08-09"
+},
+{
+"p": ".config/systemd/user/default.target.wants/anantara-guard.service",
+"size": 1466,
+"mtime": "2026-06-13"
+}
+]

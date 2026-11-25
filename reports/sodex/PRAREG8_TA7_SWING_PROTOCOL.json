@@ -1,0 +1,65 @@
+{
+  "id": "PRAREG-8",
+  "judul": "7 sinyal teknikal klasik + komposit konfluensi pada horizon 48 jam (SoDEX 1h + Binance 1h)",
+  "tanggal_prareg_utc": "2026-10-08",
+  "status": "TERBEKU sebelum implementasi dan sebelum evaluasi apa pun",
+  "latar": {
+    "mandat": "Mas Anas: menentukan arah (long/short) dengan mengolah sejumlah sinyal teknikal paling berpengaruh untuk swing 48 jam, secara scientific dan presisi.",
+    "inventaris_repo": "Komponen indikator SUDAH ada dan tidak perlu ditulis ulang: scripts/metals_intel_ta_test.py (sma, ema_series, rsi, atr, obv_slope), anantara/presentiment_data.py (ema, ema_series, rsi, macd, atr_value).",
+    "yang_belum_ada": "Tidak ada bukti bahwa keluarga sinyal ini menambah edge pada horizon 48 jam di SoDEX. PRAREG ini menutup celah itu, bukan menambah fitur.",
+    "kejujuran_overlap": "Sebagian arm OVERLAP dengan keluarga yang sudah teruji: EMA_TREND mirip MOM_L21, RSI_REV/BB_POS mirip REV_L1/RANGEPOS, RSTR mirip MOM. Dimensi yang BENAR-BENAR baru: ATR_BREAK, OBV_SLOPE, dan KONFLUENSI. Karena itu keluarga ini TIDAK boleh dihitung sebagai mesin independen dalam portofolio (batas korelasi antar-mesin tetap berlaku)."
+  },
+  "mekanisme_dideklarasikan": {
+    "bentuk": "Sama seperti kerangka beku: sinyal cross-sectional harian-per-bar, bobot rank-proporsional long-short, hold = 24 dan 48 bar.",
+    "daftar": {
+      "EMA_TREND": "ema(20) - ema(50), dinormalisasi harga; positif = tren naik",
+      "MACD_HIST": "histogram MACD(12,26,9) / harga",
+      "RSI_REV": "50 - RSI(14); positif = harapan pembalikan dari jenuh jual",
+      "BB_POS": "-(%B(20,2) - 0,5); posisi dalam Bollinger band dengan tanda reversion",
+      "ATR_BREAK": "(close - SMA20) / ATR(14); breakout ter-normalisasi volatilitas",
+      "OBV_SLOPE": "kemiringan OBV 10 bar dibagi volume rata-rata 20 bar; tren terkonfirmasi volume",
+      "RSTR": "ROC(24) / ATR(14); momentum terkoreksi volatilitas",
+      "KONFLUENSI": "tanda dari jumlah tanda 7 sinyal di atas setelah masing-masing distandarkan cross-sectional; positif = mayoritas bullish (long)"
+    },
+    "parameter_dikunci": "Semua periode DIKUNCI pada angka di atas. Tidak ada pencarian parameter (no grid search), tidak ada tuning setelah hasil terlihat. Ingin parameter lain = PRAREG BARU dengan walk-forward dan deklarasi keluarga.",
+    "keluarga": "8 mekanisme x holds {24,48} = 16 arm yang dideklarasikan; BH FDR q=0,10 dihitung dalam keluarga ini."
+  },
+  "data": {
+    "sodex_1h": "data/sodex_klines/1h (venue tempat perdagangan)",
+    "binance_1h": "data/binance_klines/1h (54 simbol, untuk R1 replikasi lintas-venue)",
+    "fee_oneway": {"sodex": 0.0004, "binance": 0.0005},
+    "rentang": "Sama dengan PRAREG-7: 2025-09-01Z s/d waktu tarik; perluasan window setelah data terlihat DILARANG."
+  },
+  "kriteria_lulus": {
+    "lulus_panel": "S_ann >= 2,3 DAN S_ann(fee2x) >= 1,8 DAN BH q<0,10 DAN segmen positif >= 3 DAN |t_nw kontrol acak| < 2,0 (aturan skrip beku, tidak diubah)",
+    "R1_replikasi": "tanda(IC_binance_1h) == tanda(IC_sodex_1h) DAN |IC_sodex| >= 0,5*|IC_binance|",
+    "R3_ekonomis": "gross > 0 DAN turnover <= 1,5 DAN net(fee1x) > 0",
+    "R4_kontrol": "|IC_kontrol_acak| < 0,005",
+    "R5_signifikansi": "|t_nw| >= 1,96 pada arm yang disaring",
+    "mutu_panel": "corr(IC, gross) > 0 pada panel yang dipakai sebagai bukti ekonomi",
+    "verdict_mesin": "Tidak ada arm yang boleh disebut 'mesin' hanya dari data historis. Verdict mesin HANYA dari data forward dengan prareg forward terpisah (ambang prareg tidak boleh diubah)."
+  },
+  "falsifier": {
+    "pernyataan": "JIKA tidak ada arm pun yang lulus lulus_panel pada SoDEX DAN lulus R1 DAN lulus R3/R4/R5, MAKA keluarga sinyal teknikal klasik DITOLAK pada horizon 48 jam untuk venue SoDEX, dan itu dilaporkan sebagai hasil (bukan diulang dengan parameter lain).",
+    "konsekuensi": "Penolakan ini mengarahkan usaha ke pilar lain (makro, eksekusi, portofolio), bukan ke pencarian parameter."
+  },
+  "pilar_lain_dideklarasikan_terpisah": {
+    "pilar1_makro_politik": "PRAREG-10 (belum ditulis): overlay makro/sentimen memakai infrastruktur yang SUDAH ada (macro_data.py, sosovalue_macro.py, sentiment_collector.py, intelligence.py, hermes_bridge LLM veto). Syarat: Delta Sharpe > 0 dengan SPA p < 0,05 dan Brier/ECE terkalibrasi. Tidak dijalankan sebelum ada mesin lulus.",
+    "pilar3_risk_management": "PRAREG-9 (belum ditulis): sizing dari volatilitas terealisasi (ATR), SL/TP dari studi geometri exit yang SUDAH ada (PRAREG-4). ATURAN MUTLAK: SL%, TP%, leverage TIDAK diubah tanpa backtest yang membuktikan perbaikan. Leverage dihitung agar risiko per window <= anggaran yang disetujui user.",
+    "pilar4_sistem_reaktif": "Infrastruktur sudah ada (regime_nowcast.py, market_sentinel.py, daemon + alert Telegram). Wiring ke lane SoDEX dilakukan SETELAH ada mesin lulus - menghindari otomasi untuk mesin yang belum ada."
+  },
+  "larangan": [
+    "Tidak ada tuning parameter setelah data dilihat.",
+    "Tidak ada sign-flip pasca-hasil.",
+    "Skrip studi beku (xsec_mech_study.py) tidak diubah; metrik dipakai lewat import supaya identik.",
+    "Tidak ada perubahan SL/TP/leverage pada sistem apa pun dari prareg ini.",
+    "Tidak menulis kredensial apa pun."
+  ],
+  "rencana_eksekusi": [
+    "Commit prareg ini SEBELUM menulis skrip studi.",
+    "Tulis scripts/research/ta7_swing_study.py: hitung 8 sinyal dari data yang ada, metrik memakai fungsi skrip beku (run_mech, bh_fdr) via import.",
+    "Jalankan pada SoDEX 1h dan Binance 1h; hitung BH dalam keluarga 16 arm.",
+    "Uji R1/R3/R4/R5 + gerbang mutu panel; tulis JSON hasil.",
+    "Commit hasil + laporan jujur (lulus atau ditolak) + pelajaran ke skill."
+  ]
+}

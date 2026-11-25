@@ -1,0 +1,24 @@
+[Unit]
+Description=SoDEX Market Sentinel — early-warning & auto-config for twin engine
+After=network.target sodex-twin-watchdog.service
+PartOf=sodex-twin-watchdog.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/anantara-sakti
+EnvironmentFile=%h/anantara-sakti/.env
+ExecStart=/usr/bin/python3 -u anantara/market_sentinel.py \
+    --db twin_engine.db \
+    --env .env \
+    --signal data/GUARDIAN_RESTART_SIGNAL \
+    --log logs/sentinel.log \
+    --cycle 30
+Restart=on-failure
+RestartSec=15
+KillMode=control-group
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sodex-sentinel
+
+[Install]
+WantedBy=default.target

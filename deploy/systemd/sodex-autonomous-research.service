@@ -1,0 +1,22 @@
+[Unit]
+Description=SoDEX autonomous read-only research runner
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 -u /home/USER/anantara-sakti/scripts/sodex_autonomous_research.py --loop --interval 60 --min-score 60 --top 20
+Restart=always
+RestartSec=30
+Environment=PYTHONUNBUFFERED=1
+Environment=SODEX_PREGAIN_WATCH_SCORE=15
+Environment=SODEX_RESEARCH_INTERVAL_S=60
+Environment=SODEX_RESEARCH_MIN_OUTCOME_AGE_S=60
+Environment=SODEX_RESEARCH_MAX_LEARNING_ROWS=5000
+Environment=SODEX_RESEARCH_STATUS_CANDIDATES=20
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_autonomous_research.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_autonomous_research.log
+
+[Install]
+WantedBy=default.target

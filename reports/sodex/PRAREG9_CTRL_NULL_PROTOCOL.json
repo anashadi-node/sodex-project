@@ -1,0 +1,30 @@
+{
+  "id": "PRAREG-9",
+  "judul": "Gerbang kontrol acak berbasis t-statistik — menggantikan ambang IC absolut 0,005 pada evaluasi berikutnya",
+  "tanggal_prareg_utc": "2026-10-08",
+  "status": "TERBEKU sebelum evaluasi PRAREG-8 (TA7) dan sebelum data evaluasi baru apa pun",
+  "latar": {
+    "temuan": "Gerbang R4 (|IC_kontrol| < 0,005) pada saringan kandidat TIDAK PERNAH dapat dipenuhi pada panel 1h: lantai derau IC kira-kira 1/sqrt(n_nama x n_periode) = 0,005-0,01 untuk 51-95 nama x 150-300 periode; kontrol teramati sampai +-0,024 (PRAREG-7, dua lapis, panel berbeda).",
+    "konsekuensi": "Ambang 0,005 menolak SEMUA arm termasuk yang sinyalnya benar-benar nol. Gerbang ini tidak membedakan apa pun — bukan 'terlalu ketat', tapi salah kalibrasi.",
+    "catatan_kerangka": "Skrip beku SUDAH memiliki gerbang kontrol berbasis t di aturan lulus panel: |t_nw kontrol acak| < 2,0. Gerbang R4 absolut di saringan manual adalah tambahan yang cacat."
+  },
+  "kriteria_baru_R4": {
+    "gerbang": "|t_nw kontrol acak| < 2,0",
+    "alasan": "t-statistik sudah distandarisasi derajat kebebasan (Newey-West lag-robust), skala-agnostik antar panel/hold, dan identik dengan aturan lulus panel skrip beku — tidak ada konstanta baru yang di-tuning.",
+    "berlaku_mulai": "Evaluasi PRAREG-8 (TA7) dan semua evaluasi sesudahnya.",
+    "panel_lama": "TIDAK diadili ulang. Verdict historis (PRAREG-7 dst) tetap; label 'R4-IC lama tidak teradili' tetap menempel pada laporan lama.",
+    "ctrl_ic": "Nilai IC kontrol tetap dilaporkan sebagai INFORMASI (bukan gerbang) untuk memantau lantai derau antar panel."
+  },
+  "bukan_pelonggaran": "Prareg ini di-commit SEBELUM data/evaluasi TA7 ada. Tidak ada arm yang berubah verdict karena perubahan ini. Bukti matematis lantai derau dideklarasikan terbuka. Amendemen hanya boleh memperketat.",
+  "larangan": [
+    "Tidak ada tuning ambang setelah hasil TA7 terlihat.",
+    "Tidak ada sign-flip pasca-hasil.",
+    "Skrip beku tidak diubah oleh prareg ini.",
+    "Tidak menulis kredensial apa pun."
+  ],
+  "rencana_eksekusi": [
+    "Commit prareg ini SEBELUM skrip TA7 dijalankan.",
+    "Saringan TA7 memakai R4' |t_ctrl| < 2,0; ctrl IC dilaporkan sebagai info.",
+    "Laporkan hasil jujur lulus/ditolak tanpa pelonggaran pasca-hasil."
+  ]
+}

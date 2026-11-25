@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily 00:40 UTC — PRAREG-37 shadow
+
+[Timer]
+OnCalendar=*-*-* 00:40:00 UTC
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

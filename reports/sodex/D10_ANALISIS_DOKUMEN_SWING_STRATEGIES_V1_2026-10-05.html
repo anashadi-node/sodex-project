@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D10 — Analisis Kritis Dokumen `ANANTARA_SoDEX_Swing_Strategies_FINAL_V1`</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>D10 — Analisis Kritis Dokumen `ANANTARA_SoDEX_Swing_Strategies_FINAL_V1`</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#0-ringkasan-eksekutif">0. Ringkasan Eksekutif</a></li>
+<li class="t2"><a href="#1-peta-dokumen-apa-sebenarnya-isinya">1. Peta Dokumen — Apa Sebenarnya Isinya</a></li>
+<li class="t2"><a href="#2-yang-benar-dan-berharga-kredit-yang-memang-layak">2. Yang BENAR dan Berharga — Kredit yang Memang Layak</a></li>
+<li class="t2"><a href="#3-deviasi-dari-acuan-resmi-anantara">3. Deviasi dari Acuan Resmi ANANTARA</a></li>
+<li class="t2"><a href="#4-benturan-dengan-bukti-empiris-internal-bagian-terpenting">4. BENTURAN DENGAN BUKTI EMPIRIS INTERNAL — Bagian Terpenting</a></li>
+<li class="t3"><a href="#41-strategi-1-sudah-dibangun-dan-sudah-gagal">4.1 ❌ Strategi #1 SUDAH DIBANGUN dan SUDAH GAGAL</a></li>
+<li class="t3"><a href="#42-4-slqs-menambah-gerbang-di-atas-gerbang-yang-belum-tervalidasi">4.2 ❌ §4 (SLQS) = Menambah Gerbang di Atas Gerbang yang BELUM TERVALIDASI</a></li>
+<li class="t3"><a href="#43-bottleneck-terbesar-yang-sudah-kita-ketahui-tidak-disebut">4.3 ❌ Bottleneck TERBESAR yang Sudah Kita Ketahui TIDAK DISEBUT</a></li>
+<li class="t3"><a href="#44-masalah-korelasi-1-dan-4-adalah-faktor-yang-sama">4.4 ❌ Masalah KORELASI: #1 dan #4 adalah Faktor yang Sama</a></li>
+<li class="t3"><a href="#45-overlay-9-belum-bisa-dijalankan">4.5 ❌ Overlay §9 Belum Bisa Dijalankan</a></li>
+<li class="t2"><a href="#5-persoalan-numerik-klaim-kuantitatif">5. Persoalan Numerik & Klaim Kuantitatif</a></li>
+<li class="t3"><a href="#51-angka-paper-dipakai-tanpa-penanda-in-sample">5.1 Angka paper dipakai tanpa penanda "in-sample"</a></li>
+<li class="t3"><a href="#52-klaim-funding-cap-4-per-jam-perlu-verifikasi">5.2 Klaim "funding cap 4% per jam" perlu verifikasi</a></li>
+<li class="t3"><a href="#53-ketidaksesuaian-internal-untung-kecil-vs-target-besar">5.3 Ketidaksesuaian internal: untung kecil vs target besar</a></li>
+<li class="t2"><a href="#6-analisis-kelayakan-target-matematika">6. Analisis Kelayakan Target — Matematika</a></li>
+<li class="t2"><a href="#7-kesenjangan-data-bisakah-rencana-ini-dieksekusi">7. Kesenjangan Data — Bisakah Rencana Ini Dieksekusi?</a></li>
+<li class="t2"><a href="#8-ketidakakuratan-teknis-spesifik-butir-demi-butir">8. Ketidakakuratan Teknis Spesifik (Butir demi Butir)</a></li>
+<li class="t2"><a href="#9-yang-harus-diadopsi-rekomendasi-konkret">9. Yang HARUS Diadopsi (Rekomendasi Konkret)</a></li>
+<li class="t3"><a href="#adopsi-nilai-tinggi-biaya-rendah">✅ ADOPSI — nilai tinggi, biaya rendah</a></li>
+<li class="t3"><a href="#tolak-untuk-sekarang">❌ TOLAK — untuk sekarang</a></li>
+<li class="t3"><a href="#urutan-yang-saya-usulkan-berbeda-dari-dokumen">🎯 URUTAN YANG SAYA USULKAN (berbeda dari dokumen)</a></li>
+<li class="t2"><a href="#10-keterbatasan-analisis-ini">10. Keterbatasan Analisis Ini</a></li>
+<li class="t2"><a href="#11-verifikasi-reprodusibilitas">11. Verifikasi & Reprodusibilitas</a></li>
+<li class="t3"><a href="#perintah-reproduksi">Perintah reproduksi</a></li>
+</ul>
+</nav>
+<p><strong>Divisi SoDEX · Hermes Anantara v3 · 5 Oktober 2026</strong>
+<strong>Objek:</strong> <code>~/Downloads/ANANTARA_SoDEX_Swing_Strategies_FINAL_V1.html</code> (38.580 byte · 784 baris · 13 bagian · 13 tabel · 24 rumus · 17 blok kode · 6 DOI)
+<strong>Metode:</strong> pembacaan penuh + pembandingan silang terhadap <strong>acuan resmi</strong> (<code>ANANTARA_MASTER_Evidence_V1</code> + <code>V2_Supplement</code>) dan <strong>bukti empiris internal</strong> (D07, D08, D09, maturation tracker, A/B arm yang sedang berjalan).</p>
+<hr>
+<h2 id="0-ringkasan-eksekutif">0. Ringkasan Eksekutif</h2>
+<blockquote>
+<p><strong>Dokumen ini JAUH DI ATAS RATA-RATA dalam integritas metodologis — tetapi rekomendasi utamanya menunjuk ke arah yang sudah kita buktikan gagal.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Aspek</th>
+<th>Penilaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kejujuran epistemik (label, pengakuan "bukan janji profit")</td>
+<td><strong>Sangat baik</strong></td>
+</tr>
+<tr>
+<td>Keabsahan sitasi (6 DOI)</td>
+<td><strong>Semua sah — 6/6 sudah ada di acuan resmi kita</strong></td>
+</tr>
+<tr>
+<td>Akurasi fakta venue (fee, funding, mark price)</td>
+<td><strong>Cocok dengan catatan kita</strong></td>
+</tr>
+<tr>
+<td>Kesesuaian dengan prioritas acuan resmi</td>
+<td><strong>⚠️ Menukar #1↔#2, membuang Lead/Lag</strong></td>
+</tr>
+<tr>
+<td>Kesesuaian dengan bukti empiris internal</td>
+<td><strong>❌ Benturan serius di strategi #1, #4, dan §4</strong></td>
+</tr>
+<tr>
+<td>Kelayakan target (0,8%/48 jam)</td>
+<td><strong>⚠️ Menuntut 1,5× Sharpe terbaik yang dokumen sendiri kutip</strong></td>
+</tr>
+<tr>
+<td>Kesiapan data untuk dieksekusi</td>
+<td><strong>~25%</strong> — L2/L4/mark/index/OI <strong>tidak ada</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Putusan: JANGAN adopsi urutan build dokumen ini apa adanya.</strong> Ambil kerangka validasinya (§11–§13) — itu kelas satu. Tapi <strong>jangan</strong> bangun #1 (sudah gagal) dan <strong>jangan</strong> tambah gerbang #4/SLQS sebelum gerbang yang sudah ada divalidasi.</p>
+</blockquote>
+<hr>
+<h2 id="1-peta-dokumen-apa-sebenarnya-isinya">1. Peta Dokumen — Apa Sebenarnya Isinya</h2>
+<table>
+<thead>
+<tr>
+<th>Bagian</th>
+<th>Isi</th>
+<th>Sifat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§1</td>
+<td>Mandat ilmiah + 5 label semantik</td>
+<td><strong>Kerangka</strong></td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Fakta venue SoDEX (index/mark, fee, funding, API, margin, TP/SL)</td>
+<td><strong>Fakta</strong></td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Ranking Final Top-4</td>
+<td><strong>Rekomendasi</strong></td>
+</tr>
+<tr>
+<td>§4</td>
+<td>Gerbang likuiditas universal (SLQS)</td>
+<td><strong>Desain</strong></td>
+</tr>
+<tr>
+<td>§5</td>
+<td><strong>#1</strong> External-Regime Adaptive Trend/Breakout</td>
+<td><strong>Rekomendasi</strong></td>
+</tr>
+<tr>
+<td>§6</td>
+<td><strong>#2</strong> Global Order Flow + Konfirmasi SoDEX</td>
+<td><strong>Rekomendasi</strong></td>
+</tr>
+<tr>
+<td>§7</td>
+<td><strong>#3</strong> ProSP 4H/8H probability-tail</td>
+<td><strong>Rekomendasi</strong></td>
+</tr>
+<tr>
+<td>§8</td>
+<td><strong>#4</strong> Risk-Managed Regime Momentum</td>
+<td><strong>Rekomendasi</strong></td>
+</tr>
+<tr>
+<td>§9</td>
+<td>Overlay funding/premium/OI</td>
+<td><strong>Desain</strong></td>
+</tr>
+<tr>
+<td>§10</td>
+<td>Arsitektur multi-strategi</td>
+<td><strong>Desain</strong></td>
+</tr>
+<tr>
+<td>§11</td>
+<td>Akuntansi Net-PNL</td>
+<td><strong>Kerangka</strong></td>
+</tr>
+<tr>
+<td>§12</td>
+<td>Backtest sadar-Mark-Price</td>
+<td><strong>Metode</strong></td>
+</tr>
+<tr>
+<td>§13</td>
+<td>Gerbang validasi ilmiah (DSR/PBO/CPCV)</td>
+<td><strong>Metode</strong></td>
+</tr>
+<tr>
+<td>§14</td>
+<td>Urutan build (13 langkah)</td>
+<td><strong>Rencana</strong></td>
+</tr>
+<tr>
+<td>§15</td>
+<td>Format laporan wajib</td>
+<td><strong>Kerangka</strong></td>
+</tr>
+<tr>
+<td>§16</td>
+<td>Keputusan akhir</td>
+<td><strong>Kesimpulan</strong></td>
+</tr>
+<tr>
+<td>§17</td>
+<td>Registry sumber (6 DOI + 8 doc SoDEX)</td>
+<td><strong>Sumber</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-yang-benar-dan-berharga-kredit-yang-memang-layak">2. Yang BENAR dan Berharga — Kredit yang Memang Layak</h2>
+<p>Saya harus jujur: bagian-bagian ini <strong>lebih baik daripada kebanyakan dokumen strategi</strong> yang beredar.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Kekuatan</th>
+<th>Bukti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Tidak mengklaim profit.</strong> §1: <em>"Hermes must not assume profitability. Tidak ada paper peer-reviewed yang membuktikan Top-4 ini profitable secara langsung di SoDEX."</em></td>
+<td>Langka &amp; benar</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Label semantik eksplisit</strong> (VERIFIED / DESIGN / HYPOTHESIS / POLICY / PROHIBITED)</td>
+<td><strong>Identik</strong> dengan kerangka kita</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Semua 6 DOI sah</strong></td>
+<td>6/6 sudah terverifikasi di Master Evidence kita (1-Okt) — <strong>tidak ada sitasi karangan</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Fee cocok persis</strong></td>
+<td>Perp taker 0,040% / maker 0,012% → <strong>RT 8 bps</strong> ✅ sama dengan catatan kita</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Funding per jam cocok</strong></td>
+<td>Data kita: <code>funding_time_utc</code> naik per jam; terukur <strong>0,125 bps/jam</strong> ✅</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Mark Price berbasis referensi global</strong></td>
+<td>✅ Persis temuan T1 kita: mesin kita punya <strong>β 0,887</strong> ke faktor global</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Kejujuran tentang #2</strong>: <em>"this evidence is principally daily/weekly. A 1H/4H/8H SoDEX implementation is a new testable hypothesis"</em></td>
+<td>Benar &amp; penting</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Kejujuran tentang #4</strong>: <em>"combining risk-managed momentum with an UP→UP gate is our synthesis… a new hypothesis"</em></td>
+<td>Benar &amp; penting</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Melarang optimasi akurasi/WR/Sharpe in-sample</strong> (§1.1)</td>
+<td>Benar</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Melarang fill SL di harga stop secara naif</strong> (§12.1)</td>
+<td>Benar — persis jebakan yang kita hindari</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Wajib DSR + PBO + purged/embargoed CV + cost stress 1,5×/2×</strong></td>
+<td><strong>Selaras</strong> G1–G8 kita</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Leverage hanya setelah edge tervalidasi</strong>; <em>"No live-money promotion without explicit human approval"</em></td>
+<td><strong>Selaras</strong> Red Lines kita</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan bagian ini:</strong> dokumen ini bukan dokumen sampah. Ia ditulis dengan disiplin. Masalahnya ada di <strong>isi rekomendasi</strong>, bukan di <strong>cara berpikirnya</strong>.</p>
+<hr>
+<h2 id="3-deviasi-dari-acuan-resmi-anantara">3. Deviasi dari Acuan Resmi ANANTARA</h2>
+<p>Acuan resmi kita (<code>ANANTARA_MASTER_Evidence_Research_Technical_Reference_V1.html</code>) menetapkan urutan prioritas riset:</p>
+<table>
+<thead>
+<tr>
+<th>Prioritas</th>
+<th>Acuan RESMI (V1)</th>
+<th>Skor</th>
+<th>Dokumen BARU</th>
+<th>Selisih</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>#1</strong></td>
+<td><strong>Global Order Flow + Nonlinier ML</strong></td>
+<td><strong>92/100</strong></td>
+<td>#2</td>
+<td><strong>⬇️ turun 1</strong></td>
+</tr>
+<tr>
+<td><strong>#2</strong></td>
+<td><strong>Regime-Adaptive Trend / Breakout</strong></td>
+<td><strong>87/100</strong></td>
+<td><strong>#1</strong></td>
+<td><strong>⬆️ naik 1</strong></td>
+</tr>
+<tr>
+<td>#3</td>
+<td>Cross-Crypto Lead/Lag</td>
+<td>(CORE)</td>
+<td><strong>— HILANG —</strong></td>
+<td><strong>❌ dibuang</strong></td>
+</tr>
+<tr>
+<td>#4</td>
+<td>Risk-Managed + Regime-Conditioned Momentum</td>
+<td>(CORE)</td>
+<td>#4</td>
+<td>=</td>
+</tr>
+<tr>
+<td>#5</td>
+<td>ProSP probability-tail</td>
+<td>(NEW/recent)</td>
+<td><strong>#3</strong></td>
+<td><strong>⬆️ naik 2</strong></td>
+</tr>
+<tr>
+<td>#6</td>
+<td>Basis + price-volume (family fitur)</td>
+<td>(kandidat)</td>
+<td>§9 overlay</td>
+<td>=</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tiga deviasi, semuanya material:</strong></p>
+<ol>
+<li>
+<p><strong>#1 ↔ #2 ditukar.</strong> Acuan resmi menilai <strong>Order Flow 92</strong> dan <strong>Regime-Adaptive 87</strong> — selisih 5 poin. Dokumen baru membalikkannya <strong>tanpa menyebut skor apa pun dan tanpa menjelaskan alasan pembalikan.</strong> Ini bukan kesalahan kecil: urutan menentukan apa yang dibangun lebih dulu, dan anggaran waktu kita terbatas.</p>
+</li>
+<li>
+<p><strong>Cross-Crypto Lead/Lag dibuang seluruhnya.</strong> Acuan resmi menyebutnya 11×, dan mencatat <em>"terbukti paling jelas pada minute-level"</em>. Membuangnya dari konteks <strong>swing</strong> sebenarnya <strong>dapat dibela</strong> (bukti menit-an tidak otomatis transfer ke swing) — tetapi dokumen baru <strong>tidak menyebut penghapusan itu sama sekali</strong>, apalagi alasannya. Penghapusan senyap = kehilangan jejak keputusan.</p>
+</li>
+<li>
+<p><strong>ProSP naik #5 → #3.</strong> Acuan resmi menandai ProSP sebagai <em>"sudah tersedia online pada 2026 tetapi </em><em>issue date-nya 15 Oktober 2026</em><em>"</em> — yaitu <strong>10 hari setelah hari ini</strong>. Dokumen baru menyebutnya "High but recent" (jujur, bagus) tetapi tetap menaikkannya dua peringkat.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Catatan penting:</strong> dokumen baru mempersempit bahasa acuan resmi dari <em>"urutan = prioritas riset, BUKAN janji profit"</em> menjadi <strong>"Final Top-4 Ranking"</strong> dengan <strong>"Build first / Build second / Build conditionally"</strong>. Ini <strong>meningkatkan kekuatan klaim</strong> melampaui bukti yang mendasarinya — tepat jenis pergeseran yang mandatnya sendiri (§1) larang.</p>
+</blockquote>
+<hr>
+<h2 id="4-benturan-dengan-bukti-empiris-internal-bagian-terpenting">4. BENTURAN DENGAN BUKTI EMPIRIS INTERNAL — Bagian Terpenting</h2>
+<p>Ini inti analisis. Dokumen ini ditulis seolah kita mulai dari nol. Kita tidak.</p>
+<h3 id="41-strategi-1-sudah-dibangun-dan-sudah-gagal">4.1 ❌ Strategi #1 SUDAH DIBANGUN dan SUDAH GAGAL</h3>
+<p>Dokumen menempatkan <strong>External-Regime Adaptive Trend/Breakout</strong> sebagai <strong>#1 — "Build first"</strong>.</p>
+<p>Reality check — infrastruktur itu <strong>sudah ada dan sudah diuji</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Komponen dokumen</th>
+<th>Padanan yang sudah ada di ekosistem</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Global regime gate"</td>
+<td><code>_regime_gate_ok()</code>, <code>btc_regime()</code></td>
+<td><strong>Produksi</strong></td>
+</tr>
+<tr>
+<td>"Local breakout signal"</td>
+<td><code>anantara/sodex_directional.py</code>, <code>sodex_signal.py</code></td>
+<td><strong>Ada</strong></td>
+</tr>
+<tr>
+<td>"Regime engine"</td>
+<td><code>anantara/market_regime.py</code>, <code>regime_nowcast.py</code>, <code>directional_predictor.py</code></td>
+<td><strong>Ada</strong></td>
+</tr>
+<tr>
+<td>"Vol gate"</td>
+<td><code>_entry_vol_gate(thr=2.0%)</code></td>
+<td><strong>Produksi</strong></td>
+</tr>
+<tr>
+<td>"Dead zone / jam buruk"</td>
+<td><code>_entry_dead_zone_hour()</code></td>
+<td><strong>Produksi</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hasil yang sudah kita peroleh:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Uji</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1 (track twoway)</strong></td>
+<td><strong>FAIL struktural</strong></td>
+</tr>
+<tr>
+<td>Akar masalah</td>
+<td><strong>Eksposur faktor alt-vs-BTC, β = 0,887</strong> — bukan biaya, bukan filter, bukan bug</td>
+</tr>
+<tr>
+<td>Segmen S1 / S2 / S3</td>
+<td>−10,19 / +62,96 / <strong>−28,40 bps</strong></td>
+</tr>
+<tr>
+<td>S3 (terkini)</td>
+<td><strong>RUGI −28,40 bps SEBELUM biaya</strong></td>
+</tr>
+<tr>
+<td>Prediktor rezim ex-ante terbaik (D08)</td>
+<td><code>vol BTC ≥ median</code> → <strong>+75,16 bps, p=0,0122</strong> (lolos BH-FDR)</td>
+</tr>
+<tr>
+<td><strong>Tapi di S3 terkini</strong></td>
+<td><strong>−1,44 bps</strong> → efeknya <strong>terlalu kecil</strong> vs biaya 19 bps</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Dokumen merekomendasikan "Build first" untuk sesuatu yang sudah kita bangun dan sudah gagal — tanpa menyebut kegagalan itu.</strong></p>
+</blockquote>
+<p>Yang membuat ini bukan kebetulan: dokumen sendiri menyatakan (§2.1) bahwa SoDEX Index/Mark <strong>bergantung pada informasi pasar global</strong>. Itu <strong>tepat</strong> penyebab kegagalan T1 — karena semua peserta memakai referensi global yang sama, <strong>arahnya tidak bisa menjadi alpha lokal</strong>. Dokumen mengidentifikasi mekanismenya dengan benar, lalu <strong>tidak menarik konsekuensinya</strong>.</p>
+<h3 id="42-4-slqs-menambah-gerbang-di-atas-gerbang-yang-belum-tervalidasi">4.2 ❌ §4 (SLQS) = Menambah Gerbang di Atas Gerbang yang BELUM TERVALIDASI</h3>
+<p>Dokumen §4 mewajibkan gerbang likuiditas 6-komponen (SLQS) dengan bobot <strong>yang dokumen sendiri akui belum diketahui</strong> (<code>HYPOTHESIS</code>).</p>
+<p>Kondisi gerbang kita sekarang:</p>
+<table>
+<thead>
+<tr>
+<th>Fakta</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gerbang produksi aktif</td>
+<td><strong>3</strong> (<code>_entry_vol_gate</code>, <code>_entry_dead_zone_hour</code>, <code>_regime_gate_ok</code>)</td>
+</tr>
+<tr>
+<td>Tingkat blokir entry</td>
+<td><strong>87,5%</strong></td>
+</tr>
+<tr>
+<td>Uji setelah koreksi</td>
+<td><strong>0 dari 12</strong> CI95 mengecualikan nol</td>
+</tr>
+<tr>
+<td>Putusan</td>
+<td><strong>Belum tervalidasi</strong></td>
+</tr>
+<tr>
+<td>Plus gerbang tracker: <code>pairs_pause</code> REAL-wide (ADA, ARB, DOGE…), SWING-PARTIAL (LIT), status <code>_REGIME: FLAPPING</code>, <code>_STANDBY: True</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Menambahkan SLQS 6-bobot <strong>tanpa metode validasi</strong> berarti menumpuk gerbang yang belum terbukti di atas gerbang yang belum terbukti. Risikonya kongkret: blokir naik dari 87,5% ke arah yang lebih tinggi, sementara <strong>tidak ada yang bisa membuktikan gerbang baru itu menambah edge</strong> — karena alat untuk membuktikannya belum dipakai pada gerbang yang lama.</p>
+<p><strong>Aturan yang benar:</strong> validasi gerbang yang <strong>sudah ada</strong> dulu (protokol di <code>skill: signal-gate-falsification</code>), baru tambah.</p>
+<h3 id="43-bottleneck-terbesar-yang-sudah-kita-ketahui-tidak-disebut">4.3 ❌ Bottleneck TERBESAR yang Sudah Kita Ketahui TIDAK DISEBUT</h3>
+<p>Temuan internal kita, status <strong>CONFIRMED</strong>:</p>
+<pre><code>H1  CONFIRMED  n=732 trade SoDEX:
+      median MFE      +1,087R   (puncak menguntungkan rata-rata)
+      median realized −0,125R   (yang benar-benar didapat)
+      52,2% posisi MENYENTUH +1R
+      11,3% posisi RUGI sempat menyentuh +1R
+    → bottleneck = CAPTURE (keluar), BUKAN SINYAL (masuk)
+</code></pre>
+<p>Artinya: <strong>masalah utama kita bukan "sinyal entry kurang pintar" — tapi "profit yang sudah didapat tidak dipanen".</strong> Estimasi kebocoran: <strong>~1,2R per trade</strong>.</p>
+<p>Bukti pendukung terukur:</p>
+<pre><code>r(ATR%, SL-rate) = +0,750,  p_perm = 0,0006  (20.000 permutasi)
+   → makin volatil pair, makin sering SL 1% tersentuh
+Sizing TIDAK vol-aware → risiko efektif per trade naik seiring ATR
+</code></pre>
+<p>Dokumen §5.8 menyebut <em>"volatility-adjusted trailing stop"</em> — <strong>satu butir dalam daftar</strong>, tanpa bobot, tanpa kaitan ke temuan capture di atas. Padahal <strong>PEAK_TRAIL</strong> (temuan internal) bernilai <strong>+1,80 pp/trade</strong> — dan target kita hanya <strong>0,80%/48 jam</strong>. Satu perbaikan exit yang sudah terukur bernilai <strong>&gt;2× target</strong>.</p>
+<blockquote>
+<p><strong>Kesimpulan:</strong> dokumen mengoptimalkan <strong>pintu masuk</strong> (entry gates, strategi baru), sementara bukti terkuat kita menunjuk ke <strong>pintu keluar</strong>. Ini arah yang salah, dan berpotensi menghabiskan berbulan-bulan.</p>
+</blockquote>
+<p>Saat ini pun sudah ada <strong>A/B exit yang sedang berjalan</strong> dengan kriteria pra-registrasi (n ≥ 30/arm) — <code>AB_REALWIDE_ATR_ARM_20260925</code> dan <code>AB_SWING_ATR_GEOMETRY_20260925</code>. Dokumen tidak menyebutnya.</p>
+<h3 id="44-masalah-korelasi-1-dan-4-adalah-faktor-yang-sama">4.4 ❌ Masalah KORELASI: #1 dan #4 adalah Faktor yang Sama</h3>
+<p>Target resmi kita (opsi B) mensyaratkan <strong>6–8 mesin dengan korelasi antar-mesin ≤ 0,1</strong> supaya Sharpe portofolio mencapai ~5,5–5,8.</p>
+<p>Dokumen mengusulkan 4 strategi. Mari periksa independensinya:</p>
+<table>
+<thead>
+<tr>
+<th>Strategi</th>
+<th>Sifat</th>
+<th>Faktor</th>
+<th>Grup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#1 Trend/Breakout</td>
+<td>directional, time-series</td>
+<td><strong>TREND/MOMENTUM</strong></td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>#4 Risk-Managed Momentum</td>
+<td>cross-sectional, 2mgg formasi</td>
+<td><strong>TREND/MOMENTUM</strong></td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>#3 ProSP</td>
+<td>cross-sectional prob-tail</td>
+<td>sebagian <strong>MOMENTUM</strong> (fitur §7.7: <em>"multi-horizon return/momentum"</em>)</td>
+<td><strong>A/lemah</strong></td>
+</tr>
+<tr>
+<td>#2 Order Flow ML</td>
+<td>informasi mikro-struktur</td>
+<td><strong>ORDER FLOW</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Di literatur, time-series trend dan cross-sectional momentum berkorelasi <strong>~0,7–0,9</strong>. Jadi dari 4 "mesin" dokumen, <strong>realistisnya hanya ~2 faktor independen</strong> (Trend/Momentum dan Order Flow) — dan #3 miring ke grup yang sama.</p>
+<blockquote>
+<p><strong>Konsekuensi aritmetika:</strong> 2 mesin independen (bukan 6–8) → Sharpe portofolio ≈ SR × √2, bukan SR × √6–8. Kita <strong>tidak akan mencapai</strong> target lewat daftar ini, sekalipun keempatnya berhasil — karena keempatnya bukan empat taruhan berbeda.</p>
+</blockquote>
+<p>Dokumen §10 memang memperingatkan <em>"Do not implement this ensemble first"</em> (bagus), tapi tidak pernah memeriksa <strong>korelasi antar keempatnya</strong> — padahal itu syarat kelayakan utama.</p>
+<h3 id="45-overlay-9-belum-bisa-dijalankan">4.5 ❌ Overlay §9 Belum Bisa Dijalankan</h3>
+<p>Dokumen §3.1 menyatakan overlay <strong>Funding + Premium + OI</strong> <em>"must condition all strategies"</em> — wajib untuk semuanya.</p>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Ketersediaan kita</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Funding</td>
+<td>✅ 92 simbol — <strong>tapi hanya ~2,5 hari riwayat</strong> (5.612 baris; SoDEX tanpa endpoint historis)</td>
+</tr>
+<tr>
+<td>Premium (perp−index)</td>
+<td>❌ <strong>0 berkas</strong></td>
+</tr>
+<tr>
+<td>Open Interest</td>
+<td>❌ 1 berkas saja, tanpa deret waktu</td>
+</tr>
+</tbody>
+</table>
+<p>Overlay yang <strong>diwajibkan untuk semua strategi</strong> tidak punya data untuk dijalankan. Dokumen tidak memeriksa ketersediaan data sama sekali.</p>
+<hr>
+<h2 id="5-persoalan-numerik-klaim-kuantitatif">5. Persoalan Numerik &amp; Klaim Kuantitatif</h2>
+<h3 id="51-angka-paper-dipakai-tanpa-penanda-in-sample">5.1 Angka paper dipakai tanpa penanda "in-sample"</h3>
+<table>
+<thead>
+<tr>
+<th>Klaim dokumen</th>
+<th>Disetahunkan</th>
+<th>Persoalan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§8.1 — momentum 3,18%/minggu</td>
+<td><strong>≈ 409%/tahun</strong></td>
+<td>Ini angka <strong>sampel riset</strong>, bukan live. Dokumen menyebutnya apa adanya sebagai temuan paper, tapi menaruhnya di tabel ranking sebagai bukti pendukung</td>
+</tr>
+<tr>
+<td>§8.1 — 3,47%/minggu (risk-managed)</td>
+<td><strong>≈ 489%/tahun</strong></td>
+<td>Sama</td>
+</tr>
+<tr>
+<td>§6.1 — Sharpe long-short 3,61</td>
+<td><strong>≈ 217%/tahun</strong></td>
+<td>Sharpe 3,61 adalah <strong>ekstrem</strong>; hampir selalu menyusut di luar sampel</td>
+</tr>
+</tbody>
+</table>
+<p>Dokumen §8.7 memang mencantumkan risiko <em>"small/illiquid winners can create fake backtest alpha"</em> — <strong>jujur</strong> — tetapi angka besar itu tetap berada di tabel bukti tanpa label "in-sample". Pembaca bisa salah menyimpulkan tingkat kelayakan.</p>
+<h3 id="52-klaim-funding-cap-4-per-jam-perlu-verifikasi">5.2 Klaim "funding cap 4% per jam" perlu verifikasi</h3>
+<p>Dokumen §2.3: <em>"The funding cap documented by SoDEX is 4% per hour."</em></p>
+<p>Data kita: funding terukur <strong>0,125 bps/jam</strong> = 0,00125%. Cap 4%/jam berarti <strong>3.200× lebih besar</strong> dari yang teramati. Bisa jadi (a) batas stres teoretis, (b) salah baca dokumen, atau (c) salah satu satuan. <strong>Tidak terverifikasi</strong> — tandai <code>HYPOTHESIS</code>, jangan pakai sebagai asumsi.</p>
+<h3 id="53-ketidaksesuaian-internal-untung-kecil-vs-target-besar">5.3 Ketidaksesuaian internal: untung kecil vs target besar</h3>
+<p>Dokumen §4 (SLQS) dirancang untuk menyaring pasar dengan spread/depth yang baik. Tapi dokumen tidak pernah menghitung: <strong>berapa trade/tahun yang tersisa setelah SLQS + hurdle net-edge + 3 gerbang kita?</strong> Dengan 182 slot/48 jam setahun dan penyaringan berlapis (yang sudah memblokir 87,5%), jumlah trade yang benar-benar terjadi bisa turun di bawah ambang daya uji statistik. <strong>Trade-off daya-uji vs selektivitas tidak dibahas.</strong></p>
+<hr>
+<h2 id="6-analisis-kelayakan-target-matematika">6. Analisis Kelayakan Target — Matematika</h2>
+<p>Target resmi: <strong>0,8% dari TOTAL wallet per 48 jam.</strong></p>
+<pre><code>0,8% / 48 jam   =  0,40% / hari
+disetahunkan    =  328% / tahun  (4,28× modal)
+padanan Sharpe  ≈  5,5   (asumsi vol kripto 60%/tahun)
+</code></pre>
+<p>Biaya per trade 48 jam (dari data nyata kita):</p>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Nilai</th>
+<th>Sumber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fee RT perp taker</td>
+<td><strong>8,0 bps</strong></td>
+<td>Dokumen §2.2 ✅ + catatan kita</td>
+</tr>
+<tr>
+<td>Funding 48 jam @0,125 bps/jam</td>
+<td><strong>6,0 bps</strong></td>
+<td>Data kita, 92 simbol</td>
+</tr>
+<tr>
+<td>Slippage/spread</td>
+<td>~5,0 bps</td>
+<td>estimasi konservatif</td>
+</tr>
+<tr>
+<td><strong>Total biaya</strong></td>
+<td><strong>≈ 19,0 bps</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bruto minimal agar NET 80 bps</strong></td>
+<td><strong>≈ 99 bps per trade</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Jadi target menuntut <strong>~99 bps gross per trade, konsisten, 182 kali setahun.</strong></p>
+<p>Pembanding terhadap dokumen itu sendiri:</p>
+<pre><code>Sharpe long-short terbaik yang dokumen kutip (§6.1)  = 3,61
+Sharpe yang dibutuhkan target kita                    ≈ 5,5
+                                                       ──────
+                                               target = 1,51× lebih tinggi
+</code></pre>
+<blockquote>
+<p><strong>Target kita menuntut kita mengalahkan Sharpe terbaik dari paper terbaik yang dokumen sendiri kutip, sebesar 51%</strong> — dan angka 3,61 itu sendiri sudah angka sampel riset.</p>
+<p><strong>Kabar baiknya:</strong> target kita <strong>bukan</strong> "satu strategi Sharpe 5,5". Target kita dirancang lewat <strong>diversifikasi</strong>: 6–8 mesin pada Sharpe ~2,3 dengan korelasi ≤0,1 → Sharpe portofolio ≈ 2,3 × √6–8 ≈ 5,6–6,5. <strong>Jadi syarat sesungguhnya bukan "cari strategi hebat" — melainkan "cari 6–8 strategi yang TIDAK saling berkorelasi".</strong> Dan itulah tepatnya yang daftar Top-4 dokumen ini <strong>gagal penuhi</strong> (§4.4).</p>
+</blockquote>
+<p>Ini kesimpulan paling penting dari seluruh analisis: <strong>dokumen menyelesaikan masalah yang salah.</strong></p>
+<hr>
+<h2 id="7-kesenjangan-data-bisakah-rencana-ini-dieksekusi">7. Kesenjangan Data — Bisakah Rencana Ini Dieksekusi?</h2>
+<p>Dokumen §14 menetapkan urutan build 13 langkah. Langkah 1–6 adalah <strong>infrastruktur data</strong>. Status kita:</p>
+<table>
+<thead>
+<tr>
+<th>Kebutuhan (dokumen §14)</th>
+<th>Status kita</th>
+<th>Kelengkapan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoDEX raw recorder (trades, candles)</td>
+<td><code>orderflow_capture</code> — <strong>hanya BTC/ETH/SOL, sumber Binance</strong></td>
+<td>🟡 25%</td>
+</tr>
+<tr>
+<td><strong>bookTicker</strong></td>
+<td><strong>0 berkas</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>L2 / L4 book</strong></td>
+<td><strong>0 berkas</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>mark / index price</strong></td>
+<td><strong>0 berkas deret waktu</strong> (snapshot <code>perps_marks[92]</code> ada, tapi titik-titik bukan deret)</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>funding</td>
+<td>✅ 92 simbol — <strong>riwayat hanya ~2,5 hari</strong></td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Open Interest</strong></td>
+<td>1 berkas, tanpa deret waktu</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>tickers</td>
+<td>sebagian</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Binance reference recorder</td>
+<td>sebagian (3 simbol)</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Hyperliquid reference</strong></td>
+<td><strong>tidak ada</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>SLQS + riwayat likuiditas/kapasitas</strong></td>
+<td><strong>tidak ada</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Backtester sadar-Mark-Price + simulator fill berbasis depth</strong></td>
+<td><strong>tidak ada</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Instrument master point-in-time</strong></td>
+<td><strong>tidak ada</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Cost engine + pemilih spot-vs-perp</td>
+<td>sebagian (<code>sodex_funding_collector</code>)</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perkiraan kesiapan: ~25%.</strong></p>
+<p>Implikasi konkret:</p>
+<ol>
+<li><strong>#2 (Order Flow)</strong> butuh flow lintas-venue (Binance + Hyperliquid + konfirmasi lokal SoDEX). Kita punya <strong>3 simbol dari satu venue</strong>. Dokumen §6.2 menggambarkan arsitektur 3-lapis yang <strong>dua lapisnya belum kita rekam</strong>.</li>
+<li><strong>#3 (ProSP)</strong> butuh <strong>universe cross-sectional yang lebar dan likuid</strong>. Kita punya 92 perp, tapi <strong>belum tahu berapa yang lolos SLQS</strong> — dan SLQS-nya sendiri belum dibangun. Dokumen §7.3 sudah memperingatkan hal ini (bagus).</li>
+<li><strong>Overlay §9</strong> mustahil: premium &amp; OI tidak ada.</li>
+<li><strong>§12 (backtest sadar-Mark-Price dengan fill berbasis depth)</strong> butuh L2/L4 yang <strong>tidak kita miliki</strong>. Backtest kita saat ini tidak bisa memenuhi standar dokumen itu.</li>
+</ol>
+<p><strong>Temuan tambahan:</strong> data orderflow kita (<code>obi</code>, <code>cvd</code>, <code>trades</code>) berakhir <code>t=1791157331843</code> ≈ <strong>5 Oktober 2026</strong> — <strong>SEGAR</strong>. Ini kontras tajam dengan <code>sodex_model_server</code> yang datanya <strong>beku 21-Mei</strong> (D09). Jadi: <strong>data flow kita segar; data model kita busuk.</strong> Dua masalah berbeda yang sering tertukar.</p>
+<hr>
+<h2 id="8-ketidakakuratan-teknis-spesifik-butir-demi-butir">8. Ketidakakuratan Teknis Spesifik (Butir demi Butir)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Lokasi</th>
+<th>Persoalan</th>
+<th>Tingkat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>§3</td>
+<td>#1↔#2 ditukar tanpa menyebut skor acuan resmi (92 vs 87)</td>
+<td><strong>Tinggi</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>§3</td>
+<td>Cross-Crypto Lead/Lag dihapus senyap (acuan resmi: CORE #3, 11 sebutan)</td>
+<td>Sedang</td>
+</tr>
+<tr>
+<td>3</td>
+<td>§3</td>
+<td>ProSP naik #5→#3, padahal acuan resmi menandainya terbit 15-Okt-2026 (10 hari ke depan)</td>
+<td>Sedang</td>
+</tr>
+<tr>
+<td>4</td>
+<td>§3/§16</td>
+<td>Mengubah "prioritas riset" menjadi "Final Ranking" + "Build first" — klaim lebih kuat dari bukti</td>
+<td><strong>Tinggi</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>§5</td>
+<td>#1 sudah dibangun (<code>_regime_gate_ok</code>, <code>sodex_directional.py</code>) dan sudah <strong>FAIL</strong> (T1, β 0,887) — tidak disebut</td>
+<td><strong>Kritis</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>§4</td>
+<td>SLQS menambah gerbang tanpa protokol validasi; gerbang lama (3) memblokir 87,5% dan <strong>0/12 tervalidasi</strong></td>
+<td><strong>Kritis</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>§5.8</td>
+<td>Exit capture (bottleneck CONFIRMED, ~1,2R/trade) hanya jadi satu butir daftar; rantai kausal ke temuan internal tidak dibuat</td>
+<td><strong>Kritis</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td>§3/§10</td>
+<td>Korelasi antar 4 strategi tidak diperiksa; #1 &amp; #4 = faktor sama → tidak bisa memenuhi syarat ρ≤0,1</td>
+<td><strong>Tinggi</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td>§2.3</td>
+<td>"Funding cap 4%/jam" — 3.200× di atas funding teramati; tak terverifikasi</td>
+<td>Sedang</td>
+</tr>
+<tr>
+<td>10</td>
+<td>§8.1</td>
+<td>3,18%/minggu (≈409%/th) disajikan sebagai bukti tanpa label in-sample</td>
+<td>Sedang</td>
+</tr>
+<tr>
+<td>11</td>
+<td>§3.1/§9</td>
+<td>Overlay "wajib untuk semua strategi" tanpa cek ketersediaan data (premium &amp; OI = 0)</td>
+<td><strong>Tinggi</strong></td>
+</tr>
+<tr>
+<td>12</td>
+<td>§14</td>
+<td>Urutan build tidak menyebut A/B exit yang <strong>sedang berjalan</strong> (<code>AB_*_ATR_*_20260925</code>, n≥30/arm, pra-registrasi)</td>
+<td>Sedang</td>
+</tr>
+<tr>
+<td>13</td>
+<td>§4/§13</td>
+<td>Trade-off selektivitas vs daya uji tidak dibahas (berpotensi menekan n di bawah ambang statistik)</td>
+<td>Sedang</td>
+</tr>
+<tr>
+<td>14</td>
+<td>§2.5</td>
+<td>Margin tier (40×/25×/20×) disebut <strong>dengan benar</strong> sebagai batas bursa, bukan leverage strategi — <strong>ini akurat</strong>, tapi tidak dikaitkan ke plafon nyata kita <code>LEVEL2_MARGIN_UTIL_CAP = 0,70</code></td>
+<td>Rendah</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-yang-harus-diadopsi-rekomendasi-konkret">9. Yang HARUS Diadopsi (Rekomendasi Konkret)</h2>
+<p>Saya memisahkan dengan tegas: <strong>adopsi</strong> vs <strong>tolak</strong>.</p>
+<h3 id="adopsi-nilai-tinggi-biaya-rendah">✅ ADOPSI — nilai tinggi, biaya rendah</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tindakan</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td><strong>Adopsi §11–§13 sebagai standar pelaporan wajib</strong> (akuntansi Net-PNL, backtest sadar-Mark, gerbang DSR/PBO/CPCV)</td>
+<td>Selaras G1–G8 kita; menaikkan standar tanpa biaya arsitektur</td>
+</tr>
+<tr>
+<td>A2</td>
+<td><strong>Adopsi §15 (format laporan strategi)</strong> sebagai template baku keluaran riset SoDEX</td>
+<td>Memudahkan perbandingan antar-mesin</td>
+</tr>
+<tr>
+<td>A3</td>
+<td><strong>Adopsi §4.1 komponen SLQS sebagai DAFTAR FITUR</strong> (bukan gerbang) — spread, depth, turnover, frekuensi trade, slippage, price-alignment</td>
+<td>Fitur bagus untuk <strong>diukur &amp; dianalisis</strong>, bukan untuk memblokir sebelum tervalidasi</td>
+</tr>
+<tr>
+<td>A4</td>
+<td><strong>Adopsi §9 sebagai overlay KONTEKS &amp; BIAYA</strong> (bukan prediktor arah) — dokumen sendiri sudah menetapkan ini dengan benar</td>
+<td>Persis postur yang benar</td>
+</tr>
+<tr>
+<td>A5</td>
+<td><strong>Adopsi §12.1 (larangan fill SL di harga stop)</strong> ke backtester kita</td>
+<td>Mencegah ilusi hasil</td>
+</tr>
+<tr>
+<td>A6</td>
+<td><strong>Naikkan #2 (Order Flow) ke prioritas #1</strong> — sesuai acuan resmi</td>
+<td>Bukti terkuat + kita punya 1,6 GB data segar</td>
+</tr>
+<tr>
+<td>A7</td>
+<td><strong>Bangun recorder yang belum ada</strong>: bookTicker, L2/L4, mark/index, OI</td>
+<td>Prasyarat mutlak apa pun</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tolak-untuk-sekarang">❌ TOLAK — untuk sekarang</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tindakan</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td><strong>Jangan "Build first" #1 (Regime-Adaptive Trend/Breakout)</strong></td>
+<td>Sudah gagal (β 0,887, S3 −28,40 bps sebelum biaya)</td>
+</tr>
+<tr>
+<td>T2</td>
+<td><strong>Jangan tambah gerbang SLQS sebagai gerbang</strong></td>
+<td>3 gerbang lama belum tervalidasi (0/12) tapi sudah blokir 87,5%; tambah gerbang = memperburuk rasio sinyal/derau</td>
+</tr>
+<tr>
+<td>T3</td>
+<td><strong>Jangan bangun #4 (Momentum) sebagai mesin independen</strong></td>
+<td>Sekeluarga dengan #1; melanggar syarat ρ≤0,1</td>
+</tr>
+<tr>
+<td>T4</td>
+<td><strong>Jangan pakai #3 (ProSP) sebelum universe likuid terbukti</strong></td>
+<td>Dokumen sendiri sudah mensyaratkan ini (§7.3)</td>
+</tr>
+<tr>
+<td>T5</td>
+<td><strong>Jangan jadikan dokumen ini pengganti acuan resmi</strong></td>
+<td>Menukar #1↔#2 dan menghapus Lead/Lag tanpa jejak keputusan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="urutan-yang-saya-usulkan-berbeda-dari-dokumen">🎯 URUTAN YANG SAYA USULKAN (berbeda dari dokumen)</h3>
+<pre><code>PRIORITAS 0 — PANEN YANG SUDAH ADA (bukti terkuat, biaya terendah)
+  ├─ Selesaikan A/B exit ATR (n≥30/arm sudah pra-registrasi, sedang jalan)
+  ├─ Ukur ulang PEAK_TRAIL (+1,80 pp/trade) dengan protokol falsifikasi
+  └─ Jadikan sizing vol-aware (bukti: r(ATR%,SL-rate)=+0,750, p=0,0006)
+     → menyerang bottleneck CONFIRMED (capture, ~1,2R/trade)
+
+PRIORITAS 1 — VALIDASI GERBANG YANG SUDAH ADA
+  └─ Jalankan skill: signal-gate-falsification pada 3 gerbang produksi
+     → tanpa ini, gerbang baru apa pun tidak bisa dinilai
+
+PRIORITAS 2 — #2 ORDER FLOW (sesuai acuan resmi #1)
+  ├─ Perluas recorder: Hyperliquid + SoDEX lokal + lebih banyak simbol
+  └─ Ablation M0→M5 dokumen §6.4, biaya 1x/1,5x/2x, DSR
+
+PRIORITAS 3 — INFRASTRUKTUR DATA
+  └─ bookTicker, L2/L4, mark/index, OI (prasyarat untuk §12 &amp; §9)
+
+PRIORITAS 4 — kandidat mesin BARU yang benar-benar TIDAK berkorelasi
+  └─ cari faktor di luar Trend/Momentum/Order Flow (mis. funding-carry,
+     likuidasi, struktur basis) — inilah jalan ke 6-8 mesin ρ≤0,1
+</code></pre>
+<hr>
+<h2 id="10-keterbatasan-analisis-ini">10. Keterbatasan Analisis Ini</h2>
+<p>Saya menyatakan batasnya secara terbuka:</p>
+<ol>
+<li><strong>Tidak bisa memverifikasi DOI secara online.</strong> Web dalam keadaan mati (HTTP 402 <code>insufficient_funds</code>). Namun <strong>tidak diperlukan</strong>: ke-6 DOI sudah ada di acuan resmi kita yang <strong>sudah diverifikasi di Crossref pada 1-Okt-2026</strong>. Yang bisa saya pastikan: <strong>tidak ada sitasi karangan</strong>.</li>
+<li><strong>Tidak membaca isi paper aslinya.</strong> Penilaian saya atas klaim paper (mis. Sharpe 3,61) terbatas pada <strong>bagaimana dokumen mengutipnya</strong>, bukan pada kebenaran paper itu sendiri.</li>
+<li><strong>Korelasi antar-strategi (§4.4) adalah penilaian analitis</strong>, bukan hasil pengukuran. Untuk mengukurnya perlu kurva ekuitas tiap strategi — dan itu memang bagian dari rekomendasi ini (bangun mandiri dulu, ukur korelasi, baru router).</li>
+<li><strong>Saya tidak mengubah apa pun.</strong> Analisis ini read-only terhadap produksi. <code>unfreeze = NO</code>, gate T1 utuh, target tidak diubah.</li>
+</ol>
+<hr>
+<h2 id="11-verifikasi-reprodusibilitas">11. Verifikasi &amp; Reprodusibilitas</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dokumen objek</td>
+<td>38.580 byte · 784 baris · 13 bagian · 6 DOI</td>
+</tr>
+<tr>
+<td>Acuan pembanding</td>
+<td>Master Evidence V1 (98.727 B, 12 DOI) + V2 Supplement (19.444 B, 6 DOI)</td>
+</tr>
+<tr>
+<td>DOI baru di dokumen</td>
+<td><strong>0</strong> (6/6 sudah ada di acuan)</td>
+</tr>
+<tr>
+<td>Padanan modul yang diperiksa</td>
+<td><code>sodex_directional.py</code>, <code>market_regime.py</code>, <code>regime_nowcast.py</code>, <code>sodex_signal.py</code>, <code>sodex_governor.py</code>, <code>paper_test_twoway.py</code>, <code>paper_test_realwide.py</code>, <code>realwide_micro_live.py</code></td>
+</tr>
+<tr>
+<td>Data diperiksa</td>
+<td><code>orderflow_capture_*.jsonl</code> (1,6 GB, 3 simbol, s/d 5-Okt), <code>data/sodex_funding/funding_rates_history.jsonl</code> (5.612 baris, 92 simbol), <code>data/sodex_real_sync_snapshot.json</code> (92 perp)</td>
+</tr>
+<tr>
+<td>Berkas A/B diperiksa</td>
+<td><code>docs/cex/AB_REALWIDE_ATR_ARM_20260925.md</code>, <code>docs/cex/AB_SWING_ATR_GEOMETRY_20260925.md</code></td>
+</tr>
+<tr>
+<td>Registry trial</td>
+<td><code>reports/sodex/sodex_trial_registry.json</code> — 31 entri</td>
+</tr>
+<tr>
+<td>Produksi disentuh</td>
+<td><strong>tidak</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="perintah-reproduksi">Perintah reproduksi</h3>
+<pre><code class="language-bash"># Peta dokumen
+python3 -c &quot;import re,sys; s=open('~/Downloads/ANANTARA_SoDEX_Swing_Strategies_FINAL_V1.html').read(); print(len(re.findall(r'&lt;section id=',s)))&quot;
+
+# Overlap DOI
+# (lihat skrip di lampiran laporan; 6/6 DOI dokumen ada di Master Evidence)
+
+# Kelayakan target
+python3 -c &quot;print(f'{(1.008)**(365/2)-1:.1%} per tahun')&quot;   # -&gt; 328.1%
+</code></pre>
+<hr>
+<p><em>D10 · Divisi SoDEX · Hermes Anantara v3 · 5 Oktober 2026</em>
+<em>Berkas pendamping: <code>D07_RCA_FILTER_DAN_FAKTOR</code>, <code>D08_PREDIKTOR_REZIM_EXANTE</code>, <code>D09_FALSIFIKASI_MODEL_LIGHTGBM</code></em></p>
+</body>
+</html>

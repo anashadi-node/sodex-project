@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUDIT PROGRES & PETA OPSI PROYEK SODEX</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>AUDIT PROGRES & PETA OPSI PROYEK SODEX</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-eksekutif-scoreboard-jujur">1. Ringkasan eksekutif (scoreboard jujur)</a></li>
+<li class="t2"><a href="#2-audit-state">2. Audit state</a></li>
+<li class="t3"><a href="#21-modal">2.1 Modal</a></li>
+<li class="t3"><a href="#22-dua-ledger-yang-bertentangan">2.2 Dua ledger yang bertentangan</a></li>
+<li class="t3"><a href="#23-infrastruktur">2.3 Infrastruktur</a></li>
+<li class="t3"><a href="#24-riwayat-uji-semua-yang-sudah-dicoba">2.4 Riwayat uji (semua yang sudah dicoba)</a></li>
+<li class="t2"><a href="#3-peta-opsi-lengkap-dengan-expected-value-per-30-jam">3. Peta opsi lengkap — dengan expected value per 30 jam</a></li>
+<li class="t3"><a href="#31-rincian-opsi-5-satu-satunya-yang-positif-secara-struktural">3.1 Rincian opsi 5 — satu-satunya yang positif secara struktural</a></li>
+<li class="t3"><a href="#32-rincian-opsi-7-pembanding-paling-jujur">3.2 Rincian opsi 7 — pembanding paling jujur</a></li>
+<li class="t2"><a href="#4-aritmetika-apa-yang-harus-benar-agar-08-tercapai">4. Aritmetika: apa yang harus benar agar 0,8% tercapai</a></li>
+<li class="t2"><a href="#5-tiga-hal-yang-belum-tertutup-dan-nilainya">5. Tiga hal yang belum tertutup (dan nilainya)</a></li>
+<li class="t2"><a href="#6-rekomendasi">6. Rekomendasi</a></li>
+<li class="t2"><a href="#7-keterbatasan-audit-ini">7. Keterbatasan audit ini</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 25 Oktober 2026 · <strong>Commit acuan:</strong> <code>99c0459</code> · <strong>Verdict:</strong> 25 Nov 2026
+<strong>Sifat:</strong> audit read-only. Tidak ada order, tidak ada modal dialokasikan.</p>
+<hr>
+<h2 id="1-ringkasan-eksekutif-scoreboard-jujur">1. Ringkasan eksekutif (scoreboard jujur)</h2>
+<table>
+<thead>
+<tr>
+<th>Pertanyaan</th>
+<th>Jawaban terukur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modal on-chain sebenarnya</td>
+<td><strong>$7,93</strong> (primary $3,17 + harvest $4,76), 0 posisi, semua flag live = 0</td>
+</tr>
+<tr>
+<td>Wallet yang dipakai menghitung target</td>
+<td><strong>$243,23</strong> (simulasi, bukan saldo on-chain)</td>
+</tr>
+<tr>
+<td>Mesin terbaik (REAL-WIDE)</td>
+<td>n=192, WR 49,48%, PF 1,03, <strong>+$13,18</strong></td>
+</tr>
+<tr>
+<td>Window 30 jam terbaik</td>
+<td>mean <strong>+0,169%</strong>, median <strong>−0,362%</strong>, hit 37,5%</td>
+</tr>
+<tr>
+<td>Target</td>
+<td><strong>0,80%</strong> per window → mesin terbaik mencapai <strong>21%</strong> target</td>
+</tr>
+<tr>
+<td>Sharpe tahunan mesin terbaik</td>
+<td><strong>0,886</strong> (p = 0,695 → tidak berbeda dari nol)</td>
+</tr>
+<tr>
+<td>Keluarga sinyal diuji</td>
+<td><strong>20+</strong>, <strong>0</strong> lulus</td>
+</tr>
+<tr>
+<td>Trial tercatat</td>
+<td><strong>162</strong></td>
+</tr>
+<tr>
+<td>Hasil positif yang terbukti</td>
+<td><strong>tidak ada</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan satu kalimat:</strong> proyek ini sudah selesai secara metodologis — 20+ keluarga
+diuji dengan pra-registrasi, semuanya gagal; yang tersisa bukan "cari sinyal lagi", tetapi
+<strong>keputusan</strong> apakah target dipertahankan atau diubah.</p>
+<hr>
+<h2 id="2-audit-state">2. Audit state</h2>
+<h3 id="21-modal">2.1 Modal</h3>
+<table>
+<thead>
+<tr>
+<th>Sumber</th>
+<th>Nilai</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ground_truth.json</code> (2026-10-25 09:08 WIB)</td>
+<td><strong>$7,93</strong></td>
+<td>primary $3,17 + harvest $4,76</td>
+</tr>
+<tr>
+<td><code>sodex_maturation_status.json</code></td>
+<td>$243,23</td>
+<td>"onchain_snapshot" — <strong>label menyesatkan</strong></td>
+</tr>
+<tr>
+<td>Posisi terbuka</td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Flag live</td>
+<td>AUTOTRADE 0, PREGAIN 0, SODEX_SPOT_FARM 0, FUNDING 0</td>
+<td>semua paper</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Defect audit #1:</strong> file maturation menyebut <code>wallet_source: onchain_snapshot</code> tetapi
+nilainya $243,23 sementara saldo on-chain $7,93. Salah satu dari dua hal ini benar; sampai
+direkonsiliasi, <strong>semua persentase target dihitung dari basis yang salah 30×</strong>.</p>
+</blockquote>
+<h3 id="22-dua-ledger-yang-bertentangan">2.2 Dua ledger yang bertentangan</h3>
+<table>
+<thead>
+<tr>
+<th>Ledger</th>
+<th>Periode</th>
+<th>n</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BUKU_FORWARD_LEDGER.json</code> TWOWAY</td>
+<td>6 Agu – 8 Okt</td>
+<td>418</td>
+<td><strong>+$182,43</strong> (+75% wallet)</td>
+</tr>
+<tr>
+<td><code>BUKU_FORWARD_LEDGER.json</code> REALWIDE</td>
+<td>6 Agu – 9 Okt</td>
+<td>268</td>
+<td><strong>+$90,66</strong> (+37%)</td>
+</tr>
+<tr>
+<td>Snapshot 9 buku (RCA 23 Okt)</td>
+<td>s.d. 22 Okt</td>
+<td>1.984</td>
+<td><strong>−$375,18</strong> (−154%)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Defect audit #2:</strong> selisih <strong>$557</strong> antara ledger forward dan snapshot RCA. Penjelasan
+paling mungkin: ledger forward berhenti 9 Okt (sebelum kolaps), sedangkan RCA mencakup
+1–22 Okt ketika WR jatuh 41,0% → 26,9%. <strong>Tetap harus direkonsiliasi sebelum keputusan
+modal apa pun.</strong></p>
+</blockquote>
+<h3 id="23-infrastruktur">2.3 Infrastruktur</h3>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sodex-l2-collector</code></td>
+<td><strong>active (running)</strong>, mulai 24 Okt 18:04 WIB, <code>Restart=always</code>, 10 simbol</td>
+</tr>
+<tr>
+<td>Data L2</td>
+<td>85 MB, 0 pelanggaran bid&lt;ask (diverifikasi)</td>
+</tr>
+<tr>
+<td>Klines SoDEX</td>
+<td>5m: 15 simbol × 8.640 · 1m: 15 × ~10.000 · 1h/1d tersedia</td>
+</tr>
+<tr>
+<td>Klines Binance</td>
+<td>1h ~2,8 th · 1d 245 simbol × 2.587 hari · <strong>30m 6 × 32.568 bar</strong></td>
+</tr>
+<tr>
+<td>Registry trial</td>
+<td>162 entri</td>
+</tr>
+<tr>
+<td>Dokumen</td>
+<td>100+ file di <code>docs/sodex/</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Defect audit #3:</strong> registry berisi <strong>12 entri <code>passed=true</code></strong>. Setelah diperiksa, semuanya
+adalah <strong>studi metodologi/audit</strong> (R2C, R2D, R3A, R3C) dan studi filter entry — "passed"
+berarti <em>studi berhasil direplikasi</em>, <strong>bukan</strong> <em>strategi profitable</em>. Catatan internalnya
+sendiri menyebut "mean capture −1R NEGATIF" dan "holdout WR 27,8%". Kamus data ini harus
+diperbaiki agar tidak terbaca sebagai 12 strategi yang lulus.</p>
+</blockquote>
+<h3 id="24-riwayat-uji-semua-yang-sudah-dicoba">2.4 Riwayat uji (semua yang sudah dicoba)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Keluarga</th>
+<th>Hasil</th>
+<th>Alasan gagal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Momentum TS</td>
+<td>gagal</td>
+<td>gross ≈ 0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Momentum CS (5m)</td>
+<td>gagal</td>
+<td>OOS negatif</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Reversal jangka pendek</td>
+<td>gagal</td>
+<td>di bawah biaya</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Vol breakout</td>
+<td>gagal</td>
+<td>MDE 6,2 bps, tetap negatif</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Time-of-day / sesi</td>
+<td>gagal</td>
+<td>tidak replikasi di 2,8 th</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Funding carry (1 venue)</td>
+<td>gagal</td>
+<td>3,3 bps/30j &lt; biaya 12,98</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Post-liquidation rebound</td>
+<td>gagal</td>
+<td>median −165 bps</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Lead-lag BTC→alt</td>
+<td>gagal</td>
+<td>tidak terukur biaya</td>
+</tr>
+<tr>
+<td>9</td>
+<td>OI crowding reversal (PRAREG-30)</td>
+<td>gagal</td>
+<td>tidak ada edge</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Maker entry (X=0)</td>
+<td>gagal</td>
+<td>seleksi 111 bps</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Maker pullback (X=20)</td>
+<td>gagal</td>
+<td>net −20,7 bps</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Market-making</td>
+<td>gagal</td>
+<td>spread 0,08–1,03 &lt; fee 2,28</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Session reversal 12 jam</td>
+<td>gagal</td>
+<td>−45,14 bps, 0/6</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Session momentum 12 jam</td>
+<td>gagal</td>
+<td>alpha +1,53 bps (drift +23,61)</td>
+</tr>
+<tr>
+<td>15</td>
+<td>CS momentum 1–7 hari</td>
+<td>gagal</td>
+<td>t=2,416 &lt; 2,5</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-peta-opsi-lengkap-dengan-expected-value-per-30-jam">3. Peta opsi lengkap — dengan expected value per 30 jam</h2>
+<p>Semua angka dalam <strong>bps per window 30 jam</strong>, setelah biaya. Ambang target: <strong>80 bps</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Opsi</th>
+<th>EV / 30 jam</th>
+<th>Status</th>
+<th>Bukti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sinyal arah (momentum/reversal/dll)</td>
+<td><strong>negatif s.d. 0</strong></td>
+<td>20+ keluarga ditutup</td>
+<td>pra-registrasi</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Maker entry</td>
+<td><strong>−20,7</strong></td>
+<td>ditutup</td>
+<td>861 trade</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Market-making SoDEX</td>
+<td><strong>−5 s/d −7,4</strong></td>
+<td>mustahil</td>
+<td>spread &lt; fee</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Funding carry 1 venue (HL)</td>
+<td><strong>−9,7</strong></td>
+<td>ditutup</td>
+<td>funding 3,3 vs biaya 12,98</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Funding differential lintas venue</strong></td>
+<td><strong>+5,0 s/d +6,2 gross</strong></td>
+<td><strong>belum layak di 30j</strong></td>
+<td>breakeven 2,6–3,3 hari</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Basis spot-perp (cash &amp; carry)</td>
+<td><strong>−3 s/d −5</strong> (basis negatif)</td>
+<td>tidak ada carry</td>
+<td>Binance live</td>
+</tr>
+<tr>
+<td>7</td>
+<td>HLP vault (market-making profesional)</td>
+<td><strong>+0,13</strong></td>
+<td>terlalu kecil</td>
+<td>APR <strong>3,79%</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Program insentif/points</td>
+<td>belum terukur</td>
+<td>riset berjalan</td>
+<td>—</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Leverage untuk menutup gap</td>
+<td><strong>0</strong> (menggandakan varian)</td>
+<td>bukan edge</td>
+<td>Sharpe tetap 0,886</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Ubah target/denominator</td>
+<td>—</td>
+<td><strong>keputusan Anda</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-rincian-opsi-5-satu-satunya-yang-positif-secara-struktural">3.1 Rincian opsi 5 — satu-satunya yang positif secara struktural</h3>
+<p>Diukur 25 Okt dari API (60 hari):</p>
+<table>
+<thead>
+<tr>
+<th>Aset</th>
+<th>Funding HL</th>
+<th>Funding Binance</th>
+<th>Selisih</th>
+<th>30 jam</th>
+<th>48 jam</th>
+<th>Breakeven</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC</td>
+<td>0,097 bps/j</td>
+<td>0,263 bps/j</td>
+<td><strong>+0,166</strong></td>
+<td>+4,96</td>
+<td>+7,94</td>
+<td>3,3 hari</td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>0,109</td>
+<td>0,314</td>
+<td><strong>+0,205</strong></td>
+<td>+6,15</td>
+<td>+9,85</td>
+<td>2,6 hari</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>0,070</td>
+<td>0,005</td>
+<td>−0,065</td>
+<td>−1,94</td>
+<td>−3,10</td>
+<td>tidak</td>
+</tr>
+</tbody>
+</table>
+<p>Posisi: <strong>long HL + short Binance</strong>, delta-neutral. Biaya 4 leg ≈ 13 bps.
+- Pada 30 jam: <strong>net −7 s/d −8 bps</strong> → gagal.
+- Pada 7 hari: BTC +27,8 bps gross − 13 = <strong>+14,8 bps/minggu</strong> ≈ 7,7%/tahun.
+- Modal minimum realistis: dua venue, margin buffer → <strong>≥$5.000</strong> agar biaya withdrawal
+  ($1–2) tidak mendominasi.</p>
+<p><strong>Ini positif, tetapi 100× di bawah target.</strong></p>
+<h3 id="32-rincian-opsi-7-pembanding-paling-jujur">3.2 Rincian opsi 7 — pembanding paling jujur</h3>
+<p>HLP adalah vault market-making <strong>profesional</strong> Hyperliquid: APR saat ini <strong>3,79%</strong>.
+Per 30 jam = <strong>0,13 bps</strong>. Artinya: pelaku MM terbaik di venue terbaik pun tidak memperoleh
+80 bps per 30 jam. Ini bukti eksternal, bukan opini, bahwa target tersebut berada 600×
+di atas hasil MM profesional.</p>
+<hr>
+<h2 id="4-aritmetika-apa-yang-harus-benar-agar-08-tercapai">4. Aritmetika: apa yang harus benar agar 0,8% tercapai</h2>
+<table>
+<thead>
+<tr>
+<th>Jalur</th>
+<th>Syarat</th>
+<th>Kondisi sekarang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharpe sangat tinggi</td>
+<td>Sharpe <strong>17,1</strong> dengan sd 0,8%/window</td>
+<td>0,886</td>
+</tr>
+<tr>
+<td>Sharpe elit + risiko</td>
+<td>Sharpe <strong>3,4</strong> dengan sd 4%/window</td>
+<td>0,886</td>
+</tr>
+<tr>
+<td>Leverage pada mesin sekarang</td>
+<td><strong>4,7×</strong> untuk mean 0,169% → 0,8%</td>
+<td>sd ikut 4,7× → worst window −77%</td>
+</tr>
+<tr>
+<td>Edge per trade</td>
+<td><strong>≥9,57 bps</strong> gross</td>
+<td>tidak ditemukan di 20+ keluarga</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tidak ada jalur yang lolos.</strong> Leverage bukan solusi: ia mengalikan mean dan sd dengan
+angka yang sama, sehingga Sharpe tetap 0,886 — dan drawdown menjadi fatal.</p>
+<hr>
+<h2 id="5-tiga-hal-yang-belum-tertutup-dan-nilainya">5. Tiga hal yang belum tertutup (dan nilainya)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Yang belum diuji</th>
+<th>Nilai potensial</th>
+<th>Biaya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Insentif/points exchange</td>
+<td>unknown, mungkin 5–30%/th</td>
+<td>riset berjalan</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MM Aster (maker 0) dengan data L2 penuh</td>
+<td>mungkin, tapi adverse selection 111 bps</td>
+<td>butuh data ≥2 minggu</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cross-venue funding 7–30 hari</td>
+<td><strong>+7,7%/tahun</strong> terukur</td>
+<td>butuh modal ≥$5k di 2 venue</td>
+</tr>
+</tbody>
+</table>
+<p>Ketiganya <strong>tidak</strong> mencapai 80 bps/30 jam. Nilai tertinggi ada pada #3 karena sudah terukur.</p>
+<hr>
+<h2 id="6-rekomendasi">6. Rekomendasi</h2>
+<table>
+<thead>
+<tr>
+<th>Prioritas</th>
+<th>Tindakan</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P0</strong></td>
+<td>Rekonsiliasi dua ledger + perbaiki label <code>wallet_source</code></td>
+<td>selisih $557 dan basis 30× — semua angka target sekarang tidak dapat dipercaya</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Perbaiki kamus registry (<code>passed</code> ≠ profitable)</td>
+<td>mencegah salah baca 12 entri</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Putuskan target: 0,8%/30 jam vs 0,8%/bulan vs hentikan</td>
+<td>0,8%/30 jam = 10,2×/tahun; 0,8%/bulan = 10%/tahun (konsisten dengan carry)</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td>Jika riset dilanjutkan: hanya opsi 5 (funding differential) dengan modal ≥$5k</td>
+<td>satu-satunya EV positif terukur</td>
+</tr>
+<tr>
+<td><strong>P4</strong></td>
+<td>Pertahankan kolektor L2 sampai 25 Nov</td>
+<td>biaya nol, optionality</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tidak ada rekomendasi untuk mengalokasikan modal ke strategi arah mana pun.</strong></p>
+<hr>
+<h2 id="7-keterbatasan-audit-ini">7. Keterbatasan audit ini</h2>
+<ol>
+<li>Ledger belum direkonsiliasi — angka PnL bisa berubah setelah perbaikan.</li>
+<li>APR HLP adalah snapshot, bukan rata-rata jangka panjang.</li>
+<li>Basis spot-perp diukur satu titik waktu (bisa berubah jam-jaman).</li>
+<li>Insentif exchange belum selesai diriset (2 subagent berjalan).</li>
+<li>Analisis ini tidak menguji hipotesis baru; ia mengukur apa yang sudah ada.</li>
+</ol>
+</body>
+</html>

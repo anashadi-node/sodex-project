@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Target SoDEX 0,8%/Window di Venue Binance & Hyperliquid</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Target SoDEX 0,8%/Window di Venue Binance & Hyperliquid</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#analisis-aritmetika-statistik-kuantitatif-bisa-atau-tidak">Analisis Aritmetika & Statistik Kuantitatif — Bisa atau Tidak?</a></li>
+<li class="t2"><a href="#1-jawaban-singkat">1. Jawaban Singkat</a></li>
+<li class="t2"><a href="#2-definisi-target-yang-diuji">2. Definisi Target yang Diuji</a></li>
+<li class="t2"><a href="#3-metode-memisahkan-alpha-dari-biaya">3. Metode: Memisahkan Alpha dari Biaya</a></li>
+<li class="t3"><a href="#31-desain-eksperimen">3.1 Desain eksperimen</a></li>
+<li class="t3"><a href="#32-tiga-keluarga-sinyal-parameter-produksi-tanpa-tuning">3.2 Tiga keluarga sinyal (parameter produksi, tanpa tuning)</a></li>
+<li class="t3"><a href="#33-model-biaya-per-venue-round-trip-bps">3.3 Model biaya per venue (round-trip, bps)</a></li>
+<li class="t2"><a href="#4-hasil-1-biaya-round-trip-per-venue">4. Hasil 1 — Biaya Round-Trip per Venue</a></li>
+<li class="t2"><a href="#5-hasil-2-alpha-bukan-milik-venue-era-split">5. Hasil 2 — Alpha Bukan Milik Venue (Era Split)</a></li>
+<li class="t2"><a href="#6-hasil-3-matriks-net-per-venue">6. Hasil 3 — Matriks Net per Venue</a></li>
+<li class="t2"><a href="#7-hasil-4-aritmetika-target-per-skenario">7. Hasil 4 — Aritmetika Target per Skenario</a></li>
+<li class="t2"><a href="#8-hasil-5-kontrol-negatif">8. Hasil 5 — Kontrol Negatif</a></li>
+<li class="t2"><a href="#9-jawaban-lengkap-aritmetika-vs-statistik">9. Jawaban Lengkap: Aritmetika vs Statistik</a></li>
+<li class="t3"><a href="#91-secara-aritmetika-bisa-tapi-hanya-di-satu-sudut-sempit-dan-tidak-realistis">9.1 Secara aritmetika — "bisa, tapi hanya di satu sudut sempit dan tidak realistis"</a></li>
+<li class="t3"><a href="#92-secara-statistik-kuantitatif-belum-terbukti-hipotesis-belum-mati-tapi-tidak-boleh-diklaim-hidup">9.2 Secara statistik kuantitatif — "belum terbukti; hipotesis belum mati, tapi tidak boleh diklaim hidup"</a></li>
+<li class="t3"><a href="#93-ringkas">9.3 Ringkas</a></li>
+<li class="t2"><a href="#10-yang-bisa-membuat-bisa-dan-harga-yang-harus-dibayar">10. Yang Bisa Membuat "Bisa" — dan Harga yang Harus Dibayar</a></li>
+<li class="t3"><a href="#tuas-1-eksekusi-maker-hemat-15-bps-rt-vs-taker-sodex">Tuas 1 — Eksekusi maker (hemat ~15 bps RT vs taker SoDEX)</a></li>
+<li class="t3"><a href="#tuas-2-size-penuh-notional-100-wallet-per-trade">Tuas 2 — Size penuh (notional = 100% wallet per trade)</a></li>
+<li class="t3"><a href="#tuas-3-geometri-b-wr50">Tuas 3 — Geometri B (WR≥50%)</a></li>
+<li class="t3"><a href="#kesimpulan-tuas">Kesimpulan tuas</a></li>
+<li class="t2"><a href="#11-limitasi-apa-yang-belum-terbukti">11. Limitasi & Apa yang Belum Terbukti</a></li>
+<li class="t2"><a href="#12-kesimpulan-rekomendasi-falsifiable">12. Kesimpulan & Rekomendasi Falsifiable</a></li>
+<li class="t3"><a href="#121-kesimpulan">12.1 Kesimpulan</a></li>
+<li class="t3"><a href="#122-rekomendasi-falsifiable-pre-registered">12.2 Rekomendasi (falsifiable, pre-registered)</a></li>
+<li class="t3"><a href="#123-keputusan-strategis">12.3 Keputusan strategis</a></li>
+<li class="t2"><a href="#13-laporan-verifikasi-reproduksi">13. Laporan Verifikasi & Reproduksi</a></li>
+<li class="t3"><a href="#131-artefak">13.1 Artefak</a></li>
+<li class="t3"><a href="#132-perintah-reproduksi">13.2 Perintah reproduksi</a></li>
+<li class="t3"><a href="#133-cek-konsistensi-internal">13.3 Cek konsistensi internal</a></li>
+<li class="t3"><a href="#134-tingkat-keyakinan">13.4 Tingkat keyakinan</a></li>
+</ul>
+</nav>
+<h2 id="analisis-aritmetika-statistik-kuantitatif-bisa-atau-tidak">Analisis Aritmetika &amp; Statistik Kuantitatif — Bisa atau Tidak?</h2>
+<p><strong>Tanggal:</strong> 25 Oktober 2026 · <strong>Divisi:</strong> Riset · <strong>Status:</strong> Falsifikasi teruji
+<strong>Pertanyaan user:</strong> <em>"Bagaimana jika target project SoDEX diterapkan di market venue Binance dan Hyperliquid — apakah secara perhitungan aritmetika dan statistik kuantitatif bisa tercapai?"</em></p>
+<hr>
+<ol>
+<li><a href="#1-jawaban-singkat">Jawaban Singkat</a></li>
+<li><a href="#2-definisi-target-yang-diuji">Definisi Target yang Diuji</a></li>
+<li><a href="#3-metode-memisahkan-alpha-dari-biaya">Metode: Memisahkan Alpha dari Biaya</a></li>
+<li><a href="#4-hasil-1-biaya-round-trip-per-venue">Hasil 1 — Biaya Round-Trip per Venue</a></li>
+<li><a href="#5-hasil-2-alpha-bukan-milik-venue-era-split">Hasil 2 — Alpha Bukan Milik Venue (Era Split)</a></li>
+<li><a href="#6-hasil-3-matriks-net-per-venue">Hasil 3 — Matriks Net per Venue</a></li>
+<li><a href="#7-hasil-4-aritmetika-target-per-skenario">Hasil 4 — Aritmetika Target per Skenario</a></li>
+<li><a href="#8-hasil-5-kontrol-negatif">Hasil 5 — Kontrol Negatif</a></li>
+<li><a href="#9-jawaban-lengkap-aritmetika-vs-statistik">Jawaban Lengkap: Aritmetika vs Statistik</a></li>
+<li><a href="#10-yang-bisa-membuat-bisa-dan-harga-yang-harus-dibayar">Yang Bisa Membuat "Bisa" — dan Harga yang Harus Dibayar</a></li>
+<li><a href="#11-limitasi-apa-yang-belum-terbukti">Limitasi &amp; Apa yang Belum Terbukti</a></li>
+<li><a href="#12-kesimpulan-rekomendasi-falsifiable">Kesimpulan &amp; Rekomendasi Falsifiable</a></li>
+<li><a href="#13-laporan-verifikasi-reproduksi">Laporan Verifikasi &amp; Reproduksi</a></li>
+</ol>
+<hr>
+<h2 id="1-jawaban-singkat">1. Jawaban Singkat</h2>
+<blockquote>
+<p><strong>TIDAK untuk tiga keluarga sinyal yang sekarang berjalan — di Binance maupun Hyperliquid — dengan eksekusi taker.</strong>
+Perpindahan venue hanya membeli <strong>2,6–3,6 bps per trade</strong> (biaya Binance 12,25 vs SoDEX 15,84 bps), sementara <strong>gap ke target 11–29 bps per trade</strong>. Venue bukan bottleneck-nya.</p>
+<p><strong>SATU sel lolos syarat-A secara aritmetika:</strong> Donchian-20 + eksekusi <strong>maker</strong> + ukuran posisi penuh, di Binance (+1,375%/window) atau HL (+1,383%/window) — <strong>tetapi syarat-B gagal telak</strong> (median −2,00%/window, hit 35,1%), dan <strong>di era pasca-flip 25-Sep hasilnya −2,936%/window (hit 17,4%)</strong>.</p>
+<p>Artinya: <strong>secara statistik belum terbukti bisa; secara aritmetika hanya "menyentuh" target pada asumsi eksekusi maker yang belum diverifikasi.</strong> Ini bukan alasan pindah venue — ini alasan menguji ulang edge, bukan biaya.</p>
+</blockquote>
+<p><strong>Analogi:</strong> biaya transaksi itu seperti ongkos kirim. Pindah dari kurir mahal (SoDEX 15,8 bps) ke kurir lebih murah (Binance 12,2 bps) menghemat 3,6 bps — tapi barang yang dikirim (alpha) sekarang <strong>rata-rata tidak laku</strong> (gross ≈ 0 sampai negatif). Menghemat ongkir tidak menolong kalau barangnya tidak laku.</p>
+<hr>
+<h2 id="2-definisi-target-yang-diuji">2. Definisi Target yang Diuji</h2>
+<p>Target mengikuti <strong>AMANDEMEN_TARGET_AB</strong> — bukan sekadar "rata-rata 0,8%":</p>
+<table>
+<thead>
+<tr>
+<th>Kriteria</th>
+<th>Definisi operasional</th>
+<th>Ambang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>Rata-rata PnL per window pada grid <strong>tetap 30 jam</strong> (jangkar 03-Agu-2026 UTC), window kosong dilewati, min 10 window</td>
+<td><strong>mean ≥ 0,8%</strong> dari total modal wallet</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>Kualitas distribusi window</td>
+<td><strong>median &gt; 0 DAN hit-rate ≥ 50%</strong></td>
+</tr>
+<tr>
+<td>Akumulasi</td>
+<td>Target per window, bukan per trade; modal basis = TOTAL wallet</td>
+<td>harga mati (user)</td>
+</tr>
+</tbody>
+</table>
+<p>Konsekuensi yang sering terlewat: <strong>A saja tidak cukup.</strong> Sistem dengan mean tinggi tapi median negatif berarti <em>mayoritas window rugi</em> — profit hanya dari sedikit window ekstrem. Itu bukan sistem yang bisa dijalankan dengan tenang, dan bukan yang dimaksud target.</p>
+<p>Basis modal: wallet <strong>$243,02</strong> → target absolut <strong>≈ $1,94 per window</strong>.</p>
+<hr>
+<h2 id="3-metode-memisahkan-alpha-dari-biaya">3. Metode: Memisahkan Alpha dari Biaya</h2>
+<h3 id="31-desain-eksperimen">3.1 Desain eksperimen</h3>
+<p>Pertanyaan "venue mana yang bisa" harus dijawab dengan memisahkan dua komponen yang sering tercampur:</p>
+<pre><code>PnL bersih = ALPHA (kualitas sinyal × pergerakan harga) − BIAYA (fee + spread + funding)
+</code></pre>
+<ul>
+<li><strong>ALPHA</strong> melekat pada <strong>aset dan waktu</strong>, bukan pada venue. BTC bergerak sama di Binance dan di HL (korelasi harga ≈ 1,0). Maka sinyal direplay <strong>satu kali</strong> pada price-path Binance 1 jam, 180 hari (4.320 bar), 52 simbol — path terpanjang &amp; paling likuid.</li>
+<li><strong>BIAYA</strong> melekat pada <strong>venue</strong>: fee taker/maker, spread, funding 8 jam.</li>
+<li><strong>Net per venue</strong> = gross yang sama − biaya venue masing-masing.</li>
+</ul>
+<p>Ini desain yang adil: kalau hasilnya beda antar venue, penyebabnya <strong>hanya biaya</strong>, bukan perbedaan sinyal atau periode.</p>
+<h3 id="32-tiga-keluarga-sinyal-parameter-produksi-tanpa-tuning">3.2 Tiga keluarga sinyal (parameter produksi, tanpa tuning)</h3>
+<table>
+<thead>
+<tr>
+<th>Keluarga</th>
+<th>Sinyal</th>
+<th>Geometri exit</th>
+<th>Time-stop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>momentum</strong></td>
+<td>rezim v3 MOMENTUM (ADX&gt;25, close&gt;SMA50&gt;SMA200) + checklist ≥4/5</td>
+<td>TP 6% / SL 3%</td>
+<td>24 jam</td>
+</tr>
+<tr>
+<td><strong>donchian</strong></td>
+<td>breakout Donchian-20 + volume &gt; SMA24 + BULL (ADX&gt;22, golden cross)</td>
+<td>TP 4% / SL 2%</td>
+<td>30 jam</td>
+</tr>
+<tr>
+<td><strong>twoway</strong></td>
+<td>momentum LONG + mirror SHORT (BEAR: close&lt;SMA50<SMA200, ADX>22)</td>
+<td>TP 6% / SL 3%</td>
+<td>24 jam</td>
+</tr>
+</tbody>
+</table>
+<p>Aturan anti-bias yang dipatuhi:
+- Entry di <strong>open bar berikutnya</strong> setelah sinyal close (tidak ada look-ahead).
+- SL dicek <strong>lebih dulu</strong> di dalam bar; bila TP dan SL kena di bar yang sama → SL diambil (worst-case).
+- Satu posisi terbuka per simbol (cooldown sampai exit) — mencegah penggandaan sinyal yang sama.
+- <strong>Tidak ada</strong> optimasi parameter. Parameter = produksi (rev A2 27-Sep untuk momentum/twoway).</p>
+<h3 id="33-model-biaya-per-venue-round-trip-bps">3.3 Model biaya per venue (round-trip, bps)</h3>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>SoDEX</th>
+<th>Binance USDM</th>
+<th>Hyperliquid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fee taker per sisi</td>
+<td>4,0</td>
+<td>4,0 (VIP0 publik)</td>
+<td>4,5</td>
+</tr>
+<tr>
+<td>Spread per sisi (proxy)</td>
+<td>1,5–8 (per pair)</td>
+<td>1,5 (majors 0,5–1)</td>
+<td>1,5</td>
+</tr>
+<tr>
+<td>Funding 8 jam</td>
+<td>0,13</td>
+<td>0,13 (model sama)</td>
+<td>0,13</td>
+</tr>
+<tr>
+<td><strong>Total RT rata-rata terukur</strong></td>
+<td><strong>15,84</strong></td>
+<td><strong>12,25</strong></td>
+<td><strong>13,25</strong></td>
+</tr>
+<tr>
+<td>Fee maker per sisi (skenario alternatif)</td>
+<td>1,2</td>
+<td>0,2</td>
+<td>0,15</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>SoDEX memakai <code>scripts/cost_model.py</code> sebagai sumber tunggal (taker 4 bps/sisi, spread per-pair, funding 0,13/8h). Angka SoDEX terukur di buku paper: <strong>11,39 bps/trade</strong> — model replay sedikit lebih konservatif (15,84) karena memakai spread default lebih lebar untuk simbol tipis. Arah bias ini <strong>melawan</strong> hipotesis "venue lain lebih baik", jadi kesimpulan tetap sahih.</p>
+</blockquote>
+<hr>
+<h2 id="4-hasil-1-biaya-round-trip-per-venue">4. Hasil 1 — Biaya Round-Trip per Venue</h2>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>Biaya RT rata-rata (taker)</th>
+<th>Selisih vs SoDEX</th>
+<th>Biaya RT (maker)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoDEX</td>
+<td><strong>15,84 bps</strong></td>
+<td>—</td>
+<td>~2,9 bps</td>
+</tr>
+<tr>
+<td>Binance USDM</td>
+<td><strong>12,25 bps</strong></td>
+<td><strong>−3,59 bps</strong> (−23%)</td>
+<td><strong>~0,5 bps</strong></td>
+</tr>
+<tr>
+<td>Hyperliquid</td>
+<td><strong>13,25 bps</strong></td>
+<td><strong>−2,59 bps</strong> (−16%)</td>
+<td><strong>~0,45 bps</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Temuan:</strong> keunggulan biaya Binance atas SoDEX hanya <strong>3,6 bps per trade</strong> untuk taker. Untuk target yang butuh 11–29 bps net per trade, ini menutup <strong>12–31% gap</strong> — tidak cukup.</p>
+<p>Keunggulan besar justru di <strong>maker</strong>: turun ke ~0,5 bps RT, hemat <strong>~15 bps</strong> vs taker SoDEX. Tapi maker bukan "diskon gratis" — Anda hanya terisi saat harga menyentuh order Anda, dan saat itulah harga sering bergerak melawan (adverse selection). Model ini <strong>belum</strong> memperhitungkan itu (lihat §11).</p>
+<hr>
+<h2 id="5-hasil-2-alpha-bukan-milik-venue-era-split">5. Hasil 2 — Alpha Bukan Milik Venue (Era Split)</h2>
+<p>Replay pada price-path <strong>Binance</strong> 180 hari, gross (sebelum biaya), per era:</p>
+<table>
+<thead>
+<tr>
+<th>Keluarga</th>
+<th>Pra-flip (sebelum 25-Sep)</th>
+<th>Pasca-flip (25-Sep ke atas)</th>
+<th>Perubahan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>momentum</td>
+<td>+2,87 bps (n=4.576, t=0,51)</td>
+<td><strong>−31,44 bps</strong> (n=421, t=−1,74)</td>
+<td>runtuh</td>
+</tr>
+<tr>
+<td><strong>donchian</strong></td>
+<td><strong>+23,03 bps</strong> (n=3.241, <strong>t=4,67</strong>)</td>
+<td><strong>−28,25 bps</strong> (n=235, t=−1,66)</td>
+<td>runtuh</td>
+</tr>
+<tr>
+<td>twoway</td>
+<td>+4,19 bps (n=9.114, t=1,08)</td>
+<td><strong>−7,99 bps</strong> (n=1.011, t=−0,74)</td>
+<td>runtuh</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ini temuan terpenting dari seluruh analisis.</strong></p>
+<p>Flip rezim 25-Sep yang sebelumnya terdeteksi di buku paper SoDEX <strong>terjadi juga di price-path Binance</strong>. Artinya:</p>
+<ol>
+<li><strong>Bukan SoDEX yang rusak</strong> — pasar (aset yang sama) yang berubah perilaku.</li>
+<li><strong>Pindah venue tidak menghidupkan alpha yang sudah mati.</strong> Sinyal yang sama menghasilkan gross negatif di Binance pasca-flip, persis seperti di SoDEX.</li>
+<li>Satu-satunya keluarga yang punya bukti gross edge kuat secara in-sample (donchian, t=4,67) <strong>kehilangan edge-nya di era berjalan</strong>.</li>
+</ol>
+<p><strong>Analogi:</strong> ini seperti mengganti lapangan dari rumput sintetis ke rumput asli karena pemain sering terpeleset. Ternyata masalahnya bukan lapangan — anginnya yang berubah arah, dan angin itu bertiup sama di kedua lapangan.</p>
+<hr>
+<h2 id="6-hasil-3-matriks-net-per-venue">6. Hasil 3 — Matriks Net per Venue</h2>
+<p>Net = gross path Binance − biaya venue (taker), 180 hari, 52 simbol:</p>
+<table>
+<thead>
+<tr>
+<th>Keluarga</th>
+<th>SoDEX net (t)</th>
+<th>Binance net (t)</th>
+<th>Hyperliquid net (t)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>momentum</td>
+<td>−15,86 (−2,95)</td>
+<td>−12,27 (−2,28)</td>
+<td>−13,27 (−2,47)</td>
+</tr>
+<tr>
+<td><strong>donchian</strong></td>
+<td><strong>+3,89 (0,82)</strong></td>
+<td><strong>+7,40 (1,56)</strong></td>
+<td><strong>+6,40 (1,35)</strong></td>
+</tr>
+<tr>
+<td>twoway</td>
+<td>−12,84 (−3,53)</td>
+<td>−9,22 (−2,53)</td>
+<td>−10,22 (−2,81)</td>
+</tr>
+</tbody>
+</table>
+<p>Bacaan yang jujur:</p>
+<ul>
+<li><strong>Donchian satu-satunya yang net positif di ketiga venue</strong> — tapi <strong>tidak signifikan di manapun</strong> (|t| 0,82–1,56, jauh di bawah ambang Bonferroni 3,48–3,61 dan bahkan di bawah ambang keputusan 2,5).</li>
+<li>Binance memang terbaik (konsisten dengan biaya termurah), tetapi selisihnya hanya <strong>+3,5 bps</strong> dari SoDEX — persis sebesar selisih biaya. Tidak ada keajaiban venue lain.</li>
+<li>Momentum dan twoway <strong>negatif signifikan</strong> (t ≈ −2,3 sampai −3,5) di semua venue: biaya taker lebih besar daripada edge. Di venue mana pun.</li>
+</ul>
+<hr>
+<h2 id="7-hasil-4-aritmetika-target-per-skenario">7. Hasil 4 — Aritmetika Target per Skenario</h2>
+<p>Target butuh: <code>mean% per window = rate_trade × size × net_bps / 100 ≥ 0,8</code></p>
+<p>Dengan rate donchian 4,3 trade/window, kebutuhan net per trade:</p>
+<table>
+<thead>
+<tr>
+<th>Size posisi (notional/wallet)</th>
+<th>Net bps/trade yang dibutuhkan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20% wallet (5 posisi konkuren)</td>
+<td><strong>93,0 bps</strong></td>
+</tr>
+<tr>
+<td>50% wallet</td>
+<td><strong>37,2 bps</strong></td>
+</tr>
+<tr>
+<td>100% wallet (penuh)</td>
+<td><strong>18,6 bps</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Hasil agregasi window 30 jam (482 window, grid tetap 03-Agu):</p>
+<table>
+<thead>
+<tr>
+<th>Skenario</th>
+<th>mean%/window</th>
+<th>median%/window</th>
+<th>hit%</th>
+<th><strong>A</strong></th>
+<th><strong>B</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Binance maker size=1,0</strong></td>
+<td><strong>+1,375</strong></td>
+<td>−2,004</td>
+<td>35,1</td>
+<td><strong>✓</strong></td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Binance maker size=0,75</td>
+<td>+1,031</td>
+<td>−1,503</td>
+<td>35,1</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Binance maker size=0,5</td>
+<td>+0,688</td>
+<td>−1,002</td>
+<td>35,1</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Hyperliquid maker size=1,0</td>
+<td>+1,383</td>
+<td>−2,003</td>
+<td>35,1</td>
+<td>✓</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Hyperliquid maker size=0,5</td>
+<td>+0,691</td>
+<td>−1,002</td>
+<td>35,1</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Binance taker size=1,0</td>
+<td>+0,533</td>
+<td>−2,110</td>
+<td>34,6</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>SoDEX taker size=1,0</td>
+<td>+0,281</td>
+<td>−2,156</td>
+<td>34,4</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td><strong>Binance maker size=1,0 pasca-flip</strong></td>
+<td><strong>−2,936</strong></td>
+<td>−2,644</td>
+<td><strong>17,4</strong></td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan:</strong></p>
+<ol>
+<li><strong>Syarat A hanya terpenuhi di skenario maker dengan size ≥0,75</strong> — dan hanya bila seluruh 180 hari dihitung (termasuk era emas pra-flip).</li>
+<li><strong>Syarat B gagal di SEMUA skenario</strong> — median window −2%, hit-rate 35%. Kenapa? Distribusi trade donchian: 62% kalah (SL −200 bps), 38% menang (TP +400 bps). Satu window 30 jam hanya berisi ~4 trade → dibutuhkan ≥2 TP agar window positif. P(≥2 TP dari 4; p=0,38) ≈ 49% — <strong>secara struktural di bawah 50%</strong>, sebelum biaya.</li>
+<li><strong>Di era berjalan (pasca-flip), bahkan A pun gagal</strong>: −2,936%/window, hit 17,4%.</li>
+<li>Untuk memperbaiki B, geometri harus diubah ke WR≥50% (TP lebih kecil dari SL, atau exit berbasis waktu/indikator). Tapi itu <strong>menaikkan frekuensi trade</strong> → biaya naik → kebutuhan bps per trade naik lagi. Trade-off ini bukan detail kecil; ia adalah inti persoalan.</li>
+</ol>
+<hr>
+<h2 id="8-hasil-5-kontrol-negatif">8. Hasil 5 — Kontrol Negatif</h2>
+<p>Aturan metodologi: <strong>kontrol negatif harus GAGAL</strong> (tidak menghasilkan profit). Kalau kontrol acak juga profit, berarti "edge" yang diklaim adalah artefak geometri/pasar, bukan sinyal.</p>
+<table>
+<thead>
+<tr>
+<th>Kontrol</th>
+<th>Geometri</th>
+<th>Gross mean</th>
+<th>t</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entri acak, seed beku</td>
+<td>TP6/SL3</td>
+<td><strong>+12,68 bps</strong></td>
+<td>3,04</td>
+</tr>
+<tr>
+<td>Entri acak, seed beku</td>
+<td>TP4/SL2</td>
+<td><strong>−0,22 bps</strong></td>
+<td>−0,08</td>
+</tr>
+<tr>
+<td>Entri acak, seed beku, maker Binance</td>
+<td>TP4/SL2</td>
+<td><strong>+0,12 bps</strong></td>
+<td>0,04</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Temuan penting (dan agak tidak nyaman):</strong></p>
+<ul>
+<li>Dengan geometri TP6/SL3, entri <strong>acak</strong> menghasilkan +12,68 bps gross (t=3,04) di pasar yang sedang naik. Artinya rasio TP:SL 2:1 saja sudah memberi ekspektasi positif di 180 hari ini — <strong>tanpa sinyal apa pun.</strong></li>
+<li>Karena itu klaim "momentum +0 bps" sebenarnya berarti: <strong>momentum LEBIH BURUK 12,7 bps daripada acak</strong> dengan geometri yang sama.</li>
+<li>Sebaliknya, dengan geometri donchian (TP4/SL2), acak = −0,22 bps (t=−0,08) → bersih. Maka donchian +19,56 bps gross adalah <strong>edge sinyal sejati sebesar +19,8 bps di atas acak</strong> — satu-satunya edge yang lolos kontrol ini.</li>
+<li>Kontrol maker Binance (TP4/SL2): +0,12 bps (t=0,04) → konsisten, geometri netral.</li>
+</ul>
+<p><strong>Kesimpulan kontrol:</strong> edge donchian nyata (bukan artefak), tetapi <strong>terikat rezim</strong> (mati pasca-flip). Edge momentum/twoway tidak lolos kontrol — mereka kalah dari acak.</p>
+<hr>
+<h2 id="9-jawaban-lengkap-aritmetika-vs-statistik">9. Jawaban Lengkap: Aritmetika vs Statistik</h2>
+<p>Pertanyaan user dipecah dua, karena jawabannya berbeda:</p>
+<h3 id="91-secara-aritmetika-bisa-tapi-hanya-di-satu-sudut-sempit-dan-tidak-realistis">9.1 Secara aritmetika — "bisa, tapi hanya di satu sudut sempit dan tidak realistis"</h3>
+<ul>
+<li><strong>Dengan taker (cara buku sekarang berjalan): TIDAK.</strong> Net terbaik Binance +0,533%/window (donchian, size penuh) &lt; 0,8%. SoDEX +0,281%. Gap tidak tertutup oleh biaya venue.</li>
+<li><strong>Dengan maker + size penuh: A terpenuhi</strong> (+1,375% Binance, +1,383% HL) — <strong>tapi B gagal</strong> (median −2%, hit 35%), dan <strong>pasca-flip negatif</strong> (−2,94%).</li>
+<li>Target juga menuntut <strong>kinerja rata-rata</strong>, sedangkan donchian mean-nya didorong ekor kanan (sedikit TP besar). Secara aritmetika distribusi ini tidak memenuhi A∧B, hanya A.</li>
+</ul>
+<h3 id="92-secara-statistik-kuantitatif-belum-terbukti-hipotesis-belum-mati-tapi-tidak-boleh-diklaim-hidup">9.2 Secara statistik kuantitatif — "belum terbukti; hipotesis belum mati, tapi tidak boleh diklaim hidup"</h3>
+<ul>
+<li>Net donchian di Binance: t = <strong>1,56</strong> → jauh di bawah ambang Bonferroni 3,48–3,61. <strong>Tidak signifikan.</strong></li>
+<li>Alpha donchian <strong>terbukti signifikan hanya pra-flip</strong> (t=4,67) dan <strong>negatif pasca-flip</strong> (t=−1,66). Mengklaim "bisa di Binance/HL" berdasar data pra-flip = <strong>look-ahead bias rezim</strong> — kesalahan yang justru ingin dihindari.</li>
+<li>n window pasca-flip = 23 (&lt; min 10? cukup untuk monitor, tidak untuk keputusan final). Ini masuk kategori <strong>MONITOR</strong>, bukan <strong>ACTION</strong>.</li>
+<li>Uji multiple (3 keluarga × 3 venue = 9 sel) tanpa koreksi akan menghasilkan false positive. Dengan BH-FDR, <strong>tidak ada satu sel pun yang lolos</strong>.</li>
+</ul>
+<h3 id="93-ringkas">9.3 Ringkas</h3>
+<table>
+<thead>
+<tr>
+<th>Pertanyaan</th>
+<th>Jawaban</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bisa secara aritmetika di Binance?</td>
+<td>Taker: <strong>tidak</strong> (+0,53% &lt; 0,8%). Maker: <strong>A ya, B tidak</strong>.</td>
+</tr>
+<tr>
+<td>Bisa secara aritmetika di Hyperliquid?</td>
+<td>Taker: <strong>tidak</strong>. Maker: <strong>A ya, B tidak</strong> (identik Binance).</td>
+</tr>
+<tr>
+<td>Bisa secara statistik?</td>
+<td><strong>Belum terbukti.</strong> t=1,56, pasca-flip negatif, B struktural gagal.</td>
+</tr>
+<tr>
+<td>Apakah pindah venue menyelesaikan masalah?</td>
+<td><strong>Tidak.</strong> Venue hanya 2,6–3,6 bps dari gap 11–29 bps.</td>
+</tr>
+<tr>
+<td>Apa penyebab sebenarnya?</td>
+<td><strong>Flip rezim 25-Sep</strong> — terjadi di semua venue, karena asetnya sama.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="10-yang-bisa-membuat-bisa-dan-harga-yang-harus-dibayar">10. Yang Bisa Membuat "Bisa" — dan Harga yang Harus Dibayar</h2>
+<p>Tiga tuas yang secara aritmetika bisa menutup gap. Semua punya biaya tersembunyi:</p>
+<h3 id="tuas-1-eksekusi-maker-hemat-15-bps-rt-vs-taker-sodex">Tuas 1 — Eksekusi maker (hemat ~15 bps RT vs taker SoDEX)</h3>
+<ul>
+<li><strong>Efek:</strong> donchian net Binance dari +7,40 → <strong>+19,07 bps/trade</strong> (t=4,02 gross).</li>
+<li><strong>Harga:</strong> adverse selection &amp; fill uncertainty. Order limit yang terisi justru saat harga menembus — realisasi bisa 3–8 bps lebih buruk dari asumsi. Belum dimodelkan. <strong>Wajib diukur forward, bukan diasumsikan.</strong></li>
+</ul>
+<h3 id="tuas-2-size-penuh-notional-100-wallet-per-trade">Tuas 2 — Size penuh (notional = 100% wallet per trade)</h3>
+<ul>
+<li><strong>Efek:</strong> kebutuhan bps turun dari 93 → 18,6 bps/trade.</li>
+<li><strong>Harga:</strong> eksposur 4,3× wallet (4,3 trade konkuren × 100%). Pada leverage 3×, ini berarti margin terpakai ~143% — <strong>melampaui kapasitas akun</strong>. Realistisnya size 0,5–0,75 → A gagal/tipis dan <strong>drawdown window −1,5% sampai −2,0%</strong> (median). Itu 2,5× lipat target per window, dengan arah negatif.</li>
+</ul>
+<h3 id="tuas-3-geometri-b-wr50">Tuas 3 — Geometri B (WR≥50%)</h3>
+<ul>
+<li><strong>Efek:</strong> bisa memenuhi kriteria B (median&gt;0, hit≥50%).</li>
+<li><strong>Harga:</strong> WR tinggi biasanya berarti TP kecil/SL lebar → R:R &lt;1 → butuh WR &gt; biaya/TP. Dengan biaya 12 bps dan TP 0,5%, butuh WR &gt; 52,4% hanya untuk impas. Belum ada bukti keluarga sinyal mana pun mencapai itu stabil.</li>
+<li><strong>Catatan:</strong> ini justru <strong>membalik</strong> geometri yang sekarang (TP2:SL1) → arah riset baru, bukan tweak.</li>
+</ul>
+<h3 id="kesimpulan-tuas">Kesimpulan tuas</h3>
+<p>Tidak ada tuas tunggal yang cukup. Kombinasi maker + size 0,75 + geometri B yang belum ada = <strong>spesifikasi riset baru</strong>, bukan konfigurasi yang bisa dinyalakan minggu ini.</p>
+<hr>
+<h2 id="11-limitasi-apa-yang-belum-terbukti">11. Limitasi &amp; Apa yang Belum Terbukti</h2>
+<table>
+<thead>
+<tr>
+<th>Limitasi</th>
+<th>Dampak</th>
+<th>Arah bias</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fill model memakai harga TP/SL persis (tanpa slippage tembus stop)</td>
+<td>Hasil sedikit <strong>optimistis</strong></td>
+<td>Melawan kesimpulan → kesimpulan tetap sahih</td>
+</tr>
+<tr>
+<td>Maker diasumsikan terisi di touch tanpa adverse selection</td>
+<td>Skenario maker <strong>terlalu bagus</strong></td>
+<td>Melawan kesimpulan</td>
+</tr>
+<tr>
+<td>Sinyal replay = simplifikasi (tanpa vol-gate, feed-streak, pair-exclusion produksi)</td>
+<td>Angka absolut beda dari buku nyata</td>
+<td>Netral (kualitatif sama)</td>
+</tr>
+<tr>
+<td>t-stat menganggap trade independen; trade sekelompok dalam waktu</td>
+<td>t <strong>overstate</strong> signifikansi</td>
+<td>Melawan kesimpulan</td>
+</tr>
+<tr>
+<td>Path SoDEX vs Binance berbeda 90 hari terakhir (donchian 61,36 vs 33,14 bps)</td>
+<td>Triangulasi path tidak konvergen penuh</td>
+<td>Perlu investigasi lanjutan (wick tipis SoDEX memicu TP/SL lebih sering)</td>
+</tr>
+<tr>
+<td>n window pasca-flip = 23</td>
+<td>Belum cukup untuk keputusan final</td>
+<td>MONITOR</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yang belum terbukti dan tidak boleh diklaim:</strong> bahwa maker + donchian di Binance/HL akan menghasilkan 0,8% neto di masa depan. Yang terbukti: <strong>in-sample 180 hari, A lolos di skenario maker, B gagal, dan era berjalan negatif.</strong></p>
+<hr>
+<h2 id="12-kesimpulan-rekomendasi-falsifiable">12. Kesimpulan &amp; Rekomendasi Falsifiable</h2>
+<h3 id="121-kesimpulan">12.1 Kesimpulan</h3>
+<ol>
+<li><strong>Venue bukan bottleneck.</strong> Binance/HL hanya menghemat 2,6–3,6 bps/trade dari SoDEX; gap ke target 11–29 bps/trade.</li>
+<li><strong>Alpha yang mati tidak hidup karena pindah venue.</strong> Flip rezim 25-Sep terdeteksi identik di price-path Binance — donchian +23,03 → −28,25 bps.</li>
+<li><strong>Target A∧B tidak tercapai di skenario manapun yang realistis.</strong> A hanya lolos di maker+size penuh (in-sample); B gagal struktural (hit 35% &lt; 50%).</li>
+<li><strong>Satu-satunya edge yang lolos kontrol negatif adalah donchian</strong> (+19,8 bps di atas acak), tetapi edge itu <strong>terikat rezim</strong>.</li>
+<li><strong>Momentum dan twoway lebih buruk daripada entri acak</strong> pada geometrinya sendiri — bukan kandidat untuk venue mana pun.</li>
+</ol>
+<h3 id="122-rekomendasi-falsifiable-pre-registered">12.2 Rekomendasi (falsifiable, pre-registered)</h3>
+<p><strong>PRAREG-32 (usulan, belum dijalankan): uji maker-donchian Binance/HL secara forward.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Spesifikasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hipotesis H1</td>
+<td>Donchian-20 + maker fill, size 0,75, di Binance, menghasilkan mean ≥0,8%/window DAN median&gt;0 DAN hit≥50%</td>
+</tr>
+<tr>
+<td>Instrumen</td>
+<td>20 simbol likuid Binance USDM (spread ≤2 bps)</td>
+</tr>
+<tr>
+<td>Periode</td>
+<td>Forward 30 hari (24 window), mulai setelah registrasi</td>
+</tr>
+<tr>
+<td>Kriteria lolos</td>
+<td>A: mean ≥0,8%; B: median&gt;0 &amp; hit≥50%; C: t ≥ 2,5 pada net per trade; D: fill-rate maker ≥60% terukur</td>
+</tr>
+<tr>
+<td>Kriteria gagal</td>
+<td>Salah satu: mean &lt;0,4%, atau hit &lt;40%, atau fill-rate &lt;40%</td>
+</tr>
+<tr>
+<td>Multiple testing</td>
+<td>1 hipotesis saja (tidak perlu BH); trial masuk registry</td>
+</tr>
+<tr>
+<td>Kill-switch</td>
+<td>Drawdown kumulatif &gt;5% wallet → stop, evaluasi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yang TIDAK boleh dilakukan:</strong> mengubah target, melonggarkan gate, atau mengklaim "bisa" berdasarkan hasil in-sample pra-flip.</p>
+<h3 id="123-keputusan-strategis">12.3 Keputusan strategis</h3>
+<p>Jika PRAREG-32 gagal → target 0,8%/window dengan keluarga sinyal ini <strong>tertutup di semua venue</strong>; fokus pindah ke pencarian edge baru (bukan venue baru). Jika lolos → jalur maker-donchian jadi kandidat mesin produksi, dengan syarat fill-rate nyata ≥60%.</p>
+<hr>
+<h2 id="13-laporan-verifikasi-reproduksi">13. Laporan Verifikasi &amp; Reproduksi</h2>
+<h3 id="131-artefak">13.1 Artefak</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts/research/venue_replay_bhl.py</code></td>
+<td>Replay 3 keluarga × 3 venue, era split, maker variant, kontrol acak 2 geometri</td>
+</tr>
+<tr>
+<td><code>scripts/research/venue_arithmetic_windows.py</code></td>
+<td>Agregasi window 30 jam, A/B per skenario sizing</td>
+</tr>
+<tr>
+<td><code>reports/sodex/VENUE_REPLAY_BHL.json</code></td>
+<td>Semua angka mentah (families, venue_matrix, era_split, maker_variant, target_arithmetic, path_check)</td>
+</tr>
+<tr>
+<td><code>reports/sodex/VENUE_ARITHMETIC_WINDOWS.json</code></td>
+<td>Tabel A/B per skenario + pasca-flip + kontrol</td>
+</tr>
+<tr>
+<td><code>data/hl_klines/1h/*.json</code></td>
+<td>46 simbol klines Hyperliquid 1 jam, 90 hari (API publik)</td>
+</tr>
+<tr>
+<td><code>data/binance_klines/1h/*.json</code></td>
+<td>52 simbol klines Binance 1 jam, 180 hari</td>
+</tr>
+</tbody>
+</table>
+<h3 id="132-perintah-reproduksi">13.2 Perintah reproduksi</h3>
+<pre><code class="language-bash">cd ~/anantara-sakti
+/usr/bin/python3 scripts/research/venue_replay_bhl.py
+/usr/bin/python3 scripts/research/venue_arithmetic_windows.py
+</code></pre>
+<h3 id="133-cek-konsistensi-internal">13.3 Cek konsistensi internal</h3>
+<ul>
+<li>Jumlah trade donchian 3.476 = konsisten di kedua skrip (replay &amp; aritmetika).</li>
+<li>Gross donchian +19,56 bps; net Binance taker = 19,56 − 12,17 = <strong>+7,39</strong> ≈ +7,40 di matriks ✓</li>
+<li>Net SoDEX = 19,56 − 15,67 = <strong>+3,89</strong> ≈ +3,89 ✓</li>
+<li>Window count 482 = 180 hari × 24/30 − offset jangkar ✓</li>
+<li>Kontrol acak TP4/SL2 gross −0,22 bps vs maker net +0,12 bps ✓ (biaya ~0,34 bps)</li>
+<li>Semua uji READ-ONLY: tidak ada order, tidak ada posisi, tidak ada flag live.</li>
+</ul>
+<h3 id="134-tingkat-keyakinan">13.4 Tingkat keyakinan</h3>
+<table>
+<thead>
+<tr>
+<th>Klaim</th>
+<th>Keyakinan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biaya Binance &lt; SoDEX ~3,6 bps</td>
+<td><strong>Tinggi</strong> (model fee publik + konsisten dengan selisih net)</td>
+</tr>
+<tr>
+<td>Venue bukan penyebab matinya edge</td>
+<td><strong>Tinggi</strong> (era split di path Binance, n besar pra-flip)</td>
+</tr>
+<tr>
+<td>B gagal struktural pada geometri TP2:SL1</td>
+<td><strong>Tinggi</strong> (matematika binomial, bukan estimasi)</td>
+</tr>
+<tr>
+<td>Maker-donchian bisa mencapai A</td>
+<td><strong>Rendah–sedang</strong> (in-sample, tanpa adverse selection, t=1,56)</td>
+</tr>
+<tr>
+<td>Target A∧B tercapai di masa depan</td>
+<td><strong>Tidak terbukti</strong> — hipotesis terbuka, bukan klaim</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>Dokumen ini dihasilkan oleh Divisi Riset — falsifikasi-didahulukan, triangulasi, statistik ketat. Semua angka dapat direproduksi dari artefak di §13. Tidak ada parameter produksi yang diubah; tidak ada order yang dikirim.</em></p>
+</body>
+</html>

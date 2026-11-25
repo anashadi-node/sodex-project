@@ -1,0 +1,13 @@
+{
+  "_petunjuk": "Salin ke secrets/LIVE_ARMED.json, edit SENDIRI. Tanpa file ini (armed=true) eksekutor TIDAK PERNAH mengirim order. Hapus komentar _ bila mau.",
+  "armed": false,
+  "go_by": "Mas Anas",
+  "go_utc": "2026-11-30T00:00:00+00:00",
+  "not_before": "2026-12-01",
+  "max_equity_usd": 300,
+  "max_order_usd": 100,
+  "max_total_buy_usd": 200,
+  "max_drawdown_pct": 15,
+  "engine_sha256": "ISI: sha256sum scripts/research/mode_a_20261026/mode_a_engine.py",
+  "acknowledge_prareg23b_verdict": false
+}

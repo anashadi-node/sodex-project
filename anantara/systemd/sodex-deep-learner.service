@@ -1,0 +1,30 @@
+[Unit]
+Description=SoDEX Loop Deep Learning Ability — continuous spread adaptation
+Documentation=https://github.com/anashadi-node/anantara-sakti
+After=network-online.target
+Wants=network-online.target
+# start after twin watchdog (engine must be running for fills to accumulate)
+After=sodex-twin-watchdog.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/anantara-sakti
+EnvironmentFile=%h/anantara-sakti/.env
+Environment="ANANTARA_DIR=%h/anantara-sakti"
+ExecStart=/usr/bin/python3 %h/anantara-sakti/scripts/sodex_deep_learn.py --loop
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sodex-deep-learner
+
+# Safe resource limits (read-only DB; writes only small JSON files)
+MemoryMax=256M
+CPUQuota=20%
+
+# Kill mode: terminate cleanly on signal (loop has SIGINT/SIGTERM handler)
+KillMode=control-group
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target

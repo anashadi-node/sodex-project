@@ -1,0 +1,23 @@
+{
+ "universe": 10,
+ "windows": 66,
+ "mean_bps": -72.05,
+ "sd_bps": 457.5,
+ "t": -1.28,
+ "sharpe_window": -0.157,
+ "sharpe_ann": -2.13,
+ "baseline_cost_bps": 12.98,
+ "split": {
+  "n_latih": 46,
+  "mean_latih": -98.24,
+  "t_latih": -1.34,
+  "n_uji": 20,
+  "mean_uji": -11.81,
+  "t_uji": -0.15
+ },
+ "p_perm": 0.2078,
+ "sign_konsisten": false,
+ "status": "FAIL",
+ "verdict": "NO-GO",
+ "generated_utc": "2026-10-25T07:50:24.634960+00:00"
+}

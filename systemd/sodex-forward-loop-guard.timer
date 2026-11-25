@@ -1,0 +1,12 @@
+[Unit]
+Description=Jalankan guard jalur-kritis T1 SoDEX tiap jam
+Requires=sodex-forward-loop-guard.service
+
+[Timer]
+OnBootSec=5min
+OnCalendar=*:20
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

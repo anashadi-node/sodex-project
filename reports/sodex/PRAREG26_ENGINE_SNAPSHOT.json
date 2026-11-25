@@ -1,0 +1,98 @@
+{
+ "generated_utc": "2026-11-25T00:02:08.226942+00:00",
+ "harga_mati": false,
+ "universe": [
+  "aster",
+  "donchian",
+  "hyperliquid",
+  "pasar_anantara_trade",
+  "portfolio",
+  "realwide",
+  "shortbear",
+  "spot_swing_v2",
+  "swing",
+  "twoway"
+ ],
+ "rows": [
+  {
+   "engine": "aster",
+   "n14": 2,
+   "net14_usd": -13.3,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T15:11:14.794513+00:00",
+   "umur_hari": 0.37
+  },
+  {
+   "engine": "donchian",
+   "n14": 55,
+   "net14_usd": -132.96,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T20:36:52.323809+00:00",
+   "umur_hari": 0.14
+  },
+  {
+   "engine": "hyperliquid",
+   "n14": 2,
+   "net14_usd": -13.47,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T15:21:21.505075+00:00",
+   "umur_hari": 0.36
+  },
+  {
+   "engine": "pasar_anantara_trade",
+   "n14": 0,
+   "net14_usd": 0,
+   "lolos": false,
+   "last_exit_utc": null,
+   "umur_hari": null
+  },
+  {
+   "engine": "portfolio",
+   "n14": 27,
+   "net14_usd": -2.76,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T17:37:41.205178+00:00",
+   "umur_hari": 0.27
+  },
+  {
+   "engine": "realwide",
+   "n14": 92,
+   "net14_usd": -116.07,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T19:54:34.467098+00:00",
+   "umur_hari": 0.17
+  },
+  {
+   "engine": "shortbear",
+   "n14": 36,
+   "net14_usd": 13.52,
+   "lolos": true,
+   "last_exit_utc": "2026-11-24T14:34:22.752087+00:00",
+   "umur_hari": 0.39
+  },
+  {
+   "engine": "spot_swing_v2",
+   "n14": 67,
+   "net14_usd": -30.46,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T13:08:36.303239+00:00",
+   "umur_hari": 0.45
+  },
+  {
+   "engine": "swing",
+   "n14": 118,
+   "net14_usd": -184.16,
+   "lolos": false,
+   "last_exit_utc": "2026-11-24T19:39:14.424781+00:00",
+   "umur_hari": 0.18
+  },
+  {
+   "engine": "twoway",
+   "n14": 0,
+   "net14_usd": 0,
+   "lolos": false,
+   "last_exit_utc": null,
+   "umur_hari": null
+  }
+ ]
+}

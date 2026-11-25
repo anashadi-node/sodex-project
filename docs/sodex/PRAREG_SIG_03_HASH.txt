@@ -1,0 +1,4 @@
+PRAREG-SIG-03 2026-10-23
+sha256=6139fee7f7fd7be403a8723b62224a9dfbd840ff0b2cf0f5adca71db5ae1ac9a
+frozen_utc=2026-10-23T10:32:14Z
+file=docs/sodex/PRAREG_SIG_03_2026-10-23.md

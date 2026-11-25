@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D13 — Koreksi D12 + Konsolidasi R1–R3</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>D13 — Koreksi D12 + Konsolidasi R1–R3</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t3"><a href="#sodex-real-wide-laporan-audit-05-okt-2026">SoDEX REAL-wide · laporan audit · 05-Okt-2026</a></li>
+<li class="t2"><a href="#1-ringkasan-untuk-pembaca-sibuk">1. RINGKASAN UNTUK PEMBACA SIBUK</a></li>
+<li class="t2"><a href="#2-koreksi-apa-yang-salah-di-d12">2. KOREKSI — APA YANG SALAH DI D12</a></li>
+<li class="t3"><a href="#21-klaim-yang-salah">2.1 Klaim yang salah</a></li>
+<li class="t3"><a href="#22-bukti-bahwa-gerbang-aktif-dan-mengikat">2.2 Bukti bahwa gerbang aktif dan mengikat</a></li>
+<li class="t3"><a href="#23-mengapa-atr_pct-sering-rendahkosong-dan-itu-bukan-bug">2.3 Mengapa `atr_pct` sering rendah/kosong — dan itu bukan bug</a></li>
+<li class="t3"><a href="#24-cacat-nyata-yang-menggantikan-klaim-salah-itu">2.4 Cacat nyata yang menggantikan klaim salah itu</a></li>
+<li class="t3"><a href="#25-akar-kesalahan-dan-mengapa-ini-penting">2.5 Akar kesalahan — dan mengapa ini penting</a></li>
+<li class="t2"><a href="#3-r1-gerbang-entry-dari-tidak-bisa-difalsifikasi-bisa-difalsifikasi">3. R1 — GERBANG ENTRY: DARI TIDAK BISA DIFALSIFIKASI → BISA DIFALSIFIKASI</a></li>
+<li class="t3"><a href="#31-yang-ditambahkan">3.1 Yang ditambahkan</a></li>
+<li class="t3"><a href="#32-verifikasi">3.2 Verifikasi</a></li>
+<li class="t3"><a href="#33-yang-sekarang-bisa-dijawab-dan-sebelumnya-tidak">3.3 Yang sekarang bisa dijawab (dan sebelumnya tidak)</a></li>
+<li class="t2"><a href="#4-r2-anggaran-risiko-dua-lane-berbeda-86×">4. R2 — ANGGARAN RISIKO: DUA LANE BERBEDA 8,6×</a></li>
+<li class="t3"><a href="#41-dua-lane-menafsirkan-1-posisi-secara-berbeda">4.1 Dua lane menafsirkan "1 posisi" secara berbeda</a></li>
+<li class="t3"><a href="#42-yang-ditambahkan">4.2 Yang ditambahkan</a></li>
+<li class="t3"><a href="#43-denominator-roi-dari-angka-saja-angka-asal-usulnya">4.3 Denominator ROI: dari "angka saja" → "angka + asal-usulnya"</a></li>
+<li class="t2"><a href="#5-r3-reliabilitas-edge-tidak-merata-kandidat-difalsifikasi">5. R3 — RELIABILITAS: "EDGE" TIDAK MERATA, KANDIDAT DIFALSIFIKASI</a></li>
+<li class="t3"><a href="#51-sampel-pembersihan">5.1 Sampel & pembersihan</a></li>
+<li class="t3"><a href="#52-uji-per-simbol-sampel-penuh">5.2 Uji per-simbol (sampel penuh)</a></li>
+<li class="t3"><a href="#53-kandidat-dideklarasikan-di-muka">5.3 Kandidat (dideklarasikan di muka)</a></li>
+<li class="t3"><a href="#54-uji-seleksi-max-of-k-dan-mengapa-ia-menipu-kalau-berhenti-di-sini">5.4 Uji seleksi max-of-k — dan mengapa ia menipu kalau berhenti di sini</a></li>
+<li class="t3"><a href="#55-ketahanan-segmen-konsentrasi">5.5 Ketahanan segmen & konsentrasi</a></li>
+<li class="t3"><a href="#56-verdict-r3">5.6 Verdict R3</a></li>
+<li class="t2"><a href="#6-apa-artinya-untuk-target-0848-jam">6. APA ARTINYA UNTUK TARGET 0,8%/48 JAM</a></li>
+<li class="t2"><a href="#7-yang-tidak-diubah-batas-keamanan">7. YANG **TIDAK** DIUBAH (batas keamanan)</a></li>
+<li class="t2"><a href="#8-langkah-berikutnya-kandidat-wajib-dideklarasikan-didaftarkan-dulu">8. LANGKAH BERIKUTNYA (kandidat — wajib dideklarasikan & didaftarkan dulu)</a></li>
+<li class="t2"><a href="#9-lampiran-berkas-bukti">9. LAMPIRAN — BERKAS BUKTI</a></li>
+<li class="t3"><a href="#commit">Commit</a></li>
+<li class="t3"><a href="#status-suite">Status suite</a></li>
+</ul>
+</nav>
+<h3 id="sodex-real-wide-laporan-audit-05-okt-2026">SoDEX REAL-wide · laporan audit · 05-Okt-2026</h3>
+<p><strong>Mengapa laporan ini ada.</strong> D12 memuat satu klaim yang <strong>salah</strong>. Klaim itu
+bukan sekadar salah tulis — klaim itu dipakai untuk menyimpulkan bahwa sebuah
+gerbang pengaman tidak berfungsi. Laporan ini mengoreksinya, menjelaskan
+mengapa kesalahan itu bisa lolos, dan merangkum tiga pekerjaan lanjutan
+(R1, R2, R3) yang dikerjakan berurutan atas perintah Mas Anas.</p>
+<blockquote>
+<p><strong>Cara membaca:</strong> bagian 1 cukup 3 menit. Bagian 2–5 adalah bukti.
+Angka tanpa satuan %/USD selalu diberi satuan. Tanda ⚠️ = belum dapat diputuskan.</p>
+</blockquote>
+<hr>
+<h2 id="1-ringkasan-untuk-pembaca-sibuk">1. RINGKASAN UNTUK PEMBACA SIBUK</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Temuan</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>D12 salah</strong>: gerbang volatilitas (<code>_entry_vol_gate</code>) dinyatakan "praktis tidak pernah aktif". Faktanya gerbang <strong>aktif dan mengikat</strong> — hari ini memblokir <strong>2 dari 23 pair</strong> (LIT 5,374%, PUMP 2,225%).</td>
+<td>❌ <strong>DIKOREKSI</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Cacat nyata yang menggantikannya</strong>: arm eksperimen <strong>A1 tidak bisa menguji hipotesisnya sendiri</strong> — gerbangnya memblokir justru pair volatil yang jadi target hipotesis (ONDO 2,90%, ENA 2,85% &gt; ambang 2%).</td>
+<td>⚠️ <strong>CACAT RANCANGAN</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Akar kesalahan</strong>: state track hanya menyimpan entry yang <strong>lolos</strong>. Entry yang <strong>diblokir</strong> tidak dicatat → keputusan gerbang <strong>tidak bisa difalsifikasi</strong>. R1 menutup celah ini.</td>
+<td>✅ <strong>DIPERBAIKI</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Dua lane menanggung risiko berbeda 8,6×</strong>: lane paper menafsirkan "1 posisi" = margin $100 (exposure $300), lane live = exposure $140 (margin $46,67); ditambah konkurensi 8 vs 2. Puncak paper = <strong>328% wallet</strong> vs plafon live <strong>70%</strong>.</td>
+<td>🐛 <strong>R2: plafon ditambahkan (default OFF)</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Denominator ROI tidak dapat diaudit</strong>: fallback-nya <code>NOTIONAL×LEVERAGE</code> = $300, dan $300 <strong>memang pernah</strong> jadi basis ROI nyata. Proses yang berjalan memegang <code>$174,55</code> sementara berkas kini <code>$243,39</code>.</td>
+<td>🐛 <strong>R2: jejak sumber ditambahkan</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>"Edge" tidak merata di 22 simbol</strong>: hanya <strong>2/22 dapat dinilai</strong> (n≥20), <strong>0/22 lolos BH-FDR</strong>, median lintas-simbol <strong>−0,153%</strong>, <strong>13/22 simbol merugi</strong>.</td>
+<td>❌ <strong>R3</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Kandidat SOL DIFALSIFIKASI oleh uji korelasi</strong>: p seleksi 0,0346 (lolos) <strong>tetapi</strong> p cluster-per-hari <strong>0,5041</strong> dan p berpasangan <strong>0,7866</strong> (tidak lolos).</td>
+<td>❌ <strong>R3: PROMISING, BELUM TERBUKTI</strong></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Laba terkonsentrasi</strong>: top-3 simbol = <strong>127,8%</strong> dari net; sisanya (13 simbol) merugi. "Net +48,76" = laba 3 nama menutup kerugian 13 nama.</td>
+<td>⚠️ <strong>RISIKO</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Satu kalimat:</strong> gerbangnya bekerja — yang gagal adalah (a) kemampuan kita
+membuktikan gerbang itu bekerja, dan (b) asumsi bahwa "edge" tersebar merata.
+Level hasil cukup; <strong>reliabilitas</strong> tidak.</p>
+<hr>
+<h2 id="2-koreksi-apa-yang-salah-di-d12">2. KOREKSI — APA YANG SALAH DI D12</h2>
+<h3 id="21-klaim-yang-salah">2.1 Klaim yang salah</h3>
+<p>D12 menyatakan:</p>
+<blockquote>
+<p><em>"<code>atr_pct</code> hilang 89% (218/245 NULL) → <code>_entry_vol_gate</code> praktis TIDAK PERNAH
+AKTIF → A1 setara A2, arm eksperimen itu tidak bermakna."</em></p>
+</blockquote>
+<p><strong>Ini salah.</strong> <code>_entry_vol_gate</code> <strong>tidak membaca field <code>atr_pct</code> sama sekali</strong>.
+Fungsi itu menghitung ATR14 sendiri, langsung dari candle (<code>c</code>, <code>h</code>, <code>l</code>), pada
+bar sinyal. Jadi hilangnya field <code>atr_pct</code> tidak ada hubungannya dengan
+berfungsi atau tidaknya gerbang.</p>
+<h3 id="22-bukti-bahwa-gerbang-aktif-dan-mengikat">2.2 Bukti bahwa gerbang aktif dan mengikat</h3>
+<p>Diukur ulang hari ini terhadap <strong>data pasar nyata</strong>, ke-23 pair:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pair terukur</td>
+<td><strong>23/23</strong></td>
+</tr>
+<tr>
+<td>Pair <strong>DIBLOKIR</strong></td>
+<td><strong>2</strong> → <code>LIT</code> ATR14 <strong>5,374%</strong>, <code>PUMP</code> ATR14 <strong>2,225%</strong></td>
+</tr>
+<tr>
+<td>Rentang ATR14</td>
+<td>0,097% … 5,374%</td>
+</tr>
+<tr>
+<td>Gerbang aktif (<code>RW_VOLGATE_ON</code>)</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td>Simpang antara nilai ATR audit vs keputusan gerbang</td>
+<td><strong>0/23</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Artinya gerbang <strong>bekerja, dan hari ini sedang memblokir</strong>. Klaim D12 gugur.</p>
+<h3 id="23-mengapa-atr_pct-sering-rendahkosong-dan-itu-bukan-bug">2.3 Mengapa <code>atr_pct</code> sering rendah/kosong — dan itu bukan bug</h3>
+<p>Field <code>atr_pct</code> memakai <code>v3.atr</code> (pemulus Wilder). Yang dipakai gerbang adalah
+<strong>ATR14 rata-rata</strong>. Keduanya <strong>ukuran berbeda</strong> atas hal yang mirip. Field itu
+memang sering kecil atau kosong; itu kelalaian pengisian, <strong>bukan bukti gerbang
+mati</strong>. Menyamakan "field kosong" dengan "gerbang tidak jalan" adalah lompatan
+logika yang salah.</p>
+<h3 id="24-cacat-nyata-yang-menggantikan-klaim-salah-itu">2.4 Cacat nyata yang menggantikan klaim salah itu</h3>
+<p>Yang benar-benar cacat adalah <strong>rancangan arm eksperimennya</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th><code>RW_VOLGATE</code></th>
+<th><code>RW_ATR_SL</code></th>
+<th>Konsekuensi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KONTROL</td>
+<td>1 (aktif)</td>
+<td>0</td>
+<td>baseline, gerbang memblokir pair volatil</td>
+</tr>
+<tr>
+<td><strong>A1</strong> <code>_atrvol</code></td>
+<td><strong>1 (aktif)</strong></td>
+<td>1 (RR 4,0, floor 1,5%)</td>
+<td><strong>gerbang memblokir justru pair volatil</strong></td>
+</tr>
+<tr>
+<td>A2 <code>_atrvolopen</code></td>
+<td>0 (mati)</td>
+<td>1 (+ <code>PAIR_GATE_IGNORE=ONDO</code>)</td>
+<td>barulah menguji dengan benar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Masalahnya:</strong> hipotesis A1 adalah <em>"SL adaptif (berbasis ATR) lebih baik untuk
+pair volatil"</em>. Tetapi dengan <code>RW_VOLGATE=1</code>, gerbang <strong>menolak masuk</strong> pair
+volatil — ONDO (ATR 2,90%) dan ENA (2,85%) keduanya di atas ambang 2%, jadi
+keduanya <strong>tidak bisa pernah masuk A1</strong>. Arm yang tidak bisa memasukkan
+subjeknya sendiri tidak sedang menguji hipotesisnya. Ini kesalahan rancangan,
+bukan kesalahan kode.</p>
+<h3 id="25-akar-kesalahan-dan-mengapa-ini-penting">2.5 Akar kesalahan — dan mengapa ini penting</h3>
+<p>Kenapa klaim salah itu bisa lolos tanpa terbantah? Karena <strong>tidak ada datanya</strong>.</p>
+<p>State track hanya menyimpan trade yang <strong>berhasil masuk</strong>. Entry yang
+<strong>diblokir gerbang tidak dicatat di mana pun</strong>. Akibatnya pertanyaan <em>"apakah
+blokir ini benar?"</em> <strong>tidak punya pembanding</strong> — mustahil dijawab dari data,
+selamanya. Dalam kondisi itu, dugaan apa pun (termasuk dugaan yang salah)
+tampak sama masuk akalnya.</p>
+<p><strong>Pelajaran yang bisa dipakai ulang:</strong> <em>sebuah gerbang yang tidak mencatat apa
+yang ia tolak bukan sekadar kurang rapi — ia membuat dirinya sendiri tidak bisa
+digugat.</em> Itu masalah epistemik, bukan masalah kebersihan berkas.</p>
+<hr>
+<h2 id="3-r1-gerbang-entry-dari-tidak-bisa-difalsifikasi-bisa-difalsifikasi">3. R1 — GERBANG ENTRY: DARI TIDAK BISA DIFALSIFIKASI → BISA DIFALSIFIKASI</h2>
+<p><strong>Berkas:</strong> <code>scripts/paper_test_realwide.py</code>, <code>tests/test_realwide_gate_audit.py</code>
+<strong>Commit:</strong> <code>440c7e2</code></p>
+<h3 id="31-yang-ditambahkan">3.1 Yang ditambahkan</h3>
+<table>
+<thead>
+<tr>
+<th>Tambahan</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/paper_test_realwide_blocked&lt;SUFFIX&gt;.jsonl</code></td>
+<td>berkas <strong>append-only</strong>: setiap entry yang <strong>DIBLOKIR</strong> dicatat (<code>sym</code>, <code>bar_ts</code>, <code>atr_pct</code> sebabnya, <code>reason</code>, <code>value</code>, <code>thr</code>)</td>
+</tr>
+<tr>
+<td><code>_atr14_pct()</code></td>
+<td><strong>cermin persis</strong> perhitungan gerbang — supaya angka audit tidak menyesatkan</td>
+</tr>
+<tr>
+<td><code>_append_blocked()</code></td>
+<td>pencatat <strong>fail-soft</strong>: gangguan I/O tidak boleh menghentikan lane paper</td>
+</tr>
+<tr>
+<td><code>atr14</code> pada record trade</td>
+<td>metrik gerbang <strong>yang sebenarnya</strong>, tersimpan per trade</td>
+</tr>
+<tr>
+<td><code>volgate_on</code> pada sinyal</td>
+<td>menandai apakah gerbang sedang aktif saat keputusan dibuat</td>
+</tr>
+</tbody>
+</table>
+<p>Ketiga jalur blokir dicatat: <code>volgate</code>, <code>deadzone</code>, <code>m15</code>.</p>
+<h3 id="32-verifikasi">3.2 Verifikasi</h3>
+<ul>
+<li><strong>Cermin ATR:</strong> diuji pada &gt;100 titik (12 seed × 4 tingkat volatilitas × 10 bar), <strong>0 simpang</strong> dengan keputusan gerbang.</li>
+<li><strong>Data nyata:</strong> 23/23 pair, <strong>0/23 simpang</strong>.</li>
+<li><strong>Perilaku tidak bergeser:</strong> gerbang, geometri (TP6/SL3), dan konvensi sizing <strong>identik</strong>. RW_MARGIN default OFF.</li>
+<li><strong>Tes:</strong> 10 tes baru. Lane REAL-wide: <strong>93 lulus / 0 gagal</strong>.</li>
+</ul>
+<h3 id="33-yang-sekarang-bisa-dijawab-dan-sebelumnya-tidak">3.3 Yang sekarang bisa dijawab (dan sebelumnya tidak)</h3>
+<p>Mulai sekarang, pertanyaan <em>"apakah pair volatil yang diblokir gerbang justru
+akan lebih baik kalau dibiarkan masuk?"</em> <strong>dapat diuji dengan data</strong> — karena
+ATR pair yang diblokir sudah tersimpan. Itulah inti R1.</p>
+<hr>
+<h2 id="4-r2-anggaran-risiko-dua-lane-berbeda-86×">4. R2 — ANGGARAN RISIKO: DUA LANE BERBEDA 8,6×</h2>
+<p><strong>Berkas:</strong> <code>scripts/paper_test_realwide.py</code>, <code>tests/test_realwide_margin_budget.py</code>
+<strong>Commit:</strong> <code>4a3e671</code></p>
+<h3 id="41-dua-lane-menafsirkan-1-posisi-secara-berbeda">4.1 Dua lane menafsirkan "1 posisi" secara berbeda</h3>
+<p>Ini bukan soal satu konstanta yang salah. Ini <strong>konvensi yang berbeda</strong> — dan
+konvensi lane paper sebelumnya <strong>tidak didokumentasikan di mana pun</strong>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LANE PAPER</th>
+<th>LANE LIVE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter</td>
+<td><code>NOTIONAL = $100</code></td>
+<td><code>SIZE_NOTIONAL = $140</code></td>
+</tr>
+<tr>
+<td>Artinya</td>
+<td><strong>margin</strong>/posisi</td>
+<td><strong>exposure</strong>/posisi</td>
+</tr>
+<tr>
+<td>Exposure/posisi</td>
+<td><code>NOTIONAL × LEVERAGE</code> = <strong>$300</strong></td>
+<td><code>SIZE_NOTIONAL</code> = <strong>$140</strong></td>
+</tr>
+<tr>
+<td>Margin/posisi</td>
+<td><code>NOTIONAL</code> = <strong>$100</strong></td>
+<td><code>SIZE_NOTIONAL / LEVERAGE</code> = <strong>$46,67</strong></td>
+</tr>
+<tr>
+<td>Rumus PnL</td>
+<td><code>pnl_usd = pnl × NOTIONAL × LEVERAGE</code></td>
+<td><code>qty × entry</code></td>
+</tr>
+<tr>
+<td>Konkurensi maks</td>
+<td><strong>8</strong></td>
+<td><strong>2</strong></td>
+</tr>
+<tr>
+<td>Plafon margin</td>
+<td><strong>tidak ada</strong></td>
+<td><code>LEVEL2_MARGIN_UTIL_CAP = 0,70</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rasio exposure per posisi</strong> = $300 / $140 = <strong>2,14×</strong>
+<strong>Rasio konkurensi</strong> = 8 / 2 = <strong>4×</strong>
+<strong>Gabungan</strong> = <strong>8,6×</strong> pada puncaknya:</p>
+<pre><code>PAPER  puncak = 8 × $100 margin  = $800  →  328% dari wallet $243,39
+LIVE   puncak = 2 × $46,67 margin = $93,33 →  38,3% dari wallet (cap 70%)
+</code></pre>
+<p><strong>Konsekuensi yang harus diucapkan terang-terangan:</strong> track paper mengambil
+risiko yang <strong>tidak bisa didanai</strong> oleh lane live. Karena itu angka kinerjanya
+<strong>tidak otomatis transferable</strong> ke live. D12 sudah menandai ini sebagai BUG #2;
+R2 menambahkan penegakannya.</p>
+<p>Catatan acuan: sizing lane paper adalah <strong>110% wallet</strong> (8 posisi), twoway 82%
+(6 posisi), versi live-capable 38% (2 posisi), plafon live 70%.</p>
+<h3 id="42-yang-ditambahkan">4.2 Yang ditambahkan</h3>
+<table>
+<thead>
+<tr>
+<th>Tambahan</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>margin_budget_blocks()</code></td>
+<td><strong>cermin langsung</strong> aturan live (<code>n × margin ≤ wallet × cap</code>); fungsi murni &amp; teruji</td>
+</tr>
+<tr>
+<td><code>RW_MARGIN_UTIL_CAP</code></td>
+<td><strong>default <code>0</code> = OFF</strong> → perilaku track yang sedang berjalan <strong>tidak berubah</strong>; setel <code>0,70</code> agar selaras live</td>
+</tr>
+<tr>
+<td>Konvensi eksplisit pada record</td>
+<td><code>notional_usd</code>, <code>leverage</code>, <code>exposure_usd</code>, <code>margin_usd</code> — menggantikan konvensi implisit</td>
+</tr>
+<tr>
+<td><code>eff_tp_sl(sig.atr14)</code></td>
+<td>geometri entry (menutup sisa tugas D12)</td>
+</tr>
+<tr>
+<td>Label status diperbaiki</td>
+<td><code>"(SL-2%/TP+4%)"</code> → <code>TP6%/SL3%</code> yang <strong>aktual</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verifikasi cermin:</strong> aturan pemblokiran diuji <strong>ekuivalen</strong> dengan aturan live
+pada 3 tingkat leverage × 3 ukuran wallet = 9 kombinasi. <strong>22 tes baru.</strong></p>
+<h3 id="43-denominator-roi-dari-angka-saja-angka-asal-usulnya">4.3 Denominator ROI: dari "angka saja" → "angka + asal-usulnya"</h3>
+<p><code>_read_wallet_capital()</code> hanya mengembalikan <strong>angka</strong>. Akibatnya tidak ada cara
+mengetahui apakah ROI dihitung terhadap wallet <strong>nyata</strong> atau terhadap
+<strong>fallback</strong>. Padahal:</p>
+<ul>
+<li><code>SODEX_TOTAL_WALLET</code> di <code>.env.swing</code> = <strong>$243,39</strong> (sumber resmi lane paper);</li>
+<li><code>ground_truth.json</code> <code>hl_total.observed_account_value_usd</code> = <strong>$7,93</strong> → gagal
+  ambang <code>≥100</code> → jatuh ke <strong>fallback</strong>;</li>
+<li>fallback = <code>NOTIONAL × LEVERAGE</code> = <strong>$300</strong>;</li>
+<li>ROI pernah dihitung terhadap <strong>$300</strong> (fallback itu memakai notional yang
+  sama dengan track: rasio <code>pnl_usd / pnl_pct</code> tercatat persis <strong>300,0</strong>);</li>
+<li>proses lane yang <strong>sedang berjalan</strong> memegang <code>SODEX_TOTAL_WALLET=$174,55</code>
+  (nilai <code>.env</code> saat service start 04-Okt 06:13), sementara <code>.env</code> kini berbunyi
+  <strong>$243,39</strong>.</li>
+</ul>
+<p>Jadi denominatornya <strong>bisa bergeser tanpa jejak</strong> — dan pernah bergeser. Ini
+membuat perbandingan ROI antar-periode tidak dapat dipercaya.</p>
+<p><strong>Perbaikan:</strong> <code>_read_wallet_capital_with_source()</code> mengembalikan <code>(nilai,
+sumber)</code>; <code>wallet_capital</code> + <code>wallet_capital_src</code> dicatat di <strong>setiap trade</strong>;
+<code>status()</code> melaporkan sumbernya dan menandai <strong>"⚠ DENOMINATOR PALSU"</strong> bila
+fallback dipakai. <strong>6 tes provenance</strong> (env / fallback / env rusak).</p>
+<blockquote>
+<p><strong>Catatan penting soal konfigurasi:</strong> <code>SODEX_TOTAL_WALLET</code> adalah <strong>angka
+wallet</strong>, bukan kredensial. Mengubahnya adalah perubahan parameter
+fundamental → <strong>butuh persetujuan Mas Anas</strong> sebelum diubah. R2 <strong>tidak</strong>
+mengubahnya.</p>
+</blockquote>
+<hr>
+<h2 id="5-r3-reliabilitas-edge-tidak-merata-kandidat-difalsifikasi">5. R3 — RELIABILITAS: "EDGE" TIDAK MERATA, KANDIDAT DIFALSIFIKASI</h2>
+<p><strong>Berkas:</strong> <code>scripts/sodex_r3_reliability.py</code>, <code>tests/test_sodex_r3_reliability.py</code>
+<strong>Commit:</strong> <code>be72dac</code> · <strong>Registry trial:</strong> 36 → <strong>37</strong> (append-only)</p>
+<p>Ini pekerjaan terpenting dari ketiganya. Pertanyaannya: <em>D12/R2 menunjukkan
+level rata-rata cukup (mean jendela +1,49% = 187% target) tetapi capaian
+jendela 48 jam hanya ~46%. Dari mana kegagalan reliabilitas itu?</em></p>
+<h3 id="51-sampel-pembersihan">5.1 Sampel &amp; pembersihan</h3>
+<ul>
+<li><strong>237 trade sinyal</strong> (kontrol acak <code>RANDOM_CONTROL</code> <strong>dibuang</strong> — kalau tidak,
+  uji alpha akan membandingkan sinyal dengan dirinya sendiri), <strong>22 simbol</strong>.</li>
+<li><strong>Hanya 2/22 simbol dapat dinilai</strong> (n≥20). <strong>0/22 layak klaim</strong> (n≥30).</li>
+</ul>
+<h3 id="52-uji-per-simbol-sampel-penuh">5.2 Uji per-simbol (sampel penuh)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Median lintas-simbol</td>
+<td><strong>−0,153%</strong></td>
+</tr>
+<tr>
+<td>Mean lintas-simbol</td>
+<td><strong>+0,092%</strong></td>
+</tr>
+<tr>
+<td>Simbol mean &lt; 0</td>
+<td><strong>13/22</strong></td>
+</tr>
+<tr>
+<td>Lolos BH-FDR q=0,10</td>
+<td><strong>0/22</strong> (p terbaik 0,0280 — dan mean-nya <strong>negatif</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Membaca ini:</strong> separuh simbol merugi. Hanya dua yang punya cukup data untuk
+dinilai, dan keduanya pun tidak lolos koreksi multiple-testing.</p>
+<h3 id="53-kandidat-dideklarasikan-di-muka">5.3 Kandidat (dideklarasikan di muka)</h3>
+<p>Aturan yang dipakai: kandidat sah hanyalah <strong>mean tertinggi DI DALAM himpunan
+yang dapat dinilai (n≥20)</strong> → <strong>SOL</strong> (n=26, mean +1,055%, median +0,325%,
+WR 53,8%).</p>
+<blockquote>
+<p>Mean tertinggi keseluruhan adalah <strong>PUMP</strong> (n=3, +4,730%) — <strong>tidak sah</strong>
+dijadikan kandidat. Membandingkan keberuntungan n=3 dengan simbol ber-n besar
+bukan uji, melainkan kesalahan kategori.</p>
+</blockquote>
+<h3 id="54-uji-seleksi-max-of-k-dan-mengapa-ia-menipu-kalau-berhenti-di-sini">5.4 Uji seleksi max-of-k — dan mengapa ia menipu kalau berhenti di sini</h3>
+<p>Memilih yang terbaik dari banyak simbol berarti memilih <strong>maksimum banyak
+undian</strong>. E[maksimum] selalu &gt; 0 walau tak ada edge sama sekali.</p>
+<table>
+<thead>
+<tr>
+<th>Uji</th>
+<th>Hasil</th>
+<th>Putusan (α=0,05)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null max-of-k (k=2, 20.000 simulasi)</td>
+<td>E[max] <strong>+0,272%</strong>; p95 +0,973%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Observasi SOL</td>
+<td><strong>+1,055%</strong></td>
+<td>✅ p = <strong>0,0346</strong></td>
+</tr>
+<tr>
+<td>p mentah per-simbol (tak terkoreksi)</td>
+<td>—</td>
+<td>❌ p = <strong>0,0690</strong></td>
+</tr>
+<tr>
+<td><strong>Bootstrap cluster per HARI</strong></td>
+<td>24 hari</td>
+<td>❌ p = <strong>0,5041</strong></td>
+</tr>
+<tr>
+<td><strong>Berpasangan vs sisa, hari sama</strong></td>
+<td>21 hari</td>
+<td>❌ p = <strong>0,7866</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mengapa dua uji terakhir yang menentukan.</strong> Return trading <strong>berkorelasi di
+dalam hari</strong> — semua alt bergerak serempak karena faktor pasar bersama.
+Bootstrap i.i.d. menganggap setiap trade berdiri sendiri, sehingga
+<strong>menyempitkan</strong> selang kepercayaan secara palsu dan <strong>membuat bukti tampak
+lebih kuat daripada kenyataannya</strong>. Itulah tepatnya yang terjadi: <code>0,0346</code>
+tampak lolos, tetapi begitu satuan pengamatan diganti dari <em>trade</em> menjadi
+<em>hari</em>, p-nya melompat ke <code>0,5041</code>.</p>
+<p><strong>Aturan yang dipakai:</strong> yang menentukan adalah <strong>p TERBURUK</strong>, bukan yang
+terbaik. Memakai <code>min()</code> berarti memilih uji paling longgar — itu
+anti-konservatif dan keliru.</p>
+<h3 id="55-ketahanan-segmen-konsentrasi">5.5 Ketahanan segmen &amp; konsentrasi</h3>
+<p>Ketahanan segmen SOL: <strong>3/3 positif</strong> — tetapi <strong>meluruh monoton</strong>:
+S1 +1,818% (n=8) → S2 +1,255% (n=8) → S3 +0,286% (n=10, median <strong>−1,348%</strong>,
+WR <strong>40%</strong>). Positif, tapi trennya menuju nol.</p>
+<p>Konsentrasi hasil (ini yang menjelaskan semua ketidakstabilan):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kontribusi simbol #1 (SOL)</td>
+<td><strong>56,3%</strong> dari net</td>
+</tr>
+<tr>
+<td>Kontribusi top-3</td>
+<td><strong>127,8%</strong> dari net</td>
+</tr>
+<tr>
+<td>Kontribusi top-5</td>
+<td><strong>178,1%</strong> dari net</td>
+</tr>
+<tr>
+<td>Gini kontribusi</td>
+<td><strong>0,472</strong></td>
+</tr>
+<tr>
+<td>Simbol net &lt; 0</td>
+<td><strong>13/22</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan:</strong> "net +48,76" itu <strong>laba tiga nama yang menutup kerugian tiga belas
+nama</strong>. Kalau salah satu bintang itu gagal pada periode berikutnya, yang
+tertinggal adalah kerugian. Inilah bentuk matematis dari "reliabilitas gagal".</p>
+<h3 id="56-verdict-r3">5.6 Verdict R3</h3>
+<blockquote>
+<p><strong>PROMISING-NOT-ESTABLISHED</strong> — n&lt;30, p&gt;0,05 pada uji yang jujur terhadap
+korelasi, 0/22 lolos FDR.</p>
+</blockquote>
+<p>Ini <strong>bukan</strong> "tidak ada edge". Ini <strong>"bukti tidak cukup untuk mengklaim ada
+edge"</strong> — dan itu beda penting. Konsekuensinya operasional: <strong>jangan perbesar
+alokasi ke SOL atas dasar angka ini.</strong></p>
+<p><strong>Capaian jendela (formula dashboard, basis eksposur paling dekat kenyataan
+41%):</strong> jendela ≥0,8% = <strong>43,8%</strong> (butuh ≥50%), mean +1,072%, median +0,594%.
+Level cukup, <strong>reliabilitas tidak</strong>.</p>
+<hr>
+<h2 id="6-apa-artinya-untuk-target-0848-jam">6. APA ARTINYA UNTUK TARGET 0,8%/48 JAM</h2>
+<p>Target <strong>0,8% per 48 jam</strong> = <strong>0,40%/hari</strong> = <strong>328%/tahun</strong> ≈ <strong>Sharpe ~5,5</strong>
+(di atas Sharpe terbaik dokumen yang ditemukan, 3,61). Tidak ada satu temuan di
+D12/R1–R3 yang mengubah target itu, dan laporan ini <strong>tidak</strong> mengusulkan
+perubahan target — mengubah target fundamental <strong>butuh persetujuan Mas Anas</strong>.</p>
+<p>Yang berubah adalah <strong>pemahaman atas hambatannya</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Dimensi</th>
+<th>Keadaan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Level</strong> (rata-rata hasil)</td>
+<td>✅ cukup — mean jendela +1,49% = <strong>187% target</strong></td>
+</tr>
+<tr>
+<td><strong>Median</strong> (hasil khas)</td>
+<td>❌ +0,452% = <strong>56% target</strong></td>
+</tr>
+<tr>
+<td><strong>Reliabilitas</strong> (konsistensi)</td>
+<td>❌ jendela ≥0,8% = <strong>43,8–46%</strong> (butuh ≥50%)</td>
+</tr>
+<tr>
+<td><strong>Keberadaan edge</strong></td>
+<td>⚠️ <strong>belum terbukti</strong> — 0/22 lolos FDR, kandidat gugur uji korelasi</td>
+</tr>
+<tr>
+<td><strong>Transferabilitas paper→live</strong></td>
+<td>❌ sebelumnya 8,6× lebih berat; kini <strong>bisa</strong> dipaksakan selaras (R2)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan jujur:</strong> hambatan utama <strong>bukan</strong> level, <strong>bukan</strong> biaya, <strong>bukan</strong>
+leverage. Hambatan utamanya adalah <strong>reliabilitas, dan sebelum itu: kita belum
+bisa membuktikan bahwa edge-nya ada.</strong> Menambah size pada sistem yang edge-nya
+belum terbukti hanya memperbesar taruhan pada yang belum diketahui.</p>
+<hr>
+<h2 id="7-yang-tidak-diubah-batas-keamanan">7. YANG <strong>TIDAK</strong> DIUBAH (batas keamanan)</h2>
+<p>Perubahan R1–R3 adalah <strong>pengukuran, pencatatan, dan pengaman</strong> — bukan pelonggaran:</p>
+<ul>
+<li>❌ Gate T1 <strong>utuh, tidak dilonggarkan</strong></li>
+<li>❌ <strong>Tanpa leverage</strong> tambahan, <strong>tanpa filter</strong> baru</li>
+<li>❌ <strong>Target tidak diubah</strong> (0,8%/48 jam tetap)</li>
+<li>❌ <code>RW_MARGIN_UTIL_CAP</code> <strong>default OFF</strong> → track yang berjalan <strong>tidak berubah</strong></li>
+<li>❌ <code>SODEX_TOTAL_WALLET</code> <strong>tidak diubah</strong> (perubahan parameter fundamental = perlu approval)</li>
+<li>❌ <code>E1</code> <strong>tetap dibekukan</strong> (<code>unfreeze = NO</code>)</li>
+<li>❌ Arm <strong>A1 tetap dimatikan permanen</strong> (keputusan Opsi A sebelumnya)</li>
+<li>✅ Registry trial <strong>append-only &amp; monoton</strong>: <strong>36 → 37</strong>, 0 duplikat, tanpa reset</li>
+<li>✅ Semua tooling riset <strong>read-only</strong> terhadap produksi</li>
+</ul>
+<hr>
+<h2 id="8-langkah-berikutnya-kandidat-wajib-dideklarasikan-didaftarkan-dulu">8. LANGKAH BERIKUTNYA (kandidat — wajib dideklarasikan &amp; didaftarkan dulu)</h2>
+<p>Semuanya <strong>hipotesis sampai diuji</strong>; jangan menyetel ulang setelah melihat hasil.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Hipotesis</th>
+<th>Ambang minimum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S1</strong></td>
+<td>SOL punya edge yang bertahan lintas-waktu (uji forward, ambang ditetapkan lebih dulu)</td>
+<td>n≥30, p&lt;0,05 pada uji <strong>jujur-korelasi</strong>, 3/3 segmen</td>
+</tr>
+<tr>
+<td><strong>S2</strong></td>
+<td>Beban reliabilitas bisa dipindah dari median ke ekor (bentuk distribusi)</td>
+<td>≥3 segmen, p terburuk &lt;0,05, BH-FDR</td>
+</tr>
+<tr>
+<td><strong>S3</strong></td>
+<td>Bobot alokasi berbasis bukti per-simbol mengalahkan alokasi seragam</td>
+<td>diuji OOS, bukan backfit ke data yang sama</td>
+</tr>
+<tr>
+<td><strong>S4</strong></td>
+<td>Memangkas simbol net&lt;0 (13 dari 22) menaikkan reliabilitas <strong>di data baru</strong></td>
+<td>BH-FDR, forward</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Peringatan wajib menyertai S3 &amp; S4:</strong> mengecualikan simbol <strong>setelah</strong> melihat
+hasil adalah bentuk curve-fitting. Keduanya hanya sah kalau diuji pada data
+yang <strong>belum pernah dilihat</strong> saat aturannya ditulis.</p>
+<hr>
+<h2 id="9-lampiran-berkas-bukti">9. LAMPIRAN — BERKAS BUKTI</h2>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/paper_test_realwide_blocked.jsonl</code></td>
+<td>(baru) setiap entry yang diblokir + ATR sebabnya</td>
+</tr>
+<tr>
+<td><code>data/sodex_r3_reliability.json</code></td>
+<td>(baru) seluruh angka R3 + verdict</td>
+</tr>
+<tr>
+<td><code>reports/sodex/sodex_trial_registry.json</code></td>
+<td>registry trial: <strong>37</strong> entri (append-only)</td>
+</tr>
+<tr>
+<td><code>scripts/paper_test_realwide.py</code></td>
+<td>R1 + R2 (audit gerbang, plafon margin, jejak denominator)</td>
+</tr>
+<tr>
+<td><code>scripts/sodex_r3_reliability.py</code></td>
+<td>(baru) mesin R3: max-of-k, BH-FDR, cluster bootstrap, Gini</td>
+</tr>
+<tr>
+<td><code>tests/test_realwide_gate_audit.py</code></td>
+<td>(baru) 10 tes audit gerbang</td>
+</tr>
+<tr>
+<td><code>tests/test_realwide_margin_budget.py</code></td>
+<td>(baru) 22 tes anggaran risiko + provenance</td>
+</tr>
+<tr>
+<td><code>tests/test_sodex_r3_reliability.py</code></td>
+<td>(baru) 15 tes mesin R3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="commit">Commit</h3>
+<table>
+<thead>
+<tr>
+<th>Commit</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>440c7e2</code></td>
+<td>R1 — audit gerbang entry + <strong>koreksi klaim D12</strong></td>
+</tr>
+<tr>
+<td><code>4a3e671</code></td>
+<td>R2 — keselarasan anggaran risiko paper↔live + jejak denominator</td>
+</tr>
+<tr>
+<td><code>be72dac</code></td>
+<td>R3 — reliabilitas REAL-wide + falsifikasi kandidat SOL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="status-suite">Status suite</h3>
+<p>Suite penuh: <strong>4.562 lulus, 1 gagal</strong>. Kegagalan itu
+(<code>tests/test_sodex_spot_farming.py::test_external_event_gate_vetoes_live_before_orderbook</code>)
+<strong>pre-existing</strong> — pada berkas <code>anantara/sodex_farming.py</code> yang <strong>tidak tersentuh</strong>
+oleh R1–R3 (R1/R2 hanya mengubah 4 berkas; R3 hanya menambah 3 berkas baru).
+Kegagalan itu dipicu status kebijakan yang basi (<code>POLICY_UNKNOWN_STATUS_STALE_2379364s</code>),
+bukan oleh pekerjaan ini.</p>
+<hr>
+<p><em>D13 · SoDEX REAL-wide · 05-Okt-2026 · Hermes Anantara v3</em>
+<em>Basis: 237 trade sinyal, 22 simbol, 23 pair terukur, 48 jendela 30 jam.</em>
+<em>Sikap laporan: koreksi kesalahan sendiri lebih berguna daripada membelanya.</em></p>
+</body>
+</html>

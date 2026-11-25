@@ -1,0 +1,15 @@
+[Unit]
+Description=Anantara Sakti - SoDEX PRAREG-17 forward-only rangepos kuintil (hold 48/55 jam, read-only)
+After=network-online.target sodex-klines-forward.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# READ-ONLY: impor mesin beku (rangepos_quintile_validation.py apa adanya), baca
+# data/sodex_klines + data/binance_klines, tulis reports/sodex/RANGEPOS_FORWARD_EVAL.json.
+# Tanpa auth, tanpa order, tidak menyentuh live flag / ambang / target. Leverage 1x.
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/research/rangepos_forward_eval.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_rangepos_forward.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_rangepos_forward.log
+TimeoutStartSec=1800

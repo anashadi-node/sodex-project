@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ledger Kegagalan Lengkap — SoDEX / CEX Anantara Sakti — 2026-10-09</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#151a22; --panel2:#1b2230; --line:#26303f;
+    --ink:#e8edf5; --ink2:#aab6c8; --ink3:#6f7d92;
+    --red:#ff6b6b; --red-bg:#3a1a1e; --amber:#ffc453; --amber-bg:#3a2f14;
+    --green:#5fe08a; --green-bg:#12301f; --gray:#9aa7b8; --gray-bg:#232a36;
+    --blue:#69a8ff; --blue-bg:#152a45;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1120px;margin:0 auto;padding:40px 26px 90px}
+  h1{font-size:30px;line-height:1.25;margin:0 0 8px;letter-spacing:-.02em}
+  h2{font-size:23px;margin:52px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--line);letter-spacing:-.01em}
+  h3{font-size:18px;margin:30px 0 10px;color:#fff}
+  h4{font-size:15.5px;margin:22px 0 8px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
+  p,li{color:var(--ink2)}
+  strong{color:#fff}
+  code{background:#0a0d12;border:1px solid var(--line);border-radius:5px;padding:1px 6px;
+    font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#cfe3ff;word-break:break-word}
+  a{color:var(--blue)}
+  .sub{color:var(--ink3);font-size:14.5px;margin:0 0 26px}
+  .lede{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red);
+    border-radius:10px;padding:18px 20px;margin:22px 0}
+  .lede p{margin:0;color:#f0f3f8;font-size:17px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:16px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:18px 0}
+  .kpi{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .kpi .n{font-size:26px;font-weight:700;color:#fff;letter-spacing:-.02em;display:block;line-height:1.15}
+  .kpi .l{font-size:12.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em}
+  .kpi .m{font-size:12.5px;color:var(--ink3);margin-top:5px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;display:block;overflow-x:auto}
+  thead th{background:var(--panel2);color:#fff;text-align:left;font-size:12.5px;text-transform:uppercase;
+    letter-spacing:.045em;padding:10px 11px;border:1px solid var(--line);white-space:nowrap;position:sticky;top:0}
+  td{padding:9px 11px;border:1px solid var(--line);color:var(--ink2);vertical-align:top}
+  tbody tr:nth-child(even) td{background:#12171f}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .b{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700;
+    letter-spacing:.03em;white-space:nowrap}
+  .b-fal{background:var(--red-bg);color:var(--red);border:1px solid #5c2529}
+  .b-off{background:var(--gray-bg);color:var(--gray);border:1px solid #333d4c}
+  .b-inc{background:var(--amber-bg);color:var(--amber);border:1px solid #5c4a1c}
+  .b-live{background:var(--green-bg);color:var(--green);border:1px solid #1e5133}
+  .b-info{background:var(--blue-bg);color:var(--blue);border:1px solid #23456e}
+  .toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:26px 0}
+  .toc ol{margin:6px 0 0;padding-left:22px;columns:2;column-gap:34px}
+  .toc li{font-size:14.5px;margin:3px 0;break-inside:avoid}
+  .toc a{text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .warn{background:var(--red-bg);border:1px solid #5c2529;border-radius:10px;padding:16px 18px;margin:18px 0}
+  .warn h4{color:var(--red);margin-top:0}
+  .ok{background:var(--green-bg);border:1px solid #1e5133;border-radius:10px;padding:16px 18px;margin:18px 0}
+  .ok h4{color:var(--green);margin-top:0}
+  .note{background:var(--panel2);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 16px;margin:16px 0;font-size:14.5px}
+  .src{font-size:12.5px;color:var(--ink3);font-family:ui-monospace,Menlo,Consolas,monospace}
+  .src b{color:var(--ink2);font-weight:600}
+  hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink3);font-size:13.5px}
+  ul.tight li{margin:5px 0}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+  .print-only{display:none}
+  @media print{
+    body{background:#fff;color:#111}
+    .wrap{max-width:none;padding:0}
+    h2{border-color:#999} p,li,td{color:#222} strong{color:#000}
+    .card,.kpi,.toc,.lede,.warn,.ok,.note{background:#f7f7f7;border-color:#ccc}
+    .toc ol{columns:1}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>LEDGER KEGAGALAN LENGKAP — SoDEX / CEX Anantara Sakti</h1>
+<p class="sub">
+  Tanggal kompilasi: <strong>09-Okt-2026</strong> · Penyusun: Hermes Anantara v3 ·
+  Basis: <strong>1.071 commit</strong>, <strong>1.450 artefak riset</strong> ·
+  Setiap angka di dokumen ini disitir dari berkas nyata (nama berkas dicantumkan).
+  <br>Tidak ada angka yang dikarang, tidak ada hasil yang dibulatkan ke atas, tidak ada ambang yang diubah.
+</p>
+
+<div class="lede">
+  <p><strong>Dokumen ini melakukan satu hal saja:</strong> mencatat — sejujur-jujurnya, selengkap-lengkapnya —
+  <em>setiap</em> jalan, cara, strategi, metode, dan mode yang pernah ditemukan, dianalisis, disimulasikan,
+  atau dijalankan dalam proyek ini, <em>beserta bukti mengapa masing-masing berakhir gagal</em>.
+  Tujuannya bukan menyalahkan siapa pun. Tujuannya: <strong>agar tidak ada satu pun jalur mati
+  yang diulang kembali karena lupa pernah dicoba.</strong></p>
+</div>
+
+<div class="warn" id="koreksi-v2" style="border-left:5px solid var(--red)">
+  <h4 style="margin-top:0">KOREKSI v2 — 09-Okt-2026 (setelah audit independen + verifikasi ulang saya sendiri)</h4>
+  <p style="margin:0 0 10px"><strong>Dua klaim di bawah ini tidak dapat dipertahankan. Saya tarik, dan teks aslinya dibiarkan terlihat (§3b memuat buktinya).</strong></p>
+  <ol class="tight" style="margin-bottom:0">
+    <li><strong>Klaim saya sendiri: &ldquo;$0 modal hilang&rdquo; &rarr; DITARIK.</strong> Itu hanya sah untuk <em>snapshot hari ini</em>
+        (nol posisi, flag live = 0) — bukan untuk sejarah. Saya memakainya untuk menjawab pertanyaan sejarah. Salah, dan saya tarik.</li>
+    <li><strong>Klaim pihak lain: &ldquo;ekuitas jatuh 453,70 &rarr; 21,48 (&minus;95,3%), selisih &minus;$418 tak terjelaskan&rdquo;
+        &rarr; JUGA tidak dapat dipertahankan.</strong> Deret &ldquo;ekuitas&rdquo; itu <em>instrumen rusak</em>:
+        <strong>25 dari 610 catatan = 0,00</strong> (gagal baca) &middot; <strong>83 lompatan &gt;$50 dalam 107 hari</strong>
+        (412,70 &rarr; 0,00 &rarr; 413,46 dalam 3 jam; 468,38 &rarr; 1183,22 dalam 1 menit) &middot;
+        berkas baseline repo sendiri menulis <em>&ldquo;previous baseline was incorrect (old data)&rdquo;</em>.
+        Deret itu tidak bisa membuktikan kehancuran 95% maupun nol kerugian.</li>
+  </ol>
+  <p style="margin:10px 0 0"><strong>Yang MASIH berdiri — dan justru paling penting:</strong>
+  <strong>fee $455,55 dibayar untuk laba $32,60</strong> pada notional $2,5 juta &rarr; <strong>rasio fee : laba = 14 : 1</strong>.
+  Ini dari <em>ledger trade</em>, bukan deret ekuitas. Inilah argumen ekonomi terkuat untuk seluruh rencana:
+  <strong>berhenti trading di horizon tempat biaya mengalahkan keunggulan.</strong>
+  <br><strong>Belum terjawab:</strong> berapa kerugian riil historis — butuh rekonsiliasi venue (aksi #1 rencana), bukan tebakan.</p>
+</div>
+
+<div class="toc">
+  <strong style="color:#fff">Daftar Isi</strong>
+  <ol>
+    <li><a href="#cara">Cara membaca: 3 kelas vonis</a></li>
+    <li><a href="#ringkas">Ringkasan eksekutif (7 poin)</a></li>
+    <li><a href="#modal">Buku besar modal &amp; uang nyata</a></li>
+    <li><a href="#peta">Peta lengkap jalur yang sudah mati</a></li>
+    <li><a href="#sapuan">Empat sapuan besar (108 / 24 / 21 / 57)</a></li>
+    <li><a href="#protokol">20 protokol pra-registrasi (PRAREG 1–19)</a></li>
+    <li><a href="#forward">Forward yang tidak akan sampai ambang</a></li>
+    <li><a href="#akar">Akar kegagalan — 7 akar terukur</a></li>
+    <li><a href="#aritmetika">Aritmetika target: Sharpe yang dituntut</a></li>
+    <li><a href="#salah">Kesalahan saya sendiri (self-audit)</a></li>
+    <li><a href="#tidak">Yang TIDAK gagal (counter-ledger)</a></li>
+    <li><a href="#hidup">Yang masih hidup (3 kandidat)</a></li>
+    <li><a href="#vonis">Vonis &amp; batas jujur</a></li>
+    <li><a href="#lampiran">Lampiran: artefak, rumus, kronologi</a></li>
+  </ol>
+</div>
+
+<h2 id="cara">1. Cara membaca: 3 kelas vonis</h2>
+<p>Kata "gagal" di proyek ini punya tiga arti berbeda. Mencampurnya adalah sumber kebingungan terbesar — jadi dokumen ini memisahkannya sejak awal.</p>
+<table>
+<thead><tr><th>Kelas</th><th>Arti</th><th>Bisa diperbaiki?</th><th>Contoh</th></tr></thead>
+<tbody>
+<tr><td><span class="b b-fal">FALSIFIED</span></td>
+    <td>Sudah diuji dengan data &amp; ambang beku. Hasilnya menolak hipotesis. Jalur <strong>mati permanen</strong> — bukan "belum cukup data".</td>
+    <td><strong>Tidak.</strong> Menunggu tidak akan mengubahnya.</td>
+    <td>Fade H48 (0/16), PRAREG-19 (0/24), cross-sectional (0/36 penyintas)</td></tr>
+<tr><td><span class="b b-off">DITUTUP-STRUKTURAL</span></td>
+    <td>Secara matematis/fisis tidak bisa dieksekusi, terlepas dari hasil ujinya (likuiditas, biaya, kapasitas venue).</td>
+    <td><strong>Tidak</strong>, selama venue &amp; biaya tidak berubah.</td>
+    <td>Cross-sectional 95 nama (top-5 nama = 93,1% volume), maker pasif F2</td></tr>
+<tr><td><span class="b b-inc">INCONCLUSIVE</span></td>
+    <td>Belum ada cukup pengamatan independen. <em>Bukan</em> gagal, <em>bukan</em> berhasil — antrean.</td>
+    <td><strong>Ya</strong> — tapi butuh waktu/data, bukan ide baru.</td>
+    <td>S1 SOL (n=6/30), mv_funding (n_windows 18/20), PRAREG-17 forward</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <strong>Aturan pembeda (dipakai konsisten):</strong> sebuah jalur hanya boleh dicap FALSIFIED bila
+  <em>ambang sudah dibekukan &amp; di-hash sebelum data dilihat</em>, dan hasilnya gagal pada ambang itu.
+  Bila ambang diubah setelah melihat hasil, itu bukan sains — dan dokumen ini menandainya sebagai kesalahan
+  (§10), bukan sebagai hasil.
+</div>
+
+<h2 id="ringkas">2. Ringkasan eksekutif — 7 poin jujur</h2>
+<div class="grid">
+  <div class="kpi"><span class="n">0 / 24</span><span class="l">PRAREG-19 lolos</span><div class="m">α median −0,51 bps · terbaik +7,63 bps (bar 32)</div></div>
+  <div class="kpi"><span class="n">0 / 36</span><span class="l">Baterai stabilitas</span><div class="m">kandidat terbaik 108-sel mati di sini</div></div>
+  <div class="kpi"><span class="n">0 / 21</span><span class="l">Mesin lolos sensus P9</span><div class="m">1 kandidat kurang n (mv_funding)</div></div>
+  <div class="kpi"><span class="n">0 / 57</span><span class="l">Simbol LightGBM layak promosi</span><div class="m">null-nya duduk di ~50% (alat ukur sehat)</div></div>
+  <div class="kpi"><span class="n">0 / 16</span><span class="l">Fade H48 (2 venue)</span><div class="m">+0/16 × rezim makro (3 uji)</div></div>
+  <div class="kpi"><span class="n">BELUM PASTI</span><span class="l">Modal hilang (sejarah)</span><div class="m">instrumen pengukur rusak &mdash; lihat KOREKSI v2</div></div>
+</div>
+
+<ol class="tight">
+<li><strong>Pertanyaan &ldquo;rugi berapa&rdquo; masih TERBUKA.</strong> Klaim saya &ldquo;$0 hilang&rdquo; saya tarik (lihat KOREKSI v2): itu snapshot hari ini, bukan sejarah. Yang pasti: tidak ada posisi terbuka, semua flag live = 0, dan instrumen pengukur kerugian kita rusak (§3b).</li>
+<li><strong>11 keluarga directional alpha sudah difalsifikasi</strong> dan <strong>2 jalur ditutup secara struktural</strong> (§4). Yang tersisa bukan "strategi arah yang lebih pintar", melainkan satu kelas yang berbeda fundamental: <strong>carry/funding (delta-netral)</strong>.</li>
+<li><strong>Empat sapuan besar</strong> (108 sel, 24 sel, 21 mesin, 57 simbol) semuanya berakhir nol — bukan karena kalibrasi, tapi karena <strong>rasio biaya-terhadap-edge</strong> (edge kotor ≈ 0,4–1,5 bp vs biaya 8 bp).</li>
+<li><strong>Penyumbat sejati sudah diberi nama dan angka:</strong> mutu sinyal (Sharpe), dan jumlah episode independen (N<sub>eff</sub> = 6,1). Bukan kekurangan data historis, bukan target, bukan leverage.</li>
+<li><strong>Saya menemukan dan mencatat 9 kesalahan saya sendiri</strong> (§10) — termasuk dua kesalahan rumus target yang menggeser ambang dari 95,4 → 48,3 → 43,4 bps. Semuanya dilaporkan sebelum dipakai untuk keputusan uang.</li>
+<li><strong>Forward yang masih berjalan secara aritmetika tidak akan mencapai ambangnya</strong> sebelum HARD_STOP 20-Nov-2026 (§7) — dan itu sudah dideklarasikan terbuka di masing-masing dokumen, bukan disembunyikan.</li>
+<li><strong>Yang tidak gagal itu nyata dan berharga:</strong> integritas data (sidik-jari, korelasi 0,999 vs Binance), disiplin uji (32 tes), dan seluruh modal utuh. Kita membeli informasi dengan waktu, bukan dengan uang.</li>
+</ol>
+
+<h2 id="modal">3. Buku besar modal &amp; uang nyata</h2>
+<p>Ini bagian yang paling sering disalahpahami. Mari lihat angka nyata pada 09-Okt-2026, 13:26 UTC.</p>
+<table>
+<thead><tr><th>Pos</th><th>Sumber</th><th>Nilai</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td>Saldo wallet HL (total)</td><td class="src">data/ground_truth.json</td><td class="num">$7,93 USDC</td><td>spot + perps; tidak ada margin terpakai</td></tr>
+<tr><td>Posisi terbuka</td><td class="src">data/ground_truth.json</td><td class="num">0</td><td><code>n_open_hl_total = 0</code></td></tr>
+<tr><td>Perubahan modal teramati</td><td class="src">data/ground_truth.json</td><td class="num">$0,00</td><td><code>capital_delta_observed_usd = 0,0</code></td></tr>
+<tr><td>Flag live</td><td class="src">data/ground_truth.json</td><td class="num">0 semua</td><td>AUTOTRADE / PREGAIN / SODEX_SPOT_FARM / FUNDING = <code>"0"</code></td></tr>
+<tr><td>PnL uang-nyata terverifikasi sejak live</td><td class="src">D15_SENSUS_EDGE_FULL</td><td class="num">−$22,69</td><td>dari <strong>8 trade</strong>, WR 3/8 → <strong>tidak signifikan</strong> (n terlalu kecil)</td></tr>
+<tr><td>Klaim "rugi $−403"</td><td class="src">D15_SENSUS_EDGE_FULL</td><td class="num">DIBANTAH</td><td>tidak didukung ledger; klaim itu ditolak sendiri oleh census</td></tr>
+<tr><td>Snapshot akun SoDEX (06-Sep)</td><td class="src">sodex_wallet_forensic_7d_20260906</td><td class="num">$95,02</td><td>available margin $45,09 — akun percobaan</td></tr>
+<tr><td>Sizing live vs target</td><td class="src">SODEX_DOUBLE_AUDIT_TARGET 05-Sep</td><td class="num">+0,4522%</td><td>$30 @3× = <strong>65% dari target</strong> → <em>secara matematis tak bisa capai target</em></td></tr>
+</tbody>
+</table>
+<div class="ok">
+  <h4>Konsekuensi yang harus dinyatakan terang-terangan</h4>
+  <p style="margin:0">Karena semua flag live <code>0</code> dan tidak ada posisi terbuka, maka
+  <strong>setiap "kegagalan" dalam dokumen ini terjadi di atas kertas, bukan di atas uang.</strong>
+  Ini bukan kegagalan finansial. Ini kegagalan <em>hipotesis</em> — dan itu jenis kegagalan yang
+  seharusnya kita inginkan, karena biayanya nol.</p>
+</div>
+<p class="src"><b>Catatan:</b> snapshot forensik SoDEX 27-Jul-2026 memetakan 18 alamat berbeda (window 7 hari);
+sebagian berlabel <code>INACTIVE_OR_NO_RECENT_PERPS</code>. Tidak ada satu pun posisi tersisa hari ini.</p>
+
+<h3 id="modal-3b">3b. Bukti: mengapa &ldquo;kehancuran &minus;95%&rdquo; tidak dapat dipercaya</h3>
+<p class="src"><b>Sumber:</b> data/capital_report.jsonl (610 catatan, 24-Jun &rarr; 09-Okt-2026) &middot; data/capital_baseline.json</p>
+<table>
+<thead><tr><th>Uji pada deret &ldquo;ekuitas&rdquo;</th><th class="num">Hasil</th><th>Arti</th></tr></thead>
+<tbody>
+<tr><td>Catatan bernilai <strong>tepat 0,00</strong></td><td class="num">25 / 610 (4,1%)</td><td>Gagal baca saldo, bukan saldo nol: <code>equity_valid=None</code>, <code>equity_source=None</code></td></tr>
+<tr><td>Lompatan &gt;$50 antar-catatan</td><td class="num"><strong>83</strong> kali / 107 hari</td><td>Setara akun $400 naik-turun $100&ndash;$300 beberapa kali sehari, 3 bulan</td></tr>
+<tr><td>12-Jul</td><td class="num">412,70 &rarr; 0,00 &rarr; 413,46</td><td>3 jam. Kalau uang nyata: bangkrut lalu pulih dalam satu hari</td></tr>
+<tr><td>31-Jul</td><td class="num">10,43 &rarr; 236,43</td><td>+$226 dalam 4 jam tanpa trade tercatat</td></tr>
+<tr><td>24-Jun</td><td class="num">468,38 &rarr; 1183,22</td><td>+$715 dalam <strong>1 menit</strong></td></tr>
+<tr><td>Pengakuan repo sendiri</td><td class="num">&mdash;</td><td><code>capital_baseline.json</code>: <em>&ldquo;Previous baseline was incorrect (old data)&rdquo;</em></td></tr>
+</tbody>
+</table>
+<div class="warn">
+<h4>Kesimpulan rekonsiliasi &mdash; jujur ke dua arah</h4>
+<ul class="tight" style="margin-bottom:0">
+<li><strong>&ldquo;Akun kehilangan ~$418&rdquo; tidak terbukti</strong> &mdash; bersandar pada deret rusak.</li>
+<li><strong>&ldquo;Tidak ada uang hilang&rdquo; juga tidak terbukti</strong> &mdash; hanya snapshot hari ini.</li>
+<li><strong>Yang benar:</strong> instrumen pengukur tidak valid &rarr; kerugian historis <strong>belum terjawab</strong>. Butuh data venue (fills, funding, transfer 1&ndash;31 Jul 2026).</li>
+<li><strong>Yang solid:</strong> fee : laba = <strong>14 : 1</strong> dari ledger trade &mdash; tidak bergantung pada deret ekuitas.</li>
+</ul>
+</div>
+
+<h2 id="peta">4. Peta lengkap jalur yang sudah mati</h2>
+<p>Bagian ini adalah inti dokumen: <strong>seluruh ruang pencarian yang pernah disisir</strong>, satu baris per jalur, dengan angka dan berkasnya.</p>
+
+<h3>4a. Keluarga directional alpha — 11 jalur, semua FALSIFIED</h3>
+<p class="src"><b>Sumber:</b> docs/sodex/SODEX_INVENTARIS_KELUARGA_SINYAL_2026-10-08.md (Opsi C, keputusan Mas Anas 08-Okt)</p>
+<table>
+<thead><tr><th>#</th><th>Keluarga / metode</th><th>Uji</th><th>Hasil</th><th>Vonis</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Fade H48 (teknikal cermin)</td><td>TA7 + TA10</td><td><strong>0/16 + 0/16</strong> (2 venue)</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>2</td><td>Fade H48 × rezim makro BTC (3-state)</td><td>TA13 + TA14 + TA15</td><td><strong>0/18 + 0/18 + 0/18</strong> (termasuk setelah backfill data ke 2024)</td><td><span class="b b-fal">FALSIFIED</span> — fade H48 resmi tutup</td></tr>
+<tr><td>3</td><td>Cross-sectional 12 mekanisme</td><td>PANEL_PANJANG</td><td><strong>n_pass = 0</strong> (H24/H48 × 2 venue)</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>4</td><td>Trend / momentum (top4-h7, strong_24h_trend, vol_above_avg)</td><td>uji 3-segmen</td><td><strong>0 valid</strong> — 4 "lolos" sebelumnya dikoreksi sebagai false-pass</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>5</td><td>Mean-reversion pasca-breakout</td><td>ALT2 H5</td><td>arah <strong>BERLAWANAN</strong> dari hipotesis (p = 0,001)</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>6</td><td>Cross-sectional desil (92 pasar)</td><td>ALT3</td><td>"lolos" = <strong>artefak likuiditas</strong> (edge hanya di equity-tokenized/illikuid)</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>7</td><td>Lead-lag Binance→SoDEX (menit)</td><td>SPEC4 H9</td><td><strong>0 sel</strong>; edge kotor ≈ <strong>+0,4 bp</strong> vs biaya 8 bp</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>8</td><td>Order-flow native (menit)</td><td>SPEC4 H10</td><td><strong>0 sel</strong>; edge kotor ≈ <strong>+0,4 bp</strong></td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>9</td><td>Maker pasif (spread capture)</td><td>F2 (evaluasi #43)</td><td>adverse selection <strong>+</strong> spread &lt; fee → ditutup <em>pada tahap desain</em></td><td><span class="b b-off">DITUTUP-STRUKTURAL</span></td></tr>
+<tr><td>10</td><td>Exit geometry RANGEPOS</td><td>TA11, PRAREG-3/4/5</td><td><strong>0/10</strong>, 0 lolos dari 7 checks PRAREG-5</td><td><span class="b b-fal">FALSIFIED</span></td></tr>
+<tr><td>11</td><td>SOL forward</td><td>S1</td><td>n = 6 dari 30 jendela yang dibutuhkan (<strong>20%</strong>)</td><td><span class="b b-inc">INCONCLUSIVE</span></td></tr>
+</tbody>
+</table>
+<div class="note">
+  <strong>Pola lintas-putaran (kalimat kunci dari inventaris):</strong> "setiap arsitektur yang mengasumsikan
+  <em>directional edge</em> bersih setelah biaya taker 8 bp pada horizon ≤48 jam gagal — bukan karena kalibrasi,
+  tapi karena <strong>rasio biaya-terhadap-edge</strong>: edge kotor terukur ≈ 0,4–1,5 bp/posisi vs biaya 8 bp."
+  Mari terjemahkan: kalau keunggulan kotormu 1 bp dan biaya masuk-keluar 8 bp, kamu butuh <strong>8× keunggulan</strong> hanya untuk impas. Semua keluarga di atas kalah di titik itu.
+</div>
+
+<h3>4b. Jalur yang dibunuh karena <em>isinya</em>, bukan karena untungnya</h3>
+<table>
+<thead><tr><th>Jalur</th><th>Kenapa ditutup</th><th>Angka pemutus</th><th>Berkas</th></tr></thead>
+<tbody>
+<tr><td><strong>Cross-sectional SoDEX 1 jam</strong> (market-neutral, 95 nama)</td>
+    <td>Dibunuh <strong>tiga uji independen</strong>: (1) stabilitas, (2) kelas aset, (3) kapasitas venue</td>
+    <td>kripto murni <strong>−6,35</strong> (t=−0,90) · setengah likuid <strong>−4,46</strong> (t=−0,61) · top-5 nama = <strong>93,1%</strong> volume · hanya <strong>3 dari 99</strong> nama punya ≥$100 rb/jam</td>
+    <td class="src">PENUTUPAN_JALUR_CROSS_SECTIONAL.md · HASIL_SWEEP_EKSTREM_2026-10-09.md</td></tr>
+<tr><td><strong>MOM_L21 dibalik</strong> — kandidat TERKUAT yang pernah muncul</td>
+    <td>Lolos gerbang, lalu <strong>saya bunuh sendiri</strong> dengan baterai 4 saringan</td>
+    <td>net <strong>+25,09 bps</strong> (32% target) &amp; t=4,59 — tapi: tanda berbalik di 4 potongan (<strong>+8,2 / −9,4 / +5,8 / −7,3</strong>) · 5 window terbaik = <strong>58%</strong> total net (buang 10 teratas → <strong>−0,40</strong>) · gagal di nama likuid</td>
+    <td class="src">STABILITY_BATTERY.json · SWEEP_EKSTREM_K1K4.json</td></tr>
+<tr><td><strong>MOM_L21</strong> sebagai artefak venue</td>
+    <td>Kontra-uji lintas-venue: efeknya <strong>tidak ada</strong> di venue likuid</td>
+    <td>Binance 1h: <strong>+7,85 bps, t=1,20, tanda BERLAWANAN</strong> dengan SoDEX (−24,91, t=−2,47)</td>
+    <td class="src">MOM_L21_LIKUIDITAS.json</td></tr>
+<tr><td><strong>Estimasi target dari 376 trade</strong> (kesalahan metode)</td>
+    <td>Jendela 48 jam ditumpuk per-trade → menghasilkan angka <strong>3,1× target</strong> yang palsu</td>
+    <td>374 window dari 376 trade → median <strong>+2,48%/48h</strong>; <em>bucket disjoint</em> yang benar → <strong>+1,41%</strong></td>
+    <td class="src">sodex_lane_target_projection.json</td></tr>
+</tbody>
+</table>
+<div class="warn">
+  <h4>Bukti langsung "harga basi" — mengapa edge semu muncul</h4>
+  <p>Fraksi bar 1 jam dengan return <strong>tepat nol</strong> (harga tidak bergerak sama sekali):</p>
+  <table style="margin:10px 0">
+  <thead><tr><th>Nama</th><th class="num">bar nol</th><th>Nama</th><th class="num">bar nol</th></tr></thead>
+  <tbody>
+  <tr><td>TON</td><td class="num">31%</td><td>META</td><td class="num">19%</td></tr>
+  <tr><td>BASED</td><td class="num">29%</td><td>GOOGL</td><td class="num">17%</td></tr>
+  <tr><td>NATGAS</td><td class="num">22%</td><td>US500</td><td class="num">16%</td></tr>
+  <tr><td>MSFT / AMZN / AAPL</td><td class="num">19%</td><td><strong>median 94 nama</strong></td><td class="num"><strong>1,3%</strong></td></tr>
+  </tbody></table>
+  <p style="margin:0">Sepuluh nama teratas hampir semuanya <strong>tokenized equity/komoditas</strong> —
+  persis kelas aset tempat "edge" bersembunyi. Nama-nama itu <strong>12–15× lebih sering tidak bergerak</strong>
+  daripada nama biasa. Artinya: "reversal 21 jam" di bucket itu adalah <em>mean-reversion mekanis dari harga
+  yang tidak diperbarui</em> (quote bounce), <strong>bukan salah harga yang bisa dipanen</strong>.</p>
+</div>
+
+<h3>4c. Mode dan keluarga yang diuji pada mesin CEX / track lain</h3>
+<table>
+<thead><tr><th>Mode / uji</th><th>Metode</th><th>Hasil</th><th>Vonis</th><th>Berkas</th></tr></thead>
+<tbody>
+<tr><td>Falsifikasi model LightGBM 48 jam (<code>sodex_model_server</code>)</td><td>57 simbol</td><td><strong>TIDAK ADA SATU PUN dari 57 simbol layak dipromosikan.</strong> 6 kandidat lemah pun gagal BH-FDR. Null duduk di ~50% → alat ukur sehat, jadi "gagal" ini bukan karena alat rusak</td><td><span class="b b-fal">FALSIFIED</span></td><td class="src">D09_FALSIFIKASI_MODEL_LIGHTGBM</td></tr>
+<tr><td>"Panen exit-capture" (hipotesis prioritas-0)</td><td>A/B 3 arm, 59,6 hari</td><td>Geometri exit ATR-adaptif <strong>kalah</strong> dari kontrol; gate ATR>2% <strong>bukan</strong> penyebabnya. Kesimpulan saya sendiri di D10 <strong>SALAH</strong></td><td><span class="b b-fal">FALSIFIED</span></td><td class="src">D11_PRIORITY0_EXIT_CAPTURE_FALSIFIED</td></tr>
+<tr><td>Gate vol ATR pada lane realwide</td><td>audit struktur return</td><td><code>atr_pct</code> <strong>hilang pada 89% trade</strong> → gate "ON" praktis tidak pernah aktif → <strong>membatalkan kesimpulan A/B sebelumnya</strong></td><td><span class="b b-fal">BUG DITEMUKAN</span></td><td class="src">D12_STRUKTUR_RETURN_REALWIDE</td></tr>
+<tr><td>Exit parsial (0,5% / 0,75% / 1,0% / 1,5% / 2,0%)</td><td>5 varian, n=245</td><td>Median trade naik (−0,044% → +0,248%) <strong>tetapi gagal ketahanan 3 segmen</strong> (S2 &lt; 0). P(med≤0) = 0,28–0,33</td><td><span class="b b-fal">REJECTED</span></td><td class="src">sodex_trial_registry.json</td></tr>
+<tr><td>Rezim/gerbang G1–G5 pada lane twoway</td><td>5 gerbang</td><td>Semua <strong>gagal <code>cost2x_positive</code></strong> (n = 227–242 per gerbang)</td><td><span class="b b-fal">FALSIFIED</span></td><td class="src">sodex_trial_registry.json</td></tr>
+<tr><td>Filter entry LONG (above_sma24, minor_pullback, rsi_mid, strong_24h_trend, vol_above_avg + kombinasi)</td><td>22 uji</td><td>5 "passed" awal = false-pass (n kecil, kombinasi persis); setelah 3-segmen → <strong>0 valid</strong></td><td><span class="b b-fal">FALSIFIED</span></td><td class="src">sodex_trial_registry.json</td></tr>
+<tr><td>Kandidat SOL (R3 symbol reliability)</td><td>22 simbol, n=237</td><td>p<sub>seleksi</sub> = 0,0346 lolos, <strong>tapi</strong> p cluster-per-hari = <strong>0,5041</strong> dan p berpasangan = <strong>0,7866</strong> → gugur</td><td><span class="b b-fal">DIFALSIFIKASI</span></td><td class="src">D13_KOREKSI_D12_DAN_R1_R3</td></tr>
+<tr><td>Model LightGBM directional (CEX)</td><td>T1 gate</td><td>T1 <strong>tidak dapat dilampaui</strong> track yang tersedia pada rezim BULL/CHOP. "Bukan kegagalan data atau bug — temuan struktural"</td><td><span class="b b-off">STRUKTURAL</span></td><td class="src">D06_BREAKDOWN_PER_SISI</td></tr>
+<tr><td>RCA filter &amp; faktor (D07/D08)</td><td>12 kandidat filter</td><td>"Yang berubah adalah <strong>PASAR, bukan mesin</strong>". Verdict T1 <strong>tetap tidak lolos</strong> setelah semua perbaikan</td><td><span class="b b-fal">FALSIFIED</span></td><td class="src">D07 · D08</td></tr>
+<tr><td>Dokumen <em>Swing Strategies v1</em> (eksternal)</td><td>audit kritis</td><td>"Rekomendasi utamanya menunjuk ke arah yang <strong>sudah kita buktikan gagal</strong>" → jangan diadopsi apa adanya</td><td><span class="b b-off">DITOLAK</span></td><td class="src">D10_ANALISIS_DOKUMEN_SWING_STRATEGIES</td></tr>
+</tbody>
+</table>
+
+<h3>4d. Tiga klaim target yang diuji dan gugur</h3>
+<table>
+<thead><tr><th>Klaim</th><th>Uji</th><th>Hasil</th><th>Berkas</th></tr></thead>
+<tbody>
+<tr><td>"Target 0,7% dulu sering terlampaui"</td><td>Rekonsiliasi 3 metrik dashboard</td><td>Dashboard memakai <strong>3 metrik berbeda</strong>; hanya 1 kanonik. Verdict dashboard sendiri: <strong>NO-GO</strong> (<code>window_median&gt;0</code> dan <code>window_hit≥50%</code> gagal)</td><td class="src">TARGET_ACHIEVEMENT_RECONCILE_2026-10-01.md</td></tr>
+<tr><td>"Ada sub-populasi dengan alpha positif"</td><td>~37 sel n≥30, BH-FDR</td><td><strong>PROMOTE = NONE.</strong> Alpha book keseluruhan <strong>−0,057 pp/trade</strong>. Kontrol negatif terkalibrasi (positif palsu ≈5%) → hasil ini bukan cacat alat</td><td class="src">ALPHA_SUBPOP_PREREG_RESULT_2026-10-01.md</td></tr>
+<tr><td>"Exit terlalu dini = penyebab rugi" (lever exit)</td><td>donchian &amp; realwide</td><td><strong>PROMOTE = NONE.</strong> Tidak ada lever exit yang boleh di-deploy</td><td class="src">EXIT_EARLY_PREREG_RESULT_2026-10-01.md</td></tr>
+</tbody>
+</table>
+
+<h2 id="sapuan">5. Empat sapuan besar — dan mengapa semuanya nol</h2>
+
+<h3>Sapuan 1 — PRAREG-18: 108 sel, 10 mekanisme × 3 panel × 2 hold × 2 arah</h3>
+<table>
+<thead><tr><th>Tahap</th><th>Ambang beku</th><th>Hasil</th></tr></thead>
+<tbody>
+<tr><td>Gerbang (BH-FDR q=0,10 atas 108 sel)</td><td>net&gt;0, turnover ≤1,5, |t<sub>ctrl</sub>|&lt;2, t≥1,96, S<sub>ann</sub>≥2,3, S<sub>fee2x</sub>≥1,8</td><td><strong>2 lolos</strong>: <code>-MOM_L21</code> H48 <strong>+25,09 bps</strong> (t=4,59) dan H24 <strong>+18,92</strong> (t=4,63)</td></tr>
+<tr><td><strong>Baterai stabilitas</strong> (4 saringan, post-hoc, hanya untuk membunuh)</td><td>tanda konsisten 4 potongan · |t|≥2 · 5 window terbaik &lt;35% · net&gt;0 di setengah nama likuid</td><td><strong>0 dari 36 penyintas.</strong> 20 sel (56%) mati karena tanda berbalik; 12 karena outlier-driven; 4 gagal di nama likuid</td></tr>
+<tr><td>Dekomposisi kelas aset</td><td>—</td><td>kripto murni (51 nama) <strong>−6,35</strong> (t=−0,90) → edge hanya di tokenized equity</td></tr>
+<tr><td>Dekomposisi likuiditas</td><td>—</td><td>setengah likuid (47 nama) <strong>−4,46</strong> (t=−0,61) → edge hanya di setengah illikuid</td></tr>
+<tr><td>Kapasitas</td><td>—</td><td>$2,4 jt/jam total, top-5 = 93,1%, hanya 3 nama ≥$100 rb/jam → <em>"tujuan edge = kolam tanpa air"</em></td></tr>
+</tbody>
+</table>
+<p class="src"><b>Sumber:</b> docs/sodex/HASIL_SWEEP_EKSTREM_2026-10-09.md · reports/sodex/{SWEEP_EKSTREM_K1K4,STABILITY_BATTERY,MOM_L21_LIKUIDITAS}.json</p>
+
+<h3>Sapuan 2 — PRAREG-19: 24 sel directional majors (DIJALANKAN HARI INI, 09-Okt)</h3>
+<table>
+<thead><tr><th>Mekanisme</th><th>Definisi</th><th>Hasil (24 sel)</th></tr></thead>
+<tbody>
+<tr><td>M1 BRK_DONCHIAN</td><td>close &gt; max(high,24) → long; &lt; min(low,24) → short; hold 48j</td><td rowspan="4" style="vertical-align:middle">
+  <strong>0 dari 24 sel lolos gerbang.</strong><br>
+  <strong>0 dari 24 lolos baterai.</strong><br>
+  α median = <strong>−0,51 bps</strong>.<br>
+  Terbaik = <strong>+7,63 bps</strong> (M1 · ETH · long, t=1,65, eksposur 0,07) → <strong>4,2× di bawah bar 32</strong>.<br>
+  <strong>Kontrol drift BERSIH: |β| ≤ 0,10 di seluruh 24 sel</strong> → hasil nol ini <em>bukan</em> artefak tahun turun.<br>
+  M2 (turnover 0,81) membayar ±4,5 bps/observasi hanya untuk pembalikan posisi.
+</td></tr>
+<tr><td>M2 MA_SLOPE</td><td>tanda slope EMA21 &amp; EMA63 searah → posisi searah</td></tr>
+<tr><td>M3 FADE_Z48</td><td>z=(close−MA48)/sd48; fade bila |z|≥1,5</td></tr>
+<tr><td>M4 VOL_GATE_BRK</td><td>M1 hanya bila ATR% 24j di kuartil bawah 90 hari</td></tr>
+</tbody>
+</table>
+<p class="src"><b>Sumber:</b> reports/sodex/PRAREG19_HASIL.json · docs/sodex/PRAREG_19_HASIL_PENUTUPAN.md · commit <code>d43d600</code>.
+Holdout 1-Agu→9-Okt-2026 (1.644 bar) <strong>tidak disentuh</strong>; ambang tidak disetel; sel tidak ditambah.</p>
+
+<h3>Sapuan 3 — Sensus 21 mesin (D15) &amp; P9 re-eval</h3>
+<table>
+<thead><tr><th>Item</th><th>Angka</th><th>Vonis</th></tr></thead>
+<tbody>
+<tr><td>Mesin lolos P9 dari 21</td><td><strong>0</strong></td><td><span class="b b-fal">TIDAK-ADA-MESIN-LULUS</span></td></tr>
+<tr><td>Kandidat tersisa</td><td><code>mv_funding</code> (carry, delta-netral) — <strong>satu-satunya</strong></td><td>gagal <strong>hanya</strong> karena n_windows <strong>15 &lt; 20</strong></td></tr>
+<tr><td>BH-FDR atas keluarga</td><td><strong>0/6</strong> lolos sebelum n cukup</td><td>jalur = lengkapi data, bukan ubah ambang</td></tr>
+<tr><td>P9 re-eval terakhir (09-Okt 11:54)</td><td>n=106, n_windows=<strong>18</strong>, mean48 +1,158%, S<sub>48h</sub>=0,344, S<sub>ann</sub>=4,64, p<sub>window</sub>=0,0049, p<sub>day-cluster</sub>=0,0757</td><td><span class="b b-inc">BELUM_CUKUP_DATA</span></td></tr>
+</tbody>
+</table>
+<p class="src"><b>Sumber:</b> D15_SENSUS_EDGE_FULL_2026-10-05.md · reports/sodex/P9_RERUN_registry.jsonl</p>
+
+<h3>Sapuan 4 — Falsifikasi model ML (57 simbol)</h3>
+<p>Verdict: <strong>TIDAK ADA SATU PUN dari 57 simbol yang layak dipromosikan</strong>; enam kandidat lemah pun gagal BH-FDR.
+Yang penting: <strong>pipeline tidak menghasilkan positif palsu secara sistematis</strong> (null ≈ 50%) — sehingga "gagal" di sapuan ini <em>bukan</em> akibat alat ukur yang rusak.</p>
+<p class="src"><b>Sumber:</b> docs/sodex/D09_FALSIFIKASI_MODEL_LIGHTGBM_2026-10-05.md (didukung tests/test_sodex_model_falsification.py)</p>
+
+<h2 id="protokol">6. Dua puluh protokol pra-registrasi — dan vonis masing-masing</h2>
+<p>Protokol pra-registrasi (PRAREG) adalah janji: <em>ambang ditulis &amp; dibekukan sebelum data dilihat</em>. Berikut daftarnya apa adanya.</p>
+<table>
+<thead><tr><th>#</th><th>Yang diuji</th><th>Vonis / status</th></tr></thead>
+<tbody>
+<tr><td>PRAREG-2</td><td>RANGE_POSITION (range posisi)</td><td><span class="b b-fal">gagal</span> — turun ke PRAREG-3/4</td></tr>
+<tr><td>PRAREG-3</td><td>Reversal-21 IS/OOS</td><td><span class="b b-fal">0 lolos</span></td></tr>
+<tr><td>PRAREG-4</td><td>RANGEPOS SoDEX 1h</td><td><span class="b b-fal">gagal</span> (+ addendum null)</td></tr>
+<tr><td>PRAREG-5</td><td>Fill maker SoDEX 1h (7 checks)</td><td><span class="b b-fal">4 dari 7 check GAGAL</span> (net OOS, kontrol bruto, segmen OOS, segmen terkini, p<sub>terburuk</sub>)</td></tr>
+<tr><td>PRAREG-7</td><td>Replikasi lintas-venue 1h (Binance USDM vs SoDEX)</td><td><span class="b b-inc">hanya 1 arm lulus R1</span> (RANGEPOS) → lanjut PRAREG-11</td></tr>
+<tr><td>PRAREG-8</td><td>7 sinyal teknikal klasik + komposit konfluensi H48</td><td><span class="b b-fal">0 lolos</span></td></tr>
+<tr><td>PRAREG-9</td><td>Gerbang kontrol acak berbasis t-statistik</td><td>alat kontrol (dipakai), bukan kandidat</td></tr>
+<tr><td>PRAREG-10</td><td>Keluarga FADE (8 mekanisme × hold 24/48)</td><td><span class="b b-fal">FALSIFIED</span> (0/16 × 2 venue)</td></tr>
+<tr><td>PRAREG-11</td><td>Pilar 3 — geometri exit RANGEPOS (satu-satunya arm yang lulus R1)</td><td><span class="b b-fal">0 lolos</span> → exit geometry ditutup</td></tr>
+<tr><td>PRAREG-12</td><td>Forward-only MACD_FADE_H48</td><td><span class="b b-fal">gagal</span></td></tr>
+<tr><td>PRAREG-13/14</td><td>Overlay rezim makro BTC (lambat &amp; cepat) pada fade H48</td><td><span class="b b-fal">0/18 + 0/18</span></td></tr>
+<tr><td>PRAREG-15</td><td>Perpanjang data Binance 1h ke 2024 + uji ulang overlay</td><td><span class="b b-fal">0/18</span> — bahkan dengan 2 tahun data tambahan</td></tr>
+<tr><td>PRAREG-16</td><td>Forward BULL-only MACD_FADE di SoDEX</td><td><span class="b b-inc">TIDAK_KONKLUSIF</span> terdeklarasi (n≈5–8 dari 40)</td></tr>
+<tr><td>PRAREG-17</td><td>Forward rangepos kuintil, hold 48/55j (+amandemen arah REVERSAL)</td><td><span class="b b-inc">forward hidup, <code>bar_fwd=9</code>, verdict TIDAK_KONKLUSIF</span></td></tr>
+<tr><td>PRAREG-18</td><td>Program ekstrem: 12 mekanisme + tuas eksekusi + portofolio korelasi-rendah → target S<sub>ann</sub> ≥ 5,90</td><td><span class="b b-fal">108 sel → 2 lolos → baterai 0/36</span></td></tr>
+<tr><td>PRAREG-19</td><td>Directional majors BTC/ETH/SOL (24 sel)</td><td><span class="b b-fal">0/24</span> (hari ini)</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <strong>Bacaan jujur atas tabel ini:</strong> tidak ada satu pun PRAREG yang "gagal karena ditulis buruk".
+  Protokol-protokol ini justru yang menyelamatkan kita: <em>seri kegagalan yang terukur</em> adalah
+  satu-satunya alasan kita boleh percaya bahwa <em>angka keberhasilan</em> — kalau nanti muncul — juga nyata.
+  Yang jelas hari ini: <strong>setiap protokol mengarah pada keluarga directional alpha, dan keluarga itu habis.</strong>
+</div>
+
+<h2 id="forward">7. Forward yang masih berjalan — dan mengapa aritmetikanya tidak cukup</h2>
+<p>Mode D (kumpulkan bukti) masih hidup. Tapi ada satu kenyataan yang harus dinyatakan tanpa dibungkus:</p>
+<table>
+<thead><tr><th>Forward</th><th>Laju nyata</th><th>Kebutuhan</th><th>Proyeksi @20-Nov-2026</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>F1 momentum (#42)</td><td>1,07 episode/hari</td><td>150</td><td>~47 (<strong>3× kurang</strong>)</td><td><span class="b b-fal">TIDAK CUKUP</span></td></tr>
+<tr><td>Forward episode count (09-Okt, setelah tambah nama)</td><td>3,83 episode/hari</td><td>150</td><td><strong>117 sudah terkumpul → ETD 18-Okt-2026</strong></td><td><span class="b b-inc">mengejar</span></td></tr>
+<tr><td>F3 funding-squeeze + OBI (#44)</td><td>~2,0 onset/hari</td><td>100</td><td>~87 (<strong>borderline</strong>)</td><td><span class="b b-inc">konjungsi langka</span></td></tr>
+<tr><td>PRAREG-16 MACD_FADE | BULL</td><td>1 per 6–8 hari</td><td>40</td><td>n≈5–8</td><td><span class="b b-inc">TIDAK_KONKLUSIF</span></td></tr>
+<tr><td>S1 SOL forward</td><td>—</td><td>30</td><td>n = 6</td><td><span class="b b-inc">INCONCLUSIVE</span></td></tr>
+<tr><td>PRAREG-17 rangepos forward</td><td>timer 6 jam, read-only</td><td>48j penuh</td><td><code>bar_fwd = 9</code></td><td><span class="b b-inc">TIDAK_KONKLUSIF</span></td></tr>
+</tbody>
+</table>
+<div class="warn">
+  <h4>Vonis jujur (kalimat dari dokumen inventaris sendiri)</h4>
+  <p style="margin:0">"Keempat forward di atas — walau sah secara protokol — <strong>secara aritmetika tidak akan
+  mencapai ambang sebelum HARD_STOP</strong>. Ini bukan alasan menurunkan ambang; ini batas empiris:
+  <strong>penyumbat sejati = jumlah episode independen pada horizon jam-ke-hari, bukan ide strategi.</strong>"</p>
+</div>
+
+<h2 id="akar">8. Akar kegagalan — 7 akar terukur</h2>
+<p>Bukan opini. Setiap akar punya angka dan berkasnya.</p>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 1 — Rasio biaya-terhadap-edge (pembunuh paling banyak)</h3>
+<p>Edge kotor terukur pada horizon ≤48 jam: <strong>≈ 0,4–1,5 bp per posisi</strong>. Biaya taker masuk-keluar:
+<strong>8 bp</strong> (2×2,80 bps taker + spread; fee <em>maker</em> pun 1,14 bps/sisi).</p>
+<p><strong>Rasio 5–20× negatif.</strong> Sebagian besar strategi mati <em>sebelum</em> sempat berdebat soal arah.
+Contoh: <code>twoway:LONG</code> punya excess +8,05 bps → setelah biaya 2× menjadi <strong>−7,95 bps</strong> — "gagal hanya karena biaya" (D06).</p>
+<p class="src"><b>Sumber:</b> STRUKTUR_BIAYA_EKSEKUSI_SODEX · D06 · SODEX_48H_CANDIDATE_SCREEN (fee 1× net +6,72 bps)</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 2 — Likuiditas dan edge saling meniadakan</h3>
+<p>Median volume SoDEX: <strong>$2.399.002/jam</strong> untuk seluruh venue. Distribusi:</p>
+<table>
+<thead><tr><th>Nama</th><th class="num">Volume/jam</th><th class="num">Kumulatif</th></tr></thead>
+<tbody>
+<tr><td>BTC</td><td class="num">$1,42 jt</td><td class="num">59,0%</td></tr>
+<tr><td>ETH</td><td class="num">$0,62 jt</td><td class="num">85,0%</td></tr>
+<tr><td>SOL, XAUT, ZEC</td><td class="num">—</td><td class="num"><strong>93,1%</strong></td></tr>
+<tr><td>20 teratas</td><td class="num">—</td><td class="num">99,3%</td></tr>
+</tbody></table>
+<p>Nama dengan ≥$10 rb/jam: <strong>9 dari 99</strong>. ≥$100 rb/jam: <strong>3</strong>.</p>
+<p><strong>Kesimpulan yang sudah terbukti berulang:</strong> <em>"Di mana ada edge, di situ tidak ada likuiditas;
+di mana ada likuiditas, di situ tidak ada edge."</em> Setiap edge yang muncul hanya hidup di tokenized
+equity/illikuid — yaitu kolam yang tidak bisa dieksekusi.</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 3 — Bar Sharpe yang dituntut jauh di atas yang terukur</h3>
+<table>
+<thead><tr><th>Ukuran</th><th class="num">Nilai</th><th>Sumber</th></tr></thead>
+<tbody>
+<tr><td>Sharpe mesin yang <strong>dibutuhkan</strong> (target per-mesin)</td><td class="num"><strong>2,299</strong></td><td class="src">JARAK_KE_TARGET_SODEX.dim1</td></tr>
+<tr><td>Sharpe portfolio yang dibutuhkan</td><td class="num"><strong>4,599</strong></td><td class="src">JARAK_KE_TARGET_SODEX.dim1</td></tr>
+<tr><td>Sharpe mesin terbaik yang pernah <strong>terukur</strong></td><td class="num"><strong>0,75</strong></td><td class="src">JARAK_KE_TARGET_SODEX.summary</td></tr>
+<tr><td>Celanya</td><td class="num"><strong>3,07</strong></td><td class="src">JARAK_KE_TARGET_SODEX.summary.gap_sharpe</td></tr>
+<tr><td>IC dibutuhkan (untuk S=2,3)</td><td class="num">0,0689</td><td class="src">JARAK_KE_TARGET_SODEX.dim3</td></tr>
+<tr><td>IC teramati</td><td class="num">0,036</td><td class="src">JARAK_KE_TARGET_SODEX.dim3</td></tr>
+<tr><td>Rasio teramati/dibutuhkan</td><td class="num"><strong>0,52</strong> (kurang 1,91×)</td><td class="src">JARAK_KE_TARGET_SODEX.dim3</td></tr>
+<tr><td>IC yang dibutuhkan bila N<sub>eff</sub> hanya 2,32</td><td class="num"><strong>0,112</strong> (H2) / 0,177 (H5)</td><td class="src">ANGGARAN_BREADTH_SODEX.ic_needed_sharpe23</td></tr>
+</tbody></table>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 4 — Jumlah taruhan independen (N<sub>eff</sub>) terlalu kecil</h3>
+<ul class="tight">
+<li>N<sub>eff</sub> = <strong>6,1</strong>; PC1 menyerap <strong>64,6%</strong> varians; korelasi pasangan rata-rata <strong>0,595</strong> (median 0,605).</li>
+<li><strong>Taruhan efektif hanya 2,32</strong> dari 76 simbol — artinya menambah nama nyaris tidak menambah taruhan.</li>
+<li>Akibatnya sertifikasi butuh waktu: <strong>132,6 window non-overlapping = 265 hari</strong> untuk 1 mesin tanpa koreksi; <strong>187,4 window = 375 hari</strong> untuk keluarga 5 uji BH q=0,10.</li>
+<li>Konsekuensi langsung: <strong>sertifikasi 0,8% pada 20-Nov-2026 menuntut S<sub>ann</sub> ≥ 5,78</strong> — sementara <strong>S<sub>ann</sub> terbaik yang pernah diukur di proyek ini = 3,06</strong>.</li>
+</ul>
+<p class="src"><b>Sumber:</b> SENSUS_DIVERSIFIKASI_SODEX · JARAK_KE_TARGET_SODEX.dim2 · RANGEPOS_H48_COST_AUDIT.aritmetika_sertifikasi</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 5 — Artefak venue (harga basi) memproduksi "edge" palsu</h3>
+<p>Panel SoDEX bergerak: <code>-MOM_L21</code> H24 terbaca <strong>+18,92</strong> (t=4,63) pukul 18:5x,
+lalu <strong>+8,20</strong> (t=2,04) pukul 19:0x — <strong>tanpa perubahan kode</strong>.
+Sebab: <code>data/sodex_klines/**</code> <strong>ditulis ulang</strong> oleh armada service tiap ~1–2 menit.
+Panel yang sedang berubah + mean yang ditentukan outlier = <strong>hasil tidak reproducible</strong>.
+Perbaikan: <code>klines_snapshot.fingerprint()</code> + <code>--freeze</code>; diuji dua kali → angka identik.</p>
+<p class="src"><b>Sumber:</b> HASIL_SWEEP_EKSTREM_2026-10-09 §7 · PANEL_FINGERPRINT.json · scripts/research/klines_snapshot.py</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 6 — Target itu sendiri: 0,8%/48 jam = 146%/tahun</h3>
+<p>Dengan half-Kelly + disiplin plafon stres, ambangnya terkunci secara matematis:</p>
+<table>
+<thead><tr><th>Target</th><th class="num">Perlu α</th><th>Catatan</th></tr></thead>
+<tbody>
+<tr><td>0,4% / 48 jam (lantai)</td><td class="num"><strong>29,1 bps</strong></td><td>leverage 1,37×; jika di bawah 0,4% → gagal</td></tr>
+<tr><td>0,8% / 48 jam (atas)</td><td class="num"><strong>43,4 bps</strong></td><td>plafon stres R5 mengikat pada 1,79× (BTC)</td></tr>
+<tr><td>Di bawah 10 bps</td><td class="num">tidak deploy</td><td>—</td></tr>
+<tr><td>Terbaik yang pernah terukur (all-time)</td><td class="num">7,63 bps</td><td>kurang 3,8× dari lantai</td></tr>
+</tbody></table>
+<p><strong>Full-Kelly (26,6 bps) sudah ditolak</strong>: jarak likuidasi 33% vs 65% — melanggar aturan R3.
+Artinya target <em>tidak bisa</em> dikejar dengan menaikkan leverage; hanya bisa dikejar dengan menaikkan α.</p>
+<p class="src"><b>Sumber:</b> AMANDEMEN_3_ANALISA_TARGET_040_VS_080.md · AMANDEMEN3_KEPUTUSAN.json · scripts/research/lev_discipline.py</p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Akar 7 — Diversifikasi tidak menyelamatkan (dan ini mengejutkan)</h3>
+<p>Gagasan lama: "kalau satu mesin jelek, gabung 6 mesin supaya Sharpe naik." Data membantahnya:</p>
+<ul class="tight">
+<li>Korelasi antar-kandidat memang <strong>ρ rata-rata −0,049</strong> → multiplier teoretis N=6 = <strong>2,79×</strong>, N=8 = <strong>3,57×</strong>. Matematikanya <em>bagus</em>.</li>
+<li><strong>Namun tidak ada satu pun mesin yang lulus baterai stabilitas.</strong> Menggabungkan mesin yang gugur = <strong>memperbesar artefak</strong>, bukan memperbesar Sharpe.</li>
+<li>Pada kelas aset nyata, korelasi justru tinggi (ρ ≈ 0,7 antar-majors) → bobot portofolio kolaps ke BTC 1,51× saja; ETH/SOL dibuang.</li>
+</ul>
+<p><strong>Kesimpulan:</strong> diversifikasi hanya bernilai bila <em>edge-nya berbeda</em>. Kalau edge-nya belum ada, diversifikasi memperbanyak nol.</p>
+<p class="src"><b>Sumber:</b> SWEEP_EKSTREM_K1K4.K4 · SENSUS_DIVERSIFIKASI_SODEX · AMANDEMEN-3 (koreksi ρ)</p>
+</div>
+
+<h2 id="aritmetika">9. Aritmetika target — mengapa setiap tingkatan menuntut Sharpe tertentu</h2>
+<p>Ini tabel paling penting di seluruh dokumen, karena ia memisahkan <em>harapan</em> dari <em>aritmetika</em>.
+S<sub>ann</sub> = (α/σ) × √182,5.</p>
+<table>
+<thead><tr><th>Profil mesin</th><th>σ<sub>48j</sub></th><th class="num">S<sub>ann</sub> untuk 0,4%</th><th class="num">S<sub>ann</sub> untuk 0,8%</th></tr></thead>
+<tbody>
+<tr><td>BTC selalu di pasar</td><td class="num">3,26%</td><td class="num"><strong>1,21</strong></td><td class="num"><strong>1,80</strong></td></tr>
+<tr><td>ETH selalu di pasar</td><td class="num">4,53%</td><td class="num">1,17</td><td class="num">1,74</td></tr>
+<tr><td>SOL selalu di pasar</td><td class="num">4,77%</td><td class="num">1,13</td><td class="num">1,68</td></tr>
+<tr><td>Profil sel terbaik terukur (eksposur 7%)</td><td class="num">1,40%</td><td class="num"><strong>2,81</strong></td><td class="num"><strong>4,19</strong></td></tr>
+<tr><td><strong>Sharpe terbaik yang berhasil diukur</strong></td><td class="num">—</td><td class="num" colspan="2"><strong>0,74</strong> → kurang 1,6× (lantai) sampai 5,7× (atas)</td></tr>
+</tbody>
+</table>
+<div class="note">
+  <strong>Pembacaan yang benar (dan penting agar tidak salah menyimpulkan):</strong>
+  bar 1,2–1,8 <em>bukan</em> angka mustahil di kripto — itu wilayah carry/arbitrase yang wajar.
+  Yang salah adalah <strong>tempat kita mencarinya</strong>: kita berulang kali mencari edge
+  <em>directional</em> di majors, padahal bar-nya menuntut kelas mekanisme yang berbeda.
+  Inilah kenapa vonis dokumen ini bukan "target mustahil", melainkan
+  <strong>"keluarga directional sudah habis; pindah kelas mekanisme"</strong>.
+</div>
+
+<h2 id="salah">10. Kesalahan saya sendiri — self-audit lengkap</h2>
+<p>Bagian ini wajib ada. Tanpa ini, dokumen ini jadi promosi, bukan sains. Semua kesalahan ini
+<strong>ditemukan, dilaporkan, dan diperbaiki sebelum dipakai untuk keputusan uang</strong> —
+dan jejaknya sengaja dipertahankan, bukan dihapus.</p>
+<table>
+<thead><tr><th>#</th><th>Kesalahan</th><th>Angka keliru → benar</th><th>Dampak</th><th>Sumber</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Menjumlahkan Kelly <strong>per-instrumen</strong>, mengabaikan korelasi antar-majors</td><td>return <strong>95,4 → 48,3 bps</strong>; ambang 0,8%: <strong>29,3 → 41,2 bps</strong></td><td>Target sempat terlihat 2× lebih mudah. Dikoreksi 09-Okt</td><td class="src">commit 966ae4c · AMANDEMEN3_KEPUTUSAN.json</td></tr>
+<tr><td>2</td><td>Lupa plafon stres R5 mengikat <em>sebelum</em> Kelly pada α tinggi</td><td>ambang 0,8%: <strong>41,2 → 43,4 bps</strong>; kurva di atas α≈38 menjadi <strong>linear</strong>, bukan kuadratik</td><td>Perbaikan kedua hari yang sama</td><td class="src">commit cc552e6</td></tr>
+<tr><td>3</td><td>Lupa full-Kelly ditolak (jarak likuidasi 33%)</td><td>26,6 bps <strong>DITOLAK</strong> — hanya sebagai pembanding</td><td>Mencegah rekomendasi leverage berbahaya</td><td class="src">AMANDEMEN-3 §KOREKSI_2</td></tr>
+<tr><td>4</td><td>Menghitung jumlah tes salah di artefak keputusan</td><td><strong>33 → 32 PASS</strong></td><td>Klaim artefak dibetulkan (<code>7b2b6fc</code>)</td><td class="src">AMANDEMEN3_KEPUTUSAN.json</td></tr>
+<tr><td>5</td><td>Kesimpulan saya "prioritas 0 = panen exit" (D10) — <strong>salah</strong></td><td>Falsifikasi: ATR-exit <strong>kalah</strong> dari kontrol; gate-OFF malah sedikit lebih baik</td><td>Dibatalkan sendiri oleh data (D11)</td><td class="src">D11_PRIORITY0_EXIT_CAPTURE_FALSIFIED</td></tr>
+<tr><td>6</td><td>Kesimpulan A/B gate vol <strong>tidak sah</strong> — <code>atr_pct</code> hilang di <strong>89%</strong> trade</td><td>Arm "gate ON" ternyata bukan gate</td><td>Membatalkan hasil sebelumnya; dilaporkan terbuka</td><td class="src">D12_STRUKTUR_RETURN_REALWIDE</td></tr>
+<tr><td>7</td><td>State track hanya menyimpan entry yang <em>lolos</em> → keputusan gerbang <strong>tak bisa difalsifikasi</strong></td><td>Diperbaiki R1 (10 tes baru; REAL-wide 93 lulus / 0 gagal)</td><td>Menutup celah logika</td><td class="src">D13_KOREKSI_D12_DAN_R1_R3</td></tr>
+<tr><td>8</td><td>Estimasi target dari <strong>jendela tumpang-tindih</strong></td><td>374 window dari 376 trade → median <strong>+2,48%/48h (3,1× target)</strong>; versi disjoint yang benar = <strong>+1,41%</strong></td><td>Mencegah klaim "target sudah terlampaui"</td><td class="src">sodex_lane_target_projection.json</td></tr>
+<tr><td>9</td><td>"Target 0,7% dulu sering terlampaui" — <strong>ilusi 3 metrik</strong></td><td>Dashboard memakai 3 metrik; hanya 1 kanonik → verdict NO-GO</td><td>Menjelaskan kebingungan historis secara jujur</td><td class="src">TARGET_ACHIEVEMENT_RECONCILE_2026-10-01.md</td></tr>
+</tbody>
+</table>
+<p class="src"><b>Catatan integritas:</b> pada PRAREG-19 hari ini, saya <em>tidak</em> mengubah ambang beku (32 bps) meskipun tahu ambang target yang dikoreksi adalah 43,4 bps. Mengubah ambang setelah melihat hasil = pelanggaran protokol. Hasilnya dilaporkan apa adanya: 0/24.</p>
+
+<h2 id="tidak">11. Yang TIDAK gagal (counter-ledger)</h2>
+<div class="ok">
+<h4>Ini bukan bagian penghiburan — ini juga fakta terukur</h4>
+<ul class="tight">
+<li><strong>Integritas data SoDEX terbukti.</strong> Kontra-uji Binance jam-sama: BTC −15,1 vs −15,1 (t=−0,42), ETH −22,2 vs −22,9, SOL −26,1 vs −26,1; <strong>korelasi 0,999–1,000</strong>. Binance 1h <strong>24.276 bar sah</strong>. Jadi kesimpulan "tidak ada edge" <em>bukan</em> akibat data rusak.</li>
+<li><strong>Kontrol drift bekerja.</strong> Di seluruh 24 sel PRAREG-19, |β| ≤ 0,10 → hasil kosong itu bebas dari bias pasar. Angka "nol" yang bersih jauh lebih berharga daripada angka "positif" yang kotor.</li>
+<li><strong>Kontrol negatif terkalibrasi.</strong> Positif palsu ≈5% sesuai harapan (6/200 = 3,0%; permutasi 0–1 per sel). Artinya alat ukur kita <em>tidak</em> menghasilkan ilusi berlebih — sehingga hasil gagal bisa dipercaya.</li>
+<li><strong>Tidak ada posisi terbuka; flag live = 0.</strong> Namun angka &ldquo;modal utuh / $0 hilang&rdquo; <strong>tidak dapat dipertahankan</strong> (§3b). Yang sah: tidak ada kerugian yang <em>terverifikasi</em>; jumlah kerugian historis belum dapat ditentukan.</li>
+<li><strong>Mesin operasional hidup.</strong> Belasan timer/watchdog berjalan (realsync, regime nowcast, swing-deep-learner, sentiment, adaptive-gate, dll.) meski tidak ada satu pun yang bertrading uang.</li>
+<li><strong>Disiplin jadi kode, bukan niat.</strong> <code>lev_discipline.py</code> (R1–R5 + portofolio), <code>klines_snapshot.fingerprint()</code>, baterai stabilitas, dan <strong>32 tes PASS</strong> — aturan tidak lagi bergantung pada ingatan.</li>
+</ul>
+</div>
+
+<h2 id="hidup">12. Yang masih hidup — 3 kandidat (dari inventaris 08-Okt)</h2>
+<table>
+<thead><tr><th>#</th><th>Kandidat</th><th>Kelas</th><th>Bukti saat ini</th><th>Gap yang tersisa</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>C1</td><td><strong>mv_funding</strong> (funding carry)</td><td>CARRY, delta-netral</td><td>S<sub>thn</sub> 8,06 · 3/3 segmen positif · p<sub>day</sub> 0,0359 · n_windows <strong>15/20</strong> (kini 18/20)</td><td><strong>+2 jendela ≈ 4 hari data</strong></td><td><span class="b b-live">HIDUP</span></td></tr>
+<tr><td>C2</td><td><strong>Funding arb SoDEX × Binance</strong></td><td>CARRY, delta-netral</td><td>collector funding SoDEX aktif (92 simbol). Keunggulan struktural: settlement <strong>1 jam vs 8 jam</strong></td><td>belum pra-reg, belum diuji</td><td><span class="b b-live">BELUM DIUJI</span></td></tr>
+<tr><td>C3</td><td><strong>E2Dir amplifier</strong> (loser + funding)</td><td>CARRY-ish, direksional</td><td>kode ada di <code>sodex_twin_engine.py</code></td><td>belum pra-reg, belum diuji</td><td><span class="b b-live">BELUM DIUJI</span></td></tr>
+</tbody>
+</table>
+<div class="note">
+  <strong>Caveat scope yang wajib dibuka:</strong> <code>data/mv_funding_paper.json</code> menunjukkan
+  <code>long_venue=Binance, short_venue=dYdX</code> — yaitu <strong>Binance × dYdX, bukan SoDEX</strong>.
+  Keputusan 08-Okt: <strong>scope = wallet SoDEX saja</strong> → maka mv_funding <em>keluar</em> dari jalur target SoDEX,
+  dan jalur SoDEX-nya adalah <strong>C2</strong>.
+</div>
+<p><strong>Mengapa CARRY berbeda secara fundamental:</strong> directional alpha <em>menuntut menebak arah</em> —
+dan arah di majors sudah terbukti tidak bisa ditebak pada horizon ini. CARRY <em>tidak menebak arah</em>:
+ia memanen selisih settlement funding secara delta-netral. Ia satu-satunya kelas yang <strong>belum difalsifikasi</strong>
+di proyek ini.</p>
+
+<h2 id="vonis">13. Vonis akhir &amp; batas jujur</h2>
+<div class="lede">
+<p><strong>Vonis:</strong> Seluruh ruang <strong>directional alpha</strong> pada horizon ≤48 jam sudah
+<strong>habis difalsifikasi</strong> — 11 keluarga, 4 sapuan besar (108 + 24 + 21 + 57 sel/simbol),
+20 protokol pra-registrasi — dengan bukti, kontrol, dan kontrol negatif yang terkalibrasi.
+Penyumbatnya <strong>bukan</strong> data, <strong>bukan</strong> target, <strong>bukan</strong> leverage,
+<strong>bukan</strong> kurang ide: penyumbatnya adalah <strong>rasio biaya-terhadap-edge</strong>,
+<strong>likuiditas venue</strong>, dan <strong>mutu sinyal (Sharpe 0,74 vs bar 1,2–2,8)</strong>.</p>
+</div>
+<p><strong>Batas jujur dokumen ini:</strong></p>
+<ul class="tight">
+<li>Dokumen ini <strong>tidak</strong> mengklaim target 0,8%/48 jam mustahil. Ia mengklaim: <em>jalur directional sudah tertutup dengan bukti</em>.</li>
+<li>Dokumen ini <strong>tidak</strong> mengklaim CARRY akan mencapai target. C1 bahkan masih kurang 2 jendela untuk sekadar <em>dinilai</em>.</li>
+<li>Bila C1–C3 semuanya gugur sebelum HARD_STOP 20-Nov-2026, kesimpulan yang jujur adalah: <strong>belum ada edge yang terbukti</strong> — dan itu harus diterima, <strong>bukan</strong> dengan menggeser ambang.</li>
+<li>Semua hasil historis di dokumen ini bersifat <strong>DESKRIPTIF</strong>. Verdict sesungguhnya hanya boleh datang dari jendela <strong>forward</strong>.</li>
+</ul>
+
+<h2 id="lampiran">14. Lampiran</h2>
+
+<h3>A. Artefak utama (semua dapat diverifikasi)</h3>
+<table>
+<thead><tr><th>Kategori</th><th>Berkas</th></tr></thead>
+<tbody>
+<tr><td>Sapuan besar</td><td class="src">SWEEP_EKSTREM_K1K4.json · STABILITY_BATTERY.json · MOM_L21_LIKUIDITAS.json · SODEX_48H_CANDIDATE_SCREEN.json · PRAREG19_HASIL.json · PRAREG19_BEKU.json</td></tr>
+<tr><td>Jarak &amp; target</td><td class="src">JARAK_KE_TARGET_SODEX.json · AMANDEMEN3_KEPUTUSAN.json · SENSUS_DIVERSIFIKASI_SODEX.json · ANGGARAN_BREADTH_SODEX.json · RANGEPOS_H48_COST_AUDIT.json · sodex_lane_target_projection.json</td></tr>
+<tr><td>Integritas &amp; venue</td><td class="src">PANEL_FINGERPRINT.json · VENUE_DRIFT_CONTROL.json · R4_dataset_manifest.json</td></tr>
+<tr><td>Sensus &amp; forward</td><td class="src">D15_SENSUS_EDGE_FULL · P9_RERUN_registry.jsonl · SODEX_FORWARD_EPISODE_COUNT.json · RANGEPOS_FORWARD_EVAL.json · sodex_trial_registry.json (72 entri)</td></tr>
+<tr><td>Falsifikasi CEX</td><td class="src">D06 · D07 · D08 · D09 · D10 · D11 · D12 · D13 · D15</td></tr>
+<tr><td>Alat disiplin</td><td class="src">scripts/research/lev_discipline.py · klines_snapshot.py · prereg19_directional_majors.py · tests/test_lev_discipline.py (32 PASS)</td></tr>
+<tr><td>Commit penting</td><td class="src mono">d43d600 (PRAREG-19 ditutup) · 7b2b6fc · cc552e6 · 966ae4c · b081811 · e4f9bf1 · 44faf1b · 4b698a9 · 21de8d1 · baa6479</td></tr>
+</tbody>
+</table>
+
+<h3>B. Rumus yang dipakai (agar bisa diuji ulang)</h3>
+<ul class="tight">
+<li>Target ↔ keunggulan: <code>S_ann = (α / σ) × √182,5</code> (182,5 = jumlah window 48 jam per tahun)</li>
+<li>Bobot portofolio: <code>w = 0,5 · Σ⁻¹ · α</code> (half-Kelly, matriks kovarians, long-only) — <em>bukan</em> penjumlahan per-instrumen</li>
+<li>Drift control: <code>r_strat = α + β·r_mkt + ε</code>; α = intersep, SE Newey-West lag 2</li>
+<li>BH-FDR: tolak bila <code>p ≤ q·(k/m)</code>, q=0,10</li>
+<li>Annualisasi 1h: <code>PPY = 365 × 24 / hold</code></li>
+</ul>
+
+<h3>C. Kronologi ringkas</h3>
+<table>
+<thead><tr><th>Tanggal</th><th>Peristiwa</th></tr></thead>
+<tbody>
+<tr><td>27-Jul / 06-Sep</td><td>Forensik wallet SoDEX (18 alamat; sebagian tidak aktif)</td></tr>
+<tr><td>05-Sep</td><td>Double audit: sizing live <strong>$30 @3× = 65% target</strong> → tak bisa capai target secara matematis</td></tr>
+<tr><td>01-Okt</td><td>3 pra-registrasi: alpha subpop = PROMOTE NONE; exit-early = PROMOTE NONE; rekonsiliasi target (ilusi 3 metrik)</td></tr>
+<tr><td>04–05-Okt</td><td>D06–D13: breakdown per sisi, RCA filter, falsifikasi LightGBM (0/57), kesalahan D10 dibatalkan, 2 bug ditemukan</td></tr>
+<tr><td>05-Okt</td><td>D15 sensus 21 mesin: <strong>0 lolos P9</strong>; mv_funding satu-satunya kandidat (kurang n)</td></tr>
+<tr><td>07-Okt</td><td>Jarak-ke-target: Sharpe dibutuhkan 2,30 / terukur 0,75; N<sub>eff</sub> 6,1; fee = 12,1% target</td></tr>
+<tr><td>08-Okt</td><td>Inventaris keluarga sinyal (Opsi C): 11 keluarga directional = FALSIFIED; scope = wallet SoDEX</td></tr>
+<tr><td>09-Okt</td><td>Sapuan 108 sel → 2 lolos → baterai <strong>0/36</strong>; cross-sectional <strong>DITUTUP</strong>; Amandemen-3 (A+C) disetujui; <strong>PRAREG-19 dijalankan → 0/24</strong></td></tr>
+</tbody>
+</table>
+
+<h3>D. Glosarium</h3>
+<ul class="tight">
+<li><strong>α (alpha)</strong> — keunggulan bersih setelah pasar dikeluarkan; inti dari segalanya.</li>
+<li><strong>bps</strong> — basis poin; 1 bps = 0,01%. 43,4 bps = 0,434%.</li>
+<li><strong>β (beta)</strong> — paparan ke pasar. β≈0 berarti hasil bukan efek pasar.</li>
+<li><strong>S<sub>ann</sub></strong> — Sharpe tahunan; ukuran "mutu sinyal per unit risiko".</li>
+<li><strong>N<sub>eff</sub></strong> — jumlah taruhan yang <em>benar-benar</em> independen (6,1 di sini).</li>
+<li><strong>Turnover (to)</strong> — seberapa sering posisi berubah; pengali biaya.</li>
+<li><strong>BH-FDR</strong> — koreksi statistik untuk banyak uji sekaligus; mencegah "lolos karena kebetulan".</li>
+<li><strong>Half-Kelly</strong> — setengah dari leverage optimal; lebih aman, tumbuh hampir sama.</li>
+<li><strong>Holdout / lockbox</strong> — data yang sengaja tidak disentuh sebagai ujian akhir.</li>
+</ul>
+
+<div class="foot">
+  <p><strong>Disusun oleh:</strong> Hermes Anantara v3 · <strong>Tanggal:</strong> 09-Okt-2026 ·
+  <strong>Basis:</strong> 1.071 commit, 1.450 artefak riset, seluruh angka disitir dari berkas nyata.</p>
+  <p><strong>Pernyataan:</strong> Tidak ada satu pun ambang, gerbang, atau flag live yang diubah dalam penyusunan
+  dokumen ini. Tidak ada posisi yang dibuka. Tidak ada kredensial yang ditampilkan.
+  Semua hasil historis = DESKRIPTIF; verdict hanya dari forward.</p>
+  <p>Target <strong>0,8%/48 jam tetap harga mati</strong> · HARD_STOP <strong>20-Nov-2026</strong> ·
+  modal <strong>utuh</strong>.</p>
+</div>
+
+</div>
+</body>
+</html>

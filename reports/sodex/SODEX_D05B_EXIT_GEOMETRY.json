@@ -1,0 +1,127 @@
+{
+  "generated_utc": "2026-11-24T23:04:48.972180+00:00",
+  "track": "twoway",
+  "source": "/home/USER/anantara-sakti/data/paper_test_twoway_state.json",
+  "fee_bps": 8.0,
+  "cluster_hours": 30.0,
+  "duplication": {
+    "n_rows": 602,
+    "n_unique": 601,
+    "ratio": 1.002
+  },
+  "n_signal": 512,
+  "exit_accounting": [
+    {
+      "exit_reason": "TP",
+      "n": 137,
+      "share": 0.267578125,
+      "mean_excess_bps": 198.78,
+      "total_excess_bps": 27232.7,
+      "contrib_to_mean_bps": 53.19,
+      "mean_hold_hours": 8.94,
+      "outcome_determined": true
+    },
+    {
+      "exit_reason": "TIME_30.0H",
+      "n": 26,
+      "share": 0.05078125,
+      "mean_excess_bps": 42.76,
+      "total_excess_bps": 1111.7,
+      "contrib_to_mean_bps": 2.17,
+      "mean_hold_hours": 30.01,
+      "outcome_determined": false
+    },
+    {
+      "exit_reason": "TIME_48H",
+      "n": 8,
+      "share": 0.015625,
+      "mean_excess_bps": -8.09,
+      "total_excess_bps": -64.7,
+      "contrib_to_mean_bps": -0.13,
+      "mean_hold_hours": 48.03,
+      "outcome_determined": false
+    },
+    {
+      "exit_reason": "TIME_30H",
+      "n": 121,
+      "share": 0.236328125,
+      "mean_excess_bps": -6.17,
+      "total_excess_bps": -746.9,
+      "contrib_to_mean_bps": -1.46,
+      "mean_hold_hours": 30.22,
+      "outcome_determined": false
+    },
+    {
+      "exit_reason": "SL",
+      "n": 220,
+      "share": 0.4296875,
+      "mean_excess_bps": -118.36,
+      "total_excess_bps": -26038.1,
+      "contrib_to_mean_bps": -50.86,
+      "mean_hold_hours": 9.31,
+      "outcome_determined": true
+    }
+  ],
+  "binding": {
+    "tp_contrib_bps": 53.19,
+    "sl_contrib_bps": -50.86,
+    "time_contrib_bps": 0.58,
+    "gross_bps": 2.92,
+    "fee_2x_bps": 16.0,
+    "margin_over_fee_2x_bps": -13.08,
+    "time_share_of_gross_pct": 19.87
+  },
+  "geometry": {
+    "n": 512,
+    "wr": 0.4140625,
+    "n_planned": 512,
+    "mean_planned_tp_dist_pct": 3.6758,
+    "mean_planned_sl_dist_pct": 2.0,
+    "mean_planned_rr": 1.8379,
+    "mean_realized_tp_pct": 3.5449,
+    "mean_realized_sl_pct": 2.2073,
+    "n_tp": 137,
+    "n_sl": 220,
+    "mean_realized_rr": 1.606,
+    "breakeven_wr_no_fee": 0.3837,
+    "breakeven_wr_fee_1x": 0.3976,
+    "breakeven_wr_fee_2x": 0.4115,
+    "fee_share_of_tp_pct": 2.26,
+    "edge_per_trade_bps": 17.45,
+    "breakeven_wr_gap_pp": -0.26
+  },
+  "cluster_bootstrap": {
+    "mean_bps": 2.92,
+    "ci95_bps": [
+      -23.38,
+      29.07
+    ],
+    "p_pos": 0.5787,
+    "n_blocks": 67
+  },
+  "time_stop_counterfactual": {
+    "n_time": 155,
+    "leak_bps": -0.59,
+    "paired_ci95_bps": [
+      -8.28,
+      7.13
+    ],
+    "n_blocks": 67
+  },
+  "time_stop_null": {
+    "n": 200,
+    "p50_bps": -1.21,
+    "p95_bps": 5.29,
+    "p99_bps": 7.99,
+    "frac_ge_observed": null,
+    "observed_bps": -0.59,
+    "verdict": "INSIDE_NULL_BAND"
+  },
+  "verdict": "TIME_STOP_LEAK_INSIDE_NULL_BAND",
+  "safety": {
+    "changed_strategy": "NO",
+    "changed_sl_tp_gate_leverage": "NO",
+    "placed_order": "NO",
+    "measurement_only": "YES"
+  }
+}

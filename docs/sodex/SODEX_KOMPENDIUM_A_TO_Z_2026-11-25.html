@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SoDEX A–Z Kompendium — Anantara Sakti</title>
+<meta name="description" content="Kompendium lengkap proyek SoDEX: filosofi, target, arsitektur, struktur, workflow, bukti statistik, risiko, dan rencana live 01 Desember 2026.">
+<style>
+  :root{
+    --bg:#f5f7fa; --panel:#fff; --ink:#111827; --muted:#4b5563; --line:#d9e0ea;
+    --accent:#0b5fff; --accent-soft:#e8f0ff; --ok:#047857; --ok-bg:#ecfdf5;
+    --warn:#b45309; --warn-bg:#fffbeb; --danger:#b91c1c; --danger-bg:#fef2f2;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 var(--sans)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px;z-index:99}
+  .skip:focus{left:10px;top:10px}
+  .layout{display:grid;grid-template-columns:268px minmax(0,1fr);gap:32px;max-width:1280px;margin:0 auto;padding:28px 24px 80px}
+  aside{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  aside h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  nav a{display:block;padding:5px 8px;border-radius:7px;color:var(--muted);font-size:13px;border-left:2px solid transparent}
+  nav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+  nav a.active{background:var(--accent-soft);color:var(--accent);border-left-color:var(--accent);font-weight:600}
+  main{min-width:0}
+  header.hero{background:linear-gradient(135deg,#0b1220,#12305c);color:#fff;border-radius:18px;padding:34px 36px;margin-bottom:26px}
+  header.hero .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9fc5ff;margin:0 0 8px}
+  header.hero h1{font-size:34px;line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}
+  header.hero p{color:#dbe7fb;max-width:70ch;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .meta span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px 11px;font-size:12px}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:0 0 20px;scroll-margin-top:20px}
+  section>h2{margin:0 0 6px;font-size:23px;letter-spacing:-.01em}
+  section>h2 .num{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:9px}
+  .sub{color:var(--muted);margin:0 0 18px}
+  h3{font-size:17px;margin:24px 0 8px}
+  h4{font-size:14px;margin:18px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  p{margin:9px 0}
+  ul,ol{margin:9px 0;padding-left:22px}
+  li{margin:5px 0}
+  code{font-family:var(--mono);font-size:.9em;background:#eef2f7;border-radius:5px;padding:1px 5px;word-break:break-word}
+  pre{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:15px 17px;overflow:auto;font:12.5px/1.6 var(--mono)}
+  pre code{background:none;color:inherit;padding:0}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  caption{text-align:left;font-size:12px;color:var(--muted);margin-bottom:6px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f1f5f9;font-weight:650;font-size:12.5px}
+  tbody tr:nth-child(even){background:#fafbfd}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .card{border:1px solid var(--line);border-radius:11px;padding:14px;background:#fcfdff}
+  .card .label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .card .big{font-size:22px;font-weight:700;line-height:1.25;margin:3px 0}
+  .card .small{font-size:12px;color:var(--muted)}
+  .callout{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 9px 9px 0;padding:13px 15px;margin:14px 0}
+  .callout.danger{border-color:var(--danger);background:var(--danger-bg)}
+  .callout.warn{border-color:var(--warn);background:var(--warn-bg)}
+  .callout.ok{border-color:var(--ok);background:var(--ok-bg)}
+  .callout strong{display:block;margin-bottom:3px}
+  .tag{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:650;vertical-align:middle}
+  .t-ok{background:var(--ok-bg);color:var(--ok)}
+  .t-warn{background:var(--warn-bg);color:var(--warn)}
+  .t-danger{background:var(--danger-bg);color:var(--danger)}
+  .t-info{background:var(--accent-soft);color:var(--accent)}
+  figure{margin:16px 0}
+  svg{max-width:100%;height:auto;display:block;margin:auto;background:#fbfcfe;border:1px solid var(--line);border-radius:10px}
+  figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:7px}
+  .src{font-size:12px;color:var(--muted);margin-top:12px;border-top:1px dashed var(--line);padding-top:9px}
+  .toc-inline{columns:2;column-gap:26px;font-size:13px}
+  .toc-inline a{display:block;padding:2px 0;break-inside:avoid}
+  .foot{color:var(--muted);font-size:12px;text-align:center;padding:18px}
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;padding:16px}
+    aside{position:static;max-height:220px;overflow:auto}
+    .g4,.g3,.g2{grid-template-columns:1fr 1fr}
+    header.hero{padding:26px 22px}
+    header.hero h1{font-size:27px}
+  }
+  @media (max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.toc-inline{columns:1}}
+  @media print{
+    body{background:#fff}.layout{display:block;max-width:none;padding:0}
+    aside{display:none}section{break-inside:avoid;border:none;padding:0;margin:0 0 22px}
+    header.hero{background:#12305c!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Lewati navigasi</a>
+<div class="layout">
+<aside aria-label="Daftar isi">
+  <h2>Daftar Isi</h2>
+  <nav id="toc">
+    <a href="#ringkasan">00 · Ringkasan</a>
+    <a href="#identitas">01 · Identitas & Makna</a>
+    <a href="#filosofi">02 · Filosofi</a>
+    <a href="#target">03 · Tujuan & Target</a>
+    <a href="#bukti">04 · Hukum Bukti</a>
+    <a href="#timeline">05 · Sejarah & Timeline</a>
+    <a href="#arsitektur">06 · Arsitektur & Maps</a>
+    <a href="#struktur">07 · Struktur Project</a>
+    <a href="#kerja">08 · Struktur Kerja</a>
+    <a href="#workflow">09 · Workflow</a>
+    <a href="#mesin">10 · Mesin Inti</a>
+    <a href="#eksperimen">11 · Eksperimen</a>
+    <a href="#ekonomi">12 · Ekonomi & PnL</a>
+    <a href="#rca">13 · RCA & Bottleneck</a>
+    <a href="#safety">14 · Safety</a>
+    <a href="#readiness">15 · Readiness 01-Des</a>
+    <a href="#plan">16 · Plan Kerja</a>
+    <a href="#risiko">17 · Risk Register</a>
+    <a href="#inkonsistensi">18 · Inkonsistensi</a>
+    <a href="#verifikasi">19 · Verifikasi</a>
+    <a href="#glosarium">20 · Glosarium A–Z</a>
+    <a href="#sumber">21 · Indeks Sumber</a>
+  </nav>
+</aside>
+
+<main id="main">
+<header class="hero">
+  <p class="kicker">Anantara Sakti · Divisi SoDEX · Dokumen Kanon Ringkas</p>
+  <h1>SoDEX A–Z Kompendium</h1>
+  <p>Seluruh hal tentang proyek SoDEX: makna, filosofi, target, arsitektur, struktur, workflow, bukti ilmiah, keamanan, kondisi runtime terkini, dan rencana menuju live 01 Desember 2026. Setiap angka yang tercantum berasal dari repo atau eksekusi alat yang tercatat di Indeks Sumber.</p>
+  <div class="meta">
+    <span>Versi 1.0</span><span>Disusun 25 Nov 2026 · 05:19 WIB</span><span>Snapshot UTC 2026-11-24T22:18Z</span><span>Status: NO-GO</span>
+  </div>
+</header>
+
+<section id="ringkasan">
+  <h2><span class="num">00</span>Ringkasan Eksekutif</h2>
+  <p class="sub">Jawaban singkat: <strong>pipeline paper berjalan, edge forward belum terbukti, dan sistem belum siap untuk uang nyata.</strong></p>
+  <div class="grid g4">
+    <div class="card"><div class="label">Preflight</div><div class="big">9/12</div><div class="small">3 blocker aktif · <span class="tag t-danger">NO-GO</span></div></div>
+    <div class="card"><div class="label">Rekonsiliasi</div><div class="big">CRITICAL</div><div class="small">2 posisi real tidak ter-track</div></div>
+    <div class="card"><div class="label">Promosi target</div><div class="big">19/30 hari</div><div class="small"><code>DATA_KURANG</code> · exit 3</div></div>
+    <div class="card"><div class="label">Wallet priced</div><div class="big">$242,65</div><div class="small">0,8% = $1,941 / window</div></div>
+    <div class="card"><div class="label">Paper fleet</div><div class="big">DOWN+STALE=0</div><div class="small">33/33 lane telemetry OK</div></div>
+    <div class="card"><div class="label">Full regression</div><div class="big">1544 PASS</div><div class="small">36 skipped · 3 subtests</div></div>
+    <div class="card"><div class="label">A/B terbaru</div><div class="big">Negatif semua</div><div class="small">n&lt;20 · BH q ≈ 0,71–1,0</div></div>
+    <div class="card"><div class="label">Governor</div><div class="big">self-check OK</div><div class="small">exit 0 · tidak dibypass</div></div>
+  </div>
+  <div class="callout danger"><strong>Keputusan hari ini: NO-GO untuk live.</strong>Tanggal 1 Desember adalah keputusan operasional Owner, bukan bukti bahwa strategi memiliki edge. Tiga blocker preflight harus ditutup dengan bukti, bukan dengan menurunkan gate.</div>
+  <div class="callout"><strong>Cara baca dokumen ini.</strong>Angka tanpa tanggal tidak boleh dipakai. Setiap bagian memiliki jejak sumber di <a href="#sumber">Indeks Sumber</a>.istilah “OK” selalu berarti <em>sehat secara telemetry</em>, bukan <em>profitable</em> atau <em>siap live</em>.</div>
+</section>
+
+<section id="identitas">
+  <h2><span class="num">01</span>Identitas & Makna</h2>
+  <p class="sub">Apa itu SoDEX di dalam Anantara Sakti, dan apa yang sedang dibangun.</p>
+  <table>
+    <caption>Identitas proyek</caption>
+    <tbody>
+      <tr><th style="width:180px">Nama</th><td>SoDEX — divisi DEX dalam sistem Anantara Sakti, beroperasi di venue <code>sodex.com</code> (spot + perps).</td></tr>
+      <tr><th>Lokasi</th><td>Repo <code>~/anantara-sakti/</code>; kode utama <code>anantara/sodex_*.py</code>, eksperimen <code>scripts/research/</code>, dokumen <code>docs/sodex/</code>.</td></tr>
+      <tr><th>Makna operasional</th><td>Venue eksekusi dan riset untuk swing trading 1–30 jam dengan sistem belajar otonom 24/7.</td></tr>
+      <tr><th>Status historis</th><td>Dokumentasi lama (<code>README.md</code>, <code>ARCHITECTURE.md</code>, <code>SODEX_FARMING_DOCTRINE.md</code>) menyebut tujuan airdrop/SoPoints. Itu <strong>superseded</strong>: kanon terkini adalah <strong>profit bersih</strong>; volume/SoPoints hanya produk samping.</td></tr>
+      <tr><th>Akun/divisi</th><td>Alamat publik <code>0x4a464b82b1c1233791351483c90c53e2a2fbc799</code>. Kredensial tidak pernah disimpan, dicetak, atau dibahas nilainya di dokumen ini.</td></tr>
+    </tbody>
+  </table>
+  <h3>Mengapa “profit, bukan volume”</h3>
+  <p>Prinsip lama <em>volume is a result of profitability</em> masih berlaku, tetapi arahnya dibalik dari masa farming: dulu volume adalah target dan profit mengikuti; sekarang profit adalah target dan volume hanyalah konsekuensi eksekusi. <code>SOLEX.md</code> menyatakan secara eksplisit revisi 2026-08-01: “Goal = profit maximal swing trading 1h–48h”, sedangkan <code>CLAUDE.md</code> dan kanon 31-Okt mengunci window 1–30 jam.</p>
+  <div class="callout warn"><strong>Kenapa 1–30 jam?</strong>Window swing cukup panjang untuk mengurangi noise mikrostruktur, cukup pendek untuk siklus belajar harian. Butuh catatan: <code>HUKUM_BUKTI</code> menunjukkan panjang window tidak mempercepat pembuktian statistik; <code>W</code> hilang dari rumus <code>t</code>. Jadi timeframe dipilih untuk operasi, bukan untuk “membuktikan lebih cepat”.</div>
+  <div class="src">Sumber: <code>CLAUDE.md</code> §North Star; <code>README.md</code> §1–9; <code>ARCHITECTURE.md</code>; <code>SOLEX.md:1–8</code>; <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:7–18</code>; <code>docs/sodex/HUKUM_BUKTI_2026-10-25.md:9–24</code>.</div>
+</section>
+
+<section id="filosofi">
+  <h2><span class="num">02</span>Filosofi & First Principles</h2>
+  <p class="sub">Delapan prinsip yang mengikat semua keputusan—termasuk keputusan untuk tidak melakukan apa pun.</p>
+  <ol>
+    <li><strong>Falsification-first.</strong> Hipotesis, window, biaya, dan gate dibekukan <em>sebelum</em> hasil terlihat. Klaim ilmiah hanya sah jika bisa dibuktikan salah dan belum terbantahkan.</li>
+    <li><strong>Net alpha, bukan gross PnL.</strong> <code>alpha_net = r_trade − β_side × r_BTC − fee − slippage − funding</code>, dengan β = +1 long, −1 short. Data kurang → <code>UNSETTLED</code>, bukan dikarang.</li>
+    <li><strong>Evidence-first architecture.</strong> Setiap lane punya peran ilmiah; naik-turun status lane berdasarkan statistik, bukan perasaan atau satu hari hijau.</li>
+    <li><strong>Backtest menghasilkan kandidat; forward/OOS yang memutuskan.</strong> Tidak ada lookahead, tidak ada <code>shuffle:true</code> pada time-series, tidak ada penyelamatan post-hoc.</li>
+    <li><strong>n kecil = data invalid/monitor, bukan verdict.</strong> Multiple testing wajib dikoreksi (BH-FDR / Bonferroni). Satu trade tidak bisa disebut “terbukti”.</li>
+    <li><strong>Safety & privacy pertama.</strong> <code>dry_run=true</code> default, fail-closed, kill switch, batas modal/order, IOC limit, tanpa retry order ambigu, kredensial tidak pernah masuk git/log.</li>
+    <li><strong>Deep loop learning otonom.</strong> Sistem berjalan 24/7, tetapi refleksi harus deterministik dan tidak boleh menaruh LLM di jalur keputusan (PRAREG-40).</li>
+    <li><strong>Target fundamental hanya berubah lewat amandemen tertulis + persetujuan Owner.</strong> Agen tidak boleh melunakkan gate demi hasil hijau.</li>
+  </ol>
+  <h3>Tiga jalur yang tersisa (dokumen “Hukum Bukti”)</h3>
+  <table>
+    <caption>Tidak ada jalur D</caption>
+    <thead><tr><th>Jalur</th><th>Isi</th><th>Konsekuensi waktu</th></tr></thead>
+    <tbody>
+      <tr><td>A — cari SR lebih tinggi</td><td>Uji keluarga sinyal baru: funding, OI, likuidasi.</td><td>4–17 tahun pada Sharpe 1–2.</td></tr>
+      <tr><td>B — turunkan standar bukti secara eksplisit</td><td>Keputusan pakai kriteria operasional, ukuran kecil, kill-rule pra-komit.</td><td>Bulan; jawabannya P&amp;L, bukan “terbukti”.</td></tr>
+      <tr><td>C — terima target sebagai sasaran operasional</td><td>0,8% tetap target; dinilai dari forward nyata.</td><td>Berjalan terus.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><strong>Posisi dokumen ini:</strong> proyek berada di jalur C dengan elemen B terkendali (live kecil 01-Des sebagai uji eksekusi), bukan di jalur A yang mengklaim sudah menemukan SR tinggi.</div>
+  <div class="src">Sumber: <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:37–46</code>; <code>docs/SODEX_ARCHITECTURE_MAP.md:4–6</code>; <code>docs/SODEX_FARMING_DOCTRINE.md</code>; <code>docs/sodex/HUKUM_BUKTI_2026-10-25.md:80–91</code>; <code>docs/sodex/PRAREG40_DESIGN.md:12–16</code>.</div>
+</section>
+
+<section id="target">
+  <h2><span class="num">03</span>Tujuan & Target</h2>
+  <p class="sub">Dua lapisan target tidak boleh dicampur. Kekeliruan ini sudah beberapa kali muncul di dokumen lama.</p>
+  <div class="grid g2">
+    <div class="card">
+      <div class="label">Target utama / North Star</div>
+      <div class="big">≥ 0,8% / window 30 jam</div>
+      <div class="small">Atas <strong>total wallet</strong> (spot + perps), kumulatif, bukan per trade. Saat ini ≈ $1,941 dari $242,65.</div>
+    </div>
+    <div class="card">
+      <div class="label">Target operasional arm awal</div>
+      <div class="big">0,010% / 5 jam net</div>
+      <div class="small">PRAREG-23b / Mode A spot. Naik jadi Target Utama hanya jika live 30 hari memenuhi A <em>dan</em> B.</div>
+    </div>
+  </div>
+  <h3>Tangga resmi</h3>
+  <table>
+    <thead><tr><th>Level</th><th>Nilai</th><th>Arti</th></tr></thead>
+    <tbody>
+      <tr><td>Lantai</td><td>0,10%</td><td>Bawah ini = sinyal melemah.</td></tr>
+      <tr><td>Sasaran</td><td>0,25%</td><td>Kinerja operasional yang diharapkan.</td></tr>
+      <tr><td>Stretch</td><td>0,40%</td><td>Kinerja baik.</td></tr>
+      <tr><td><strong>Penuh</strong></td><td><strong>0,80%</strong></td><td>Target akhir jangka panjang; tidak dicabut oleh target operasional.</td></tr>
+    </tbody>
+  </table>
+  <h3>Aturan kelulusan A DAN B</h3>
+  <ul>
+    <li>Grid tetap 30 jam, anchor <code>2026-08-03T00:00:00Z</code>.</li>
+    <li><strong>A:</strong> mean window ≥ ambang.</li>
+    <li><strong>B:</strong> median &gt; 0 <em>dan</em> hit rate ≥ 50%.</li>
+    <li>Window kosong dilewati tetapi tetap dilaporkan; minimal 10 window berisi.</li>
+    <li>Denominator selalu total wallet aktual; jangan memakai angka hardcoded. Bug 05-Sep-2026 dulu membuat ROI terlihat ~47% terlalu optimis karena pembagi $94,57 padahal wallet $139,37.</li>
+  </ul>
+  <h3>Promosi target operasional (keputusan 02-Nov, REV2)</h3>
+  <pre><code>Gate A : M_kum = total return / 144 bucket 5-jam ≥ 0,010%/5j
+Gate B : MDD kurva ekuitas pada window sama ≥ −15%
+Window : 30 hari UTC berturut-turut; hari hilang = tidak sah
+Sumber : data LIVE, bukan paper; konfirmasi ulang pada window berikutnya
+Status : DATA_KURANG — 19/30 hari pada 25-Nov-2026</code></pre>
+  <div class="callout warn"><strong>Jangan tertukar:</strong> 0,8% / 30 jam adalah target akhir. 0,010% / 5 jam (≈0,060% / 30 jam) adalah target eksperimen/live awal yang belum naik status. Keduanya berdampingan.</div>
+  <div class="src">Sumber: <code>CLAUDE.md</code> §SoDEX; <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:13–23,48–53</code>; <code>docs/sodex/KEPUTUSAN_TARGET_20261102.md:13–57</code>; <code>scripts/sodex_wallet_denominator.py:1–12,136–160</code>; eksekusi <code>sodex_target_promotion_gate.py --equity-file reports/sodex/EQUITY_LEDGER.jsonl --json</code> (25-Nov).</div>
+</section>
+
+<section id="bukti">
+  <h2><span class="num">04</span>Hukum Bukti & Statistik</h2>
+  <p class="sub">Bagian ini menjelaskan mengapa “hijau” tidak otomatis berarti “benar”.</p>
+  <h3>Aritmetika kekuatan bukti</h3>
+  <pre><code>t = (r / s) × √T
+
+r = edge per jam, s = volatilitas per jam, T = jam kalender.
+Panjang window W hilang dari persamaan.
+Leverage L juga hilang: μ dan σ sama-sama ×L, rasio μ/σ tidak berubah.</code></pre>
+  <table>
+    <caption>Waktu sampai |t| ≥ 4,11 (Bonferroni α=0,05)</caption>
+    <thead><tr><th>Sharpe tahunan</th><th>Tahun</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td>1,0</td><td>16,9</td><td>Realistis untuk strategi bagus.</td></tr>
+      <tr><td>2,0</td><td>4,2</td><td>Sudah kuat.</td></tr>
+      <tr><td>3,0</td><td>1,9</td><td>Kelas dunia.</td></tr>
+      <tr><td>0,8%/30 jam (sd 8,72%)</td><td>6,9</td><td>Formulasi proyek.</td></tr>
+      <tr><td>0,6%/48 jam (sd 11,03%)</td><td>31,3</td><td><strong>4,5× lebih sulit</strong> dibuktikan.</td></tr>
+      <tr><td>14,1</td><td>0,085</td><td>Dibutuhkan agar “terbukti” dalam 31 hari. Tidak realistis.</td></tr>
+    </tbody>
+  </table>
+  <h3>MDE sampai 25-Nov-2026</h3>
+  <table>
+    <thead><tr><th>Buku</th><th>n window</th><th>sd</th><th>MDE</th><th>Implikasi</th></tr></thead>
+    <tbody>
+      <tr><td>REALWIDE 30 jam</td><td>88</td><td>8,72%</td><td>3,82%</td><td>Target 0,8% masih 4,8× di bawah MDE.</td></tr>
+      <tr><td>REALWIDE 72 jam</td><td>36</td><td>14,45%</td><td>9,90%</td><td>Makin lama window, makin besar sd.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout danger"><strong>Prediksi yang sudah terbukti aman dipegang:</strong> sebelum 25-Nov, mustahil membuktikan 0,8% dengan ambang <code>|t| ≥ 4,11</code>. Yang sah adalah verdict mekanisme/biaya, bukan klaim edge.</div>
+  <h3>Disiplin komputasi</h3>
+  <ul>
+    <li><strong>Dedup sebelum hitung.</strong> Telemetri loop mengandung ~12× baris duplikat; tanpa dedup false-positive melonjak dari ~5% ke ~58%.</li>
+    <li><strong>Desimal, bukan float.</strong> <code>anantara/arith_oracle.py</code> memeriksa order sane dan klaim desimal.</li>
+    <li><strong>Welch fail-closed.</strong> <code>_welch_p()</code> kini menolak scipy hilang, p non-finite, dan menangani sampel konstan secara deterministik.</li>
+    <li><strong>Kontrol negatif wajib.</strong> PRAREG-41: blokir 3 simbol acak harus gagal; PRAREG-42: 200 sel acak harus ≥95% gagal; PRAREG-40: refleksi diacak harus gagal.</li>
+    <li><strong>n&lt;20 = MONITOR</strong>, bukan “signifikan” dan bukan “tidak ada edge”.</li>
+  </ul>
+  <div class="src">Sumber: <code>docs/sodex/HUKUM_BUKTI_2026-10-25.md:9–52,80–106</code>; <code>docs/sodex/BATAS_BUKTI_2026-10-25.md:9–51</code>; <code>docs/sodex/PAPER_EPOCH_E6_20261115.md:89–95</code>; <code>scripts/sodex_ab_flip_readout.py</code>; <code>anantara/arith_oracle.py</code>; <code>scripts/frozen_bench.py</code>.</div>
+</section>
+
+<section id="timeline">
+  <h2><span class="num">05</span>Sejarah & Timeline</h2>
+  <p class="sub">Rangkuman keputusan dan peristiwa yang mengubah arah proyek. Tanggal dalam WIB kecuali ditandai UTC.</p>
+  <table>
+    <caption>Timeline kanonik (ringkas)</caption>
+    <thead><tr><th style="width:120px">Tanggal</th><th>Peristiwa</th><th>Dampak</th></tr></thead>
+    <tbody>
+      <tr><td>24–27 Mei 2026</td><td>Ingesti 317K+ OBI snapshots dan 310K+ trades May.</td><td>Fondasi riset mikrostruktur; fill 7s BTC 58–60%, ETH 35–36%, SOL 29–31%.</td></tr>
+      <tr><td>02 Agu</td><td><code>SODEX_SWING_PHILOSOPHY_AND_MAP</code>.</td><td>Swing sebagai kerangka berpikir, bukan scalp murni.</td></tr>
+      <tr><td>13 Agu</td><td>Owner menegaskan North Star.</td><td>Profit ≥0,7% total modal/window 1–30 jam; deep loop learning wajib.</td></tr>
+      <tr><td>01–02 Sep</td><td>Arsitektur v2: long-only, REALWIDE/TWOWAY, ATR filter dibuang.</td><td>Tier 1/Tier 2 diperkenalkan; evidence-first.</td></tr>
+      <tr><td>05 Sep</td><td>Bug denominator wallet: hardcoded $94,57.</td><td>Diperbaiki oleh <code>sodex_wallet_denominator.py</code>.</td></tr>
+      <tr><td>10–22 Okt</td><td>Amandemen tangga target: 0,10 / 0,25 / 0,40 / <strong>0,80%</strong>.</td><td>0,8% jadi target penuh, grid 30 jam anchor 03-Aug.</td></tr>
+      <tr><td>25 Okt</td><td>Audit forensik: 1.690 trade/15 track; <strong>0 track lolos BH q=0,05</strong>.</td><td>Klaim edge in-sample ditolak.</td></tr>
+      <tr><td>26 Okt</td><td>Keputusan live 01-Des; Mode A spot + amandemen perps/leverage.</td><td>Live kecil tetap, bukan klaim edge.</td></tr>
+      <tr><td>31 Okt</td><td>Kanon proyek disusun.</td><td>Sumber konflik dipetakan; dokumen eksplisit lebih spesifik menang.</td></tr>
+      <tr><td>01 Nov</td><td>Window PRAREG-40/41/42 mulai.</td><td>Forward, beku, read-only.</td></tr>
+      <tr><td>02 Nov</td><td>Keputusan target bersyarat + REV2 kumulatif.</td><td>0,010%/5j bisa naik status hanya jika A+B di data live.</td></tr>
+      <tr><td>15 Nov</td><td>Epoch E6 paper arena dimulai.</td><td>5 arm ab9a–ab9e; cacat env 9e ditemukan dari <code>/proc/&lt;pid&gt;/environ</code> dan diperbaiki.</td></tr>
+      <tr><td>23–24 Nov</td><td>Perbaikan fail-closed watchdog/preflight; promo gate tidak lagi hijau saat <code>DATA_KURANG</code>.</td><td>False-green ditutup; regression 1544 PASS.</td></tr>
+      <tr><td><strong>25 Nov (hari ini)</strong></td><td>Preflight 9/12; promo 19/30; watchdog CRITICAL 2 posisi; A/B negatif semua.</td><td><strong>NO-GO.</strong></td></tr>
+      <tr><td>26 Nov</td><td>Evaluasi PRAREG-23b (terencana).</td><td>Wajib sebelum gladi bersih.</td></tr>
+      <tr><td>27–29 Nov</td><td>Preflight harian + perbaikan FAIL.</td><td>Tugas agent; blocker kredensial tetap Owner.</td></tr>
+      <tr><td>30 Nov</td><td>Tanda tangan <code>LIVE_ARMED.json</code> oleh Owner.</td><td>Hash engine harus cocok; belum terjadi.</td></tr>
+      <tr><td>01 Des · 07:50 WIB</td><td>Aktivasi live bersyarat oleh Owner.</td><td>Uji eksekusi, bukan bukti edge.</td></tr>
+      <tr><td>31 Des</td><td>PRAREG-40 selesai; window live pertama untuk promosi target.</td><td>Evaluasi 40 dan promosi gate.</td></tr>
+      <tr><td>24 Jan 2027</td><td>Evaluasi 90 hari live.</td><td>hit90, M, MDD, PRAREG-37 shadow + live kecil.</td></tr>
+    </tbody>
+  </table>
+  <div class="src">Sumber: <code>CLAUDE.md</code>; <code>README.md</code>; <code>docs/SODEX_ARCHITECTURE_MAP.md</code>; <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:48–56</code>; <code>docs/sodex/KEPUTUSAN_TARGET_20261102.md:84–95</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:18–29</code>; <code>docs/sodex/PAPER_EPOCH_E6_20261115.md:7–19</code>; <code>docs/sodex/CONTINUOUS_LEARNING_LOG.md</code>.</div>
+</section>
+
+<section id="arsitektur">
+  <h2><span class="num">06</span>Arsitektur & Maps</h2>
+  <p class="sub">Tiga peta: lapisan sistem, alur data-keputusan, dan peta bukti/gate.</p>
+  <h3>Peta 1 — Lapisan sistem</h3>
+  <figure>
+    <svg viewBox="0 0 960 430" role="img" aria-label="Diagram arsitektur berlapis SoDEX">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/></marker></defs>
+      <g font-family="system-ui" font-size="12" fill="#111827">
+        <rect x="20" y="12" width="920" height="64" rx="10" fill="#12305c"/>
+        <text x="40" y="38" fill="#fff" font-size="15" font-weight="700">NORTH STAR</text>
+        <text x="40" y="60" fill="#dbe7fb">≥0,8% total wallet / window 30 jam · kumulatif · swing 1–30 jam</text>
+
+        <rect x="20" y="96" width="215" height="88" rx="9" fill="#e8f0ff" stroke="#93b4ff"/>
+        <text x="34" y="118" font-weight="700">INGESTION</text>
+        <text x="34" y="139">OBI / orderbook · klines 1h</text>
+        <text x="34" y="157">funding · mark · trades</text>
+        <text x="34" y="175">snapshot wallet venue</text>
+
+        <rect x="260" y="96" width="215" height="88" rx="9" fill="#e8f0ff" stroke="#93b4ff"/>
+        <text x="274" y="118" font-weight="700">SIGNAL & INTEL</text>
+        <text x="274" y="139">sodex_signal · OFI/z-score</text>
+        <text x="274" y="157">intel layer · regime</text>
+        <text x="274" y="175">twin engine · HEDGE_MAP</text>
+
+        <rect x="500" y="96" width="215" height="88" rx="9" fill="#e8f0ff" stroke="#93b4ff"/>
+        <text x="514" y="118" font-weight="700">EXECUTION</text>
+        <text x="514" y="139">paper engines (33 lane)</text>
+        <text x="514" y="157">farming · autofarm · PVE</text>
+        <text x="514" y="175">mode_a_live (dry-run)</text>
+
+        <rect x="740" y="96" width="200" height="88" rx="9" fill="#e8f0ff" stroke="#93b4ff"/>
+        <text x="754" y="118" font-weight="700">GOVERNANCE</text>
+        <text x="754" y="139">expectancy governor</text>
+        <text x="754" y="157">kill switch · caps · IOC</text>
+        <text x="754" y="175">preflight · watchdog</text>
+
+        <line x1="235" y1="140" x2="255" y2="140" stroke="#64748b" marker-end="url(#ar)"/>
+        <line x1="475" y1="140" x2="495" y2="140" stroke="#64748b" marker-end="url(#ar)"/>
+        <line x1="715" y1="140" x2="735" y2="140" stroke="#64748b" marker-end="url(#ar)"/>
+
+        <rect x="20" y="215" width="445" height="96" rx="9" fill="#ecfdf5" stroke="#6ee7b7"/>
+        <text x="34" y="239" font-weight="700">PAPER / EVIDENCE PLANE</text>
+        <text x="34" y="260">state JSON · fill journal · equity ledger</text>
+        <text x="34" y="278">settlement alpha_net · CAUSAL-CAPTURE-ONLY</text>
+        <text x="34" y="296">PRAREG 23b / 26 / 36 / 38 / 40 / 41 / 42</text>
+
+        <rect x="495" y="215" width="445" height="96" rx="9" fill="#fffbeb" stroke="#fcd34d"/>
+        <text x="509" y="239" font-weight="700">CONTROL / SAFETY PLANE</text>
+        <text x="509" y="260">WATCHDOG → status JSON → PREFLIGHT</text>
+        <text x="509" y="278">DATA_KURANG / FAILED / CRITICAL = blocker</text>
+        <text x="509" y="296">LIVE_ARMED + CONFIRM_LIVE = Owner only</text>
+
+        <rect x="20" y="340" width="920" height="70" rx="9" fill="#f1f5f9" stroke="#cbd5e1"/>
+        <text x="40" y="366" font-weight="700">OUTPUT</text>
+        <text x="40" y="390">Laporan · readout A/B · gate keputusan · sinyal Telegram · log append-only. Tidak ada yang otomatis menjadi order live.</text>
+      </g>
+    </svg>
+    <figcaption>Peta 1 — Lapisan sistem. Garis adalah alur informasi; gate keamanan berada di luar jalur sinyal agar tidak bisa dilewati oleh sinyal.</figcaption>
+  </figure>
+
+  <h3>Peta 2 — Alur data dan keputusan harian</h3>
+  <pre><code>market / orderbook / funding
+        │
+        ▼
+signal spot + perps  →  paper execution (33 lane, 24/7)
+        │                       │
+        │                       ├─→ state JSON / ledger / fills
+        │                       │
+        ▼                       ▼
+settlement 06:40 WIB      PRAREG40_SETTLED.jsonl
+        │                       │
+        ├─ overlay 40 06:45 ─────┤
+        ├─ overlay 41 06:50 ─────┤
+        └─ overlay 42 06:55 ─────┘
+        │
+        ▼
+evaluasi gate (A DAN B, BH-FDR, kontrol negatif)
+        │
+        ├─ KILL / FIX  → lane diam atau diperbaiki dengan amandemen
+        └─ KANDIDAT   → forward lanjutan → preflight → Owner GO → live kecil</code></pre>
+
+  <h3>Peta 3 — Peta bukti dan gate</h3>
+  <table>
+    <thead><tr><th>Pertanyaan</th><th>Alat</th><th>Gate</th><th>Status 25-Nov</th></tr></thead>
+    <tbody>
+      <tr><td>Apakah proses jalan?</td><td><code>paper_fleet_report.py</code>, systemd</td><td>DOWN+STALE=0</td><td><span class="tag t-ok">LULUS</span> 33/33 telemetry</td></tr>
+      <tr><td>Apakah akun bersih?</td><td>watchdog → status JSON → preflight</td><td>OK + fresh + tanpa critical</td><td><span class="tag t-danger">GAGAL</span> 2 posisi untracked</td></tr>
+      <tr><td>Apakah target promosi valid?</td><td><code>sodex_target_promotion_gate.py</code></td><td>exit 0, M≥0,010%, MDD≥−15%</td><td><span class="tag t-danger">DATA_KURANG</span> 19/30 hari</td></tr>
+      <tr><td>Apakah ada edge statistik?</td><td>readout A/B, BH-FDR, kontrol</td><td>n≥20, q&lt;0,05, efek positif</td><td><span class="tag t-danger">TIDAK ADA</span> semua negatif/n&lt;20</td></tr>
+      <tr><td>Bolehkah live?</td><td>preflight + 5 syarat GO</td><td>0 FAIL + Owner GO</td><td><span class="tag t-danger">NO-GO</span></td></tr>
+    </tbody>
+  </table>
+  <div class="src">Sumber: <code>ARCHITECTURE.md</code>; <code>README.md</code>; <code>docs/SODEX_SYSTEM_MAP.md:7–117</code>; <code>docs/SODEX_ARCHITECTURE_MAP.md</code>; <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:48–53</code>; <code>scripts/sodex_live_preflight.py:28–36,193–210</code>; eksekusi langsung 25-Nov.</div>
+</section>
+
+<section id="struktur">
+  <h2><span class="num">07</span>Struktur Project</h2>
+  <p class="sub">Peta direktori dan peran file. Hanya file yang relevan dengan keputusan yang dicantumkan.</p>
+  <pre><code>anantara-sakti/
+├── anantara/
+│   ├── sodex_farming.py        eksekusi farming/scalp; journal order; HALT
+│   ├── sodex_governor.py       expectancy gate + 4 mesin (safety-critical)
+│   ├── sodex_signal.py         OFI/OBI → komposit +1/-1/0
+│   ├── sodex_twin_engine.py    hedge spot↔perp, regime, SAFETY_HALT
+│   ├── sodex_intel_layer.py    fear&amp;greed + composite score
+│   ├── sodex_autofarm.py       spot farming + event guard + lock
+│   ├── perps_volume_engine.py  PVE: maker/taker, EV gate, weekly kill
+│   └── arith_oracle.py         aritmetika Decimal + sanity check
+├── scripts/
+│   ├── sodex_live_preflight.py         gate 12 cek sebelum live
+│   ├── sodex_live_watchdog.py          rekonsiliasi posisi & status fail-closed
+│   ├── sodex_realtime_sync.py          snapshot venue (read-only)
+│   ├── sodex_wallet_denominator.py     denominator total wallet
+│   ├── sodex_target_promotion_gate.py  gate promosi 30 hari
+│   ├── sodex_ab_flip_readout.py        readout A/B + Welch + BH
+│   ├── paper_fleet_report.py           telemetry 33 lane
+│   ├── paper_lane_health.py            health per lane
+│   └── research/
+│       ├── mode_a_20261026/mode_a_live.py   eksekutor spot (dry-run)
+│       ├── mode_a_20261026/preflight.py      preflight khusus Mode A
+│       └── paper_arena*.py                  arena eksperimen E6
+├── systemd/                     unit &amp; timer (user systemd)
+├── docs/sodex/                  kanon, PRAREG, audit, runbook
+├── data/                        state JSON, snapshot, heartbeat, watchdog status
+├── reports/sodex/               EQUITY_LEDGER, readout, audit harian
+├── tests/test_sodex*.py         regresi governor/signal/watchdog/preflight
+└── bin/sodex                    CLI EIP-712 (typed-data signing)</code></pre>
+  <h3>Kategori file</h3>
+  <table>
+    <thead><tr><th>Kategori</th><th>Contoh</th><th>Aturan</th></tr></thead>
+    <tbody>
+      <tr><td>Produksi live-capable</td><td><code>sodex_farming.py</code>, <code>mode_a_live.py</code>, <code>perps_volume_engine.py</code></td><td>Tidak diubah tanpa test + approval; <code>dry_run=true</code> sampai Owner GO.</td></tr>
+      <tr><td>Safety-critical</td><td><code>sodex_governor.py</code>, <code>sodex_live_preflight.py</code>, <code>sodex_live_watchdog.py</code></td><td>Fail-closed; perubahan wajib regression test + selfcheck.</td></tr>
+      <tr><td>Read-only riset</td><td><code>sodex_ab_flip_readout.py</code>, <code>sodex_wallet_denominator.py</code></td><td>Tidak mengirim order; boleh dijalankan kapan saja.</td></tr>
+      <tr><td>Artefak runtime</td><td><code>data/sodex_watchdog_status.json</code>, <code>reports/sodex/EQUITY_LEDGER.jsonl</code></td><td>Bisa berubah tiap timer; jangan dianggap kanon.</td></tr>
+    </tbody>
+  </table>
+  <div class="src">Sumber: <code>README.md:27–37</code>; <code>ARCHITECTURE.md</code>; hasil <code>search_files</code> pada <code>anantara/</code>, <code>scripts/</code>, <code>tests/</code>, <code>systemd/</code>; <code>docs/sodex/PAPER_EPOCH_E6_20261115.md:41–52</code>.</div>
+</section>
+
+<section id="kerja">
+  <h2><span class="num">08</span>Struktur Kerja & Governance</h2>
+  <p class="sub">Siapa melakukan apa, dan keputusan apa yang tidak boleh diambil agent.</p>
+  <table>
+    <caption>Matrix tanggung jawab</caption>
+    <thead><tr><th>Keputusan / tugas</th><th>Owner (Mas Anas)</th><th>Agent / Divisi SoDEX</th></tr></thead>
+    <tbody>
+      <tr><td>Target, gate, ambang statistik</td><td><strong>Eksklusif</strong> — amandemen tertulis</td><td>Menolak mengubah tanpa approval</td></tr>
+      <tr><td>Kredensial &amp; wallet bot</td><td><strong>Eksklusif</strong> — buat wallet, isi <code>secrets/sodex.env</code> 0600</td><td>Tidak mengetik/membaca/mencetak nilai</td></tr>
+      <tr><td>Selftest TESTNET</td><td><strong>Eksklusif</strong></td><td>Membaca hasil, tidak menulis kunci</td></tr>
+      <tr><td><code>LIVE_ARMED.json</code> + <code>CONFIRM_LIVE=YES</code></td><td><strong>Eksklusif</strong></td><td>Menyiapkan template &amp; hash engine</td></tr>
+      <tr><td>Order live / close posisi</td><td>Persetujuan eksplisit</td><td>Dilarang tanpa GO; saat ini tidak ada order dikirim</td></tr>
+      <tr><td>Paper eksperimen &amp; monitoring</td><td>Menerima laporan</td><td>Menjaga 11+ timer tetap aktif, melaporkan harian</td></tr>
+      <tr><td>Perbaikan defect monitoring</td><td>Menyetujui bila menyentuh parameter fundamental</td><td>Boleh patch surgical + regression test</td></tr>
+      <tr><td>Restart layanan</td><td>—</td><td>Hanya monitoring read-only; daemon/live engine tidak direstart</td></tr>
+    </tbody>
+  </table>
+  <h3>Unit kerja berjalan</h3>
+  <ul>
+    <li><strong>Recorder &amp; collector:</strong> klines 1h, buku 30 mnt, realsync snapshot.</li>
+    <li><strong>Paper engines:</strong> swing, twoway, realwide, spot, arena ab8/ab9, shortbear variants, hybrid36, prereg23b/32.</li>
+    <li><strong>Overlay:</strong> reflektif 40, universe 41, night-short 42.</li>
+    <li><strong>Keamanan:</strong> watchdog, deadman heartbeat, equity ledger, forward-loop guard, collector guard.</li>
+    <li><strong>Evaluasi:</strong> campaign eval, promotion gate, A/B readout, maturity tracker.</li>
+  </ul>
+  <div class="callout warn"><strong>Status unit yang perlu diperhatikan:</strong> <code>sodex-shadow37-record</code> gagal pada 22–23 Nov (shortfall funding ≈0,01 hari). <code>sodex-forward-loop-guard</code> pernah teramati exit 2 meski label historis “success”. Keduanya tidak boleh dinyatakan sehat hanya karena timer aktif.</div>
+  <div class="src">Sumber: <code>docs/sodex/KEPUTUSAN_TARGET_20261102.md:69–75</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:6–16,30–52</code>; <code>docs/sodex/LIVE_01DES_KEPUTUSAN.md:24–29,44–47</code>; observasi jurnal 23–24 Nov.</div>
+</section>
+
+<section id="workflow">
+  <h2><span class="num">09</span>Workflow Operasional</h2>
+  <p class="sub">Empat workflow yang saling bertumpu: riset harian, eksekusi paper, keamanan, dan deploy.</p>
+  <h3>1. Workflow riset harian</h3>
+  <ol>
+    <li>Kolektor menulis data pasar &amp; snapshot wallet.</li>
+    <li>Signal engine menghasilkan kandidat; paper engine mengeksekusi di buku nyata dengan uang paper.</li>
+    <li>Pukul 06:40 WIB settlement hanya untuk trade selesai &amp; bar tertutup.</li>
+    <li>06:45 / 06:50 / 06:55 overlay PRAREG-40 / 41 / 42 ditulis.</li>
+    <li>Readoutharian: n, mean, CI95, BH q, kontrol negatif; <code>MONITOR</code> bila n&lt;20.</li>
+    <li>Keputusan: KILL / FIX / LOLOS-kandidat. Tidak ada kandidat yang otomatis live.</li>
+  </ol>
+  <h3>2. Workflow eksekusi (jika nanti diizinkan)</h3>
+  <ol>
+    <li>Preflight → 0 FAIL.</li>
+    <li>Planner: tanpa short, tanpa leverage (Fase 1), jual ≤ saldo, beli ≤ USDC, min notional $5.</li>
+    <li>Order limit-IOC, batas slip 30 bps, tanpa retry.</li>
+    <li>Log append-only <code>forward/live_exec.jsonl</code>; intent tanpa result = rekonsiliasi manual.</li>
+    <li>Watchdog membandingkan posisi venue dengan state lokal setiap siklus.</li>
+  </ol>
+  <h3>3. Workflow keamanan (wajib)</h3>
+  <pre><code>watchdog → data/sodex_watchdog_status.json
+         → preflight check_reconciliation()
+         → BLOCK bila: FAILED / stale / CRITICAL / endpoint incomplete / account mismatch
+
+promotion gate → exit 3 DATA_KURANG → BLOCK (bukan INFO)
+ledger hilang  → ok=False → BLOCK
+exception      → status ERROR + alert WATCHDOG_ERROR + exit 2</code></pre>
+  <h3>4. Workflow deploy (ketika saatnya)</h3>
+  <pre><code>pytest tests/test_sodex*.py PASS
+governor --selfcheck PASS
+git diff review + secret scan + syntax check
+systemctl --user restart anantara-daemon   ← HANYA dengan GO Owner
+monitor log</code></pre>
+  <div class="callout"><strong>Posisi hari ini:</strong> workflow deploy <em>tidak dijalankan</em>. Yang pernah direstart hanya monitoring read-only (<code>anantara-sodex-watchdog.service</code>), bukan daemon trading/live engine.</div>
+  <div class="src">Sumber: <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:48–56</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:72–100</code>; <code>CLAUDE.md</code> §Workflow Deploy; <code>scripts/sodex_live_preflight.py:193–230</code>; <code>scripts/sodex_live_watchdog.py:261–330</code>.</div>
+</section>
+
+<section id="mesin">
+  <h2><span class="num">10</span>Mesin & Komponen Inti</h2>
+  <p class="sub">Penjelasan teknis ringkas, lengkap dengan konstanta yang tercantum di kode.</p>
+  <h3>Governor — 4 mesin + expectancy gate</h3>
+  <table>
+    <thead><tr><th>Mesin</th><th>Fungsi</th><th>Konstanta kunci</th></tr></thead>
+    <tbody>
+      <tr><td>M1 leverage</td><td>Leverage inverse volatility; jarak likuidasi ≥ buffer × ATR%.</td><td><code>LEV_CAP=25</code>, <code>LEV_FLOOR=3</code>, <code>SAFETY_BUFFER=2.5</code></td></tr>
+      <tr><td>M2 stop-loss</td><td>SL di dalam zona likuidasi, tidak lebih ketat dari noise.</td><td><code>SL_LIQ_FACTOR=0.35</code>, <code>SL_ATR_K=1.2</code>, <code>SL_FLOOR=0.004</code></td></tr>
+      <tr><td>M3 asset score</td><td>Spread sempit + book dalam + ATR sehat + funding netral.</td><td><code>ASSET_SCORE_MIN=55</code></td></tr>
+      <tr><td>M4 prob threshold</td><td>Probabilitas minimal dari R:R di atas break-even.</td><td><code>PROB_SAFETY_MARGIN=0.02</code>, <code>PROB_ABS_FLOOR=0.52</code></td></tr>
+      <tr><td>Expectancy</td><td><code>EV = WR×avg_win − (1−WR)×avg_loss − fee</code>; farm hanya jika &gt; 0.</td><td>Safety-critical; tidak pernah dibypass</td></tr>
+    </tbody>
+  </table>
+  <h3>Signal & intelligence</h3>
+  <ul>
+    <li><code>sodex_signal.py</code>: OFI Kont–Kukanov–Stoikov, z-score win 10/30 s, komposit +1/−1/0, regime gate lebih dulu.</li>
+    <li><code>sodex_intel_layer.py</code>: Fear&amp;Greed (cache 1 jam) + composite score 0–100.</li>
+    <li><code>sodex_twin_engine.py</code>: deteksi regime trend + sinyal leading, <code>HEDGE_MAP</code> untuk PEPE/SHIB (multiplier 1000), <code>SAFETY_HALT</code>.</li>
+    <li><code>sodex_autofarm.py</code>: spot farming, event guard ORANGE/RED, lock file, <code>MIN_SPREAD_PCT=0.30</code>, <code>MIN_NET_PCT=0.05</code>.</li>
+    <li><code>perps_volume_engine.py</code>: PVE, maker path opt-in, EV governor gate, weekly net kill −$25, fill reconciliation dari delta posisi.</li>
+  </ul>
+  <h3>Contoh selfcheck governor (25-Nov, exit 0)</h3>
+  <pre><code>Volatile alt      → approved=False, score 17.4 &lt; 55
+Breakeven trap    → approved=False, prob 0.60 &lt; 0.64
+High-conviction   → approved=True,  lev 21x, SL 0.36%, prob_min 0.52</code></pre>
+  <div class="src">Sumber: <code>anantara/sodex_governor.py:22–35,38–145</code>; <code>anantara/sodex_signal.py:27–132</code>; <code>anantara/sodex_intel_layer.py:65–96,188–189</code>; <code>anantara/sodex_twin_engine.py:80–87,118–160,199–260</code>; <code>anantara/sodex_autofarm.py:112–134,136–151,209–251</code>; <code>anantara/perps_volume_engine.py:39–103</code>; eksekusi selfcheck 25-Nov.</div>
+</section>
+
+<section id="eksperimen">
+  <h2><span class="num">11</span>Paper Test & Eksperimen</h2>
+  <p class="sub">Semua angka di bawah berasal dari readout terakhir <code>2026-11-24T22:19:59Z</code>.</p>
+  <table>
+    <caption>Readout A/B terbaru — mean per trade dalam percentage points</caption>
+    <thead><tr><th>Arm</th><th>n</th><th>Mean</th><th>CI95 / BH q</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>TREATMENT flip=0</td><td>14</td><td><span class="tag t-danger">−0,685 pp</span></td><td>[−1,281; +0,072] · q=1,000</td><td>MONITOR n&lt;20</td></tr>
+      <tr><td>flip=0 + BTC gate</td><td>15</td><td><span class="tag t-danger">−0,407 pp</span></td><td>[−0,912; +0,197] · q=0,712</td><td>MONITOR n&lt;20</td></tr>
+      <tr><td>KONTROL flip=1</td><td>34</td><td><span class="tag t-danger">−0,152 pp</span></td><td>[−0,440; +0,177] · q=0,712</td><td>Belum signifikan</td></tr>
+      <tr><td>AB8a geometri ATR</td><td>13</td><td><span class="tag t-danger">−1,190 pp</span></td><td>[−1,978; −0,214] · q=0,712</td><td>MONITOR n&lt;20</td></tr>
+      <tr><td>AB8b trailing +1R</td><td>17</td><td><span class="tag t-danger">−0,403 pp</span></td><td>[−1,031; +0,291] · q=0,712</td><td>MONITOR n&lt;20</td></tr>
+      <tr><td>AB9a sinyal-dibalik</td><td>8</td><td><span class="tag t-danger">−1,483 pp</span></td><td>[−4,323; +0,440] · q=0,712</td><td>MONITOR n&lt;20</td></tr>
+      <tr><td>AB9b sinyal-dibalik + OOS</td><td>5</td><td><span class="tag t-danger">−0,783 pp</span></td><td>n&lt;20 · q=0,712</td><td>MONITOR</td></tr>
+      <tr><td>AB9c setup sudah-naik ≥3%</td><td>3</td><td><span class="tag t-danger">−1,163 pp</span></td><td>n&lt;20 · q=0,712</td><td>MONITOR</td></tr>
+    </tbody>
+  </table>
+  <p>DiD relatif terhadap referensi: flip=0 <code>+0,000 pp</code>, flip=0+BTCgate <code>+0,278 pp</code>, kontrol flip=1 <code>+0,533 pp</code>, AB9a <code>−0,798 pp</code>. Tidak ada arm dengan koreksi BH signifikan.</p>
+  <h3>PRAREG & jendela</h3>
+  <table>
+    <thead><tr><th>Kode</th><th>Hipotesis / peran</th><th>Gerbang utama</th><th>Evaluasi</th></tr></thead>
+    <tbody>
+      <tr><td>23b</td><td>Mode A spot, target 0,010%/5j.</td><td>Net M + MDD −15%, 30 hari live.</td><td>26-Nov / 31-Des</td></tr>
+      <tr><td>26</td><td>Drop mesin net-negatif dari buku.</td><td>M1≥M2, M≥0,8%, median&gt;0, hit≥50%, t≥3,80; ≥12 window.</td><td>25-Nov (give-up 30-Nov)</td></tr>
+      <tr><td>36</td><td>Hybrid lane.</td><td>Bukan <code>DATA_INVALID</code>.</td><td>25-Nov</td></tr>
+      <tr><td>38</td><td>Perps: P1 lolos paper, P2/P4 gugur MDD &lt; −35%.</td><td><code>LAYAK_PAPER_BUKAN_BUKTI</code>.</td><td>p(M≤0)=0,0197; p(M≤target)=0,3215</td></tr>
+      <tr><td>40</td><td>Settled-alpha reflection, ≤3 aturan deterministik.</td><td>ΔWR≥3 pp, ΔE≥5 bps, t≥2,5, kontrol acak gagal.</td><td>31-Des</td></tr>
+      <tr><td>41</td><td>Blok ETH/ASTER/SUI.</td><td>mean α≥0, t≥2,5, Δ≥10 bps, 3 simbol acak gagal.</td><td>01-Des</td></tr>
+      <tr><td>42</td><td>Short 00–05 UTC.</td><td>n≥60, mean α≥0, t≥2,5, Δ≥10 bps, stress 12 bps ≥0, 200 sel acak ≥95% gagal.</td><td>01-Des</td></tr>
+    </tbody>
+  </table>
+  <h3>Epoch E6 — kontrol terhadap cacat runtime</h3>
+  <ul>
+    <li>Lima arm: ab9a baseline, ab9b TP 3,0, ab9c pre24≥3,0, ab9d kontrol regime OFF, ab9e SL 2,0.</li>
+    <li>Unit 9e v1 kehilangan <code>TW_SHORT_LEG=1</code> dan <code>PAPER_BTC_GATE_QUOTA=2</code> sehingga 0 entry; ditemukan dari <code>/proc/&lt;pid&gt;/environ</code>, lalu diperbaiki → 6 entry SHORT.</li>
+    <li>Label funnel mencampur sub-siklus exit-only dengan saturasi asli; diperbaiki di commit <code>a96f095</code> dan dikunci regression test dengan kontrol negatif.</li>
+    <li>Posisi legacy pra-E6 dibiarkan keluar alami; tidak ada exit sintetis.</li>
+  </ul>
+  <div class="src">Sumber: eksekusi <code>sodex_ab_flip_readout.py</code> 25-Nov; <code>docs/sodex/PAPER_EPOCH_E6_20261115.md:7–95</code>; <code>docs/sodex/PRAREG_26_MESIN_SELEKSI.md:27–78,110–119</code>; <code>docs/sodex/PRAREG40_DESIGN.md</code>; <code>docs/sodex/PRAREG41_DESIGN.md</code>; <code>docs/sodex/PRAREG42_DESIGN.md</code>; <code>docs/sodex/LIVE_01DES_KEPUTUSAN.md:64</code>.</div>
+</section>
+
+<section id="ekonomi">
+  <h2><span class="num">12</span>Ekonomi & PnL</h2>
+  <p class="sub">Dari mana uang datang, ke mana ia pergi, dan bagaimana target dihitung.</p>
+  <h3>Rumus inti</h3>
+  <pre><code>alpha_net   = r_trade − β_side × r_BTC − fee − slippage − funding
+β_side      = +1 (long), −1 (short)
+EV/roundtrip = WR × avg_win − (1−WR) × avg_loss − fee
+WR_break-even = (SL + fee) / (TP + SL)
+t           = (r/s) × √T
+M_kum       = total return / 144 bucket 5-jam</code></pre>
+  <h3>Biaya venue (perps, Tier 0 + staking 5%)</h3>
+  <table>
+    <thead><tr><th>Tier</th><th>14D volume</th><th>Taker</th><th>Maker</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>≤ $5M</td><td>0,040%</td><td>0,012%</td></tr>
+      <tr><td>1</td><td>&gt; $5M</td><td>0,036%</td><td>0,010%</td></tr>
+      <tr><td>2</td><td>&gt; $25M</td><td>0,032%</td><td>0,006%</td></tr>
+      <tr><td>3</td><td>&gt; $100M</td><td>0,028%</td><td>0,002%</td></tr>
+      <tr><td>4</td><td>&gt; $500M</td><td>0,026%</td><td>0,000%</td></tr>
+    </tbody>
+  </table>
+  <p>Spot Tier 0: taker 0,065%, maker 0,035%. Volume spot dihitung <strong>2×</strong> pada weighted tier. Fee round-trip yang dipakai settlement ≈ 6,49 bps; PRAREG-41/42 memakai asumsi 8 bps dengan stress 12 bps.</p>
+  <h3>Denominator wallet (25-Nov)</h3>
+  <table>
+    <tbody>
+      <tr><th>Perps vUSDC</th><td>$217,43</td></tr>
+      <tr><th>Spot priced</th><td>$25,22</td></tr>
+      <tr><th><strong>Total priced</strong></th><td><strong>$242,65</strong></td></tr>
+      <tr><th>Dust diabaikan</th><td><code>vsMAG7.ssi</code> upper-bound &lt; $0,000001 (immaterial)</td></tr>
+      <tr><th><code>.env.swing</code></th><td>$234,17 — basi 3,6%, masih di bawah ambang update 5%</td></tr>
+      <tr><th>Target 0,8%</th><td>$1,941 per window</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn"><strong>Ekspektasi jujur Mode A:</strong> M historis ≈0,006%/5 jam, <strong>di bawah</strong> target 0,010%. Median 31 hari −0,3%; P(31 hari &lt; 0) = 54%; MDD historis −13,8%; hari terburuk −4,6%; timing sinyal belum signifikan vs acak (p=0,10). Live 01-Des = uji eksekusi, bukan klaim edge.</div>
+  <div class="src">Sumber: <code>SOLEX.md:10–57</code>; <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md:26–31</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:88–95</code>; <code>docs/sodex/LIVE_01DES_KEPUTUSAN.md:21–22</code>; eksekusi <code>sodex_wallet_denominator.py</code> 25-Nov.</div>
+</section>
+
+<section id="rca">
+  <h2><span class="num">13</span>RCA & Bottleneck Analysis</h2>
+  <p class="sub">Mengapa sistem terlihat sehat tetapi tetap NO-GO. Analisis ini harus menjelaskan IS dan IS NOT sekaligus.</p>
+  <h3>KT IS / IS NOT</h3>
+  <table>
+    <thead><tr><th>Pertanyaan</th><th>IS (teramati)</th><th>IS NOT (tidak teramati)</th></tr></thead>
+    <tbody>
+      <tr><td>Runtime</td><td>33/33 lane telemetry OK, DOWN+STALE=0, heartbeat segar, klines 108 file.</td><td>Bukan berarti semua lane menghasilkan trade valid atau profit.</td></tr>
+      <tr><td>Data</td><td>State JSON, ledger, snapshot, fill journal terus ditulis.</td><td>Bukan berarti data sudah dedup, settled, bebas duplikat, atau bebas beta.</td></tr>
+      <tr><td>Statistik</td><td>CI95 dan BH dihitung.</td><td>Tidak ada arm dengan q&lt;0,05 dan efek positif; n kebanyakan &lt;20.</td></tr>
+      <tr><td>Keamanan</td><td>Watchdog mendeteksi 2 posisi untracked dan menulis CRITICAL.</td><td>Bukan berarti akun sudah bersih; justru menunjukkan risiko terbuka.</td></tr>
+      <tr><td>Kesiapan</td><td>Engine, runbook, template LIVE_ARMED tersedia.</td><td><code>secrets/sodex.env</code> tidak ada, testnet selftest belum, promo DATA_KURANG.</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Cause yang menjelaskan keduanya:</strong> metrik yang dipakai untuk “sehat” adalah <em>liveness</em> (proses jalan), sedangkan yang dibutuhkan untuk GO adalah <em>expectancy + rekonsiliasi + bukti statistik</em>. Keduanya diukur oleh alat berbeda. Ketika alat liveness hijau dan alat bukti merah, sistem akan terlihat sehat tetapi tetap NO-GO—dan itulah yang terjadi.</p>
+  <h3>TOC — 5 focusing steps</h3>
+  <ol>
+    <li><strong>Identify constraint:</strong> edge statistik yang belum ada, bukan kecepatan engine.</li>
+    <li><strong>Exploit:</strong> bekukan gate; berhenti menaikkan frekuensi/leverage untuk “mengejar” target.</li>
+    <li><strong>Subordinate:</strong> reliability, watchdog, dan collector bertugas menjaga kualitas bukti, bukan menambah kosmetik hijau.</li>
+    <li><strong>Elevate:</strong> satu-satunya tuas struktural aritmetik adalah diversifikasi yang menurunkan sd portofolio (ρ rendah), bukan sinyal tambahan.</li>
+    <li><strong>Repeat:</strong> ulangi setelah constraint bergeser; jangan ulangi dengan membuka gate lama.</li>
+  </ol>
+  <h3>Ringkasan 8D</h3>
+  <table>
+    <thead><tr><th>Langkah</th><th>Hasil</th></tr></thead>
+    <tbody>
+      <tr><td>D1–D2 Problem &amp; containment</td><td>False-green preflight dan promo gate; ditutup dengan fail-closed status + blocker.</td></tr>
+      <tr><td>D3 Root cause</td><td>Status machine-readable tidak ada; <code>DATA_KURANG</code> dianggap INFO; endpoint parsial dianggap akun kosong.</td></tr>
+      <tr><td>D4–D5 Corrective &amp; verification</td><td>Patch watchdog/preflight; regression 1544 PASS; governor selfcheck exit 0.</td></tr>
+      <tr><td>D6–D8 Prevention &amp; closure</td><td>Regression test permanen; identity guard; endpoint completeness; promo gate nonzero = blocker.</td></tr>
+    </tbody>
+  </table>
+  <div class="src">Sumber: <code>docs/sodex/AUDIT_MENYELURUH_2026-10-25.md</code>; <code>docs/sodex/CONTINUOUS_LEARNING_LOG.md</code>; <code>docs/sodex/HUKUM_BUKTI_2026-10-25.md:36–41</code>; patch dan test 23–25 Nov; eksekusi preflight/watchdog 25-Nov.</div>
+</section>
+
+<section id="safety">
+  <h2><span class="num">14</span>Safety & Red Lines</h2>
+  <p class="sub">Aturan ini tidak bisa di-override oleh target, jadwal, atau siapa pun.</p>
+  <ol>
+    <li>Jangan pernah commit atau tampilkan <code>.env</code>, kredensial, API key, private key.</li>
+    <li>Jangan ubah <code>dry_run=true</code> jadi <code>false</code>, atau parameter/target fundamental, tanpa approval Owner.</li>
+    <li>Jangan pernah <code>shuffle:true</code> pada time-series.</li>
+    <li>Jangan hapus position tracker/state saat ada posisi terbuka.</li>
+    <li>Jangan deploy tanpa test PASS + Pre-Deploy Review (git diff, secret scan, syntax check).</li>
+    <li>Jangan eksekusi order live/transaksi blockchain tanpa GO-LIVE eksplisit Owner.</li>
+    <li>Jangan <code>rm -rf</code>. Jangan ubah SL/TP/leverage/sizing tanpa backtest yang membuktikan improvement.</li>
+    <li>Trading uang nyata hanya setelah paper validation &amp; gate konstitusi.</li>
+    <li>Ragu antara cepat vs aman → pilih AMAN dan sebut alasannya.</li>
+    <li>Laporkan temuan keamanan/anomali/malware ke Owner sesegera mungkin.</li>
+  </ol>
+  <h3>Kontrol teknis yang aktif</h3>
+  <table>
+    <thead><tr><th>Kontrol</th><th>Perilaku</th></tr></thead>
+    <tbody>
+      <tr><td><code>secrets/KILL</code></td><td>Semua run berhenti seketika.</td></tr>
+      <tr><td><code>data/SAFETY_HALT</code>, <code>data/PNL_HALT</code></td><td>Memblokir order saat kondisi unsafe.</td></tr>
+      <tr><td>Cap ekuitas/order/total-beli</td><td>Block, bukan diskalakan diam-diam.</td></tr>
+      <tr><td>Limit-IOC + slip ≤30 bps</td><td>Tidak pernah market order; sisa tak terisi dibatalkan venue.</td></tr>
+      <tr><td>Idempoten per asof</td><td>Tidak mengirim ulang; intent tanpa result → rekonsiliasi manual.</td></tr>
+      <tr><td>Tanpa retry order gagal</td><td>Status order bisa ambigu; retry dapat double-fill.</td></tr>
+      <tr><td>Watchdog fail-closed</td><td>Sync None, endpoint hilang, akun mismatch, balance non-finite → CRITICAL/FAILED.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout danger"><strong>Kondisi saat ini:</strong> 2 posisi nyata (<code>ONDO-USD</code> size 53,3; <code>NEAR-USD</code> size 4,1) ditandai <code>UNTRACKED</code>. Jangan menutupnya otomatis, jangan menghapus alert, dan jangan menyebutnya “residual aman” sebelum Owner merekonsiliasi kuantitas dan sumber fill.</div>
+  <div class="src">Sumber: <code>SOUL.md</code> §Red Lines; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:75–99</code>; <code>anantara/sodex_farming.py:95–112</code>; <code>anantara/sodex_twin_engine.py:97–118</code>; <code>data/sodex_watchdog_status.json</code> 24-NovT22:18Z.</div>
+</section>
+
+<section id="readiness">
+  <h2><span class="num">15</span>Readiness Live 01 Desember 2026</h2>
+  <p class="sub">Lima syarat GO dari dokumen beku 26-Okt, dinilai apa adanya.</p>
+  <table>
+    <thead><tr><th>Syarat GO</th><th>Status</th><th>Bukti / blocker</th></tr></thead>
+    <tbody>
+      <tr><td>1. <code>preflight.py</code> 0 FAIL</td><td><span class="tag t-danger">GAGAL</span></td><td>9/12 lulus; blocker <code>secret_env</code>, <code>reconcile</code>, <code>promo_gate</code>.</td></tr>
+      <tr><td>2. Selftest TESTNET sukses (Owner)</td><td><span class="tag t-danger">BELUM</span></td><td>Tidak ada receipt <code>selftest_testnet_ok.json</code> yang terverifikasi.</td></tr>
+      <tr><td>3. PRAREG-23b/36 bukan <code>DATA_INVALID</code>, 0 error eksekusi</td><td><span class="tag t-warn">BELUM PASTI</span></td><td>Promo gate 19/30 hari <code>DATA_KURANG</code>; evaluasi 26-Nov.</td></tr>
+      <tr><td>4. <code>LIVE_ARMED.json</code> ditandatangani Owner, hash cocok</td><td><span class="tag t-danger">BELUM</span></td><td>Hanya template; preflight engine_sha <code>7c4f0a12c23b7192</code>.</td></tr>
+      <tr><td>5. <code>CONFIRM_LIVE=YES</code></td><td><span class="tag t-danger">BELUM</span></td><td>Tidak ada indikasi di lingkungan produksi.</td></tr>
+    </tbody>
+  </table>
+  <h3>Tiga blocker preflight</h3>
+  <ol>
+    <li><strong><code>secret_env</code>:</strong> <code>secrets/sodex.env</code> tidak ada; hanya template. Tugas Owner, chmod 600.</li>
+    <li><strong><code>reconcile</code>:</strong> watchdog <code>CRITICAL</code>, 2 posisi venue tidak tercatat di state manapun. Tugas Owner + agent: rekonsiliasi manual, bukan auto-close.</li>
+    <li><strong><code>promo_gate</code>:</strong> 19/30 hari, <code>DATA_KURANG</code>, exit 3. Tidak boleh dinaikkan menjadi “gate siap”.</li>
+  </ol>
+  <div class="callout danger"><strong>Verdict: NO-GO.</strong> 1 Desember tetap dapat dipakai sebagai target operasional Owner, tetapi sistem tidak boleh mengaktifkan live otomatis. Agen tidak akan mengetik kunci, menandatangani armed file, atau mengirim order.</div>
+  <h3>Rincian arming (untuk Owner)</h3>
+  <pre><code>cp docs/sodex/LIVE_ARMED.template.json secrets/LIVE_ARMED.json
+sha256sum scripts/research/mode_a_20261026/mode_a_live.py
+# isi: armed=true, go_utc, engine_sha256, acknowledge_prareg23b_verdict=true
+# batas usulan: equity 300 · per-order 100 · total-buy 200 · MDD 15%
+
+systemctl --user edit sodex-modea-live.service
+# tambah Environment=CONFIRM_LIVE=YES
+systemctl --user enable --now sodex-modea-live.timer</code></pre>
+  <div class="callout warn"><strong>Catatan hash:</strong> runbook lama meminta hash <code>mode_a_engine.py</code>, tetapi preflight aktual menghitung <code>mode_a_live.py</code>. Ini harus disinkronkan oleh Owner sebelum penandatanganan; jangan menebak.</div>
+  <div class="src">Sumber: eksekusi <code>sodex_live_preflight.py</code> 25-Nov; <code>docs/sodex/LIVE_01DES_KEPUTUSAN.md:24–29</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:54–73</code>; <code>docs/sodex/LIVE_ARMED.template.json</code>; <code>scripts/sodex_live_preflight.py:28–36</code>.</div>
+</section>
+
+<section id="plan">
+  <h2><span class="num">16</span>Langkah & Plan Kerja</h2>
+  <p class="sub">Rencana enam hari menuju 1 Desember, lalu evaluasi lanjutan. Owner tetap pemegang keputusan final.</p>
+  <h3>H–6 sampai H–0</h3>
+  <table>
+    <thead><tr><th>Tanggal</th><th>Aksi</th><th>Penanggung</th><th>Exit criteria</th></tr></thead>
+    <tbody>
+      <tr><td>25 Nov</td><td>Fix regression fixture watchdog; verifikasi 1544 PASS; susun kompendium ini.</td><td>Agent</td><td><span class="tag t-ok">SELESAI</span></td></tr>
+      <tr><td>26 Nov</td><td>Evaluasi PRAREG-23b; baca verdict 36; audit ledger lane shortbear/arena.</td><td>Agent</td><td>Verdict tertulis, bukan asumsi.</td></tr>
+      <tr><td>27 Nov</td><td>Preflight harian #1; provisi kredensial &amp; wallet khusus bot.</td><td>Agent + Owner</td><td><code>secret_env</code> lulus tanpa mencetak nilai.</td></tr>
+      <tr><td>28 Nov</td><td>Rekonsiliasi 2 posisi ONDO/NEAR + selftest TESTNET.</td><td>Owner</td><td>Watchdog OK, receipt testnet ada.</td></tr>
+      <tr><td>29 Nov</td><td>Preflight harian #2; negative control watchdog → status → preflight.</td><td>Agent</td><td>0 FAIL atau blocker tertulis jujur.</td></tr>
+      <tr><td>30 Nov</td><td>Tanda tangan <code>LIVE_ARMED.json</code> + hash engine yang benar.</td><td>Owner</td><td>Hash cocok, ack verdict = true.</td></tr>
+      <tr><td>01 Des 07:50</td><td>Aktivasi oleh Owner bila semua syarat terpenuhi.</td><td>Owner</td><td>Jika tidak: tetap dry-run, lapor NO-GO.</td></tr>
+    </tbody>
+  </table>
+  <h3>Setelah live</h3>
+  <ol>
+    <li>Rekonsiliasi order/fill/PnL nyata tiap hari; jangan gabungkan sampel SoDEX dengan CEX-Binance.</li>
+    <li>31-Des: evaluasi PRAREG-40, 41, 42 dan window promosi pertama.</li>
+    <li>24-Jan-2027: evaluasi 90 hari — hit90, M, MDD, shadow PRAREG-37.</li>
+    <li>Scale hanya jika edge &amp; execution terbukti; jika tidak, kecilkan atau hentikan lewat keputusan Owner.</li>
+  </ol>
+  <div class="src">Sumber: <code>docs/sodex/KEPUTUSAN_TARGET_20261102.md:84–95</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:18–29</code>; <code>docs/sodex/LIVE_01DES_KEPUTUSAN.md:31–45</code>.</div>
+</section>
+
+<section id="risiko">
+  <h2><span class="num">17</span>Risk Register</h2>
+  <p class="sub">Risiko yang masih terbuka dan perlakuan yang benar.</p>
+  <table>
+    <thead><tr><th>Risiko</th><th>Kemungkinan</th><th>Dampak</th><th>Perlakuan</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>2 posisi untracked</td><td>Sedang</td><td>Kritis</td><td>Rekonsiliasi manual; alert tetap aktif.</td><td><span class="tag t-danger">OPEN</span></td></tr>
+      <tr><td>Kredensial tidak tersedia</td><td>Pasti</td><td>Kritis</td><td>Owner buat wallet khusus + env 0600.</td><td><span class="tag t-danger">OPEN</span></td></tr>
+      <tr><td>Promo gate <code>DATA_KURANG</code></td><td>Pasti</td><td>Kritis</td><td>Tunggu 30 hari live; jangan dilonggarkan.</td><td><span class="tag t-danger">OPEN</span></td></tr>
+      <tr><td>Edge negatif/Thin</td><td>Tinggi</td><td>Kritis</td><td>Forward + kontrol; jangan naikkan leverage.</td><td><span class="tag t-danger">OPEN</span></td></tr>
+      <tr><td><code>shadow37</code> gagal funding</td><td>Teramati</td><td>Sedang</td><td>Perbaiki visibility &amp; data pembanding; jangan longgarkan rule.</td><td><span class="tag t-warn">OPEN</span></td></tr>
+      <tr><td>Forward-loop guard exit 2</td><td>Teramati</td><td>Sedang</td><td>Baca journal/ExecStart sebelum menyimpulkan.</td><td><span class="tag t-warn">OPEN</span></td></tr>
+      <tr><td>Dokumen lama konflik</td><td>Pasti</td><td>Sedang</td><td>Kanon + dokumen ber-hash menang; sinkronkan.</td><td><span class="tag t-warn">OPEN</span></td></tr>
+      <tr><td>API key lama kedaluwarsa</td><td>Dugaan</td><td>Kritis</td><td>Rotasi; jangan pakai <code>.env.bak.*</code>.</td><td><span class="tag t-warn">OPEN</span></td></tr>
+    </tbody>
+  </table>
+  <div class="src">Sumber: eksekusi preflight/watchdog/promo gate 25-Nov; <code>docs/sodex/INSTRUKSI_KUNCI_01DES.md:1–7</code>; observasi jurnal 23–24 Nov; <code>docs/sodex/HUKUM_BUKTI_2026-10-25.md</code>.</div>
+</section>
+
+<section id="inkonsistensi">
+  <h2><span class="num">18</span>Inkonsistensi Dokumen & Batas Klaim</h2>
+  <p class="sub">Bagian ini sengaja dimasukkan agar dokumen ini tidak ikut memperhalus keadaan.</p>
+  <table>
+    <thead><tr><th>Konflik</th><th>Fakta</th><th>Keputusan baca</th></tr></thead>
+    <tbody>
+      <tr><td>Tujuan airdrop vs profit</td><td><code>README.md</code>/<code>ARCHITECTURE.md</code> masih menyebut SoPoints; <code>SOLEX.md</code> &amp; kanon menyebut profit.</td><td><strong>Profit yang menang.</strong> Volume byproduct.</td></tr>
+      <tr><td>0,7% vs 0,8%</td><td>CLAUDE.md menyebut 0,7% di SOUL lama, juga 0,8% di bagian North Star; kanon 02-Nov mengunci 0,8%.</td><td><strong>0,8%</strong> target aktif; 0,7% artefak lama.</td></tr>
+      <tr><td>Per trade vs total wallet</td><td>Arsitektur v2 menulis “per trade $0,662”; kanon menulis total wallet.</td><td><strong>Total wallet spot+perps</strong> yang sah.</td></tr>
+      <tr><td>Hash engine</td><td>Runbook: <code>mode_a_engine.py</code>; preflight aktual: <code>mode_a_live.py</code>.</td><td>Sinkronkan sebelum arm; jangan pilih salah satu secara diam-diam.</td></tr>
+      <tr><td>Promo gate</td><td>Dulu <code>DATA_KURANG</code> tampil sebagai INFO; sekarang blocker.</td><td>Perbaikan 23-Nov berlaku; gate lama cacat.</td></tr>
+      <tr><td>Status lane</td><td>Laporan “33/33 OK” sering dibaca sebagai kinerja.</td><td>Hanya liveness; bukan PnL/validitas statistik.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout danger"><strong>Batas klaim:</strong> dokumen ini tidak menyatakan edge terbukti, tidak menyatakan akun bersih, tidak menyatakan strategi profitable, dan tidak menyatakan live boleh aktif otomatis. Semua klaim tersebut saat ini <strong>belum cukup data</strong> atau <strong>terfalsifikasi</strong>.</div>
+  <div class="src">Sumber: <code>README.md:1–9</code>; <code>ARCHITECTURE.md</code>; <code>SOLEX.md:1–8</code>; <code>CLAUDE.md</code>; <code>docs/sodex/KANON_PROJECT_SODEX_20261031.md</code>; <code>docs/sodex/KEPUTUSAN_TARGET_20261102.md:13–21</code>; <code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md:58</code>; <code>scripts/sodex_live_preflight.py:29</code>.</div>
+</section>
+
+<section id="verifikasi">
+  <h2><span class="num">19</span>Verifikasi & Audit Trail</h2>
+  <p class="sub">Apa yang benar-benar dijalankan, kapan, dan hasilnya.</p>
+  <table>
+    <thead><tr><th>Alat / perintah</th><th>Tujuan</th><th>Hasil 25-Nov</th></tr></thead>
+    <tbody>
+      <tr><td><code>env -u PYTHONPATH ./.venv-research/bin/python -m pytest tests/test_sodex*.py tests/test_live_preflight.py tests/test_paper*.py -q</code></td><td>Full regression SoDEX</td><td><strong>1544 passed, 36 skipped, 3 subtests passed</strong> (72,88 s)</td></tr>
+      <tr><td><code>anantara/sodex_governor.py --selfcheck</code></td><td>Governor safety gate</td><td>exit 0; skenario high-conviction disetujui, breakeven trap ditolak</td></tr>
+      <tr><td><code>scripts/sodex_live_preflight.py</code></td><td>Readiness live</td><td>BELUM_SIAP, 9/12, 3 blocker</td></tr>
+      <tr><td><code>scripts/sodex_target_promotion_gate.py --equity-file reports/sodex/EQUITY_LEDGER.jsonl --json</code></td><td>Promosi target</td><td><code>DATA_KURANG</code>, n_days=19, exit 3</td></tr>
+      <tr><td><code>scripts/sodex_ab_flip_readout.py</code></td><td>Readout A/B</td><td>2026-11-24T22:19:59Z; semua arm negatif / n&lt;20</td></tr>
+      <tr><td><code>scripts/sodex_wallet_denominator.py</code></td><td>Denominator wallet</td><td>perps $217,43 + spot $25,22 = $242,65; final OK</td></tr>
+      <tr><td><code>cat data/sodex_watchdog_status.json</code></td><td>Rekonsiliasi</td><td>CRITICAL; ONDO size 53,3 &amp; NEAR size 4,1 untracked</td></tr>
+    </tbody>
+  </table>
+  <h3>Perbaikan yang menyertai dokumen ini</h3>
+  <ul>
+    <li>Fixture <code>tests/test_sodex_live_watchdog.py</code> disesuaikan dengan identity guard baru: <code>patch.object(wd.s, "ADDRESS", "0xtest")</code> + field <code>address</code> pada payload.</li>
+    <li>Sebelum perbaikan: 4 failed / 36 passed. Sesudah: <strong>40 passed</strong> pada file fokus, lalu full suite 1544 PASS.</li>
+    <li>Tidak ada perubahan pada strategi, gate, target, <code>dry_run</code>, atau parameter fundamental.</li>
+  </ul>
+  <div class="src">Sumber: output terminal langsung 25-Nov; <code>tests/test_sodex_live_watchdog.py:14–40,72–185</code>; <code>scripts/sodex_live_watchdog.py:261–330</code>.</div>
+</section>
+
+<section id="glosarium">
+  <h2><span class="num">20</span>Glosarium A–Z</h2>
+  <p class="sub">Istilah yang dipakai di dokumen dan kode harian.</p>
+  <div class="grid g2">
+    <div>
+      <h4>A–F</h4>
+      <ul>
+        <li><strong>Alpha_net</strong> — return setelah fee, slippage, funding, dan beta BTC.</li>
+        <li><strong>Arm</strong> — cabang eksperimen dengan konfigurasi berbeda.</li>
+        <li><strong>BH-FDR</strong> — koreksi Benjamini–Hochberg untuk multiple testing.</li>
+        <li><strong>Beta_side</strong> — +1 long, −1 short, untuk netralisasi BTC.</li>
+        <li><strong>Bucket</strong> — unit waktu 5 jam; 144 bucket = 30 hari.</li>
+        <li><strong>CI95</strong> — interval kepercayaan 95%.</li>
+        <li><strong>Deep loop</strong> — pembelajaran otonom berkesinambungan 24/7.</li>
+        <li><strong>Dedup</strong> — hapus baris telemetri duplikat sebelum statistik.</li>
+        <li><strong>Expectancy</strong> — expected value per round-trip setelah biaya.</li>
+        <li><strong>Fail-closed</strong> — bila ragu, gate ditutup, bukan dibuka.</li>
+        <li><strong>Fill</strong> — order tereksekusi; bukan sekadar accepted.</li>
+        <li><strong>Forward</strong> — data setelah desain dibekukan.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>G–N</h4>
+      <ul>
+        <li><strong>Gate</strong> — syarat yang harus lulus sebelum tindakan lanjut.</li>
+        <li><strong>Governor</strong> — pengawas expectancy &amp; risiko; safety-critical.</li>
+        <li><strong>Hit rate</strong> — persentase window yang mencapai target.</li>
+        <li><strong>IOC</strong> — immediate-or-cancel; sisa tak terisi dibatalkan.</li>
+        <li><strong>KILL</strong> — file penanda penghentian darurat.</li>
+        <li><strong>Lane</strong> — satu alur paper eksperimen.</li>
+        <li><strong>Live_armed</strong> — file tanda tangan Owner; sync dengan hash engine.</li>
+        <li><strong>MDE</strong> — minimum detectable effect.</li>
+        <li><strong>MDD</strong> — maximum drawdown dari puncak ekuitas.</li>
+        <li><strong>North Star</strong> — ≥0,8% total wallet/window 30 jam.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>O–S</h4>
+      <ul>
+        <li><strong>N=1.271</strong> — jumlah uji dalam registry dengan ambang Bonferroni.</li>
+        <li><strong>OOS</strong> — out-of-sample.</li>
+        <li><strong>OBI/OFI</strong> — order-book/order-flow imbalance.</li>
+        <li><strong>Preflight</strong> — pemeriksaan sebelum live.</li>
+        <li><strong>PRAREG</strong> — pra-registrasi eksperimen beku.</li>
+        <li><strong>Promotion gate</strong> — gate kenaikan status target operasional.</li>
+        <li><strong>PVE</strong> — perps volume engine.</li>
+        <li><strong>Rekonsiliasi</strong> — cocokkan posisi venue dengan state lokal.</li>
+        <li><strong>Residual</strong> — sisa posisi/ukuran setelah order parsial.</li>
+        <li><strong>Shadow</strong> — simulasi tanpa eksekusi nyata.</li>
+        <li><strong>Slippage</strong> — selisih harga expected vs filled.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>T–Z</h4>
+      <ul>
+        <li><strong>Settlement</strong> — finalisasi PnL setelah bar tertutup.</li>
+        <li><strong>SHORT 00–05</strong> — sel PRAREG-42, jam UTC.</li>
+        <li><strong>Spot equity</strong> — nilai bersih akun spot; sentinel negatif bukan batas aman.</li>
+        <li><strong>Stale</strong> — data/status terlalu lama.</li>
+        <li><strong>Taker</strong> — order yang langsung cocok dengan book.</li>
+        <li><strong>Telemetry OK</strong> — proses hidup; bukan profit.</li>
+        <li><strong>UNSETTLED</strong> — data kurang untuk settlement; jangan dikarang.</li>
+        <li><strong>UNTRACKED</strong> — posisi venue tanpa catatan state lokal.</li>
+        <li><strong>Watchdog</strong> — monitor rekonsiliasi dan status sistem.</li>
+        <li><strong>Welch</strong> — uji t untuk dua sampel varians berbeda.</li>
+        <li><strong>Window</strong> — unit waktu penilaian target (30 jam).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="sumber">
+  <h2><span class="num">21</span>Indeks Sumber</h2>
+  <p class="sub">Semua jalur relatif terhadap <code>~/anantara-sakti/</code>. Nomor baris menunjukkan bagian yang dipakai bila relevan.</p>
+  <table>
+    <thead><tr><th>Jalur</th><th>Mendukung bagian</th></tr></thead>
+    <tbody>
+      <tr><td><code>CLAUDE.md</code></td><td>North Star, disiplin kerja, safety, workflow deploy.</td></tr>
+      <tr><td><code>README.md</code>, <code>ARCHITECTURE.md</code>, <code>SOLEX.md</code></td><td>Identitas, layout, biaya, status dokumen lama vs baru.</td></tr>
+      <tr><td><code>docs/SODEX_SYSTEM_MAP.md</code>, <code>docs/SODEX_ARCHITECTURE_MAP.md</code></td><td>Peta tier, alur data, keputusan arsitektur.</td></tr>
+      <tr><td><code>docs/SODEX_PROJECT_STRUCTURE.md</code>, <code>docs/SODEX_SWING_PHILOSOPHY_AND_MAP_20260802.md</code>, <code>docs/SODEX_FARMING_DOCTRINE.md</code></td><td>Struktur &amp; filosofi historis.</td></tr>
+      <tr><td><code>docs/sodex/KANON_PROJECT_SODEX_20261031.md</code></td><td>Tujuan, target, prinsip, workflow kanon.</td></tr>
+      <tr><td><code>docs/sodex/KEPUTUSAN_TARGET_20261102.md</code></td><td>Target bersyarat &amp; REV2 kumulatif.</td></tr>
+      <tr><td><code>docs/sodex/AMANDEMEN_3_ANALISA_TARGET_040_VS_080.md</code></td><td>Rasional target 0,8%.</td></tr>
+      <tr><td><code>docs/sodex/HUKUM_BUKTI_2026-10-25.md</code>, <code>BATAS_BUKTI_2026-10-25.md</code></td><td>Aritmetika bukti, MDE, tiga jalur.</td></tr>
+      <tr><td><code>docs/sodex/AUDIT_MENYELURUH_2026-10-25.md</code>, <code>CONTINUOUS_LEARNING_LOG.md</code></td><td>Baseline 1.690 trade, 0 lolos BH.</td></tr>
+      <tr><td><code>docs/sodex/GO_LIVE_01DES_RUNBOOK.md</code>, <code>INSTRUKSI_KUNCI_01DES.md</code>, <code>LIVE_01DES_KEPUTUSAN.md</code>, <code>LIVE_ARMED.template.json</code></td><td>Runbook, kredensial, syarat GO, arming.</td></tr>
+      <tr><td><code>docs/sodex/PRAREG_26_MESIN_SELEKSI.md</code>, <code>PRAREG40_DESIGN.md</code>, <code>PRAREG41_DESIGN.md</code>, <code>PRAREG42_DESIGN.md</code></td><td>Desain &amp; gate eksperimen.</td></tr>
+      <tr><td><code>docs/sodex/PAPER_EPOCH_E6_20261115.md</code></td><td>Definisi epoch, cacat env, aturan baca hasil.</td></tr>
+      <tr><td><code>anantara/sodex_governor.py</code>, <code>sodex_signal.py</code>, <code>sodex_twin_engine.py</code>, <code>sodex_intel_layer.py</code>, <code>sodex_autofarm.py</code>, <code>sodex_farming.py</code>, <code>perps_volume_engine.py</code></td><td>Arsitektur modul &amp; konstanta.</td></tr>
+      <tr><td><code>scripts/sodex_live_preflight.py</code>, <code>sodex_live_watchdog.py</code>, <code>sodex_target_promotion_gate.py</code>, <code>sodex_wallet_denominator.py</code>, <code>sodex_ab_flip_readout.py</code></td><td>Fail-closed, promo, denominator, statistik; dieksekusi 25-Nov.</td></tr>
+      <tr><td><code>data/sodex_real_sync_snapshot.json</code>, <code>data/sodex_watchdog_status.json</code>, <code>reports/sodex/EQUITY_LEDGER.jsonl</code></td><td>Snapshot runtime 24-NovT22:18Z.</td></tr>
+      <tr><td><code>tests/test_sodex*.py</code>, <code>tests/test_live_preflight.py</code>, <code>tests/test_paper*.py</code></td><td>Regresi 1544 PASS, 36 skipped.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout ok"><strong>Pernyataan verifikasi:</strong> angka dalam dokumen ini berasal dari eksekusi alat nyata pada 25-Nov-2026, bukan dari estimasi atau contoh. Jika snapshot runtime berubah, baca ulang file sumber yang tercantum sebelum mengambil keputusan.</div>
+</section>
+
+<div class="foot">SoDEX A–Z Kompendium · Versi 1.0 · Disusun 25 November 2026 · Divisi SoDEX, Anantara Sakti · Status: NO-GO untuk live otomatis.</div>
+</main>
+</div>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if (!('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      links.forEach(function(a){ a.classList.remove('active'); });
+      var active = links.filter(function(a){ return a.getAttribute('href') === '#' + e.target.id; })[0];
+      if (active) { active.classList.add('active'); active.scrollIntoView({block:'nearest'}); }
+    });
+  }, {rootMargin: '-10% 0px -80% 0px', threshold: 0});
+  sections.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>

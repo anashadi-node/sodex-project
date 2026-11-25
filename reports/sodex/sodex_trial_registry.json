@@ -1,0 +1,3169 @@
+[
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 386,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 1,
+  "seen_count": 3,
+  "last_seen": "2026-10-04T13:10:41.107084+00:00"
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 366,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 2,
+  "seen_count": 9,
+  "last_seen": "2026-10-04T15:59:43.680832+00:00"
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 235,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 3,
+  "seen_count": 10,
+  "last_seen": "2026-10-04T16:04:24.424602+00:00"
+ },
+ {
+  "strategy": "twoway_short_side",
+  "passed": false,
+  "note": "SoDEX harness re-eval",
+  "n": 42,
+  "reasons": [
+   "level_decision: ci95_lower_positive, dsr_passed",
+   "funding_required_but_missing: 42/42 rows without funding/borrow field"
+  ],
+  "n_trials_total": 4,
+  "seen_count": 182,
+  "last_seen": "2026-11-24T23:04:41.717705+00:00"
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 387,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-04T14:20:44.094862+00:00",
+  "last_seen": "2026-10-04T17:29:44.898080+00:00",
+  "seen_count": 8,
+  "n_trials_total": 5
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 367,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-04T16:04:24.119445+00:00",
+  "last_seen": "2026-10-04T17:29:45.287611+00:00",
+  "seen_count": 2,
+  "n_trials_total": 6
+ },
+ {
+  "strategy": "swing:LONG",
+  "passed": false,
+  "note": "SoDEX breakdown per-sisi (LONG/SHORT) pada harness beku",
+  "n": 387,
+  "excess_bps": -12.2578,
+  "cost1x_bps": -20.2578,
+  "cost2x_bps": -28.2578,
+  "fee_impas_bps": -6.1289,
+  "sharpe_ann": -1.4274,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 7
+ },
+ {
+  "strategy": "twoway:LONG",
+  "passed": false,
+  "note": "SoDEX breakdown per-sisi (LONG/SHORT) pada harness beku",
+  "n": 325,
+  "excess_bps": 8.054,
+  "cost1x_bps": 0.054,
+  "cost2x_bps": -7.946,
+  "fee_impas_bps": 4.027,
+  "sharpe_ann": 0.7012,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 8
+ },
+ {
+  "strategy": "twoway:SHORT",
+  "passed": false,
+  "note": "SoDEX breakdown per-sisi (LONG/SHORT) pada harness beku",
+  "n": 42,
+  "excess_bps": 60.9407,
+  "cost1x_bps": 52.9407,
+  "cost2x_bps": 44.9407,
+  "fee_impas_bps": 30.4703,
+  "sharpe_ann": 5.3092,
+  "reasons": [
+   "level_decision: ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 9
+ },
+ {
+  "strategy": "realwide:LONG",
+  "passed": false,
+  "note": "SoDEX breakdown per-sisi (LONG/SHORT) pada harness beku",
+  "n": 235,
+  "excess_bps": -3.6786,
+  "cost1x_bps": -11.6786,
+  "cost2x_bps": -19.6786,
+  "fee_impas_bps": -1.8393,
+  "sharpe_ann": -0.3353,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 10
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:above_sma24",
+  "passed": false,
+  "note": "studi filter entry LONG (punya above_sma24)",
+  "n": 310,
+  "excess_bps": 9.6346,
+  "cost2x_bps": -6.3654,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 11
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:minor_pullback",
+  "passed": false,
+  "note": "studi filter entry LONG (punya minor_pullback)",
+  "n": 208,
+  "excess_bps": -15.6598,
+  "cost2x_bps": -31.6598,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 12
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:rsi_mid",
+  "passed": false,
+  "note": "studi filter entry LONG (punya rsi_mid)",
+  "n": 121,
+  "excess_bps": -15.6601,
+  "cost2x_bps": -31.6601,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 13
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:strong_24h_trend",
+  "passed": true,
+  "note": "studi filter entry LONG (punya strong_24h_trend)",
+  "n": 231,
+  "excess_bps": 24.2825,
+  "cost2x_bps": 8.2825,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 14
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:vol_above_avg",
+  "passed": true,
+  "note": "studi filter entry LONG (punya vol_above_avg)",
+  "n": 185,
+  "excess_bps": 20.6977,
+  "cost2x_bps": 4.6977,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 15
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+strong_24h_trend+vol_above_avg",
+  "passed": true,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 90,
+  "excess_bps": 51.6461,
+  "cost2x_bps": 35.6461,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 16
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+strong_24h_trend",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 53,
+  "excess_bps": 11.357,
+  "cost2x_bps": -4.643,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 17
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+rsi_mid",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 39,
+  "excess_bps": -49.6636,
+  "cost2x_bps": -65.6636,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 18
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+rsi_mid+strong_24h_trend",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 32,
+  "excess_bps": -19.0424,
+  "cost2x_bps": -35.0424,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 19
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+vol_above_avg",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 31,
+  "excess_bps": -52.3864,
+  "cost2x_bps": -68.3864,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 20
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+strong_24h_trend+vol_above_avg",
+  "passed": true,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 30,
+  "excess_bps": 29.0792,
+  "cost2x_bps": 13.0792,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 21
+ },
+ {
+  "strategy": "twoway:LONG:filter:btc_regime:BULL",
+  "passed": false,
+  "note": "studi filter entry LONG (rezim BTC BULL)",
+  "n": 141,
+  "excess_bps": 5.3737,
+  "cost2x_bps": -10.6263,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 22
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 236,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-04T17:29:45.610364+00:00",
+  "last_seen": "2026-10-04T17:29:45.610364+00:00",
+  "seen_count": 1,
+  "n_trials_total": 23
+ },
+ {
+  "strategy": "twoway_gate_G1",
+  "passed": false,
+  "note": "SoDEX regime gate study",
+  "n": 238,
+  "reasons": [
+   "cost2x_positive(G1)"
+  ],
+  "first_seen": "2026-10-04T22:08:44.158547+00:00",
+  "last_seen": "2026-10-04T22:08:44.158547+00:00",
+  "seen_count": 1,
+  "n_trials_total": 24
+ },
+ {
+  "strategy": "twoway_gate_G2",
+  "passed": false,
+  "note": "SoDEX regime gate study",
+  "n": 242,
+  "reasons": [
+   "cost2x_positive(G2)"
+  ],
+  "first_seen": "2026-10-04T22:08:44.203872+00:00",
+  "last_seen": "2026-10-04T22:08:44.203872+00:00",
+  "seen_count": 1,
+  "n_trials_total": 25
+ },
+ {
+  "strategy": "twoway_gate_G3",
+  "passed": false,
+  "note": "SoDEX regime gate study",
+  "n": 227,
+  "reasons": [
+   "cost2x_positive(G3)"
+  ],
+  "first_seen": "2026-10-04T22:08:44.247848+00:00",
+  "last_seen": "2026-10-04T22:08:44.247848+00:00",
+  "seen_count": 1,
+  "n_trials_total": 26
+ },
+ {
+  "strategy": "twoway_gate_G4",
+  "passed": false,
+  "note": "SoDEX regime gate study",
+  "n": 159,
+  "reasons": [
+   "cost2x_positive(G4)"
+  ],
+  "first_seen": "2026-10-04T22:08:44.287883+00:00",
+  "last_seen": "2026-10-04T22:08:44.287883+00:00",
+  "seen_count": 1,
+  "n_trials_total": 27
+ },
+ {
+  "strategy": "twoway_gate_G5",
+  "passed": false,
+  "note": "SoDEX regime gate study",
+  "n": 191,
+  "reasons": [
+   "cost2x_positive(G5)"
+  ],
+  "first_seen": "2026-10-04T22:08:44.329776+00:00",
+  "last_seen": "2026-10-04T22:08:44.329776+00:00",
+  "seen_count": 1,
+  "n_trials_total": 28
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 389,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-04T23:29:45.056079+00:00",
+  "last_seen": "2026-10-04T23:29:45.056079+00:00",
+  "seen_count": 1,
+  "n_trials_total": 29
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 370,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-04T23:29:45.401737+00:00",
+  "last_seen": "2026-10-04T23:29:45.401737+00:00",
+  "seen_count": 1,
+  "n_trials_total": 30
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 237,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-04T23:29:45.712424+00:00",
+  "last_seen": "2026-10-04T23:29:45.712424+00:00",
+  "seen_count": 1,
+  "n_trials_total": 31
+ },
+ {
+  "strategy": "sodex_realwide_partial_exit_0.5pct",
+  "n": 245,
+  "reasons": [
+   "exploratory",
+   "median-target",
+   "3-segment-robustness=FAIL(S2<0)"
+  ],
+  "verdict": "REJECTED \u2014 gagal ketahanan 3 segmen; tidak signifikan (P(med<=0)=0.28-0.33)",
+  "declared_upfront": true,
+  "date": "2026-10-05"
+ },
+ {
+  "strategy": "sodex_realwide_partial_exit_0.75pct",
+  "n": 245,
+  "reasons": [
+   "exploratory",
+   "median-target",
+   "3-segment-robustness=FAIL(S2<0)"
+  ],
+  "verdict": "REJECTED \u2014 gagal ketahanan 3 segmen; tidak signifikan (P(med<=0)=0.28-0.33)",
+  "declared_upfront": true,
+  "date": "2026-10-05"
+ },
+ {
+  "strategy": "sodex_realwide_partial_exit_1.0pct",
+  "n": 245,
+  "reasons": [
+   "exploratory",
+   "median-target",
+   "3-segment-robustness=FAIL(S2<0)"
+  ],
+  "verdict": "REJECTED \u2014 gagal ketahanan 3 segmen; tidak signifikan (P(med<=0)=0.28-0.33)",
+  "declared_upfront": true,
+  "date": "2026-10-05"
+ },
+ {
+  "strategy": "sodex_realwide_partial_exit_1.5pct",
+  "n": 245,
+  "reasons": [
+   "exploratory",
+   "median-target",
+   "3-segment-robustness=FAIL(S2<0)"
+  ],
+  "verdict": "REJECTED \u2014 gagal ketahanan 3 segmen; tidak signifikan (P(med<=0)=0.28-0.33)",
+  "declared_upfront": true,
+  "date": "2026-10-05"
+ },
+ {
+  "strategy": "sodex_realwide_partial_exit_2.0pct",
+  "n": 245,
+  "reasons": [
+   "exploratory",
+   "median-target",
+   "3-segment-robustness=FAIL(S2<0)"
+  ],
+  "verdict": "REJECTED \u2014 gagal ketahanan 3 segmen; tidak signifikan (P(med<=0)=0.28-0.33)",
+  "declared_upfront": true,
+  "date": "2026-10-05"
+ },
+ {
+  "strategy": "sodex_r3_symbol_reliability",
+  "n": 237,
+  "n_symbols": 22,
+  "declared_candidate": "SOL (mean tertinggi dalam himpunan dapat-dinilai n>=20)",
+  "candidate_n": 26,
+  "candidate_mean_pct": 1.055,
+  "p_selection": 0.0346,
+  "p_uncorrected": 0.069,
+  "p_cluster_by_day": 0.5041,
+  "segments_positive": "3/3",
+  "verdict": "PROMISING-NOT-ESTABLISHED",
+  "reasons": [
+   "n<30 (belum layak klaim)",
+   "p_uncorrected>0.05",
+   "p_cluster>0.05",
+   "edge meluruh S1->S3",
+   "0/22 lolos BH-FDR",
+   "cross_symbol_median<0",
+   "13/22 simbol net<0"
+  ],
+  "ts": "2026-10-05T01:19:37.904624+00:00"
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 392,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T05:29:45.663727+00:00",
+  "last_seen": "2026-10-05T05:29:45.663727+00:00",
+  "seen_count": 1,
+  "n_trials_total": 38
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 371,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T05:29:46.064192+00:00",
+  "last_seen": "2026-10-05T11:29:46.338846+00:00",
+  "seen_count": 2,
+  "n_trials_total": 39
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 240,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T05:29:46.402068+00:00",
+  "last_seen": "2026-10-05T05:29:46.402068+00:00",
+  "seen_count": 1,
+  "n_trials_total": 40
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 395,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T11:29:45.981166+00:00",
+  "last_seen": "2026-10-05T11:29:45.981166+00:00",
+  "seen_count": 1,
+  "n_trials_total": 41
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 241,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T11:29:46.647247+00:00",
+  "last_seen": "2026-10-05T11:29:46.647247+00:00",
+  "seen_count": 1,
+  "n_trials_total": 42
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 399,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T17:29:45.837893+00:00",
+  "last_seen": "2026-10-05T17:29:45.837893+00:00",
+  "seen_count": 1,
+  "n_trials_total": 43
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 374,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T17:29:46.209326+00:00",
+  "last_seen": "2026-10-05T17:29:46.209326+00:00",
+  "seen_count": 1,
+  "n_trials_total": 44
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 242,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T17:29:46.523085+00:00",
+  "last_seen": "2026-10-05T17:29:46.523085+00:00",
+  "seen_count": 1,
+  "n_trials_total": 45
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 400,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T23:29:45.702968+00:00",
+  "last_seen": "2026-10-05T23:29:45.702968+00:00",
+  "seen_count": 1,
+  "n_trials_total": 46
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 376,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T23:29:46.091264+00:00",
+  "last_seen": "2026-10-05T23:29:46.091264+00:00",
+  "seen_count": 1,
+  "n_trials_total": 47
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 243,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-05T23:29:46.404143+00:00",
+  "last_seen": "2026-10-05T23:29:46.404143+00:00",
+  "seen_count": 1,
+  "n_trials_total": 48
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 403,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T05:29:46.632219+00:00",
+  "last_seen": "2026-10-06T13:02:32.735029+00:00",
+  "seen_count": 3,
+  "n_trials_total": 49
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 381,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T05:29:47.030691+00:00",
+  "last_seen": "2026-10-06T05:29:47.030691+00:00",
+  "seen_count": 1,
+  "n_trials_total": 50
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 244,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T05:29:47.365242+00:00",
+  "last_seen": "2026-10-06T05:29:47.365242+00:00",
+  "seen_count": 1,
+  "n_trials_total": 51
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 382,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T07:01:55.211589+00:00",
+  "last_seen": "2026-10-07T01:02:09.361785+00:00",
+  "seen_count": 4,
+  "n_trials_total": 52
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 245,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T07:01:55.555554+00:00",
+  "last_seen": "2026-10-06T07:01:55.555554+00:00",
+  "seen_count": 1,
+  "n_trials_total": 53
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 246,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T13:02:33.421910+00:00",
+  "last_seen": "2026-10-07T01:02:09.691465+00:00",
+  "seen_count": 3,
+  "n_trials_total": 54
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 405,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-06T19:02:08.679119+00:00",
+  "last_seen": "2026-10-20T18:54:05.952207+00:00",
+  "seen_count": 29,
+  "n_trials_total": 55
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:above_sma24",
+  "passed": false,
+  "note": "studi filter entry LONG (punya above_sma24)",
+  "n": 325,
+  "excess_bps": 4.3825,
+  "cost2x_bps": -11.6175,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 56
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:minor_pullback",
+  "passed": false,
+  "note": "studi filter entry LONG (punya minor_pullback)",
+  "n": 221,
+  "excess_bps": -20.7044,
+  "cost2x_bps": -36.7044,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 57
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:rsi_mid",
+  "passed": false,
+  "note": "studi filter entry LONG (punya rsi_mid)",
+  "n": 128,
+  "excess_bps": -21.9363,
+  "cost2x_bps": -37.9363,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 58
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:strong_24h_trend",
+  "passed": true,
+  "note": "studi filter entry LONG (punya strong_24h_trend)",
+  "n": 239,
+  "excess_bps": 19.0078,
+  "cost2x_bps": 3.0078,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 59
+ },
+ {
+  "strategy": "twoway:LONG:filter:flag:vol_above_avg",
+  "passed": true,
+  "note": "studi filter entry LONG (punya vol_above_avg)",
+  "n": 193,
+  "excess_bps": 17.025,
+  "cost2x_bps": 1.025,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 60
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+strong_24h_trend+vol_above_avg",
+  "passed": true,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 92,
+  "excess_bps": 47.8713,
+  "cost2x_bps": 31.8713,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 61
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+strong_24h_trend",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 54,
+  "excess_bps": 9.2123,
+  "cost2x_bps": -6.7877,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 62
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+rsi_mid",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 42,
+  "excess_bps": -55.5566,
+  "cost2x_bps": -71.5566,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 63
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+rsi_mid+strong_24h_trend",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 35,
+  "excess_bps": -32.2158,
+  "cost2x_bps": -48.2158,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 64
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+vol_above_avg",
+  "passed": false,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 34,
+  "excess_bps": -50.7412,
+  "cost2x_bps": -66.7412,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 65
+ },
+ {
+  "strategy": "twoway:LONG:filter:combo:above_sma24+minor_pullback+strong_24h_trend+vol_above_avg",
+  "passed": true,
+  "note": "studi filter entry LONG (kombinasi persis)",
+  "n": 32,
+  "excess_bps": 21.0191,
+  "cost2x_bps": 5.0191,
+  "summary": {
+   "lolos_cost2x": true
+  },
+  "n_trials_total": 66
+ },
+ {
+  "strategy": "twoway:LONG:filter:btc_regime:BULL",
+  "passed": false,
+  "note": "studi filter entry LONG (rezim BTC BULL)",
+  "n": 156,
+  "excess_bps": -5.1584,
+  "cost2x_bps": -21.1584,
+  "summary": {
+   "lolos_cost2x": false
+  },
+  "n_trials_total": 67
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 386,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-07T02:22:22.134267+00:00",
+  "last_seen": "2026-10-07T02:22:22.134267+00:00",
+  "seen_count": 1,
+  "n_trials_total": 68
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 251,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-07T02:22:22.493243+00:00",
+  "last_seen": "2026-10-10T18:09:34.430597+00:00",
+  "seen_count": 14,
+  "n_trials_total": 69
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 387,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-07T08:22:23.143762+00:00",
+  "last_seen": "2026-10-07T08:22:23.143762+00:00",
+  "seen_count": 1,
+  "n_trials_total": 70
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 388,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-07T14:22:23.314004+00:00",
+  "last_seen": "2026-10-09T12:09:37.311394+00:00",
+  "seen_count": 7,
+  "n_trials_total": 71
+ },
+ {
+  "strategy": "prereg5_maker_gated_fill",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "Realisme fill maker + gerbang sentuh (limit terisi hanya bila low<=lim / high>=lim), pisah-waktu IS/OOS, hold 1h, panel SoDEX 1h 95 nama. Gugur di level BRUTO.",
+  "n": 95,
+  "n_symbols": 95,
+  "reasons": [
+   "1_net_oos_pos_dan_net48_pos: FAIL (net OOS H1 -0.341 bps/jam; net48 -65.81 bps/48j @fee primer)",
+   "4_kontrol_bruto_bersih: FAIL (kontrol acak ber-gerbang bruto -3.85..-4.79 bps = lantai adverse selection, bukan cacat)",
+   "5_segmen_oos_min_2_pos: FAIL (hanya 1 dari 3 segmen OOS net positif)",
+   "6_segmen_terkini_bruto_pos: FAIL (segmen OOS terakhir bruto -0.57 bps/periode)",
+   "7_p_terburuk_le_0.05: FAIL (p_terburuk 0.3394)",
+   "3_gated_tidak_mengalahkan_shadow: PASS",
+   "2_fill_rate_ge_30pct: PASS (0.77..0.94)"
+  ],
+  "excess_bps": -0.107,
+  "cost1x_bps": 1.26,
+  "cost2x_bps": 2.52,
+  "fee_impas_bps": -0.107,
+  "n_trials_total": 72,
+  "signature": "9367dd6a322ac01f",
+  "artifact": "reports/sodex/PRAREG5_FILL_MAKER_SODEX_1H.json",
+  "prereg_commit": "ca8b8f0",
+  "first_seen": "2026-10-07T15:36:46.116441+00:00",
+  "last_seen": "2026-10-07T15:36:46.116441+00:00",
+  "seen_count": 1
+ },
+ {
+  "strategy": "prereg23_H1_trend_daily_spot",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "Inti trend-following harian long-only spot (ensemble Donchian 9 window, vol-target 25%, divN): BTC,ETH,SOL,BNB,LINK,XRP. Data Binance spot 1d; jendela terverifikasi <=2025-10-09. Protokol beku sha256 f4ba693bc1e89e36.",
+  "n": 2976,
+  "reasons": [
+   "a_sharpe_ge_btc: PASS (S 1.47 vs BTC 0.94)",
+   "b_mdd_le_50pct_btc: PASS (-12.2% vs batas -41.6%)",
+   "c_positif_2dari3: PASS (3/3 subperiode)",
+   "d_sharpe_tanpa_5pct_terbaik: FAIL (-1.56 tidak > 0,5)",
+   "e_p_lt_0.05: FAIL (p=0.0835)",
+   "ekonomi: 0.0738%/48j vs lantai 0,10%"
+  ],
+  "seen_count": 1,
+  "last_seen": "2026-10-09T16:25:06.120827+00:00",
+  "n_trials_total": 73
+ },
+ {
+  "strategy": "prereg24_V1_tanpa_pembagi_N",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "Varian eksposur PRAREG-24, sinyal IDENTIK PRAREG-23 (series_for diimpor): V1_tanpa_pembagi_N. Protokol beku sha256 b1adfbbb947d4c41.",
+  "n": 2976,
+  "reasons": [
+   "a_sharpe_ge_btc: PASS (S 1.40)",
+   "b_mdd_le_50pct_btc: FAIL (mdd -50.2%)",
+   "c_positif_2dari3: PASS",
+   "d_blok20_60pct_dan_median_pos: FAIL (43% blok positif)",
+   "e_p_lt_bonferroni_0.0167: FAIL (p=0.1080)",
+   "f_pct48_ge_0.10: PASS (0.2636%/48j)",
+   "g_eksposur_ge_0.30: PASS (0.480)"
+  ],
+  "seen_count": 1,
+  "last_seen": "2026-10-09T16:25:06.120827+00:00",
+  "n_trials_total": 74
+ },
+ {
+  "strategy": "prereg24_V2_voltarget_50",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "Varian eksposur PRAREG-24, sinyal IDENTIK PRAREG-23 (series_for diimpor): V2_voltarget_50. Protokol beku sha256 b1adfbbb947d4c41.",
+  "n": 2976,
+  "reasons": [
+   "a_sharpe_ge_btc: PASS (S 1.45)",
+   "b_mdd_le_50pct_btc: PASS (mdd -22.6%)",
+   "c_positif_2dari3: PASS",
+   "d_blok20_60pct_dan_median_pos: FAIL (42% blok positif)",
+   "e_p_lt_bonferroni_0.0167: FAIL (p=0.0720)",
+   "f_pct48_ge_0.10: PASS (0.1381%/48j)",
+   "g_eksposur_ge_0.30: FAIL (0.205)"
+  ],
+  "seen_count": 1,
+  "last_seen": "2026-10-09T16:25:06.120827+00:00",
+  "n_trials_total": 75
+ },
+ {
+  "strategy": "prereg24_V3_gabungan",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "Varian eksposur PRAREG-24, sinyal IDENTIK PRAREG-23 (series_for diimpor): V3_gabungan. Protokol beku sha256 b1adfbbb947d4c41.",
+  "n": 2976,
+  "reasons": [
+   "a_sharpe_ge_btc: PASS (S 1.26)",
+   "b_mdd_le_50pct_btc: FAIL (mdd -63.5%)",
+   "c_positif_2dari3: PASS",
+   "d_blok20_60pct_dan_median_pos: FAIL (45% blok positif)",
+   "e_p_lt_bonferroni_0.0167: FAIL (p=0.1840)",
+   "f_pct48_ge_0.10: PASS (0.2804%/48j)",
+   "g_eksposur_ge_0.30: PASS (0.624)"
+  ],
+  "seen_count": 1,
+  "last_seen": "2026-10-09T16:25:06.120827+00:00",
+  "n_trials_total": 76
+ },
+ {
+  "strategy": "prereg25_S-A_kontrol_divN",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "PRAREG-25 breadth: universe 6->top-20 likuid dari pool 66 koin, sinyal IDENTIK PRAREG-23 (uji ekuivalensi lolos), lengan kontrol divN (seperti V0). Protokol beku sha256 a256d35025c2a888.",
+  "n": 2976,
+  "reasons": [
+   "a_sharpe_ge_btc: PASS (S 1.07 vs BTC 0,95)",
+   "b_mdd_le_50pct_btc: PASS (-13.0% vs batas -41,6%)",
+   "c_positif_2dari3: PASS",
+   "d_blok20: FAIL (39% positif, median +0.00%)",
+   "e_p_lt_0.025: FAIL (p=0.3920)",
+   "h_dsr_gt_0: PASS lemah (DSR 0.722 jauh < 0,95)",
+   "f_pct48_ge_0.10: FAIL (0.0436%/48j)",
+   "g_eksposur: PASS (0.078)",
+   "HIPOTESIS TERBANTALIK: breadth 6->20 menaikkan p (0,108->0.392) dan maxDD",
+   "ekstensi memburuk: S 1.07->0.96, 0.0436->0.0376%/48j",
+   "tanpa_top3: S 0,67 ret +471% (dependensi majors parah); turnover 3.6x/th"
+  ],
+  "seen_count": 1,
+  "last_seen": "2026-10-09T16:41:55.314293+00:00",
+  "n_trials_total": 77
+ },
+ {
+  "strategy": "prereg25_S-B_primer_tanpa_divN",
+  "passed": false,
+  "verdict": "FALSIFIED",
+  "note": "PRAREG-25 breadth: universe 6->top-20 likuid dari pool 66 koin, sinyal IDENTIK PRAREG-23 (uji ekuivalensi lolos), lengan primer tanpa divN, cap Sigma_w<=1,00. Protokol beku sha256 a256d35025c2a888.",
+  "n": 2976,
+  "reasons": [
+   "a_sharpe_ge_btc: FAIL (S 0.92 vs BTC 0,95)",
+   "b_mdd_le_50pct_btc: FAIL (-81.5% vs batas -41,6%)",
+   "c_positif_2dari3: PASS",
+   "d_blok20: FAIL (39% positif, median +0.00%)",
+   "e_p_lt_0.025: FAIL (p=0.5235)",
+   "h_dsr_gt_0: PASS lemah (DSR 0.570 jauh < 0,95)",
+   "f_pct48_ge_0.10: PASS (0.1949%/48j)",
+   "g_eksposur: PASS (0.651)",
+   "HIPOTESIS TERBANTALIK: breadth 6->20 menaikkan p (0,108->0.523) dan maxDD",
+   "ekstensi memburuk: S 0.92->0.78, 0.1949->0.1492%/48j",
+   "tanpa_top3: S 0,67 ret +471% (dependensi majors parah); turnover 34.1x/th"
+  ],
+  "seen_count": 1,
+  "last_seen": "2026-10-09T16:41:55.314293+00:00",
+  "n_trials_total": 78
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 389,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-09T18:09:32.455612+00:00",
+  "last_seen": "2026-10-09T18:09:32.455612+00:00",
+  "seen_count": 1,
+  "n_trials_total": 79
+ },
+ {
+  "strategy": "R2/twoway/regime/BEAR_MOMENTUM",
+  "passed": false,
+  "n": 42,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.833854+00:00",
+  "last_seen": "2026-10-09T22:26:14.833854+00:00",
+  "seen_count": 1,
+  "n_trials_total": 80
+ },
+ {
+  "strategy": "R2/twoway/regime/MOMENTUM",
+  "passed": false,
+  "n": 169,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.834782+00:00",
+  "last_seen": "2026-10-09T22:26:14.834782+00:00",
+  "seen_count": 1,
+  "n_trials_total": 81
+ },
+ {
+  "strategy": "R2/twoway/sess/ASIA_00-08",
+  "passed": false,
+  "n": 64,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.835652+00:00",
+  "last_seen": "2026-10-09T22:26:14.835652+00:00",
+  "seen_count": 1,
+  "n_trials_total": 82
+ },
+ {
+  "strategy": "R2/twoway/sess/EU_08-16",
+  "passed": false,
+  "n": 85,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.836527+00:00",
+  "last_seen": "2026-10-09T22:26:14.836527+00:00",
+  "seen_count": 1,
+  "n_trials_total": 83
+ },
+ {
+  "strategy": "R2/twoway/sess/US_16-24",
+  "passed": false,
+  "n": 62,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.837321+00:00",
+  "last_seen": "2026-10-09T22:26:14.837321+00:00",
+  "seen_count": 1,
+  "n_trials_total": 84
+ },
+ {
+  "strategy": "R2/twoway/sym/DOGE",
+  "passed": false,
+  "n": 33,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.838137+00:00",
+  "last_seen": "2026-10-09T22:26:14.838137+00:00",
+  "seen_count": 1,
+  "n_trials_total": 85
+ },
+ {
+  "strategy": "R2/twoway/side/LONG",
+  "passed": false,
+  "n": 169,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.838982+00:00",
+  "last_seen": "2026-10-09T22:26:14.838982+00:00",
+  "seen_count": 1,
+  "n_trials_total": 86
+ },
+ {
+  "strategy": "R2/twoway/side/SHORT",
+  "passed": false,
+  "n": 42,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.839807+00:00",
+  "last_seen": "2026-10-09T22:26:14.839807+00:00",
+  "seen_count": 1,
+  "n_trials_total": 87
+ },
+ {
+  "strategy": "R2/realwide/regime/MOMENTUM_RELAXED",
+  "passed": false,
+  "n": 130,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.840650+00:00",
+  "last_seen": "2026-10-09T22:26:14.840650+00:00",
+  "seen_count": 1,
+  "n_trials_total": 88
+ },
+ {
+  "strategy": "R2/realwide/sess/ASIA_00-08",
+  "passed": false,
+  "n": 47,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.841533+00:00",
+  "last_seen": "2026-10-09T22:26:14.841533+00:00",
+  "seen_count": 1,
+  "n_trials_total": 89
+ },
+ {
+  "strategy": "R2/realwide/sess/EU_08-16",
+  "passed": false,
+  "n": 51,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.842365+00:00",
+  "last_seen": "2026-10-09T22:26:14.842365+00:00",
+  "seen_count": 1,
+  "n_trials_total": 90
+ },
+ {
+  "strategy": "R2/realwide/sess/US_16-24",
+  "passed": false,
+  "n": 32,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.843196+00:00",
+  "last_seen": "2026-10-09T22:26:14.843196+00:00",
+  "seen_count": 1,
+  "n_trials_total": 91
+ },
+ {
+  "strategy": "R2/realwide/side/L",
+  "passed": false,
+  "n": 130,
+  "note": "R2 D11 sub-populasi median window (disc 60%/hold-out 40%)",
+  "reasons": [
+   "R2_NEGATIF: p_family>=0.00625 / median_disc<=0"
+  ],
+  "first_seen": "2026-10-09T22:26:14.843979+00:00",
+  "last_seen": "2026-10-09T22:26:14.843979+00:00",
+  "seen_count": 1,
+  "n_trials_total": 92
+ },
+ {
+  "strategy": "R2B/R1",
+  "passed": false,
+  "n": 353,
+  "note": "exit berlapis R1; 3 look (2 bug diperbaiki, ambang beku)",
+  "reasons": [
+   "R2B_NEGATIF: median delta = 0,000000 tepat"
+  ],
+  "first_seen": "2026-10-09T22:50:21.266286+00:00",
+  "last_seen": "2026-10-09T22:50:21.266286+00:00",
+  "seen_count": 1,
+  "n_trials_total": 93
+ },
+ {
+  "strategy": "R2B/R2",
+  "passed": false,
+  "n": 353,
+  "note": "exit berlapis R2; 3 look (2 bug diperbaiki, ambang beku)",
+  "reasons": [
+   "R2B_NEGATIF: median delta = 0,000000 tepat"
+  ],
+  "first_seen": "2026-10-09T22:50:21.267201+00:00",
+  "last_seen": "2026-10-09T22:50:21.267201+00:00",
+  "seen_count": 1,
+  "n_trials_total": 94
+ },
+ {
+  "strategy": "R2B/R3",
+  "passed": false,
+  "n": 353,
+  "note": "exit berlapis R3; 3 look (2 bug diperbaiki, ambang beku)",
+  "reasons": [
+   "R2B_NEGATIF: median delta = 0,000000 tepat"
+  ],
+  "first_seen": "2026-10-09T22:50:21.268024+00:00",
+  "last_seen": "2026-10-09T22:50:21.268024+00:00",
+  "seen_count": 1,
+  "n_trials_total": 95
+ },
+ {
+  "strategy": "R2B/R4",
+  "passed": false,
+  "n": 353,
+  "note": "exit berlapis R4; 3 look (2 bug diperbaiki, ambang beku)",
+  "reasons": [
+   "R2B_NEGATIF: median delta = 0,000000 tepat"
+  ],
+  "first_seen": "2026-10-09T22:50:21.268871+00:00",
+  "last_seen": "2026-10-09T22:50:21.268871+00:00",
+  "seen_count": 1,
+  "n_trials_total": 96
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 390,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-10T00:09:32.903490+00:00",
+  "last_seen": "2026-10-10T06:09:33.429289+00:00",
+  "seen_count": 2,
+  "n_trials_total": 97
+ },
+ {
+  "strategy": "R2C/MFE-rekonsiliasi",
+  "passed": true,
+  "n": 870,
+  "note": "dekomposisi 3 faktor x 12 sel; H1 1,087R/52,2% benar pada setting-nya; R2B 0,871R/45,3% juga benar; mean capture -1R NEGATIF di semua dataset",
+  "reasons": [
+   "bukan kontradiksi: state prune 960->557 + 22 simbol tanpa feather + drift waktu"
+  ],
+  "first_seen": "2026-10-10T00:41:15.930065+00:00",
+  "last_seen": "2026-10-10T00:41:15.930065+00:00",
+  "seen_count": 1,
+  "n_trials_total": 98
+ },
+ {
+  "strategy": "R2D/batas-biaya",
+  "passed": true,
+  "n": 422,
+  "note": "metrik gate resmi direplikasi (cocok persis dengan maturation_status): hapus 100% biaya hanya menaikkan median window +0,195pp (TWO-WAY) / +0,139pp (REAL-WIDE); hadiah maksimum 12% dari jarak ke median 0",
+  "reasons": [
+   "tuas biaya/venue TERTUTUP secara aritmetika; fill-rate maker tidak relevan",
+   "constraint sebenarnya = bentuk distribusi (mean +1,467% vs median -1,771% = lotere)"
+  ],
+  "first_seen": "2026-10-10T01:05:29.177259+00:00",
+  "last_seen": "2026-10-10T01:05:29.177259+00:00",
+  "seen_count": 1,
+  "n_trials_total": 99
+ },
+ {
+  "strategy": "R2E/buku-v1-kalender",
+  "passed": false,
+  "n": 43,
+  "note": "EW median OOS -0,423%, MV -0,244%, TOP2 -0,016% (semua <=0); kontrol korelasi-dihancurkan median-of-medians -0,354% share>0 21%",
+  "reasons": [
+   "buku tidak menaikkan median ke atas 0",
+   "penyebab bukan korelasi (mean off-diag 0,553): 6/7 komponen median negatif"
+  ],
+  "first_seen": "2026-10-10T01:35:22.083554+00:00",
+  "last_seen": "2026-10-10T01:35:22.083554+00:00",
+  "seen_count": 1,
+  "n_trials_total": 100
+ },
+ {
+  "strategy": "R2E/buku-v2-grid-resmi",
+  "passed": false,
+  "n": 41,
+  "note": "grid resmi per-track t0 (fingerprint: twoway med -1,771% = maturation_status): EW -1,252%, MV -0,814%, TOP2 -1,022%; kontrol -0,438% share>0 14,6%",
+  "reasons": [
+   "robustness grid sekunder: verdict GAGAL tetap",
+   "ambang/level/kriteria tidak diubah"
+  ],
+  "first_seen": "2026-10-10T01:35:22.085039+00:00",
+  "last_seen": "2026-10-10T01:35:22.085039+00:00",
+  "seen_count": 1,
+  "n_trials_total": 101
+ },
+ {
+  "strategy": "R3A/anatomi-rugi-train",
+  "passed": true,
+  "n": 1659,
+  "note": "43 hipotesis BH-FDR; kandidat ex-ante: jam12 (WR 18,5% q=0,0147), ATR>=1% (36,3% vs 44,8% q=0,233); conviction TIDAK diskriminatif (43,3% vs 42,1%)",
+  "reasons": [
+   "anatomi train descriptif -> kandidat filter dibekukan di R3B"
+  ],
+  "first_seen": "2026-10-10T01:42:10.181190+00:00",
+  "last_seen": "2026-10-10T01:42:10.181190+00:00",
+  "seen_count": 1,
+  "n_trials_total": 102
+ },
+ {
+  "strategy": "R3B/filter-holdout",
+  "passed": false,
+  "n": 236,
+  "note": "R-A jam12 GAGAL (kept WR 25,75%, hanya 3 trade dibuang); R-B ATR>=1% GAGAL TERBALIK (-6,16pp); R-AB GAGAL (25,84%)",
+  "reasons": [
+   "kriteria beku tidak terpenuhi",
+   "R-B inverted -> sinyal ATR train = artefak"
+  ],
+  "first_seen": "2026-10-10T01:42:10.182548+00:00",
+  "last_seen": "2026-10-10T01:42:10.182548+00:00",
+  "seen_count": 1,
+  "n_trials_total": 103
+ },
+ {
+  "strategy": "R3C/diagnosis-kolaps-holdout",
+  "passed": true,
+  "n": 270,
+  "note": "holdout WR 27,8% vs train 41,2%; LONG 25,4% (93% porsi buku) vs SHORT 44,1%; TP 28%->9%; kontrol RANDOM 19,0% -> sinyal vs kontrol dWR +8,8pp",
+  "reasons": [
+   "penyebab = efek REGIME pada buku 93% long, bukan bug (sanity harga OK)",
+   "tuas tersisa: gate regime / utilisasi sisi short"
+  ],
+  "first_seen": "2026-10-10T01:42:10.183726+00:00",
+  "last_seen": "2026-10-10T01:42:10.183726+00:00",
+  "seen_count": 1,
+  "n_trials_total": 104
+ },
+ {
+  "strategy": "R4/gate-regime-monitor",
+  "passed": null,
+  "n": 236,
+  "note": "monitor read-only dipasang (timer harian 08:15 WIB). LABEL retrospektif 1-10 Okt (bukan verdict): G1 buang 74 LONG non-BULL -> kept WR 23,46% vs dropped 31,08% (dWR -6,27pp) = classifier 2-kondisi TERLALU KASAR; G2 buang 0 (semua short sudah di BEAR). Forward >=11-Okt masih 0 trade; verdict dikunci >=17-Okt DAN n_kept>=40",
+  "reasons": [
+   "retrospektif = label deskriptif, bukan verdict",
+   "hasil awal menunjukkan gate versi ini cenderung GAGAL -> forward yang memutuskan"
+  ],
+  "first_seen": "2026-10-10T01:47:01.598128+00:00",
+  "last_seen": "2026-10-10T01:47:01.598128+00:00",
+  "seen_count": 1,
+  "n_trials_total": 105
+ },
+ {
+  "strategy": "R5/5-classifier-regime",
+  "passed": null,
+  "n": 1612,
+  "note": "kerangka R5 dipasang (protokol beku 3c8eb224, 5 arm, Holm K=5, verdict >=31-Okt & n_kept>=40). DESKRIPTIF train<=30Sep: RF0 -2,96pp | RF1 +2,99pp p=0,162 | RF2 +1,58pp | RF3 +1,37pp | RF4 -12,39pp -> TIDAK ADA arm yang menaikkan WR secara meyakinkan. Seen 1-10 Okt: hanya RF1 +13,85pp (WR absolut 27,2% < baseline 40,9%). RF0 (classifier R4) merugikan bahkan di train = membenarkan kegagalan R4",
+  "reasons": [
+   "tidak ada bukti WR bisa dinaikkan lewat gate regime sederhana",
+   "forward >=11-Okt tetap akan memutuskan sesuai protokol"
+  ],
+  "first_seen": "2026-10-10T02:00:13.782987+00:00",
+  "last_seen": "2026-10-10T02:00:13.782987+00:00",
+  "seen_count": 1,
+  "n_trials_total": 106
+ },
+ {
+  "strategy": "AUDIT/full-r3-r5-recheck",
+  "n": 2055,
+  "passed": null,
+  "note": "audit 5 lapis (rumus vs jalur independen, binomial log-space vs eksak Fraction, z vs NormalDist, BH-FDR vs impl independen, konformansi 16/16) -> 0 CRITICAL/HIGH/MED setelah 5 fix: A1 entry-time fallback keluar dari dimensi waktu, A2 grid window tetap+window kosong dilewati, A3 pct=None bukan 0,0, A4 de-duplikasi, A5 RF1 p80 ex-ante+None. Jam-12 tetap sah (n=49 WR 18,4%). TEMUAN BESAR: sigma tahunan terukur 255,7% -> kebutuhan Sharpe 0,8%/48j hanya ~0,57 (klaim lama 4,6 SALAH); constraint = median window -1,18% vs mean +1,40%",
+  "reasons": [
+   "koreksi metodologi, bukan trial hipotesis baru: tidak ada ambang/kriteria/jendela verdict yang diubah",
+   "verdict R4 17-Okt & R5 31-Okt tetap berlaku"
+  ],
+  "first_seen": "2026-10-10T02:17:45.263627+00:00",
+  "last_seen": "2026-10-10T02:17:45.263627+00:00",
+  "seen_count": 1,
+  "n_trials_total": 107
+ },
+ {
+  "strategy": "AB/target-metric-measure",
+  "n": 2051,
+  "passed": null,
+  "note": "ukur dua tafsir target: A=mean window>=0,8% (gerbang resmi), B=median>0 & hit>=50%. A lolos TITIK di twoway (train +3,40%/30j, +5,27%/48j; semua-histori +1,79%) TAPI tidak ada mesin yang lolos DENGAN KEYAKINAN (semua CI95 mean memuat 0, t~1,2). B pisau tipis: twoway train gagal di grid fixed-30j (median +0,167, hit 44,4%) tapi LOLOS di tracker-30j (median +1,881, hit 52,3%) & 48j. Buku penuh (10 mesin, 2051 trade): net -$158,54; train +$531,66; seen 1-10 Okt -$690,20. Hanya 3 mesin net-positif (twoway+219,02 realwide+98,79 swing+45,76); 7 mesin net-negatif (-$522,11). SHORT: 142 trade, SEMUA buku negatif, total -$203,70 (shortbear WR 50,0% pun -$14,75) -> 'perbanyak SHORT' BUKAN tuas. Selisih 3 mesin positif vs 7 negatif = $885,68 -> tuas terukur terbesar = SELEKSI MESIN (perlu pra-registrasi forward)",
+  "reasons": [
+   "pengukuran deskriptif, bukan hipotesis baru: tidak ada ambang/verdict yang diubah",
+   "seleksi mesin in-sample belum bukti OOS -> wajib pra-registrasi sebelum diuji forward"
+  ],
+  "first_seen": "2026-10-10T04:09:13.051203+00:00",
+  "last_seen": "2026-10-10T04:09:13.051203+00:00",
+  "seen_count": 1,
+  "n_trials_total": 108
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 392,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-10T12:09:33.903427+00:00",
+  "last_seen": "2026-10-10T18:09:34.075719+00:00",
+  "seen_count": 2,
+  "n_trials_total": 109
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 396,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-11T00:09:34.787976+00:00",
+  "last_seen": "2026-10-11T00:09:34.787976+00:00",
+  "seen_count": 1,
+  "n_trials_total": 110
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 252,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-11T00:09:35.155913+00:00",
+  "last_seen": "2026-10-19T00:54:03.263481+00:00",
+  "seen_count": 6,
+  "n_trials_total": 111
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 397,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-11T06:09:39.929493+00:00",
+  "last_seen": "2026-10-11T06:09:39.929493+00:00",
+  "seen_count": 1,
+  "n_trials_total": 112
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 398,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-11T12:09:35.194064+00:00",
+  "last_seen": "2026-10-11T12:09:35.194064+00:00",
+  "seen_count": 1,
+  "n_trials_total": 113
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 406,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-18T12:54:07.214740+00:00",
+  "last_seen": "2026-10-19T12:54:29.060888+00:00",
+  "seen_count": 5,
+  "n_trials_total": 114
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 253,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-19T06:54:03.957188+00:00",
+  "last_seen": "2026-10-20T00:54:05.463280+00:00",
+  "seen_count": 4,
+  "n_trials_total": 115
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 408,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-19T18:54:05.535256+00:00",
+  "last_seen": "2026-10-19T18:54:05.535256+00:00",
+  "seen_count": 1,
+  "n_trials_total": 116
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 409,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-20T00:54:05.065065+00:00",
+  "last_seen": "2026-10-20T06:54:12.569746+00:00",
+  "seen_count": 2,
+  "n_trials_total": 117
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 254,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-20T06:54:12.940598+00:00",
+  "last_seen": "2026-10-21T00:54:08.044750+00:00",
+  "seen_count": 4,
+  "n_trials_total": 118
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 413,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-20T12:54:08.852620+00:00",
+  "last_seen": "2026-10-20T12:54:08.852620+00:00",
+  "seen_count": 1,
+  "n_trials_total": 119
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 417,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-20T18:54:06.348635+00:00",
+  "last_seen": "2026-10-20T18:54:06.348635+00:00",
+  "seen_count": 1,
+  "n_trials_total": 120
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 406,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T00:54:07.213481+00:00",
+  "last_seen": "2026-10-21T12:54:08.527681+00:00",
+  "seen_count": 3,
+  "n_trials_total": 121
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 419,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T00:54:07.643095+00:00",
+  "last_seen": "2026-10-21T06:54:07.240640+00:00",
+  "seen_count": 2,
+  "n_trials_total": 122
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 255,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T06:54:07.637489+00:00",
+  "last_seen": "2026-10-21T06:54:07.637489+00:00",
+  "seen_count": 1,
+  "n_trials_total": 123
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 420,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T12:54:08.970222+00:00",
+  "last_seen": "2026-10-21T18:54:08.809330+00:00",
+  "seen_count": 2,
+  "n_trials_total": 124
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 256,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T12:54:09.354091+00:00",
+  "last_seen": "2026-10-21T12:54:09.354091+00:00",
+  "seen_count": 1,
+  "n_trials_total": 125
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 409,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T18:54:08.387117+00:00",
+  "last_seen": "2026-10-21T18:54:08.387117+00:00",
+  "seen_count": 1,
+  "n_trials_total": 126
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 258,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-21T18:54:09.195887+00:00",
+  "last_seen": "2026-10-21T18:54:09.195887+00:00",
+  "seen_count": 1,
+  "n_trials_total": 127
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 413,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-22T00:54:15.631364+00:00",
+  "last_seen": "2026-10-22T00:54:15.631364+00:00",
+  "seen_count": 1,
+  "n_trials_total": 128
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 424,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-22T00:54:16.066764+00:00",
+  "last_seen": "2026-10-22T00:54:16.066764+00:00",
+  "seen_count": 1,
+  "n_trials_total": 129
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 261,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-22T00:54:16.456023+00:00",
+  "last_seen": "2026-10-22T00:54:16.456023+00:00",
+  "seen_count": 1,
+  "n_trials_total": 130
+ },
+ {
+  "strategy": "prereg28_momentum_K14",
+  "passed": false,
+  "note": "PRAREG-28 cross-sectional momentum market-neutral, K=14 hari, rebalance harian tanpa band",
+  "n": 2976,
+  "sharpe_25bps": 0.05,
+  "sharpe_10bps": 0.73,
+  "pct48j_25bps": -0.0167,
+  "pct48j_10bps": 0.0962,
+  "maxdd_25bps_pct": -69.0,
+  "dsr_25bps": 0.0066,
+  "dsr_10bps": 0.2951,
+  "turnover_tahunan_x": 137.0,
+  "reasons": [
+   "gagal: maxDD>20%, blok20<60%, floor%48j, DSR<=0.95; turnover harian tanpa band menghabiskan edge"
+  ],
+  "first_seen": "2026-10-22T01:58:00+00:00",
+  "last_seen": "2026-10-22T01:58:00+00:00",
+  "seen_count": 1,
+  "n_trials_total": 131
+ },
+ {
+  "strategy": "prereg28_momentum_K7",
+  "passed": false,
+  "note": "PRAREG-28 cross-sectional momentum market-neutral, K=7 hari, rebalance harian tanpa band",
+  "n": 2976,
+  "sharpe_25bps": -0.25,
+  "sharpe_10bps": 0.71,
+  "pct48j_25bps": -0.0654,
+  "pct48j_10bps": 0.0912,
+  "maxdd_25bps_pct": -85.3,
+  "dsr_25bps": 0.0004,
+  "dsr_10bps": 0.2752,
+  "turnover_tahunan_x": 190.1,
+  "reasons": [
+   "gagal: sama seperti K14, turnover lebih tinggi (190x/thn), hasil lebih buruk"
+  ],
+  "first_seen": "2026-10-22T01:58:00+00:00",
+  "last_seen": "2026-10-22T01:58:00+00:00",
+  "seen_count": 1,
+  "n_trials_total": 132
+ },
+ {
+  "strategy": "prereg29_momentum_R7",
+  "passed": false,
+  "note": "PRAREG-29 V1 PRIMER: rebalance 7 hari. Turnover 137x->48,3x, Sharpe 25bps 0,05->0,54. Edge lebar terbukti (ex-top3 0bps +0,106%/48j) tapi 0,13% kotor = 1/6 target; maxDD -43%.",
+  "n": 2976,
+  "sharpe_25bps": 0.541,
+  "sharpe_10bps": 0.793,
+  "sharpe_0bps": 0.962,
+  "pct48j_25bps": 0.0628,
+  "pct48j_10bps": 0.1026,
+  "pct48j_0bps": 0.1292,
+  "maxdd_25bps_pct": -43.1,
+  "dsr_25bps": 0.1383,
+  "turnover_tahunan_x": 48.3,
+  "p_value_25bps": 0.0549,
+  "alpha_bonferroni": 0.0003704,
+  "reasons": [
+   "gagal gerbang b(c),d,e,f,g,h,i @25bps",
+   "atribut utama: maxDD -43% s/d -49% dan biaya; edge kotor nyata tapi ~1/6 target"
+  ],
+  "first_seen": "2026-10-22T02:30:00+00:00",
+  "last_seen": "2026-10-22T02:30:00+00:00",
+  "seen_count": 1,
+  "n_trials_total": 133
+ },
+ {
+  "strategy": "prereg29_momentum_R3",
+  "passed": false,
+  "note": "PRAREG-29 V2: rebalance 3 hari. Turnover 75,7x, ex-top3 25bps negatif (-0,043%) \u2014 hasil paling rapuh di ladder.",
+  "n": 2976,
+  "sharpe_25bps": 0.356,
+  "sharpe_10bps": 0.739,
+  "sharpe_0bps": 0.995,
+  "pct48j_25bps": 0.0338,
+  "pct48j_10bps": 0.0962,
+  "pct48j_0bps": 0.1377,
+  "maxdd_25bps_pct": -49.2,
+  "dsr_25bps": 0.0525,
+  "turnover_tahunan_x": 75.7,
+  "p_value_25bps": 0.204,
+  "alpha_bonferroni": 0.0003704,
+  "reasons": [
+   "gagal gerbang b(c),d,e,f,g,h,i @25bps",
+   "atribut utama: maxDD -43% s/d -49% dan biaya; edge kotor nyata tapi ~1/6 target"
+  ],
+  "first_seen": "2026-10-22T02:30:00+00:00",
+  "last_seen": "2026-10-22T02:30:00+00:00",
+  "seen_count": 1,
+  "n_trials_total": 134
+ },
+ {
+  "strategy": "prereg29_momentum_R14",
+  "passed": false,
+  "note": "PRAREG-29 V3: rebalance 14 hari. Turnover 34,5x tapi tetap >30x target desain; ex-top3 0bps 0,091% < lantai. Sinyal mulai basi.",
+  "n": 2976,
+  "sharpe_25bps": 0.509,
+  "sharpe_10bps": 0.697,
+  "sharpe_0bps": 0.822,
+  "pct48j_25bps": 0.0563,
+  "pct48j_10bps": 0.0848,
+  "pct48j_0bps": 0.1037,
+  "maxdd_25bps_pct": -49.3,
+  "dsr_25bps": 0.1207,
+  "turnover_tahunan_x": 34.5,
+  "p_value_25bps": 0.0944,
+  "alpha_bonferroni": 0.0003704,
+  "reasons": [
+   "gagal gerbang b(c),d,e,f,g,h,i @25bps",
+   "atribut utama: maxDD -43% s/d -49% dan biaya; edge kotor nyata tapi ~1/6 target"
+  ],
+  "first_seen": "2026-10-22T02:30:00+00:00",
+  "last_seen": "2026-10-22T02:30:00+00:00",
+  "seen_count": 1,
+  "n_trials_total": 135
+ },
+ {
+  "strategy": "prereg30_oi_crowd_P",
+  "passed": false,
+  "note": "PRAREG-30 arm P (crowding reversal OI) \u2014 GAGAL gerbang b,c,d,f. n=1048, E=-19,43 bps, WR 46,7% vs kontrol 49,4%. Gross E=-7,4 bps (rugi sebelum biaya).",
+  "n": 1048,
+  "reasons": [
+   "b: net E OOS -16,84 bps (<0)",
+   "c: dWR(P-C) -2,77 pp (butuh >= +3,0), p=0,2735",
+   "d: IS -20,80 dan OOS -16,84 keduanya negatif",
+   "f: t=-3,58 (arah negatif, butuh >= +3,6)",
+   "a: lulus n_OOS=363",
+   "g: teknis lulus, tetap -27,07 bps"
+  ],
+  "n_trials_total": 136,
+  "seen_count": 1,
+  "last_seen": "2026-10-22T03:54:42.374884+00:00"
+ },
+ {
+  "strategy": "prereg30_oi_crowd_C",
+  "passed": false,
+  "note": "PRAREG-30 arm C (kontrol arah acak seed 42) \u2014 baseline null, bukan strategi. E=-10,41 bps; 50 seed: -11,64\u00b14,75 bps.",
+  "n": 1048,
+  "reasons": [
+   "baseline_null",
+   "dWR 50 seed: -2,07\u00b11,48 pp; 10% run positif"
+  ],
+  "n_trials_total": 137,
+  "seen_count": 1,
+  "last_seen": "2026-10-22T03:54:42.374884+00:00"
+ },
+ {
+  "strategy": "prereg30_oi_crowd_repl",
+  "passed": false,
+  "note": "PRAREG-30 replikasi 2021+2023 (2022 dikecualikan: ratio 13%) \u2014 arah sama (negatif), t=-0,66.",
+  "n": 362,
+  "reasons": [
+   "e: tanda sama (negatif) tetapi tidak menyelamatkan gerbang b/c",
+   "t=-0,66 tidak signifikan"
+  ],
+  "n_trials_total": 138,
+  "seen_count": 1,
+  "last_seen": "2026-10-22T03:54:42.374884+00:00"
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 417,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-22T06:54:14.905294+00:00",
+  "last_seen": "2026-10-23T12:55:02.504384+00:00",
+  "seen_count": 6,
+  "n_trials_total": 139
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 431,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-22T06:54:15.323153+00:00",
+  "last_seen": "2026-10-23T12:55:02.946490+00:00",
+  "seen_count": 6,
+  "n_trials_total": 140
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 265,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-22T06:54:15.713154+00:00",
+  "last_seen": "2026-10-23T12:55:03.342205+00:00",
+  "seen_count": 6,
+  "n_trials_total": 141
+ },
+ {
+  "strategy": "maker_entry_X0",
+  "passed": false,
+  "n": 248,
+  "note": "Entry pasif di harga acuan: terisi -51,03 vs tidak terisi +60,10 bps (seleksi 111 bps). Tanda berbalik antar-rezim.",
+  "reasons": [
+   "adverse_selection_111bps",
+   "sign_flip_train_vs_test",
+   "net_still_negative"
+  ],
+  "n_trials_total": 142,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:16:05.043351+00:00"
+ },
+ {
+  "strategy": "maker_pullback_X20",
+  "passed": false,
+  "n": 248,
+  "note": "Limit 20 bps di bawah acuan: delta +21,36 bps tapi net tetap -20,71 bps; fill 65,3%.",
+  "reasons": [
+   "net_still_negative",
+   "fill_rate_65pct",
+   "no_depth_solves_selection"
+  ],
+  "n_trials_total": 143,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:16:05.043351+00:00"
+ },
+ {
+  "strategy": "mm_depth_quote",
+  "passed": false,
+  "n": 15,
+  "note": "Quote 2-20 bps dari mid, 15 simbol: 0/15 positif (-5,0 s/d -7,4 bps). Fee 2,28 bps vs spread <=1,03 bps.",
+  "reasons": [
+   "zero_positive_symbols",
+   "spread_below_fee",
+   "no_mean_reversion"
+  ],
+  "n_trials_total": 144,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:16:05.043351+00:00"
+ },
+ {
+  "strategy": "F1_xs_mom",
+  "passed": false,
+  "n": 351,
+  "note": "PRAREG-SIG-01: latih -1.70 bps, OOS -7.89 bps, simbol positif 7/14. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 145,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F2_donchian",
+  "passed": false,
+  "n": 499,
+  "note": "PRAREG-SIG-01: latih -9.08 bps, OOS -0.86 bps, simbol positif 9/15. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 146,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F3_zscore",
+  "passed": false,
+  "n": 633,
+  "note": "PRAREG-SIG-01: latih -4.13 bps, OOS -2.04 bps, simbol positif 6/15. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 147,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F4_volbreak",
+  "passed": false,
+  "n": 1816,
+  "note": "PRAREG-SIG-01: latih -5.40 bps, OOS -6.50 bps, simbol positif 3/15. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 148,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F5_timeofday",
+  "passed": false,
+  "n": 135,
+  "note": "PRAREG-SIG-01: latih -21.50 bps, OOS -20.67 bps, simbol positif 0/15. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 149,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F6_fade",
+  "passed": false,
+  "n": 927,
+  "note": "PRAREG-SIG-01: latih -9.58 bps, OOS -2.24 bps, simbol positif 8/15. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 150,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F7_gap",
+  "passed": false,
+  "n": 0,
+  "note": "PRAREG-SIG-01: latih +0.00 bps, OOS +0.00 bps, simbol positif 0/0. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 151,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "F8_btc_lead",
+  "passed": false,
+  "n": 70,
+  "note": "PRAREG-SIG-01: latih +16.76 bps, OOS -47.43 bps, simbol positif 1/14. Ambang 9,57 bps tidak tercapai.",
+  "reasons": [
+   "oos_below_threshold",
+   "prereg_sig_01"
+  ],
+  "n_trials_total": 152,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "CONTROL_random",
+  "passed": false,
+  "n": 450,
+  "note": "Kontrol acak: -8,61 bps (null sebenarnya, pasar turun -2,44 bps/2jam). Biaya terhitung benar.",
+  "reasons": [
+   "negative_control"
+  ],
+  "n_trials_total": 153,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "hour_of_day_profile",
+  "passed": false,
+  "n": 30,
+  "note": "Eksploratif pasca-hoc: jam 21 +19,4 bps 15/15 di SoDEX 30 hari, TAPI profil tidak stabil di Binance 2,8 th (korelasi 2025-2026 -0,15). Noise rezim.",
+  "reasons": [
+   "post_hoc",
+   "falsified_cross_venue",
+   "n_independent_30_days"
+  ],
+  "n_trials_total": 154,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T00:42:20.229725+00:00"
+ },
+ {
+  "strategy": "session_reversal_12h",
+  "passed": false,
+  "n": 388,
+  "note": "PRAREG-SIG-02: Binance 30m 678 hari, OOS n=388, t=-3,20, 0/6 simbol positif. DITOLAK.",
+  "reasons": [
+   "prereg_sig_02",
+   "failed_threshold"
+  ],
+  "n_trials_total": 155,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T01:10:28.881069+00:00"
+ },
+ {
+  "strategy": "session_momentum_12h",
+  "passed": false,
+  "n": 388,
+  "note": "PRAREG-SIG-02: OOS +25,14 bps TAPI drift S2 +23,61 -> alpha hanya +1,53 bps. t=1,78, BH 0/12. DITOLAK sebagai artefak beta.",
+  "reasons": [
+   "prereg_sig_02",
+   "drift_artifact"
+  ],
+  "n_trials_total": 156,
+  "seen_count": 1,
+  "last_seen": "2026-10-23T01:10:28.881069+00:00"
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 418,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-23T18:55:02.034828+00:00",
+  "last_seen": "2026-10-23T18:55:02.034828+00:00",
+  "seen_count": 1,
+  "n_trials_total": 157
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 432,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-23T18:55:02.438543+00:00",
+  "last_seen": "2026-10-23T18:55:02.438543+00:00",
+  "seen_count": 1,
+  "n_trials_total": 158
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 266,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-23T18:55:02.821166+00:00",
+  "last_seen": "2026-10-23T18:55:02.821166+00:00",
+  "seen_count": 1,
+  "n_trials_total": 159
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 419,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-24T00:55:03.616640+00:00",
+  "last_seen": "2026-10-25T09:16:53.930765+00:00",
+  "seen_count": 4,
+  "n_trials_total": 160
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 434,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-24T00:55:04.065336+00:00",
+  "last_seen": "2026-10-24T06:55:06.069438+00:00",
+  "seen_count": 2,
+  "n_trials_total": 161
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 268,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-24T00:55:04.453929+00:00",
+  "last_seen": "2026-10-27T05:56:59.281727+00:00",
+  "seen_count": 11,
+  "n_trials_total": 162
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 436,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-25T03:16:53.803137+00:00",
+  "last_seen": "2026-10-25T17:39:51.250195+00:00",
+  "seen_count": 3,
+  "n_trials_total": 163
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 420,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-25T17:39:50.809420+00:00",
+  "last_seen": "2026-10-26T05:39:51.587067+00:00",
+  "seen_count": 3,
+  "n_trials_total": 164
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 437,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-25T23:39:51.591224+00:00",
+  "last_seen": "2026-10-25T23:39:51.591224+00:00",
+  "seen_count": 1,
+  "n_trials_total": 165
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 439,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-26T05:39:52.026048+00:00",
+  "last_seen": "2026-10-26T05:39:52.026048+00:00",
+  "seen_count": 1,
+  "n_trials_total": 166
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 421,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-26T11:56:35.511985+00:00",
+  "last_seen": "2026-10-27T23:09:38.173792+00:00",
+  "seen_count": 7,
+  "n_trials_total": 167
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 440,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-26T11:56:35.948228+00:00",
+  "last_seen": "2026-10-26T11:56:35.948228+00:00",
+  "seen_count": 1,
+  "n_trials_total": 168
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 441,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-26T17:56:36.286362+00:00",
+  "last_seen": "2026-10-26T17:56:36.286362+00:00",
+  "seen_count": 1,
+  "n_trials_total": 169
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 444,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-26T23:56:36.294441+00:00",
+  "last_seen": "2026-10-26T23:56:36.294441+00:00",
+  "seen_count": 1,
+  "n_trials_total": 170
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 445,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-27T05:56:58.870959+00:00",
+  "last_seen": "2026-10-27T05:56:58.870959+00:00",
+  "seen_count": 1,
+  "n_trials_total": 171
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 447,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-27T11:56:37.392800+00:00",
+  "last_seen": "2026-10-27T17:56:38.116932+00:00",
+  "seen_count": 2,
+  "n_trials_total": 172
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 269,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-27T11:56:37.801661+00:00",
+  "last_seen": "2026-10-28T05:09:38.509005+00:00",
+  "seen_count": 4,
+  "n_trials_total": 173
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 448,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-27T23:09:38.665279+00:00",
+  "last_seen": "2026-10-27T23:09:38.665279+00:00",
+  "seen_count": 1,
+  "n_trials_total": 174
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 422,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T05:09:37.624041+00:00",
+  "last_seen": "2026-10-28T05:09:37.624041+00:00",
+  "seen_count": 1,
+  "n_trials_total": 175
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 450,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T05:09:38.076665+00:00",
+  "last_seen": "2026-10-28T05:09:38.076665+00:00",
+  "seen_count": 1,
+  "n_trials_total": 176
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 425,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T11:09:38.485954+00:00",
+  "last_seen": "2026-10-28T11:09:38.485954+00:00",
+  "seen_count": 1,
+  "n_trials_total": 177
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 451,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T11:09:38.951619+00:00",
+  "last_seen": "2026-10-28T17:09:39.286584+00:00",
+  "seen_count": 2,
+  "n_trials_total": 178
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 270,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T11:09:39.378758+00:00",
+  "last_seen": "2026-10-28T11:09:39.378758+00:00",
+  "seen_count": 1,
+  "n_trials_total": 179
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 427,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T17:09:38.850531+00:00",
+  "last_seen": "2026-10-29T11:09:39.885555+00:00",
+  "seen_count": 4,
+  "n_trials_total": 180
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 273,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T17:09:39.694178+00:00",
+  "last_seen": "2026-10-28T23:09:40.625168+00:00",
+  "seen_count": 2,
+  "n_trials_total": 181
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 453,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-28T23:09:40.207051+00:00",
+  "last_seen": "2026-10-28T23:09:40.207051+00:00",
+  "seen_count": 1,
+  "n_trials_total": 182
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 457,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T05:09:40.156762+00:00",
+  "last_seen": "2026-10-29T05:09:40.156762+00:00",
+  "seen_count": 1,
+  "n_trials_total": 183
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 277,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T05:09:40.590849+00:00",
+  "last_seen": "2026-10-29T17:09:41.468566+00:00",
+  "seen_count": 3,
+  "n_trials_total": 184
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 458,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T11:09:40.335633+00:00",
+  "last_seen": "2026-10-29T17:09:40.998414+00:00",
+  "seen_count": 2,
+  "n_trials_total": 185
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 429,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T17:09:40.514860+00:00",
+  "last_seen": "2026-10-29T17:09:40.514860+00:00",
+  "seen_count": 1,
+  "n_trials_total": 186
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 431,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T23:09:40.737860+00:00",
+  "last_seen": "2026-10-29T23:09:40.737860+00:00",
+  "seen_count": 1,
+  "n_trials_total": 187
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 464,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T23:09:41.204810+00:00",
+  "last_seen": "2026-10-29T23:09:41.204810+00:00",
+  "seen_count": 1,
+  "n_trials_total": 188
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 281,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-29T23:09:41.625837+00:00",
+  "last_seen": "2026-11-01T18:41:05.907576+00:00",
+  "seen_count": 13,
+  "n_trials_total": 189
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 432,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-30T05:09:41.043951+00:00",
+  "last_seen": "2026-10-30T11:09:46.524028+00:00",
+  "seen_count": 2,
+  "n_trials_total": 190
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 465,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-30T05:09:41.503993+00:00",
+  "last_seen": "2026-10-30T11:09:46.982300+00:00",
+  "seen_count": 2,
+  "n_trials_total": 191
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 433,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-30T17:09:41.719239+00:00",
+  "last_seen": "2026-10-30T17:09:41.719239+00:00",
+  "seen_count": 1,
+  "n_trials_total": 192
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 466,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-30T17:09:42.189736+00:00",
+  "last_seen": "2026-10-30T23:09:42.510318+00:00",
+  "seen_count": 2,
+  "n_trials_total": 193
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 434,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-30T23:09:42.006052+00:00",
+  "last_seen": "2026-11-01T11:09:44.146671+00:00",
+  "seen_count": 7,
+  "n_trials_total": 194
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 469,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-31T05:09:43.149136+00:00",
+  "last_seen": "2026-10-31T05:09:43.149136+00:00",
+  "seen_count": 1,
+  "n_trials_total": 195
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 470,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-31T11:09:44.846889+00:00",
+  "last_seen": "2026-10-31T11:09:44.846889+00:00",
+  "seen_count": 1,
+  "n_trials_total": 196
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 471,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-31T17:09:43.956064+00:00",
+  "last_seen": "2026-10-31T17:09:43.956064+00:00",
+  "seen_count": 1,
+  "n_trials_total": 197
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 473,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-10-31T23:09:43.950042+00:00",
+  "last_seen": "2026-11-01T05:09:49.780468+00:00",
+  "seen_count": 2,
+  "n_trials_total": 198
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 474,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-01T11:09:44.665018+00:00",
+  "last_seen": "2026-11-01T12:41:05.203277+00:00",
+  "seen_count": 2,
+  "n_trials_total": 199
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 436,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-01T12:41:04.687542+00:00",
+  "last_seen": "2026-11-02T00:41:05.524475+00:00",
+  "seen_count": 3,
+  "n_trials_total": 200
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 477,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-01T18:41:05.479423+00:00",
+  "last_seen": "2026-11-01T18:41:05.479423+00:00",
+  "seen_count": 1,
+  "n_trials_total": 201
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 478,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-02T00:41:05.984261+00:00",
+  "last_seen": "2026-11-02T00:41:05.984261+00:00",
+  "seen_count": 1,
+  "n_trials_total": 202
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 283,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-02T00:41:06.432636+00:00",
+  "last_seen": "2026-11-02T06:41:10.157516+00:00",
+  "seen_count": 2,
+  "n_trials_total": 203
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 437,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-02T06:41:09.172094+00:00",
+  "last_seen": "2026-11-03T18:41:12.588945+00:00",
+  "seen_count": 7,
+  "n_trials_total": 204
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 479,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-02T06:41:09.672163+00:00",
+  "last_seen": "2026-11-02T12:41:08.066149+00:00",
+  "seen_count": 2,
+  "n_trials_total": 205
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 284,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-02T12:41:08.493088+00:00",
+  "last_seen": "2026-11-03T12:41:09.437645+00:00",
+  "seen_count": 5,
+  "n_trials_total": 206
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 481,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-02T18:41:07.604836+00:00",
+  "last_seen": "2026-11-02T18:41:07.604836+00:00",
+  "seen_count": 1,
+  "n_trials_total": 207
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 483,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-03T00:41:08.073916+00:00",
+  "last_seen": "2026-11-03T00:41:08.073916+00:00",
+  "seen_count": 1,
+  "n_trials_total": 208
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 484,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-03T06:41:10.312374+00:00",
+  "last_seen": "2026-11-03T06:41:10.312374+00:00",
+  "seen_count": 1,
+  "n_trials_total": 209
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 485,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-03T12:41:08.979505+00:00",
+  "last_seen": "2026-11-03T12:41:08.979505+00:00",
+  "seen_count": 1,
+  "n_trials_total": 210
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 486,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-03T18:41:13.069756+00:00",
+  "last_seen": "2026-11-03T18:41:13.069756+00:00",
+  "seen_count": 1,
+  "n_trials_total": 211
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 285,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-03T18:41:13.530880+00:00",
+  "last_seen": "2026-11-03T18:41:13.530880+00:00",
+  "seen_count": 1,
+  "n_trials_total": 212
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 439,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T00:41:12.396725+00:00",
+  "last_seen": "2026-11-04T06:41:10.097048+00:00",
+  "seen_count": 2,
+  "n_trials_total": 213
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 488,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T00:41:12.912472+00:00",
+  "last_seen": "2026-11-04T00:41:12.912472+00:00",
+  "seen_count": 1,
+  "n_trials_total": 214
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 286,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T00:41:13.389262+00:00",
+  "last_seen": "2026-11-04T06:41:11.178364+00:00",
+  "seen_count": 2,
+  "n_trials_total": 215
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 492,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T06:41:10.664498+00:00",
+  "last_seen": "2026-11-04T06:41:10.664498+00:00",
+  "seen_count": 1,
+  "n_trials_total": 216
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 440,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T12:41:10.369782+00:00",
+  "last_seen": "2026-11-04T20:11:47.658440+00:00",
+  "seen_count": 2,
+  "n_trials_total": 217
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 495,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T12:41:10.926968+00:00",
+  "last_seen": "2026-11-04T12:41:10.926968+00:00",
+  "seen_count": 1,
+  "n_trials_total": 218
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 287,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T12:41:11.479508+00:00",
+  "last_seen": "2026-11-04T12:41:11.479508+00:00",
+  "seen_count": 1,
+  "n_trials_total": 219
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 505,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T20:11:48.237032+00:00",
+  "last_seen": "2026-11-05T04:08:30.786839+00:00",
+  "seen_count": 3,
+  "n_trials_total": 220
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 288,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-04T20:11:48.776190+00:00",
+  "last_seen": "2026-11-05T10:53:21.337402+00:00",
+  "seen_count": 4,
+  "n_trials_total": 221
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 441,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-05T02:44:50.651867+00:00",
+  "last_seen": "2026-11-05T10:53:20.326204+00:00",
+  "seen_count": 3,
+  "n_trials_total": 222
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 506,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-05T10:53:20.834141+00:00",
+  "last_seen": "2026-11-05T10:53:20.834141+00:00",
+  "seen_count": 1,
+  "n_trials_total": 223
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 444,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-05T16:53:20.619572+00:00",
+  "last_seen": "2026-11-06T16:53:21.297300+00:00",
+  "seen_count": 5,
+  "n_trials_total": 224
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 510,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-05T16:53:21.119047+00:00",
+  "last_seen": "2026-11-05T16:53:21.119047+00:00",
+  "seen_count": 1,
+  "n_trials_total": 225
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 292,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-05T16:53:21.595700+00:00",
+  "last_seen": "2026-11-06T22:53:23.925268+00:00",
+  "seen_count": 6,
+  "n_trials_total": 226
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 511,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-05T22:53:21.227534+00:00",
+  "last_seen": "2026-11-06T04:53:21.462341+00:00",
+  "seen_count": 2,
+  "n_trials_total": 227
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 512,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-06T10:53:21.575362+00:00",
+  "last_seen": "2026-11-24T23:04:40.953223+00:00",
+  "seen_count": 70,
+  "n_trials_total": 228
+ },
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 445,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-06T22:53:22.769952+00:00",
+  "last_seen": "2026-11-24T23:04:40.458334+00:00",
+  "seen_count": 68,
+  "n_trials_total": 229
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 293,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-07T04:53:23.545103+00:00",
+  "last_seen": "2026-11-08T18:14:05.847649+00:00",
+  "seen_count": 6,
+  "n_trials_total": 230
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 294,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-09T06:28:27.668640+00:00",
+  "last_seen": "2026-11-09T18:28:29.165432+00:00",
+  "seen_count": 3,
+  "n_trials_total": 231
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 295,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-10T00:28:29.653030+00:00",
+  "last_seen": "2026-11-11T08:30:31.979253+00:00",
+  "seen_count": 6,
+  "n_trials_total": 232
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 296,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-11T14:30:36.041938+00:00",
+  "last_seen": "2026-11-11T20:30:31.970599+00:00",
+  "seen_count": 2,
+  "n_trials_total": 233
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 297,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-12T07:44:41.013378+00:00",
+  "last_seen": "2026-11-13T13:25:47.467055+00:00",
+  "seen_count": 7,
+  "n_trials_total": 234
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 298,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "first_seen": "2026-11-13T19:26:09.526768+00:00",
+  "last_seen": "2026-11-24T23:04:41.389044+00:00",
+  "seen_count": 43,
+  "n_trials_total": 235
+ }
+]

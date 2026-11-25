@@ -1,0 +1,13 @@
+[Unit]
+Description=Anantara Sakti - SoDEX read-only monitoring and evaluation
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/sodex_monitor_eval.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_monitor_eval.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_monitor_eval.log
+

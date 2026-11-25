@@ -1,0 +1,53 @@
+{
+  "id": "PRAREG-11",
+  "judul": "Pilar 3 — geometri exit pada sinyal RANGEPOS (satu-satunya arm yang lulus R1 dua lapis di PRAREG-7)",
+  "tanggal_beku": "2026-10-08",
+  "status": "TERBEKU sebelum evaluasi & sebelum tarik data apa pun untuk arm ini",
+  "disetujui": "Mas Anas, 8-Okt-2026 (approve Opsi 1)",
+  "motivasi": [
+    "TA7 (18a5f2b) + TA10 (0743210): keluarga tren dan cermin fade-nya 0/16 dua venue -> arah sinyal klasik tereliminasi dua sisi.",
+    "RANGEPOS_H48 SoDEX 1h: L1 13/18, L2 17/18 (R1 dua lapis), gross +16,93 bps, tapi S_ann net 1,62 < 2,30 -> gagal gerbang MESIN hanya karena ketajaman net, bukan arah.",
+    "Hipotesis pilar 3: keuntungan ada di GEOMETRI EXIT (stop/trailing/target/vol-target), bukan di sinyal arah baru. Diuji pada sinyal dasar TUNGGAL RANGEPOS agar tidak buang-uang multiple-testing."
+  ],
+  "sinyal_dasar": "RANGEPOS persis definisi beku xsec_mech_study.build_signals: -((px - lo20)/rng), rng=(hi20-lo20), window 20 bar 1h",
+  "venue": "SoDEX 1h (kernel) + Binance 1h (replikasi lintas-venue, simbol irisan)",
+  "hold_jam": [24, 48],
+  "fee_per_sisi": {"sodex": 0.0004, "binance": 0.0005},
+  "fee_model": "identik run_mech: net = gross - to*fee_oneway*fee_mult; base fee_mult=1,0 (sebanding langsung dengan TA7/TA10/RANGEPOS); sensitivitas fee2x=2,0 dan fee_slip=1,215 (4 bps + 0,86 bps slippage); to = L1 perubahan bobot antar-step (definisi beku run_mech)",
+  "konvensi_simulasi": {
+    "entry": "close bar sinyal i; arah = tanda w (rank_w beku): >0 long, <0 short, NaN/0 exclude",
+    "sl_tp_level": "ATR di bar ENTRY saja (ta7.atr h/l/c, EMA ATR n=14) — tanpa pembaruan ATR in-trade (anti lookahead)",
+    "trail": "stop menguncu naik (long) / turun (short) mengikuti close bar sebelumnya dikurang (ditambah) k*ATR_entry",
+    "touch": "SL pakai low (long) / high (short); TP pakai high (long) / low (short)",
+    "ambiguitas": "jika SL dan TP tersentuh di bar yang sama -> dihitung SL dulu (konservatif)",
+    "time_exit": "jika tak tersentuh sampai bar i+h -> exit di close bar i+h",
+    "sizing": "unit (s=1) untuk semua arm; vol-target sizing BUKAN bagian prareg ini (kandidat prareg terpisah)",
+    "agregasi": "per bar step h (non-overlap, identik run_mech): net_t = sum_n rank_w(RANGEPOS) * r_exit(n,t); t = nw_t(lag=hold); 3 segmen; kontrol = shuffle waktu entry seed 20261007 (beku PRAREG-9)"
+  },
+  "arm": [
+    "TIME_EXIT_H24/H48  — baseline tanpa stop (harus mereplikasi karakter RANGEPOS run_mech)",
+    "STOP_ATR15_H24/H48  — hard stop 1,5*ATR, tanpa target",
+    "TRAIL_ATR15_H24/H48 — trailing 1,5*ATR",
+    "TRAIL_ATR25_H24/H48 — trailing 2,5*ATR",
+    "TP2R_SL1R_H24/H48   — target 2,0*ATR vs stop 1,0*ATR (R:R 2:1)"
+  ],
+  "total_arm": 10,
+  "gerbang_mesin_identik_panel_beku": {
+    "R3_turnover": "to <= 1,5 (definisi beku run_mech; exit geometry tidak menambah turnover definisi)",
+    "R4_kontrol": "|t_ctrl| < 2,0 (PRAREG-9, seed 20261007)",
+    "R5": "t >= 1,96 dan net_bps > 0 dan gross_bps > 0",
+    "S_ann": ">= 2,30 (PPY 365*24/hold, fix 648765e)",
+    "S_fee2x": ">= 1,80",
+    "segmen": ">= 3 dari 3 segmen positif net",
+    "BH": "FDR q = 0,10 atas 10 arm per venue",
+    "R1": "tanda IC sama & |IC_sod| >= 0,5*|IC_bin| (aturan beku R1 dua lapis PRAREG-7/TA7/TA10)",
+    "mutu_panel": "corr(IC, gross) > 0; IC = Spearman(RANGEPOS, r_exit) per bar"
+  },
+  "deklarasi_risiko": [
+    "Geometri exit dipilih SETELAH melihat kegagalan S_ann arm arah (post-hoc family selection) -> gerbang TIDAK dilonggarkan sedikit pun; hasil historis = DESCRIPTIVE; verdict MESIN hanya dari data forward.",
+    "TIME_EXIT baseline diharapkan mendekati hasil run_mech RANGEPOS yang sudah diketahui (gross +16,93 H48) — perbedaan kecil wajar karena agregasi r_exit unit-long/short vs fwd persentase.",
+    "Arah long/short simetris diterapkan pada ret ter-realisasi; konsentrasi BTC+ETH 87,8% volume tetap menjadi catatan tafsir (batas atas).",
+    "Take-profit memotong ekor kanan: bila edge sumber berasal dari ekor, TP2R bisa MERUSAK net — ini uji falsifikasi, bukan asumsi perbaikan."
+  ],
+  "output": "reports/sodex/TA11_EXIT_STUDY.json + skrip scripts/research/ta11_exit_study.py (import beku xsec_mech_study + helper ta7_swing_study)"
+}

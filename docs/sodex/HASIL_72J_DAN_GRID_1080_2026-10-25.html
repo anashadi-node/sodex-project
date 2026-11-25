@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HASIL: UJI 72 JAM, GRID 1.080, DAN HIPOTESIS "PASAR SEDANG JELEK"</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>HASIL: UJI 72 JAM, GRID 1.080, DAN HIPOTESIS "PASAR SEDANG JELEK"</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-jawaban-langsung-apakah-0872-jam-lebih-mungkin">1. Jawaban langsung: apakah 0,8%/72 jam lebih mungkin?</a></li>
+<li class="t3"><a href="#11-secara-aritmetika-ya-24×">1.1 Secara aritmetika — ya, 2,4×</a></li>
+<li class="t3"><a href="#12-secara-empiris-tidak-karena-edge-tidak-tumbuh">1.2 Secara empiris — tidak, karena edge tidak tumbuh</a></li>
+<li class="t3"><a href="#13-celah-menyempit-tapi-tetap-7×">1.3 Celah menyempit, tapi tetap 7×</a></li>
+<li class="t2"><a href="#2-hipotesis-pasar-sedang-jelek-diuji-tidak-terbukti">2. Hipotesis "pasar sedang jelek" — DIUJI, TIDAK TERBUKTI</a></li>
+<li class="t2"><a href="#3-grid-masif">3. Grid masif</a></li>
+<li class="t3"><a href="#31-sig-04-18-uji-horizon-72-jam-tetap">3.1 SIG-04 (18 uji, horizon 72 jam tetap)</a></li>
+<li class="t3"><a href="#32-sig-05-1080-uji">3.2 SIG-05 (1.080 uji)</a></li>
+<li class="t2"><a href="#4-daemon-pencarian-kontinu-aktif">4. Daemon pencarian kontinu (aktif)</a></li>
+<li class="t2"><a href="#5-yang-belum-diuji-jujur">5. Yang belum diuji (jujur)</a></li>
+<li class="t2"><a href="#6-kesimpulan">6. Kesimpulan</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 25 Oktober 2026 · <strong>Pra-registrasi:</strong> SIG-04 &amp; SIG-05 (dibekukan sebelum run)
+<strong>Kesimpulan singkat:</strong> 72 jam <strong>2,4× lebih longgar</strong> dari 30 jam secara Sharpe, tetapi
+mesin kita masih <strong>7× kurang edge</strong>. Dan pasar <strong>tidak</strong> sedang jelek.</p>
+<hr>
+<h2 id="1-jawaban-langsung-apakah-0872-jam-lebih-mungkin">1. Jawaban langsung: apakah 0,8%/72 jam lebih mungkin?</h2>
+<h3 id="11-secara-aritmetika-ya-24×">1.1 Secara aritmetika — ya, 2,4×</h3>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>Window/tahun</th>
+<th>0,8%/window =</th>
+<th>sd window (BTC)</th>
+<th><strong>Sharpe dibutuhkan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30 jam</td>
+<td>292</td>
+<td><strong>924%/tahun</strong></td>
+<td>2,76%</td>
+<td><strong>4,95</strong></td>
+</tr>
+<tr>
+<td>72 jam</td>
+<td>122</td>
+<td><strong>164%/tahun</strong></td>
+<td>4,28%</td>
+<td><strong>2,06</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Sharpe yang dibutuhkan turun <strong>2,4×</strong>. Ini perbaikan nyata: 2,06 masih di ranah "dana
+elit", sedangkan 4,95 hampir tidak ada.</p>
+<h3 id="12-secara-empiris-tidak-karena-edge-tidak-tumbuh">1.2 Secara empiris — tidak, karena edge tidak tumbuh</h3>
+<p>Diukur ulang dari tiga buku paper pada window non-overlap:</p>
+<table>
+<thead>
+<tr>
+<th>Buku</th>
+<th>Window</th>
+<th>n</th>
+<th>mean</th>
+<th>median</th>
+<th>sd</th>
+<th>hit ≥0,8%</th>
+<th>95% CI mean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REALWIDE</td>
+<td>30 j</td>
+<td>63</td>
+<td>+0,047%</td>
+<td>0,000%</td>
+<td>8,72%</td>
+<td>28,6%</td>
+<td>[−2,13, +2,21]</td>
+</tr>
+<tr>
+<td>REALWIDE</td>
+<td>72 j</td>
+<td>26</td>
+<td><strong>+0,114%</strong></td>
+<td>+0,040%</td>
+<td>14,45%</td>
+<td>38,5%</td>
+<td>[−5,20, +5,82]</td>
+</tr>
+<tr>
+<td>TWOWAY</td>
+<td>30 j</td>
+<td>63</td>
+<td>+0,649%</td>
+<td>−0,131%</td>
+<td>16,45%</td>
+<td>34,9%</td>
+<td>[−3,27, +4,97]</td>
+</tr>
+<tr>
+<td>TWOWAY</td>
+<td>72 j</td>
+<td>27</td>
+<td><strong>+1,514%</strong></td>
+<td><strong>−0,726%</strong></td>
+<td>27,40%</td>
+<td>40,7%</td>
+<td>[−8,45, +12,16]</td>
+</tr>
+<tr>
+<td>SWING_PARTIAL</td>
+<td>30 j</td>
+<td>58</td>
+<td>−1,559%</td>
+<td>−0,831%</td>
+<td>13,79%</td>
+<td>29,3%</td>
+<td>[−5,03, +1,95]</td>
+</tr>
+<tr>
+<td>SWING_PARTIAL</td>
+<td>72 j</td>
+<td>24</td>
+<td><strong>−3,767%</strong></td>
+<td>−7,906%</td>
+<td>20,35%</td>
+<td>25,0%</td>
+<td>[−11,63, +4,48]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Temuan kunci:</strong> pada REALWIDE 72 jam, hit rate 0,8% adalah <strong>38,5%</strong>, sedangkan proses
+<strong>nol-mean dengan sd 14,45%</strong> akan mengenai +0,8% sekitar <strong>47,8%</strong> dari waktu. Artinya
+distribusinya <strong>lebih buruk dari acak</strong> — ekor kiri lebih gemuk daripada ekor kanan.</p>
+<blockquote>
+<p><strong>Hit rate bukan edge.</strong> Dengan volatilitas 14%, menembus +0,8% mudah; yang sulit adalah
+membuat <strong>rata-rata</strong>-nya +0,8%.</p>
+</blockquote>
+<h3 id="13-celah-menyempit-tapi-tetap-7×">1.3 Celah menyempit, tapi tetap 7×</h3>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>Sharpe mesin</th>
+<th>Sharpe dibutuhkan</th>
+<th><strong>Celah</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30 jam</td>
+<td>0,0054/window</td>
+<td>0,092/window</td>
+<td><strong>17×</strong></td>
+</tr>
+<tr>
+<td>72 jam</td>
+<td>0,0079/window</td>
+<td>0,055/window</td>
+<td><strong>7×</strong></td>
+</tr>
+</tbody>
+</table>
+<p>72 jam memangkas celah dari 17× ke 7×. Itu kemajuan struktural — tetapi belum cukup.</p>
+<hr>
+<h2 id="2-hipotesis-pasar-sedang-jelek-diuji-tidak-terbukti">2. Hipotesis "pasar sedang jelek" — DIUJI, TIDAK TERBUKTI</h2>
+<p>Return 72 jam dari 1h Binance (2024-01 → 2026-10-08):</p>
+<table>
+<thead>
+<tr>
+<th>Aset</th>
+<th>Periode</th>
+<th>n</th>
+<th>sd</th>
+<th>P(|r|≥0,8%)</th>
+<th><strong>mean</strong></th>
+<th>median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC</td>
+<td>2,8 th</td>
+<td>8.068</td>
+<td>4,15%</td>
+<td>81,4%</td>
+<td>+0,280%</td>
+<td>+0,187%</td>
+</tr>
+<tr>
+<td>BTC</td>
+<td><strong>90 hari</strong></td>
+<td>721</td>
+<td>3,83%</td>
+<td>81,0%</td>
+<td><strong>+1,054%</strong></td>
+<td>+0,311%</td>
+</tr>
+<tr>
+<td>BTC</td>
+<td>30 hari</td>
+<td>241</td>
+<td>3,03%</td>
+<td>80,9%</td>
+<td>+0,653%</td>
+<td>−0,187%</td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>90 hari</td>
+<td>721</td>
+<td>5,05%</td>
+<td>77,1%</td>
+<td><strong>+1,481%</strong></td>
+<td>+0,524%</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>90 hari</td>
+<td>721</td>
+<td>4,95%</td>
+<td>81,8%</td>
+<td><strong>+1,484%</strong></td>
+<td>+0,458%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pasar 90 hari terakhir justru di atas target:</strong> BTC rata-rata <strong>+1,05% per 72 jam</strong>,
+ETH dan SOL <strong>+1,48%</strong>. Volatilitas lebih dari cukup (P(|r|≥0,8%) = 77–82%).</p>
+<blockquote>
+<p>Selama periode yang sama, REALWIDE hanya +0,114% per 72 jam — <strong>9× di bawah beli-tahan BTC</strong>.
+Jadi bukan pasar yang jelek; <strong>alpha mesinnya yang negatif</strong>.</p>
+</blockquote>
+<p>Ini penting: kripto <strong>naik</strong> dan buku tetap datar/rugi. Itu bukti paling kuat bahwa masalahnya
+bukan kondisi pasar.</p>
+<hr>
+<h2 id="3-grid-masif">3. Grid masif</h2>
+<h3 id="31-sig-04-18-uji-horizon-72-jam-tetap">3.1 SIG-04 (18 uji, horizon 72 jam tetap)</h3>
+<p>6 keluarga × 3 rezim, 108 simbol, 2.587 hari. Hasil: <strong>0 lulus</strong>. Terbaik: R1_rev3 bull
++35,55 bps (t=0,75), jauh di bawah 80 bps. Kontrol acak −10,08 bps (sesuai biaya).
+Tanda latih vs uji <strong>berbalik</strong> di hampir semua keluarga (momentum +8 → −36).</p>
+<h3 id="32-sig-05-1080-uji">3.2 SIG-05 (1.080 uji)</h3>
+<p>4 keluarga × 9 lookback × 6 horizon × 5 rezim:</p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uji valid</td>
+<td><strong>1.080</strong></td>
+</tr>
+<tr>
+<td>BH-FDR lolos</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>Lulus semua kriteria</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>p terkecil</td>
+<td><strong>0,0115</strong> (XS_vol, L=5, H=2, hi_vol)</td>
+</tr>
+<tr>
+<td>Ambang BH</td>
+<td><strong>0,0000926</strong> (9,3×10⁻⁵)</td>
+</tr>
+<tr>
+<td>t tertinggi</td>
+<td><strong>2,53</strong></td>
+</tr>
+<tr>
+<td>Kontrol acak</td>
+<td>−10,52 bps (sesuai harapan −10,0)</td>
+</tr>
+</tbody>
+</table>
+<p>p terkecil <strong>124× di atas</strong> ambang BH. Tidak ada kandidat.</p>
+<p><strong>Catatan metodologis:</strong> dengan 1.080 uji, pada α=0,05 akan muncul ~54 hasil "signifikan"
+secara kebetulan. Karena itu ambang BH sangat ketat. Inilah harga pencarian masif — dan
+justru inilah yang membuat hasilnya bisa dipercaya.</p>
+<hr>
+<h2 id="4-daemon-pencarian-kontinu-aktif">4. Daemon pencarian kontinu (aktif)</h2>
+<ul>
+<li>Skrip: <code>scripts/research/sig_search_daemon.py</code></li>
+<li>Siklus: <strong>6 jam</strong>, maksimum <strong>28 siklus</strong> (~7 hari), berhenti sendiri.</li>
+<li>Setiap siklus: tarik klines 1d terbaru (108 simbol) → jalankan grid 1.080 uji → catat.</li>
+<li>Log: <code>reports/sodex/sig_search_daemon.log</code> + <code>sig_search_log.jsonl</code></li>
+<li>Jika ada yang lulus: menulis <code>reports/sodex/CANDIDATE_ALERT.json</code> dan <strong>berhenti</strong> untuk
+  review manusia (tidak auto-trade).</li>
+<li>Guard: berhenti jika disk &lt; 5 GB. Read-only ke exchange (GET publik).</li>
+</ul>
+<hr>
+<h2 id="5-yang-belum-diuji-jujur">5. Yang belum diuji (jujur)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Arah</th>
+<th>Alasan belum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sinyal on-chain (aliran exchange, stablecoin, whale)</td>
+<td>data belum ada</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Options-implied (skew, term structure)</td>
+<td>venue tidak tersedia di SoDEX</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Order-flow L2 15 detik</td>
+<td>butuh ≥7 hari data; kolektor baru 2 hari</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Event-driven (listing, unlock)</td>
+<td>butuh kalender event</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cross-sectional dengan data fundamental</td>
+<td>tidak relevan untuk crypto</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-kesimpulan">6. Kesimpulan</h2>
+<ol>
+<li><strong>72 jam lebih longgar</strong> (Sharpe 2,06 vs 4,95) — arah yang benar untuk diuji.</li>
+<li><strong>Tapi edge-nya belum ada</strong>: celah 7× pada 72 jam, 17× pada 30 jam.</li>
+<li><strong>Pasar tidak sedang jelek</strong> — BTC +1,05%/72 jam dalam 90 hari terakhir.</li>
+<li><strong>1.080 uji, 0 lulus</strong> — dan itu hasil yang benar, bukan kegagalan pencarian.</li>
+<li>Daemon terus berjalan; setiap kandidat baru akan muncul sebagai alert, bukan order.</li>
+</ol>
+<p><strong>Langkah berikutnya yang paling masuk akal:</strong> data on-chain dan options-implied adalah dua
+sumber yang belum tersentuh dan secara teori bisa memberi edge &gt;80 bps. Keduanya butuh data
+yang belum kita miliki.</p>
+</body>
+</html>

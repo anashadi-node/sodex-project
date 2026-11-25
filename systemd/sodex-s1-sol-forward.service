@@ -1,0 +1,11 @@
+[Unit]
+Description=Anantara Sakti - S1 uji forward SOL (read-only, protokol dibekukan 05-Okt-2026)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/sodex_s1_sol_forward.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_s1_sol_forward.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_s1_sol_forward.log

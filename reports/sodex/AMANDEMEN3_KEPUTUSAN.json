@@ -1,0 +1,45 @@
+{
+ "amandemen": "AMANDEMEN-3",
+ "keputusan": "A + C",
+ "disetujui_oleh": "Mas Anas",
+ "tanggal_utc": "2026-10-09T12:36:53Z",
+ "KOREKSI_2026_10_09": {
+  "yang_salah": "w = 0,5*SUM(1/sd^2)*alpha^2 (=931*alpha^2) -> 95,4 bps",
+  "mengapa_salah": "menjumlahkan Kelly per-instrumen seolah rho=0 DAN tiap mesin memakai seluruh wallet",
+  "yang_benar": "w = 0,5 * Sigma^-1 * alpha ; return = w^T alpha ; Sigma_ij = sd_i*sd_j*rho",
+  "rho_dipakai": 0.7,
+  "return_alpha32_bps": 48.2,
+  "bobot_btc_eth_sol": [
+   1.46,
+   0.04,
+   0.0
+  ],
+  "notional": 1.51
+ },
+ "ambang": {
+  "target_0_80_pct_alpha_bps_48j": 43.4,
+  "target_0_40_pct_alpha_bps_48j": 29.1,
+  "tidak_deploy_di_bawah_bps": 10.0,
+  "pembanding_rho_0_3": 36.4,
+  "pembanding_full_kelly_DITOLAK": 26.6
+ },
+ "temuan_struktural": "dengan alpha SAMA di 3 majors, bobot optimal jatuh ke BTC saja (1,51x); diversifikasi hanya bernilai bila edge-nya BERBEDA",
+ "larangan": [
+  "JANGAN naikkan leverage untuk menutupi selisih",
+  "JANGAN jumlahkan Kelly per-instrumen bila rho>0",
+  "JANGAN pakai full-Kelly tanpa amandemen"
+ ],
+ "catatan": "angka lama DIBATALKAN: 29,3/20,7 bps (rho diabaikan) dan 41,2 bps (R5 diabaikan). Yang berlaku: 43,4/29,1 bps.",
+ "tes": "tests/test_lev_discipline.py 32 PASS (bukan 33)",
+ "KOREKSI_2_2026_10_09": {
+  "apa": "plafon stres R5 mengikat SEBELUM Kelly pada alpha tinggi -> ambang 0,8% bergeser 41,2 -> 43,4 bps",
+  "fitur": "fungsi tunggal return_maksimum() + alpha_minimum_atas_semua_aturan() (half-Kelly + R4 + R5)",
+  "return_alpha32_bps": 48.2,
+  "bobot_alpha32": [
+   1.46,
+   0.04,
+   0.0
+  ],
+  "plafon_mengikat_alpha32": false
+ }
+}

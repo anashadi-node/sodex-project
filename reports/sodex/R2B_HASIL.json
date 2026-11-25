@@ -1,0 +1,92 @@
+{
+ "protokol": "R2B_EXIT_BERLAPIS",
+ "n_used": 589,
+ "n_drop": 102,
+ "n_full": 691,
+ "n_disc": 353,
+ "n_hold": 236,
+ "variants": {
+  "R1": {
+   "med_all": 0.0,
+   "med_disc": 0.0,
+   "med_hold": 0.0,
+   "frac_berubah": 0.46519524617996605,
+   "med_weighted": 0.0,
+   "hit_hold": 0.4117647058823529,
+   "win_med_hold": 0.046404855284779535,
+   "nw_hold": 17,
+   "win_5": -6.144055755344289,
+   "win_95": 8.778665290762842,
+   "lolos_kriteria": {
+    "c1": false,
+    "c2": false,
+    "c3": true,
+    "c4": false
+   }
+  },
+  "R2": {
+   "med_all": 0.0,
+   "med_disc": 0.0,
+   "med_hold": 0.0,
+   "frac_berubah": 0.46519524617996605,
+   "med_weighted": 0.0,
+   "hit_hold": 0.35294117647058826,
+   "win_med_hold": -0.656730222229145,
+   "nw_hold": 17,
+   "win_5": -9.438383398257212,
+   "win_95": 11.367062179890725,
+   "lolos_kriteria": {
+    "c1": false,
+    "c2": false,
+    "c3": false,
+    "c4": false
+   }
+  },
+  "R3": {
+   "med_all": 0.0,
+   "med_disc": 0.0,
+   "med_hold": 0.0,
+   "frac_berubah": 0.6604414261460102,
+   "med_weighted": 0.0,
+   "hit_hold": 0.5294117647058824,
+   "win_med_hold": 1.1731988883266833,
+   "nw_hold": 17,
+   "win_5": -11.349681902530834,
+   "win_95": 10.911045748231551,
+   "lolos_kriteria": {
+    "c1": false,
+    "c2": false,
+    "c3": true,
+    "c4": false
+   }
+  },
+  "R4": {
+   "med_all": 0.0,
+   "med_disc": 0.0,
+   "med_hold": 0.0,
+   "frac_berubah": 0.46519524617996605,
+   "med_weighted": 0.0,
+   "hit_hold": 0.47058823529411764,
+   "win_med_hold": 0.09280971056956128,
+   "nw_hold": 17,
+   "win_5": -12.28811151068858,
+   "win_95": 17.557330581525683,
+   "lolos_kriteria": {
+    "c1": false,
+    "c2": false,
+    "c3": true,
+    "c4": false
+   }
+  }
+ },
+ "obs_max_med_disc": 0.0,
+ "p_family": 1.0,
+ "sens_fee_plus2bps_med_all": {
+  "R1": -0.02999999999999982,
+  "R2": -0.02999999999999982,
+  "R3": -0.03999999999999976,
+  "R4": -0.0599999999999999
+ },
+ "kandidat_lolos": [],
+ "verdict": "R2B_NEGATIF"
+}

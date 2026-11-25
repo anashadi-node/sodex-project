@@ -1,0 +1,15 @@
+[Unit]
+Description=SoDEX A/B exit REGIME_FLIP readout (per-arm, post-restart)
+Documentation=file:/home/USER/anantara-sakti/reports/sodex/AB_REGIMEFLIP_READOUT.md
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+Environment="PATH=/home/USER/anantara-sakti/.venv-research/bin:/usr/bin:/bin"
+# PYTHONPATH dikosongkan: sesi Hermes bisa mengekspor site-packages python3.14
+# (numpy cp314) yang menutupi numpy 2.5.2 milik venv 3.12 -> import numpy gagal.
+Environment="PYTHONPATH="
+Nice=10
+TimeoutStartSec=300
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python3 /home/USER/anantara-sakti/scripts/sodex_ab_flip_readout.py

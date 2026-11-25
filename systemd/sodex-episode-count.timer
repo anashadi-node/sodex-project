@@ -1,0 +1,12 @@
+[Unit]
+Description=Anantara Sakti - penghitung episode forward SoDEX harian (08:30 WIB)
+
+[Timer]
+OnCalendar=*-*-* 08:30:00
+OnBootSec=15min
+AccuracySec=2min
+Persistent=true
+Unit=sodex-episode-count.service
+
+[Install]
+WantedBy=timers.target

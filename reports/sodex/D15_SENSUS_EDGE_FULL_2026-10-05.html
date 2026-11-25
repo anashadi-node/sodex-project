@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D15 — Sensus Edge Seluruh Mesin (D14/D14b) + Konsolidasi:mv_funding</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>D15 — Sensus Edge Seluruh Mesin (D14/D14b) + Konsolidasi:mv_funding</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-putusan">1. Ringkasan Putusan</a></li>
+<li class="t2"><a href="#2-tabel-sensus-dari-datasodex_edge_censusjson-di-commit">2. Tabel Sensus (dari `data/sodex_edge_census.json`, di-commit)</a></li>
+<li class="t2"><a href="#3-temuan-keamanan-lane-live-micro_live">3. Temuan keamanan: LANE LIVE `micro_live`</a></li>
+<li class="t2"><a href="#4-mv_funding-kandidat-tunggal-apa-yang-sudah-lolos-apa-yang-belum">4. mv_funding — kandidat tunggal; apa yang sudah lolos & apa yang belum</a></li>
+<li class="t2"><a href="#5-kesinambungan-dgn-riwayat-d13">5. Kesinambungan dgn riwayat D13</a></li>
+<li class="t2"><a href="#6-batas-apa-yang-tidak-mengubah">6. Batas & apa yang TIDAK mengubah</a></li>
+<li class="t2"><a href="#7-langkah-berikutnya-usulan-butuh-approval-user">7. Langkah Berikutnya (usulan, butuh approval user)</a></li>
+<li class="t2"><a href="#lampiran">Lampiran</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal</strong>: 05 Oktober 2026
+<strong>Keluarga</strong>: 21 mesin (dibekukan di Lampiran A D14, pra-registrasi commit <code>dc4633f</code>)
+<strong>Pertanyaan</strong>: Dari <strong>seluruh</strong> mesin di ekosistem, berapa yang edge-nya <strong>tervalidasi</strong> dan cukup untuk jalur target 0,8%/48 jam?</p>
+<hr>
+<h2 id="1-ringkasan-putusan">1. Ringkasan Putusan</h2>
+<p><strong>VERDICT: TIDAK-ADA-MESIN-LULUS (P9).</strong> Portofolio 6–8 mesin <strong>belum punya jalur</strong> hari ini.</p>
+<ul>
+<li>Keluarga 21 → sanggup diuji (n≥20 trade) <strong>6</strong>.</li>
+<li><strong>LULUS P9 semuanya = 0</strong> (lima syarat: n_win≥20 ∧ SR_thn≥2,3 ∧ 3/3 segmen positif ∧ p_terburuk&lt;0,05 ∧ BH-FDR q=0,10).</li>
+<li>Satu-satunya lolos statistik penuh = <code>hl_replay</code> — <strong>dikeluarkan dari P9 sebelum unblind</strong> karena flag REPLAY (simulasi historis, in-sample by construction). Ini tetap BH-lulus=1 tapi TIDAK dihitung kandidat.</li>
+<li>Kandidat nyata yang tersisa: <strong><code>mv_funding</code></strong> (CARRY, delta-neutral) — <strong>satu-satunya</strong> — gagal satu syarat: n_windows=<strong>15&lt;20</strong>.</li>
+<li>Instrumen SAH: FPR pada H0 sintetis p=0,0575 (≈α), gabungan (p∧SR) = 0,010.</li>
+</ul>
+<hr>
+<h2 id="2-tabel-sensus-dari-datasodex_edge_censusjson-di-commit">2. Tabel Sensus (dari <code>data/sodex_edge_census.json</code>, di-commit)</h2>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th>Flag</th>
+<th>n</th>
+<th>n_win</th>
+<th>mean48</th>
+<th>sd48</th>
+<th>SR_thn</th>
+<th>p_day</th>
+<th>p_worst</th>
+<th>seg</th>
+<th>BH</th>
+<th>P9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hl_replay</td>
+<td>REPLAY</td>
+<td>2185</td>
+<td>45</td>
+<td>+17,312%</td>
+<td>27,849%</td>
+<td>8,40</td>
+<td>0,0003</td>
+<td>0,0003</td>
+<td>3/3</td>
+<td>1</td>
+<td>(excl)</td>
+</tr>
+<tr>
+<td><strong>mv_funding</strong></td>
+<td>CARRY</td>
+<td>96</td>
+<td><strong>15</strong></td>
+<td>+0,397%</td>
+<td>0,666%</td>
+<td><strong>8,06</strong></td>
+<td><strong>0,0359</strong></td>
+<td>0,0359</td>
+<td><strong>3/3</strong></td>
+<td>0</td>
+<td>❌ n&lt;20</td>
+</tr>
+<tr>
+<td>spot_swing_cex</td>
+<td>—</td>
+<td>189</td>
+<td>15</td>
+<td>+2,110%</td>
+<td>8,136%</td>
+<td>3,50</td>
+<td>0,4018</td>
+<td>0,4018</td>
+<td>2/3</td>
+<td>0</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>twoway</td>
+<td>—</td>
+<td>371</td>
+<td>31</td>
+<td>+3,408%</td>
+<td>15,487%</td>
+<td>2,97</td>
+<td>0,2355</td>
+<td>0,2429</td>
+<td>2/3</td>
+<td>0</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>realwide</td>
+<td>—</td>
+<td>238</td>
+<td>31</td>
+<td>+1,595%</td>
+<td>9,737%</td>
+<td>2,21</td>
+<td>0,4081</td>
+<td>0,4081</td>
+<td>1/3</td>
+<td>0</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>donchian</td>
+<td>—</td>
+<td>187</td>
+<td>22</td>
+<td>+1,552%</td>
+<td>12,446%</td>
+<td>1,68</td>
+<td>0,5222</td>
+<td>0,5769</td>
+<td>2/3</td>
+<td>0</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>…15 mesin negatif/s Schwäche</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>❌</td>
+</tr>
+<tr>
+<td>micro_live</td>
+<td><strong>UANG-NYATA</strong></td>
+<td><strong>7</strong></td>
+<td>3</td>
+<td>−0,803%</td>
+<td>0,788%</td>
+<td>−13,77</td>
+<td>0,4859</td>
+<td>n/a</td>
+<td>0/0</td>
+<td>0</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-temuan-keamanan-lane-live-micro_live">3. Temuan keamanan: LANE LIVE <code>micro_live</code></h2>
+<p><strong>Insiden tak terdeteksi sebelumnya</strong>:
+- 171/178 baris ledger <code>realwide_micro_live.jsonl</code> = artefak audit-log PALGU (dry-run/flatten berulang pra-guard insiden 25-Sep, <code>close_rc=None</code>); 95 baris berlabel KILL_FLATTEN semua dgn <code>exit_price=2486,22</code> IDENTIK di 9 hari berbeda → <strong>faktual bukan trade</strong>.
+- PnL uang-nyata TERVERIFIKASI sejak live: <code>$‑22,69</code> dari <strong>8 trade</strong> (7 baris ledger valid + 1 VENUE_RECONCILE), WR 3/8. <strong>TIDAK signifikan</strong> (n terlalu kecil) — klaim "rugi $‑403" DITOLAK.
+- Remediasi protokol: <strong>P12 ditambahkan ke pra-registrasi</strong> (data-hygiene untuk mesin uang-nyata: buang <code>close_rc</code> kosong atau duplikat butir-identik) SEBELUM evaluasi ulang, di-commit.
+- Live service <code>anantara-realwide-livetest</code> = <strong>inactive (dead)</strong> — tidak ada posisi terbuka, tidak ada risiko baru.</p>
+<h2 id="4-mv_funding-kandidat-tunggal-apa-yang-sudah-lolos-apa-yang-belum">4. mv_funding — kandidat tunggal; apa yang sudah lolos &amp; apa yang belum</h2>
+<p>Lolos:
+- <strong>Statistik</strong>: p_day(hari) = 0,0359; p cluster-8h = <strong>0,0307</strong> (unit sampling BENAR untuk carry, sign-flip per slot settlement); p_terburuk 0,0359 &lt; 0,05.
+- <strong>3/3 segmen</strong> kronologis positif (census resmi, grid 48j GLOBAL per P3/P4).
+- <strong>B0 net-of-cost</strong>: fee 7 bps RT all-maker sudah net di <code>pnl_usd</code> (understate 17% — konservatif); margin keamanan biaya = <strong>2× RT penuh tambahan</strong> (POSITIF sampai +35 bps/jendela; NEGATIF baru di +50 bps).
+- <strong>SR thn</strong> 8,06 ≫ 2,3.</p>
+<p>Belum:
+- <strong>n_windows = 15 &lt; 20</strong> (span data 14,02 hari). Butuh <strong>+5 jendela 48j</strong> ≈ <strong>10 hari data tambahan</strong>.
+- BH-FDR atas keluarga: gagal (0/6) sebelum n cukup — jalur = lengkapi data, bukan ubah ambang.
+- Korelasi portofolio ρ≤0,10: belum dapat dihitung (butuh ≥2 mesin lulus P9).</p>
+<p>Diar小小的经历 di <strong><code>funding_carry_test</code></strong> (engine pendahulu, 39 CLOSED 9/13–9/19, 12/39 WR, mean −2,142%/trade): fase eksperimentasi lama dgn notional/fee berbeda; <strong>TIDAK dipakai</strong> sebagai basis kandidat mv_funding (regime beda).</p>
+<hr>
+<h2 id="5-kesinambungan-dgn-riwayat-d13">5. Kesinambungan dgn riwayat D13</h2>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>D13 (R1–R3)</th>
+<th>D15/D14b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REAL-wide level</td>
+<td>PROMISING-NOT-ESTABLISHED (BH 0/22)</td>
+<td>census: SR_thn 2,21, p_day 0,4081 — <strong>TIDAK lulus</strong>, konsisten</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>difalsifikasi via cluster hari</td>
+<td>konsisten (census tak meragukan)</td>
+</tr>
+<tr>
+<td>micro_live</td>
+<td>belum di-sensus —</td>
+<td>kini: <strong>$‑22,69 n=8 nyata</strong>; n=171 palsu dibuang P12</td>
+</tr>
+<tr>
+<td>target 0,8%/48j</td>
+<td>sharpe 4-6 real vs 8,6× paper sizing</td>
+<td><strong>jln terdekat = lengkapi mv_funding data 10 hari</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-batas-apa-yang-tidak-mengubah">6. Batas &amp; apa yang TIDAK mengubah</h2>
+<ul>
+<li><strong>Target 0,8%/48j = harga mati.</strong> TIDAK di-turunkan.</li>
+<li><strong>Ambang P9 TIDAK diubah</strong> setelah hasil (integritas pra-registrasi).</li>
+<li><strong>Gate T1 utuh, tanpa leverage, SODEX_TOTAL_WALLET tidak diubah, E1 beku, arm A1 mati, RW_MARGIN_UTIL_CAP OFF.</strong></li>
+<li><code>hl_replay</code> tetap ditandai REPLAY (TIDAK dipromosikan via pintu belakang statistik).</li>
+</ul>
+<h2 id="7-langkah-berikutnya-usulan-butuh-approval-user">7. Langkah Berikutnya (usulan, butuh approval user)</h2>
+<ol>
+<li><strong>Percepat mv_funding ke n=20</strong> (≈10 hari, data meluncur sendiri saat window berjalan → bisa diuji ~15-Okt) — putusan tanggal itu: P9 ulang.</li>
+<li><strong>S1 forward test</strong> (jalur kedua): n≥30 jendela, p terburuk &lt;0,05, 3/3 segmen — pra-registrasi sudah ada.</li>
+<li><strong>Test T3/T4 mesin kedua + korelasi</strong> setelah ≥2 mesin lulus P9.</li>
+</ol>
+<hr>
+<h2 id="lampiran">Lampiran</h2>
+<ul>
+<li><strong>C</strong> — mv_funding dihitung ulang dari sumber (mean/sd/segmen).</li>
+<li><strong>C-2</strong> — penjelasan seg1 negatif (ramp-up).</li>
+<li><strong>D</strong> — sensitivitas biaya (G2).</li>
+<li><strong>E</strong> — p cluster-8h (unit benar carry).</li>
+</ul>
+<p><strong>Lampiran C</strong> — mv_funding dihitung ulang dari sumber (<code>data/mv_funding_paper.json</code>, 96 trade, ret = pnl_usd/notional, FEE understate 17%):
+- Jendela 48j non-overlap = <strong>15</strong> (butuh 20, kurang 5).
+- Mean +0,3975% | sd 0,6353% | SR tahunan (deret jendela) = <strong>8,06</strong> (census resmi P3/P4; hitung per-trade = 8,45 — unit beda, dilaporkan dua-duanya).
+- Sekuen: <code>+-+--+++++++-++</code>
+- Segmen (census, grid GLOBAL): <strong>3/3 positif</strong> → P7 LULUS.
+  (Perhitungan-ulang manual danwith anchor lokal = exit pertama memberi seg1 −0,034% —
+  PERBEDAAN ANCHOR, bukan data beda. Pangkal kebenaran = census resmi 3/3.)
+  Bottleneck P9 satu-satunya yang tersisa = n_windows 15&lt;20.</p>
+<p><strong>Lampiran C-2</strong>: catatan ramp-up seg1 (hitung manual, anchor lokal) = −0,034% kecil dan tidak
+mengubah verdict; census resmi dgn grid global memberi 3/3 positif — DIPAKAI yang census</p>
+<p><strong>Lampiran D — G2 biaya</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Biaya</th>
+<th>mean net</th>
+<th>SR tahunan</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 (baseline)</td>
+<td>+0,3975%</td>
+<td>8,06</td>
+<td>POSITIF</td>
+</tr>
+<tr>
+<td>+9 bps (1 leg taker)</td>
+<td>+0,3075%</td>
+<td>6,23</td>
+<td>POSITIF</td>
+</tr>
+<tr>
+<td>+18 bps (RT full)</td>
+<td>+0,2175%</td>
+<td>4,40</td>
+<td>POSITIF</td>
+</tr>
+<tr>
+<td>+35 bps (2× RT penuh)</td>
+<td>+0,0475%</td>
+<td>0,96</td>
+<td>POSITIF (tipis)</td>
+</tr>
+<tr>
+<td>+50 bps</td>
+<td>−0,1025%</td>
+<td>−2,07</td>
+<td>NEGATIF</td>
+</tr>
+<tr>
+<td>+72 bps (4× RT)</td>
+<td>−0,3225%</td>
+<td>−6,50</td>
+<td>NEGATIF</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lampiran E — p cluster-8h</strong> = <strong>0,0307</strong> (sign-flip per slot settlement 8 jam, unit benar utk carry); p harian 0,0359; p trade-level i.i.d. 0,0091 (terlalu lembek — pelajaran R3/SOL). p_worst = 0,0359 &lt; 0,05.</p>
+<hr>
+<p><em>Sensus data: <code>data/sodex_edge_census.json</code> (di-commit). Pra-registrasi: <code>docs/sodex/D14_PROTOKOL_SENSUS_EDGE_2026-10-05.md</code> (commit dc4633f + amend P12 LAMPIRAN A/D14b).</em></p>
+</body>
+</html>

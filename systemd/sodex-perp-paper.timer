@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily 00:45 UTC — perp paper
+
+[Timer]
+OnCalendar=*-*-* 00:45:00 UTC
+Persistent=true
+RandomizedDelaySec=90
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laporan Riset SoDEX — R4, R4-B, R4-C & R4-D: Menguji 16 Mesin, 41 Evaluasi di Tiga Venue</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Laporan Riset SoDEX — R4, R4-B, R4-C & R4-D: Menguji 16 Mesin, 41 Evaluasi di Tiga Venue</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-untuk-yang-sibuk-baca-ini-dulu">1. Ringkasan untuk yang sibuk (baca ini dulu)</a></li>
+<li class="t2"><a href="#2-latar-target-yang-kita-kejar">2. Latar: target yang kita kejar</a></li>
+<li class="t2"><a href="#3-cara-kami-menguji-dan-kenapa-caranya-penting">3. Cara kami menguji (dan kenapa caranya penting)</a></li>
+<li class="t3"><a href="#31-pra-registrasi-aturan-dikunci-sebelum-lihat-hasil">3.1 Pra-registrasi (aturan dikunci sebelum lihat hasil)</a></li>
+<li class="t3"><a href="#32-lockbox-data-ujian-yang-disegel">3.2 Lockbox (data ujian yang disegel)</a></li>
+<li class="t3"><a href="#33-kontrol-acak-apakah-lebih-baik-dari-keberuntungan">3.3 Kontrol acak (apakah lebih baik dari keberuntungan?)</a></li>
+<li class="t3"><a href="#34-koreksi-multi-uji-jangan-tertipu-kebetulan">3.4 Koreksi multi-uji (jangan tertipu kebetulan)</a></li>
+<li class="t2"><a href="#4-hasil-r4-lima-mesin-pertama-h1h5">4. Hasil R4: lima mesin pertama (H1–H5)</a></li>
+<li class="t2"><a href="#5-hasil-r4-b-lima-mesin-kedua-h6h10">5. Hasil R4-B: lima mesin kedua (H6–H10)</a></li>
+<li class="t3"><a href="#kenapa-h8-penting-meski-tetap-gagal">Kenapa H8 penting (meski tetap gagal)</a></li>
+<li class="t3"><a href="#penutupan-aritmetika-kenapa-carry-funding-tidak-bisa-diselamatkan">Penutupan aritmetika: kenapa carry funding tidak bisa diselamatkan</a></li>
+<li class="t2"><a href="#6-uji-silang-venue-binance-vs-hyperliquid">6. Uji silang venue: Binance vs Hyperliquid</a></li>
+<li class="t2"><a href="#7-temuan-inti-apa-yang-sebenarnya-menghambat">7. Temuan inti: apa yang sebenarnya menghambat</a></li>
+<li class="t3"><a href="#71-matematika-portofolio-kenapa-menambah-mesin-tidak-menolong">7.1 Matematika portofolio (kenapa menambah mesin tidak menolong)</a></li>
+<li class="t3"><a href="#72-sharpe-tinggi-tidak-berarti-target-tercapai">7.2 Sharpe tinggi tidak berarti target tercapai</a></li>
+<li class="t3"><a href="#73-angka-yang-harus-ditutup">7.3 Angka yang harus ditutup</a></li>
+<li class="t2"><a href="#8-r4-c-apakah-biaya-yang-menjadi-hambatan-uji-eksekusi-pasif">8. R4-C: apakah biaya yang menjadi hambatan? (uji eksekusi pasif)</a></li>
+<li class="t3"><a href="#tapi-di-sini-ada-temuan-yang-sangat-penting">Tapi di sini ada temuan yang sangat penting</a></li>
+<li class="t2"><a href="#9-kejujuran-kesalahan-yang-kami-temukan-sendiri">9. Kejujuran: kesalahan yang kami temukan sendiri</a></li>
+<li class="t2"><a href="#10-apa-yang-tidak-kami-lakukan">10. Apa yang TIDAK kami lakukan</a></li>
+<li class="t2"><a href="#11-langkah-berikutnya">11. Langkah berikutnya</a></li>
+<li class="t3"><a href="#yang-sudah-diuji-dan-hasilnya">Yang sudah diuji dan hasilnya</a></li>
+<li class="t3"><a href="#spesifikasi-yang-harus-dipenuhi-mesin-berikutnya-hasil-kuantifikasi-bukan-tebakan">Spesifikasi yang harus dipenuhi mesin berikutnya (hasil kuantifikasi, bukan tebakan)</a></li>
+<li class="t3"><a href="#jalur-b-sudah-dikerjakan-hasilnya-di-12">Jalur B (SUDAH dikerjakan — hasilnya di §12)</a></li>
+<li class="t3"><a href="#rekomendasi-jujur">Rekomendasi jujur</a></li>
+<li class="t2"><a href="#12-r4-d-kelas-kejadian-dan-penutupnya-h13abc">12. R4-D: kelas kejadian dan penutupnya (H13abc)</a></li>
+<li class="t3"><a href="#121-empat-tier-dan-mengapa-tier-pertama-menentukan">12.1 Empat tier — dan mengapa tier pertama menentukan</a></li>
+<li class="t3"><a href="#122-hasil-12-evaluasi-0-lulus">12.2 Hasil: 12 evaluasi, 0 lulus</a></li>
+<li class="t3"><a href="#123-temuan-terpenting-seluruh-program-model-biaya-membalikkan-tanda">12.3 Temuan terpenting seluruh program: model biaya MEMBALIKKAN TANDA</a></li>
+<li class="t3"><a href="#124-yang-bertahan-dinyatakan-apa-adanya">12.4 Yang bertahan (dinyatakan apa adanya)</a></li>
+<li class="t3"><a href="#125-batas-kejujuran-dinyatakan-di-muka-bukan-setelah-ditanya">12.5 Batas kejujuran (dinyatakan di muka, bukan setelah ditanya)</a></li>
+<li class="t3"><a href="#126-putusan-kumulatif-dan-artinya-bagi-target">12.6 Putusan kumulatif dan artinya bagi target</a></li>
+<li class="t2"><a href="#13-glosarium-awam">13. Glosarium awam</a></li>
+<li class="t2"><a href="#14-lampiran-cara-memeriksa-ulang">14. Lampiran: cara memeriksa ulang</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 05-Okt-2026 · <strong>Penulis:</strong> Hermes Anantara v3 · <strong>Status:</strong> Fase DEV selesai, hasil negatif dilaporkan apa adanya</p>
+<hr>
+<hr>
+<h2 id="1-ringkasan-untuk-yang-sibuk-baca-ini-dulu">1. Ringkasan untuk yang sibuk (baca ini dulu)</h2>
+<p>Kami menguji <strong>15 mesin trading</strong> (strategi) dengan cara yang ketat: aturannya ditulis dan
+dikunci <strong>sebelum</strong> hasilnya dilihat. Hasilnya:</p>
+<table>
+<thead>
+<tr>
+<th>Yang diuji</th>
+<th>Jumlah</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mesin H1–H5 (R4) di Binance 36 bulan</td>
+<td>5</td>
+<td><strong>5 gagal</strong></td>
+</tr>
+<tr>
+<td>Mesin H6–H10 (R4-B) di Binance 36 bulan</td>
+<td>5</td>
+<td><strong>5 gagal</strong></td>
+</tr>
+<tr>
+<td>Mesin H6–H10 di Hyperliquid 4 jam</td>
+<td>5</td>
+<td><strong>5 gagal</strong></td>
+</tr>
+<tr>
+<td>Mesin H6–H10 di Hyperliquid 1 hari (6,1 tahun)</td>
+<td>5</td>
+<td><strong>5 gagal</strong></td>
+</tr>
+<tr>
+<td>Mesin H11–H12 (eksekusi pasif/maker) di 3 venue</td>
+<td>9</td>
+<td><strong>9 gagal</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total 29 evaluasi mesin, 29 gagal.</strong> Ini bukan kabar buruk yang disembunyikan — ini justru
+hasil yang <strong>berguna</strong>: kami sekarang tahu <strong>persis</strong> apa yang menghambat, dan hambatannya
+bukan yang selama ini diduga.</p>
+<p><strong>Hambatannya adalah: BESARNYA keuntungan per transaksi — bukan jumlah mesin, bukan Sharpe,
+bukan frekuensi trading.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Dugaan penyebab</th>
+<th>Kesimpulan</th>
+<th>Alasan singkat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kurang mesin</td>
+<td><strong>Salah</strong></td>
+<td>Rata-rata portofolio = campuran rata-rata mesin. Menambah mesin hanya memperkecil goyangan, <strong>tidak</strong> menaikkan rata-rata</td>
+</tr>
+<tr>
+<td>Kurang Sharpe</td>
+<td><strong>Salah</strong></td>
+<td>Mesin H8 punya Sharpe 2,65–3,91 (lolos syarat 2,3) tapi keuntungannya cuma 0,011–0,022% per 48 jam (target 0,8%)</td>
+</tr>
+<tr>
+<td>Kurang frekuensi</td>
+<td><strong>Salah</strong></td>
+<td>Biaya 0,40% per transaksi; kalau sering trading, biaya makan 69% per tahun</td>
+</tr>
+<tr>
+<td><strong>Kurang besar untung per transaksi</strong></td>
+<td><strong>BENAR</strong></td>
+<td>Yang terbaik hanya 0,40–0,47% per transaksi; yang dibutuhkan 6,00% → <strong>kurang 14 kali</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Satu temuan yang bertahan di ketiga venue:</strong> mesin "carry funding ekstrem" (H8) memang
+<strong>benar-benar bisa menebak waktu yang bagus</strong> (dibuktikan dengan uji acak: peluang kebetulan
+hanya 0,5%). Tapi uangnya <strong>13–15× terlalu kecil</strong> untuk mencapai target.</p>
+<p><strong>Temuan kedua (dari uji eksekusi pasif/maker):</strong> menurunkan biaya trading <strong>berhasil</strong> —
+biaya bukan lagi hambatan utama — tetapi muncul hambatan baru yang lebih keras:
+<strong>adverse selection</strong>. Order pasif hanya terisi <strong>ketika harga bergerak melawan kita</strong>, sehingga
+"menang kecil sering, kalah besar sesekali". Rinciannya di <a href="#8-r4-c-apakah-biaya-yang-menjadi-hambatan-uji-eksekusi-pasif">bab 8</a>.</p>
+<hr>
+<h2 id="2-latar-target-yang-kita-kejar">2. Latar: target yang kita kejar</h2>
+<p>Target SoDEX: <strong>0,8% dari TOTAL modal wallet per 48 jam</strong>, tanpa leverage.</p>
+<p>Mari kita terjemahkan ke bahasa sederhana:</p>
+<table>
+<thead>
+<tr>
+<th>Kalau target ini dipertahankan 48 jam, lalu diulang terus</th>
+<th>Hasil setahun</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,8% per 48 jam</td>
+<td>≈ <strong>+328% per tahun</strong> (majemuk)</td>
+</tr>
+<tr>
+<td>Setara per hari</td>
+<td>≈ <strong>0,4% per hari</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogi:</strong> bayangkan Anda punya modal Rp 1.000.000. Target ini berarti setiap dua hari
+modal harus bertambah Rp 8.000 — terus-menerus, tanpa henti, tanpa pinjaman (leverage).
+Setahun kemudian modalnya menjadi sekitar Rp 4.280.000. Ini target yang <strong>sangat ambisius</strong>
+untuk trading tanpa leverage.</p>
+<p>Inilah kenapa kami tidak bisa asal "coba-coba strategi": setiap ide harus lulus ujian yang
+ketat sebelum dipercaya.</p>
+<hr>
+<h2 id="3-cara-kami-menguji-dan-kenapa-caranya-penting">3. Cara kami menguji (dan kenapa caranya penting)</h2>
+<p>Ada empat pengaman yang membuat hasil ini bisa dipercaya:</p>
+<h3 id="31-pra-registrasi-aturan-dikunci-sebelum-lihat-hasil">3.1 Pra-registrasi (aturan dikunci sebelum lihat hasil)</h3>
+<p><strong>Analogi:</strong> seperti ujian di mana soal <strong>dan kunci jawabannya</strong> ditulis dulu, baru dikoreksi.
+Kalau kuncinya bisa diubah setelah melihat jawaban, semua orang jadi pintar.</p>
+<p>Kami menulis aturan hipotesis, menaruhnya di git (tercatat tanggal &amp; kodenya), <strong>baru</strong>
+menjalankan pengujian. Setelah hasil keluar, angka di dokumen itu tidak boleh diubah lagi.</p>
+<h3 id="32-lockbox-data-ujian-yang-disegel">3.2 Lockbox (data ujian yang disegel)</h3>
+<p>Data dibagi dua:</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Periode</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DEV</strong></td>
+<td>2022-10-01 → 2025-09-30</td>
+<td>tempat menguji ide (boleh dilihat)</td>
+</tr>
+<tr>
+<td><strong>LOCKBOX</strong></td>
+<td>2025-10-01 → 2026-09-30</td>
+<td>disegel; <strong>hanya dibuka kalau ide lulus DEV</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogi:</strong> belajar dari buku latihan (DEV), lalu ujian sesungguhnya (LOCKBOX) pakai soal
+yang belum pernah dilihat. Kalau ide gagal di latihan, ujiannya tidak perlu dibuka.</p>
+<h3 id="33-kontrol-acak-apakah-lebih-baik-dari-keberuntungan">3.3 Kontrol acak (apakah lebih baik dari keberuntungan?)</h3>
+<p>Setiap mesin dibandingkan dengan <strong>versi acak</strong> yang punya jumlah transaksi dan lama
+menahan yang sama, tapi waktu masuknya diundi. Kalau mesin tidak lebih baik dari undian,
+berarti ia tidak punya keunggulan nyata.</p>
+<h3 id="34-koreksi-multi-uji-jangan-tertipu-kebetulan">3.4 Koreksi multi-uji (jangan tertipu kebetulan)</h3>
+<p>Menguji 15 mesin sekaligus berarti ada banyak kesempatan "kelihatan bagus karena kebetulan".
+Kami memakai koreksi <strong>BH-FDR</strong> (ambang ketat 10%) dan <strong>PBO</strong> (mengukur seberapa sering
+"pemenang" ternyata palsu). Syarat: PBO &lt; 20%.</p>
+<hr>
+<h2 id="4-hasil-r4-lima-mesin-pertama-h1h5">4. Hasil R4: lima mesin pertama (H1–H5)</h2>
+<p>Data: Binance USDM Futures, 11 koin besar, 36 bulan, 547 jendela waktu (masing-masing 48 jam),
+biaya 0,40% per transaksi.</p>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th>Idenya (bahasa awam)</th>
+<th>Untung per 48 jam</th>
+<th>Sharpe</th>
+<th>Lolos?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>Ikuti tren: kalau harga di atas rata-rata &amp; naik, beli</td>
+<td>−0,210%</td>
+<td>−0,83</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H2</td>
+<td>Tembus batas: beli kalau menembus puncak 48 jam</td>
+<td>+0,056%</td>
+<td>+0,39</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H3</td>
+<td>Panen funding: cari koin yang bayar bunga tinggi</td>
+<td>−0,354%</td>
+<td>−93,0</td>
+<td>Gagal (rugi signifikan)</td>
+</tr>
+<tr>
+<td>H4</td>
+<td>Balik arah: beli saat harga jatuh terlalu dalam</td>
+<td>−0,132%</td>
+<td>−0,90</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H5</td>
+<td>Gabungan: ikuti tren hanya saat pasar sesuai</td>
+<td>−0,102%</td>
+<td>−0,45</td>
+<td>Gagal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PBO = 0,647</strong> (syarat &lt; 0,20) → artinya "pemenang" di keluarga ini 65% kemungkinan palsu.
+Kontrol acak: 0,540 / 0,639 / 0,631 → mesin <strong>tidak lebih baik dari undian</strong>.</p>
+<p><strong>Pelajaran kunci dari R4:</strong> H1 gagal karena <strong>frekuensi</strong> — terlalu sering trading, biaya
+0,40% per transaksi menjadi beban <strong>69% per tahun</strong>. Sementara H3 (panen funding) mustahil
+secara aritmetika: funding yang terkumpul jauh lebih kecil dari biayanya.</p>
+<hr>
+<h2 id="5-hasil-r4-b-lima-mesin-kedua-h6h10">5. Hasil R4-B: lima mesin kedua (H6–H10)</h2>
+<p>Kami susun mesin baru berdasarkan pelajaran R4: <strong>frekuensi rendah, tahan lama (14–30 hari),
+cari kejadian ekstrem</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th>Idenya (bahasa awam)</th>
+<th>Untung per 48 jam</th>
+<th>Sharpe</th>
+<th>Segmen untung</th>
+<th>Transaksi</th>
+<th>Untung/transaksi</th>
+<th>Dibutuhkan</th>
+<th>Lolos?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H6</td>
+<td>Beli koin terkuat, jual terlemah (30 hari)</td>
+<td>+0,000%</td>
+<td>0,11</td>
+<td>2/3</td>
+<td>304</td>
+<td>−0,18%</td>
+<td>6,00%</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H7</td>
+<td>Ikuti tren lambat (7/30/90 hari), tahan 30 hari</td>
+<td>−0,090%</td>
+<td>−0,37</td>
+<td>1/3</td>
+<td>331</td>
+<td>−1,95%</td>
+<td>12,40%</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H8</td>
+<td>Panen funding <strong>saat sangat ekstrem</strong></td>
+<td>+0,011%</td>
+<td><strong>2,65</strong></td>
+<td>2/3</td>
+<td>136</td>
+<td><strong>+0,40%</strong></td>
+<td>6,00%</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H9</td>
+<td>Beli setelah harga jatuh ekstrem</td>
+<td>−0,030%</td>
+<td>−0,21</td>
+<td>0/3</td>
+<td>177</td>
+<td>+1,10%</td>
+<td>6,00%</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H10</td>
+<td>Beli yang terlemah, jual yang terkuat</td>
+<td>−0,006%</td>
+<td>−1,65</td>
+<td>0/3</td>
+<td>308</td>
+<td>−1,01%</td>
+<td>6,00%</td>
+<td>Gagal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PBO = 0,25</strong> (syarat &lt; 0,20) → tetap gagal.</p>
+<h3 id="kenapa-h8-penting-meski-tetap-gagal">Kenapa H8 penting (meski tetap gagal)</h3>
+<p>H8 adalah satu-satunya yang <strong>arahnya benar</strong>: untung per transaksi <strong>+0,40%</strong> (positif!) dan
+Sharpe 2,65. Yang membuatnya gagal adalah <strong>besarannya</strong>: 0,40% vs 6,00% yang dibutuhkan.</p>
+<p><strong>Uji acak membuktikan sinyalnya nyata:</strong> kontrol acak hanya 0,49% peluang menandingi H8.
+Artinya filter "funding ekstrem" <strong>memang memilih waktu yang lebih baik dari undian</strong> — bukan
+kebetulan. Tapi uang yang dihasilkan terlalu kecil.</p>
+<h3 id="penutupan-aritmetika-kenapa-carry-funding-tidak-bisa-diselamatkan">Penutupan aritmetika: kenapa carry funding tidak bisa diselamatkan</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Funding di rezim ekstrem (persentil-95)</td>
+<td>≈ 0,029% per hari (≈ 10,4% per tahun)</td>
+</tr>
+<tr>
+<td>Target kita butuh</td>
+<td>0,4% per hari (≈ 146% per tahun)</td>
+</tr>
+<tr>
+<td>Selisih</td>
+<td><strong>14 kali</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Menahan lebih lama <strong>tidak</strong> menolong, karena biaya tumbuh seiring waktu:</p>
+<table>
+<thead>
+<tr>
+<th>Lama tahan</th>
+<th>Funding terkumpul</th>
+<th>Yang dibutuhkan target</th>
+<th>Selisih</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14 hari</td>
+<td>≈ 0,41%</td>
+<td>6,00%</td>
+<td>5,6%</td>
+</tr>
+<tr>
+<td>30 hari</td>
+<td>≈ 0,87%</td>
+<td>12,40%</td>
+<td>11,5%</td>
+</tr>
+<tr>
+<td>60 hari</td>
+<td>≈ 1,74%</td>
+<td>24,40%</td>
+<td>22,7%</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-uji-silang-venue-binance-vs-hyperliquid">6. Uji silang venue: Binance vs Hyperliquid</h2>
+<p><strong>Pertanyaan:</strong> apakah mesin-mesin ini gagal karena pasarnya (semua venue sama) atau karena
+struktur Binance saja? Kami jalankan <strong>aturan yang sama persis</strong> di Hyperliquid (bursa DEX)
+dengan tiga kerapatan data.</p>
+<table>
+<thead>
+<tr>
+<th>Kerapatan data</th>
+<th>Rentang</th>
+<th>H6</th>
+<th>H7</th>
+<th>H8</th>
+<th>H9</th>
+<th>H10</th>
+<th>PBO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance 1 jam</td>
+<td>36 bulan</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>0,250</td>
+</tr>
+<tr>
+<td>Hyperliquid 4 jam</td>
+<td>15 bulan</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>0,353</td>
+</tr>
+<tr>
+<td>Hyperliquid 1 hari</td>
+<td><strong>6,1 tahun</strong></td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>0,881</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hasil: 15 dari 15 gagal.</strong> Tidak ada mesin yang hidup di venue lain.</p>
+<p><strong>Yang bertahan (replikasi tiga kali):</strong> H8 (carry funding ekstrem) menunjukkan pola yang sama
+di ketiga venue — uji acak <strong>0,0049 / 0,0050 / 0,0050</strong>. Ini bukti kuat bahwa sinyalnya nyata,
+bukan kebetulan satu venue.</p>
+<p><strong>Kesimpulan:</strong> kelas strategi "sinyal halus pada koin besar" <strong>sudah ditutup</strong> dengan bukti
+tiga venue. Bukan "belum cukup data" — datanya 6,1 tahun dan tiga venue, dan hasilnya konsisten
+nol.</p>
+<hr>
+<h2 id="7-temuan-inti-apa-yang-sebenarnya-menghambat">7. Temuan inti: apa yang sebenarnya menghambat</h2>
+<h3 id="71-matematika-portofolio-kenapa-menambah-mesin-tidak-menolong">7.1 Matematika portofolio (kenapa menambah mesin tidak menolong)</h3>
+<p><strong>Analogi:</strong> bayangkan Anda punya 8 pekerja. Nilai rata-rata pekerjaan mereka <strong>tidak bisa
+melebihi pekerja terbaik</strong>. Menambah pekerja membuat hasil <strong>lebih stabil</strong> (goyangan lebih
+kecil), tapi <strong>rata-ratanya tidak naik</strong>.</p>
+<p>Ini kami verifikasi dengan 20.000 simulasi: menaikkan porsi dari 0% ke 100% hanya menggerakkan
+rata-rata <strong>di antara</strong> dua nilai mesin (0,162% → 0,814%), tidak pernah melewatinya.</p>
+<p><strong>Konsekuensi:</strong> yang harus diperbaiki adalah <strong>rata-rata per mesin</strong>, bukan jumlah mesin.</p>
+<h3 id="72-sharpe-tinggi-tidak-berarti-target-tercapai">7.2 Sharpe tinggi tidak berarti target tercapai</h3>
+<p>H8 punya Sharpe 2,65–3,91 (di atas syarat 2,3) tapi keuntungannya 0,011–0,022% per 48 jam.
+Target butuh 0,8%.</p>
+<p><strong>Analogi:</strong> seorang penembak yang selalu tepat sasaran tapi pelurunya kecil — konsisten,
+tapi tidak cukup untuk menjatuhkan sasaran. Sharpe mengukur <strong>konsistensi</strong>, bukan <strong>besaran</strong>.</p>
+<h3 id="73-angka-yang-harus-ditutup">7.3 Angka yang harus ditutup</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target</td>
+<td>146% per tahun (tanpa leverage)</td>
+</tr>
+<tr>
+<td>Keunggulan terbaik yang terbukti</td>
+<td>≈ 10% per tahun</td>
+</tr>
+<tr>
+<td><strong>Selisih</strong></td>
+<td><strong>≈ 14 kali</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ini bukan masalah optimasi (menggeser parameter). Ini masalah <strong>jenis keunggulan</strong> —
+keunggulan yang kami uji terlalu kecil untuk target ini.</p>
+<hr>
+<h2 id="8-r4-c-apakah-biaya-yang-menjadi-hambatan-uji-eksekusi-pasif">8. R4-C: apakah biaya yang menjadi hambatan? (uji eksekusi pasif)</h2>
+<p>Setelah R4-B, satu hipotesis masih hidup: <strong>mungkin yang membunuh semua mesin adalah biaya</strong>.
+Semua perhitungan sebelumnya memakai biaya <strong>taker 0,40%</strong> per transaksi. Kalau kita memasang
+order <strong>pasif (maker)</strong> — menunggu di harga, bukan menabrak pasar — biayanya turun lebih dari 10×:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Taker</th>
+<th>Maker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance per sisi</td>
+<td>0,05%</td>
+<td><strong>0,02%</strong></td>
+</tr>
+<tr>
+<td>Hyperliquid per sisi</td>
+<td>0,045%</td>
+<td><strong>0,015%</strong></td>
+</tr>
+<tr>
+<td>Pulang-pergi</td>
+<td>0,40% (aturan program)</td>
+<td><strong>0,03–0,04%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogi:</strong> kalau biaya trading itu seperti <strong>ongkos kirim</strong>, maka selama ini kita mengirim
+barang dengan <strong>kurir ekspres</strong> (mahal, cepat). Sekarang kita uji apakah memakai <strong>kurir biasa</strong>
+(murah, tapi barang baru terkirim kalau ada yang mau mengangkut) bisa menyelamatkan usaha.</p>
+<p><strong>Aturan dikunci sebelum dijalankan</strong> (pra-registrasi), lalu hasilnya:</p>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th>Binance 36 bln</th>
+<th>HL 4 jam</th>
+<th>HL 1 hari (6,1 th)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H11a — mesin momentum lama, masuk pakai order pasif</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H11b — mesin balik-arah lama, masuk pakai order pasif</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+</tr>
+<tr>
+<td>H12 — penyedia likuiditas pasif (beli 0,5×ATR di bawah, jual di atas)</td>
+<td>Gagal</td>
+<td>Gagal</td>
+<td>Gagal</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hasil: 9 dari 9 gagal.</strong></p>
+<h3 id="tapi-di-sini-ada-temuan-yang-sangat-penting">Tapi di sini ada temuan yang sangat penting</h3>
+<p>Mesin H12 (penyedia likuiditas) <strong>lolos uji biaya</strong> di ketiga venue:</p>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>Untung rata-rata (median) per transaksi</th>
+<th>Yang dibutuhkan</th>
+<th>Lolos uji biaya?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance 1 jam</td>
+<td>+1,063%</td>
+<td>0,440%</td>
+<td><strong>Ya</strong></td>
+</tr>
+<tr>
+<td>Hyperliquid 4 jam</td>
+<td>+1,578%</td>
+<td>0,430%</td>
+<td><strong>Ya</strong></td>
+</tr>
+<tr>
+<td>Hyperliquid 1 hari</td>
+<td><strong>+4,974%</strong></td>
+<td>0,430%</td>
+<td><strong>Ya</strong></td>
+</tr>
+</tbody>
+</table>
+<p>…tetapi <strong>tetap rugi</strong> setelah semuanya dihitung:</p>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>Untung per 48 jam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance 1 jam</td>
+<td>−0,0797%</td>
+</tr>
+<tr>
+<td>Hyperliquid 4 jam</td>
+<td>−0,3879%</td>
+</tr>
+<tr>
+<td>Hyperliquid 1 hari</td>
+<td>−0,0215%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bagaimana mungkin "median untung 5%" tapi "rata-rata rugi"?</strong>
+Karena <strong>median ≠ rata-rata</strong>. Bayangkan 10 transaksi: 9 kali menang kecil (+2% masing-masing),
+1 kali kalah besar (−25%). Median-nya +2% (kelihatan bagus), tapi rata-ratanya <strong>negatif</strong>.</p>
+<p><strong>Analogi:</strong> seperti menjadi <strong>penjual payung</strong> yang hanya kebanjiran pembeli saat hujan deras —
+kelihatannya laris, tapi Anda selalu menjual tepat sebelum harga payung anjlok kembali.
+Inilah yang disebut <strong>adverse selection</strong>: order pasif hanya terisi <strong>ketika pasar bergerak
+melawan kita</strong>. Kita membeli 0,5×ATR di bawah harga <strong>karena</strong> harga sedang jatuh — dan sering
+terus jatuh.</p>
+<p><strong>Kesimpulan jujur:</strong> eksekusi pasif <strong>memang menghapus hambatan biaya</strong> (terbukti di tiga venue),
+tetapi <strong>tidak</strong> menghasilkan keuntungan. Hambatan berpindah, bukan hilang: dari <strong>biaya</strong> menjadi
+<strong>adverse selection</strong>.</p>
+<p><strong>Satu hal yang tetap kokoh:</strong> sinyal momentum beku (H11a) terbukti <strong>lebih baik dari undian</strong>
+(uji acak 0,005 di ketiga asumsi margin antrian) — jadi informasinya nyata, hanya <strong>besarannya</strong>
+kurang 8–16×.</p>
+<h2 id="9-kejujuran-kesalahan-yang-kami-temukan-sendiri">9. Kejujuran: kesalahan yang kami temukan sendiri</h2>
+<p>Bagian ini penting. Kami menemukan <strong>7 kesalahan</strong> dalam proses — semuanya kami perbaiki dan
+catat. Tidak ada yang disembunyikan.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Kesalahan</th>
+<th>Akibat kalau dibiarkan</th>
+<th>Cara ditemukan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Look-ahead</strong> (membaca data masa depan) di mesin lintas-seksi</td>
+<td>Hasil mustahil (−250.000%)</td>
+<td>Angka tidak wajar di run pertama</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Arah mesin H10 terbalik</td>
+<td>H10 jadi sama dengan H6</td>
+<td>Pemeriksaan kode</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mesin H8 tidak punya kontrol acak</td>
+<td>Kriteria putusan tidak lengkap</td>
+<td>Pemeriksaan kriteria</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lama tahan H8 dihitung per-record, padahal jadwal funding Binance tidak seragam (SOL punya 98 periode 2 jam)</td>
+<td>Lama tahan bukan 14 hari untuk SOL</td>
+<td><strong>Uji reproduksibilitas</strong> (jalankan ulang → 4 mesin identik, H8 bergeser)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Angka n &amp; p di laporan H6/H10 salah tulis</td>
+<td>Laporan tidak akurat</td>
+<td>Audit silang ke JSON mentah</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Model fill: harga <code>min(open, L)</code> = perilaku <em>market order</em>, bukan order pasif</td>
+<td>Biaya maker dihitung padahal sebenarnya taker</td>
+<td>Smoke test 2 bulan BTC</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Model fill: limit keluar diuji di bar yang sama dengan pemasangan</td>
+<td>Look-ahead halus</td>
+<td>Smoke test</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Model fill: limit tepat di harga acuan = <em>marketable</em> (laju fill 100%)</td>
+<td>Keuntungan pasif palsu</td>
+<td>Smoke test</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Trade pasif boleh <strong>tumpang tindih</strong> (≈40% sinyal BTC)</td>
+<td>Eksposur ganda tersembunyi — melanggar aturan beku "satu posisi per simbol"</td>
+<td>Run pertama → pemeriksaan aturan beku</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yang paling penting:</strong> kesalahan #4 dan #9 ditemukan justru karena kami <strong>menjalankan ulang</strong>
+dan membandingkan hasil. Kalau kami tidak memverifikasi, kami akan melaporkan angka yang salah.
+Kesalahan #9 mengubah angka (H11a: +0,0912% → <strong>+0,0515%</strong> per 48 jam) tetapi <strong>tidak</strong> mengubah
+putusan — dan angka yang benar adalah yang <strong>lebih jelek</strong>, jadi arah koreksinya jujur.</p>
+<hr>
+<h2 id="10-apa-yang-tidak-kami-lakukan">10. Apa yang TIDAK kami lakukan</h2>
+<p>Batas keamanan <strong>tidak disentuh sama sekali</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Batas</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate T1</td>
+<td>Utuh</td>
+</tr>
+<tr>
+<td>Leverage</td>
+<td><strong>Tidak dipakai</strong> (tetap nol)</td>
+</tr>
+<tr>
+<td>Target 0,8% per 48 jam</td>
+<td><strong>Tidak diubah</strong></td>
+</tr>
+<tr>
+<td><code>SODEX_TOTAL_WALLET</code></td>
+<td>Tidak diubah</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>Tetap beku</td>
+</tr>
+<tr>
+<td>Arm A1</td>
+<td>Tetap mati</td>
+</tr>
+<tr>
+<td><code>RW_MARGIN_UTIL_CAP</code></td>
+<td>Tetap OFF (default)</td>
+</tr>
+<tr>
+<td>Lane uang nyata</td>
+<td>Tidak disentuh (script hanya <strong>membaca</strong> data)</td>
+</tr>
+<tr>
+<td>Lockbox</td>
+<td><strong>Tetap tertutup</strong> (tidak ada yang lulus)</td>
+</tr>
+</tbody>
+</table>
+<p>Semua script riset bersifat <strong>read-only</strong>: hanya membaca data pasar dan menulis laporan.</p>
+<hr>
+<h2 id="11-langkah-berikutnya">11. Langkah berikutnya</h2>
+<h3 id="yang-sudah-diuji-dan-hasilnya">Yang sudah diuji dan hasilnya</h3>
+<table>
+<thead>
+<tr>
+<th>Jalur</th>
+<th>Status</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sinyal statistik pada 11 koin besar (H1–H10)</td>
+<td><strong>Selesai</strong></td>
+<td>20 evaluasi, semua gagal</td>
+</tr>
+<tr>
+<td>Eksekusi pasif/maker (H11–H12)</td>
+<td><strong>Selesai</strong></td>
+<td>9 evaluasi, semua gagal — <strong>hambatan biaya teratasi, hambatan adverse selection muncul</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="spesifikasi-yang-harus-dipenuhi-mesin-berikutnya-hasil-kuantifikasi-bukan-tebakan">Spesifikasi yang harus dipenuhi mesin berikutnya (hasil kuantifikasi, bukan tebakan)</h3>
+<p>Dari seluruh pengujian, kita sekarang bisa menuliskan <strong>syarat minimum</strong> secara eksak:</p>
+<table>
+<thead>
+<tr>
+<th>Jalan</th>
+<th>Syarat minimum</th>
+<th>Sudah ada?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frekuensi tinggi (hold ≤ 48 jam)</td>
+<td>≥ <strong>0,44% bersih</strong> per transaksi <strong>dan</strong> fill tidak merugikan (bebas adverse selection)</td>
+<td>Belum — H12 median 1,06% tapi <strong>adverse selection</strong> menghapusnya</td>
+</tr>
+<tr>
+<td>Frekuensi rendah (hold 14 hari)</td>
+<td>≥ <strong>6,00% bruto</strong> per transaksi</td>
+<td>Belum — terbaik 0,40–0,47%</td>
+</tr>
+<tr>
+<td>Frekuensi sangat rendah (hold 30 hari)</td>
+<td>≥ <strong>12,40% bruto</strong> per transaksi</td>
+<td>Belum</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan keras:</strong> target 0,8%/48 jam <strong>tidak bisa</strong> dicapai oleh kelas strategi
+"sinyal statistik pada koin likuid" — di tiga venue, enam kerapatan data, dan dua model biaya
+(taker &amp; maker). Yang tersisa hanya <strong>kelas kejadian</strong>, bukan kelas sinyal.</p>
+<h3 id="jalur-b-sudah-dikerjakan-hasilnya-di-12">Jalur B (SUDAH dikerjakan — hasilnya di §12)</h3>
+<p>Mencari keuntungan <strong>puluhan persen per transaksi</strong> dari kejadian langka dan tidak efisien:</p>
+<table>
+<thead>
+<tr>
+<th>Sumber</th>
+<th>Kenapa bisa besar</th>
+<th>Data yang dibutuhkan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Likuidasi besar berantai</td>
+<td>Harga dipaksa bergerak jauh dalam menit</td>
+<td>Data likuidasi (Binance/HL menyediakan sebagian)</td>
+</tr>
+<tr>
+<td>Listing / delisting koin</td>
+<td>Harga melompat puluhan persen</td>
+<td>Kalender listing + data koin baru</td>
+</tr>
+<tr>
+<td>Koin kecil (bukan 11 koin besar)</td>
+<td>Spread lebar, likuiditas tipis, kurang efisien</td>
+<td>Data koin kecil (perlu diunduh)</td>
+</tr>
+<tr>
+<td>Kejadian protokol (depeg, hack, fork)</td>
+<td>Lompatan harga sekali seumur</td>
+<td>Berita + data on-chain</td>
+</tr>
+</tbody>
+</table>
+<p>Semua jalur ini punya <strong>karakter berbeda</strong>: kejadian langka <strong>tidak</strong> bisa diuji dengan 36 bulan
+data harian saja — butuh data per menit dan daftar kejadian. Ini pekerjaan baru, bukan optimasi.</p>
+<h3 id="rekomendasi-jujur">Rekomendasi jujur</h3>
+<ol>
+<li><strong>Jangan ubah target</strong> (0,8%/48 jam tetap harga mati) — tapi <strong>akui secara eksplisit</strong> bahwa
+   target ini menuntut kelas kejadian, bukan kelas sinyal.</li>
+<li><strong>Jangan tambah leverage</strong> untuk menutup selisih 14× — itu melanggar batas keamanan dan
+   mengubah risiko secara fundamental.</li>
+<li><strong>Langkah paling murah yang informatif:</strong> jalankan <strong>Jalur B tahap 1</strong> (unduh data likuidasi
+   + daftar koin baru 12–24 bulan), lalu ukur berapa besar lompatan harga rata-rata per kejadian.
+   Kalau lompatannya &lt; 6%, kelas ini juga tertutup <strong>sebelum</strong> menulis satu baris strategi.</li>
+</ol>
+<hr>
+<h2 id="12-r4-d-kelas-kejadian-dan-penutupnya-h13abc">12. R4-D: kelas kejadian dan penutupnya (H13abc)</h2>
+<p>Kelas mesin sebelumnya gagal dengan dua sebab berulang: <strong>besarannya kurang ~14×</strong> dan
+<strong>biaya masuk memakan keuntungan</strong>. Bab ini menguji kelas yang berbeda secara mendasar —
+bukan sinyal halus pada koin likuid, melainkan <strong>kejadian ekstrem</strong>: lompatan harga ≥3%
+(juga ≥5% dan ≥8%) dalam <strong>satu jam</strong> — dengan <strong>batas risiko ekor</strong> yang selama ini absen.</p>
+<p>Pra-registrasi <strong>dibekukan lebih dulu</strong> (<code>docs/sodex/R4D_PROTOKOL_H13_2026-10-05.md</code>, komit
+<code>d63e7ee</code>): arah posisi <strong>melawan</strong> gerakan (fade), masuk di bar berikutnya, tahan <strong>24 jam</strong>,
+<strong>stop keras 1,5×ATR</strong>, <strong>aturan klaster</strong> (hanya kejadian pertama per 24 jam per simbol),
+kontrol acak 200 ulangan, BH-FDR q=0,10, PBO, DSR. Setelah hasil keluar <strong>tidak ada ambang
+yang diubah</strong>.</p>
+<h3 id="121-empat-tier-dan-mengapa-tier-pertama-menentukan">12.1 Empat tier — dan mengapa tier pertama menentukan</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Data</th>
+<th>Model biaya</th>
+<th>Jendela</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier-2</td>
+<td>Binance 1 jam</td>
+<td>bar · slippage diasumsikan 0,02%</td>
+<td>36 bulan</td>
+</tr>
+<tr>
+<td><strong>Tier-1 (PUTUSAN)</strong></td>
+<td>Binance 1 jam <strong>+ data 1-menit</strong></td>
+<td><strong>terukur</strong> pada bar kejadian · stop intrabar</td>
+<td>24 bulan</td>
+</tr>
+<tr>
+<td>Tier-3a</td>
+<td>Hyperliquid 4 jam</td>
+<td>bar</td>
+<td>15 bulan</td>
+</tr>
+<tr>
+<td>Tier-3b</td>
+<td>Hyperliquid 1 hari</td>
+<td>bar</td>
+<td>6,1 tahun</td>
+</tr>
+</tbody>
+</table>
+<p>Tier-1 memakai <strong>17.360.640 bar 1-menit</strong> (396 berkas Binance Vision, sha256 terverifikasi,
+unduhan berhenti 2025-09 agar LOCKBOX tidak tersentuh). Bedanya bukan jumlah data:
+Tier-2 <strong>mengasumsikan</strong> biaya, Tier-1 <strong>mengukurnya</strong> pada saat yang paling menentukan —
+yaitu tepat di bar kejadian.</p>
+<h3 id="122-hasil-12-evaluasi-0-lulus">12.2 Hasil: 12 evaluasi, 0 lulus</h3>
+<p>Format: <code>mean per 48 jam · Sharpe · p kontrol acak</code>. Kolom kontrol <strong>0,0050</strong> = sinyal nyata
+(bukan undian); <strong>1,00</strong> = tidak bisa dibedakan dari acak.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>H13a θ=3%</th>
+<th>H13b θ=5%</th>
+<th>H13c θ=8%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance 1 jam (bar)</td>
+<td>+0,0541% · 0,58 · <strong>0,0050</strong></td>
+<td>+0,0486% · 0,57 · <strong>0,0050</strong></td>
+<td>+0,0097% · 0,22 · <strong>0,0050</strong></td>
+</tr>
+<tr>
+<td><strong>Binance 1 jam (1-menit)</strong></td>
+<td><strong>−0,0641% · −0,59 · 1,00</strong></td>
+<td><strong>−0,0473% · −0,56 · 1,00</strong></td>
+<td><strong>−0,0098% · −0,20 · 0,0050</strong></td>
+</tr>
+<tr>
+<td>HL 4 jam (bar)</td>
+<td>+0,0266% · 0,44 · 1,00</td>
+<td>−0,0185% · −0,35 · 1,00</td>
+<td>+0,0616% · 0,92 · <strong>0,0050</strong></td>
+</tr>
+<tr>
+<td>HL 1 hari (bar)</td>
+<td>−0,0093% · −0,36 · 1,00</td>
+<td>−0,0383% · −1,17 · 1,00</td>
+<td>−0,0322% · −0,80 · 1,00</td>
+</tr>
+</tbody>
+</table>
+<p>PBO 0,571 / 0,595 / 0,099 / 0,258 · BH-FDR <strong>nol lulus</strong> · segmen positif maksimum 2/3 ·
+<strong>LOCKBOX tidak dibuka</strong>.</p>
+<h3 id="123-temuan-terpenting-seluruh-program-model-biaya-membalikkan-tanda">12.3 Temuan terpenting seluruh program: model biaya MEMBALIKKAN TANDA</h3>
+<table>
+<thead>
+<tr>
+<th>Kejadian</th>
+<th>Slippage <strong>terukur</strong></th>
+<th>Bruto/transaksi (terukur)</th>
+<th>Bruto (asumsi 0,02%)</th>
+<th>Anggaran dibutuhkan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>θ=3%</td>
+<td>0,248%</td>
+<td><strong>−0,722%</strong></td>
+<td>−0,086%</td>
+<td>0,748%</td>
+</tr>
+<tr>
+<td>θ=5%</td>
+<td>0,446%</td>
+<td><strong>−1,250%</strong></td>
+<td>+0,567%</td>
+<td>0,946%</td>
+</tr>
+<tr>
+<td>θ=8%</td>
+<td><strong>0,482%</strong></td>
+<td>−0,166%</td>
+<td>+0,313%</td>
+<td>0,982%</td>
+</tr>
+</tbody>
+</table>
+<p>Dua bacaan yang harus dibaca bersama:</p>
+<ol>
+<li><strong>Slippage tumbuh bersama keganasan kejadian</strong> — 0,248% → 0,446% → <strong>0,482%</strong>.
+   Semakin besar lompatannya, semakin mahal masuk ke dalamnya.</li>
+<li><strong>Keuntungan kotor tidak tumbuh secepat itu.</strong> Pada θ=8%, bruto hanya +0,313% sementara
+   biaya eksekusi 0,482% + fee. Karena itu <strong>anggaran naik dari 0,540% ke 0,982%</strong> — hampir
+   dua kali — sehingga ambang yang tadinya "anggaran OK" di Tier-2 menjadi <strong>tidak mungkin</strong>.</li>
+</ol>
+<p><strong>Kesimpulan:</strong> yang membunuh kelas kejadian bukan sinyalnya (waktunya terbukti bukan
+undian), melainkan <strong>harga masuk</strong>. Semakin besar peluang, semakin mahal pintunya — dan
+biaya menang. Ini bentuk kuantitatif dari <em>adverse selection</em> yang pertama kali muncul di R4-C.</p>
+<h3 id="124-yang-bertahan-dinyatakan-apa-adanya">12.4 Yang bertahan (dinyatakan apa adanya)</h3>
+<ul>
+<li>Waktu kejadian <strong>bukan undian</strong>: Binance 1 jam pada <strong>ketiga</strong> ambang (p=0,0050) dan
+  HL 4 jam pada ambang 8% (p=0,0050).</li>
+<li>Namun besarnya tetap <strong>13–15× kurang</strong> dari target dan Sharpe hanya 0,22–0,92 (perlu 2,3).</li>
+<li>Ekor kiri tetap gemuk: persentil-5 antara <strong>−5,4%</strong> dan <strong>−10,7%</strong>; stop tersentuh
+  <strong>36–45%</strong> trade (batas ekor bekerja, tapi tidak mengubah tanda).</li>
+<li><strong>HL 1 hari: sinyalnya hilang</strong> (kontrol 1,00 di ketiga ambang) — kelas kejadian tidak
+  bertahan pada grid harian.</li>
+</ul>
+<h3 id="125-batas-kejujuran-dinyatakan-di-muka-bukan-setelah-ditanya">12.5 Batas kejujuran (dinyatakan di muka, bukan setelah ditanya)</h3>
+<ol>
+<li>Kontrol Tier-1 memakai model bar, bukan 1-menit (200 ulangan × data 1-menit tidak
+   terjangkau). Arah biasnya tidak jelas → kriteria kontrol Tier-1 dilaporkan sebagai
+   <strong>pendukung</strong>; konfirmasi penuh ada di Tier-2 yang modelnya cocok dengan mesinnya.</li>
+<li>Slippage didefinisikan sebagai |pergerakan 1 menit| pada bar kejadian — <strong>dibekukan di
+   pra-registrasi</strong>. Ini <strong>batas konservatif</strong>, bukan estimator tak bias.</li>
+<li>Data 1-menit <strong>bukan</strong> data tick/buku order; posisi antrian tetap tidak dimodelkan.</li>
+<li><code>p_day_cluster</code> tidak signifikan (0,02–0,79) → efek <strong>tidak reliabel</strong> di tingkat
+   portofolio jendela, sekalipun arahnya positif di Tier-2.</li>
+</ol>
+<h3 id="126-putusan-kumulatif-dan-artinya-bagi-target">12.6 Putusan kumulatif dan artinya bagi target</h3>
+<table>
+<thead>
+<tr>
+<th>Program</th>
+<th>Evaluasi</th>
+<th>Lulus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R4 (H1–H5)</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R4-B (H6–H10 × 3 venue)</td>
+<td>15</td>
+<td>0</td>
+</tr>
+<tr>
+<td>R4-C (H11–H12 × 3 venue)</td>
+<td>9</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>R4-D (H13a/b/c × 4 tier)</strong></td>
+<td><strong>12</strong></td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>41</strong></td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Dengan tertutupnya kelas kejadian, tiga pintu sudah benar-benar tertutup: <strong>kelas sinyal</strong>
+(R4/R4-B), <strong>kelas pembuat pasar</strong> (R4-C), dan <strong>kelas kejadian</strong> (R4-D). Kesemuanya gagal
+bukan karena sinyalnya kosong, tapi karena <strong>selisih antara peluang dan biaya eksekusi</strong>.</p>
+<p>Target 0,8%/48 jam <strong>tidak diubah</strong> dan tetap harga mati. Yang harus berubah adalah
+<strong>akses eksekusi</strong>, bukan sinyalnya — dan itu masalah akun/venue (tier biaya, rebat,
+akses likuiditas), bukan masalah riset sinyal. Ini keputusan Mas Anas, bukan keputusan
+yang boleh kami ambil sendiri.</p>
+<hr>
+<h2 id="13-glosarium-awam">13. Glosarium awam</h2>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Arti sederhana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DEV / LOCKBOX</strong></td>
+<td>Data latihan / data ujian yang disegel</td>
+</tr>
+<tr>
+<td><strong>Pra-registrasi</strong></td>
+<td>Menulis aturan &amp; kunci jawaban sebelum melihat hasil</td>
+</tr>
+<tr>
+<td><strong>Sharpe</strong></td>
+<td>Ukuran konsistensi (bukan besaran) keuntungan</td>
+</tr>
+<tr>
+<td><strong>PBO</strong></td>
+<td>Peluang "pemenang" kita sebenarnya palsu</td>
+</tr>
+<tr>
+<td><strong>BH-FDR</strong></td>
+<td>Koreksi supaya tidak tertipu kebetulan saat menguji banyak ide</td>
+</tr>
+<tr>
+<td><strong>Taker / Maker</strong></td>
+<td>Order yang menabrak pasar (mahal) / order yang menunggu di harga (murah)</td>
+</tr>
+<tr>
+<td><strong>Model fill</strong></td>
+<td>Aturan kapan order pasif dianggap benar-benar terisi</td>
+</tr>
+<tr>
+<td><strong>Look-ahead</strong></td>
+<td>Kesalahan memakai informasi masa depan (mustahil di dunia nyata)</td>
+</tr>
+<tr>
+<td><strong>ATR</strong></td>
+<td>Ukuran seberapa besar harga biasanya bergerak (volatilitas)</td>
+</tr>
+<tr>
+<td><strong>Funding</strong></td>
+<td>Bunga berkala yang dibayar antar trader di pasar berjangka</td>
+</tr>
+<tr>
+<td><strong>Carry</strong></td>
+<td>Strategi memanen bunga/funding</td>
+</tr>
+<tr>
+<td><strong>Konveks (kombinasi)</strong></td>
+<td>Rata-rata yang selalu berada di antara dua nilai, tidak melewatinya</td>
+</tr>
+<tr>
+<td><strong>Adverse selection</strong></td>
+<td>Order pasif hanya terisi <strong>ketika harga bergerak melawan kita</strong> — jadi yang terisi adalah kabar buruk</td>
+</tr>
+<tr>
+<td><strong>Median vs rata-rata</strong></td>
+<td>Median = nilai tengah (tahan terhadap pencilan); rata-rata = jumlah dibagi banyak (dipengaruhi kalah besar)</td>
+</tr>
+<tr>
+<td><strong>Margin antrian</strong></td>
+<td>Jarak ekstra dari harga pasar supaya order benar-benar <em>menunggu</em>, bukan menabrak pasar</td>
+</tr>
+<tr>
+<td><strong>Eksposur ganda</strong></td>
+<td>Dua posisi terbuka bersamaan pada satu simbol — setara leverage tersembunyi (dilarang)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="14-lampiran-cara-memeriksa-ulang">14. Lampiran: cara memeriksa ulang</h2>
+<p>Semua bisa diperiksa ulang oleh siapa pun:</p>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs/sodex/R4_PROTOKOL_DATA_4TAHUN_2026-10-05.md</code></td>
+<td>Protokol data R4 (beku)</td>
+</tr>
+<tr>
+<td><code>docs/sodex/R4_HIPOTESIS_H1_H5_2026-10-05.md</code></td>
+<td>Definisi H1–H5 (beku)</td>
+</tr>
+<tr>
+<td><code>docs/sodex/R4B_PROTOKOL_H6_H10_2026-10-05.md</code></td>
+<td>Pra-registrasi H6–H10 (beku)</td>
+</tr>
+<tr>
+<td><code>docs/sodex/R4C_PROTOKOL_H11_H12_2026-10-05.md</code></td>
+<td>Pra-registrasi H11–H12 + koreksi model (beku)</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4_DEV_results.json</code></td>
+<td>Hasil mentah R4</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4B_DEV_results.json</code></td>
+<td>Hasil mentah R4-B (Binance)</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4B_HL4h_results.json</code></td>
+<td>Hasil mentah HL 4 jam</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4B_HL1d_results.json</code></td>
+<td>Hasil mentah HL 1 hari</td>
+</tr>
+<tr>
+<td><code>scripts/r4_dev_harness.py</code></td>
+<td>Program uji R4</td>
+</tr>
+<tr>
+<td><code>scripts/r4b_harness.py</code></td>
+<td>Program uji R4-B (multi-venue)</td>
+</tr>
+<tr>
+<td><code>scripts/r4c_harness.py</code></td>
+<td>Program uji R4-C (model fill maker)</td>
+</tr>
+<tr>
+<td><code>scripts/download_hl_deep.py</code></td>
+<td>Pengunduh data Hyperliquid (diperbaiki)</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4C_DEV_2026-10-05.md</code></td>
+<td>Laporan R4-C (maker) 3 venue + F-1</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4C_DEV_results.json</code></td>
+<td>Hasil mentah R4-C Binance (q=5bp)</td>
+</tr>
+<tr>
+<td><code>reports/sodex/R4C_HL4h_results.json</code> · <code>R4C_HL1d_results.json</code></td>
+<td>Hasil mentah R4-C Hyperliquid</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproduksi (siapa pun bisa menjalankan):</strong></p>
+<pre><code class="language-bash">cd ~/anantara-sakti
+.venv-research/bin/python3 scripts/r4b_harness.py                  # Binance
+R4B_TIER=hl4h .venv-research/bin/python3 scripts/r4b_harness.py    # Hyperliquid 4 jam
+R4B_TIER=hl1d .venv-research/bin/python3 scripts/r4b_harness.py    # Hyperliquid 1 hari
+.venv-research/bin/python3 scripts/r4c_harness.py                  # maker (R4-C) Binance
+R4B_TIER=hl4h .venv-research/bin/python3 scripts/r4c_harness.py    # maker (R4-C) HL 4 jam
+R4B_TIER=hl1d .venv-research/bin/python3 scripts/r4c_harness.py    # maker (R4-C) HL 1 hari
+R4C_QUEUE_BP=0.0 .venv-research/bin/python3 scripts/r4c_harness.py # sensitivitas margin 0 bp
+</code></pre>
+<hr>
+<p><em>Hermes Anantara v3 · 05-Okt-2026 · Laporan riset R4 &amp; R4-B · hasil negatif dilaporkan apa adanya.</em></p>
+</body>
+</html>

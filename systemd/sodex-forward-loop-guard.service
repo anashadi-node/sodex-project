@@ -1,0 +1,13 @@
+[Unit]
+Description=Anantara Sakti - SoDEX guard jalur-kritis T1 (loop forward anti-bolong)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/sodex_forward_loop_guard.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_forward_loop_guard.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_forward_loop_guard.log
+SuccessExitStatus=0 1 2

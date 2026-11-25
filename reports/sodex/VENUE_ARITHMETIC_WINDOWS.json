@@ -1,0 +1,125 @@
+{
+ "generated_utc": "2026-10-25T08:40:51.857095+00:00",
+ "keluarga": "donchian TP4/SL2/TIME30, path Binance 180h",
+ "windows": [
+  {
+   "skenario": "binance maker size=1.0",
+   "venue": "binance",
+   "maker": true,
+   "size": 1.0,
+   "n_window": 482,
+   "mean": 1.375,
+   "median": -2.004,
+   "hit": 35.1,
+   "A": true,
+   "B": false
+  },
+  {
+   "skenario": "binance maker size=0.75",
+   "venue": "binance",
+   "maker": true,
+   "size": 0.75,
+   "n_window": 482,
+   "mean": 1.031,
+   "median": -1.503,
+   "hit": 35.1,
+   "A": true,
+   "B": false
+  },
+  {
+   "skenario": "binance maker size=0.5",
+   "venue": "binance",
+   "maker": true,
+   "size": 0.5,
+   "n_window": 482,
+   "mean": 0.688,
+   "median": -1.002,
+   "hit": 35.1,
+   "A": false,
+   "B": false
+  },
+  {
+   "skenario": "hyperliquid maker size=1.0",
+   "venue": "hyperliquid",
+   "maker": true,
+   "size": 1.0,
+   "n_window": 482,
+   "mean": 1.383,
+   "median": -2.003,
+   "hit": 35.1,
+   "A": true,
+   "B": false
+  },
+  {
+   "skenario": "hyperliquid maker size=0.5",
+   "venue": "hyperliquid",
+   "maker": true,
+   "size": 0.5,
+   "n_window": 482,
+   "mean": 0.691,
+   "median": -1.002,
+   "hit": 35.1,
+   "A": false,
+   "B": false
+  },
+  {
+   "skenario": "binance taker size=1.0",
+   "venue": "binance",
+   "maker": false,
+   "size": 1.0,
+   "n_window": 482,
+   "mean": 0.533,
+   "median": -2.11,
+   "hit": 34.6,
+   "A": false,
+   "B": false
+  },
+  {
+   "skenario": "binance taker size=0.5",
+   "venue": "binance",
+   "maker": false,
+   "size": 0.5,
+   "n_window": 482,
+   "mean": 0.267,
+   "median": -1.055,
+   "hit": 34.6,
+   "A": false,
+   "B": false
+  },
+  {
+   "skenario": "sodex taker size=1.0",
+   "venue": "sodex",
+   "maker": false,
+   "size": 1.0,
+   "n_window": 482,
+   "mean": 0.281,
+   "median": -2.156,
+   "hit": 34.4,
+   "A": false,
+   "B": false
+  },
+  {
+   "skenario": "sodex taker size=0.5",
+   "venue": "sodex",
+   "maker": false,
+   "size": 0.5,
+   "n_window": 482,
+   "mean": 0.14,
+   "median": -1.078,
+   "hit": 34.4,
+   "A": false,
+   "B": false
+  }
+ ],
+ "pasca_flip_binance_maker_size1": {
+  "n": 23,
+  "mean": -2.936,
+  "median": -2.644,
+  "hit": 17.4
+ },
+ "random_control_tp4sl2_maker_binance": {
+  "n": 7263,
+  "mean_bps": 0.12,
+  "t": 0.04
+ }
+}

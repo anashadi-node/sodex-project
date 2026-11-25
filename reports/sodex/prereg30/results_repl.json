@@ -1,0 +1,658 @@
+{
+  "tag": "repl",
+  "period": [
+    "2021-01-01",
+    "2023-12-31"
+  ],
+  "universe_used": [
+    [
+      "BTCUSDT",
+      46
+    ],
+    [
+      "ETHUSDT",
+      31
+    ],
+    [
+      "SOLUSDT",
+      30
+    ],
+    [
+      "DOGEUSDT",
+      21
+    ],
+    [
+      "XRPUSDT",
+      15
+    ],
+    [
+      "BCHUSDT",
+      9
+    ],
+    [
+      "AAVEUSDT",
+      12
+    ],
+    [
+      "ADAUSDT",
+      25
+    ],
+    [
+      "BNBUSDT",
+      24
+    ],
+    [
+      "LINKUSDT",
+      19
+    ],
+    [
+      "AVAXUSDT",
+      22
+    ],
+    [
+      "LTCUSDT",
+      22
+    ],
+    [
+      "DOTUSDT",
+      25
+    ],
+    [
+      "TRXUSDT",
+      12
+    ],
+    [
+      "SUIUSDT",
+      12
+    ],
+    [
+      "ARBUSDT",
+      14
+    ],
+    [
+      "OPUSDT",
+      23
+    ]
+  ],
+  "skipped": [
+    [
+      "HYPEUSDT",
+      "di luar periode"
+    ],
+    [
+      "ONDOUSDT",
+      "di luar periode"
+    ],
+    [
+      "ENAUSDT",
+      "di luar periode"
+    ]
+  ],
+  "costs": {
+    "gross": 0.0,
+    "maker": 0.0004,
+    "primary": 0.0012,
+    "stress": 0.002
+  },
+  "data_fingerprint": "b4b2425a06fbaa847b8883e90e3563ccec6ff3abafdf4944734bd1d3ee9b81b6",
+  "arm_P": {
+    "gross": {
+      "n": 362,
+      "mean_bps": 6.85,
+      "median_bps": 18.9,
+      "wr": 0.5166,
+      "sd_bps": 149.6,
+      "t": 0.87,
+      "sum_pct": 24.78,
+      "avg_bars": 8.0
+    },
+    "maker": {
+      "n": 362,
+      "mean_bps": 2.85,
+      "median_bps": 14.9,
+      "wr": 0.5166,
+      "sd_bps": 149.6,
+      "t": 0.36,
+      "sum_pct": 10.3,
+      "avg_bars": 8.0
+    },
+    "primary": {
+      "n": 362,
+      "mean_bps": -5.15,
+      "median_bps": 6.9,
+      "wr": 0.5055,
+      "sd_bps": 149.6,
+      "t": -0.66,
+      "sum_pct": -18.66,
+      "avg_bars": 8.0
+    },
+    "stress": {
+      "n": 362,
+      "mean_bps": -13.15,
+      "median_bps": -1.1,
+      "wr": 0.5,
+      "sd_bps": 149.6,
+      "t": -1.67,
+      "sum_pct": -47.62,
+      "avg_bars": 8.0
+    }
+  },
+  "arm_C": {
+    "gross": {
+      "n": 362,
+      "mean_bps": 10.75,
+      "median_bps": 22.1,
+      "wr": 0.5221,
+      "sd_bps": 149.4,
+      "t": 1.37,
+      "sum_pct": 38.92,
+      "avg_bars": 8.0
+    },
+    "maker": {
+      "n": 362,
+      "mean_bps": 6.75,
+      "median_bps": 18.1,
+      "wr": 0.5166,
+      "sd_bps": 149.4,
+      "t": 0.86,
+      "sum_pct": 24.44,
+      "avg_bars": 8.0
+    },
+    "primary": {
+      "n": 362,
+      "mean_bps": -1.25,
+      "median_bps": 10.1,
+      "wr": 0.5055,
+      "sd_bps": 149.4,
+      "t": -0.16,
+      "sum_pct": -4.52,
+      "avg_bars": 8.0
+    },
+    "stress": {
+      "n": 362,
+      "mean_bps": -9.25,
+      "median_bps": 2.1,
+      "wr": 0.5,
+      "sd_bps": 149.4,
+      "t": -1.18,
+      "sum_pct": -33.48,
+      "avg_bars": 8.0
+    }
+  },
+  "dwr_p_minus_c": {
+    "obs": 0.0,
+    "p": 0.9785,
+    "ci95": [
+      -0.0681,
+      0.0721
+    ]
+  },
+  "dmean_p_minus_c_bps": {
+    "obs": -3.91,
+    "p": 0.768,
+    "ci95_bps": [
+      -26.27,
+      19.91
+    ]
+  },
+  "per_year": {
+    "2021": {
+      "n": 20,
+      "mean_bps": -120.85,
+      "median_bps": -117.71,
+      "wr": 0.3,
+      "sd_bps": 170.8,
+      "t": -3.16,
+      "sum_pct": -24.17,
+      "avg_bars": 8.0
+    },
+    "2023": {
+      "n": 342,
+      "mean_bps": 1.61,
+      "median_bps": 23.45,
+      "wr": 0.5175,
+      "sd_bps": 145.8,
+      "t": 0.2,
+      "sum_pct": 5.51,
+      "avg_bars": 8.0
+    }
+  },
+  "per_dir": {
+    "LONG": {
+      "n": 127,
+      "mean_bps": -20.8,
+      "median_bps": -50.33,
+      "wr": 0.4488,
+      "sd_bps": 145.8,
+      "t": -1.61,
+      "sum_pct": -26.41,
+      "avg_bars": 8.0
+    },
+    "SHORT": {
+      "n": 235,
+      "mean_bps": 3.3,
+      "median_bps": 33.67,
+      "wr": 0.5362,
+      "sd_bps": 151.3,
+      "t": 0.33,
+      "sum_pct": 7.75,
+      "avg_bars": 8.0
+    }
+  },
+  "per_sym": {
+    "AAVEUSDT": {
+      "n": 12,
+      "mean_bps": 11.92,
+      "median_bps": 2.05,
+      "wr": 0.5,
+      "sd_bps": 157.5,
+      "t": 0.26,
+      "sum_pct": 1.43,
+      "avg_bars": 8.0
+    },
+    "ADAUSDT": {
+      "n": 25,
+      "mean_bps": -3.05,
+      "median_bps": -38.79,
+      "wr": 0.48,
+      "sd_bps": 145.8,
+      "t": -0.1,
+      "sum_pct": -0.76,
+      "avg_bars": 8.0
+    },
+    "ARBUSDT": {
+      "n": 14,
+      "mean_bps": 86.09,
+      "median_bps": 142.5,
+      "wr": 0.7143,
+      "sd_bps": 192.6,
+      "t": 1.67,
+      "sum_pct": 12.05,
+      "avg_bars": 8.0
+    },
+    "AVAXUSDT": {
+      "n": 22,
+      "mean_bps": 16.02,
+      "median_bps": 65.54,
+      "wr": 0.6364,
+      "sd_bps": 124.4,
+      "t": 0.6,
+      "sum_pct": 3.52,
+      "avg_bars": 8.0
+    },
+    "BCHUSDT": {
+      "n": 9,
+      "mean_bps": 5.71,
+      "median_bps": -12.99,
+      "wr": 0.4444,
+      "sd_bps": 136.2,
+      "t": 0.13,
+      "sum_pct": 0.51,
+      "avg_bars": 8.0
+    },
+    "BNBUSDT": {
+      "n": 24,
+      "mean_bps": 8.15,
+      "median_bps": 43.31,
+      "wr": 0.625,
+      "sd_bps": 96.7,
+      "t": 0.41,
+      "sum_pct": 1.96,
+      "avg_bars": 8.0
+    },
+    "BTCUSDT": {
+      "n": 46,
+      "mean_bps": -66.6,
+      "median_bps": -66.61,
+      "wr": 0.3913,
+      "sd_bps": 137.1,
+      "t": -3.3,
+      "sum_pct": -30.64,
+      "avg_bars": 8.0
+    },
+    "DOGEUSDT": {
+      "n": 21,
+      "mean_bps": -51.36,
+      "median_bps": -62.07,
+      "wr": 0.4286,
+      "sd_bps": 131.2,
+      "t": -1.79,
+      "sum_pct": -10.79,
+      "avg_bars": 8.0
+    },
+    "DOTUSDT": {
+      "n": 25,
+      "mean_bps": 35.47,
+      "median_bps": 58.7,
+      "wr": 0.76,
+      "sd_bps": 117.7,
+      "t": 1.51,
+      "sum_pct": 8.87,
+      "avg_bars": 8.0
+    },
+    "ETHUSDT": {
+      "n": 31,
+      "mean_bps": -33.01,
+      "median_bps": -69.95,
+      "wr": 0.3548,
+      "sd_bps": 88.6,
+      "t": -2.07,
+      "sum_pct": -10.23,
+      "avg_bars": 8.0
+    },
+    "LINKUSDT": {
+      "n": 19,
+      "mean_bps": 16.98,
+      "median_bps": 51.11,
+      "wr": 0.5263,
+      "sd_bps": 133.5,
+      "t": 0.55,
+      "sum_pct": 3.23,
+      "avg_bars": 8.0
+    },
+    "LTCUSDT": {
+      "n": 22,
+      "mean_bps": 1.15,
+      "median_bps": 19.71,
+      "wr": 0.5,
+      "sd_bps": 122.2,
+      "t": 0.04,
+      "sum_pct": 0.25,
+      "avg_bars": 8.0
+    },
+    "OPUSDT": {
+      "n": 23,
+      "mean_bps": 59.17,
+      "median_bps": 135.07,
+      "wr": 0.6087,
+      "sd_bps": 216.2,
+      "t": 1.31,
+      "sum_pct": 13.61,
+      "avg_bars": 8.0
+    },
+    "SOLUSDT": {
+      "n": 30,
+      "mean_bps": -47.06,
+      "median_bps": -97.15,
+      "wr": 0.3667,
+      "sd_bps": 160.6,
+      "t": -1.61,
+      "sum_pct": -14.12,
+      "avg_bars": 8.0
+    },
+    "SUIUSDT": {
+      "n": 12,
+      "mean_bps": -28.96,
+      "median_bps": -54.75,
+      "wr": 0.5,
+      "sd_bps": 224.3,
+      "t": -0.45,
+      "sum_pct": -3.48,
+      "avg_bars": 8.0
+    },
+    "TRXUSDT": {
+      "n": 12,
+      "mean_bps": -7.66,
+      "median_bps": -29.76,
+      "wr": 0.4167,
+      "sd_bps": 56.0,
+      "t": -0.47,
+      "sum_pct": -0.92,
+      "avg_bars": 8.0
+    },
+    "XRPUSDT": {
+      "n": 15,
+      "mean_bps": 45.6,
+      "median_bps": 45.47,
+      "wr": 0.5333,
+      "sd_bps": 231.4,
+      "t": 0.76,
+      "sum_pct": 6.84,
+      "avg_bars": 8.0
+    }
+  },
+  "per_reason": {
+    "SL": {
+      "n": 153,
+      "mean_bps": -144.67,
+      "median_bps": -126.98,
+      "wr": 0.0,
+      "sd_bps": 72.6,
+      "t": -24.65,
+      "sum_pct": -221.34,
+      "avg_bars": 8.0
+    },
+    "TIME": {
+      "n": 40,
+      "mean_bps": -10.35,
+      "median_bps": -13.15,
+      "wr": 0.35,
+      "sd_bps": 67.9,
+      "t": -0.96,
+      "sum_pct": -4.14,
+      "avg_bars": 8.0
+    },
+    "TP": {
+      "n": 169,
+      "mean_bps": 122.38,
+      "median_bps": 98.19,
+      "wr": 1.0,
+      "sd_bps": 90.4,
+      "t": 17.6,
+      "sum_pct": 206.82,
+      "avg_bars": 8.0
+    }
+  },
+  "per_month": {
+    "2021-02": {
+      "n": 2,
+      "mean_bps": -70.31,
+      "median_bps": -70.31,
+      "wr": 0.5,
+      "sd_bps": 269.3,
+      "t": -0.37,
+      "sum_pct": -1.41,
+      "avg_bars": 8.0
+    },
+    "2021-03": {
+      "n": 2,
+      "mean_bps": -58.22,
+      "median_bps": -58.22,
+      "wr": 0.5,
+      "sd_bps": 222.9,
+      "t": -0.37,
+      "sum_pct": -1.16,
+      "avg_bars": 8.0
+    },
+    "2021-05": {
+      "n": 6,
+      "mean_bps": -250.7,
+      "median_bps": -303.31,
+      "wr": 0.1667,
+      "sd_bps": 160.4,
+      "t": -3.83,
+      "sum_pct": -15.04,
+      "avg_bars": 8.0
+    },
+    "2021-06": {
+      "n": 2,
+      "mean_bps": -66.43,
+      "median_bps": -66.43,
+      "wr": 0.5,
+      "sd_bps": 328.8,
+      "t": -0.29,
+      "sum_pct": -1.33,
+      "avg_bars": 8.0
+    },
+    "2021-07": {
+      "n": 2,
+      "mean_bps": -83.32,
+      "median_bps": -83.32,
+      "wr": 0.0,
+      "sd_bps": 17.1,
+      "t": -6.89,
+      "sum_pct": -1.67,
+      "avg_bars": 8.0
+    },
+    "2021-09": {
+      "n": 3,
+      "mean_bps": -77.12,
+      "median_bps": -104.43,
+      "wr": 0.3333,
+      "sd_bps": 71.5,
+      "t": -1.87,
+      "sum_pct": -2.31,
+      "avg_bars": 8.0
+    },
+    "2021-10": {
+      "n": 1,
+      "mean_bps": 104.97,
+      "median_bps": 104.97,
+      "wr": 1.0,
+      "sd_bps": 0.0,
+      "t": 0.0,
+      "sum_pct": 1.05,
+      "avg_bars": 8.0
+    },
+    "2021-11": {
+      "n": 2,
+      "mean_bps": -114.92,
+      "median_bps": -114.92,
+      "wr": 0.0,
+      "sd_bps": 70.5,
+      "t": -2.3,
+      "sum_pct": -2.3,
+      "avg_bars": 8.0
+    },
+    "2023-01": {
+      "n": 26,
+      "mean_bps": -13.06,
+      "median_bps": -52.35,
+      "wr": 0.4615,
+      "sd_bps": 147.7,
+      "t": -0.45,
+      "sum_pct": -3.4,
+      "avg_bars": 8.0
+    },
+    "2023-02": {
+      "n": 14,
+      "mean_bps": 69.58,
+      "median_bps": 95.11,
+      "wr": 0.6429,
+      "sd_bps": 164.0,
+      "t": 1.59,
+      "sum_pct": 9.74,
+      "avg_bars": 8.0
+    },
+    "2023-03": {
+      "n": 24,
+      "mean_bps": -24.18,
+      "median_bps": -64.9,
+      "wr": 0.4167,
+      "sd_bps": 139.6,
+      "t": -0.85,
+      "sum_pct": -5.8,
+      "avg_bars": 8.0
+    },
+    "2023-04": {
+      "n": 19,
+      "mean_bps": -15.96,
+      "median_bps": 34.48,
+      "wr": 0.5789,
+      "sd_bps": 129.4,
+      "t": -0.54,
+      "sum_pct": -3.03,
+      "avg_bars": 8.0
+    },
+    "2023-05": {
+      "n": 20,
+      "mean_bps": -2.32,
+      "median_bps": 29.41,
+      "wr": 0.6,
+      "sd_bps": 78.8,
+      "t": -0.13,
+      "sum_pct": -0.46,
+      "avg_bars": 8.0
+    },
+    "2023-06": {
+      "n": 35,
+      "mean_bps": -5.98,
+      "median_bps": 41.48,
+      "wr": 0.5143,
+      "sd_bps": 140.1,
+      "t": -0.25,
+      "sum_pct": -2.09,
+      "avg_bars": 8.0
+    },
+    "2023-07": {
+      "n": 30,
+      "mean_bps": 50.1,
+      "median_bps": 55.95,
+      "wr": 0.5667,
+      "sd_bps": 206.3,
+      "t": 1.33,
+      "sum_pct": 15.03,
+      "avg_bars": 8.0
+    },
+    "2023-08": {
+      "n": 18,
+      "mean_bps": -3.45,
+      "median_bps": -11.21,
+      "wr": 0.5,
+      "sd_bps": 148.8,
+      "t": -0.1,
+      "sum_pct": -0.62,
+      "avg_bars": 8.0
+    },
+    "2023-09": {
+      "n": 39,
+      "mean_bps": -12.19,
+      "median_bps": -29.41,
+      "wr": 0.4615,
+      "sd_bps": 81.4,
+      "t": -0.93,
+      "sum_pct": -4.76,
+      "avg_bars": 8.0
+    },
+    "2023-10": {
+      "n": 53,
+      "mean_bps": 6.76,
+      "median_bps": 40.36,
+      "wr": 0.5283,
+      "sd_bps": 123.8,
+      "t": 0.4,
+      "sum_pct": 3.58,
+      "avg_bars": 8.0
+    },
+    "2023-11": {
+      "n": 47,
+      "mean_bps": 17.18,
+      "median_bps": 62.47,
+      "wr": 0.5745,
+      "sd_bps": 168.6,
+      "t": 0.7,
+      "sum_pct": 8.07,
+      "avg_bars": 8.0
+    },
+    "2023-12": {
+      "n": 17,
+      "mean_bps": -63.25,
+      "median_bps": -154.49,
+      "wr": 0.3529,
+      "sd_bps": 191.9,
+      "t": -1.36,
+      "sum_pct": -10.75,
+      "avg_bars": 8.0
+    }
+  },
+  "without_top3": {
+    "n": 300,
+    "mean_bps": -17.73,
+    "median_bps": -18.88,
+    "wr": 0.4667,
+    "sd_bps": 140.9,
+    "t": -2.18,
+    "sum_pct": -53.18,
+    "avg_bars": 8.0
+  }
+}

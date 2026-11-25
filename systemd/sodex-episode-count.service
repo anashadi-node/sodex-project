@@ -1,0 +1,9 @@
+[Unit]
+Description=Anantara Sakti - hitung episode forward SoDEX (read-only, LOCKBOX dihormati)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python3 /home/USER/anantara-sakti/scripts/sodex_episode_counter.py
+TimeoutStartSec=900

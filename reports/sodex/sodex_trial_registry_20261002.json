@@ -1,0 +1,43 @@
+[
+ {
+  "strategy": "swing",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 386,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 1
+ },
+ {
+  "strategy": "twoway",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 366,
+  "reasons": [
+   "level_decision: net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 2
+ },
+ {
+  "strategy": "realwide",
+  "passed": false,
+  "note": "SoDEX harness re-eval (signal arm)",
+  "n": 235,
+  "reasons": [
+   "level_decision: net_pos_1x, net_pos_2x, ci95_lower_positive, dsr_passed"
+  ],
+  "n_trials_total": 3
+ },
+ {
+  "strategy": "twoway_short_side",
+  "passed": false,
+  "note": "SoDEX harness re-eval",
+  "n": 42,
+  "reasons": [
+   "level_decision: ci95_lower_positive, dsr_passed",
+   "funding_required_but_missing: 42/42 rows without funding/borrow field"
+  ],
+  "n_trials_total": 4
+ }
+]

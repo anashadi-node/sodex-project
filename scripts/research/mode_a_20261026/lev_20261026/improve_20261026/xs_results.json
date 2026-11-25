@@ -1,0 +1,153 @@
+{
+ "universe": [
+  "BTC",
+  "ETH",
+  "BNB",
+  "SOL",
+  "XRP",
+  "ADA",
+  "AVAX",
+  "DOT",
+  "LINK",
+  "LTC",
+  "BCH",
+  "TRX",
+  "ATOM",
+  "UNI",
+  "NEAR",
+  "ETC",
+  "XLM",
+  "ALGO",
+  "FIL",
+  "ICP",
+  "HBAR",
+  "APT",
+  "ARB",
+  "OP",
+  "SUI",
+  "INJ",
+  "TIA",
+  "SEI",
+  "DOGE"
+ ],
+ "hasil": {
+  "XS_long5": {
+   "train": {
+    "n": 1095,
+    "M_per5h_pct": 0.01579,
+    "mdd_pct": -35.78,
+    "sd_harian_pct": 1.919,
+    "sharpe": 0.75,
+    "hit30": 0.461,
+    "cum_pct": 87.4
+   },
+   "oos": {
+    "n": 664,
+    "M_per5h_pct": -0.0026,
+    "mdd_pct": -44.17,
+    "sd_harian_pct": 1.809,
+    "sharpe": -0.13,
+    "hit30": 0.328,
+    "cum_pct": -17.4
+   },
+   "full": {
+    "n": 1759,
+    "M_per5h_pct": 0.00884,
+    "mdd_pct": -44.17,
+    "sd_harian_pct": 1.878,
+    "sharpe": 0.43,
+    "hit30": 0.414,
+    "cum_pct": 54.7
+   }
+  },
+  "XS_long10": {
+   "train": {
+    "n": 1095,
+    "M_per5h_pct": 0.01579,
+    "mdd_pct": -35.78,
+    "sd_harian_pct": 1.919,
+    "sharpe": 0.75,
+    "hit30": 0.461,
+    "cum_pct": 87.4
+   },
+   "oos": {
+    "n": 664,
+    "M_per5h_pct": -0.0026,
+    "mdd_pct": -44.17,
+    "sd_harian_pct": 1.809,
+    "sharpe": -0.13,
+    "hit30": 0.328,
+    "cum_pct": -17.4
+   },
+   "full": {
+    "n": 1759,
+    "M_per5h_pct": 0.00884,
+    "mdd_pct": -44.17,
+    "sd_harian_pct": 1.878,
+    "sharpe": 0.43,
+    "hit30": 0.414,
+    "cum_pct": 54.7
+   }
+  },
+  "XS_ls5": {
+   "train": {
+    "n": 1095,
+    "M_per5h_pct": 0.00815,
+    "mdd_pct": -31.28,
+    "sd_harian_pct": 1.617,
+    "sharpe": 0.46,
+    "hit30": 0.433,
+    "cum_pct": 32.8
+   },
+   "oos": {
+    "n": 664,
+    "M_per5h_pct": -0.00441,
+    "mdd_pct": -42.05,
+    "sd_harian_pct": 1.724,
+    "sharpe": -0.23,
+    "hit30": 0.378,
+    "cum_pct": -21.4
+   },
+   "full": {
+    "n": 1759,
+    "M_per5h_pct": 0.00341,
+    "mdd_pct": -42.05,
+    "sd_harian_pct": 1.658,
+    "sharpe": 0.19,
+    "hit30": 0.422,
+    "cum_pct": 4.4
+   }
+  },
+  "XS_long5_raw": {
+   "train": {
+    "n": 1095,
+    "M_per5h_pct": 0.09346,
+    "mdd_pct": -99.4,
+    "sd_harian_pct": 11.101,
+    "sharpe": 0.77,
+    "hit30": 0.438,
+    "cum_pct": -88.0
+   },
+   "oos": {
+    "n": 664,
+    "M_per5h_pct": -0.02806,
+    "mdd_pct": -99.76,
+    "sd_harian_pct": 10.052,
+    "sharpe": -0.26,
+    "hit30": 0.312,
+    "cum_pct": -98.8
+   },
+   "full": {
+    "n": 1759,
+    "M_per5h_pct": 0.04759,
+    "mdd_pct": -99.94,
+    "sd_harian_pct": 10.718,
+    "sharpe": 0.41,
+    "hit30": 0.393,
+    "cum_pct": -99.9
+   }
+  }
+ },
+ "n_hari": 1760,
+ "catatan": "survivorship bias: universe koin yang masih ada; hasil = batas atas"
+}

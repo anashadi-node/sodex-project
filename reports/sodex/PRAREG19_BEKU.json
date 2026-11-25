@@ -1,0 +1,63 @@
+{
+ "prareg": "PRAREG-19",
+ "judul": "Directional majors BTC/ETH/SOL",
+ "dibekukan_utc": "2026-10-09T12:27:45Z",
+ "sha256_protokol": "eab1ea9b02e833a73b15b4ee8e0506343f1dd8151055e26f47b55b84e4c4b756",
+ "bar": "alpha >= 32 bps/48j (half-Kelly -> >=48 bps/48j)",
+ "sel_keluarga": 24,
+ "kontrol_drift": "WAJIB (tahun sampel turun -15..-28 bps)",
+ "disetujui_oleh": "Mas Anas 2026-10-09 (butir 3 dari 3)",
+ "data_fingerprint": {
+  "interval": "1h",
+  "utc": "2026-10-09T12:27:45Z",
+  "n_files": 100,
+  "total_bytes": 112530906,
+  "mtime_max_u64": 1791548860,
+  "mtime_max": "2026-10-09T12:27:40Z",
+  "manifest_sha256_16": "97cced7534417aed",
+  "manifest_bytes": 12177,
+  "manifest_pulled_utc": "2026-10-09T12:05:39.483523+00:00",
+  "manifest_n_symbols": 92,
+  "sampel": [
+   {
+    "f": "BTC-USD",
+    "n": 8575,
+    "oldest": "2025-10-12T07:00:00+00:00",
+    "newest": "2026-10-09T12:00:00+00:00"
+   },
+   {
+    "f": "ETH-USD",
+    "n": 8546,
+    "oldest": "2025-10-16T08:00:00+00:00",
+    "newest": "2026-10-09T12:00:00+00:00"
+   },
+   {
+    "f": "SOL-USD",
+    "n": 8472,
+    "oldest": "2025-10-21T13:00:00+00:00",
+    "newest": "2026-10-09T12:00:00+00:00"
+   },
+   {
+    "f": "BNB-USD",
+    "n": 8323,
+    "oldest": "2025-10-27T18:00:00+00:00",
+    "newest": "2026-10-09T12:00:00+00:00"
+   },
+   {
+    "f": "XAUT-USD",
+    "n": 8139,
+    "oldest": "2025-11-04T10:00:00+00:00",
+    "newest": "2026-10-09T12:00:00+00:00"
+   },
+   {
+    "f": "AAVE-USD",
+    "n": 8314,
+    "oldest": "2025-10-28T03:00:00+00:00",
+    "newest": "2026-10-09T12:00:00+00:00"
+   }
+  ],
+  "newest_di_sampel": "2026-10-09T12:00:00+00:00",
+  "oldest_di_sampel": "2025-10-12T07:00:00+00:00",
+  "content_sha256_16": "b8b9cc4839560ae0"
+ }
+}

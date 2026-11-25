@@ -1,0 +1,368 @@
+{
+ "generated_utc": "2026-10-25T08:09:57.503160+00:00",
+ "catatan": "DESKRIPTIF \u2014 n minggu kecil (<=9); korelasi bukan bukti kausal",
+ "summary": {
+  "n_points": 30,
+  "corr_gross_vs_vol_sodex": 0.553,
+  "corr_gross_vs_vol_binance": 0.593,
+  "corr_gross_vs_ret7": 0.512,
+  "gross_by_vol_quartile": [
+   {
+    "quartile": 1,
+    "vol_range": "26-30%",
+    "n": 6,
+    "gross_median": -50.5
+   },
+   {
+    "quartile": 2,
+    "vol_range": "30-32%",
+    "n": 6,
+    "gross_median": 6.0
+   },
+   {
+    "quartile": 3,
+    "vol_range": "32-35%",
+    "n": 6,
+    "gross_median": 16.4
+   },
+   {
+    "quartile": 4,
+    "vol_range": "35-42%",
+    "n": 6,
+    "gross_median": 30.1
+   }
+  ]
+ },
+ "points": [
+  {
+   "engine": "twoway",
+   "week_end": "09-05",
+   "gross_bps": 21.6,
+   "net_bps": 15.5,
+   "usd": 30.2,
+   "n": 65,
+   "vol7_sodex": 36.7,
+   "vol7_binance": 36.9,
+   "ret7": 2.46
+  },
+  {
+   "engine": "twoway",
+   "week_end": "09-12",
+   "gross_bps": 17.0,
+   "net_bps": 11.2,
+   "usd": 15.13,
+   "n": 45,
+   "vol7_sodex": 31.1,
+   "vol7_binance": 31.2,
+   "ret7": -2.96
+  },
+  {
+   "engine": "twoway",
+   "week_end": "09-19",
+   "gross_bps": 119.5,
+   "net_bps": 113.9,
+   "usd": 174.32,
+   "n": 51,
+   "vol7_sodex": 33.1,
+   "vol7_binance": 33.2,
+   "ret7": 4.67
+  },
+  {
+   "engine": "twoway",
+   "week_end": "09-26",
+   "gross_bps": 24.9,
+   "net_bps": 19.0,
+   "usd": 37.7,
+   "n": 66,
+   "vol7_sodex": 36.5,
+   "vol7_binance": 36.3,
+   "ret7": 2.96
+  },
+  {
+   "engine": "twoway",
+   "week_end": "10-03",
+   "gross_bps": -39.1,
+   "net_bps": -48.3,
+   "usd": -70.97,
+   "n": 49,
+   "vol7_sodex": 33.0,
+   "vol7_binance": 33.0,
+   "ret7": 0.73
+  },
+  {
+   "engine": "twoway",
+   "week_end": "10-10",
+   "gross_bps": -73.1,
+   "net_bps": -87.9,
+   "usd": -73.81,
+   "n": 28,
+   "vol7_sodex": 30.5,
+   "vol7_binance": 26.0,
+   "ret7": -2.4
+  },
+  {
+   "engine": "twoway",
+   "week_end": "10-17",
+   "gross_bps": 15.0,
+   "net_bps": -1.0,
+   "usd": -0.43,
+   "n": 14,
+   "vol7_sodex": 33.8,
+   "vol7_binance": null,
+   "ret7": -1.16
+  },
+  {
+   "engine": "twoway",
+   "week_end": "10-24",
+   "gross_bps": -70.9,
+   "net_bps": -85.5,
+   "usd": -76.97,
+   "n": 30,
+   "vol7_sodex": 27.4,
+   "vol7_binance": null,
+   "ret7": -0.46
+  },
+  {
+   "engine": "realwide",
+   "week_end": "09-04",
+   "gross_bps": -22.8,
+   "net_bps": -28.7,
+   "usd": -24.97,
+   "n": 29,
+   "vol7_sodex": 35.0,
+   "vol7_binance": 35.3,
+   "ret7": 0.86
+  },
+  {
+   "engine": "realwide",
+   "week_end": "09-11",
+   "gross_bps": 9.7,
+   "net_bps": 3.5,
+   "usd": 6.97,
+   "n": 66,
+   "vol7_sodex": 30.1,
+   "vol7_binance": 30.1,
+   "ret7": -5.44
+  },
+  {
+   "engine": "realwide",
+   "week_end": "09-18",
+   "gross_bps": 44.9,
+   "net_bps": 39.6,
+   "usd": 11.89,
+   "n": 10,
+   "vol7_sodex": 31.8,
+   "vol7_binance": 31.9,
+   "ret7": -0.64
+  },
+  {
+   "engine": "realwide",
+   "week_end": "09-25",
+   "gross_bps": 40.3,
+   "net_bps": 35.3,
+   "usd": 61.34,
+   "n": 58,
+   "vol7_sodex": 41.9,
+   "vol7_binance": 41.9,
+   "ret7": 10.21
+  },
+  {
+   "engine": "realwide",
+   "week_end": "10-02",
+   "gross_bps": -50.7,
+   "net_bps": -58.5,
+   "usd": -68.47,
+   "n": 39,
+   "vol7_sodex": 30.0,
+   "vol7_binance": 30.0,
+   "ret7": 0.33
+  },
+  {
+   "engine": "realwide",
+   "week_end": "10-09",
+   "gross_bps": -77.3,
+   "net_bps": -90.0,
+   "usd": -43.2,
+   "n": 16,
+   "vol7_sodex": 33.0,
+   "vol7_binance": 29.2,
+   "ret7": -3.59
+  },
+  {
+   "engine": "realwide",
+   "week_end": "10-16",
+   "gross_bps": -17.4,
+   "net_bps": -37.5,
+   "usd": -1.13,
+   "n": 1,
+   "vol7_sodex": 33.7,
+   "vol7_binance": null,
+   "ret7": 0.51
+  },
+  {
+   "engine": "realwide",
+   "week_end": "10-23",
+   "gross_bps": -42.9,
+   "net_bps": -56.3,
+   "usd": -27.04,
+   "n": 16,
+   "vol7_sodex": 27.4,
+   "vol7_binance": null,
+   "ret7": -1.11
+  },
+  {
+   "engine": "donchian",
+   "week_end": "09-04",
+   "gross_bps": 20.3,
+   "net_bps": 14.0,
+   "usd": -4.99,
+   "n": 19,
+   "vol7_sodex": 35.0,
+   "vol7_binance": 35.3,
+   "ret7": 0.86
+  },
+  {
+   "engine": "donchian",
+   "week_end": "09-11",
+   "gross_bps": 2.3,
+   "net_bps": -4.0,
+   "usd": 1.57,
+   "n": 37,
+   "vol7_sodex": 30.1,
+   "vol7_binance": 30.1,
+   "ret7": -5.44
+  },
+  {
+   "engine": "donchian",
+   "week_end": "09-18",
+   "gross_bps": 28.4,
+   "net_bps": 22.9,
+   "usd": -8.73,
+   "n": 13,
+   "vol7_sodex": 31.8,
+   "vol7_binance": 31.9,
+   "ret7": -0.64
+  },
+  {
+   "engine": "donchian",
+   "week_end": "09-25",
+   "gross_bps": 88.1,
+   "net_bps": 81.9,
+   "usd": 85.51,
+   "n": 59,
+   "vol7_sodex": 41.9,
+   "vol7_binance": 41.9,
+   "ret7": 10.21
+  },
+  {
+   "engine": "donchian",
+   "week_end": "10-02",
+   "gross_bps": -42.3,
+   "net_bps": -50.1,
+   "usd": -42.68,
+   "n": 28,
+   "vol7_sodex": 30.0,
+   "vol7_binance": 30.0,
+   "ret7": 0.33
+  },
+  {
+   "engine": "donchian",
+   "week_end": "10-09",
+   "gross_bps": -37.1,
+   "net_bps": -50.3,
+   "usd": -23.33,
+   "n": 13,
+   "vol7_sodex": 33.0,
+   "vol7_binance": 29.2,
+   "ret7": -3.59
+  },
+  {
+   "engine": "donchian",
+   "week_end": "10-23",
+   "gross_bps": -110.7,
+   "net_bps": -123.4,
+   "usd": -24.74,
+   "n": 8,
+   "vol7_sodex": 27.4,
+   "vol7_binance": null,
+   "ret7": -1.11
+  },
+  {
+   "engine": "swing",
+   "week_end": "09-04",
+   "gross_bps": -52.2,
+   "net_bps": -56.5,
+   "usd": -81.89,
+   "n": 29,
+   "vol7_sodex": 35.0,
+   "vol7_binance": 35.3,
+   "ret7": 0.86
+  },
+  {
+   "engine": "swing",
+   "week_end": "09-11",
+   "gross_bps": -3.5,
+   "net_bps": -7.5,
+   "usd": -21.82,
+   "n": 58,
+   "vol7_sodex": 30.1,
+   "vol7_binance": 30.1,
+   "ret7": -5.44
+  },
+  {
+   "engine": "swing",
+   "week_end": "09-18",
+   "gross_bps": 12.5,
+   "net_bps": 8.3,
+   "usd": 10.8,
+   "n": 26,
+   "vol7_sodex": 31.8,
+   "vol7_binance": 31.9,
+   "ret7": -0.64
+  },
+  {
+   "engine": "swing",
+   "week_end": "09-25",
+   "gross_bps": 35.3,
+   "net_bps": 31.2,
+   "usd": 154.63,
+   "n": 99,
+   "vol7_sodex": 41.9,
+   "vol7_binance": 41.9,
+   "ret7": 10.21
+  },
+  {
+   "engine": "swing",
+   "week_end": "10-02",
+   "gross_bps": -40.4,
+   "net_bps": -47.6,
+   "usd": -137.9,
+   "n": 58,
+   "vol7_sodex": 30.0,
+   "vol7_binance": 30.0,
+   "ret7": 0.33
+  },
+  {
+   "engine": "swing",
+   "week_end": "10-09",
+   "gross_bps": -50.4,
+   "net_bps": -65.5,
+   "usd": -72.09,
+   "n": 22,
+   "vol7_sodex": 33.0,
+   "vol7_binance": 29.2,
+   "ret7": -3.59
+  },
+  {
+   "engine": "swing",
+   "week_end": "10-23",
+   "gross_bps": -15.3,
+   "net_bps": -28.3,
+   "usd": -19.79,
+   "n": 14,
+   "vol7_sodex": 27.4,
+   "vol7_binance": null,
+   "ret7": -1.11
+  }
+ ]
+}

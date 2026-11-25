@@ -1,0 +1,54 @@
+{
+  "id": "PRAREG18_PROGRAM_EKSTREM_SODEX",
+  "judul": "Program riset ekstrem SoDEX: sapuan 12 mekanisme + tuas eksekusi + pengondisian + portofolio korelasi-rendah, menuju S_ann >= 5,90",
+  "tanggal_prareg_utc": "2026-10-09",
+  "status": "TERBEKU sebelum dijalankan (freeze_ts = commit berkas ini). Semua hasil keluarga K1-K4 = DESKRIPTIF.",
+  "otoritas": "Perintah Mas Anas 2026-10-09: perbaikan & peningkatan signifikan, improvisasi ekstrem, riset sangat ekstrem untuk melampaui target. Program ini tetap tunduk pada protokol beku: tidak melonggarkan gerbang, tidak ada look-ahead, tidak ada goalpost-moving, semua uji historis = DESKRIPTIF.",
+  "kendala_pengikat_dinyatakan_di_muka": {
+    "rumus": "t = S_ann * sqrt(T) untuk sertifikasi OOS (forward)",
+    "sisa_waktu": "42 hari ke HARD_STOP 20 Nov 2026 -> T = 0,1151 thn -> sqrt(T) = 0,3392",
+    "syarat": "butuh S_ann >= 5,90 agar t >= 2,0 dalam 42 hari",
+    "kandidat_historish_terbaik": "S_ann 3,06 (rangepos reversal rank-proporsional, SoDEX 1h, hold 48)",
+    "konsekuensi": "Semua tuas di bawah hanya bernilai bila menaikkan S_ann atau net per 48 jam. Leverage menaikkan keduanya secara proporsional -> t INVARIAN -> tidak mempercepat sertifikasi.",
+    "catatan_mean_vs_sharpe": "Target 0,8% adalah TARGET MEAN. Diversifikasi portofolio menaikkan S_ann tetapi TIDAK menaikkan mean (mean portofolio = rata-rata berbobot, w>=0, sum w=1). Jadi dua masalah berbeda: (i) sertifikasi/signifikansi -> bisa dibantu portofolio; (ii) besaran mean -> hanya bisa dari edge per mesin atau leverage."
+  },
+  "keluarga_yang_diuji": {
+    "K1_sapuan_mekanisme": {
+      "isi": "12 mekanisme modul beku MECH_ORDER x panel {sodex_1h, sodex_1d} x hold {24, 48} x arah {as-is modul, dibalik} = 96 sel",
+      "mekanisme": "REV_L1, REV_L3, REV_VOL, REV_IDIO, MOM_L21, MOM_L63, LTREV_L180, RANGEPOS, VOLSHOCK, MAXFX, CARRY_FR, BASIS (verbatim dari xsec_mech_study.build_signals)",
+      "multiplikasi": "BH-FDR q=0,10 atas SELURUH 96 sel yang benar-benar dijalankan (bukan subset)",
+      "keluaran": "tabel lengkap + 10 kandidat teratas menurut net (lolos gerbang), + gerbang mana yang gagal"
+    },
+    "K2_sensitivitas_biaya": {
+      "isi": "rangepos reversal varian {rank, kuintil}, hold 48, fee_oneway = {0,57 ; 1,14 ; 2,0 ; 2,80 ; 4,0 ; 4,855} bps/sisi = 12 sel",
+      "tujuan": "mengukur berapa besar upside dari kualitas eksekusi (maker/limit vs taker) terhadap net dan S_ann",
+      "multiplikasi": "BH q=0,10 atas 12 sel"
+    },
+    "K3_pengondisian": {
+      "isi": "rangepos reversal rank, hold 48, dua variabel yang DAPAT diamati sebelum masuk (tanpa look-ahead): (a) dispersi cross-sectional range-pos (median |sig - median sig|), (b) jumlah nama valid di bar masuk; tiap variabel dibagi 2 kuartil ekstrem -> 4 sel",
+      "tujuan": "menguji apakah mean per window bisa dinaikkan dengan hanya menukar pada rezim yang menguntungkan"
+    },
+    "K4_portofolio_korelasi": {
+      "isi": "matriks korelasi aliran net per-window dari semua kandidat yang lolos gerbang di K1 (hold 48), lalu estimasi S_ann portofolio untuk N=6 dan N=8 mesin atas pasangan ber-korelasi terendah",
+      "rumus": "S_port = S_rata2 * sqrt(N / (1 + (N-1) * rho_rata2))",
+      "tujuan": "menguji apakah portofolio 6-8 mesin ber-rho <= 0,1 (spec North Star) dapat dibentuk, dan berapa S_ann gabungannya"
+    }
+  },
+  "aturan_interpretasi": [
+    "SEMUA hasil K1-K4 = DESKRIPTIF. Jendela historis sudah terpakai (PRAREG-2/3/4). Tidak ada satu pun yang boleh dipakai sebagai verdict.",
+    "Seleksi kandidat dari K1-K4 = SELEKSI LEAD, bukan verdict. Verdict hanya sah dari data forward (PRAREG-17 atau prareg forward baru bila mekanismenya berbeda).",
+    "Bahaya seleksi diakui terbuka: menyapu 96 sel lalu memilih yang terbaik adalah seleksi in-sample; koreksi BH-FDR di dalam sapuan membatasi tetapi tidak menghapus risiko. Karena itu kandidat hasil sapuan WAJIB melewati jendela forward sebelum dipercaya.",
+    "Promosi kandidat ke forward hanya bila lolos gerbang beku PRAREG-16/17: net>0, to<=1,5, |t_ctrl|<2,0, t>=1,96, S_ann>=2,3, S_fee2x>=1,8.",
+    "Tidak ada ambang/gerbang/parameter yang diubah. Tidak ada penambangan di luar keluarga yang dideklarasikan di berkas ini.",
+    "Jika tidak ada satu sel pun yang lolos, hasil negatif ini tetap dilaporkan penuh (termasuk yang paling dekat)."
+  ],
+  "yang_tidak_diubah": [
+    "Target 0,8% net total wallet / 48 jam",
+    "HARD_STOP 20 Nov 2026",
+    "Semua gerbang prareg beku sebelumnya",
+    "Lane uang SoDEX tetap freeze (unfreeze = execution arbiter + persetujuan)",
+    "Read-only: tanpa order, tanpa perubahan live flag"
+  ],
+  "keluaran": "reports/sodex/SWEEP_EKSTREM_K1K4.json + docs/sodex/HASIL_SWEEP_EKSTREM_2026-10-09.md",
+  "hard_stop": "20 Nov 2026"
+}

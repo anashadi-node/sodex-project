@@ -1,0 +1,98 @@
+{
+ "phase": "DEV",
+ "tier": "binance",
+ "bar_hours": 1,
+ "range": [
+  "2022-10-01",
+  "2025-09-30"
+ ],
+ "fill_model": "penetrasi",
+ "maker_per_side": 0.0002,
+ "taker_per_side": 0.0005,
+ "slip": 0.0002,
+ "queue_bp": 0.001,
+ "protocol": "docs/sodex/R4C_PROTOKOL_H11_H12_2026-10-05.md (beku 649366e)",
+ "hypotheses": {
+  "H11a": {
+   "n_windows": 547,
+   "mean48_pct": 0.0598,
+   "sr_annual": 0.403,
+   "p_signflip": 0.4853,
+   "p_day_cluster": 0.4868,
+   "segments_pct": [
+    0.0063,
+    0.113,
+    0.0605
+   ],
+   "trades_total": 2958,
+   "fill_rate_pct": 85.3,
+   "control_p": 0.004975124378109453,
+   "segments_positive": 3,
+   "min_gross_required_pct": 0.84,
+   "edge_gross_median_pct": -0.161,
+   "budget_ok": false,
+   "drag_pct_year": 3.588,
+   "dsr": 0.438,
+   "forced_exit": 176,
+   "skipped_overlap": 2204
+  },
+  "H11b": {
+   "n_windows": 547,
+   "mean48_pct": -0.0411,
+   "sr_annual": -0.341,
+   "p_signflip": 0.5743,
+   "p_day_cluster": 0.577,
+   "segments_pct": [
+    -0.1847,
+    0.022,
+    0.0403
+   ],
+   "trades_total": 732,
+   "fill_rate_pct": 92.3,
+   "control_p": 1.0,
+   "segments_positive": 2,
+   "min_gross_required_pct": 0.84,
+   "edge_gross_median_pct": 0.291,
+   "budget_ok": false,
+   "drag_pct_year": 0.888,
+   "dsr": 0.064,
+   "forced_exit": 28,
+   "skipped_overlap": 82
+  },
+  "H12": {
+   "n_windows": 547,
+   "mean48_pct": -0.0797,
+   "sr_annual": -0.367,
+   "p_signflip": 0.5282,
+   "p_day_cluster": 0.5317,
+   "segments_pct": [
+    -0.031,
+    0.0808,
+    -0.2891
+   ],
+   "trades_total": 12379,
+   "fill_rate_pct": 16.2,
+   "control_p": 1.0,
+   "segments_positive": 1,
+   "min_gross_required_pct": 0.44,
+   "edge_gross_median_pct": 1.063,
+   "budget_ok": true,
+   "drag_pct_year": 15.015,
+   "dsr": 0.067,
+   "forced_exit": 5882,
+   "skipped_overlap": 0,
+   "tie_break": 132
+  }
+ },
+ "bh_pass": {
+  "H11a": false,
+  "H11b": false,
+  "H12": false
+ },
+ "pbo": 0.2222222222222222,
+ "verdict": {
+  "H11a": "FAIL",
+  "H11b": "FAIL",
+  "H12": "FAIL"
+ }
+}

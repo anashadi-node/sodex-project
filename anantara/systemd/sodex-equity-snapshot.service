@@ -1,0 +1,8 @@
+[Unit]
+Description=SoDEX Equity Snapshot 5 jam (bahan gate REV2)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/bin/bash /home/USER/.hermes/scripts/sodex_equity_snapshot.sh

@@ -1,0 +1,12 @@
+[Unit]
+Description=Anantara Sakti - P9 RERUN mv_funding (satu kali, 15-Okt-2026; ambang P9 tidak diubah)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/sodex_mvfunding_p9_rerun.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_p9_rerun.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_p9_rerun.log
+TimeoutStartSec=2400

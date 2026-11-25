@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D12 — Analisis Mendalam & Akurat: Struktur Return Lane REAL-WIDE</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>D12 — Analisis Mendalam & Akurat: Struktur Return Lane REAL-WIDE</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#0-ringkasan-lima-temuan-baru">0. Ringkasan — Lima Temuan Baru</a></li>
+<li class="t2"><a href="#1-penutupan-arm-a1-opsi-a-dieksekusi">1. Penutupan Arm A1 — Opsi A Dieksekusi</a></li>
+<li class="t2"><a href="#2-bug-1-gerbang-vol-praktis-tidak-pernah-aktif">2. 🐛 BUG #1 — Gerbang Vol Praktis TIDAK PERNAH AKTIF</a></li>
+<li class="t3"><a href="#konsekuensi-yang-membongkar-kesimpulan-d11">Konsekuensi yang membongkar kesimpulan D11</a></li>
+<li class="t2"><a href="#3-bug-2-lane-paper-butuh-margin-328-wallet">3. 🐛 BUG #2 — Lane Paper Butuh Margin 328% Wallet</a></li>
+<li class="t2"><a href="#4-return-yang-akurat-disimulasi-dengan-batas-margin-wallet">4. Return yang AKURAT — Disimulasi dengan Batas Margin Wallet</a></li>
+<li class="t2"><a href="#5-distribusi-window-48-jam-angka-yang-paling-penting">5. Distribusi Window 48 Jam — Angka yang Paling Penting</a></li>
+<li class="t3"><a href="#divergensi-dari-tracker-resmi-dilaporkan-apa-adanya">Divergensi dari tracker resmi (dilaporkan apa adanya)</a></li>
+<li class="t2"><a href="#6-exit-parsial-naikkan-median-tapi-gagal-ketahanan">6. Exit Parsial — Naikkan Median, tapi GAGAL Ketahanan</a></li>
+<li class="t3"><a href="#bacaannya-jujur-termasuk-yang-tidak-enak">Bacaannya (jujur, termasuk yang tidak enak)</a></li>
+<li class="t3"><a href="#uji-signifikansi-median-bootstrap-10000-cluster-hari">Uji signifikansi MEDIAN (bootstrap 10.000, cluster-hari)</a></li>
+<li class="t3"><a href="#registry-anti-p-hacking">Registry (anti p-hacking)</a></li>
+<li class="t2"><a href="#7-putusan">7. Putusan</a></li>
+<li class="t2"><a href="#8-rekomendasi-urutan-yang-sudah-dikoreksi">8. Rekomendasi — Urutan yang Sudah Dikoreksi</a></li>
+<li class="t3"><a href="#r1-perbaiki-gerbang-vol-murah-wajib">R1 — Perbaiki gerbang vol (murah, wajib)</a></li>
+<li class="t3"><a href="#r2-selaraskan-anggaran-risiko-paper-live">R2 — Selaraskan anggaran risiko paper ↔ live</a></li>
+<li class="t3"><a href="#r3-serang-reliabilitas-bukan-level">R3 — Serang RELIABILITAS, bukan level</a></li>
+<li class="t3"><a href="#r4-order-flow-acuan-resmi-1-setelah-r1r3">R4 — Order Flow (acuan resmi #1) — setelah R1–R3</a></li>
+<li class="t2"><a href="#9-verifikasi">9. Verifikasi</a></li>
+</ul>
+</nav>
+<p><strong>Divisi SoDEX · Hermes Anantara v3 · 5 Oktober 2026</strong>
+<strong>Lanjutan D11.</strong> D11 membuktikan <em>apa</em> yang gagal. D12 membuktikan <strong><em>mengapa</em></strong> — dan menemukan <strong>dua bug yang membatalkan dua hasil sebelumnya</strong>.</p>
+<hr>
+<h2 id="0-ringkasan-lima-temuan-baru">0. Ringkasan — Lima Temuan Baru</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Temuan</th>
+<th>Dampak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong><code>atr_pct</code> HILANG pada 89% trade</strong> → <code>_entry_vol_gate</code> praktis <strong>tidak pernah aktif</strong></td>
+<td><strong>Membatalkan kesimpulan A/B</strong> — arm "gate ON" bukan gate</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Margin lane paper = 328% wallet</strong> ($800 vs $243,57)</td>
+<td>Return "+61%" adalah <strong>artefak</strong>, bukan hasil yang bisa didanai</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Return akurat (dibatasi margin wallet): +0,652%/hari</strong></td>
+<td><strong>163% target</strong> — tetapi lihat #4</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Median window 48 jam = +0,452% vs target 0,8%</strong> (baru 46,2% window capai)</td>
+<td>Masalahnya <strong>RELIABILITAS</strong>, bukan level</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Exit parsial menaikkan median trade</strong> (−0,044% → +0,248%) <strong>tetapi GAGAL ketahanan 3 segmen</strong> (S2 &lt; 0)</td>
+<td>Tidak boleh dipakai; sudah dicatat di registry</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-penutupan-arm-a1-opsi-a-dieksekusi">1. Penutupan Arm A1 — Opsi A Dieksekusi</h2>
+<table>
+<thead>
+<tr>
+<th>Tindakan</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>systemctl --user stop anantara-paper-realwide-atrvol.service</code></td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td><code>systemctl --user disable ...</code></td>
+<td>✅ <code>disabled</code></td>
+</tr>
+<tr>
+<td>Status akhir</td>
+<td><code>inactive</code> / <code>disabled</code></td>
+</tr>
+<tr>
+<td>Arsip bukti → <code>data/archive/arm_a1_atrvol_20261005/</code></td>
+<td>5 berkas, <strong>SHA256 tercatat</strong></td>
+</tr>
+<tr>
+<td>State dihapus?</td>
+<td><strong>TIDAK</strong> — jejak falsifikasi wajib dipertahankan</td>
+</tr>
+<tr>
+<td><code>README_KEPUTUSAN.md</code></td>
+<td>✅ ditulis (dasar, bukti, larangan hapus)</td>
+</tr>
+</tbody>
+</table>
+<p>Arm yang tersisa: <strong>KONTROL</strong> dan <strong>A2 <code>_atrvolopen</code></strong> (keduanya <code>active running</code>).</p>
+<blockquote>
+<p>Catatan jujur: A1 memiliki <strong>3 posisi terbuka</strong> saat dihentikan. Karena ini <strong>paper</strong> dan arm-nya dihentikan permanen, posisi tersebut tidak dieksekusi lebih lanjut — state-nya terarsip apa adanya. Tidak ada uang nyata yang terdampak.</p>
+</blockquote>
+<hr>
+<h2 id="2-bug-1-gerbang-vol-praktis-tidak-pernah-aktif">2. 🐛 BUG #1 — Gerbang Vol Praktis TIDAK PERNAH AKTIF</h2>
+<pre><code>trade dengan atr_pct ADA &amp; &gt; 0 :  27 / 245   ( 11,0%)
+trade dengan atr_pct 0 / NULL  : 218 / 245   ( 89,0%)
+</code></pre>
+<p><code>_entry_vol_gate(thr=2.0%)</code> menilai volatilitas dari <code>atr_pct</code>. Bila <code>atr_pct</code> = 0/NULL, gerbang <strong>tidak bisa menolak apa pun.</strong></p>
+<h3 id="konsekuensi-yang-membongkar-kesimpulan-d11">Konsekuensi yang membongkar kesimpulan D11</h3>
+<p>Desain eksperimen A/B adalah <strong>"gate ON" (A1) vs "gate OFF" (A2)</strong>. Tetapi bila gerbang itu sendiri no-op pada 89% entry:</p>
+<blockquote>
+<p><strong>A1 dan A2 sesungguhnya adalah PERLAKUAN YANG SAMA. Eksperimen membandingkan dua hal yang tidak berbeda — karena perbedaannya memang tidak ada.</strong></p>
+</blockquote>
+<p>Ini menjelaskan <strong>kenapa A2 ≈ KONTROL</strong> (D11) tanpa perlu berhipotesis apa pun. Bukan "vol gate bukan akar masalah" — melainkan <strong>vol gate tidak pernah berjalan</strong>.</p>
+<blockquote>
+<p><strong>D11 menyimpulkan hal yang benar dari alasan yang salah. Koreksi ini wajib.</strong></p>
+</blockquote>
+<p><strong>Ini juga cacat pada arm A/B itu sendiri</strong> (<code>AB_REALWIDE_ATR_ARM_20260925</code>): dokumennya menyatakan <em>"vol gate ATR&gt;2%: AKTIF"</em> pada arm kontrol &amp; A1. <strong>Tidak aktif.</strong> Dokumen arm salah menggambarkan perilaku sistemnya sendiri.</p>
+<hr>
+<h2 id="3-bug-2-lane-paper-butuh-margin-328-wallet">3. 🐛 BUG #2 — Lane Paper Butuh Margin 328% Wallet</h2>
+<p>Dari kode (<code>scripts/paper_test_realwide.py</code>):</p>
+<pre><code class="language-python">LEVERAGE = 3                      # baris 95
+return NOTIONAL * LEVERAGE        # baris 182 — &quot;exposure-based denominator&quot;
+pnl_usd = pnl * NOTIONAL * LEVERAGE   # baris 620
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Besaran</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exposure per posisi</td>
+<td><strong>$300</strong></td>
+</tr>
+<tr>
+<td>Margin per posisi</td>
+<td><strong>$100</strong></td>
+</tr>
+<tr>
+<td><strong>Konkurensi maksimum terukur</strong></td>
+<td><strong>8 posisi</strong></td>
+</tr>
+<tr>
+<td><strong>Margin puncak</strong></td>
+<td><strong>$800</strong></td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td><strong>$243,57</strong></td>
+</tr>
+<tr>
+<td><strong>Margin / wallet</strong></td>
+<td><strong>328%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lane paper mengambil posisi yang tidak bisa didanai wallet-nya sendiri.</strong></p>
+<p>Bandingkan dengan lane live yang <strong>punya</strong> plafon:</p>
+<pre><code>realwide_micro_live.py:79   LEVEL2_MARGIN_UTIL_CAP = 0.70
+</code></pre>
+<blockquote>
+<p><strong>Lane paper TIDAK punya plafon margin; lane live punya (70%).</strong>
+<strong>Dua lane memakai anggaran risiko berbeda → hasil paper tidak bisa dipindahkan ke live.</strong>
+Inilah sebabnya angka "+61,27%" tidak bermakna: ia dihitung dari notional yang tidak akan pernah tersedia.</p>
+</blockquote>
+<hr>
+<h2 id="4-return-yang-akurat-disimulasi-dengan-batas-margin-wallet">4. Return yang AKURAT — Disimulasi dengan Batas Margin Wallet</h2>
+<p>Simulasi: jalankan kronologis, ambil trade hanya bila margin tersedia.</p>
+<table>
+<thead>
+<tr>
+<th>Plafon margin</th>
+<th>Trade diambil</th>
+<th>Lewat</th>
+<th>PnL</th>
+<th>Return</th>
+<th>Per hari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tanpa batas</td>
+<td>245</td>
+<td>0</td>
+<td>$+149,24</td>
+<td>+61,27%</td>
+<td>+1,029%</td>
+</tr>
+<tr>
+<td><strong>100%</strong></td>
+<td>115</td>
+<td>130</td>
+<td>$+142,51</td>
+<td>+58,51%</td>
+<td>+0,982%</td>
+</tr>
+<tr>
+<td><strong>70% (aturan live)</strong></td>
+<td><strong>65</strong></td>
+<td><strong>180</strong></td>
+<td><strong>$+94,58</strong></td>
+<td><strong>+38,83%</strong></td>
+<td><strong>+0,652%</strong></td>
+</tr>
+<tr>
+<td>50%</td>
+<td>65</td>
+<td>180</td>
+<td>$+94,58</td>
+<td>+38,83%</td>
+<td>+0,652%</td>
+</tr>
+<tr>
+<td>33%</td>
+<td><strong>0</strong></td>
+<td>245</td>
+<td>$0,00</td>
+<td>0,00%</td>
+<td><strong>0,000%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Poin-poin penting:</strong></p>
+<ol>
+<li><strong>Pada plafon 33%, lane tidak bisa mengambil SATU trade pun</strong> ($80 &lt; margin $100). Lane ini <strong>rentan mati</strong> bila modal kecil.</li>
+<li><strong>Pada aturan live (70%): +0,652%/hari = 163% dari target 0,4%/hari.</strong> Ini <strong>kabar baik</strong> — dan jauh lebih baik dari kesan D11.</li>
+<li><strong>Tetapi kapasitasnya hanya 1 posisi serentak</strong> (bukan 8) — 180 dari 245 trade harus dilewatkan.</li>
+</ol>
+<hr>
+<h2 id="5-distribusi-window-48-jam-angka-yang-paling-penting">5. Distribusi Window 48 Jam — Angka yang Paling Penting</h2>
+<p>Ini unit target yang sebenarnya (0,8% per 48 jam). Pada plafon 70%:</p>
+<table>
+<thead>
+<tr>
+<th>Ukuran</th>
+<th>Nilai</th>
+<th>Target</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mean window</strong></td>
+<td><strong>+1,493%</strong></td>
+<td>0,8%</td>
+<td>✅ 187%</td>
+</tr>
+<tr>
+<td><strong>Median window</strong></td>
+<td><strong>+0,452%</strong></td>
+<td>0,8%</td>
+<td>⚠️ <strong>56%</strong></td>
+</tr>
+<tr>
+<td><strong>Window ≥ 0,8%</strong></td>
+<td><strong>12/26 = 46,2%</strong></td>
+<td>≥50%</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Window positif</td>
+<td>15/26 = 57,7%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Window terburuk</td>
+<td><strong>−5,45%</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Window terbaik</td>
+<td>+16,05%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inilah diagnosis sebenarnya, dan ia BUKAN "tidak ada edge".</strong></p>
+<p><strong>Mean jauh di atas target (+1,49% vs 0,8%). Yang gagal adalah MEDIAN (+0,452%) dan HIT-RATE (46,2%).</strong></p>
+<p><strong>Target kita adalah "harga mati" — harus nyaris selalu terpenuhi. Lane ini memenuhinya kurang dari separuh waktu.</strong></p>
+<p><strong>Masalahnya RELIABILITAS, bukan LEVEL.</strong> Level sudah lewat; konsistensinya belum.</p>
+</blockquote>
+<h3 id="divergensi-dari-tracker-resmi-dilaporkan-apa-adanya">Divergensi dari tracker resmi (dilaporkan apa adanya)</h3>
+<table>
+<thead>
+<tr>
+<th>Sumber</th>
+<th>n</th>
+<th>Median window</th>
+<th>Hit ≥0,8%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tracker resmi (<code>sodex_maturation_status.json</code>)</td>
+<td>145</td>
+<td><strong>0,00%</strong></td>
+<td><strong>39,1%</strong> (9/23)</td>
+</tr>
+<tr>
+<td>D12 (plafon 70%, n=245→65)</td>
+<td>65</td>
+<td><strong>+0,452%</strong></td>
+<td><strong>46,2%</strong> (12/26)</td>
+</tr>
+</tbody>
+</table>
+<p>Kedua konstruksi <strong>berbeda</strong> (subset &amp; definisi window berbeda) dan <strong>keduanya di bawah target pada median</strong>. Tidak ada yang saling membatalkan: <strong>arahnya sama, besarnya berbeda.</strong> Dilaporkan keduanya agar tidak menyesatkan.</p>
+<hr>
+<h2 id="6-exit-parsial-naikkan-median-tapi-gagal-ketahanan">6. Exit Parsial — Naikkan Median, tapi GAGAL Ketahanan</h2>
+<p><strong>Kandidat dideklarasikan di muka: 5 threshold (0,50 / 0,75 / 1,00 / 1,50 / 2,00).</strong>
+Aturan: 50% posisi keluar di +t% bila puncak menyentuh +t% (limit order — <strong>pasti terisi</strong>, tanpa look-ahead); 50% sisanya exit apa adanya.</p>
+<table>
+<thead>
+<tr>
+<th>Varian</th>
+<th>mean</th>
+<th><strong>median</strong></th>
+<th>WR</th>
+<th>S1 med</th>
+<th><strong>S2 med</strong></th>
+<th>S3 med</th>
+<th>Lulus 3 segmen?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BASELINE</td>
+<td>+0,203%</td>
+<td><strong>−0,044%</strong></td>
+<td>49,4%</td>
+<td>+0,756%</td>
+<td><strong>−1,061%</strong></td>
+<td>+0,014%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>50% di +0,50%</td>
+<td>+0,141%</td>
+<td><strong>+0,228%</strong></td>
+<td>51,8%</td>
+<td>+0,756%</td>
+<td><strong>−0,537%</strong></td>
+<td>+0,257%</td>
+<td>❌ sebagian</td>
+</tr>
+<tr>
+<td><strong>50% di +0,75%</strong></td>
+<td>+0,141%</td>
+<td><strong>+0,248%</strong></td>
+<td>51,4%</td>
+<td>+0,756%</td>
+<td><strong>−0,454%</strong></td>
+<td>+0,353%</td>
+<td>❌ sebagian</td>
+</tr>
+<tr>
+<td>50% di +1,00%</td>
+<td>+0,148%</td>
+<td>+0,119%</td>
+<td>51,4%</td>
+<td>+0,756%</td>
+<td><strong>−1,046%</strong></td>
+<td>+0,414%</td>
+<td>❌ sebagian</td>
+</tr>
+<tr>
+<td>50% di +1,50%</td>
+<td>+0,176%</td>
+<td>+0,155%</td>
+<td>51,8%</td>
+<td>+0,756%</td>
+<td><strong>−1,061%</strong></td>
+<td>+0,242%</td>
+<td>❌ sebagian</td>
+</tr>
+<tr>
+<td>50% di +2,00%</td>
+<td>+0,155%</td>
+<td>+0,062%</td>
+<td>50,6%</td>
+<td>+0,756%</td>
+<td><strong>−1,061%</strong></td>
+<td>+0,194%</td>
+<td>❌ sebagian</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bacaannya-jujur-termasuk-yang-tidak-enak">Bacaannya (jujur, termasuk yang tidak enak)</h3>
+<ol>
+<li><strong>Exit parsial MEMANG menaikkan median</strong> (+0,044% → +0,248%) dengan mengorbankan mean (−31%). <strong>Secara arah, ini tepat</strong>: target kita median, dan kita menukar sedikit mean untuk median. <strong>Mekanismenya nyata.</strong></li>
+<li><strong>TAPI gagal ketahanan 3 segmen.</strong> Di <strong>S2 (n=103, segmen terbesar) median tetap NEGATIF</strong> pada semua 5 varian.</li>
+<li>Pola <strong>S1 untung besar / S2 negatif / S3 datar</strong> adalah <strong>pola jendela mujur</strong>, bukan pola filter bagus — persis peringatan di <code>skill: signal-falsification</code>.</li>
+<li><strong>Segmen S1 hanya n=29</strong> (mean +1,667%, WR 72,4%). <strong>S1 adalah jendela keberuntungan</strong>, dan seluruh kesan "edge" bersumber dari sana.</li>
+</ol>
+<h3 id="uji-signifikansi-median-bootstrap-10000-cluster-hari">Uji signifikansi MEDIAN (bootstrap 10.000, cluster-hari)</h3>
+<table>
+<thead>
+<tr>
+<th>Varian</th>
+<th>median</th>
+<th>CI95</th>
+<th>P(median ≤ 0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BASELINE</td>
+<td>−0,044%</td>
+<td>[−0,752%, +0,206%]</td>
+<td><strong>0,570</strong></td>
+</tr>
+<tr>
+<td>Parsial +0,75%</td>
+<td>+0,248%</td>
+<td>[−0,250%, +0,468%]</td>
+<td><strong>0,326</strong></td>
+</tr>
+<tr>
+<td>Parsial +0,50%</td>
+<td>+0,228%</td>
+<td>[−0,338%, +0,347%]</td>
+<td><strong>0,280</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>P(median≤0) turun dari 0,570 → 0,280</strong> — perbaikan nyata secara arah, <strong>tetapi belum di bawah 0,05</strong>. <strong>Belum signifikan.</strong></p>
+<h3 id="registry-anti-p-hacking">Registry (anti p-hacking)</h3>
+<pre><code>sebelum: n = 31
+sesudah: n = 36   (+5)
+berkas stabil (tanpa tanggal), append-only, TIDAK ada reset
+verdict tercatat: REJECTED — gagal ketahanan 3 segmen; tidak signifikan
+</code></pre>
+<p><strong>5 trial dideklarasikan &amp; dicatat. Tidak ada penyembunyian trial.</strong></p>
+<hr>
+<h2 id="7-putusan">7. Putusan</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td><strong>Arm A1 ditutup permanen</strong> (Opsi A) — bukti terarsip, tidak dihapus</td>
+</tr>
+<tr>
+<td>P2</td>
+<td><strong><code>_entry_vol_gate</code> RUSAK</strong> — atr_pct hilang 89%. Harus diperbaiki atau diakui non-fungsional</td>
+</tr>
+<tr>
+<td>P3</td>
+<td><strong>Lane paper tidak margin-feasible</strong> (328% wallet) — hasil paper ≠ transferable ke live</td>
+</tr>
+<tr>
+<td>P4</td>
+<td><strong>Lane punya LEVEL yang cukup</strong> (+0,652%/hari = 163% target pada plafon live 70%)</td>
+</tr>
+<tr>
+<td>P5</td>
+<td><strong>Lane GAGAL pada RELIABILITAS</strong> (median 56% target; 46,2% window capai target)</td>
+</tr>
+<tr>
+<td>P6</td>
+<td><strong>Exit parsial: mekanisme nyata, tapi ditolak</strong> (gagal 3 segmen, belum signifikan)</td>
+</tr>
+<tr>
+<td>P7</td>
+<td><strong>S1 adalah jendela mujur</strong> — jangan menarik kesimpulan dari S1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Diagnosis akhir: masalahnya bukan "tidak ada edge". Masalahnya adalah DISTRIBUSI — mean lewat, median kurang, ekor menentukan.</strong></p>
+<p><strong>Ini memperkuat (bukan membatalkan) tesis D11.</strong> D11 menemukan bentuknya; D12 mengukur besarnya.</p>
+</blockquote>
+<hr>
+<h2 id="8-rekomendasi-urutan-yang-sudah-dikoreksi">8. Rekomendasi — Urutan yang Sudah Dikoreksi</h2>
+<h3 id="r1-perbaiki-gerbang-vol-murah-wajib">R1 — Perbaiki gerbang vol (murah, wajib)</h3>
+<p><code>atr_pct</code> hilang pada 89% trade. Sebelum gerbang apa pun bisa dinilai, <strong>ia harus benar-benar berjalan.</strong>
+→ Setelah diperbaiki, ulangi uji falsifikasi gerbang (<code>skill: signal-gate-falsification</code>) pada <strong>gerbang yang benar-benar aktif.</strong></p>
+<h3 id="r2-selaraskan-anggaran-risiko-paper-live">R2 — Selaraskan anggaran risiko paper ↔ live</h3>
+<p>Lane paper tanpa plafon margin (328%) vs live 70%. <strong>Tambahkan plafon yang sama ke lane paper</strong>, lalu <strong>hitung ulang seluruh hasil</strong> dengan anggaran yang transferable. Tanpa ini, semua angka paper tidak sah sebagai bukti kesiapan live.</p>
+<h3 id="r3-serang-reliabilitas-bukan-level">R3 — Serang RELIABILITAS, bukan level</h3>
+<p>Level sudah cukup. Yang kurang median &amp; hit-rate. Kandidat:
+- <strong>Exit parsial</strong> — mekanisme terbukti menaikkan median; perlu <strong>validasi forward</strong> (bukan in-sample), karena in-sample gagal 3 segmen.
+- Cari <strong>sub-populasi dengan median positif</strong>. Satu-satunya kandidat ber-n cukup: <strong>SOL (n=26, mean +1,055%, median +0,325%, WR 53,8%)</strong> — perlu verifikasi mandiri.</p>
+<h3 id="r4-order-flow-acuan-resmi-1-setelah-r1r3">R4 — Order Flow (acuan resmi #1) — setelah R1–R3</h3>
+<p>Masih kandidat terkuat yang <strong>belum</strong> diuji, dengan 1,6 GB data segar.</p>
+<hr>
+<h2 id="9-verifikasi">9. Verifikasi</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data</td>
+<td><code>paper_test_realwide_state.json</code> (245 closed)</td>
+</tr>
+<tr>
+<td>Kode diperiksa</td>
+<td><code>scripts/paper_test_realwide.py</code> (baris 95/168–182/620), <code>scripts/realwide_micro_live.py</code> (baris 79)</td>
+</tr>
+<tr>
+<td>Simulasi margin</td>
+<td>kronologis, margin $100/posisi, plafon 33/50/70/100%</td>
+</tr>
+<tr>
+<td>Bootstrap</td>
+<td>10.000 resample; median; seed 7 &amp; 11</td>
+</tr>
+<tr>
+<td>Segmen</td>
+<td>3, dibagi rata atas <code>entry_ts</code> (S1 n=29 / S2 n=103 / S3 n=113)</td>
+</tr>
+<tr>
+<td>Registry</td>
+<td><code>reports/sodex/sodex_trial_registry.json</code> — <strong>31 → 36</strong>, append-only</td>
+</tr>
+<tr>
+<td>Arsip</td>
+<td><code>data/archive/arm_a1_atrvol_20261005/</code> (5 berkas + SHA256 + README)</td>
+</tr>
+<tr>
+<td>Produksi disentuh</td>
+<td>1 unit systemd paper <strong>dihentikan</strong> atas persetujuan user (Opsi A)</td>
+</tr>
+<tr>
+<td>Skrip</td>
+<td><code>.hermes/cache/scratch/{deep_dist,deep2,accurate}.py</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>D12 · Divisi SoDEX · Hermes Anantara v3 · 5 Oktober 2026</em>
+<em>Terkait: D11 (falsifikasi exit), D10 (analisis dokumen), D09 (falsifikasi model)</em></p>
+</body>
+</html>

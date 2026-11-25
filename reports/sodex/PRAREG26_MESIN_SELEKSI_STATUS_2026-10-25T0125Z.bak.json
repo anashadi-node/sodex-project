@@ -1,0 +1,25 @@
+{
+ "prereg": "PRAREG-26",
+ "generated_utc": "2026-10-25T01:25:00+00:00",
+ "fwd_start": "2026-10-12T00:00:00+00:00",
+ "verdict_date": "2026-11-25",
+ "giveup_date": "2026-11-30",
+ "t_crit": 3.8,
+ "amendment": "AMANDEMEN_PRAREG26_JADWAL_2026-10-19.md",
+ "protocol_sha256": "b71fc29338a4034738a43513c11f833f4aeb1c271c47a8d20a7e7e0f0732e7ad",
+ "wallet_usd": 262.77,
+ "n_titik_keputusan": 14,
+ "n_trade_forward_penuh": 160,
+ "n_trade_forward_subset": 0,
+ "n_window": 7,
+ "n_window_min": 12,
+ "window_rate_per_day": 0.536,
+ "days_elapsed": 13.1,
+ "projected_windows_at_verdict": 23.6,
+ "data_status": "ON_TRACK",
+ "mesin_terpilih_terakhir": [],
+ "kriteria": {
+  "data_cukup": false
+ },
+ "verdict": "MENUNGGU — 7/12 window berisi (verdict terencana 2026-11-25)"
+}

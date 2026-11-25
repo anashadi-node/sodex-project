@@ -1,0 +1,149 @@
+{
+ "protocol_sha256": "2f2ce12dbb4e93c43083c04d23d43dcdce521be206fe2cfa2b9cb8350979776f",
+ "n_holdout": 437,
+ "n_train": 1659,
+ "baseline_train_wr": 0.409,
+ "holdout_all": {
+  "n": 437,
+  "wr": 0.2265,
+  "k": 99,
+  "mean_usd": -2.125,
+  "median_pct": -0.00311,
+  "n_pct": 311,
+  "sum_usd_POOLED_CAVEAT": -928.56
+ },
+ "kontrol_random_holdout": {
+  "n": 201,
+  "wr": 0.194,
+  "k": 39,
+  "mean_usd": -1.309,
+  "median_pct": -0.00178,
+  "n_pct": 201,
+  "sum_usd_POOLED_CAVEAT": -263.12
+ },
+ "holdout_sinyal_saja": {
+  "n": 236,
+  "wr": 0.2542,
+  "k": 60,
+  "mean_usd": -2.82,
+  "median_pct": -0.01204,
+  "n_pct": 110,
+  "sum_usd_POOLED_CAVEAT": -665.44
+ },
+ "R_A_jam12": {
+  "label": "R-A tolak jam 12 UTC",
+  "verdict": "GAGAL",
+  "kept": {
+   "n": 233,
+   "wr": 0.2575,
+   "k": 60,
+   "mean_usd": -2.785,
+   "median_pct": -0.01204,
+   "n_pct": 110,
+   "sum_usd_POOLED_CAVEAT": -648.83
+  },
+  "dropped": {
+   "n": 3,
+   "wr": 0.0,
+   "k": 0,
+   "mean_usd": -5.537,
+   "median_pct": null,
+   "n_pct": 0,
+   "sum_usd_POOLED_CAVEAT": -16.61
+  },
+  "delta_wr": 0.2575,
+  "binom_p": 1.0,
+  "checks": {
+   "wr_ge_45": false,
+   "dwr_ge_5pp": true,
+   "n_ge_40": true,
+   "binom_p_lt_05": false
+  },
+  "windows_kept": {
+   "n_windows": 6,
+   "median": -53.245,
+   "mean": -44.54,
+   "hit": 1,
+   "hit_rate": 0.167
+  },
+  "note": "",
+  "beat_control": true
+ },
+ "R_B_atr": {
+  "label": "R-B tolak ATR>=1%",
+  "verdict": "GAGAL",
+  "kept": {
+   "n": 69,
+   "wr": 0.1884,
+   "k": 13,
+   "mean_usd": -3.634,
+   "median_pct": -0.0117,
+   "n_pct": 69,
+   "sum_usd_POOLED_CAVEAT": -250.75
+  },
+  "dropped": {
+   "n": 24,
+   "wr": 0.25,
+   "k": 6,
+   "mean_usd": -2.945,
+   "median_pct": -0.01209,
+   "n_pct": 24,
+   "sum_usd_POOLED_CAVEAT": -70.67
+  },
+  "delta_wr": -0.0616,
+  "binom_p": 0.99997,
+  "checks": {
+   "wr_ge_45": false,
+   "dwr_ge_5pp": false,
+   "n_ge_40": true,
+   "binom_p_lt_05": false
+  },
+  "windows_kept": {
+   "n_windows": 6,
+   "median": -15.404,
+   "mean": -17.213,
+   "hit": 0,
+   "hit_rate": 0.0
+  },
+  "note": "n ber-atr_pct di holdout = 93"
+ },
+ "R_AB_gabungan": {
+  "label": "R-AB gabungan",
+  "verdict": "GAGAL",
+  "kept": {
+   "n": 209,
+   "wr": 0.2584,
+   "k": 54,
+   "mean_usd": -2.766,
+   "median_pct": -0.012,
+   "n_pct": 86,
+   "sum_usd_POOLED_CAVEAT": -578.16
+  },
+  "dropped": {
+   "n": 27,
+   "wr": 0.2222,
+   "k": 6,
+   "mean_usd": -3.233,
+   "median_pct": -0.01209,
+   "n_pct": 24,
+   "sum_usd_POOLED_CAVEAT": -87.28
+  },
+  "delta_wr": 0.0362,
+  "binom_p": 1.0,
+  "checks": {
+   "wr_ge_45": false,
+   "dwr_ge_5pp": false,
+   "n_ge_40": true,
+   "binom_p_lt_05": false
+  },
+  "windows_kept": {
+   "n_windows": 6,
+   "median": -46.278,
+   "mean": -39.689,
+   "hit": 1,
+   "hit_rate": 0.167
+  },
+  "note": "",
+  "beat_control": true
+ }
+}

@@ -1,0 +1,9 @@
+[Unit]
+Description=SoDEX PRAREG-38 perp PAPER executor (P1, 3x perp account)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/anantara-sakti/scripts/research/mode_a_20261026
+ExecStart=%h/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore lev_20261026/perp_exec.py apply --equity 60
+Nice=10

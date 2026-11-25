@@ -1,0 +1,9 @@
+[Unit]
+Description=SoDEX PRAREG-37 shadow recorder (vol-target 25% cap 2.5)
+After=network-online.target sodex-hybrid36-record.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/anantara-sakti/scripts/research/mode_a_20261026/lev_20261026/improve_20261026
+ExecStart=%h/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore shadow37.py record
+Nice=10

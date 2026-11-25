@@ -1,0 +1,15 @@
+[Unit]
+Description=Anantara Sakti - SoDEX klines forward recorder 1h+1d (read-only, GET publik)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# READ-ONLY: hanya HTTP GET endpoint publik SoDEX + tulis data/sodex_klines/.
+# Tidak ada auth, tidak ada jalur order, tidak menyentuh file produksi/ambang.
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/research/sodex_pull_klines_paged.py 1h all
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/research/sodex_pull_klines_paged.py 1d all
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_klines_forward.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_klines_forward.log
+TimeoutStartSec=2400

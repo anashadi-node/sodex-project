@@ -1,0 +1,11 @@
+[Unit]
+Description=Run SoDEX capital report every 6 hours
+Requires=sodex-capital-report.service
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=6h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,140 @@
+{
+ "S4_vol_managed_moreira_muir": [
+  {
+   "title": "Volatility Managed Portfolios",
+   "doi": "10.3386/w22208",
+   "venue": "",
+   "year": 2016,
+   "cites": 15
+  },
+  {
+   "title": "Volatility-Managed Portfolios",
+   "doi": "10.2139/ssrn.2659431",
+   "venue": "",
+   "year": 2015,
+   "cites": 0
+  },
+  {
+   "title": "Volatility\u2010Managed Portfolios",
+   "doi": "10.1111/jofi.12513",
+   "venue": "The Journal of Finance",
+   "year": 2017,
+   "cites": 549
+  }
+ ],
+ "S2_OFI_cont_kukanov_stoikov": [
+  {
+   "title": "Order Flow Imbalance and Price Impact in Indian Equity Derivatives: Cross-Sectional Evidence from NSE F&amp;am",
+   "doi": "10.2139/ssrn.7542098",
+   "venue": "",
+   "year": 2026,
+   "cites": 0
+  },
+  {
+   "title": "Order Flow Imbalance and Price Discovery on Prediction Markets: Evidence from Kalshi",
+   "doi": "10.2139/ssrn.7520438",
+   "venue": "",
+   "year": 2026,
+   "cites": 0
+  },
+  {
+   "title": "Empirical Study of Market Impact Conditional on Order-Flow Imbalance",
+   "doi": "10.2139/ssrn.3589220",
+   "venue": "",
+   "year": 2020,
+   "cites": 2
+  }
+ ],
+ "S1_meta_labeling_ldp": [
+  {
+   "title": "The Two-Thirds Rule and the Unit Rule",
+   "doi": "10.4135/cqresrre1926062100",
+   "venue": "",
+   "year": 1926,
+   "cites": 0
+  },
+  {
+   "title": "Two-Thirds Rule",
+   "doi": "10.4135/9781483300528.n266",
+   "venue": "Elections A to Z",
+   "year": 2008,
+   "cites": 0
+  },
+  {
+   "title": "Two-Thirds Rule",
+   "doi": "10.4135/9781452234144.n257",
+   "venue": "Elections A to Z",
+   "year": 2012,
+   "cites": 0
+  }
+ ],
+ "C1_sprt_wald": [
+  {
+   "title": "Asymptotic optimality of the wald sequential test",
+   "doi": "10.1080/07474949508836342",
+   "venue": "Sequential Analysis",
+   "year": 1995,
+   "cites": 0
+  },
+  {
+   "title": "Sequential Analysis, Wald\u2010Hoeffding Inequality",
+   "doi": "10.1002/9781118445112.stat01956",
+   "venue": "Wiley StatsRef: Statistics Reference Online",
+   "year": 2014,
+   "cites": 1
+  },
+  {
+   "title": "The Wald\u2013Wolfowitz Theorem Is Violated in Sequential Mastery Testing",
+   "doi": "10.1080/07474940802241033",
+   "venue": "Sequential Analysis",
+   "year": 2008,
+   "cites": 2
+  }
+ ],
+ "C3_vol_targeting_crypto": [
+  {
+   "title": "Determinants of cryptocurrency price volatility",
+   "doi": "10.12681/eadd/59774",
+   "venue": "",
+   "year": null,
+   "cites": 0
+  },
+  {
+   "title": "Analyzing Cryptocurrency Volatility: An EGARCH Model",
+   "doi": "10.29201/pe-ipn.v20i41.183",
+   "venue": "Panorama Econ\u00f3mico",
+   "year": 2024,
+   "cites": 0
+  },
+  {
+   "title": "Cryptocurrency Volatility Forecasting Using Commonality in Intraday Volatility",
+   "doi": "10.2139/ssrn.4617739",
+   "venue": "",
+   "year": 2023,
+   "cites": 0
+  }
+ ],
+ "C6_hpos_crypto_test": [
+  {
+   "title": "Cryptocurrency Return Predictability: A Machine-Learning Analysis",
+   "doi": "10.2139/ssrn.3914414",
+   "venue": "",
+   "year": 2021,
+   "cites": 4
+  },
+  {
+   "title": "Market Crash Risk and Return Predictability",
+   "doi": "10.2139/ssrn.5328485",
+   "venue": "",
+   "year": 2025,
+   "cites": 0
+  },
+  {
+   "title": "Cross-Cryptocurrency Return Predictability",
+   "doi": "10.2139/ssrn.3974583",
+   "venue": "",
+   "year": 2021,
+   "cites": 3
+  }
+ ]
+}

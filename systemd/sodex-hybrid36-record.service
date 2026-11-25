@@ -1,0 +1,12 @@
+[Unit]
+Description=PRAREG-36 paper-forward hybrid (B2 1,5x + A 2x) — DRY-RUN, tanpa order
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/lev_20261026
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore hybrid36.py record forward36
+StandardOutput=append:/home/USER/anantara-sakti/logs/hybrid36_record.log
+StandardError=append:/home/USER/anantara-sakti/logs/hybrid36_record.log
+Nice=10

@@ -1,0 +1,33 @@
+{
+ "protokol": "PRAREG-23-H1-v1",
+ "dibekukan_utc": "2026-10-09T16:09:36+00:00",
+ "sha256_protokol": "f4ba693bc1e89e3612f829c36fd1bd8922199cd493cb2ee3cbcc0d4faa7c449c",
+ "baris_protokol": 121,
+ "persetujuan": {
+  "oleh": "Anas",
+  "tanggal": "2026-10-09",
+  "keputusan": [
+   "tangga target 0,10 lantai / 0,25 sasaran / 0,40 stretch (0,8 tetap jangka panjang)",
+   "substitusi universe: XAUT+HYPE -> BNB+LINK+XRP (tidak terdaftar di Binance spot)"
+  ]
+ },
+ "universe": [
+  "BTCUSDT",
+  "ETHUSDT",
+  "SOLUSDT",
+  "BNBUSDT",
+  "LINKUSDT",
+  "XRPUSDT"
+ ],
+ "data_fingerprint": {
+  "BTCUSDT": "f3216733ade903d8",
+  "ETHUSDT": "c07389b6ebee1705",
+  "SOLUSDT": "bf4e45934a3e81d5",
+  "BNBUSDT": "e764435d40940a30",
+  "LINKUSDT": "ae8ff4803efaa337",
+  "XRPUSDT": "8bcfdb1c98fe1d93"
+ },
+ "batas_verifikasi": "<= 2025-10-09 (bar terakhir API Binance hidup); ekstensi dilaporkan terpisah",
+ "ambang_keputusan_t": ">= 3,6 (N~164 trial)",
+ "urutan": "DIBEKUKAN SEBELUM dieksekusi - tidak ada ambang diubah setelah ini"
+}

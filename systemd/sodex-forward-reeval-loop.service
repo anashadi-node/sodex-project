@@ -1,0 +1,11 @@
+[Unit]
+Description=Anantara Sakti - SoDEX D0.3 forward evidence re-evaluation loop (read-only)
+After=network-online.target sodex-funding-rate-collector.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/sodex_forward_reeval_loop.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_forward_reeval_loop.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_forward_reeval_loop.log

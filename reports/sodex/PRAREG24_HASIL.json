@@ -1,0 +1,564 @@
+{
+ "protokol": "PRAREG-24-v1-frozen-2026-10-09",
+ "bonferroni": 0.016666666666666666,
+ "max_bobot": 1.0,
+ "varian": {
+  "V0_baseline_H1": {
+   "div_n": true,
+   "vol_target": 0.25
+  },
+  "V1_tanpa_pembagi_N": {
+   "div_n": false,
+   "vol_target": 0.25
+  },
+  "V2_voltarget_50": {
+   "div_n": true,
+   "vol_target": 0.5
+  },
+  "V3_gabungan": {
+   "div_n": false,
+   "vol_target": 0.5
+  }
+ },
+ "verified_end": "2025-10-09",
+ "terverifikasi": {
+  "V0_baseline_H1": {
+   "25bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.4676556116938935,
+     "ret_total_pct": 199.8681458604969,
+     "mdd_pct": -12.194623240910962,
+     "pct_per_48j": 0.07382916762534997,
+     "cagr_pct": 14.418033649016483,
+     "eksposur_rata": 0.10689890316740452,
+     "blok_positif_pct": 41.891891891891895,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.0815,
+    "sub_periode": {
+     "2019-2021": 2.1861485768316884,
+     "2022-2023": 0.7090065361688577,
+     "2024-2026": 1.4946919165891366
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.5319965588188569,
+     "ret_total_pct": 214.81222520264026,
+     "mdd_pct": -11.050986563737453,
+     "pct_per_48j": 0.0771000135545874,
+     "cagr_pct": 15.102552958020832,
+     "eksposur_rata": 0.10689890316740452,
+     "blok_positif_pct": 42.567567567567565,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.0445,
+    "sub_periode": {
+     "2019-2021": 2.2361523818804043,
+     "2022-2023": 0.8163588461981034,
+     "2024-2026": 1.5687636739684165
+    }
+   },
+   "btc_bh": {
+    "n_hari": 2975,
+    "sharpe": 0.9523558365156588,
+    "ret_total_pct": 2861.3301625705562,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.22803935561008792,
+    "cagr_pct": 51.542818042886736,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 55.4054054054054,
+    "blok_median_pct": 1.9887632611976347,
+    "n_blok": 148
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": true,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": false,
+     "g_eksposur_ge_0.30": false
+    },
+    "sub_positif": 3
+   }
+  },
+  "V1_tanpa_pembagi_N": {
+   "25bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.398553505073218,
+     "ret_total_pct": 4924.336523795618,
+     "mdd_pct": -50.15950204929682,
+     "pct_per_48j": 0.26357783940538226,
+     "cagr_pct": 61.671566653274866,
+     "eksposur_rata": 0.4802768953766427,
+     "blok_positif_pct": 43.24324324324324,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.108,
+    "sub_periode": {
+     "2019-2021": 2.211421798975023,
+     "2022-2023": 0.521190180271394,
+     "2024-2026": 1.2198609237220528
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.4644961460912942,
+     "ret_total_pct": 6113.91592434975,
+     "mdd_pct": -46.51577310984335,
+     "pct_per_48j": 0.27789727367020234,
+     "cagr_pct": 65.94050456186018,
+     "eksposur_rata": 0.4802768953766427,
+     "blok_positif_pct": 43.24324324324324,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.078,
+    "sub_periode": {
+     "2019-2021": 2.2587839498852316,
+     "2022-2023": 0.6446754059648504,
+     "2024-2026": 1.2970062384700596
+    }
+   },
+   "btc_bh": {
+    "n_hari": 2975,
+    "sharpe": 0.9523558365156588,
+    "ret_total_pct": 2861.3301625705562,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.22803935561008792,
+    "cagr_pct": 51.542818042886736,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 55.4054054054054,
+    "blok_median_pct": 1.9887632611976347,
+    "n_blok": 148
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": false,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 3
+   }
+  },
+  "V2_voltarget_50": {
+   "25bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.4531536146103485,
+     "ret_total_pct": 679.1903836395705,
+     "mdd_pct": -22.645300760114672,
+     "pct_per_48j": 0.13807138848391798,
+     "cagr_pct": 28.63470890881279,
+     "eksposur_rata": 0.2051617443347296,
+     "blok_positif_pct": 41.891891891891895,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.072,
+    "sub_periode": {
+     "2019-2021": 2.1819830945460925,
+     "2022-2023": 0.6769699603772465,
+     "2024-2026": 1.4413299291300292
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.5168418367243361,
+     "ret_total_pct": 756.0143684603856,
+     "mdd_pct": -20.670030019929577,
+     "pct_per_48j": 0.14439965171368918,
+     "cagr_pct": 30.1268137800069,
+     "eksposur_rata": 0.2051617443347296,
+     "blok_positif_pct": 42.567567567567565,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.0515,
+    "sub_periode": {
+     "2019-2021": 2.2321780140305867,
+     "2022-2023": 0.7838434821557295,
+     "2024-2026": 1.5157864700997092
+    }
+   },
+   "btc_bh": {
+    "n_hari": 2975,
+    "sharpe": 0.9523558365156588,
+    "ret_total_pct": 2861.3301625705562,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.22803935561008792,
+    "cagr_pct": 51.542818042886736,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 55.4054054054054,
+    "blok_median_pct": 1.9887632611976347,
+    "n_blok": 148
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": true,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": false
+    },
+    "sub_positif": 3
+   }
+  },
+  "V3_gabungan": {
+   "25bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.2610626753071477,
+     "ret_total_pct": 6353.080281155291,
+     "mdd_pct": -63.471906851725535,
+     "pct_per_48j": 0.2804424168862507,
+     "cagr_pct": 66.71091644853553,
+     "eksposur_rata": 0.6239445716962443,
+     "blok_positif_pct": 45.270270270270274,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.184,
+    "sub_periode": {
+     "2019-2021": 2.055404116258071,
+     "2022-2023": 0.3218688791535132,
+     "2024-2026": 1.146265504729544
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 2976,
+     "sharpe": 1.3348254054798918,
+     "ret_total_pct": 8632.662303512077,
+     "mdd_pct": -60.86476395434235,
+     "pct_per_48j": 0.300831658607148,
+     "cagr_pct": 73.01249300184635,
+     "eksposur_rata": 0.6239445716962443,
+     "blok_positif_pct": 45.270270270270274,
+     "blok_median_pct": 0.0,
+     "n_blok": 148
+    },
+    "p_vs_btc": 0.1405,
+    "sub_periode": {
+     "2019-2021": 2.109565531965574,
+     "2022-2023": 0.4568530801227146,
+     "2024-2026": 1.230522692876954
+    }
+   },
+   "btc_bh": {
+    "n_hari": 2975,
+    "sharpe": 0.9523558365156588,
+    "ret_total_pct": 2861.3301625705562,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.22803935561008792,
+    "cagr_pct": 51.542818042886736,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 55.4054054054054,
+    "blok_median_pct": 1.9887632611976347,
+    "n_blok": 148
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": false,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 3
+   }
+  }
+ },
+ "penuh_termasuk_ekstensi": {
+  "V0_baseline_H1": {
+   "25bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.2920826077214755,
+     "ret_total_pct": 187.2799357678639,
+     "mdd_pct": -12.194623240910962,
+     "pct_per_48j": 0.06322974140740012,
+     "cagr_pct": 12.227492882479552,
+     "eksposur_rata": 0.10539683910444553,
+     "blok_positif_pct": 39.1566265060241,
+     "blok_median_pct": -0.0024345370387035548,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.0895,
+    "sub_periode": {
+     "2019-2021": 2.1861485768316884,
+     "2022-2023": 0.7090065361688577,
+     "2024-2026": 0.9191991218022478
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.3619397911787454,
+     "ret_total_pct": 204.44561693917814,
+     "mdd_pct": -11.050986563737453,
+     "pct_per_48j": 0.06670821112486625,
+     "cagr_pct": 12.941736915198664,
+     "eksposur_rata": 0.10539683910444553,
+     "blok_positif_pct": 39.75903614457831,
+     "blok_median_pct": 0.0,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.049,
+    "sub_periode": {
+     "2019-2021": 2.2361523818804043,
+     "2022-2023": 0.8163588461981034,
+     "2024-2026": 1.0074981477765172
+    }
+   },
+   "btc_bh": {
+    "n_hari": 3338,
+    "sharpe": 0.831870759267084,
+    "ret_total_pct": 1939.2004614968996,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.18081893632531099,
+    "cagr_pct": 39.054613329153675,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 53.6144578313253,
+    "blok_median_pct": 1.7364241809921577,
+    "n_blok": 166
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": true,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": false,
+     "g_eksposur_ge_0.30": false
+    },
+    "sub_positif": 3
+   }
+  },
+  "V1_tanpa_pembagi_N": {
+   "25bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.2151223691720412,
+     "ret_total_pct": 3729.929570193128,
+     "mdd_pct": -50.15950204929682,
+     "pct_per_48j": 0.21859325491051518,
+     "cagr_pct": 48.958462303052656,
+     "eksposur_rata": 0.4747716029705013,
+     "blok_positif_pct": 40.963855421686745,
+     "blok_median_pct": 0.0,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.13,
+    "sub_periode": {
+     "2019-2021": 2.211421798975023,
+     "2022-2023": 0.521190180271394,
+     "2024-2026": 0.6529234148356069
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.2886361804838553,
+     "ret_total_pct": 4865.573564127163,
+     "mdd_pct": -46.51577310984335,
+     "pct_per_48j": 0.2341829696643538,
+     "cagr_pct": 53.2475297132204,
+     "eksposur_rata": 0.4747716029705013,
+     "blok_positif_pct": 40.963855421686745,
+     "blok_median_pct": 0.0,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.095,
+    "sub_periode": {
+     "2019-2021": 2.2587839498852316,
+     "2022-2023": 0.6446754059648504,
+     "2024-2026": 0.7520585245289366
+    }
+   },
+   "btc_bh": {
+    "n_hari": 3338,
+    "sharpe": 0.831870759267084,
+    "ret_total_pct": 1939.2004614968996,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.18081893632531099,
+    "cagr_pct": 39.054613329153675,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 53.6144578313253,
+    "blok_median_pct": 1.7364241809921577,
+    "n_blok": 166
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": false,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 3
+   }
+  },
+  "V2_voltarget_50": {
+   "25bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.290862360638133,
+     "ret_total_pct": 621.8257537263793,
+     "mdd_pct": -22.645300760114672,
+     "pct_per_48j": 0.11846565789535024,
+     "cagr_pct": 24.11915745685249,
+     "eksposur_rata": 0.20118734445766673,
+     "blok_positif_pct": 39.1566265060241,
+     "blok_median_pct": -0.015815365892296596,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.0805,
+    "sub_periode": {
+     "2019-2021": 2.1819830945460925,
+     "2022-2023": 0.6769699603772465,
+     "2024-2026": 0.908701036289706
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.3596883680723384,
+     "ret_total_pct": 706.7543279447666,
+     "mdd_pct": -20.670030019929577,
+     "pct_per_48j": 0.12513657194703764,
+     "cagr_pct": 25.63761089823926,
+     "eksposur_rata": 0.20118734445766673,
+     "blok_positif_pct": 40.36144578313253,
+     "blok_median_pct": 0.0,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.0525,
+    "sub_periode": {
+     "2019-2021": 2.2321780140305867,
+     "2022-2023": 0.7838434821557295,
+     "2024-2026": 0.9964841044005642
+    }
+   },
+   "btc_bh": {
+    "n_hari": 3338,
+    "sharpe": 0.831870759267084,
+    "ret_total_pct": 1939.2004614968996,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.18081893632531099,
+    "cagr_pct": 39.054613329153675,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 53.6144578313253,
+    "blok_median_pct": 1.7364241809921577,
+    "n_blok": 166
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": true,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": false
+    },
+    "sub_positif": 3
+   }
+  },
+  "V3_gabungan": {
+   "25bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.079629791643637,
+     "ret_total_pct": 4209.411831102625,
+     "mdd_pct": -63.471906851725535,
+     "pct_per_48j": 0.2256742391876232,
+     "cagr_pct": 50.89159191427377,
+     "eksposur_rata": 0.6187666761558838,
+     "blok_positif_pct": 42.7710843373494,
+     "blok_median_pct": 0.0,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.2255,
+    "sub_periode": {
+     "2019-2021": 2.055404116258071,
+     "2022-2023": 0.3218688791535132,
+     "2024-2026": 0.5326999872178203
+    }
+   },
+   "10bps": {
+    "stats": {
+     "n_hari": 3339,
+     "sharpe": 1.162304375604001,
+     "ret_total_pct": 6148.903500698692,
+     "mdd_pct": -60.86476395434235,
+     "pct_per_48j": 0.24798538915258295,
+     "cagr_pct": 57.14725399730969,
+     "eksposur_rata": 0.6187666761558838,
+     "blok_positif_pct": 42.7710843373494,
+     "blok_median_pct": 0.0,
+     "n_blok": 166
+    },
+    "p_vs_btc": 0.1535,
+    "sub_periode": {
+     "2019-2021": 2.109565531965574,
+     "2022-2023": 0.4568530801227146,
+     "2024-2026": 0.6464756859575909
+    }
+   },
+   "btc_bh": {
+    "n_hari": 3338,
+    "sharpe": 0.831870759267084,
+    "ret_total_pct": 1939.2004614968996,
+    "mdd_pct": -83.18705353076483,
+    "pct_per_48j": 0.18081893632531099,
+    "cagr_pct": 39.054613329153675,
+    "eksposur_rata": 1.0,
+    "blok_positif_pct": 53.6144578313253,
+    "blok_median_pct": 1.7364241809921577,
+    "n_blok": 166
+   },
+   "gerbang": {
+    "lolos": false,
+    "kriteria": {
+     "a_sharpe_ge_btc": true,
+     "b_mdd_le_50pct_btc": false,
+     "c_positif_min_2dari3": true,
+     "d_blok60_pct_dan_median_pos": false,
+     "e_p_lt_bonferroni": false,
+     "f_pct48_ge_0.10": true,
+     "g_eksposur_ge_0.30": true
+    },
+    "sub_positif": 3
+   }
+  }
+ }
+}

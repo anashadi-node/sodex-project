@@ -1,0 +1,72 @@
+{
+ "prareg": "reports/sodex/PRAREG16_FORWARD_BULL_PROTOCOL.json",
+ "freeze_commit": "12be05fa1564b9932a037b103587ec3a94303848",
+ "freeze_ts": "2026-10-08T18:20:05+07:00",
+ "hold": 48,
+ "n_min_verdict": 40,
+ "venue": {
+  "sodex": {
+   "venue": "sodex",
+   "bar_forward": 1140,
+   "bar_pertama": "2026-10-08 12:00:00+00:00",
+   "kolom_rezim": "BTC-USD",
+   "fee_oneway": 0.0004,
+   "bar_rezim_forward": {
+    "BULL": 72,
+    "CHOP": 372,
+    "BEAR": 696
+   },
+   "n_window": 2,
+   "net_bps": -273.5860986480111,
+   "gross_bps": -270.00575838336084,
+   "t": NaN,
+   "p": NaN,
+   "to": 0.8950850661625709,
+   "S_ann": NaN,
+   "S_fee2x": NaN,
+   "seg_pos": null,
+   "segments": [],
+   "ic": -0.5039532697316709,
+   "names_med": 92,
+   "winrate": 0.0,
+   "total_pct": -5.397846816891983,
+   "ctrl_t": NaN,
+   "ctrl_ic": -0.05203211935329747,
+   "tier_prareg16": "TIDAK_KONKLUSIF (n=2<40)"
+  },
+  "binance": {
+   "venue": "binance",
+   "bar_forward": 1095,
+   "bar_pertama": "2026-10-08 12:00:00+00:00",
+   "kolom_rezim": "BTCUSDT",
+   "fee_oneway": 0.0005,
+   "bar_rezim_forward": {
+    "BULL": 72,
+    "CHOP": 372,
+    "BEAR": 651
+   },
+   "n_window": 2,
+   "net_bps": -228.6751646640253,
+   "gross_bps": -224.17911723319526,
+   "t": NaN,
+   "p": NaN,
+   "to": 0.8992094861660078,
+   "S_ann": NaN,
+   "S_fee2x": NaN,
+   "seg_pos": null,
+   "segments": [],
+   "ic": -0.5541501976284584,
+   "names_med": 45,
+   "winrate": 0.0,
+   "total_pct": -4.521217158974222,
+   "ctrl_t": NaN,
+   "ctrl_ic": -0.08913043478260868,
+   "tier_prareg16": "TIDAK_KONKLUSIF (n=2<40)"
+  }
+ },
+ "r1_lintas_venue": {
+  "tanda_sama": true,
+  "rasio": 0.9094163854644276,
+  "lulus": true
+ }
+}

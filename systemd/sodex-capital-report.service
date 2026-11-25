@@ -1,0 +1,12 @@
+[Unit]
+Description=Anantara Sakti - SoDEX capital report to Telegram
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/capital_report.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/capital_report.log
+StandardError=append:/home/USER/anantara-sakti/logs/capital_report.log

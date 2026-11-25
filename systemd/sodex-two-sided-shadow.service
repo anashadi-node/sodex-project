@@ -1,0 +1,17 @@
+[Unit]
+Description=SoDEX paired-maker live L1 shadow (read-only, no orders)
+After=sodex-book-recorder.service
+Wants=sodex-book-recorder.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 -u /home/USER/anantara-sakti/scripts/sodex_two_sided_shadow.py --loop --interval 3
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_two_sided_shadow.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_two_sided_shadow.log
+
+[Install]
+WantedBy=default.target

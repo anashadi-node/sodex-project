@@ -1,0 +1,40 @@
+{
+ "prereg": "PRAREG-26",
+ "generated_utc": "2026-11-25T01:25:00+00:00",
+ "fwd_start": "2026-10-12T00:00:00+00:00",
+ "verdict_date": "2026-11-25",
+ "giveup_date": "2026-11-30",
+ "t_crit": 3.8,
+ "amendment": "AMANDEMEN_PRAREG26_JADWAL_2026-10-19.md",
+ "protocol_sha256": "b71fc29338a4034738a43513c11f833f4aeb1c271c47a8d20a7e7e0f0732e7ad",
+ "wallet_usd": 242.59,
+ "n_titik_keputusan": 45,
+ "n_trade_forward_penuh": 712,
+ "n_trade_forward_subset": 57,
+ "n_window": 31,
+ "n_window_min": 12,
+ "window_rate_per_day": 0.704,
+ "days_elapsed": 44.1,
+ "projected_windows_at_verdict": 31.0,
+ "data_status": "ON_TRACK",
+ "mesin_terpilih_terakhir": [
+  "shortbear"
+ ],
+ "kriteria": {
+  "M1_mean_subset>=M2_mean_penuh": true,
+  "M1_mean_subset>=0.8%": false,
+  "M3_median_subset>0": false,
+  "M4_hit_subset>=50%": false,
+  "M5_selisih>0_dan_t>=3.8": false
+ },
+ "verdict": "GAGAL",
+ "M1": 0.1174,
+ "M2": -14.2139,
+ "M3": 0.0,
+ "M4": 0.129,
+ "M5": 14.3313,
+ "t_M5": 2.926,
+ "p_onesided_M5": 0.00172,
+ "n_window_paired": 31,
+ "catatan": "Flat window (subset kosong) dihitung 0,0% sesuai PRAREG-26 §3"
+}

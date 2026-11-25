@@ -1,0 +1,42 @@
+{
+ "protokol": "PRAREG-24-v1",
+ "dibekukan_utc": "2026-10-09T16:19:48+00:00",
+ "sha256_protokol": "b1adfbbb947d4c41cc782aad3958e40b63855265fc22c35007dd39d1418010d6",
+ "baris": 68,
+ "disetujui": {
+  "oleh": "Anas",
+  "tanggal": "2026-10-09",
+  "opsi": "Varian eksposur"
+ },
+ "varian": {
+  "V0_baseline_H1": {
+   "div_n": true,
+   "vol_target": 0.25
+  },
+  "V1_tanpa_pembagi_N": {
+   "div_n": false,
+   "vol_target": 0.25
+  },
+  "V2_voltarget_50": {
+   "div_n": true,
+   "vol_target": 0.5
+  },
+  "V3_gabungan": {
+   "div_n": false,
+   "vol_target": 0.5
+  }
+ },
+ "gerbang": [
+  "a Sharpe>=BTC",
+  "b maxDD<=50%BTC",
+  "c positif >=2/3 subperiode",
+  "d blok20 positif >=60% dan median>0",
+  "e p<0,0167 (Bonferroni 3 varian)",
+  "f >=0,10%/48j (lantai)",
+  "g eksposur>=0,30"
+ ],
+ "sinyal": "IDENTIK PRAREG-23 (diimpor dari prereg23_trend_daily.series_for)",
+ "max_bobot": 1.0,
+ "biaya_utama_bps": 25,
+ "catatan": "DIBEKUKAN SEBELUM dieksekusi; V0 wajib mereproduksi H1 (S~+1,47) sbg uji konsistensi"
+}

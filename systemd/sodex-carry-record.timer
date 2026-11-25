@@ -1,0 +1,10 @@
+[Unit]
+Description=PRAREG-33 recorder harian 00:45 UTC (jendela 26-Okt s.d. 25-Nov-2026, evaluasi 26-Nov)
+
+[Timer]
+OnCalendar=*-*-* 00:45:00 UTC
+Persistent=true
+Unit=sodex-carry-record.service
+
+[Install]
+WantedBy=timers.target

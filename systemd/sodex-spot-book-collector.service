@@ -1,0 +1,11 @@
+[Unit]
+Description=SoDEX spot book collector BTC/ETH/XAUT (publik, read-only)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti/scripts/research/mode_a_20261026
+ExecStart=/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore spot_book_collector.py forward
+StandardOutput=null
+StandardError=append:/home/USER/anantara-sakti/logs/spot_book_collector.log
+Nice=10

@@ -1,0 +1,172 @@
+{
+ "S1_triple_barrier": [
+  {
+   "title": "Supervised Autoencoders with Fractionally Differentiated Features and Triple Barrier Labelling Enhance Predict",
+   "url": "http://arxiv.org/abs/2411.12753v2",
+   "abs": "This paper investigates the enhancement of financial time series forecasting with the use of neural networks through supervised autoencoders (SAE), to improve investment strategy performance. Using the Sharpe and Information Ratios, it specifically examines the impact of noise augmentation and tripl"
+  },
+  {
+   "title": "Stock Price Prediction Using Triple Barrier Labeling and Raw OHLCV Data: Evidence from Korean Markets",
+   "url": "http://arxiv.org/abs/2504.02249v2",
+   "abs": "This paper demonstrates that deep learning models trained on raw OHLCV (open-high-low-close-volume) data can achieve comparable performance to traditional machine learning (ML) models using technical indicators for stock price prediction in Korean markets. While previous studies have emphasized the "
+  },
+  {
+   "title": "Supervised Autoencoder MLP for Financial Time Series Forecasting",
+   "url": "http://arxiv.org/abs/2404.01866v2",
+   "abs": "This paper investigates the enhancement of financial time series forecasting with the use of neural networks through supervised autoencoders, aiming to improve investment strategy performance. It specifically examines the impact of noise augmentation and triple barrier labeling on risk-adjusted retu"
+  }
+ ],
+ "S1_meta_labeling": [
+  {
+   "title": "151 Estrategias de Trading (151 Trading Strategies)",
+   "url": "http://arxiv.org/abs/1912.04492v1",
+   "abs": "This book, which is in Spanish, provides detailed descriptions, including over 550 mathematical formulas, for over 150 trading strategies across a host of asset classes (and trading styles). This includes stocks, options, fixed income, futures, ETFs, indexes, commodities, foreign exchange, convertib"
+  },
+  {
+   "title": "AI for trading strategies",
+   "url": "http://arxiv.org/abs/2208.07168v1",
+   "abs": "In this bachelor thesis, we show how four different machine learning methods (Long Short-Term Memory, Random Forest, Support Vector Machine Regression, and k-Nearest Neighbor) perform compared to already successfully applied trading strategies such as Cross Signal Trading and a conventional statisti"
+  },
+  {
+   "title": "Ensemble properties of high frequency data and intraday trading rules",
+   "url": "http://arxiv.org/abs/1202.2447v2",
+   "abs": "Regarding the intraday sequence of high frequency returns of the S&amp;P index as daily realizations of a given stochastic process, we first demonstrate that the scaling properties of the aggregated return distribution can be employed to define a martingale stochastic model which consistently replic"
+  }
+ ],
+ "S2_OFI_crypto": [
+  {
+   "title": "Exploring the Interconnectedness of Cryptocurrencies using Correlation Networks",
+   "url": "http://arxiv.org/abs/1806.06632v1",
+   "abs": "Correlation networks were used to detect characteristics which, although fixed over time, have an important influence on the evolution of prices over time. Potentially important features were identified using the websites and whitepapers of cryptocurrencies with the largest userbases. These were ass"
+  },
+  {
+   "title": "MoFE: A Novel Mixture-of-Experts Framework with Fourier Neural Operators for Cryptocurrency Forecasting",
+   "url": "http://arxiv.org/abs/2608.17342v1",
+   "abs": "Forecasting cryptocurrency prices remains a formidable challenge due to inherent non-stationarity, abrupt regime shifts, and multi-scale stochastic dependencies. Conventional deep learning models often struggle to capture complex underlying dynamics, frequently resulting in persistent phase-lagged p"
+  },
+  {
+   "title": "Tracing Cryptocurrency Scams: Clustering Replicated Advance-Fee and Phishing Websites",
+   "url": "http://arxiv.org/abs/2005.14440v1",
+   "abs": "Over the past few years, there has been a growth in activity, public knowledge, and awareness of cryptocurrencies and related blockchain technology. As the industry has grown, there has also been an increase in scams looking to steal unsuspecting individuals cryptocurrency. Many of the scams operate"
+  }
+ ],
+ "S3_funding": [
+  {
+   "title": "Designing funding rates for perpetual futures in cryptocurrency markets",
+   "url": "http://arxiv.org/abs/2506.08573v1",
+   "abs": "In cryptocurrency markets, a key challenge for perpetual future issuers is maintaining alignment between the perpetual future price and target value. This study addresses this challenge by exploring the relationship between funding rates and perpetual future prices. Our results demonstrate that by a"
+  },
+  {
+   "title": "Fundamentals of Perpetual Futures",
+   "url": "http://arxiv.org/abs/2212.06888v7",
+   "abs": "Perpetual futures are the most popular cryptocurrency derivatives. Perpetuals offer leveraged exposure to their underlying without rollover or direct ownership. Unlike fixed-maturity futures, perpetuals are not guaranteed to converge to the spot price. To minimize the gap between perpetual and spot "
+  },
+  {
+   "title": "Exploring the Interconnectedness of Cryptocurrencies using Correlation Networks",
+   "url": "http://arxiv.org/abs/1806.06632v1",
+   "abs": "Correlation networks were used to detect characteristics which, although fixed over time, have an important influence on the evolution of prices over time. Potentially important features were identified using the websites and whitepapers of cryptocurrencies with the largest userbases. These were ass"
+  }
+ ],
+ "S4_vol_managed": [
+  {
+   "title": "Flexible variational approximations for stochastic volatility-managed portfolios",
+   "url": "http://arxiv.org/abs/2212.07288v2",
+   "abs": "This paper investigates volatility-managed portfolios through a variational Bayes approach that smooths stochastic volatility forecasts. Our algorithm exhibits competitive performance relative to established methods both in terms of inferential accuracy and computational efficiency. Analyzing equity"
+  },
+  {
+   "title": "Managing Portfolios Across the Return Distribution",
+   "url": "http://arxiv.org/abs/2510.19271v2",
+   "abs": "We develop a dynamic portfolio-choice framework in which investors target the region of the payoff distribution that the portfolio is designed to improve. Out of sample, the estimated policies form an ordered frontier: the policy focused on the downside delivers the strongest left-tail protection an"
+  },
+  {
+   "title": "Continuous-Time Risk Contribution of the Terminal Variance and its Related Risk Budgeting Problem",
+   "url": "http://arxiv.org/abs/2011.10747v4",
+   "abs": "To achieve robustness of risk across different assets, risk parity investing rules, a particular state of risk contributions, have grown in popularity over the previous few decades. To generalize the concept of risk contribution from the simple covariance matrix case to the continuous-time case in w"
+  }
+ ],
+ "S5_kelly": [
+  {
+   "title": "Exploring the Interconnectedness of Cryptocurrencies using Correlation Networks",
+   "url": "http://arxiv.org/abs/1806.06632v1",
+   "abs": "Correlation networks were used to detect characteristics which, although fixed over time, have an important influence on the evolution of prices over time. Potentially important features were identified using the websites and whitepapers of cryptocurrencies with the largest userbases. These were ass"
+  },
+  {
+   "title": "MoFE: A Novel Mixture-of-Experts Framework with Fourier Neural Operators for Cryptocurrency Forecasting",
+   "url": "http://arxiv.org/abs/2608.17342v1",
+   "abs": "Forecasting cryptocurrency prices remains a formidable challenge due to inherent non-stationarity, abrupt regime shifts, and multi-scale stochastic dependencies. Conventional deep learning models often struggle to capture complex underlying dynamics, frequently resulting in persistent phase-lagged p"
+  },
+  {
+   "title": "Tracing Cryptocurrency Scams: Clustering Replicated Advance-Fee and Phishing Websites",
+   "url": "http://arxiv.org/abs/2005.14440v1",
+   "abs": "Over the past few years, there has been a growth in activity, public knowledge, and awareness of cryptocurrencies and related blockchain technology. As the industry has grown, there has also been an increase in scams looking to steal unsuspecting individuals cryptocurrency. Many of the scams operate"
+  }
+ ],
+ "C6_lgbm_ens": [
+  {
+   "title": "MoFE: A Novel Mixture-of-Experts Framework with Fourier Neural Operators for Cryptocurrency Forecasting",
+   "url": "http://arxiv.org/abs/2608.17342v1",
+   "abs": "Forecasting cryptocurrency prices remains a formidable challenge due to inherent non-stationarity, abrupt regime shifts, and multi-scale stochastic dependencies. Conventional deep learning models often struggle to capture complex underlying dynamics, frequently resulting in persistent phase-lagged p"
+  },
+  {
+   "title": "Exploring the Interconnectedness of Cryptocurrencies using Correlation Networks",
+   "url": "http://arxiv.org/abs/1806.06632v1",
+   "abs": "Correlation networks were used to detect characteristics which, although fixed over time, have an important influence on the evolution of prices over time. Potentially important features were identified using the websites and whitepapers of cryptocurrencies with the largest userbases. These were ass"
+  },
+  {
+   "title": "Wide Boosting",
+   "url": "http://arxiv.org/abs/2007.09855v5",
+   "abs": "Gradient Boosting (GB) is a popular methodology used to solve prediction problems by minimizing a differentiable loss function, $L$. GB performs very well on tabular machine learning (ML) problems; however, as a pure ML solver it lacks the ability to fit models with probabilistic but correlated mult"
+  }
+ ],
+ "C7_purged_cv": [
+  {
+   "title": "FinRL: Deep Reinforcement Learning Framework to Automate Trading in Quantitative Finance",
+   "url": "http://arxiv.org/abs/2111.09395v1",
+   "abs": "Deep reinforcement learning (DRL) has been envisioned to have a competitive edge in quantitative finance. However, there is a steep development curve for quantitative traders to obtain an agent that automatically positions to win in the market, namely \\textit{to decide where to trade, at what price}"
+  },
+  {
+   "title": "Quantum Game Theory in Finance",
+   "url": "http://arxiv.org/abs/quant-ph/0406129v1",
+   "abs": "This is a short review of the background and recent development in quantum game theory and its possible application in economics and finance. The intersection of science and society is also discussed. The review is addressed to non--specialists."
+  },
+  {
+   "title": "On the marginal likelihood and cross-validation",
+   "url": "http://arxiv.org/abs/1905.08737v2",
+   "abs": "In Bayesian statistics, the marginal likelihood, also known as the evidence, is used to evaluate model fit as it quantifies the joint probability of the data under the prior. In contrast, non-Bayesian models are typically compared using cross-validation on held-out data, either through $k$-fold part"
+  }
+ ],
+ "S6_amm_perp": [
+  {
+   "title": "Exploring the Impact: How Decentralized Exchange Designs Shape Traders' Behavior on Perpetual Future Contracts",
+   "url": "http://arxiv.org/abs/2402.03953v4",
+   "abs": "In this paper, we analyze traders' behavior within both centralized exchanges (CEXs) and decentralized exchanges (DEXs), focusing on the volatility of Bitcoin prices and the trading activity of investors engaged in perpetual future contracts. We categorize the architecture of perpetual future exchan"
+  },
+  {
+   "title": "Perpetual Futures Pricing",
+   "url": "http://arxiv.org/abs/2310.11771v2",
+   "abs": "Perpetual futures are contracts without expiration date in which the anchoring of the futures price to the spot price is ensured by periodic funding payments from long to short. We derive explicit expressions for the no-arbitrage price of various perpetual contracts, including linear, inverse, and q"
+  },
+  {
+   "title": "Introduction: Detectability of Future Earth",
+   "url": "http://arxiv.org/abs/1902.08035v1",
+   "abs": "Earth's future detectability depends upon the trajectory of our civilization over the coming centuries. Human civilization is also the only known example of an energy-intensive civilization, so our history and future trajectories provide the basis for thinking about how to find life elsewhere. This "
+  }
+ ],
+ "S8_drift": [
+  {
+   "title": "A Lightweight Concept Drift Detection and Adaptation Framework for IoT Data Streams",
+   "url": "http://arxiv.org/abs/2104.10529v1",
+   "abs": "In recent years, with the increasing popularity of \"Smart Technology\", the number of Internet of Things (IoT) devices and systems have surged significantly. Various IoT services and functionalities are based on the analytics of IoT streaming data. However, IoT data analytics faces concept drift chal"
+  },
+  {
+   "title": "Online Learning With Adaptive Rebalancing in Nonstationary Environments",
+   "url": "http://arxiv.org/abs/2009.11942v1",
+   "abs": "An enormous and ever-growing volume of data is nowadays becoming available in a sequential fashion in various real-world applications. Learning in nonstationary environments constitutes a major challenge, and this problem becomes orders of magnitude more complex in the presence of class imbalance. W"
+  },
+  {
+   "title": "Queue-based Resampling for Online Class Imbalance Learning",
+   "url": "http://arxiv.org/abs/1809.10388v2",
+   "abs": "Online class imbalance learning constitutes a new problem and an emerging research topic that focusses on the challenges of online learning under class imbalance and concept drift. Class imbalance deals with data streams that have very skewed distributions while concept drift deals with changes in t"
+  }
+ ]
+}

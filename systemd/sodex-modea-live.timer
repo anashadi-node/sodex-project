@@ -1,0 +1,10 @@
+[Unit]
+Description=Mode A live harian 00:50 UTC (setelah recorder 00:30). TIDAK di-enable sampai user GO.
+
+[Timer]
+OnCalendar=*-*-* 00:50:00 UTC
+Persistent=false
+Unit=sodex-modea-live.service
+
+[Install]
+WantedBy=timers.target

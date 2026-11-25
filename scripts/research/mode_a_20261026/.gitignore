@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.tmp
+lev_20261026/*.csv

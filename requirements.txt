@@ -1,0 +1,15 @@
+# Inti (diuji pada Python 3.14.4)
+numpy==2.5.2
+pandas==3.0.5
+scipy==1.18.1
+requests==2.34.2
+httpx==0.28.1
+pytest==9.0.3
+
+# Opsional (jalur live/ML; TIDAK diuji di lingkungan ini -> test terkait di-skip):
+# eth-account
+# msgpack
+# lightgbm
+# river
+# scikit-learn
+# psycopg2-binary

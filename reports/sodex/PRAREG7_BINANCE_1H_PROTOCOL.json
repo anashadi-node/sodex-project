@@ -1,0 +1,48 @@
+{
+  "id": "PRAREG-7",
+  "judul": "Replikasi lintas-venue pada interval 1h: Binance USDM 1h vs SoDEX 1h",
+  "tanggal_prareg_utc": "2026-10-08",
+  "status": "TERBEKU sebelum data ditarik dan sebelum evaluasi",
+  "latar": {
+    "blocker": "R1 (replikasi) butuh dua seri pada interval bar SAMA. Panel sodex_1h ada; panel binance_1h belum ada -> seluruh arm horizon-48-jam ber-kerangka 1h (termasuk RANGEPOS_H48 gross +16,93 bps, 3/3 segmen) belum pernah bisa diadili.",
+    "kebaruan_data": "Data binance_klines/1h BELUM PERNAH dipakai evaluasi apa pun -> uji ini SAH sebagai uji replikasi (bukan sekadar deskriptif). Verdict LULUS-GAGAL MESIN tetap hanya dari data forward.",
+    "skrip_evaluasi": "scripts/research/xsec_mech_study.py (BEKU, tidak diubah). Menerima argv: src interval holds. Konvensi tanda sinyal dipakai APA ADANYA; sign-flip pasca-hasil dilarang."
+  },
+  "univers_simbol": {
+    "aturan": "Semua berkas data/sodex_klines/1h/{SYM}-USD.json (tanpa MANIFEST) dipetakan {SYM} -> {SYM}USDT di Binance USDM futures; hanya yang berstatus TRADING + contractType PERPETUAL; minimum 60 bar per simbol (aturan skrip beku).",
+    "rentang_waktu": "startTime 2025-09-01T00:00Z (buffer sebelum lahir venue SoDEX 2025-10-12) s/d waktu tarik. Alasan: perbandingan replikasi adil pada window pasar yang sama; perluasan window atau perubahan apa pun setelah data terlihat DILARANG (hanya prareg baru)."
+  },
+  "keluarga": {
+    "mekanisme": "Semua yang dijalankan skrip beku pada holds 24 dan 48 (1h bar). BASIS dan CARRY_FR diprediksi skip (data harian; konsisten panel sodex_1h family_run=18). BH FDR q=0,10 dikoreksi dalam keluarga yang benar-benar berjalan, dihitung skrip beku.",
+    "fee_oneway": 0.0005,
+    "alasan_fee": "Sama dengan panel binance_1d (0,0005)."
+  },
+  "kriteria": {
+    "R1_replikasi": "Untuk tiap (mekanisme, hold): tanda(IC_binance_1h) == tanda(IC_sodex_1h) DAN |IC_sodex_1h| >= 0,5*|IC_binance_1h|. Identik dengan prareg sebelumnya, kini pada interval 1h.",
+    "R3_ekonomis": "gross > 0 DAN turnover <= 1,5 DAN net(fee1x) > 0.",
+    "R4_kontrol": "|IC_kontrol_acak| < 0,005 pada kedua panel.",
+    "R5_signifikansi": "|t_nw| >= 1,96 pada arm yang disaring.",
+    "mutu_panel": "corr(IC, gross) antar-mekanisme pada binance_1h HARUS > 0 agar angka PnL binance_1h dipakai sebagai bukti ekonomi. Jika <= 0: hasil IC tetap dilaporkan, PnL binance_1h diberi bobot rendah.",
+    "lulus_panel": "Aturan skrip beku: BH q<0,10 dalam keluarga DAN net(fee1x) > 0."
+  },
+  "falsifier_utama": {
+    "target": "RANGEPOS hold=48 (sodex_1h IC=+0,0373, gross +16,93, 3/3 segmen, t=2,31)",
+    "pernyataan": "JIKA tanda(IC_binance_1h RANGEPOS_H48) berlawanan dengan tanda(IC_sodex_1h) ATAU rasio |IC_sodex|/|IC_binance| < 0,5 MAKA RANGEPOS_H48 GAGAL replikasi lintas-venue -> mekanisme DITOLAK untuk jalur mesin apapun. Tidak ada sign-flip pasca-hasil; perubahan tanda hanya sah lewat prareg BARU yang di-commit SEBELUM melihat data binance_1h.",
+    "prediksi_searah": "Mekanisme reversal keluarga REV_* pada hold 24/48 diprediksi IC positif di kedua venue (konsisten pola 1d). Jika pola ini patah, itulah informasi."
+  },
+  "larangan": [
+    "Tidak ada ambang yang diubah setelah data dilihat.",
+    "Amendemen hanya boleh MEMPERKETAT.",
+    "Skrip evaluasi beku tidak diubah.",
+    "Data pasar dan hasil tidak menggantikan verdict forward.",
+    "Tidak menulis kredensial apa pun (endpoint publik, tanpa auth)."
+  ],
+  "rencana_eksekusi": [
+    "Commit prareg ini SEBELUM menarik data binance_klines/1h.",
+    "Tulis puller paging (fapi/v1/klines, limit=1000, startTime, tulis atomik, schema sama dengan berkas 1d).",
+    "Tarik data, verifikasi kesegaran & jumlah simbol.",
+    "Jalankan skrip beku: binance 1h 24,48.",
+    "Uji R1 1h + saringan R3/R4/R5 + gerbang mutu panel; tulis JSON hasil.",
+    "Commit hasil + laporan; label kejujuran: uji replikasi SAH, verdict mesin tetap menunggu forward."
+  ]
+}

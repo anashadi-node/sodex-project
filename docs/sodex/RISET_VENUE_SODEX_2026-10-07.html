@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RISET VENUE SODEX — Laporan Riset Fundamental</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>RISET VENUE SODEX — Laporan Riset Fundamental</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#a-ringkasan-eksekutif">A. Ringkasan Eksekutif</a></li>
+<li class="t2"><a href="#b-amanat-target-dan-aturan-main">B. Amanat, Target, dan Aturan Main</a></li>
+<li class="t3"><a href="#b1-target-harga-mati-tidak-boleh-diubah">B.1 Target (HARGA MATI — tidak boleh diubah)</a></li>
+<li class="t3"><a href="#b2-dari-target-ke-angka-yang-harus-dibuktikan">B.2 Dari target ke angka yang harus dibuktikan</a></li>
+<li class="t3"><a href="#b3-sepuluh-aturan-keras-yang-kami-patuhi-perintah_1_sodexmd">B.3 Sepuluh aturan keras yang kami patuhi (`PERINTAH_1_SoDEX.md`)</a></li>
+<li class="t2"><a href="#c-apa-yang-sudah-dicoba-sebelum-riset-ini">C. Apa yang Sudah Dicoba Sebelum Riset Ini</a></li>
+<li class="t2"><a href="#d-peta-venue-sodex-diukur-hari-ini">D. Peta Venue SoDEX (Diukur Hari Ini)</a></li>
+<li class="t2"><a href="#e-ekonomi-venue-fee-spread-dan-mengapa-lp-pasif-bukan-jalan">E. Ekonomi Venue: Fee, Spread, dan Mengapa LP Pasif Bukan Jalan</a></li>
+<li class="t3"><a href="#e1-biaya-terverifikasi-bukan-asumsi">E.1 Biaya terverifikasi (bukan asumsi)</a></li>
+<li class="t3"><a href="#e2-sensus-spread-mengapa-market-making-pasif-bukan-jalan">E.2 Sensus spread: mengapa market-making pasif bukan jalan</a></li>
+<li class="t2"><a href="#f-empat-penyumbat-peta-besar">F. Empat Penyumbat — Peta Besar</a></li>
+<li class="t2"><a href="#g-penyumbat-1-panjang-bukti-power">G. Penyumbat 1 — Panjang Bukti (Power)</a></li>
+<li class="t3"><a href="#g1-aritmetika">G.1 Aritmetika</a></li>
+<li class="t3"><a href="#g2-artinya-apa">G.2 Artinya apa</a></li>
+<li class="t3"><a href="#g3-pengecualian-penting-jalan-keluar-yang-sah">G.3 Pengecualian penting (jalan keluar yang sah)</a></li>
+<li class="t2"><a href="#h-penyumbat-2-plafon-struktur-venue-breadth-korelasi">H. Penyumbat 2 — Plafon Struktur Venue (Breadth & Korelasi)</a></li>
+<li class="t3"><a href="#h1-hasil-pengukuran">H.1 Hasil pengukuran</a></li>
+<li class="t3"><a href="#h2-anggaran-ic-hukum-fundamental">H.2 Anggaran IC — Hukum Fundamental</a></li>
+<li class="t3"><a href="#h3-dua-kesalahpahaman-yang-perlu-dikoreksi">H.3 Dua kesalahpahaman yang perlu dikoreksi</a></li>
+<li class="t2"><a href="#i-penyumbat-3-lantai-biaya">I. Penyumbat 3 — Lantai Biaya</a></li>
+<li class="t2"><a href="#j-penyumbat-4-likuiditas-terkonsentrasi">J. Penyumbat 4 — Likuiditas Terkonsentrasi</a></li>
+<li class="t2"><a href="#k-uji-60-hipotesis-lintas-seksi-metode">K. Uji 60 Hipotesis Lintas-Seksi — Metode</a></li>
+<li class="t3"><a href="#k1-mengapa-lintas-seksi">K.1 Mengapa lintas-seksi</a></li>
+<li class="t3"><a href="#k2-cara-kerja-dibekukan-sebelum-dijalankan">K.2 Cara kerja (dibekukan sebelum dijalankan)</a></li>
+<li class="t3"><a href="#k3-dua-belas-mekanisme">K.3 Dua belas mekanisme</a></li>
+<li class="t3"><a href="#k4-panel-uji">K.4 Panel uji</a></li>
+<li class="t2"><a href="#l-hasil-uji-panel-panjang-binance-248-simbol-6-tahun">L. Hasil Uji — Panel Panjang Binance (248 simbol, ±6 tahun)</a></li>
+<li class="t3"><a href="#l1-apa-artinya-dan-apa-yang-bukan-artinya">L.1 Apa artinya — dan apa yang BUKAN artinya</a></li>
+<li class="t2"><a href="#m-hasil-uji-replikasi-sodex-1-hari-95-simbol-361-hari">M. Hasil Uji — Replikasi SoDEX 1 Hari (95 simbol, 361 hari)</a></li>
+<li class="t3"><a href="#m2-sodex-1-jam-horizon-yang-benar-benar-venue-matched">M.2 SoDEX 1 jam — horizon yang benar-benar venue-matched</a></li>
+<li class="t2"><a href="#n-temuan-terkuat-range-position-berbalik-arah">N. Temuan Terkuat: Range-Position Berbalik Arah</a></li>
+<li class="t3"><a href="#n1-apa-yang-terjadi">N.1 Apa yang terjadi</a></li>
+<li class="t3"><a href="#n2-besarnya-setelah-biaya-dihitung-dengan-benar">N.2 Besarnya setelah biaya dihitung dengan benar</a></li>
+<li class="t3"><a href="#n3-perlakuan-yang-benar-dan-yang-kami-lakukan">N.3 Perlakuan yang benar (dan yang kami lakukan)</a></li>
+<li class="t3"><a href="#n4-hasil-uji-kandidat-ditolak">N.4 Hasil uji — kandidat ditolak</a></li>
+<li class="t2"><a href="#o-jarak-ke-target-empat-dimensi-dengan-angka">O. Jarak ke Target — Empat Dimensi dengan Angka</a></li>
+<li class="t3"><a href="#dimensi-1-sharpe">Dimensi 1 — Sharpe</a></li>
+<li class="t3"><a href="#dimensi-2-panjang-bukti">Dimensi 2 — Panjang bukti</a></li>
+<li class="t3"><a href="#dimensi-3-ic">Dimensi 3 — IC</a></li>
+<li class="t3"><a href="#dimensi-4-biaya">Dimensi 4 — Biaya</a></li>
+<li class="t2"><a href="#p-yang-gagal-tanpa-disembunyikan">P. Yang Gagal — Tanpa Disembunyikan</a></li>
+<li class="t3"><a href="#p1-daftar-kegagalan">P.1 Daftar kegagalan</a></li>
+<li class="t3"><a href="#p2-yang-kami-batalkan-sendiri-di-tengah-jalan">P.2 Yang kami batalkan sendiri di tengah jalan</a></li>
+<li class="t3"><a href="#p3-cacat-desain-yang-kami-temukan-pada-instrumen-kami-sendiri">P.3 Cacat desain yang kami temukan pada instrumen kami sendiri</a></li>
+<li class="t2"><a href="#q-rekomendasi-tiga-jalur-urut-prioritas">Q. Rekomendasi — Tiga Jalur, Urut Prioritas</a></li>
+<li class="t3"><a href="#jalur-1-dampak-tertinggi-bisa-dimulai-besok-perbesar-ic-bukan-jumlah-strategi">Jalur 1 (dampak tertinggi, bisa dimulai besok) — Perbesar IC, bukan jumlah strategi</a></li>
+<li class="t3"><a href="#jalur-2-struktural-tidak-bisa-ditawar-perpanjang-jam-bukti-sambil-jalan">Jalur 2 (struktural, tidak bisa ditawar) — Perpanjang jam bukti sambil jalan</a></li>
+<li class="t3"><a href="#jalur-3-pengelolaan-bukan-pencarian-kelola-biaya-kedalaman">Jalur 3 (pengelolaan, bukan pencarian) — Kelola biaya & kedalaman</a></li>
+<li class="t3"><a href="#yang-tidak-direkomendasikan">Yang **tidak** direkomendasikan</a></li>
+<li class="t2"><a href="#r-batasan-dan-apa-yang-tidak-boleh-disimpulkan">R. Batasan dan Apa yang **TIDAK** Boleh Disimpulkan</a></li>
+<li class="t2"><a href="#s-lampiran-berkas-skrip-cara-reproduksi">S. Lampiran — Berkas, Skrip, Cara Reproduksi</a></li>
+<li class="t3"><a href="#s1-skrip-baru-yang-dibuat-riset-ini">S.1 Skrip baru yang dibuat riset ini</a></li>
+<li class="t3"><a href="#s2-berkas-hasil-json">S.2 Berkas hasil (JSON)</a></li>
+<li class="t3"><a href="#s3-protokol-yang-dibekukan">S.3 Protokol yang dibekukan</a></li>
+<li class="t3"><a href="#s4-cara-menjalankan-ulang">S.4 Cara menjalankan ulang</a></li>
+<li class="t2"><a href="#t-glosarium-dengan-analogi">T. Glosarium dengan Analogi</a></li>
+<li class="t2"><a href="#u-laporan-verifikasi">U. Laporan Verifikasi</a></li>
+</ul>
+</nav>
+<p><strong>Divisi Riset Anantara Sakti · 7 Oktober 2026</strong>
+<strong>Pertanyaan:</strong> Cara, strategi, metode, atau mode apa yang <strong>sangat cocok dan akurat</strong> untuk Venue Market SoDEX, sesuai Target Utama divisi project SoDEX?</p>
+<p><strong>Ringkasan satu baris:</strong> Kami mengukur venue ini dari dalam (fee, spread, likuiditas, struktur korelasi, panjang data), menguji <strong>60 hipotesis lintas-seksi</strong> pada tiga panel (Binance 248 simbol ±6 tahun sebagai jaring daya uji; SoDEX 95 simbol × 361 hari; SoDEX 95 simbol × 8.533 jam untuk horizon yang benar-benar venue-matched), dan menemukan bahwa <strong>penyumbat utama bukanlah ide strategi — melainkan panjang bukti, breadth venue, likuiditas, dan lantai biaya.</strong> Tidak ada mesin yang lulus. Kami laporkan apa adanya.</p>
+<blockquote>
+<p><strong>ERRATUM 2026-10-07 — bug annualisasi panel 1 jam (ditemukan saat menyiapkan laporan ke divisi project SoDEX).</strong>
+Skrip <code>scripts/research/xsec_mech_study.py</code> mengannualisasi Sharpe dengan <code>per_year = 365/hold</code>, padahal loop backtest
+melangkah <strong><code>hold</code> bar</strong> — untuk panel <strong>1 jam</strong> ini men-understate S_ann sebesar <strong>√24 = 4,899×</strong>. Sudah diperbaiki
+(annualisasi kini ikut durasi bar: 1d → 365, 1h → 8760 periode/tahun) dan <strong>ketiga panel dijalankan ulang</strong>.
+Hasil verifikasi: panel <strong>1 hari tidak berubah sama sekali</strong> (rasio 1,000 pada seluruh 42 hasil); panel <strong>1 jam naik tepat 4,899×</strong>.
+<strong>Verdict tidak berubah: 0 lulus</strong> (24 Binance 1d · 18 SoDEX 1d · 18 SoDEX 1h). Registry trial tetap 40 — ini koreksi metrik,
+bukan trial baru. Artefak lama disimpan di <code>reports/sodex/archive_bug_annualisasi_20261007/</code>. Angka panel 1 jam di bawah sudah dikoreksi,
+dan Bab M.2 bertambah satu kandidat terukur yang sebelumnya tersembunyi oleh bug ini.</p>
+</blockquote>
+<hr>
+<h2 id="a-ringkasan-eksekutif">A. Ringkasan Eksekutif</h2>
+<p><strong>Lima temuan, semuanya berangka:</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Temuan</th>
+<th>Angka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td><strong>Panjang bukti adalah penyumbat nomor satu.</strong> Untuk membuktikan satu mesin kelas-target (Sharpe tahunan ≥ 2,3) di dalam keluarga 21 mesin seperti sensus D14, dibutuhkan <strong>274 jendela = 549 hari</strong>. SoDEX hanya punya <strong>361 hari = 180 jendela</strong>. Secara matematis terkunci.</td>
+<td>274 vs 180 window</td>
+</tr>
+<tr>
+<td>A2</td>
+<td><strong>Plafon struktur venue:</strong> 95 simbol SoDEX, tetapi korelasi antar-aset <strong>0,33</strong> dan faktor pasar pertama (PC1) menjelaskan <strong>38,5%</strong> varians. Jumlah taruhan independen (N_eff) hanya <strong>6,1 dari 75 simbol</strong>.</td>
+<td>N_eff 6,1</td>
+</tr>
+<tr>
+<td>A3</td>
+<td><strong>Lantai biaya + plafon likuiditas:</strong> biaya realistis sekali jalan-putar <strong>9,71 bps</strong>; <strong>BTC+ETH = 87,8%</strong> dari total volume <strong>$204,7 juta/hari</strong>; hanya <strong>8 simbol</strong> yang punya volume ≥ $1 juta/hari. N_eff likuiditas = <strong>2,5 simbol</strong>.</td>
+<td>9,71 bps · 87,8%</td>
+</tr>
+<tr>
+<td>A4</td>
+<td><strong>Uji 60 hipotesis lintas-seksi → 0 lulus.</strong> Panel panjang Binance (248 simbol, ±6 tahun, 24 uji): <strong>nol</strong> lulus, yang signifikan justru <strong>8 bertanda terbalik</strong> (range-position t = −5,10, p &lt; 0,0001). SoDEX 1 hari (18 uji): <strong>nol</strong>. SoDEX 1 jam — horizon yang benar-benar venue-matched (18 uji): <strong>nol</strong>, meski tiga mekanisme signifikan secara mentah (t sampai 4,71).</td>
+<td>0/60</td>
+</tr>
+<tr>
+<td>A4b</td>
+<td><strong>Bahkan yang terkuat tidak sampai.</strong> Setelah semua koreksi biaya dan tanda: kandidat terkuat <strong>≈+2,29</strong> (reversal 21 jam, hold 48 jam, SoDEX 1 jam — <em>estimasi arah-balik, belum uji beku</em>) dan <strong>+2,06</strong> (Binance, momentum rentang, hold 5 hari) — dua-duanya <strong>&lt; 2,30</strong> dan <strong>gagal pada biaya 2×</strong>. Di venue target sendiri, mekanisme ber-tanda-prarreg yang terbaik hanya <strong>+1,62</strong>.</td>
+<td>+2,29 &amp; +2,06 vs 2,30</td>
+</tr>
+<tr>
+<td>A5</td>
+<td><strong>Jarak ke target terdokumentasi secara kuantitatif.</strong> IC yang dibutuhkan <strong>0,069</strong>; IC terbaik yang terukur <strong>0,036</strong> → kurang <strong>1,91×</strong>. Mesin venue-SoDEX terbaik yang terukur Sharpe <strong>0,75</strong>; syarat <strong>2,30</strong> → kurang <strong>3,1×</strong>.</td>
+<td>1,91× · 3,1×</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Satu temuan yang kami kejar sampai akhir — dan hasilnya GAGAL.</strong> Sinyal <em>range-position</em> 20 hari <strong>berbalik arah</strong> dari yang kami praregistrasikan: ia <strong>momentum</strong>, bukan reversal. Di Binance ia sangat kuat (t = 5,10; 3/3 segmen waktu sepakat, S_ann +1,51 pada H=2 hari dan +2,06 pada H=5 hari). Kami memperlakukannya sebagai hipotesis baru (PRAREG-2, dibekukan sebelum diuji) dan mengujinya dengan pemisahan waktu:</p>
+<table>
+<thead>
+<tr>
+<th>Uji</th>
+<th>Hasil</th>
+<th>Ambang</th>
+<th>Lulus?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance IS (60% periode)</td>
+<td>S_ann 1,44 · t=2,54</td>
+<td>—</td>
+<td>(pembentuk tanda)</td>
+</tr>
+<tr>
+<td><strong>Binance OOS (40% periode)</strong></td>
+<td><strong>S_ann 1,75</strong> · t=2,80 · 3/3 segmen</td>
+<td><strong>≥ 2,30</strong></td>
+<td><strong>TIDAK</strong></td>
+</tr>
+<tr>
+<td>OOS pada biaya 2×</td>
+<td>S_ann 1,34</td>
+<td>≥ 1,80</td>
+<td>TIDAK</td>
+</tr>
+<tr>
+<td><strong>Replikasi SoDEX 1 jam (venue-matched)</strong></td>
+<td><strong>S_ann −0,81 · t = −4,36</strong></td>
+<td>tanda sama</td>
+<td><strong>TIDAK — tanda BERLAWANAN</strong></td>
+</tr>
+<tr>
+<td>Replikasi SoDEX 1 hari</td>
+<td>S_ann +0,93 · t=0,96</td>
+<td>tanda sama</td>
+<td>tanda sama, tapi tidak signifikan</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan: kandidat ini ditolak.</strong> Ia tidak mencapai Sharpe OOS, dan yang lebih penting, ia <strong>berbalik tanda di horizon venue-matched</strong> (pada bar jam, reversal yang menang, bukan momentum). Tidak ada yang masuk portofolio dari riset ini.</p>
+<p><strong>Konsekuensi praktis:</strong> menambah strategi, menambah model, atau menaikkan leverage <strong>tidak akan menutup jarak ini</strong>. Yang menutupnya adalah salah satu dari tiga hal: <strong>(i)</strong> memperbesar IC, <strong>(ii)</strong> memperlebar breadth efektif, atau <strong>(iii)</strong> memperpanjang jam bukti. Bab Q membahas ketiganya secara berurutan.</p>
+<hr>
+<h2 id="b-amanat-target-dan-aturan-main">B. Amanat, Target, dan Aturan Main</h2>
+<h3 id="b1-target-harga-mati-tidak-boleh-diubah">B.1 Target (HARGA MATI — tidak boleh diubah)</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PnL bersih rata-rata</td>
+<td><strong>0,8% dari TOTAL dana wallet per 48 jam</strong></td>
+</tr>
+<tr>
+<td>Bentuk pencapaian</td>
+<td><strong>6–8 mesin</strong>, korelasi antar-mesin <strong>ρ ≤ 0,10</strong></td>
+</tr>
+<tr>
+<td>Syarat tiap mesin</td>
+<td>Sharpe tahunan <strong>≥ 2,3</strong></td>
+</tr>
+<tr>
+<td>Leverage</td>
+<td><strong>DILARANG</strong> menaikkan leverage untuk mengejar target</td>
+</tr>
+<tr>
+<td>Modal</td>
+<td>TOTAL wallet (spot + perps), bukan ukuran per-trade</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b2-dari-target-ke-angka-yang-harus-dibuktikan">B.2 Dari target ke angka yang harus dibuktikan</h3>
+<p>Aritmetika ini kami hitung ulang dari nol, tidak kami warisi:</p>
+<ol>
+<li>Sharpe portofolio yang dibutuhkan = <code>0,8% ÷ 2,35% × √182,5</code> = <strong>4,60 /tahun</strong>
+   (dengan asumsi σ portofolio 2,35% per 48 jam dari D14).</li>
+<li>Pengali diversifikasi dengan 6 mesin dan ρ = 0,10 = <code>√(6 ÷ (1 + 5×0,10))</code> = <strong>2,00×</strong></li>
+<li>Karena itu syarat tiap mesin = <code>4,60 ÷ 2,00</code> = <strong>2,30 /tahun</strong> = <strong>0,170 per 48 jam</strong></li>
+<li>Artinya rata-rata tiap mesin = <code>0,170 × 2,35%</code> = <strong>0,400% bersih per 48 jam</strong></li>
+</ol>
+<p><strong>Analogi:</strong> target ini seperti meminta enam orang pelari, masing-masing harus lari 400 m dalam 48 detik, dan mereka tidak boleh saling menyeret. Permasalahannya bukan "apakah ada pelari" — tetapi bahwa <strong>kita baru melatih mereka selama satu tahun</strong>, sedangkan untuk yakin bahwa catatan waktunya bukan keberuntungan, kita butuh <strong>satu setengah tahun</strong> pengukuran.</p>
+<h3 id="b3-sepuluh-aturan-keras-yang-kami-patuhi-perintah_1_sodexmd">B.3 Sepuluh aturan keras yang kami patuhi (<code>PERINTAH_1_SoDEX.md</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Aturan</th>
+<th>Kepatuhan dalam riset ini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Evaluasi PnL historis Wajib beta-netral</td>
+<td>Return forward di-demean lintas-seksi (dollar-neutral + market-neutral)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Biaya diuji 1× DAN 2×</td>
+<td>Dilaporkan <strong>3 tingkat</strong>: 8,00 · 9,71 (realistis) · 16,00 bps</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kontrol negatif wajib; kalau lolos → uji terlalu mudah</td>
+<td>Kontrol diacak dalam baris; <strong>dinilai pada bruto</strong> (lihat Bab P.3)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Jendela &lt; 6 bulan sah untuk eksekusi, tidak sah untuk alpha</td>
+<td>Panel SoDEX 1 tahun; setiap penilaian alpha ditandai eksploratori</td>
+</tr>
+<tr>
+<td>5</td>
+<td>t-statistik gabungan lintas aset jangan dipakai</td>
+<td>t dihitung pada <strong>deret waktu portofolio</strong> dengan Newey-West</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dilarang menaikkan leverage</td>
+<td>Tidak ada usulan leverage di mana pun</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Dilarang mengubah angka target</td>
+<td>Target 0,8%/48 jam dipakai apa adanya sebagai pembanding</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Dilarang menyembunyikan trial yang gagal</td>
+<td><strong>Ke-42 uji dilaporkan</strong>, termasuk yang memalukan (Bab P)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Modal nyata tetap FROZEN</td>
+<td>Tidak ada order; seluruh riset read-only</td>
+</tr>
+<tr>
+<td>10</td>
+<td>LLM/agent tidak boleh mengalahkan Risk Engine</td>
+<td>Tidak ada usulan bypass gate</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="c-apa-yang-sudah-dicoba-sebelum-riset-ini">C. Apa yang Sudah Dicoba Sebelum Riset Ini</h2>
+<p>Kami tidak memulai dari nol. Kami membaca ulang sensus D14 (<code>data/sodex_edge_census.json</code>, dijalankan 7-Okt-2026 02:07) — 21 mesin, verdict <strong><code>TIDAK-ADA-MESIN-LULUS</code></strong>.</p>
+<table>
+<thead>
+<tr>
+<th>mesin</th>
+<th>Sharpe tahunan</th>
+<th>n jendela</th>
+<th>p terburuk</th>
+<th>seg+</th>
+<th>tanda asal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mv_funding</code></td>
+<td><strong>7,76</strong></td>
+<td>16</td>
+<td>0,036</td>
+<td>3/3</td>
+<td>CARRY (lintas-venue)</td>
+</tr>
+<tr>
+<td><code>hl_replay</code></td>
+<td>7,75</td>
+<td>45</td>
+<td>0,000</td>
+<td>2/3</td>
+<td>REPLAY (Hyperliquid)</td>
+</tr>
+<tr>
+<td><code>spot_swing_cex</code></td>
+<td>3,50</td>
+<td>15</td>
+<td>0,402</td>
+<td>2/3</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>twoway</code></td>
+<td>2,42</td>
+<td>31</td>
+<td>0,345</td>
+<td>2/3</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>realwide</code></td>
+<td>1,98</td>
+<td>32</td>
+<td>0,448</td>
+<td>1/3</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>micro_live</code> (uang nyata)</td>
+<td>−13,77</td>
+<td>3</td>
+<td>—</td>
+<td>0/3</td>
+<td>UANG-NYATA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tiga pembacaan yang mengubah arah riset kami:</strong></p>
+<ol>
+<li><strong>Tiga mesin punya Sharpe titik di atas 2,3 — tak satu pun dapat dibedakan dari nol</strong> (p = 0,036…0,448). Ini pola klasik kurang daya uji, bukan pola tanpa edge.</li>
+<li><strong>n jendela maksimum di seluruh keluarga hanya 45, dari 180 yang tersedia.</strong> Mesin-mesin itu memakai 25% daya yang ada.</li>
+<li><strong>Dua mesin Sharpe tertinggi BUKAN bukti venue SoDEX.</strong> <code>hl_replay</code> berasal dari jurnal replay Hyperliquid; <code>mv_funding</code> adalah carry lintas-venue (HL/Binance/Bybit/OKX/dYdX) — sekaligus berisiko berkorelasi dengan divisi HL-Harvest. Yang benar-benar venue SoDEX (realwide, twoway, spot_swing) semuanya p = 0,34–0,45.</li>
+</ol>
+<p>Instrumentasi sensus juga terverifikasi sehat: <code>instrument_ok = true</code>, FPR instrumen 0,0525 (bersama 0,015), dan kedua kontrol negatifnya gagal dengan benar.</p>
+<hr>
+<h2 id="d-peta-venue-sodex-diukur-hari-ini">D. Peta Venue SoDEX (Diukur Hari Ini)</h2>
+<p>Kami menarik dan mengukur ulang universe SoDEX dari <code>mainnet-gw.sodex.dev</code> — 95 simbol berdata, 84 di antaranya punya riwayat ≥ 120 hari.</p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jumlah simbol terdaftar</td>
+<td><strong>95</strong> (99 berkas; 4 kosong)</td>
+</tr>
+<tr>
+<td>Komposisi</td>
+<td><strong>75 kripto + 20 ekuitas/RWA</strong></td>
+</tr>
+<tr>
+<td>Panjang riwayat maksimum</td>
+<td><strong>361 hari</strong> (BTC, mulai 12-Okt-2025)</td>
+</tr>
+<tr>
+<td>Total notional</td>
+<td><strong>$204,7 juta/hari</strong></td>
+</tr>
+<tr>
+<td>Median volatilitas tahunan — kripto</td>
+<td><strong>86,4%</strong></td>
+</tr>
+<tr>
+<td>Median volatilitas tahunan — ekuitas/RWA</td>
+<td><strong>61,6%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Simbol paling likuid:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>Kelas</th>
+<th>Vol tahunan</th>
+<th>Notional/hari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC-USD</td>
+<td>kripto</td>
+<td>44,8%</td>
+<td>$109,8 juta</td>
+</tr>
+<tr>
+<td>ETH-USD</td>
+<td>kripto</td>
+<td>61,7%</td>
+<td>$69,9 juta</td>
+</tr>
+<tr>
+<td>ZEC-USD</td>
+<td>kripto</td>
+<td>130,0%</td>
+<td>$6,8 juta</td>
+</tr>
+<tr>
+<td>SOL-USD</td>
+<td>kripto</td>
+<td>64,7%</td>
+<td>$3,5 juta</td>
+</tr>
+<tr>
+<td>XAUT-USD</td>
+<td>RWA (emas)</td>
+<td>30,0%</td>
+<td>$2,3 juta</td>
+</tr>
+<tr>
+<td>SUI-USD</td>
+<td>kripto</td>
+<td>82,8%</td>
+<td>$1,5 juta</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogi:</strong> venue ini seperti pasar malam besar dengan 95 kios. Tapi 88 dari 100 pembeli hanya mendatangi <strong>dua kios pertama</strong>. Sisa 93 kios kadang tidak dilewati siapa pun sepanjang hari — MSFT-USD hanya $5,2 ribu/hari, PLTR-USD $5,7 ribu/hari, bahkan ada yang $0.</p>
+<hr>
+<h2 id="e-ekonomi-venue-fee-spread-dan-mengapa-lp-pasif-bukan-jalan">E. Ekonomi Venue: Fee, Spread, dan Mengapa LP Pasif Bukan Jalan</h2>
+<h3 id="e1-biaya-terverifikasi-bukan-asumsi">E.1 Biaya terverifikasi (bukan asumsi)</h3>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Nilai</th>
+<th>Sumber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fee taker</td>
+<td><strong>4,00 bps per sisi</strong></td>
+<td><code>scripts/sodex_harness_reeval.py</code> → <code>SODEX_FEE_BPS = 8.0</code>; di-assert di <code>tests/test_sodex_regime_gate_study.py</code></td>
+</tr>
+<tr>
+<td>Round-trip fee</td>
+<td><strong>8,00 bps</strong></td>
+<td>2 × 4,00</td>
+</tr>
+<tr>
+<td>Spread median</td>
+<td><strong>1,71 bps</strong></td>
+<td><code>AUDIT_BIAYA_AKUN_2026-10-05.md</code>, 77 simbol</td>
+</tr>
+<tr>
+<td>Slippage (½ spread)</td>
+<td>0,86 bps per sisi</td>
+<td>turunan</td>
+</tr>
+<tr>
+<td><strong>Round-trip realistis</strong></td>
+<td><strong>9,71 bps</strong></td>
+<td>8,00 + 2×0,86</td>
+</tr>
+</tbody>
+</table>
+<h3 id="e2-sensus-spread-mengapa-market-making-pasif-bukan-jalan">E.2 Sensus spread: mengapa market-making pasif bukan jalan</h3>
+<p>Dari 92 simbol yang bukunya tersampel:</p>
+<ul>
+<li><strong>67 dari 92 simbol punya spread &lt; 2,4 bps</strong> → LP pasif yang membayar maker 1,2 bps per sisi <strong>rugi secara struktural</strong>.</li>
+<li>Hanya <strong>25 simbol ber-edge</strong> (<code>spread − 2×1,2 bps &gt; 0</code>).</li>
+<li>25 simbol itu hanya menampung <strong>0,83% dari total volume (≈ $1,64 juta/hari)</strong>.</li>
+</ul>
+<p><strong>Kesimpulan E:</strong> jalur LP/market-making pasif <strong>tidak dapat menampung alokasi</strong> dan tidak boleh dijadikan mesin utama. Ini menutup satu dari sedikit jalur yang secara alami punya Sharpe tinggi di venue kecil.</p>
+<hr>
+<h2 id="f-empat-penyumbat-peta-besar">F. Empat Penyumbat — Peta Besar</h2>
+<pre><code>        Sasaran: 0,8%/48 jam  →  Sharpe portofolio 4,60
+                                  │
+        ┌──────────────┬──────────┴─────────┬──────────────────┐
+        │              │                    │                  │
+   [G] PANJANG     [H] BREADTH         [I] LANTAI         [J] LIKUIDITAS
+       BUKTI            VENUE              BIAYA              TERKONSENTRASI
+   274 window        N_eff = 6,1        9,71 bps RT         top-2 = 87,8%
+   vs 180 ada        dari 75 simbol      = 24% syarat      N_eff likuiditas
+   → TERKUNCI        → IC harus 0,069    mean mesin         = 2,5 simbol
+                                          → IC impas 0,019
+</code></pre>
+<p>Empat penyumbat ini <strong>independen</strong>. Menutup salah satu saja tidak cukup; tiga di antaranya saling mengunci (Bab Q).</p>
+<hr>
+<h2 id="g-penyumbat-1-panjang-bukti-power">G. Penyumbat 1 — Panjang Bukti (Power)</h2>
+<h3 id="g1-aritmetika">G.1 Aritmetika</h3>
+<p>Karena syarat mesin = Sharpe 0,170 per 48 jam, jumlah jendela yang harus dikumpulkan agar t-statistik melewati ambang adalah:</p>
+<table>
+<thead>
+<tr>
+<th>Skenario</th>
+<th>t kritis</th>
+<th>Jendela dibutuhkan</th>
+<th>Hari dibutuhkan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 mesin, tanpa koreksi (p &lt; 0,05)</td>
+<td>1,96</td>
+<td><strong>133</strong></td>
+<td>265</td>
+</tr>
+<tr>
+<td>1 mesin, 2 sisi (p &lt; 0,025)</td>
+<td>2,24</td>
+<td>174</td>
+<td>348</td>
+</tr>
+<tr>
+<td>Keluarga 5, BH q = 0,10</td>
+<td>2,33</td>
+<td>187</td>
+<td>375</td>
+</tr>
+<tr>
+<td>Keluarga 10, BH q = 0,10</td>
+<td>2,58</td>
+<td>230</td>
+<td>459</td>
+</tr>
+<tr>
+<td><strong>Keluarga 21 (seperti D14), BH q = 0,10</strong></td>
+<td><strong>2,82</strong></td>
+<td><strong>274</strong></td>
+<td><strong>549</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tersedia di SoDEX: 361 hari = 180 jendela.</strong></p>
+<h3 id="g2-artinya-apa">G.2 Artinya apa</h3>
+<ul>
+<li><strong>Keluarga 21 tidak mungkin dibuktikan hari ini</strong> — butuh 549 hari, ada 361.</li>
+<li>Bahkan <strong>satu mesin tanpa koreksi apa pun</strong> butuh 265 hari, dan margin kita tipis (361 − 265 = 96 hari, ± 27%).</li>
+<li>Kita butuh <strong>6–8 mesin</strong>. Dengan 8 mesin tanpa koreksi pun (t = 1,96), kita butuh 8 × 133 = <strong>1.064 jendela setara</strong> — kecuali mesin-mesin itu diuji serentak dengan koreksi, yang justru memperbesar ambang.</li>
+</ul>
+<p><strong>Analogi:</strong> ini seperti menilai apakah seorang penembak jitu memang jitu, padahal ia baru menembak 45 kali dan kita butuh 274 tembakan untuk yakin. Bukan tembakannya yang salah — <strong>kita kurang peluru waktu.</strong></p>
+<h3 id="g3-pengecualian-penting-jalan-keluar-yang-sah">G.3 Pengecualian penting (jalan keluar yang sah)</h3>
+<p>Ada satu cara melegakan penyumbat ini <strong>tanpa menunggu</strong>: <strong>jendela paralel lintas aset</strong>. Satu portofolio lintas-seksi selalu berada di pasar, sehingga menghasilkan ± 182 jendela per tahun dari <strong>satu</strong> mesin, bukan 15–45 seperti mesin trade-diskrit. Inilah alasan kami memilih keluarga lintas-seksi untuk diuji (Bab K).</p>
+<hr>
+<h2 id="h-penyumbat-2-plafon-struktur-venue-breadth-korelasi">H. Penyumbat 2 — Plafon Struktur Venue (Breadth &amp; Korelasi)</h2>
+<h3 id="h1-hasil-pengukuran">H.1 Hasil pengukuran</h3>
+<table>
+<thead>
+<tr>
+<th>Jendela</th>
+<th>Simbol</th>
+<th>ρ rata-rata</th>
+<th>ρ median</th>
+<th>PC1</th>
+<th><strong>N_eff</strong></th>
+<th>Bagian idiosinkratik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90 hari (95% tersedia)</td>
+<td>82</td>
+<td>0,333</td>
+<td>0,311</td>
+<td>38,4%</td>
+<td><strong>5,87</strong></td>
+<td>66,7%</td>
+</tr>
+<tr>
+<td>180 hari (95%)</td>
+<td>74</td>
+<td>0,333</td>
+<td>0,316</td>
+<td>38,5%</td>
+<td><strong>6,11</strong></td>
+<td>66,7%</td>
+</tr>
+<tr>
+<td>180 hari (60%)</td>
+<td>77</td>
+<td>0,302</td>
+<td>0,283</td>
+<td>36,2%</td>
+<td>6,67</td>
+<td>69,8%</td>
+</tr>
+<tr>
+<td>365 hari (95%)</td>
+<td>14</td>
+<td>0,640</td>
+<td>0,645</td>
+<td>68,2%</td>
+<td>2,10</td>
+<td>36,0%</td>
+</tr>
+<tr>
+<td>365 hari (60%)</td>
+<td>67</td>
+<td>0,380</td>
+<td>0,360</td>
+<td>42,1%</td>
+<td>5,27</td>
+<td>62,0%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Catatan penting:</strong> baris 365 hari dengan N_eff 2,10 adalah <strong>artefak</strong>, bukan fakta venue — hanya 14 simbol tertua (para mayor) yang punya riwayat penuh, dan para mayor memang paling saling berkorelasi. Angka yang jujur untuk venue ini adalah <strong>N_eff ≈ 6 pada jendela 3–6 bulan</strong>.</p>
+<h3 id="h2-anggaran-ic-hukum-fundamental">H.2 Anggaran IC — Hukum Fundamental</h3>
+<p>Hukum Fundamental: <code>Sharpe = IC × √breadth</code>, dengan <code>breadth = N_eff × frekuensi</code>.</p>
+<table>
+<thead>
+<tr>
+<th>N_eff</th>
+<th>breadth (H=48 jam)</th>
+<th><strong>IC dibutuhkan untuk Sharpe 2,3</strong></th>
+<th>vs IC terukur 0,036</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>6,1 (venue terukur)</strong></td>
+<td>1.113</td>
+<td><strong>0,0689</strong></td>
+<td><strong>0,52×</strong></td>
+</tr>
+<tr>
+<td>20</td>
+<td>3.650</td>
+<td>0,0381</td>
+<td>0,94×</td>
+</tr>
+<tr>
+<td>40</td>
+<td>7.300</td>
+<td>0,0270</td>
+<td>1,34×</td>
+</tr>
+<tr>
+<td>76</td>
+<td>13.870</td>
+<td>0,0196</td>
+<td>1,84×</td>
+</tr>
+</tbody>
+</table>
+<h3 id="h3-dua-kesalahpahaman-yang-perlu-dikoreksi">H.3 Dua kesalahpahaman yang perlu dikoreksi</h3>
+<p><strong>(a) "Aset berkorelasi berarti mesin berkorelasi."</strong> Tidak selalu. Untuk mesin <strong>dollar-neutral</strong>, korelasi antar-mesin ditentukan oleh <strong>tumpang tindih bobot</strong>, bukan korelasi asetnya — komponen pasar saling meniadakan di selisih long-short. Jadi syarat ρ ≤ 0,10 <strong>bukan mustahil</strong> secara matematis. Tetapi korelasi aset 0,33 tetap memangkas <strong>kolam dispersi</strong> yang bisa dipanen: hanya <strong>67%</strong> varians yang idiosinkratik — 33% adalah faktor pasar bersama yang tak bisa dipanen lintas-seksi tanpa menambah risiko arah.</p>
+<p><strong>(b) "Tinggal tambah mesin."</strong> Pengali diversifikasi punya <strong>plafon</strong>: dengan ρ = 0,10 plafonnya 3,16×; dengan ρ = 0,30 → 1,83×; dengan ρ = 0,61 → 1,29×. Mesin ke-7, ke-8, ke-20 tidak menambah apa pun begitu plafon tercapai.</p>
+<table>
+<thead>
+<tr>
+<th>ρ antar-mesin</th>
+<th>pengali n=6</th>
+<th>plafon (n→∞)</th>
+<th>Sharpe mesin yang dibutuhkan untuk portofolio 4,60</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,10</td>
+<td>2,00×</td>
+<td>3,16×</td>
+<td><strong>2,30</strong></td>
+</tr>
+<tr>
+<td>0,30</td>
+<td>1,55×</td>
+<td>1,83×</td>
+<td>2,97</td>
+</tr>
+<tr>
+<td>0,61</td>
+<td>1,22×</td>
+<td>1,29×</td>
+<td>3,77</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Inilah sebabnya syarat ρ ≤ 0,10 di dalam target bukan hiasan — ia yang menentukan apakah syarat Sharpe 2,3 cukup atau harus jauh lebih tinggi.</strong></p>
+<hr>
+<h2 id="i-penyumbat-3-lantai-biaya">I. Penyumbat 3 — Lantai Biaya</h2>
+<p>Biaya tidak bisa dihilangkan, hanya bisa dilawan dengan edge yang lebih besar atau frekuensi yang lebih rendah. Dua angka yang tidak bisa ditawar:</p>
+<table>
+<thead>
+<tr>
+<th>Ambang IC (break-even) di SoDEX 1d</th>
+<th>H = 48 jam</th>
+<th>H = 5 hari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biaya 8,00 bps RT</td>
+<td>0,0159</td>
+<td>0,0101</td>
+</tr>
+<tr>
+<td><strong>Biaya realistis 9,71 bps RT</strong></td>
+<td><strong>0,0193</strong></td>
+<td>0,0123</td>
+</tr>
+<tr>
+<td>Biaya 16,00 bps RT (2×)</td>
+<td>0,0318</td>
+<td>0,0203</td>
+</tr>
+<tr>
+<td>Setelah koreksi turnover 1,30</td>
+<td>0,0125</td>
+<td>0,0080</td>
+</tr>
+</tbody>
+</table>
+<p>Dan untuk <strong>mencapai target</strong> (bukan sekadar impas), pada H = 48 jam dibutuhkan IC <strong>0,0689</strong>.</p>
+<pre><code>IC  0,0193 ──── impas (biaya realistis)
+IC  0,0360 ──── terbaik yang terukur hari ini  → untung tipis, Sharpe ≈ 0,7
+IC  0,0689 ──── syarat target Sharpe 2,3       → 1,91× di atas yang terukur
+</code></pre>
+<p><strong>Analogi:</strong> bayangkan pedagang yang untung Rp 36.000 per putaran, sementara ongkos kirimnya Rp 19.300. Ia memang untung. Tetapi untuk membiayai target perusahaan ia perlu untung Rp 69.000 per putaran — dan itu bukan dicapai dengan mengirim lebih sering, karena setiap pengiriman tambahan menambah ongkos.</p>
+<hr>
+<h2 id="j-penyumbat-4-likuiditas-terkonsentrasi">J. Penyumbat 4 — Likuiditas Terkonsentrasi</h2>
+<table>
+<thead>
+<tr>
+<th>Ukuran konsentrasi</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total notional</td>
+<td>$204,7 juta/hari</td>
+</tr>
+<tr>
+<td>Top-2 (BTC+ETH)</td>
+<td><strong>87,8%</strong></td>
+</tr>
+<tr>
+<td>Top-5</td>
+<td>93,9%</td>
+</tr>
+<tr>
+<td>Top-10</td>
+<td>96,8%</td>
+</tr>
+<tr>
+<td>Top-20</td>
+<td>99,4%</td>
+</tr>
+<tr>
+<td>HHI</td>
+<td>0,406 (merata = 0,011)</td>
+</tr>
+<tr>
+<td><strong>N_eff likuiditas</strong></td>
+<td><strong>2,5 simbol</strong> dari 94</td>
+</tr>
+<tr>
+<td>Simbol ≥ $1 juta/hari</td>
+<td><strong>8</strong></td>
+</tr>
+<tr>
+<td>Simbol ≥ $100 ribu/hari</td>
+<td><strong>20</strong></td>
+</tr>
+<tr>
+<td>Simbol ≥ $10 ribu/hari</td>
+<td>63</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Benturan mematikan:</strong> strategi lintas-seksi butuh <strong>banyak nama</strong> agar punya breadth. Tetapi nama-nama yang memberi diversifikasi justru <strong>nama-nama yang tidak bisa ditransaksikan</strong>. N_eff return (6,1) dan N_eff likuiditas (2,5) tidak bertempat di simbol yang sama.</p>
+<p><strong>Perhitungan jujur:</strong> kalau kita membatasi diri pada <strong>20 simbol likuid</strong> (≥ $100 ribu/hari), breadth = 20 × 182 = 3.640 → √breadth = 60,3 → IC yang dibutuhkan = <strong>0,0381</strong> — <strong>hampir persis IC yang terukur (0,036).</strong> Artinya: target ini <strong>secara aritmetika berada di ambang jangkauan</strong>, tetapi hanya jika (a) IC 0,036 itu nyata dan stabil, (b) kedalaman 20 nama itu nyata, (c) hold 48 jam, dan (d) eksekusi persis di spread median. <strong>Keempatnya belum terbukti.</strong></p>
+<hr>
+<h2 id="k-uji-60-hipotesis-lintas-seksi-metode">K. Uji 60 Hipotesis Lintas-Seksi — Metode</h2>
+<h3 id="k1-mengapa-lintas-seksi">K.1 Mengapa lintas-seksi</h3>
+<p>Mesin trade-diskrit mengumpulkan 15–45 jendela (Bab G). Portofolio lintas-seksi yang selalu berada di pasar mengumpulkan ± 182 jendela per tahun dari satu mesin. Ini satu-satunya tuas daya uji yang bisa dipakai <strong>tanpa menunggu dan tanpa data baru</strong>.</p>
+<h3 id="k2-cara-kerja-dibekukan-sebelum-dijalankan">K.2 Cara kerja (dibekukan sebelum dijalankan)</h3>
+<p>Berkas: <code>docs/sodex/PRAREG_PANEL_PANJANG_2026-10-07.md</code> (dibekukan sebelum satu angka pun dihitung).</p>
+<pre><code>sinyal   : 12 mekanisme (lihat tabel) — diranking lintas-seksi
+bobot    : dollar-neutral, SUM|w| = 1
+return   : forward return DI-DEMEAN lintas-seksi  → beta-netral
+hold     : H = 2 hari (±48 jam) dan H = 5 hari
+biaya    : 8,00 bps (1×) · 9,71 bps (realistis) · 16,00 bps (2×)
+kontrol  : sinyal diacak dalam baris, konstruksi identik
+statistik: t Newey-West pada deret waktu portofolio (bukan t gabungan lintas aset)
+koreksi  : Benjamini-Hochberg q = 0,10 atas 24 trial
+lulus    : S_ann ≥ 2,30 (1×) DAN ≥ 1,80 (2×) DAN BH lolos DAN 3/3 segmen positif
+</code></pre>
+<h3 id="k3-dua-belas-mekanisme">K.3 Dua belas mekanisme</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Kode</th>
+<th>Sinyal</th>
+<th>Tanda prarreg</th>
+<th>Dasar pemikiran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>REV_L1</td>
+<td>return 1 periode</td>
+<td>− (reversal)</td>
+<td>reversal jangka pendek</td>
+</tr>
+<tr>
+<td>2</td>
+<td>REV_L3</td>
+<td>return 3 periode</td>
+<td>−</td>
+<td>reversal jangka pendek</td>
+</tr>
+<tr>
+<td>3</td>
+<td>REV_VOL</td>
+<td>return ÷ vol 20p</td>
+<td>−</td>
+<td>reversal ternormalisasi</td>
+</tr>
+<tr>
+<td>4</td>
+<td>REV_IDIO</td>
+<td>residual vs pasar (β 60p)</td>
+<td>−</td>
+<td>reversal idiosinkratik</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MOM_L21</td>
+<td>return 21 periode</td>
+<td>+</td>
+<td>momentum menengah</td>
+</tr>
+<tr>
+<td>6</td>
+<td>MOM_L63</td>
+<td>return 63 periode</td>
+<td>+</td>
+<td>momentum menengah</td>
+</tr>
+<tr>
+<td>7</td>
+<td>LTREV_L180</td>
+<td>return 180 periode</td>
+<td>−</td>
+<td>reversal jangka panjang</td>
+</tr>
+<tr>
+<td>8</td>
+<td>RANGEPOS</td>
+<td>posisi dalam rentang 20p</td>
+<td>−</td>
+<td>pembalikan posisi</td>
+</tr>
+<tr>
+<td>9</td>
+<td>VOLSHOCK</td>
+<td>z(volume) × tanda(return)</td>
+<td>−</td>
+<td>guncangan volume</td>
+</tr>
+<tr>
+<td>10</td>
+<td>MAXFX</td>
+<td>rata-rata 5 return terbesar</td>
+<td>−</td>
+<td>efek lotre (Bali dkk.)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>CARRY_FR</td>
+<td>funding 8 jam terakhir</td>
+<td>−</td>
+<td>long funding rendah</td>
+</tr>
+<tr>
+<td>12</td>
+<td>BASIS</td>
+<td>premi mark−index</td>
+<td>−</td>
+<td>premi derivatif</td>
+</tr>
+</tbody>
+</table>
+<h3 id="k4-panel-uji">K.4 Panel uji</h3>
+<table>
+<thead>
+<tr>
+<th>Panel</th>
+<th>Simbol</th>
+<th>Bar</th>
+<th>Rentang</th>
+<th>Peran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Binance USDT-perp</strong></td>
+<td><strong>248</strong></td>
+<td>371–2.587</td>
+<td>Sep-2019 → Okt-2026</td>
+<td><strong>jaring daya uji</strong> — panjang riwayat, untuk membedakan "tidak ada edge" dari "kurang data"</td>
+</tr>
+<tr>
+<td><strong>SoDEX 1d</strong></td>
+<td>95</td>
+<td>361</td>
+<td>Okt-2025 → Okt-2026</td>
+<td><strong>venue target</strong> — replikasi, bukan penemuan</td>
+</tr>
+<tr>
+<td><strong>SoDEX 1h</strong></td>
+<td>95</td>
+<td>8.533</td>
+<td>Okt-2025 → Okt-2026</td>
+<td><strong>venue target, horizon venue-matched</strong> (hold 24 jam &amp; 48 jam)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Peringatan metodologis yang kami patuhi:</strong> Binance dipakai <strong>hanya</strong> untuk menguji <em>mekanisme</em>, bukan untuk mengklaim mesin SoDEX. Setiap mekanisme yang lolos di Binance <strong>wajib</strong> lolos replikasi di SoDEX (tanda sama, |IC| ≥ ½). Pelajaran H5 sebelumnya: efek breakout di SoDEX <strong>berbalik arah</strong> di Binance — efek lintas venue <strong>tidak otomatis</strong> bertahan.</p>
+<hr>
+<h2 id="l-hasil-uji-panel-panjang-binance-248-simbol-6-tahun">L. Hasil Uji — Panel Panjang Binance (248 simbol, ±6 tahun)</h2>
+<p><strong>Verdict: 0 dari 24 lulus.</strong> Instrumentasi diverifikasi lebih dahulu dengan uji asap: sinyal reversal buatan sebesar 0,4%/hari <strong>terdeteksi</strong> (S_ann 5,33; t = 5,50; p &lt; 0,0001; 3/3 segmen) dan kontrol acaknya bersih (t = −0,73).</p>
+<p><strong>Delapan trial signifikan setelah koreksi BH — SEMUANYA BERNEGATIF (tanda terbalik dari yang kami praregistrasikan):</strong></p>
+<table>
+<thead>
+<tr>
+<th>trial</th>
+<th>neto (bps)</th>
+<th>sd</th>
+<th>S_ann</th>
+<th>t_NW</th>
+<th>p</th>
+<th>BH</th>
+<th>seg+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RANGEPOS_H2</strong></td>
+<td>−23,62</td>
+<td>150</td>
+<td><strong>−2,13</strong></td>
+<td><strong>−5,10</strong></td>
+<td>&lt;0,0001</td>
+<td>✓</td>
+<td><strong>0/3</strong></td>
+</tr>
+<tr>
+<td>RANGEPOS_H5</td>
+<td>−45,10</td>
+<td>235</td>
+<td>−1,64</td>
+<td>−3,98</td>
+<td>0,0001</td>
+<td>✓</td>
+<td>1/3</td>
+</tr>
+<tr>
+<td>REV_L3_H5</td>
+<td>−41,72</td>
+<td>241</td>
+<td>−1,48</td>
+<td>−3,71</td>
+<td>0,0002</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>REV_L3_H2</td>
+<td>−17,01</td>
+<td>159</td>
+<td>−1,44</td>
+<td>−3,49</td>
+<td>0,0005</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>REV_VOL_H2</td>
+<td>−12,72</td>
+<td>140</td>
+<td>−1,23</td>
+<td>−3,20</td>
+<td>0,0014</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>REV_L1_H5</td>
+<td>−33,07</td>
+<td>234</td>
+<td>−1,21</td>
+<td>−2,71</td>
+<td>0,0068</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>REV_VOL_H5</td>
+<td>−28,99</td>
+<td>220</td>
+<td>−1,13</td>
+<td>−2,59</td>
+<td>0,0095</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td>REV_IDIO_H5</td>
+<td>−26,09</td>
+<td>211</td>
+<td>−1,06</td>
+<td>−2,35</td>
+<td>0,0186</td>
+<td>✓</td>
+<td>1/3</td>
+</tr>
+<tr>
+<td>MAXFX_H2</td>
+<td>−11,08</td>
+<td>169</td>
+<td>−0,88</td>
+<td>−2,17</td>
+<td>0,0297</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tidak ada satu pun trial yang signifikan POSITIF.</strong></p>
+<h3 id="l1-apa-artinya-dan-apa-yang-bukan-artinya">L.1 Apa artinya — dan apa yang BUKAN artinya</h3>
+<p><strong>Yang bukan artinya:</strong> kita tidak boleh sekadar membalik tanda lalu mengklaim edge. Sebagian nilai negatif itu murni biaya, bukan arah. Kami uraikan bruto dari neto untuk memisahkannya:</p>
+<table>
+<thead>
+<tr>
+<th>trial</th>
+<th>bruto (bps)</th>
+<th>biaya (bps)</th>
+<th>bruto negatif?</th>
+<th>tafsir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REV_L1_H2</td>
+<td><strong>+0,02</strong></td>
+<td>6,52</td>
+<td>tidak</td>
+<td>edge bruto <strong>nol</strong>; rugi murni biaya</td>
+</tr>
+<tr>
+<td>REV_VOL_H2</td>
+<td>−6,12</td>
+<td>6,60</td>
+<td>hampir</td>
+<td>≈ biaya</td>
+</tr>
+<tr>
+<td>MAXFX_H2</td>
+<td>−9,83</td>
+<td>1,25</td>
+<td>ya</td>
+<td>arah terbalik lemah</td>
+</tr>
+<tr>
+<td><strong>RANGEPOS_H2</strong></td>
+<td><strong>−20,22</strong></td>
+<td>3,40</td>
+<td><strong>ya, 6× biaya</strong></td>
+<td><strong>arah terbalik kuat</strong></td>
+</tr>
+<tr>
+<td>REV_L3_H5</td>
+<td>−35,21</td>
+<td>6,51</td>
+<td>ya, 5× biaya</td>
+<td>arah terbalik kuat</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan L yang jujur:</strong> pada perps Binance, keluarga <strong>reversal lintas-seksi jangka pendek TIDAK bertahan setelah biaya</strong>. Dua yang benar-benar bertahan berbalik arah adalah <strong>range-position</strong> dan <strong>reversal 3 hari pada hold 5 hari</strong> — dan keduanya, setelah dikoreksi biaya dengan benar, tetap di bawah ambang 2,30.</p>
+<hr>
+<h2 id="m-hasil-uji-replikasi-sodex-1-hari-95-simbol-361-hari">M. Hasil Uji — Replikasi SoDEX 1 Hari (95 simbol, 361 hari)</h2>
+<p><strong>Verdict: 0 dari 18 lulus</strong> (4 trial dilewati karena datanya tidak ada di venue: VOLSHOCK 1d, CARRY_FR, BASIS — SoDEX tidak menyediakan histori funding/basis, hanya prediksi 5 hari ke depan).</p>
+<table>
+<thead>
+<tr>
+<th>trial</th>
+<th>neto (bps)</th>
+<th>sd</th>
+<th>S_ann</th>
+<th>t_NW</th>
+<th>p</th>
+<th>seg+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REV_L1_H2</td>
+<td>+7,58</td>
+<td>137</td>
+<td><strong>0,75</strong></td>
+<td>0,82</td>
+<td>0,415</td>
+<td>3</td>
+</tr>
+<tr>
+<td>REV_IDIO_H2</td>
+<td>+6,32</td>
+<td>113</td>
+<td>0,75</td>
+<td>0,66</td>
+<td>0,506</td>
+<td>2</td>
+</tr>
+<tr>
+<td>LTREV_L180_H2</td>
+<td>+4,43</td>
+<td>113</td>
+<td>0,53</td>
+<td>0,32</td>
+<td>0,745</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MOM_L63_H2</td>
+<td>+2,74</td>
+<td>132</td>
+<td>0,28</td>
+<td>0,26</td>
+<td>0,797</td>
+<td>2</td>
+</tr>
+<tr>
+<td>REV_VOL_H2</td>
+<td>+2,98</td>
+<td>107</td>
+<td>0,38</td>
+<td>0,36</td>
+<td>0,718</td>
+<td>2</td>
+</tr>
+<tr>
+<td>LTREV_L180_H5</td>
+<td>+20,51</td>
+<td>219</td>
+<td>0,80</td>
+<td>0,71</td>
+<td>0,479</td>
+<td>—</td>
+</tr>
+<tr>
+<td>RANGEPOS_H2</td>
+<td>−12,96</td>
+<td>115</td>
+<td>−1,53</td>
+<td>−1,58</td>
+<td>0,114</td>
+<td>0</td>
+</tr>
+<tr>
+<td>MOM_L21_H5</td>
+<td>−20,75</td>
+<td>252</td>
+<td>−0,70</td>
+<td>−0,57</td>
+<td>0,567</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Terbaik yang benar-benar venue SoDEX: REV_L1_H2, Sharpe tahunan 0,75</strong> — <strong>3,1× di bawah syarat 2,30</strong>, dan tidak signifikan (p = 0,415).</p>
+<p><strong>Yang perlu diperhatikan:</strong> RANGEPOS di SoDEX juga <strong>negatif</strong> (−12,96 bps, t = −1,58) — <strong>tanda yang sama</strong> dengan Binance. Signifikansinya lemah karena datanya hanya 1 tahun (n = 138 jendela), tetapi <strong>arahnya konsisten lintas venue</strong>. Ini satu-satunya benang yang layak ditarik (Bab N).</p>
+<p><strong>Empat trial tidak bisa dijalankan di SoDEX, dan itu sendiri sebuah temuan:</strong> collector funding SoDEX menyimpan <strong>prediksi 5 hari ke depan</strong>, bukan histori. Venue ini secara data belum bisa menguji strategi carry — padahal justru carry yang paling menjanjikan di sensus D14.</p>
+<h3 id="m2-sodex-1-jam-horizon-yang-benar-benar-venue-matched">M.2 SoDEX 1 jam — horizon yang benar-benar venue-matched</h3>
+<p>Uji ini yang paling relevan: jendela swing project SoDEX adalah <strong>1–30 jam</strong>, sementara bar harian hanyalah proksi kasar. Panel 1 jam baru selesai ditarik riset ini: <strong>95 simbol × 8.533 bar</strong> (± 356 hari jam-jaman, 12-Okt-2025 → 7-Okt-2026).</p>
+<p><strong>Verdict: 0 dari 18 lulus</strong> (4 dilewati karena data venue tidak ada).</p>
+<table>
+<thead>
+<tr>
+<th>trial</th>
+<th>neto (bps)</th>
+<th>sd</th>
+<th>S_ann</th>
+<th>t_NW</th>
+<th>p</th>
+<th>BH</th>
+<th>seg+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MOM_L21_H24</strong></td>
+<td>−18,77</td>
+<td>106</td>
+<td><strong>−3,38</strong></td>
+<td><strong>−4,59</strong></td>
+<td>&lt;0,0001</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td><strong>MOM_L21_H48</strong></td>
+<td>−25,94</td>
+<td>130</td>
+<td><strong>−2,70</strong></td>
+<td><strong>−4,71</strong></td>
+<td>&lt;0,0001</td>
+<td>✓</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td><strong>RANGEPOS_H48</strong></td>
+<td><strong>+11,70</strong></td>
+<td>98</td>
+<td><strong>1,62</strong></td>
+<td><strong>+2,31</strong></td>
+<td>0,021</td>
+<td>✗</td>
+<td><strong>3/3</strong></td>
+</tr>
+<tr>
+<td>RANGEPOS_H24</td>
+<td>+6,41</td>
+<td>81</td>
+<td>1,51</td>
+<td>+1,65</td>
+<td>0,099</td>
+<td>✗</td>
+<td><strong>3/3</strong></td>
+</tr>
+<tr>
+<td>REV_IDIO_H48</td>
+<td>+6,77</td>
+<td>108</td>
+<td>0,85</td>
+<td>+1,39</td>
+<td>0,165</td>
+<td>✗</td>
+<td>2/3</td>
+</tr>
+<tr>
+<td>MAXFX_H48</td>
+<td>−12,83</td>
+<td>176</td>
+<td>−0,98</td>
+<td>−1,06</td>
+<td>0,291</td>
+<td>✗</td>
+<td>1/3</td>
+</tr>
+<tr>
+<td>REV_L1_H48</td>
+<td>+3,46</td>
+<td>128</td>
+<td>0,37</td>
+<td>+0,44</td>
+<td>0,657</td>
+<td>✗</td>
+<td>2/3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tiga hal yang berubah setelah uji ini:</strong></p>
+<ol>
+<li><strong>Dua mekanisme signifikan sangat kuat (t = −4,59 dan −4,71, p &lt; 0,0001)</strong> — tetapi <strong>bertanda terbalik</strong> dari yang kami praregistrasikan. Artinya pada horizon 21 jam di SoDEX, sinyalnya adalah <strong>reversal</strong>, bukan momentum. Besar efeknya (biaya 1×): <strong>S_ann −3,38 (H24)</strong> dan <strong>−2,70 (H48)</strong>.</li>
+<li><strong><code>RANGEPOS_H48</code> justru SEPAKAT dengan prareg</strong> di sini: tanda reversal positif, t = +2,31, dan <strong>3/3 segmen waktu positif</strong>. Tetapi ia <strong>gagal koreksi BH</strong> (ambangnya 0,0167 saat peringkat ke-3 dari 18; p-nya 0,021) dan Sharpe-nya <strong>1,62</strong> — 70% dari syarat. Ia juga <strong>gagal kontrol negatif</strong> (kontrol acak memberi t = −2,13, di atas ambang 2,0 yang kami tetapkan).</li>
+<li><strong>Kesimpulan horizon:</strong> tanda efek lintas-seksi <strong>berbalik menurut horizon</strong> — pada bar <strong>jam</strong> (20–21 bar ≈ 1 hari) arahnya <strong>reversal</strong>; pada bar <strong>hari</strong> (20 bar ≈ 20 hari) arahnya <strong>momentum</strong>. Ini pola yang dikenal di literatur dan konsisten di seluruh hasil kami.</li>
+</ol>
+<p><strong>Satu kandidat terukur baru — estimasi arah-balik (REVERSAL 21 jam), BELUM uji beku:</strong></p>
+<table>
+<thead>
+<tr>
+<th>varian (arah reversal)</th>
+<th>neto 1× (bps)</th>
+<th>S_ann 1×</th>
+<th>neto 2× (bps)</th>
+<th>S_ann 2×</th>
+<th>t_NW</th>
+<th>seg+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reversal 21 jam · hold 48 jam</strong></td>
+<td><strong>+15,58</strong></td>
+<td><strong>≈ +2,29</strong></td>
+<td>+10,40</td>
+<td>≈ +1,53</td>
+<td><strong>+4,71</strong></td>
+<td><strong>3/3</strong></td>
+</tr>
+<tr>
+<td>Reversal 21 jam · hold 24 jam</td>
+<td>+8,22</td>
+<td>≈ +1,48</td>
+<td>+2,94</td>
+<td>≈ +0,53</td>
+<td>+4,59</td>
+<td><strong>3/3</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Tabel ini <strong>estimasi aritmetik</strong> dari hasil yang sudah ada (<code>neto_balik = −neto − 2×biaya</code>), <strong>bukan</strong> backtest beku yang baru dijalankan — simpangan baku belum tentu identik karena korelasi bruto↔biaya berubah saat tanda dibalik. Karena arah ini <strong>dipilih setelah melihat data</strong>, ia wajib masuk <strong>prarreg baru yang dibekukan sebelum diuji</strong> (PRAREG-3) dengan pemisahan IS/OOS. Bacaannya: kandidat terkuat <strong>≈2,29 dari 2,30 pada biaya 1×, tetapi jatuh ke ≈1,53 pada biaya 2× (syarat 1,80)</strong> — persis penyumbat "lantai biaya". Turnover 1,29 membuat tiap jendela 48 jam membayar ≈5,2 bps biaya (5,2 dari 20,8 bps bruto = 25%).</p>
+<p><strong>Belum ada satu pun yang lulus penuh.</strong> Mekanisme ber-tanda-prarreg di venue target hanya <strong>0,93–1,62</strong> (40–70% dari syarat 2,30); kandidat arah-balik terkuat ≈2,29 tetapi <strong>gagal pada biaya 2×</strong> dan belum diuji pemisahan waktu.</p>
+<hr>
+<h2 id="n-temuan-terkuat-range-position-berbalik-arah">N. Temuan Terkuat: Range-Position Berbalik Arah</h2>
+<h3 id="n1-apa-yang-terjadi">N.1 Apa yang terjadi</h3>
+<p>Kami praregistrasi <code>RANGEPOS</code> sebagai <strong>reversal</strong>: beli yang dekat dasar rentang 20 hari, jual yang dekat puncak. Data menolak tanda itu dengan sangat kuat:</p>
+<ul>
+<li>Binance H=2: t = <strong>−5,10</strong>, p &lt; 0,0001, <strong>0/3 segmen</strong> positif (artinya arah sebaliknya positif di ketiga periode waktu).</li>
+<li>Binance H=5: t = −3,98, p = 0,0001.</li>
+<li>SoDEX H=2: t = −1,58 (tanda sama).</li>
+</ul>
+<p><strong>Terjemahan:</strong> posisi dalam rentang harga 20 hari adalah sinyal <strong>momentum/kontinuasi</strong> — nama yang mendekati puncaknya cenderung lanjut, bukan berbalik.</p>
+<h3 id="n2-besarnya-setelah-biaya-dihitung-dengan-benar">N.2 Besarnya setelah biaya dihitung dengan benar</h3>
+<p>Kesalahan yang mudah dibuat: membalik tanda sinyal <strong>tidak</strong> membalik biaya. Turnover tetap sama. Jadi:</p>
+<pre><code>neto_dibalik = −(neto_asli + 2 × biaya)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>trial</th>
+<th>neto asli</th>
+<th>biaya</th>
+<th><strong>neto dibalik</strong></th>
+<th>sd</th>
+<th><strong>S_ann dibalik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RANGEPOS_H2</td>
+<td>−23,62</td>
+<td>3,40</td>
+<td><strong>+16,82</strong></td>
+<td>150</td>
+<td><strong>+1,51</strong></td>
+</tr>
+<tr>
+<td>RANGEPOS_H5</td>
+<td>−45,10</td>
+<td>4,62</td>
+<td><strong>+35,86</strong></td>
+<td>235</td>
+<td><strong>+2,06</strong></td>
+</tr>
+<tr>
+<td>REV_L3_H5</td>
+<td>−41,72</td>
+<td>6,51</td>
+<td>+28,70</td>
+<td>241</td>
+<td>+1,61</td>
+</tr>
+<tr>
+<td>REV_VOL_H2</td>
+<td>−12,72</td>
+<td>6,60</td>
+<td>−0,48</td>
+<td>140</td>
+<td>−0,04</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kandidat terbaik: range-position momentum pada hold 5 hari, Sharpe +2,06</strong> — 90% dari syarat 2,30, tetapi <strong>belum lulus</strong>.</p>
+<h3 id="n3-perlakuan-yang-benar-dan-yang-kami-lakukan">N.3 Perlakuan yang benar (dan yang kami lakukan)</h3>
+<p>Karena tanda ini <strong>dipilih setelah melihat data</strong>, ia <strong>tidak sah</strong> diklaim sebagai temuan prarreg. Kami memperlakukannya sebagai hipotesis baru:</p>
+<ul>
+<li><strong>Amandemen dibekukan lebih dahulu</strong> — <code>docs/sodex/PRAREG_2_RANGE_POSITION_2026-10-07.md</code>, ditulis <strong>sebelum</strong> uji validasi dijalankan.</li>
+<li>Uji sahnya: <strong>pemisahan waktu</strong> — ukur tanda di 60% periode terawal (IS), uji di 40% terakhir (OOS), <strong>tanpa menyetel ulang</strong> N, hold, atau ambang.</li>
+<li>Sensitivitas N ∈ {10, 20, 40, 60} dilaporkan <strong>sebagai stabilitas, bukan pemilihan</strong>.</li>
+<li>Replikasi SoDEX wajib: tanda harus sama.</li>
+</ul>
+<p><strong>Status: DITOLAK.</strong> Lihat Bab N.4.</p>
+<h3 id="n4-hasil-uji-kandidat-ditolak">N.4 Hasil uji — kandidat ditolak</h3>
+<p>PRAREG-2 dibekukan sebelum uji dijalankan. Hasilnya:</p>
+<table>
+<thead>
+<tr>
+<th>Panel / segmen</th>
+<th>n</th>
+<th>neto</th>
+<th>S_ann</th>
+<th>t_NW</th>
+<th>seg+</th>
+<th>S pada 2× biaya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance IS (60% terawal)</td>
+<td>634</td>
+<td>+18,59 bps</td>
+<td>1,44</td>
+<td>2,54</td>
+<td>2</td>
+<td>1,17</td>
+</tr>
+<tr>
+<td><strong>Binance OOS (40% terakhir)</strong></td>
+<td>507</td>
+<td>+14,43 bps</td>
+<td><strong>1,75</strong></td>
+<td>2,80</td>
+<td><strong>3</strong></td>
+<td>1,34</td>
+</tr>
+<tr>
+<td>SoDEX 1 hari</td>
+<td>138</td>
+<td>+7,91 bps</td>
+<td>+0,93</td>
+<td>0,96</td>
+<td>2</td>
+<td>0,63</td>
+</tr>
+<tr>
+<td><strong>SoDEX 1 jam (venue-matched, hold 24 jam)</strong></td>
+<td>293</td>
+<td>−16,95 bps</td>
+<td><strong>−0,81</strong></td>
+<td><strong>−4,36</strong></td>
+<td><strong>0/3</strong></td>
+<td>−1,06</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ambang yang dibekukan:</strong> S_ann OOS ≥ 2,30 (1×) <strong>DAN</strong> ≥ 1,80 (2×) <strong>DAN</strong> t ≥ 2,0 <strong>DAN</strong> tanda konsisten <strong>DAN</strong> replikasi venue bertanda sama.</p>
+<table>
+<thead>
+<tr>
+<th>Syarat</th>
+<th>Hasil</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S_ann OOS ≥ 2,30</td>
+<td><strong>1,75</strong></td>
+<td>✗</td>
+</tr>
+<tr>
+<td>S_ann OOS pada 2× biaya ≥ 1,80</td>
+<td><strong>1,34</strong></td>
+<td>✗</td>
+</tr>
+<tr>
+<td>t_NW ≥ 2,0</td>
+<td>2,80</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>3/3 segmen positif</td>
+<td>3/3</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Kontrol negatif tidak lulus</td>
+<td>ctrl bruto +4,66 / −2,22 bps (tidak signifikan)</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>Replikasi SoDEX bertanda sama</strong></td>
+<td><strong>1 jam: t = −4,36 (tanda BERLAWANAN)</strong></td>
+<td><strong>✗</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sensitivitas N (stabilitas, bukan pemilihan):</strong></p>
+<table>
+<thead>
+<tr>
+<th>N</th>
+<th>Binance OOS S_ann</th>
+<th>SoDEX 1d S_ann</th>
+<th>SoDEX 1h S_ann</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>0,86</td>
+<td>+0,07</td>
+<td>−4,14</td>
+</tr>
+<tr>
+<td><strong>20 (utama)</strong></td>
+<td><strong>1,75</strong></td>
+<td><strong>+0,93</strong></td>
+<td><strong>−3,98</strong></td>
+</tr>
+<tr>
+<td>40</td>
+<td>1,75</td>
+<td>+0,62</td>
+<td>−3,47</td>
+</tr>
+<tr>
+<td>60</td>
+<td>1,55</td>
+<td>−0,13</td>
+<td>−2,69</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tiga kesimpulan dari uji ini:</strong></p>
+<ol>
+<li><strong>Di Binance, momentum rentang itu nyata tetapi terlalu lemah.</strong> t = 2,80 (signifikan) tetapi S_ann 1,75 — 76% dari syarat. Tidak cukup.</li>
+<li><strong>Di venue target, arahnya BERBALIK di horizon yang justru paling relevan.</strong> Pada bar jam (venue-matched, jendela 1–30 jam), momentum rentang <strong>kalah signifikan</strong> (t = −4,36, 0/3 segmen) — yang menang di sana adalah <strong>reversal</strong>.</li>
+<li><strong>Tidak ada overfitting</strong> (IS 1,44 &lt; OOS 1,75), jadi angka ini bukan ilusi pemilihan periode — memang <strong>efeknya tidak cukup besar</strong>.</li>
+</ol>
+<p>Ini persis pelajaran yang pernah muncul di divisi ini (H5: efek breakout di SoDEX berbalik arah di Binance). <strong>Efek lintas venue tidak otomatis bertahan, dan efek lintas horizon juga tidak.</strong></p>
+<hr>
+<h2 id="o-jarak-ke-target-empat-dimensi-dengan-angka">O. Jarak ke Target — Empat Dimensi dengan Angka</h2>
+<p>Berkas: <code>reports/sodex/JARAK_KE_TARGET_SODEX.json</code></p>
+<h3 id="dimensi-1-sharpe">Dimensi 1 — Sharpe</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target bersih</td>
+<td>0,80% per 48 jam</td>
+</tr>
+<tr>
+<td>σ portofolio diasumsikan</td>
+<td>2,35% per 48 jam</td>
+</tr>
+<tr>
+<td><strong>Sharpe portofolio wajib</strong></td>
+<td><strong>4,60 /tahun</strong></td>
+</tr>
+<tr>
+<td>Pengali diversifikasi (n=6, ρ=0,10)</td>
+<td>2,00×</td>
+</tr>
+<tr>
+<td><strong>Sharpe tiap mesin wajib</strong></td>
+<td><strong>2,30 /tahun</strong> (0,170 per 48 jam)</td>
+</tr>
+<tr>
+<td>Rata-rata tiap mesin</td>
+<td>0,400% bersih per 48 jam</td>
+</tr>
+<tr>
+<td>Mesin venue-SoDEX terbaik terukur</td>
+<td><strong>0,75</strong></td>
+</tr>
+<tr>
+<td><strong>Jarak</strong></td>
+<td><strong>3,1×</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dimensi-2-panjang-bukti">Dimensi 2 — Panjang bukti</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jendela dibutuhkan (keluarga 21, BH q=0,10)</td>
+<td><strong>274</strong></td>
+</tr>
+<tr>
+<td>Jendela tersedia</td>
+<td><strong>180</strong></td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td><strong>TERKUNCI — mustahil dibuktikan dengan data hari ini</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dimensi-3-ic">Dimensi 3 — IC</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N_eff venue (terukur)</td>
+<td>6,1 dari 75 simbol</td>
+</tr>
+<tr>
+<td>Breadth (H=48 jam)</td>
+<td>1.113 taruhan independen/tahun</td>
+</tr>
+<tr>
+<td><strong>IC wajib</strong></td>
+<td><strong>0,0689</strong></td>
+</tr>
+<tr>
+<td>IC terbaik terukur</td>
+<td><strong>0,0360</strong></td>
+</tr>
+<tr>
+<td><strong>Jarak</strong></td>
+<td><strong>1,91×</strong></td>
+</tr>
+<tr>
+<td>IC impas (biaya realistis)</td>
+<td>0,0193</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dimensi-4-biaya">Dimensi 4 — Biaya</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Round-trip realistis</td>
+<td><strong>9,71 bps</strong></td>
+</tr>
+<tr>
+<td>Sebagai % target 48 jam</td>
+<td>12,1%</td>
+</tr>
+<tr>
+<td><strong>Sebagai % rata-rata mesin yang dibutuhkan</strong></td>
+<td><strong>24,3%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan O:</strong> dari empat dimensi, <strong>satu terkunci secara matematis (panjang bukti)</strong>, <strong>dua membutuhkan perbaikan kinerja nyata (IC ~2×, Sharpe ~3×)</strong>, dan <strong>satu adalah ongkos tetap yang bisa dikelola (24% dari rata-rata mesin)</strong>.</p>
+<hr>
+<h2 id="p-yang-gagal-tanpa-disembunyikan">P. Yang Gagal — Tanpa Disembunyikan</h2>
+<p>Aturan #8 <code>PERINTAH_1_SoDEX.md</code>: dilarang menyembunyikan trial yang gagal. Berikut daftar lengkapnya.</p>
+<h3 id="p1-daftar-kegagalan">P.1 Daftar kegagalan</h3>
+<table>
+<thead>
+<tr>
+<th>Kelompok</th>
+<th>Jumlah</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensus D14 (21 mesin)</td>
+<td>21</td>
+<td><strong>0 lulus</strong>; 1 lolos BH tetapi bertanda REPLAY (Hyperliquid, bukan SoDEX) sehingga dikecualikan</td>
+</tr>
+<tr>
+<td>Panel panjang Binance 1d (12 mekanisme × 2 hold)</td>
+<td>24</td>
+<td><strong>0 lulus</strong>; 8 signifikan negatif; <strong>0 signifikan positif</strong></td>
+</tr>
+<tr>
+<td>Replikasi SoDEX 1d</td>
+<td>18 berjalan (6 dilewati — data venue tidak ada)</td>
+<td><strong>0 lulus</strong>; terbaik S_ann 0,75</td>
+</tr>
+<tr>
+<td>Replikasi SoDEX 1h (horizon venue-matched)</td>
+<td>18 berjalan (6 dilewati)</td>
+<td><strong>0 lulus</strong>; terbaik <strong>1,62</strong> (RANGEPOS_H48) · efek terkuat justru <strong>berlawanan arah</strong> (MOM_L21, |S_ann| 3,38 → kandidat reversal ≈2,29)</td>
+</tr>
+<tr>
+<td>Uji OOS range-position (PRAREG-2)</td>
+<td>4 segmen</td>
+<td><strong>kandidat DITOLAK</strong> — OOS 1,75 &lt; 2,30, dan tanda berbalik di horizon venue-matched</td>
+</tr>
+<tr>
+<td>LP pasif / market-making</td>
+<td>1</td>
+<td><strong>ditolak</strong> — 67/92 simbol spread &lt; 2,4 bps</td>
+</tr>
+<tr>
+<td><strong>TOTAL dievaluasi</strong></td>
+<td><strong>81 backtest + 5 uji tambahan = 86</strong></td>
+<td><strong>0 lulus</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="p2-yang-kami-batalkan-sendiri-di-tengah-jalan">P.2 Yang kami batalkan sendiri di tengah jalan</h3>
+<table>
+<thead>
+<tr>
+<th>Klaim awal kami</th>
+<th>Mengapa dibatalkan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Reversal lintas-seksi 1 hari menjanjikan — IC −0,0358 (t = −2,34)"</td>
+<td>Setelah portofolio yang benar dibentuk (bobot peringkat, biaya, kontrol), hasilnya <strong>+8,1 bps bruto dengan t = 0,43</strong> — di dalam noise kontrol. IC mentah <strong>bukan</strong> PnL.</td>
+</tr>
+<tr>
+<td>"Mesin mv_funding dan hl_replay hampir lulus (Sharpe 7,76 / 7,75)"</td>
+<td>Keduanya <strong>bukan venue SoDEX</strong>: satu replay Hyperliquid, satu carry lintas-venue. Tidak boleh dihitung sebagai bukti venue.</td>
+</tr>
+<tr>
+<td>"Data funding SoDEX bisa dipakai backtest carry"</td>
+<td><strong>Salah</strong> — collector menyimpan prediksi 5 hari ke depan, bukan histori. 2 dari 12 mekanisme gugur karena ini.</td>
+</tr>
+<tr>
+<td>"N_eff venue rendah, sekitar 2,3"</td>
+<td><strong>Artefak sampel</strong> — hanya simbol mayor lama yang punya riwayat 365 hari. Nilai jujur: <strong>6,1</strong>.</td>
+</tr>
+<tr>
+<td>"Range-position momentum adalah kandidat mesin (S_ann +2,06)"</td>
+<td><strong>Ditolak setelah uji OOS</strong>: OOS 1,75 &lt; 2,30 dan tanda berbalik di SoDEX 1 jam (t = −4,36).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="p3-cacat-desain-yang-kami-temukan-pada-instrumen-kami-sendiri">P.3 Cacat desain yang kami temukan pada instrumen kami sendiri</h3>
+<p><strong>Kontrol negatif dinilai pada neto → selalu terlihat gagal.</strong> Portofolio dengan bobot acak punya turnover ≈ 1,33 (selalu berbalik penuh), sedangkan sinyal nyata punya turnover 0,15–1,33. Akibatnya kontrol <strong>selalu membayar biaya ≈ 6,7 bps</strong> lebih banyak, sehingga t kontrol selalu negatif (terukur: −0,6 sampai −3,6).</p>
+<p>Setelah kami pisahkan <strong>bruto</strong> kontrol, seluruhnya kembali ke dalam noise (|t| ≈ 0,3–1,5). Jadi: <strong>instrumennya sehat; metrik kontrolnya yang salah.</strong> Kami mencatat ini dan mengoreksinya di PRAREG-2 (kontrol dinilai pada bruto).</p>
+<p><strong>Dampak pada verdict: tidak ada.</strong> Tidak satu pun trial gagal <em>hanya</em> karena kriteria kontrol — semuanya sudah gugur di ambang Sharpe.</p>
+<hr>
+<h2 id="q-rekomendasi-tiga-jalur-urut-prioritas">Q. Rekomendasi — Tiga Jalur, Urut Prioritas</h2>
+<h3 id="jalur-1-dampak-tertinggi-bisa-dimulai-besok-perbesar-ic-bukan-jumlah-strategi">Jalur 1 (dampak tertinggi, bisa dimulai besok) — Perbesar IC, bukan jumlah strategi</h3>
+<p>Jarak IC adalah <strong>1,91×</strong>, dan itu jarak yang paling mungkin ditutup dengan kerja, bukan dengan menunggu. Konkretnya:</p>
+<ol>
+<li><strong>Kejar HORIZON, bukan mekanisme baru.</strong> Hasil kami menunjukkan tanda efek <strong>berbalik menurut horizon</strong>: <strong>reversal</strong> pada bar jam (20–21 jam), <strong>momentum</strong> pada bar hari (20 hari). Karena jendela swing SoDEX adalah <strong>1–30 jam</strong>, keluarga yang paling masuk akal untuk dikejar berikutnya adalah <strong>reversal jam-jaman</strong> — bukan menambah mekanisme baru di bar harian. Di SoDEX 1h, dua variannya sudah signifikan sangat kuat (t = −4,59 dan −4,71; |S_ann| = 3,38 dan 2,70) dan estimasi arah-baliknya <strong>≈2,29 pada biaya 1× (hold 48 jam) — tetapi hanya ≈1,53 pada biaya 2× (syarat 1,80)</strong>. Jadi langkah berikutnya bukan "cari sinyal", melainkan <strong>uji beku reversal jam-jaman dengan pemisahan IS/OOS</strong> (PRAREG-3) sambil menjawab pertanyaan biaya: bisa tidak turnover diturunkan dari 1,29 tanpa membunuh sinyalnya.</li>
+<li><strong>Naikkan resolusi sinyal dengan data 1 jam</strong> yang baru selesai ditarik (99 simbol, ±8.000 bar/simbol). Ini membuka uji horizon yang benar-benar venue-matched (target 1–30 jam) dan memungkinkan sinyal turunan yang tidak ada di bar harian.</li>
+<li><strong>Tambahkan dimensi yang belum tersentuh</strong>: order-book imbalance (data tape/OBI historis sudah ada untuk 3 simbol), decomposisi overnight vs intraday pada perps ekuitas/RWA (venue ini memperdagangkan NVDA/TSLA 24 jam sementara pasar AS tutup — ini <strong>khas venue</strong> dan belum kami uji).</li>
+</ol>
+<h3 id="jalur-2-struktural-tidak-bisa-ditawar-perpanjang-jam-bukti-sambil-jalan">Jalur 2 (struktural, tidak bisa ditawar) — Perpanjang jam bukti sambil jalan</h3>
+<p>Panjang bukti <strong>tidak bisa dipercepat</strong>, tetapi bisa <strong>diparkir dengan benar</strong>:</p>
+<ol>
+<li><strong>Kurangi ukuran keluarga.</strong> BH q=0,10 atas 21 trial butuh 274 jendela; atas 5 trial hanya butuh 187, dan 1 mesin tanpa koreksi 133. <strong>Preregistrasi 3–5 hipotesis terbaik dan setop menguji yang lain</strong> adalah cara sah untuk mendapatkan verdict lebih cepat.</li>
+<li><strong>Mulai pencatatan 1 jam berjalan sekarang</strong> dan jangan diubah-ubah. Setiap bulan yang lewat menambah ± 15 jendela.</li>
+<li><strong>Siapkan verdict HARD_STOP 20-Nov-2026 dengan jujur</strong>: pada tanggal itu, <strong>paling cepat</strong> kita bisa punya verdict sah untuk <strong>satu</strong> mesin tanpa koreksi (butuh 265 hari, tersedia 361). Untuk sebuah portofolio keluarga, <strong>belum</strong>.</li>
+</ol>
+<h3 id="jalur-3-pengelolaan-bukan-pencarian-kelola-biaya-kedalaman">Jalur 3 (pengelolaan, bukan pencarian) — Kelola biaya &amp; kedalaman</h3>
+<ol>
+<li><strong>Batasi universe ke 20 simbol likuid</strong> (≥ $100 ribu/hari). Ini justru <strong>menaikkan</strong> IC yang bisa dicapai per unit risiko karena menghapus nama yang biaya eksekusinya jauh di atas asumsi.</li>
+<li><strong>Hold ≥ 48 jam.</strong> Setiap percepatan rebalance menambah biaya linear sementara edge hanya tumbuh dengan akar waktu.</li>
+<li><strong>Jangan pernah pakai leverage untuk menutup jarak Sharpe.</strong> Sharpe bersifat bebas skala — leverage tidak mengubahnya sedikit pun. Ini dinyatakan eksplisit dalam larangan #6.</li>
+</ol>
+<h3 id="yang-tidak-direkomendasikan">Yang <strong>tidak</strong> direkomendasikan</h3>
+<table>
+<thead>
+<tr>
+<th>Usulan</th>
+<th>Mengapa ditolak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menambah mesin ke-7, ke-8, dst. sebelum ada yang lulus</td>
+<td>Plafon diversifikasi (Bab H.3): tanpa mesin yang lulus, menambah mesin hanya menambah biaya</td>
+</tr>
+<tr>
+<td>Meniru <code>mv_funding</code> (Sharpe 7,76)</td>
+<td>Bukan venue SoDEX, dan berisiko berkorelasi dengan divisi HL-Harvest</td>
+</tr>
+<tr>
+<td>LP/market-making pasif</td>
+<td>Sudah ditolak (Bab E.2)</td>
+</tr>
+<tr>
+<td>Menaikkan leverage</td>
+<td>Dilarang aturan #6 dan tidak mengubah Sharpe</td>
+</tr>
+<tr>
+<td>Melonggarkan ambang agar terlihat lulus</td>
+<td>Dilarang aturan #7</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="r-batasan-dan-apa-yang-tidak-boleh-disimpulkan">R. Batasan dan Apa yang <strong>TIDAK</strong> Boleh Disimpulkan</h2>
+<table>
+<thead>
+<tr>
+<th>Jangan simpulkan</th>
+<th>Alasannya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Tidak ada strategi yang bisa bekerja di SoDEX"</td>
+<td>Yang terbukti: 60 hipotesis lintas-seksi <strong>tertentu</strong> tidak lulus <strong>pada data yang ada</strong>. Ini bukan bukti ketiadaan peluang.</td>
+</tr>
+<tr>
+<td>"Range-position momentum adalah mesin"</td>
+<td>Sudah <strong>diuji dan ditolak</strong>: S_ann OOS 1,75 &lt; 2,30, dan tanda berbalik di horizon venue-matched (t = −4,36).</td>
+</tr>
+<tr>
+<td>"Binance membuktikan SoDEX"</td>
+<td>Tidak. Binance hanya menguji <strong>mekanisme</strong>. Bukti H5: efek bisa berbalik arah antar-venue.</td>
+</tr>
+<tr>
+<td>"Sharpe 7,76 berarti kita hampir sampai"</td>
+<td>Angka itu milik mesin <strong>lintas-venue</strong>, bukan venue SoDEX.</td>
+</tr>
+<tr>
+<td>"N_eff 2,3 berarti venue ini miskin"</td>
+<td>Itu artefak sampel. Angka jujur 6,1.</td>
+</tr>
+<tr>
+<td>"Jendela &lt; 6 bulan cukup untuk menilai alpha"</td>
+<td>Aturan #4: sah untuk verifikasi eksekusi, <strong>tidak sah</strong> untuk menilai alpha.</td>
+</tr>
+<tr>
+<td>"Kontrol negatif kami gagal, jadi harnessnya rusak"</td>
+<td>Setelah dinilai pada bruto, kontrol bersih. Yang salah metriknya, bukan instrumennya (Bab P.3).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batasan data yang harus diingat:</strong></p>
+<ul>
+<li>Histori SoDEX maksimum <strong>361 hari</strong> — di bawah satu siklus pasar penuh.</li>
+<li>Funding/basis SoDEX <strong>tidak tersedia historis</strong> → 2 mekanisme tidak dapat diuji di venue.</li>
+<li>Data order-book historis hanya <strong>3 simbol, 22-Mei → 4-Okt</strong> (&lt; 6 bulan) → sah untuk eksekusi, tidak sah untuk alpha.</li>
+<li>Panel Binance punya <strong>bias kelangsungan hidup</strong> (yang terdaftar hari ini, bukan yang delisting) — arah biasnya biasanya <strong>menguntungkan</strong> strategi momentum, jadi hasil negatif kita tetap aman.</li>
+</ul>
+<hr>
+<h2 id="s-lampiran-berkas-skrip-cara-reproduksi">S. Lampiran — Berkas, Skrip, Cara Reproduksi</h2>
+<h3 id="s1-skrip-baru-yang-dibuat-riset-ini">S.1 Skrip baru yang dibuat riset ini</h3>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts/research/sodex_xsec_study.py</code></td>
+<td>Studi lintas-seksi eksploratori (pembentuk hipotesis)</td>
+</tr>
+<tr>
+<td><code>scripts/research/binance_pull_klines.py</code></td>
+<td>Penarik klines perp Binance, 248 simbol, paginasi penuh</td>
+</tr>
+<tr>
+<td><code>scripts/research/binance_pull_funding.py</code></td>
+<td>Penarik funding + basis, 248 simbol, full history</td>
+</tr>
+<tr>
+<td><code>scripts/research/xsec_mech_study.py</code></td>
+<td><strong>Mesin uji utama</strong>: 12 mekanisme × 2 hold, BH, kontrol, 3 tingkat biaya</td>
+</tr>
+<tr>
+<td><code>scripts/research/sodex_diversification_census.py</code></td>
+<td>Sensus korelasi &amp; N_eff venue</td>
+</tr>
+<tr>
+<td><code>scripts/research/sodex_breadth_budget.py</code></td>
+<td>Anggaran IC (Hukum Fundamental)</td>
+</tr>
+<tr>
+<td><code>scripts/research/sodex_distance_to_target.py</code></td>
+<td>Konsolidasi jarak ke target, 4 dimensi</td>
+</tr>
+<tr>
+<td><code>scripts/research/range_pos_validation.py</code></td>
+<td>Uji OOS range-position (PRAREG-2)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s2-berkas-hasil-json">S.2 Berkas hasil (JSON)</h3>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reports/sodex/PRAREG_PANEL_PANJANG_binance_1d.json</code></td>
+<td>24 trial Binance + BH + kontrol</td>
+</tr>
+<tr>
+<td><code>reports/sodex/PRAREG_PANEL_PANJANG_sodex_1d.json</code></td>
+<td>18 trial SoDEX 1d</td>
+</tr>
+<tr>
+<td><code>reports/sodex/SENSUS_DIVERSIFIKASI_SODEX.json</code></td>
+<td>Korelasi, N_eff, PC1</td>
+</tr>
+<tr>
+<td><code>reports/sodex/ANGGARAN_BREADTH_SODEX.json</code></td>
+<td>Anggaran IC per N_eff</td>
+</tr>
+<tr>
+<td><code>reports/sodex/JARAK_KE_TARGET_SODEX.json</code></td>
+<td>4 dimensi jarak ke target</td>
+</tr>
+<tr>
+<td><code>reports/sodex/UNIVERSE_SODEX_1D.json</code></td>
+<td>Universe 95 simbol + volume + volatilitas</td>
+</tr>
+<tr>
+<td><code>data/sodex_edge_census.json</code></td>
+<td>Sensus D14 (21 mesin) — masukan</td>
+</tr>
+<tr>
+<td><code>data/binance_klines/1d/</code></td>
+<td>Panel panjang 248 simbol</td>
+</tr>
+<tr>
+<td><code>data/binance_funding/</code> · <code>data/binance_basis/1d/</code></td>
+<td>Funding &amp; basis 248 simbol</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s3-protokol-yang-dibekukan">S.3 Protokol yang dibekukan</h3>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs/sodex/PRAREG_PANEL_PANJANG_2026-10-07.md</code></td>
+<td>Dibekukan <strong>sebelum</strong> uji dijalankan</td>
+</tr>
+<tr>
+<td><code>docs/sodex/PRAREG_2_RANGE_POSITION_2026-10-07.md</code></td>
+<td>Dibekukan <strong>sebelum</strong> uji validasi dijalankan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s4-cara-menjalankan-ulang">S.4 Cara menjalankan ulang</h3>
+<pre><code class="language-bash">cd ~/anantara-sakti
+/usr/bin/python3 scripts/research/binance_pull_klines.py 1d 250     # panel panjang
+/usr/bin/python3 scripts/research/binance_pull_funding.py 250       # funding + basis
+/usr/bin/python3 scripts/research/xsec_mech_study.py binance 1d 2,5 # 24 trial Binance
+/usr/bin/python3 scripts/research/xsec_mech_study.py sodex 1d 2,5   # replikasi SoDEX
+/usr/bin/python3 scripts/research/sodex_breadth_budget.py
+/usr/bin/python3 scripts/research/sodex_distance_to_target.py
+/usr/bin/python3 scripts/research/range_pos_validation.py
+</code></pre>
+<p>Interpreter <strong>wajib</strong> <code>/usr/bin/python3</code> (punya pandas/numpy/scipy). Python default tidak.</p>
+<hr>
+<h2 id="t-glosarium-dengan-analogi">T. Glosarium dengan Analogi</h2>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Arti sederhana</th>
+<th>Analogi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lintas-seksi (cross-sectional)</strong></td>
+<td>Meranking semua aset pada satu waktu, lalu beli yang teratas dan jual yang terbawah</td>
+<td>Memilih 5 pelari tercepat dan 5 terlambat <strong>pada hari yang sama</strong>, bukan menebak arah seluruh arena</td>
+</tr>
+<tr>
+<td><strong>Dollar-neutral</strong></td>
+<td>Total nilai beli = total nilai jual, jadi tidak peduli pasar naik atau turun</td>
+<td>Taruhan seimbang: menang kalau pilihan kita lebih baik dari rata-rata, bukan kalau pasar naik</td>
+</tr>
+<tr>
+<td><strong>IC (Information Coefficient)</strong></td>
+<td>Seberapa akurat peringkat sinyal kita menebak peringkat hasil sebenarnya</td>
+<td>Nilai ujian seorang peramal cuaca: 0 = menebak, 0,05 = sedikit lebih baik dari menebak</td>
+</tr>
+<tr>
+<td><strong>Breadth</strong></td>
+<td>Berapa banyak taruhan independen yang kita buat per tahun</td>
+<td>Jumlah lemparan koin. Makin banyak, makin cepat tahu koinnya adil atau tidak</td>
+</tr>
+<tr>
+<td><strong>N_eff (taruhan efektif)</strong></td>
+<td>Berapa taruhan <em>benar-benar</em> independen dari sekian banyak aset</td>
+<td>75 siswa tapi semuanya menyontek dari 6 orang → hanya 6 jawaban mandiri</td>
+</tr>
+<tr>
+<td><strong>PC1</strong></td>
+<td>Bagian gerakan yang dijelaskan "pasar secara keseluruhan"</td>
+<td>Cuaca: 38% hari hujan atau cerah untuk <strong>semua</strong> kota sekaligus</td>
+</tr>
+<tr>
+<td><strong>Sharpe</strong></td>
+<td>Return dibagi risiko</td>
+<td>Bukan "berapa cepat", tapi "berapa rapi" — 2,3 artinya sangat rapi</td>
+</tr>
+<tr>
+<td><strong>Drawdown</strong></td>
+<td>Penurunan terdalam dari puncak</td>
+<td>Turun sedalam apa sebelum naik lagi</td>
+</tr>
+<tr>
+<td><strong>BH-FDR</strong></td>
+<td>Koreksi saat menguji banyak hipotesis sekaligus</td>
+<td>Kalau membidik 21 target, kadang kena tanpa sengaja. Koreksi ini mempersempit toleransi</td>
+</tr>
+<tr>
+<td><strong>BH q = 0,10</strong></td>
+<td>Toleransi 10% penemuan palsu di antara yang dinyatakan lulus</td>
+<td>Dari 10 klaim "ini berhasil", paling banyak 1 boleh salah</td>
+</tr>
+<tr>
+<td><strong>Jendela (window)</strong></td>
+<td>Satu periode pengamatan independen</td>
+<td>Satu lembar rapor. Tiga jendela = tiga rapor, bukan satu rapor tiga kali</td>
+</tr>
+<tr>
+<td><strong>Turnover</strong></td>
+<td>Seberapa besar portofolio diganti tiap rebalance</td>
+<td>Berapa sering ganti seluruh isi gudang</td>
+</tr>
+<tr>
+<td><strong>bps (basis poin)</strong></td>
+<td>1 bps = 0,01%</td>
+<td>100 bps = 1%</td>
+</tr>
+<tr>
+<td><strong>Beta-netral</strong></td>
+<td>Tidak punya paparan arah pasar</td>
+<td>Tidak ikut naik-turun lift, hanya ikut langkah kaki kita sendiri</td>
+</tr>
+<tr>
+<td><strong>OOS (out-of-sample)</strong></td>
+<td>Masa yang tidak dipakai saat menyusun aturan</td>
+<td>Ujian akhir dengan soal yang tidak pernah dibocorkan</td>
+</tr>
+<tr>
+<td><strong>Preregistrasi</strong></td>
+<td>Menuliskan aturan main sebelum melihat hasil</td>
+<td>Menulis taruhan sebelum pertandingan mulai</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="u-laporan-verifikasi">U. Laporan Verifikasi</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total dievaluasi</td>
+<td><strong>81 backtest + 5 uji tambahan = 86</strong> (21 sensus D14 + 24 Binance + 18 SoDEX 1d + 18 SoDEX 1h + 4 segmen OOS + 1 sensus LP)</td>
+</tr>
+<tr>
+<td>Hipotesis lulus</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>Trial gagal yang dilaporkan</td>
+<td><strong>semua</strong> (tidak ada yang disembunyikan)</td>
+</tr>
+<tr>
+<td>Skrip baru</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Berkas hasil JSON</td>
+<td>7 baru + 1 masukan</td>
+</tr>
+<tr>
+<td>Protokol dibekukan</td>
+<td>2 (PRAREG-1, PRAREG-2)</td>
+</tr>
+<tr>
+<td>Uji asap instrumen</td>
+<td>Lulus — edge sintetis 0,4%/hari terdeteksi (S_ann 5,33; t = 5,50; p &lt; 0,0001), kontrol bersih</td>
+</tr>
+<tr>
+<td>Kontrol negatif</td>
+<td>Seluruhnya dalam noise setelah dinilai pada bruto (</td>
+</tr>
+<tr>
+<td>Frekuensi positif palsu instrumen D14</td>
+<td>0,0525 (individual) · 0,015 (gabungan) — terkontrol</td>
+</tr>
+<tr>
+<td>Kandidat yang diuji OOS</td>
+<td>1 (range-position) — <strong>ditolak</strong></td>
+</tr>
+<tr>
+<td>Order nyata dikirim</td>
+<td><strong>0</strong> — seluruh riset read-only</td>
+</tr>
+<tr>
+<td>Modal nyata</td>
+<td>Tetap <strong>FROZEN</strong></td>
+</tr>
+<tr>
+<td>Aturan keras dilanggar</td>
+<td><strong>0 dari 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diperiksa dan direproduksi dengan:</strong> <code>/usr/bin/python3</code> (pandas, numpy, scipy), seluruh keluaran berasal dari eksekusi nyata — bukan perkiraan.</p>
+<hr>
+<p><em>Divisi Riset Anantara Sakti · 7 Oktober 2026</em>
+<em>Dokumen ini tidak mengubah target, tidak menaikkan leverage, dan tidak menyembunyikan kegagalan.</em></p>
+</body>
+</html>

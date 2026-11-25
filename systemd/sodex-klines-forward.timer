@@ -1,0 +1,11 @@
+[Unit]
+Description=Refresh SoDEX klines forward (1h+1d) every 6h
+Requires=sodex-klines-forward.service
+
+[Timer]
+OnBootSec=25min
+OnUnitActiveSec=6h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Jalankan P9 RERUN mv_funding sekali pada 15-Okt-2026 09:00 WIB
+Requires=sodex-mvfunding-p9-rerun.service
+
+[Timer]
+OnCalendar=2026-10-15 09:00:00
+Persistent=true
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

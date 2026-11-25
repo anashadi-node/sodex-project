@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRAREG-30 — HASIL UJI: **GAGAL**</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>PRAREG-30 — HASIL UJI: **GAGAL**</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-putusan">1. Putusan</a></li>
+<li class="t2"><a href="#2-angka-utama-biaya-12-bps-round-trip">2. Angka utama (biaya 12 bps round-trip)</a></li>
+<li class="t3"><a href="#bukti-bahwa-ini-bukan-kebetulan-satu-undian">Bukti bahwa ini bukan kebetulan satu undian</a></li>
+<li class="t2"><a href="#3-kegagalan-bukan-karena-biaya">3. Kegagalan bukan karena biaya</a></li>
+<li class="t2"><a href="#4-di-mana-tepatnya-ia-gagal">4. Di mana tepatnya ia gagal</a></li>
+<li class="t2"><a href="#5-apa-artinya-hati-hati-jangan-melompat">5. Apa artinya (hati-hati, jangan melompat)</a></li>
+<li class="t2"><a href="#6-batasan-yang-harus-dibaca-jujur">6. Batasan yang harus dibaca jujur</a></li>
+<li class="t2"><a href="#7-jejak-audit">7. Jejak audit</a></li>
+</ul>
+</nav>
+<p><strong>Crowding reversal berbasis open interest · 20 simbol · 1.048 trade</strong>
+Dijalankan pada dataset yang dibekukan: <code>b4b2425a06fbaa847b8883e90e3563ccec6ff3abafdf4944734bd1d3ee9b81b6</code>
+(32.577 file, 1,31 GB). Tanggal uji: 22-Okt-2026. Modal berisiko: <strong>$0</strong>.</p>
+<hr>
+<h2 id="1-putusan">1. Putusan</h2>
+<blockquote>
+<p><strong>Hipotesis salah.</strong> Menumpuknya open interest tanpa kemajuan harga <strong>tidak</strong> diikuti
+pembalikan harga. Yang terukur justru sebaliknya — arah sinyal <strong>lebih buruk daripada
+arah acak</strong>, dan sudah rugi <strong>sebelum</strong> biaya.</p>
+</blockquote>
+<p>Ini bukan "hampir lolos". Tidak ada satu pun gerbang inti yang lolos.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Gerbang</th>
+<th>Syarat</th>
+<th>Hasil</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Daya statistik</td>
+<td>n(OOS) ≥ 300</td>
+<td><strong>363</strong></td>
+<td>✅ LULUS</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Expectancy bersih</td>
+<td>net E &gt; 0 di OOS</td>
+<td><strong>−16,84 bps</strong></td>
+<td>❌ GAGAL</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Kalahkan arah acak</td>
+<td>ΔWR ≥ +3,0 pp, p&lt;0,025</td>
+<td><strong>−3,58 pp</strong>, p=0,4455</td>
+<td>❌ GAGAL</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Konsistensi IS/OOS</td>
+<td>keduanya positif</td>
+<td><strong>−20,80 / −16,84</strong></td>
+<td>❌ GAGAL</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Replikasi 2021+2023</td>
+<td>tanda sama</td>
+<td>−5,15 bps net (17 simbol; <strong>gross +6,85</strong>)</td>
+<td>⚠️ tanda sama, tapi negatif setelah biaya</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Signifikansi</td>
+<td>t ≥ +3,6</td>
+<td><strong>t = −3,58</strong> (arah salah)</td>
+<td>❌ GAGAL</td>
+</tr>
+<tr>
+<td>g</td>
+<td>Bukan 3 simbol terbaik</td>
+<td>tetap positif tanpanya</td>
+<td>−27,07 bps</td>
+<td>❌ tetap negatif</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-angka-utama-biaya-12-bps-round-trip">2. Angka utama (biaya 12 bps round-trip)</h2>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>n</th>
+<th>Expectancy</th>
+<th>Win rate</th>
+<th>t-stat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P — sinyal</strong></td>
+<td>1.048</td>
+<td><strong>−19,43 bps</strong></td>
+<td><strong>46,66%</strong></td>
+<td><strong>−3,58</strong></td>
+</tr>
+<tr>
+<td>C — kontrol (arah acak)</td>
+<td>1.048</td>
+<td>−10,41 bps</td>
+<td>49,43%</td>
+<td>−1,92</td>
+</tr>
+<tr>
+<td>Selisih P−C</td>
+<td>—</td>
+<td>−9,01 bps (p=0,30)</td>
+<td><strong>−2,77 pp</strong> (p=0,27)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan sederhana:</strong> kalau Anda membalik koin untuk menentukan arah pada entry yang sama,
+hasilnya <strong>lebih baik</strong> daripada mengikuti sinyal ini. Sinyal ini bukan netral — ia sedikit
+merugikan.</p>
+<h3 id="bukti-bahwa-ini-bukan-kebetulan-satu-undian">Bukti bahwa ini bukan kebetulan satu undian</h3>
+<p>Kontrol dijalankan ulang dengan <strong>50 seed</strong> berbeda:</p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rata-rata kontrol (50 seed)</td>
+<td><strong>−11,64 ± 4,75 bps</strong></td>
+</tr>
+<tr>
+<td>Rentang</td>
+<td>−23,53 … −2,07 bps</td>
+</tr>
+<tr>
+<td>ΔWR rata-rata</td>
+<td><strong>−2,07 ± 1,48 pp</strong></td>
+</tr>
+<tr>
+<td>Run yang ΔWR-nya positif</td>
+<td><strong>10%</strong> (5 dari 50)</td>
+</tr>
+</tbody>
+</table>
+<p>Jadi dalam 9 dari 10 dunia acak, sinyal ini tetap kalah dari koin.</p>
+<hr>
+<h2 id="3-kegagalan-bukan-karena-biaya">3. Kegagalan bukan karena biaya</h2>
+<table>
+<thead>
+<tr>
+<th>Skenario biaya</th>
+<th>Expectancy</th>
+<th>WR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gross (tanpa biaya)</td>
+<td><strong>−7,43 bps</strong></td>
+<td>47,71%</td>
+</tr>
+<tr>
+<td>Maker 4 bps RT</td>
+<td>−11,43 bps</td>
+<td>47,14%</td>
+</tr>
+<tr>
+<td><strong>Primer 12 bps RT</strong></td>
+<td><strong>−19,43 bps</strong></td>
+<td>46,66%</td>
+</tr>
+<tr>
+<td>Stress 20 bps RT</td>
+<td>−27,43 bps</td>
+<td>45,90%</td>
+</tr>
+</tbody>
+</table>
+<p>Bahkan pada biaya nol, sinyal sudah rugi. Biaya hanya memperbesar kerugian yang sudah ada.</p>
+<hr>
+<h2 id="4-di-mana-tepatnya-ia-gagal">4. Di mana tepatnya ia gagal</h2>
+<table>
+<thead>
+<tr>
+<th>Pembelahan</th>
+<th>n</th>
+<th>Expectancy</th>
+<th>WR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LONG</td>
+<td>493</td>
+<td>−12,24 bps</td>
+<td>46,65%</td>
+</tr>
+<tr>
+<td><strong>SHORT</strong></td>
+<td>555</td>
+<td><strong>−25,81 bps</strong> (t=−3,72)</td>
+<td>46,67%</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>362</td>
+<td><strong>−30,54 bps</strong></td>
+<td>43,65%</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>323</td>
+<td>−9,88 bps</td>
+<td>47,99%</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>363</td>
+<td>−16,84 bps</td>
+<td>48,48%</td>
+</tr>
+</tbody>
+</table>
+<p>Komposisi exit: <strong>TP 443 (42,3%) · SL 496 (47,3%) · time-stop 109 (10,4%)</strong>.
+Dengan TP = SL, titik impas ada di 50%; realisasinya 46,7% — defisit ~3,3 pp.</p>
+<p><strong>Simbol terburuk:</strong> ARB −73,7 · XRP −60,6 · SOL −52,6 · AVAX −50,3 bps.
+<strong>Simbol terbaik:</strong> OP +37,1 · BCH +21,9 · HYPE +19,8 bps — tetapi hanya <strong>5 dari 20</strong> yang positif.</p>
+<hr>
+<h2 id="5-apa-artinya-hati-hati-jangan-melompat">5. Apa artinya (hati-hati, jangan melompat)</h2>
+<p>Pola yang konsisten: ketika OI melonjak sementara harga datar dan posisi top-trader
+menumpuk di satu sisi, harga <strong>tidak</strong> berbalik — ia cenderung <strong>melanjutkan</strong> arah
+crowding. Ini konsisten dengan mekanisme <em>squeeze/continuation</em>, bukan <em>mean reversion</em>.</p>
+<p><strong>Tetapi:</strong> membalik sinyal sekarang untuk mengklaim "momentum continuation" adalah
+<strong>data mining</strong>. Itu hipotesis baru, harus lewat PRAREG baru (PRAREG-31) dengan hash
+sendiri, diuji pada data yang belum dipakai menyusunnya. Saya <strong>tidak</strong> akan
+mempresentasikan versi terbalik sebagai temuan.</p>
+<hr>
+<h2 id="6-batasan-yang-harus-dibaca-jujur">6. Batasan yang harus dibaca jujur</h2>
+<ol>
+<li><strong>Ambang gerbang (b) sangat ketat secara desain.</strong> Aturan "SL didahulukan bila TP dan SL
+   tersentuh di bar yang sama" menciptakan bias struktural <strong>−11,6 bps</strong> (terukur dari 50 seed
+   kontrol). Artinya edge sejati di bawah ~12 bps <strong>tidak akan terdeteksi</strong> oleh uji ini.
+   Ini konsekuensi protokol yang dibekukan, bukan alasan mengubahnya sekarang.</li>
+<li><strong>Biaya 12 bps = ~15% dari target 1 ATR</strong> (ATR 1 jam ≈ 0,8%). Untuk strategi hold-8-jam,
+   biaya adalah pecahan besar dari edge yang dikejar.</li>
+<li><strong>OOS hanya 9 bulan</strong> (n=363, lulus gerbang a tetapi tipis).</li>
+<li><strong>Replikasi 2021+2023 hanya 17 simbol</strong> (HYPE, ONDO, ENA belum terdaftar) dan <strong>tanpa 2022</strong>
+   (kolom ratio kosong 87% — celah venue, terdokumentasi). Di era ini gross <strong>+6,85 bps</strong>
+   tetapi net <strong>−5,15 bps</strong>: biaya 12 bps menghabiskan seluruh edge. Di 2024–2026 gross
+   berbalik menjadi <strong>−7,43 bps</strong>. Arahnya memburuk seiring waktu, bukan acak.</li>
+</ol>
+<hr>
+<h2 id="7-jejak-audit">7. Jejak audit</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dokumen beku</td>
+<td><code>ddac7c11…</code> (tidak diubah)</td>
+</tr>
+<tr>
+<td>Amandemen-1</td>
+<td><code>31eaa8ea…</code> (celah 2022 + guard gap&gt;24 jam)</td>
+</tr>
+<tr>
+<td>Dataset</td>
+<td><code>b4b2425a…</code> (32.577 file, 1,31 GB)</td>
+</tr>
+<tr>
+<td>Hasil mentah</td>
+<td><code>data/prereg30/results_primary.json</code>, <code>_is</code>, <code>_oos</code>, <code>_repl</code></td>
+</tr>
+<tr>
+<td>Registry trial</td>
+<td>135 → <strong>138</strong> entri (3 uji PRAREG-30 dicatat, semuanya gagal)</td>
+</tr>
+<tr>
+<td>Kode</td>
+<td><code>scripts/research/prereg30_oi.py</code> (menolak jalan bila hash dokumen berubah)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yang tidak dilakukan:</strong> tidak ada parameter yang diubah setelah melihat hasil; tidak ada
+simbol/jam yang dibuang; tidak ada promosi ke paper/live arm.</p>
+<hr>
+<p><em>PRAREG-30 · hasil final · 22-Okt-2026 · Hermes Anantara v3</em></p>
+</body>
+</html>

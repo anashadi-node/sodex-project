@@ -1,0 +1,17 @@
+[Unit]
+Description=Anantara Sakti - SoDEX 84h read-only mission supervisor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/sodex_84h_supervisor.py --loop --interval 900 --refresh-monitor
+Restart=always
+RestartSec=30
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_84h_supervisor.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_84h_supervisor.log
+
+[Install]
+WantedBy=default.target

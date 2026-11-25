@@ -1,0 +1,653 @@
+{
+ "generated_utc": "2026-10-25T08:09:19.365356+00:00",
+ "wallet_usd": 243.02,
+ "window_h": 30,
+ "best3": [
+  "twoway",
+  "realwide",
+  "donchian"
+ ],
+ "trend": {
+  "aster": [
+   {
+    "dari": "08-30",
+    "sampai": "09-06",
+    "n": 21,
+    "gross": -21.5,
+    "net": -32.1,
+    "usd": -22.73
+   },
+   {
+    "dari": "09-06",
+    "sampai": "09-13",
+    "n": 29,
+    "gross": -3.4,
+    "net": -21.3,
+    "usd": -22.04
+   },
+   {
+    "dari": "09-13",
+    "sampai": "09-20",
+    "n": 33,
+    "gross": 24.0,
+    "net": 1.3,
+    "usd": -2.7
+   },
+   {
+    "dari": "09-20",
+    "sampai": "09-27",
+    "n": 58,
+    "gross": 74.5,
+    "net": 55.0,
+    "usd": 88.71
+   },
+   {
+    "dari": "09-27",
+    "sampai": "10-04",
+    "n": 57,
+    "gross": -38.6,
+    "net": -55.2,
+    "usd": -101.2
+   },
+   {
+    "dari": "10-04",
+    "sampai": "10-11",
+    "n": 24,
+    "gross": -88.7,
+    "net": -110.9,
+    "usd": -82.7
+   },
+   {
+    "dari": "10-18",
+    "sampai": "10-25",
+    "n": 21,
+    "gross": -106.8,
+    "net": -128.7,
+    "usd": -83.56
+   }
+  ],
+  "donchian": [
+   {
+    "dari": "08-28",
+    "sampai": "09-04",
+    "n": 19,
+    "gross": 20.3,
+    "net": 14.0,
+    "usd": -4.99
+   },
+   {
+    "dari": "09-04",
+    "sampai": "09-11",
+    "n": 37,
+    "gross": 2.3,
+    "net": -4.0,
+    "usd": 1.57
+   },
+   {
+    "dari": "09-11",
+    "sampai": "09-18",
+    "n": 13,
+    "gross": 28.4,
+    "net": 22.9,
+    "usd": -8.73
+   },
+   {
+    "dari": "09-18",
+    "sampai": "09-25",
+    "n": 59,
+    "gross": 88.1,
+    "net": 81.9,
+    "usd": 85.51
+   },
+   {
+    "dari": "09-25",
+    "sampai": "10-02",
+    "n": 28,
+    "gross": -42.3,
+    "net": -50.1,
+    "usd": -42.68
+   },
+   {
+    "dari": "10-02",
+    "sampai": "10-09",
+    "n": 13,
+    "gross": -37.1,
+    "net": -50.3,
+    "usd": -23.33
+   },
+   {
+    "dari": "10-16",
+    "sampai": "10-23",
+    "n": 8,
+    "gross": -110.7,
+    "net": -123.4,
+    "usd": -24.74
+   }
+  ],
+  "hyperliquid": [
+   {
+    "dari": "09-06",
+    "sampai": "09-13",
+    "n": 26,
+    "gross": -110.8,
+    "net": -128.5,
+    "usd": -103.73
+   },
+   {
+    "dari": "09-13",
+    "sampai": "09-20",
+    "n": 33,
+    "gross": 31.7,
+    "net": 19.0,
+    "usd": 14.4
+   },
+   {
+    "dari": "09-20",
+    "sampai": "09-27",
+    "n": 54,
+    "gross": 135.7,
+    "net": 111.3,
+    "usd": 173.04
+   },
+   {
+    "dari": "09-27",
+    "sampai": "10-04",
+    "n": 54,
+    "gross": -91.3,
+    "net": -113.8,
+    "usd": -191.66
+   },
+   {
+    "dari": "10-04",
+    "sampai": "10-11",
+    "n": 25,
+    "gross": -71.0,
+    "net": -93.6,
+    "usd": -73.54
+   },
+   {
+    "dari": "10-18",
+    "sampai": "10-25",
+    "n": 22,
+    "gross": -115.5,
+    "net": -131.5,
+    "usd": -89.77
+   }
+  ],
+  "pasar_anantara_trade": [
+   {
+    "dari": "09-05",
+    "sampai": "09-12",
+    "n": 46,
+    "gross": -97.0,
+    "net": -102.1,
+    "usd": -140.84
+   }
+  ],
+  "portfolio": [
+   {
+    "dari": "09-05",
+    "sampai": "09-12",
+    "n": 17,
+    "gross": -63.0,
+    "net": -67.3,
+    "usd": -15.11
+   },
+   {
+    "dari": "09-12",
+    "sampai": "09-19",
+    "n": 7,
+    "gross": 83.2,
+    "net": 78.9,
+    "usd": 7.27
+   },
+   {
+    "dari": "09-19",
+    "sampai": "09-26",
+    "n": 19,
+    "gross": 37.7,
+    "net": 33.2,
+    "usd": 8.33
+   },
+   {
+    "dari": "09-26",
+    "sampai": "10-03",
+    "n": 21,
+    "gross": -128.8,
+    "net": -137.5,
+    "usd": -38.14
+   },
+   {
+    "dari": "10-03",
+    "sampai": "10-10",
+    "n": 14,
+    "gross": -40.0,
+    "net": -57.4,
+    "usd": -10.62
+   },
+   {
+    "dari": "10-17",
+    "sampai": "10-24",
+    "n": 8,
+    "gross": -55.9,
+    "net": -73.2,
+    "usd": -7.74
+   }
+  ],
+  "realwide": [
+   {
+    "dari": "08-28",
+    "sampai": "09-04",
+    "n": 29,
+    "gross": -22.8,
+    "net": -28.7,
+    "usd": -24.97
+   },
+   {
+    "dari": "09-04",
+    "sampai": "09-11",
+    "n": 66,
+    "gross": 9.7,
+    "net": 3.5,
+    "usd": 6.97
+   },
+   {
+    "dari": "09-11",
+    "sampai": "09-18",
+    "n": 10,
+    "gross": 44.9,
+    "net": 39.6,
+    "usd": 11.89
+   },
+   {
+    "dari": "09-18",
+    "sampai": "09-25",
+    "n": 58,
+    "gross": 40.3,
+    "net": 35.3,
+    "usd": 61.34
+   },
+   {
+    "dari": "09-25",
+    "sampai": "10-02",
+    "n": 39,
+    "gross": -50.7,
+    "net": -58.5,
+    "usd": -68.47
+   },
+   {
+    "dari": "10-02",
+    "sampai": "10-09",
+    "n": 16,
+    "gross": -77.3,
+    "net": -90.0,
+    "usd": -43.2
+   },
+   {
+    "dari": "10-09",
+    "sampai": "10-16",
+    "n": 1,
+    "gross": -17.4,
+    "net": -37.5,
+    "usd": -1.13
+   },
+   {
+    "dari": "10-16",
+    "sampai": "10-23",
+    "n": 16,
+    "gross": -42.9,
+    "net": -56.3,
+    "usd": -27.04
+   }
+  ],
+  "shortbear": [
+   {
+    "dari": "09-04",
+    "sampai": "09-11",
+    "n": 7,
+    "gross": 27.0,
+    "net": -31.3,
+    "usd": -2.19
+   },
+   {
+    "dari": "09-11",
+    "sampai": "09-18",
+    "n": 8,
+    "gross": -22.3,
+    "net": 17.7,
+    "usd": 1.42
+   },
+   {
+    "dari": "09-25",
+    "sampai": "10-02",
+    "n": 10,
+    "gross": 120.5,
+    "net": -129.0,
+    "usd": -12.9
+   },
+   {
+    "dari": "10-02",
+    "sampai": "10-09",
+    "n": 11,
+    "gross": -2.5,
+    "net": -9.8,
+    "usd": -1.08
+   },
+   {
+    "dari": "10-16",
+    "sampai": "10-23",
+    "n": 5,
+    "gross": 90.2,
+    "net": -102.0,
+    "usd": -5.1
+   }
+  ],
+  "swing": [
+   {
+    "dari": "08-28",
+    "sampai": "09-04",
+    "n": 29,
+    "gross": -52.2,
+    "net": -56.5,
+    "usd": -81.89
+   },
+   {
+    "dari": "09-04",
+    "sampai": "09-11",
+    "n": 58,
+    "gross": -3.5,
+    "net": -7.5,
+    "usd": -21.82
+   },
+   {
+    "dari": "09-11",
+    "sampai": "09-18",
+    "n": 26,
+    "gross": 12.5,
+    "net": 8.3,
+    "usd": 10.8
+   },
+   {
+    "dari": "09-18",
+    "sampai": "09-25",
+    "n": 99,
+    "gross": 35.3,
+    "net": 31.2,
+    "usd": 154.63
+   },
+   {
+    "dari": "09-25",
+    "sampai": "10-02",
+    "n": 58,
+    "gross": -40.4,
+    "net": -47.6,
+    "usd": -137.9
+   },
+   {
+    "dari": "10-02",
+    "sampai": "10-09",
+    "n": 22,
+    "gross": -50.4,
+    "net": -65.5,
+    "usd": -72.09
+   },
+   {
+    "dari": "10-16",
+    "sampai": "10-23",
+    "n": 14,
+    "gross": -15.3,
+    "net": -28.3,
+    "usd": -19.79
+   }
+  ],
+  "twoway": [
+   {
+    "dari": "08-29",
+    "sampai": "09-05",
+    "n": 65,
+    "gross": 21.6,
+    "net": 15.5,
+    "usd": 30.2
+   },
+   {
+    "dari": "09-05",
+    "sampai": "09-12",
+    "n": 45,
+    "gross": 17.0,
+    "net": 11.2,
+    "usd": 15.13
+   },
+   {
+    "dari": "09-12",
+    "sampai": "09-19",
+    "n": 51,
+    "gross": 119.5,
+    "net": 113.9,
+    "usd": 174.32
+   },
+   {
+    "dari": "09-19",
+    "sampai": "09-26",
+    "n": 66,
+    "gross": 24.9,
+    "net": 19.0,
+    "usd": 37.7
+   },
+   {
+    "dari": "09-26",
+    "sampai": "10-03",
+    "n": 49,
+    "gross": -39.1,
+    "net": -48.3,
+    "usd": -70.97
+   },
+   {
+    "dari": "10-03",
+    "sampai": "10-10",
+    "n": 28,
+    "gross": -73.1,
+    "net": -87.9,
+    "usd": -73.81
+   },
+   {
+    "dari": "10-10",
+    "sampai": "10-17",
+    "n": 14,
+    "gross": 15.0,
+    "net": -1.0,
+    "usd": -0.43
+   },
+   {
+    "dari": "10-17",
+    "sampai": "10-24",
+    "n": 30,
+    "gross": -70.9,
+    "net": -85.5,
+    "usd": -76.97
+   }
+  ]
+ },
+ "windows": {
+  "aster": {
+   "n_window": 34,
+   "mean_usd": -6.65,
+   "median_usd": -6.88,
+   "mean_pct": -2.738,
+   "median_pct": -2.833,
+   "hit_pct": 35.3,
+   "total_usd": -226.22
+  },
+  "donchian": {
+   "n_window": 40,
+   "mean_usd": -0.79,
+   "median_usd": -3.47,
+   "mean_pct": -0.326,
+   "median_pct": -1.429,
+   "hit_pct": 35.0,
+   "total_usd": -31.73
+  },
+  "hyperliquid": {
+   "n_window": 31,
+   "mean_usd": -8.75,
+   "median_usd": -8.28,
+   "mean_pct": -3.601,
+   "median_pct": -3.407,
+   "hit_pct": 22.6,
+   "total_usd": -271.26
+  },
+  "pasar_anantara_trade": {
+   "n_window": 4,
+   "mean_usd": -35.21,
+   "median_usd": -14.3,
+   "mean_pct": -14.489,
+   "median_pct": -5.884,
+   "hit_pct": 25.0,
+   "total_usd": -140.84
+  },
+  "portfolio": {
+   "n_window": 28,
+   "mean_usd": -2.0,
+   "median_usd": -1.9,
+   "mean_pct": -0.823,
+   "median_pct": -0.78,
+   "hit_pct": 35.7,
+   "total_usd": -56.01
+  },
+  "realwide": {
+   "n_window": 48,
+   "mean_usd": 1.42,
+   "median_usd": -0.41,
+   "mean_pct": 0.586,
+   "median_pct": -0.17,
+   "hit_pct": 47.9,
+   "total_usd": 68.36
+  },
+  "shortbear": {
+   "n_window": 15,
+   "mean_usd": -1.32,
+   "median_usd": -1.54,
+   "mean_pct": -0.545,
+   "median_pct": -0.634,
+   "hit_pct": 26.7,
+   "total_usd": -19.85
+  },
+  "swing": {
+   "n_window": 52,
+   "mean_usd": 0.5,
+   "median_usd": -5.66,
+   "mean_pct": 0.206,
+   "median_pct": -2.33,
+   "hit_pct": 38.5,
+   "total_usd": 25.97
+  },
+  "twoway": {
+   "n_window": 58,
+   "mean_usd": 2.84,
+   "median_usd": -1.34,
+   "mean_pct": 1.168,
+   "median_pct": -0.552,
+   "hit_pct": 48.3,
+   "total_usd": 164.66
+  },
+  "KOMBINASI_3": {
+   "n_window": 59,
+   "mean_usd": 3.41,
+   "median_usd": -0.72,
+   "mean_pct": 1.404,
+   "median_pct": -0.296,
+   "hit_pct": 49.2,
+   "total_usd": 201.29
+  }
+ },
+ "all_time": {
+  "aster": {
+   "n": 243,
+   "gross": -8.26,
+   "net": -27.03,
+   "usd": -226.22
+  },
+  "donchian": {
+   "n": 206,
+   "gross": 14.98,
+   "net": 7.82,
+   "usd": -31.73
+  },
+  "hyperliquid": {
+   "n": 214,
+   "gross": -17.54,
+   "net": -37.76,
+   "usd": -271.26
+  },
+  "pasar_anantara_trade": {
+   "n": 46,
+   "gross": -96.98,
+   "net": -102.06,
+   "usd": -140.84
+  },
+  "portfolio": {
+   "n": 86,
+   "gross": -40.51,
+   "net": -49.28,
+   "usd": -56.01
+  },
+  "realwide": {
+   "n": 267,
+   "gross": 15.34,
+   "net": 8.53,
+   "usd": 68.36
+  },
+  "shortbear": {
+   "n": 41,
+   "gross": 39.98,
+   "net": -48.41,
+   "usd": -19.85
+  },
+  "swing": {
+   "n": 419,
+   "gross": 6.48,
+   "net": 1.24,
+   "usd": 25.97
+  },
+  "twoway": {
+   "n": 436,
+   "gross": 20.18,
+   "net": 12.59,
+   "usd": 164.66
+  },
+  "KOMBINASI_3": {
+   "n": 909,
+   "gross": 17.58,
+   "net": 10.32,
+   "usd": 201.29
+  }
+ },
+ "recent30_kombinasi": {
+  "n_window": 20,
+  "mean_usd": -19.9,
+  "median_usd": -8.42,
+  "mean_pct": -8.19,
+  "median_pct": -3.463,
+  "hit_pct": 35.0,
+  "total_usd": -398.06
+ },
+ "recent30_per_mesin": {
+  "twoway": {
+   "n": 133,
+   "gross": -33.49,
+   "net": -45.57,
+   "usd": -181.83
+  },
+  "realwide": {
+   "n": 84,
+   "gross": -41.14,
+   "net": -50.64,
+   "usd": -127.6
+  },
+  "donchian": {
+   "n": 60,
+   "gross": -39.57,
+   "net": -48.96,
+   "usd": -88.63
+  }
+ }
+}

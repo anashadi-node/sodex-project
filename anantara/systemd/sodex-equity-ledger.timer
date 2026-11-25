@@ -1,0 +1,11 @@
+[Unit]
+Description=SoDEX Equity Ledger tiap 30 menit (deadman butuh ledger segar <6 jam)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30min
+AccuracySec=30s
+Unit=sodex-equity-ledger.service
+
+[Install]
+WantedBy=timers.target

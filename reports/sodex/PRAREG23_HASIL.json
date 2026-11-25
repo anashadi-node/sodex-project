@@ -1,0 +1,225 @@
+{
+ "protokol": "PRAREG-23-H1-v1-frozen-2026-10-09",
+ "universe": [
+  "BTCUSDT",
+  "ETHUSDT",
+  "SOLUSDT",
+  "BNBUSDT",
+  "LINKUSDT",
+  "XRPUSDT"
+ ],
+ "windows": [
+  5,
+  10,
+  20,
+  30,
+  60,
+  90,
+  150,
+  250,
+  360
+ ],
+ "vol_target": 0.25,
+ "band_rebalance": 0.2,
+ "warmup_hari": 360,
+ "bootstrap": "blok 20h, 2000 iter",
+ "biaya_utama_bps": 25.0,
+ "biaya_sekunder_bps": 10.0,
+ "verified_end": "2025-10-09",
+ "terverifikasi": {
+  "25bps": {
+   "strategi": {
+    "n_hari": 2976,
+    "sharpe": 1.4676556116938935,
+    "ret_total_pct": 199.8681458604969,
+    "mdd_pct": -12.194623240910962,
+    "sharpe_tanpa_5pct_terbaik": -1.5597605652420974,
+    "eksposur_rata": 0.10689890316740452
+   },
+   "btc_bh": {
+    "n_hari": 2975,
+    "sharpe": 0.9447913909766361,
+    "ret_total_pct": 2739.209536344696,
+    "mdd_pct": -83.18705353076483,
+    "sharpe_tanpa_5pct_terbaik": -1.8581003589680585,
+    "eksposur_rata": 1.0
+   },
+   "ew_bh": {
+    "n_hari": 2975,
+    "sharpe": 1.2452688597676291,
+    "ret_total_pct": 24415.302049364367,
+    "mdd_pct": -82.86961330438092,
+    "sharpe_tanpa_5pct_terbaik": -1.224201304406875
+   },
+   "sub_periode": {
+    "2019-2021": 2.1861485768316884,
+    "2022-2023": 0.7090065361688577,
+    "2024-2026": 1.4946919165891366
+   },
+   "p_sharpe_vs_btc_blok20": 0.0835
+  },
+  "10bps": {
+   "strategi": {
+    "n_hari": 2976,
+    "sharpe": 1.5319965588188569,
+    "ret_total_pct": 214.81222520264026,
+    "mdd_pct": -11.050986563737453,
+    "sharpe_tanpa_5pct_terbaik": -1.4835085833744428,
+    "eksposur_rata": 0.10689890316740452
+   },
+   "btc_bh": {
+    "n_hari": 2975,
+    "sharpe": 0.9447913909766361,
+    "ret_total_pct": 2739.209536344696,
+    "mdd_pct": -83.18705353076483,
+    "sharpe_tanpa_5pct_terbaik": -1.8581003589680585,
+    "eksposur_rata": 1.0
+   },
+   "ew_bh": {
+    "n_hari": 2975,
+    "sharpe": 1.2452688597676291,
+    "ret_total_pct": 24415.302049364367,
+    "mdd_pct": -82.86961330438092,
+    "sharpe_tanpa_5pct_terbaik": -1.224201304406875
+   },
+   "sub_periode": {
+    "2019-2021": 2.2361523818804043,
+    "2022-2023": 0.8163588461981034,
+    "2024-2026": 1.5687636739684165
+   },
+   "p_sharpe_vs_btc_blok20": 0.054
+  }
+ },
+ "penuh_termasuk_ekstensi": {
+  "25bps": {
+   "strategi": {
+    "n_hari": 3339,
+    "sharpe": 1.2920826077214755,
+    "ret_total_pct": 187.2799357678639,
+    "mdd_pct": -12.194623240910962,
+    "sharpe_tanpa_5pct_terbaik": -1.8262822960302723,
+    "eksposur_rata": 0.10539683910444553
+   },
+   "btc_bh": {
+    "n_hari": 3338,
+    "sharpe": 0.8249307991808335,
+    "ret_total_pct": 1855.1070225059966,
+    "mdd_pct": -83.18705353076483,
+    "sharpe_tanpa_5pct_terbaik": -2.0117831566790483,
+    "eksposur_rata": 1.0
+   },
+   "ew_bh": {
+    "n_hari": 3338,
+    "sharpe": 1.0952372670086787,
+    "ret_total_pct": 14788.098463458618,
+    "mdd_pct": -82.86961330438092,
+    "sharpe_tanpa_5pct_terbaik": -1.4212743994995485
+   },
+   "sub_periode": {
+    "2019-2021": 2.1861485768316884,
+    "2022-2023": 0.7090065361688577,
+    "2024-2026": 0.9191991218022478
+   },
+   "p_sharpe_vs_btc_blok20": 0.0825
+  },
+  "10bps": {
+   "strategi": {
+    "n_hari": 3339,
+    "sharpe": 1.3619397911787454,
+    "ret_total_pct": 204.44561693917814,
+    "mdd_pct": -11.050986563737453,
+    "sharpe_tanpa_5pct_terbaik": -1.7435353576528683,
+    "eksposur_rata": 0.10539683910444553
+   },
+   "btc_bh": {
+    "n_hari": 3338,
+    "sharpe": 0.8249307991808335,
+    "ret_total_pct": 1855.1070225059966,
+    "mdd_pct": -83.18705353076483,
+    "sharpe_tanpa_5pct_terbaik": -2.0117831566790483,
+    "eksposur_rata": 1.0
+   },
+   "ew_bh": {
+    "n_hari": 3338,
+    "sharpe": 1.0952372670086787,
+    "ret_total_pct": 14788.098463458618,
+    "mdd_pct": -82.86961330438092,
+    "sharpe_tanpa_5pct_terbaik": -1.4212743994995485
+   },
+   "sub_periode": {
+    "2019-2021": 2.2361523818804043,
+    "2022-2023": 0.8163588461981034,
+    "2024-2026": 1.0074981477765172
+   },
+   "p_sharpe_vs_btc_blok20": 0.0595
+  }
+ },
+ "gerbang_terverifikasi": {
+  "lolos": false,
+  "kriteria": {
+   "a_sharpe_ge_btc": true,
+   "b_mdd_le_50pct_btc": true,
+   "c_positif_min_2dari3": true,
+   "d_sharpe_tanpa_5pct_gt_0.5": false,
+   "e_p_lt_0.05": false
+  },
+  "sub_positif": 3
+ },
+ "gerbang_penuh": {
+  "lolos": false,
+  "kriteria": {
+   "a_sharpe_ge_btc": true,
+   "b_mdd_le_50pct_btc": true,
+   "c_positif_min_2dari3": true,
+   "d_sharpe_tanpa_5pct_gt_0.5": false,
+   "e_p_lt_0.05": false
+  },
+  "sub_positif": 3
+ },
+ "turunan_pct_per_48j": {
+  "terverifikasi": {
+   "25bps": {
+    "sharpe": 1.47,
+    "ret_total_pct": 199.9,
+    "n_hari": 2976,
+    "mdd_pct": -12.2,
+    "eksposur": 0.107,
+    "pct_per_48j": 0.0738,
+    "cagr_pct": 14.42,
+    "sharpe_tanpa_5pct_terbaik": -1.56
+   },
+   "10bps": {
+    "sharpe": 1.53,
+    "ret_total_pct": 214.8,
+    "n_hari": 2976,
+    "mdd_pct": -11.1,
+    "eksposur": 0.107,
+    "pct_per_48j": 0.0771,
+    "cagr_pct": 15.1,
+    "sharpe_tanpa_5pct_terbaik": -1.48
+   }
+  },
+  "penuh_termasuk_ekstensi": {
+   "25bps": {
+    "sharpe": 1.29,
+    "ret_total_pct": 187.3,
+    "n_hari": 3339,
+    "mdd_pct": -12.2,
+    "eksposur": 0.105,
+    "pct_per_48j": 0.0632,
+    "cagr_pct": 12.23,
+    "sharpe_tanpa_5pct_terbaik": -1.83
+   },
+   "10bps": {
+    "sharpe": 1.36,
+    "ret_total_pct": 204.4,
+    "n_hari": 3339,
+    "mdd_pct": -11.1,
+    "eksposur": 0.105,
+    "pct_per_48j": 0.0667,
+    "cagr_pct": 12.94,
+    "sharpe_tanpa_5pct_terbaik": -1.74
+   }
+  }
+ }
+}

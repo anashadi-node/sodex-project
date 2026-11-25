@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit Biaya Akun Nyata & Paper Test — 2026-10-05</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Audit Biaya Akun Nyata & Paper Test — 2026-10-05</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#0-ringkasan-untuk-yang-sibuk">0. Ringkasan untuk yang sibuk</a></li>
+<li class="t2"><a href="#1-metode-read-only-dapat-diaudit">1. Metode (read-only, dapat diaudit)</a></li>
+<li class="t2"><a href="#2-tarif-akun-nyata">2. Tarif akun nyata</a></li>
+<li class="t3"><a href="#21-hyperliquid-dibaca-dari-akun-bukan-dari-ingatan">2.1 Hyperliquid — dibaca dari akun, bukan dari ingatan</a></li>
+<li class="t3"><a href="#22-binance-usdm-tidak-dapat-dibaca-dari-akun">2.2 Binance USDM — tidak dapat dibaca dari akun</a></li>
+<li class="t2"><a href="#3-funding-nyata-vs-asumsi-cacat-terbesar-yang-ditemukan">3. Funding nyata vs asumsi — cacat terbesar yang ditemukan</a></li>
+<li class="t2"><a href="#4-dua-cacat-model-biaya-berlawanan-arah-dan-perbaikannya">4. Dua cacat model biaya (berlawanan arah) dan perbaikannya</a></li>
+<li class="t3"><a href="#c-1-uji-anggaran-memakai-biaya-tahan-yang-salah">C-1 — Uji anggaran memakai biaya tahan yang salah</a></li>
+<li class="t3"><a href="#c-2-f-2-net-tanpa-funding-kontrol-undercharge">C-2 (F-2) — Net tanpa funding + kontrol undercharge</a></li>
+<li class="t3"><a href="#perbaikan-env-gated-default-tidak-berubah">Perbaikan — env-gated, **default tidak berubah**</a></li>
+<li class="t2"><a href="#5-dampak-pada-putusan-jalankan-ulang-dengan-biaya-yang-benar">5. Dampak pada putusan (jalankan ulang dengan biaya yang benar)</a></li>
+<li class="t2"><a href="#6-paper-test-nyata-twin_enginedb-2026-06-12-2026-09-29">6. Paper test nyata (`twin_engine.db`, 2026-06-12 → 2026-09-29)</a></li>
+<li class="t3"><a href="#61-angka-dasar">6.1 Angka dasar</a></li>
+<li class="t3"><a href="#62-biaya-nyata-yang-sudah-dibayar">6.2 Biaya nyata yang sudah dibayar</a></li>
+<li class="t3"><a href="#63-e1-t496-yang-ternyata-rapuh">6.3 E1: t=+49,6 yang ternyata rapuh</a></li>
+<li class="t3"><a href="#64-pve-churn-tanpa-waktu-tahan">6.4 PVE: churn tanpa waktu tahan</a></li>
+<li class="t3"><a href="#65-putusan-paper-test">6.5 Putusan paper test</a></li>
+<li class="t2"><a href="#7-spread-nyata-sodex-buku-l1-24-jam-77-simbol">7. Spread nyata SoDEX (buku L1, 24 jam, 77 simbol)</a></li>
+<li class="t2"><a href="#7b-simulasi-pada-tape-nyata-sodex-3-hari-20-simbol-biaya-dari-buku-nyata">7b. Simulasi pada TAPE NYATA SoDEX (3 hari, 20 simbol) — biaya dari buku nyata</a></li>
+<li class="t2"><a href="#7c-paperreplay-alpaca-456499-trade-56-tahun-temuan-terkuat-sejauh-ini">7c. Paper/replay Alpaca — 456.499 trade, 56 tahun (temuan terkuat sejauh ini)</a></li>
+<li class="t3"><a href="#statistik-per-trade-n-besar-dan-lolos-uji-konsentrasi-yang-mematikan-e1">Statistik per-trade (n besar, dan **lolos uji konsentrasi yang mematikan E1**)</a></li>
+<li class="t2"><a href="#7d-bottleneck-sebenarnya-magnitudo-edge-per-trade-temuan-inti-sesi-ini">7d. Bottleneck sebenarnya: **magnitudo edge per-trade** (temuan inti sesi ini)</a></li>
+<li class="t2"><a href="#7e-bug-8-lama-tahan-terimplementasi-kurang-satu-bar-ditemukan-dari-log-tier-hl1d">7e. BUG-8 — lama tahan terimplementasi **kurang satu bar** (ditemukan dari log tier `hl1d`)</a></li>
+<li class="t2"><a href="#8-kesimpulan">8. Kesimpulan</a></li>
+<li class="t3"><a href="#rekomendasi-tanpa-mengubah-target-target-adalah-harga-mati">Rekomendasi (tanpa mengubah target — target adalah harga mati)</a></li>
+<li class="t2"><a href="#9-cara-memeriksa-ulang">9. Cara memeriksa ulang</a></li>
+</ul>
+</nav>
+<blockquote>
+<p>Dokumen ini adalah <strong>hasil audit read-only</strong>: tidak ada kredensial yang ditampilkan,
+tidak ada lane live yang disentuh, tidak ada gate/leverage/sizing/target yang diubah.
+Semua angka dapat diperiksa ulang dengan perintah di §9.</p>
+</blockquote>
+<hr>
+<h2 id="0-ringkasan-untuk-yang-sibuk">0. Ringkasan untuk yang sibuk</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Temuan</th>
+<th>Angka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Fee yang diasumsikan harness BENAR</strong></td>
+<td>Hyperliquid dibaca langsung dari akun: cross <strong>0,045%/sisi</strong>, add <strong>0,015%/sisi</strong> = persis asumsi. Binance tidak bisa dibaca (kunci ditolak) → tier VIP0 sesuai volume ~0</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Biaya tahan (holding) salah 16,6×</strong></td>
+<td>Asumsi <strong>0,4000%/24 jam</strong> vs funding nyata <strong>0,0240%/24 jam</strong> (24.123 titik, 11 simbol, 2023-10→2025-09)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Dua cacat model biaya</strong></td>
+<td>(C-1) ambang anggaran dilebih-lebihkan <strong>0,376 poin persen</strong>; (C-2/F-2) deret net <strong>tidak pernah</strong> dibebani funding, dan kontrol <strong>undercharge 0,10%</strong> round-trip (bias <strong>melawan</strong> mesin)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Paper test nyata: laba E1 = satu pair, satu bulan</strong></td>
+<td>E1 +85,25 <strong>seluruhnya</strong> dari PEPE/USDC Juni (+88,42); tanpa itu <strong>−3,17</strong>. 98% fill E1 = <strong>MAKER</strong> (artefak simulator)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Fee memakan 93% bruto paper test</strong></td>
+<td>fee nyata <strong>455,55</strong> vs net <strong>32,60</strong> → bruto ≈ 488,15</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Spread nyata SoDEX sangat kecil</strong></td>
+<td>median <strong>1,71 bp</strong> (0,0171%) → biaya taker <strong>0,0086%/sisi</strong> (24 jam buku L1, 77 simbol)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Setelah biaya dikoreksi, penghambat bergeser ke STATISTIK</strong></td>
+<td>di tier <code>bar</code>/<code>hl4h</code>, H13b/H13c kini <strong>lolos anggaran</strong> + mengalahkan kontrol, tapi tetap gagal <strong>BH-FDR</strong> → putusan tetap 0/12</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Lead baru (EKSPLORASI, belum boleh dipakai)</strong></td>
+<td>tape nyata SoDEX: arah <strong>momentum</strong> +3,3…+4,7%/24 jam — n tidak independen (≤3 episode), <strong>tidak lolos BH-FDR</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Mesin terkuat yang pernah diukur: Alpaca B5 ETF momentum</strong></td>
+<td><strong>456.499 trade · 56 tahun tanggal NYATA · t=+25,69 · tidak terkonsentrasi · positif di 45/56 tahun</strong> — tapi edge hanya <strong>+0,0237%/trade</strong></td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>BOTTLENECK SEBENARNYA = magnitudo edge per-trade</strong></td>
+<td>target 0,8%/48 jam butuh edge <strong>0,4–0,8%/trade</strong>; mesin terbaik 0,024% → <strong>17–33× kurang</strong>. Menutupnya butuh <strong>leverage 18× = DILARANG</strong></td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>BUG-8 ditemukan &amp; diperbaiki</strong></td>
+<td>lama tahan terimplementasi <strong>hb−1 bar</strong> → tier <code>hl1d</code> tahan <strong>0 jam</strong> (3 dari 41 evaluasi degenerat). Diperbaiki env-gated; <strong>0/12 tetap</strong>, <code>BH-lulus</code> tetap kosong</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-metode-read-only-dapat-diaudit">1. Metode (read-only, dapat diaudit)</h2>
+<table>
+<thead>
+<tr>
+<th>Sumber</th>
+<th>Cara</th>
+<th>Batas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tarif Hyperliquid</td>
+<td><code>POST api.hyperliquid.xyz/info {"type":"userFees"}</code> (publik)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Saldo/posisi HL</td>
+<td><code>{"type":"clearinghouseState"}</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tarif Binance</td>
+<td><code>GET fapi/v1/commissionRate</code> (signed)</td>
+<td><strong>ditolak 401</strong></td>
+</tr>
+<tr>
+<td>Funding Binance</td>
+<td><code>GET fapi/v1/fundingRate</code> (publik, tanpa kunci)</td>
+<td>2023-10-01 → 2025-09-30</td>
+</tr>
+<tr>
+<td>Buku L1 SoDEX</td>
+<td><code>data/sodex_book_recorder.db</code> (mode=ro)</td>
+<td>2026-08-01 23:08 → 08-02 23:08 (24 jam)</td>
+</tr>
+<tr>
+<td>Tape SoDEX</td>
+<td><code>data/sodex_public_trades.db</code> (mode=ro)</td>
+<td>2026-07-30 23:08 → 08-02 23:08 (3 hari)</td>
+</tr>
+<tr>
+<td>Paper test</td>
+<td><code>twin_engine.db</code> (mode=ro)</td>
+<td>2026-06-12 → 2026-09-29</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-tarif-akun-nyata">2. Tarif akun nyata</h2>
+<h3 id="21-hyperliquid-dibaca-dari-akun-bukan-dari-ingatan">2.1 Hyperliquid — dibaca dari akun, bukan dari ingatan</h3>
+<pre><code>userCrossRate = 0.00045   (0,0450% per sisi — menyeberang/market)
+userAddRate   = 0.00015   (0,0150% per sisi — menambah likuiditas/limit pasif)
+volume 14 hari user = 0    → TINGKAT DASAR (retail, bukan VIP, bukan market maker)
+activeReferralDiscount = 0.0  · activeStakingDiscount = 0.0
+</code></pre>
+<p><strong>Kesimpulan:</strong> asumsi harness <code>TAKER["hl"]=0.00045</code>, <code>MAKER["hl"]=0.00015</code> <strong>cocok persis</strong>.</p>
+<p><strong>Tangga biaya HL (dari akun, untuk pertanyaan "akses eksekusi"):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Notional 14 hari</th>
+<th>cross</th>
+<th>add</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 (sekarang)</td>
+<td>0,0450%</td>
+<td>0,0150%</td>
+</tr>
+<tr>
+<td>5 juta</td>
+<td>0,0400%</td>
+<td>0,0120%</td>
+</tr>
+<tr>
+<td>25 juta</td>
+<td>0,0350%</td>
+<td>0,0080%</td>
+</tr>
+<tr>
+<td>100 juta</td>
+<td>0,0300%</td>
+<td>0,0040%</td>
+</tr>
+<tr>
+<td><strong>500 juta</strong></td>
+<td>0,0280%</td>
+<td><strong>0,0000%</strong></td>
+</tr>
+<tr>
+<td>2 miliar</td>
+<td>0,0260%</td>
+<td>0,0000%</td>
+</tr>
+<tr>
+<td>7 miliar</td>
+<td>0,0240%</td>
+<td>0,0000%</td>
+</tr>
+</tbody>
+</table>
+<p>Plus diskon staking HYPE hingga <strong>40%</strong> (0,1% supply → 20%; 1% → 30%; 5% → 40%).
+Artinya: <strong>"maker gratis" hanya tercapai di 500 juta notional 14 hari</strong> — jauh di luar jangkauan modal saat ini.</p>
+<h3 id="22-binance-usdm-tidak-dapat-dibaca-dari-akun">2.2 Binance USDM — tidak dapat dibaca dari akun</h3>
+<table>
+<thead>
+<tr>
+<th>Percobaan</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fapi/v2/account</code> mainnet (signed)</td>
+<td>❌ <strong>HTTP 401 Unauthorized</strong></td>
+</tr>
+<tr>
+<td><code>fapi/v2/account</code> testnet futures (signed)</td>
+<td>❌ <strong>HTTP 401 Unauthorized</strong></td>
+</tr>
+<tr>
+<td>endpoint publik jadwal fee (2 varian)</td>
+<td>❌ 404</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Temuan operasional:</strong> kunci <code>BINANCE_API_KEY</code> (64 char, ada) <strong>ditolak venue</strong>. Karena CEX berjalan
+<code>dry_run=true</code>, ini tidak mengganggu lane paper — tetapi <strong>harus diperbarui sebelum ada rencana
+CEX live</strong>. (Sisi baik: kunci mati tidak bisa membocorkan apa pun.)</p>
+<p><strong>Fallback terverifikasi-sebagian:</strong> volume akun ≈ 0 dan tanpa BNB → <strong>VIP0</strong> (jadwal USDM publik:
+maker 0,0200% / taker 0,0500%) — sama dengan asumsi harness <code>TAKER["binance"]=0.0005</code>,
+<code>MAKER["binance"]=0.0002</code>. Status: <strong>konsisten, belum terverifikasi dari akun.</strong></p>
+<hr>
+<h2 id="3-funding-nyata-vs-asumsi-cacat-terbesar-yang-ditemukan">3. Funding nyata vs asumsi — cacat terbesar yang ditemukan</h2>
+<p>Sumber: <code>fapi/v1/fundingRate</code>, <strong>24.123 titik</strong> (11 simbol × 2.193 settlement 8-jaman),
+2023-10-01 → 2025-09-30, cache <code>data/funding_binance/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>rata-rata/24 jam</th>
+<th>|rata-rata|/24 jam</th>
+<th>% positif</th>
+<th>maks/24 jam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTCUSDT</td>
+<td>0,0260%</td>
+<td>0,0275%</td>
+<td>90,6%</td>
+<td>0,264%</td>
+</tr>
+<tr>
+<td>ETHUSDT</td>
+<td>0,0279%</td>
+<td>0,0292%</td>
+<td>91,6%</td>
+<td>0,305%</td>
+</tr>
+<tr>
+<td>SOLUSDT</td>
+<td>0,0244%</td>
+<td>0,0330%</td>
+<td>78,1%</td>
+<td>0,358%</td>
+</tr>
+<tr>
+<td>BNBUSDT</td>
+<td>−0,0066%</td>
+<td>0,0315%</td>
+<td>25,4%</td>
+<td>0,389%</td>
+</tr>
+<tr>
+<td>XRPUSDT</td>
+<td>0,0296%</td>
+<td>0,0344%</td>
+<td>86,2%</td>
+<td>0,330%</td>
+</tr>
+<tr>
+<td>DOGEUSDT</td>
+<td>0,0295%</td>
+<td>0,0332%</td>
+<td>86,3%</td>
+<td>0,308%</td>
+</tr>
+<tr>
+<td>ADAUSDT</td>
+<td>0,0281%</td>
+<td>0,0342%</td>
+<td>86,2%</td>
+<td>0,336%</td>
+</tr>
+<tr>
+<td>AVAXUSDT</td>
+<td>0,0223%</td>
+<td>0,0364%</td>
+<td>76,2%</td>
+<td><strong>0,431%</strong></td>
+</tr>
+<tr>
+<td>LINKUSDT</td>
+<td>0,0291%</td>
+<td>0,0338%</td>
+<td>86,9%</td>
+<td>0,347%</td>
+</tr>
+<tr>
+<td>DOTUSDT</td>
+<td>0,0231%</td>
+<td>0,0340%</td>
+<td>81,3%</td>
+<td>0,339%</td>
+</tr>
+<tr>
+<td>LTCUSDT</td>
+<td>0,0312%</td>
+<td>0,0331%</td>
+<td>91,3%</td>
+<td>0,329%</td>
+</tr>
+<tr>
+<td><strong>SEMUA</strong></td>
+<td><strong>0,0240%</strong></td>
+<td><strong>0,0328%</strong></td>
+<td><strong>80,0%</strong></td>
+<td>0,431%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perbandingan:</strong> asumsi harness <strong>0,4000%/24 jam</strong> = <strong>16,6×</strong> rata-rata nyata.
+Bahkan <strong>kejadian terburuk</strong> yang teramati (AVAX 0,431%/24 jam) hanya <strong>1,08×</strong> asumsi —
+artinya asumsi 0,40% diperlakukan sebagai <em>kondisi ekstrem permanen</em>.</p>
+<p>Catatan penting: 80% settlement <strong>positif</strong> → arah posisi menentukan siapa yang membayar.
+Fade yang menjadi <strong>SHORT</strong> setelah kenaikan justru <strong>menerima</strong> funding; fade yang menjadi
+<strong>LONG</strong> setelah penurunan <strong>membayar</strong>. Model datar 0,40% membuang informasi ini.</p>
+<hr>
+<h2 id="4-dua-cacat-model-biaya-berlawanan-arah-dan-perbaikannya">4. Dua cacat model biaya (berlawanan arah) dan perbaikannya</h2>
+<h3 id="c-1-uji-anggaran-memakai-biaya-tahan-yang-salah">C-1 — Uji anggaran memakai biaya tahan yang salah</h3>
+<p><code>min_gross(slip) = fee_pair + slip + 0,004 × (24/24)</code> → angka 0,004 inilah yang selama ini
+dibaca sebagai "biaya 0,40%" di laporan. Efeknya, ambang "perlu" <strong>dilebih-lebihkan 0,376 poin persen</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Ambang beku</th>
+<th>Ambang dengan funding nyata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier-1 (slip 0,248%)</td>
+<td>0,748%</td>
+<td><strong>0,372%</strong></td>
+</tr>
+<tr>
+<td>Tier-1 (slip 0,446%)</td>
+<td>0,946%</td>
+<td><strong>0,570%</strong></td>
+</tr>
+<tr>
+<td>Tier-1 (slip 0,482%)</td>
+<td>0,982%</td>
+<td><strong>0,606%</strong></td>
+</tr>
+<tr>
+<td>Tier-2 (slip 0,02%)</td>
+<td>0,530%</td>
+<td><strong>0,144%</strong></td>
+</tr>
+<tr>
+<td>HL 4j/1d (slip 0,02%)</td>
+<td>0,530%</td>
+<td><strong>0,154%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="c-2-f-2-net-tanpa-funding-kontrol-undercharge">C-2 (F-2) — Net tanpa funding + kontrol undercharge</h3>
+<p>Dua sub-cacat pada <strong>deret net</strong> (bukan pada uji anggaran):</p>
+<ol>
+<li><strong>Funding tidak pernah dibebankan.</strong> <code>net[f] -= P_</code> dan <code>net[g] -= P_</code> dengan <code>P_</code> = fee taker
+   per sisi. Tidak ada suku funding sama sekali → seluruh <code>mean48</code>/<code>SR</code> yang terbit <strong>optimistis</strong>
+   sebesar biaya funding nyata (≈0,024%/hari tahan, berarah).</li>
+<li><strong>Kontrol dibebani lebih murah dari mesin.</strong> Kontrol membayar <code>SLIP_BAR</code> (0,02%) per sisi,
+   sedangkan mesin membayar <strong>slippage + fee taker 0,05%</strong> per sisi → kontrol <strong>undercharge
+   0,10% round-trip</strong>. Arah bias: <strong>melawan mesin</strong> (kontrol jadi tampak lebih kuat dari sebenarnya),
+   sehingga <code>control_p = 1,00</code> yang terbit sebagian adalah artefak.</li>
+</ol>
+<h3 id="perbaikan-env-gated-default-tidak-berubah">Perbaikan — env-gated, <strong>default tidak berubah</strong></h3>
+<pre><code class="language-python">R4D_FAIR=1        # (a) kontrol bayar fee yang SAMA dengan mesin
+                  # (b) funding NYATA berarah dibebankan di mesin DAN kontrol
+R4D_HOLD_COST=…   # biaya tahan per 24 jam untuk uji anggaran (0,000240 = terukur)
+</code></pre>
+<p>Bukti default tetap = spesifikasi beku <code>d63e7ee</code>:</p>
+<pre><code>DEFAULT : FAIR=False USE_FUNDING=False HOLD_COST=0.004   min_gross(0,248%) = 0,007480  ← beku
+FAIR=1  : FAIR=True  USE_FUNDING=True  HOLD_COST=0.00024 min_gross(0,248%) = 0,003720
+</code></pre>
+<p>Hasil FAIR ditulis ke berkas <strong>terpisah</strong> (<code>reports/sodex/R4D_*_fair_results.json</code>) supaya
+rekam jejak hasil beku tidak tertimpa.</p>
+<hr>
+<h2 id="5-dampak-pada-putusan-jalankan-ulang-dengan-biaya-yang-benar">5. Dampak pada putusan (jalankan ulang dengan biaya yang benar)</h2>
+<p>Empat tier dijalankan ulang dengan <code>R4D_FAIR=1</code> (F-2 + funding nyata). Hasil di berkas
+<code>reports/sodex/R4D_*_fair_results.json</code>; hasil beku <strong>tidak ditimpa</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Mesin</th>
+<th>mean48</th>
+<th>SR</th>
+<th>seg+</th>
+<th>trade</th>
+<th>bruto</th>
+<th>perlu (FAIR)</th>
+<th>anggaran</th>
+<th>ctrl_p</th>
+<th>BH</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>t1</strong></td>
+<td>H13a</td>
+<td>−0,0633%</td>
+<td>−0,58</td>
+<td>0/3</td>
+<td>1.203</td>
+<td>−0,722%</td>
+<td>0,372%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td><strong>t1</strong></td>
+<td>H13b</td>
+<td>−0,0467%</td>
+<td>−0,55</td>
+<td>1/3</td>
+<td>320</td>
+<td>−1,250%</td>
+<td>0,570%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td><strong>t1</strong></td>
+<td>H13c</td>
+<td>−0,0096%</td>
+<td>−0,20</td>
+<td>1/3</td>
+<td>77</td>
+<td>−0,166%</td>
+<td>0,606%</td>
+<td>TIDAK</td>
+<td>0,0050</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>bar</td>
+<td>H13a</td>
+<td>+0,0547%</td>
+<td>+0,59</td>
+<td>2/3</td>
+<td>1.675</td>
+<td>−0,086%</td>
+<td>0,164%</td>
+<td>TIDAK</td>
+<td>0,0050</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>bar</td>
+<td>H13b</td>
+<td>+0,0490%</td>
+<td>+0,58</td>
+<td>2/3</td>
+<td>502</td>
+<td><strong>+0,567%</strong></td>
+<td>0,164%</td>
+<td><strong>OK</strong></td>
+<td>0,0050</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>bar</td>
+<td>H13c</td>
+<td>+0,0099%</td>
+<td>+0,22</td>
+<td>2/3</td>
+<td>114</td>
+<td><strong>+0,313%</strong></td>
+<td>0,164%</td>
+<td><strong>OK</strong></td>
+<td>0,0050</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>hl4h</td>
+<td>H13a</td>
+<td>+0,0274%</td>
+<td>+0,45</td>
+<td>2/3</td>
+<td>657</td>
+<td>−0,156%</td>
+<td>0,154%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>hl4h</td>
+<td>H13b</td>
+<td>−0,0178%</td>
+<td>−0,34</td>
+<td>1/3</td>
+<td>272</td>
+<td>−1,147%</td>
+<td>0,154%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>hl4h</td>
+<td>H13c</td>
+<td>+0,0619%</td>
+<td>+0,92</td>
+<td>2/3</td>
+<td>98</td>
+<td><strong>+2,756%</strong></td>
+<td>0,154%</td>
+<td><strong>OK</strong></td>
+<td>0,0050</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>hl1d</td>
+<td>H13a</td>
+<td>−0,0093%</td>
+<td>−0,36</td>
+<td>1/3</td>
+<td>446</td>
+<td>+0,036%</td>
+<td>0,154%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>hl1d</td>
+<td>H13b</td>
+<td>−0,0383%</td>
+<td>−1,17</td>
+<td>1/3</td>
+<td>363</td>
+<td>−0,461%</td>
+<td>0,154%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+<tr>
+<td>hl1d</td>
+<td>H13c</td>
+<td>−0,0322%</td>
+<td>−0,80</td>
+<td>0/3</td>
+<td>225</td>
+<td>−0,683%</td>
+<td>0,154%</td>
+<td>TIDAK</td>
+<td>1,0000</td>
+<td>—</td>
+<td>FAIL</td>
+</tr>
+</tbody>
+</table>
+<p>PBO: t1 0,5952 · bar 0,5635 · hl4h 0,0992 · hl1d 0,2579. <strong>BH-lulus = ∅ di semua tier.</strong></p>
+<p><strong>Tiga kesimpulan dari tabel ini:</strong></p>
+<ol>
+<li><strong>Putusan tidak berubah: 0/12 lulus.</strong> Bahkan dengan ambang anggaran yang lebih rendah
+   (t1 0,748% → <strong>0,372%</strong>; Tier-2/HL 0,530% → <strong>0,154%</strong>), tidak ada mesin yang lulus.</li>
+<li><strong>Efek funding kecil, efek kontrol besar.</strong> Membebankan funding menggeser <code>mean48</code> hanya
+   ≤0,001 poin persen (funding nyata 0,024%/24 jam), tetapi F-2 menggeser <code>perlu</code> <strong>0,376 poin
+   persen</strong> — jadi cacat yang signifikan adalah <strong>C-1/F-2</strong>, bukan arah funding.</li>
+<li><strong>Penghambat bergeser dari BIAYA ke STATISTIK (temuan baru yang penting).</strong> Di tier <code>bar</code>
+   dan <code>hl4h</code>, H13b dan H13c sekarang <strong>lolos uji anggaran</strong> (bruto +0,567%/+0,313%/+2,756% vs
+   perlu 0,164%/0,154%) <strong>dan mengalahkan kontrol</strong> (ctrl_p 0,0050), <strong>tetapi tetap gagal</strong>
+   karena bukti statistiknya lemah: SR 0,22–0,92, segmen tidak stabil, dan <strong>tidak lolos BH-FDR</strong>.</li>
+</ol>
+<blockquote>
+<p>Artinya: kekeliruan biaya selama ini <strong>menyembunyikan</strong> fakta bahwa beberapa sel sudah
+"cukup murah" tetapi <strong>belum cukup kuat</strong>. Menghapus cacat biaya tidak membuka pintu;
+ia hanya memindahkan alasan penolakan dari "terlalu mahal" menjadi "tidak signifikan".</p>
+</blockquote>
+<hr>
+<h2 id="6-paper-test-nyata-twin_enginedb-2026-06-12-2026-09-29">6. Paper test nyata (<code>twin_engine.db</code>, 2026-06-12 → 2026-09-29)</h2>
+<h3 id="61-angka-dasar">6.1 Angka dasar</h3>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th>n round-trip</th>
+<th>menang</th>
+<th>rata-rata net</th>
+<th>t-stat</th>
+<th>total net</th>
+<th>fill</th>
+<th>% maker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>E1</strong></td>
+<td>13.092</td>
+<td><strong>93,1%</strong></td>
+<td>+0,00651</td>
+<td><strong>+49,60</strong></td>
+<td><strong>+85,25</strong></td>
+<td>63.638</td>
+<td><strong>98,3%</strong></td>
+</tr>
+<tr>
+<td>E2</td>
+<td>605</td>
+<td>3,5%</td>
+<td>−0,05934</td>
+<td>−32,46</td>
+<td>−35,90</td>
+<td>3.368</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>PVE</td>
+<td>1.594</td>
+<td>53,8%</td>
+<td>−0,01051</td>
+<td>−1,30</td>
+<td>−16,76</td>
+<td>3.188</td>
+<td>9,6%</td>
+</tr>
+<tr>
+<td><strong>SEMUA</strong></td>
+<td><strong>15.291</strong></td>
+<td>85,5%</td>
+<td>+0,00213</td>
+<td>+2,47</td>
+<td><strong>+32,60</strong></td>
+<td>70.194</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-biaya-nyata-yang-sudah-dibayar">6.2 Biaya nyata yang sudah dibayar</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total fee</td>
+<td><strong>455,55</strong></td>
+</tr>
+<tr>
+<td>total notional</td>
+<td>2.500.097</td>
+</tr>
+<tr>
+<td>biaya efektif</td>
+<td><strong>0,0182%</strong> dari notional</td>
+</tr>
+<tr>
+<td>net_pnl</td>
+<td><strong>+32,60</strong></td>
+</tr>
+<tr>
+<td>bruto sebelum fee</td>
+<td><strong>≈ +488,15</strong></td>
+</tr>
+<tr>
+<td><strong>fee / bruto</strong></td>
+<td><strong>93,3%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-e1-t496-yang-ternyata-rapuh">6.3 E1: t=+49,6 yang ternyata rapuh</h3>
+<table>
+<thead>
+<tr>
+<th>Potongan</th>
+<th>n</th>
+<th>rata-rata</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1 seluruhnya</td>
+<td>13.092</td>
+<td>+0,00651</td>
+<td>+85,25</td>
+</tr>
+<tr>
+<td>E1 <strong>PEPE/USDC saja</strong></td>
+<td>12.652</td>
+<td>+0,00699</td>
+<td><strong>+88,42</strong></td>
+</tr>
+<tr>
+<td>E1 <strong>tanpa PEPE/USDC</strong></td>
+<td>440</td>
+<td><strong>−0,00719</strong></td>
+<td><strong>−3,17</strong></td>
+</tr>
+<tr>
+<td>E1 bulan 2026-06</td>
+<td>12.767</td>
+<td>+0,00682</td>
+<td>+87,09</td>
+</tr>
+<tr>
+<td>E1 bulan 2026-09</td>
+<td>325</td>
+<td><strong>−0,00564</strong></td>
+<td><strong>−1,83</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Tiga tanda sekaligus menunjukkan <strong>artefak simulator</strong>, bukan edge:</p>
+<ol>
+<li><strong>97% trade = satu pair</strong> (PEPE/USDC) dalam <strong>satu bulan</strong> (Juni).</li>
+<li><strong>98,3% fill E1 adalah MAKER</strong> — simulator mengisi limit pasif tanpa posisi antrian dan
+   tanpa <em>adverse selection</em>; ini persis pelajaran yang sudah dibayar mahal di R4-C (H11–H12).</li>
+<li><strong>Berbalik negatif</strong> di bulan berikutnya (−1,83) ketika pair berganti.</li>
+</ol>
+<h3 id="64-pve-churn-tanpa-waktu-tahan">6.4 PVE: churn tanpa waktu tahan</h3>
+<p>PVE 90% taker dengan durasi round-trip <strong>≈0 detik</strong> (masuk dan keluar hampir bersamaan) —
+yaitu memutar spread + fee, dan hasilnya <strong>−16,76</strong>. E2 (100% maker) bahkan lebih buruk: menang
+hanya <strong>3,5%</strong> dari waktu.</p>
+<h3 id="65-putusan-paper-test">6.5 Putusan paper test</h3>
+<blockquote>
+<p>Paper test <strong>tidak menghasilkan edge yang dapat dipercaya</strong>. Satu-satunya mesin yang positif
+(E1) bergantung pada (a) satu pair, (b) satu bulan, dan (c) asumsi fill maker tanpa
+adverse selection. Yang tersisa setelah biaya nyata adalah <strong>+32,60</strong> dari bruto <strong>+488,15</strong>
+— fee memakan <strong>93%</strong>. Ini konsisten dengan temuan riset: <strong>constraint = eksekusi, bukan sinyal.</strong></p>
+</blockquote>
+<hr>
+<h2 id="7-spread-nyata-sodex-buku-l1-24-jam-77-simbol">7. Spread nyata SoDEX (buku L1, 24 jam, 77 simbol)</h2>
+<table>
+<thead>
+<tr>
+<th>Statistik</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>median spread semua simbol</td>
+<td><strong>1,71 bp</strong> (0,0171%)</td>
+</tr>
+<tr>
+<td>p90 spread</td>
+<td>11,44 bp</td>
+</tr>
+<tr>
+<td><strong>biaya taker = setengah spread (median)</strong></td>
+<td><strong>0,0086% per sisi</strong></td>
+</tr>
+<tr>
+<td>paling sempit</td>
+<td>SNDK 0,08 bp → 0,0004%/sisi</td>
+</tr>
+<tr>
+<td>paling lebar</td>
+<td>EWY 34,30 bp → 0,1715%/sisi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Catatan kejujuran (penting):</strong> angka ini <strong>bukan</strong> pembanding langsung untuk "slippage terukur
+0,248–0,482%" di R4-D. Keduanya mengukur hal berbeda:</p>
+<ul>
+<li><strong>setengah spread</strong> = biaya langsung menyeberang (1,7 bp median),</li>
+<li><strong>slippage 1-menit terukur</strong> = perpindahan harga yang <em>merugikan</em> selama eksekusi pada bar kejadian ekstrem (0,248–0,482%).</li>
+</ul>
+<p>Keduanya bisa benar bersamaan: spread tipis, tetapi saat kejadian ekstrem harga bergerak melawan
+posisi Anda dalam hitungan detik. Yang <strong>tidak</strong> boleh lagi diklaim: bahwa "biaya taker di SoDEX
+mahal karena spread". Datanya menunjukkan sebaliknya.</p>
+<hr>
+<h2 id="7b-simulasi-pada-tape-nyata-sodex-3-hari-20-simbol-biaya-dari-buku-nyata">7b. Simulasi pada TAPE NYATA SoDEX (3 hari, 20 simbol) — biaya dari buku nyata</h2>
+<p>Skrip: <code>scripts/sodex_tape_fade_sim.py</code> (read-only). Kejadian: |return 1 jam| ≥ θ. Masuk pada
+trade pertama setelah bar kejadian, <strong>menyeberang setengah spread nyata</strong> (median 0,34–0,67 bp
+dari buku L1); tahan 24 jam; keluar menyeberang lagi; fee 2 sisi.</p>
+<table>
+<thead>
+<tr>
+<th>Arah</th>
+<th>θ</th>
+<th>n</th>
+<th>net</th>
+<th>bruto</th>
+<th>menang</th>
+<th>ctrl (acak)</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fade</strong> (melawan)</td>
+<td>1,5%</td>
+<td>44</td>
+<td><strong>−3,35%</strong></td>
+<td>−3,33%</td>
+<td>20,5%</td>
+<td>−0,27%</td>
+<td>0,925</td>
+</tr>
+<tr>
+<td><strong>fade</strong></td>
+<td>2,0%</td>
+<td>21</td>
+<td><strong>−4,05%</strong></td>
+<td>−4,02%</td>
+<td>4,8%</td>
+<td>−0,46%</td>
+<td>0,928</td>
+</tr>
+<tr>
+<td><strong>fade</strong></td>
+<td>3,0%</td>
+<td>9</td>
+<td><strong>−4,15%</strong></td>
+<td>−4,13%</td>
+<td>11,1%</td>
+<td>−0,37%</td>
+<td>0,933</td>
+</tr>
+<tr>
+<td><strong>momentum</strong> (searah)</td>
+<td>1,5%</td>
+<td>44</td>
+<td><strong>+3,28%</strong></td>
+<td>+3,30%</td>
+<td>79,5%</td>
+<td>+0,38%</td>
+<td>0,094</td>
+</tr>
+<tr>
+<td><strong>momentum</strong></td>
+<td>2,0%</td>
+<td>21</td>
+<td><strong>+3,98%</strong></td>
+<td>+4,00%</td>
+<td>95,2%</td>
+<td>+0,20%</td>
+<td>0,059</td>
+</tr>
+<tr>
+<td><strong>momentum</strong></td>
+<td>3,0%</td>
+<td>9</td>
+<td><strong>+4,09%</strong></td>
+<td>+4,11%</td>
+<td>88,9%</td>
+<td>+0,20%</td>
+<td>0,068</td>
+</tr>
+<tr>
+<td><strong>momentum</strong></td>
+<td>5,0%</td>
+<td>1</td>
+<td>+4,68%</td>
+<td>+4,70%</td>
+<td>100%</td>
+<td>+0,35%</td>
+<td>0,058</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yang boleh dikatakan:</strong></p>
+<ul>
+<li>Biaya <strong>bukan</strong> penghambat di sini: setengah spread nyata hanya 0,34–0,67 bp, jadi bruto ≈ net.</li>
+<li>Arah <strong>fade</strong> di venue ini, pada jendela ini, <strong>kalah jauh bahkan sebelum biaya</strong> (−3,3% s.d. −4,1%).</li>
+<li>Arah <strong>momentum</strong> justru positif besar dan mengalahkan kontrol acak.</li>
+</ul>
+<p><strong>Yang TIDAK boleh dikatakan (batas keras):</strong></p>
+<ul>
+<li><strong>Ini EKSPLORASI — bukan uji hipotesis.</strong> Angka ini <strong>tidak boleh</strong> menjadi dasar putusan
+  atau perubahan sistem tanpa pra-registrasi.</li>
+<li><strong>n kecil dan tidak independen.</strong> Hold 24 jam pada tape 3 hari → jendela saling bertumpuk;
+  jumlah episode independen paling banyak <strong>3</strong>, bukan 44/21/9.</li>
+<li><strong>Multiplisitas.</strong> 16 varian diuji; p terkecil 0,0475 <strong>tidak lolos</strong> BH-FDR
+  (ambang BH untuk uji terkecil dari 16 pada q=0,10 = 0,00625).</li>
+<li><strong>Satu rezim, satu venue, 20 simbol</strong> (termasuk saham ter-tokenisasi) — tidak dapat digeneralisasi.</li>
+<li>Arah momentum berlawanan dengan temuan eksplorasi Binance (fade ≈ +0,6%/24 jam sebelum biaya),
+  sehingga <strong>venue dan simbol jelas memengaruhi arah</strong>.</li>
+</ul>
+<p><strong>Tindak lanjut yang benar:</strong> pra-registrasi uji momentum pada tape SoDEX <strong>forward</strong>
+(minimum 30 hari, n≥30 episode independen), sebelum satu baris kode produksi disentuh.</p>
+<hr>
+<h2 id="7c-paperreplay-alpaca-456499-trade-56-tahun-temuan-terkuat-sejauh-ini">7c. Paper/replay Alpaca — 456.499 trade, 56 tahun (temuan terkuat sejauh ini)</h2>
+<p>Sumber: <code>data/alpaca/paper_trades.jsonl</code> (215,7 MB), skrip <code>scripts/alpaca_paper_replay_audit.py</code>.
+Mesin: <code>B5_REGIME_MOMENTUM</code>, sumber <code>alpaca_etf_momentum_next_bar_paper</code>, 95 simbol ETF/saham AS.</p>
+<p><strong>Tanggalnya NYATA, bukan sintetis</strong> — dibuktikan dengan hari-hari krisis historis:</p>
+<table>
+<thead>
+<tr>
+<th>Tanggal</th>
+<th>Peristiwa</th>
+<th>Return portofolio hari itu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1987-10-19</td>
+<td>Black Monday</td>
+<td><strong>−4,42%</strong></td>
+</tr>
+<tr>
+<td>2020-03-12</td>
+<td>COVID crash</td>
+<td>−1,32%</td>
+</tr>
+<tr>
+<td>2022-06-13</td>
+<td>bear 2022</td>
+<td>−1,20%</td>
+</tr>
+<tr>
+<td>2020-03-16</td>
+<td>COVID crash</td>
+<td>−0,72%</td>
+</tr>
+<tr>
+<td>2008-10-10</td>
+<td>krisis 2008</td>
+<td>−0,29%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="statistik-per-trade-n-besar-dan-lolos-uji-konsentrasi-yang-mematikan-e1">Statistik per-trade (n besar, dan <strong>lolos uji konsentrasi yang mematikan E1</strong>)</h3>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n</td>
+<td><strong>456.499</strong> (95 simbol)</td>
+</tr>
+<tr>
+<td>menang</td>
+<td>50,65%</td>
+</tr>
+<tr>
+<td><strong>net per trade</strong></td>
+<td><strong>+0,02373%</strong></td>
+</tr>
+<tr>
+<td>bruto per trade</td>
+<td>+0,02511%</td>
+</tr>
+<tr>
+<td>biaya per trade</td>
+<td>0,00138% (sangat kecil — ETF komisi-nol + spread tipis)</td>
+</tr>
+<tr>
+<td><strong>t-stat</strong></td>
+<td><strong>+25,69</strong> (CI95 +0,0219% … +0,0255%)</td>
+</tr>
+<tr>
+<td>tanpa 5 simbol teratas</td>
+<td>+0,02268% (n=422.994) → <strong>TIDAK terkonsentrasi</strong></td>
+</tr>
+<tr>
+<td>periode positif</td>
+<td><strong>45 dari 56</strong> tahun</td>
+</tr>
+<tr>
+<td>periode negatif</td>
+<td>1973-74, 1977, 1988, 1994, 2000-02, 2008, 2015, 2022 → <strong>rezim bear</strong> (masuk akal)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kalibrasi probabilitas: GAGAL.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>Nilai</th>
+<th>Ambang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rata-rata <code>predicted_probability</code></td>
+<td>0,6031</td>
+<td>—</td>
+</tr>
+<tr>
+<td>akurasi aktual</td>
+<td>0,5065</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>overconfident</strong></td>
+<td><strong>+0,0966</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>ECE</td>
+<td>0,0966</td>
+<td>target &lt;0,10 → <strong>mepet, hampir gagal</strong></td>
+</tr>
+<tr>
+<td>Brier sejati</td>
+<td><strong>0,2594</strong></td>
+<td>&gt;0,25 = <strong>lebih buruk dari tebakan konstan 0,5</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Artinya: <em>seleksi trade</em>-nya punya edge, tetapi <em>angka probabilitasnya</em> tidak layak dipakai
+untuk sizing posisi. Dua hal ini harus dipisahkan.</p>
+<hr>
+<h2 id="7d-bottleneck-sebenarnya-magnitudo-edge-per-trade-temuan-inti-sesi-ini">7d. Bottleneck sebenarnya: <strong>magnitudo edge per-trade</strong> (temuan inti sesi ini)</h2>
+<p>Seluruh investigasi sebelumnya berfokus pada <strong>biaya</strong>. Setelah biaya dikoreksi (§5), dan setelah
+mesin terbaik diukur pada n=456k (§7c), hambatan sesungguhnya terlihat jelas:</p>
+<blockquote>
+<p>Pada portofolio <strong>equal-weight yang selalu penuh</strong>, return harian ≈ <strong>edge per-trade</strong>.
+Jadi target <strong>0,8% per 48 jam</strong> membutuhkan <strong>edge per-trade ≈ 0,4–0,8%</strong> — bukan 0,02%.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Lama tahan</th>
+<th>Trade penuh per 48 jam</th>
+<th>Edge per-trade yang <strong>dibutuhkan</strong></th>
+<th>Mesin terbaik sekarang (0,024%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 hari</td>
+<td>2,0</td>
+<td><strong>0,40%</strong></td>
+<td><strong>17× kurang</strong></td>
+</tr>
+<tr>
+<td>2 hari</td>
+<td>1,0</td>
+<td><strong>0,80%</strong></td>
+<td><strong>33× kurang</strong></td>
+</tr>
+<tr>
+<td>5 hari</td>
+<td>0,4</td>
+<td><strong>2,00%</strong></td>
+<td><strong>83× kurang</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Portofolio equal-weight Alpaca B5 yang terukur = <strong>+0,0436% / 48 jam</strong> → untuk mencapai 0,8%
+diperlukan <strong>18,35×</strong> (leverage 18×, <strong>DILARANG</strong> oleh batas keamanan).</p>
+<p><strong>Perbandingan semua mesin yang pernah diuji:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mesin</th>
+<th>Edge per-trade (bruto/net)</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alpaca B5 ETF momentum</strong></td>
+<td><strong>+0,0237% net</strong> (t=+25,7, n=456k)</td>
+<td>nyata tapi <strong>17–33× kurang</strong></td>
+</tr>
+<tr>
+<td>R4-D H13a/b/c fade Binance</td>
+<td>−0,72% / −1,25% / −0,17% bruto</td>
+<td><strong>negatif</strong></td>
+</tr>
+<tr>
+<td>R4-C maker H11/H12</td>
+<td>−0,19% / +0,39% / +1,06% bruto</td>
+<td>9/9 FAIL (adverse selection)</td>
+</tr>
+<tr>
+<td>R4-B H8 carry funding</td>
+<td>+0,40% bruto, SR 2,65, 136 trade</td>
+<td>n&lt;20, PBO 0,29 → FAIL</td>
+</tr>
+<tr>
+<td>twin_engine E1 (paper SoDEX)</td>
+<td>+0,0065%/round-trip</td>
+<td>artefak fill MAKER</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan bottleneck:</strong> constraint bukan sinyal, bukan fee, bukan spread, bukan eksekusi —
+melainkan <strong>magnitudo edge per-trade relatif terhadap target</strong>. Semua mesin yang ditemukan
+memiliki edge 0,02% (terbaik) sampai negatif, sedangkan target menuntut 0,4–0,8%.</p>
+<p>Implikasi (tanpa mengubah target, karena target = harga mati):</p>
+<ol>
+<li>Cari mesin dengan <strong>pergerakan per-trade 10–30× lebih besar</strong> (swing 3–8%, bukan 0,3–1%),
+   dengan bukti OOS yang lolos BH — bukan menambah jumlah trade kecil.</li>
+<li>Atau naikkan jumlah <strong>trade penuh non-tumpang-tindih</strong> per 48 jam (butuh edge frekuensi tinggi
+   yang lolos fee — jalur ini sudah 9/9 gagal di R4-C).</li>
+<li><strong>Leverage bukan jawaban</strong> (dilarang) dan <strong>mengubah target bukan wewenang agen</strong>.</li>
+</ol>
+<hr>
+<h2 id="7e-bug-8-lama-tahan-terimplementasi-kurang-satu-bar-ditemukan-dari-log-tier-hl1d">7e. BUG-8 — lama tahan terimplementasi <strong>kurang satu bar</strong> (ditemukan dari log tier <code>hl1d</code>)</h2>
+<p>Ditemukan saat memeriksa ulang log run FAIR. Kode keluar-waktu memakai
+<code>g_exit = min(f + hb - 1, n-1)</code> sedangkan <code>hb = HOLD_H // BAR_H</code> — jadi posisi ditahan
+<strong>hb−1 bar</strong>, bukan hb bar:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th><code>BAR_H</code></th>
+<th><code>hb</code></th>
+<th>lama tahan nyata (beku)</th>
+<th>seharusnya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t1</code> / <code>bar</code></td>
+<td>1</td>
+<td>24</td>
+<td>23 jam</td>
+<td>24 jam</td>
+</tr>
+<tr>
+<td><code>hl4h</code></td>
+<td>4</td>
+<td>6</td>
+<td><strong>20 jam</strong></td>
+<td>24 jam</td>
+</tr>
+<tr>
+<td><strong><code>hl1d</code></strong></td>
+<td>24</td>
+<td>1</td>
+<td><strong>0 jam</strong></td>
+<td>24 jam</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk grid harian (<code>hl1d</code>), <code>hb = 1</code> → <code>g = f</code> → <strong>posisi masuk dan keluar di bar yang sama</strong>.
+Itu menjelaskan mengapa hasil <code>hl1d</code> beku hampir nol (mean48 −0,0093/−0,0383/−0,0322%;
+laju stop 8,9/13,7/21,2%) — yang terukur hanyalah biaya masuk-keluar, bukan tahan 24 jam.
+<strong>Jadi 3 dari 41 evaluasi yang dilaporkan sebelumnya (seluruh tier <code>hl1d</code>) adalah pengukuran
+degenerat</strong> dan tidak boleh dihitung sebagai uji "tahan 24 jam".</p>
+<p>Perbaikan bersifat <strong>env-gated</strong> (<code>R4D_HOLD_EXACT=1</code> → tahan tepat <code>hb</code> bar = 24 jam di semua
+tier); <strong>default tetap perilaku beku</strong> agar rekam jejak lama tetap dapat direproduksi.
+Hasil terkoreksi ditulis terpisah: <code>reports/sodex/R4D_*_fair_hold_results.json</code>.</p>
+<p>Perbandingan putusan (<strong><code>R4D_FAIR=1 R4D_HOLD_EXACT=1</code></strong> — biaya terkoreksi + tahan 24 jam sejati;
+keluaran <code>reports/sodex/R4D_*_fair_hold_results.json</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>H13a</th>
+<th>H13b</th>
+<th>H13c</th>
+<th>BH-lulus</th>
+<th>PBO</th>
+<th>Putusan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t1</code></td>
+<td>−0,0751% TIDAK (bruto −0,988%)</td>
+<td>−0,0505% TIDAK (bruto −1,841%)</td>
+<td>−0,0153% TIDAK (bruto −2,742%)</td>
+<td>kosong</td>
+<td>0,5754</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td><code>bar</code></td>
+<td>+0,0459% TIDAK (bruto −0,272%)</td>
+<td>+0,0461% <strong>anggaran OK</strong> (bruto +0,594%)</td>
+<td>+0,0061% TIDAK (bruto −0,334%)</td>
+<td>kosong</td>
+<td>0,4762</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td><code>hl4h</code></td>
+<td>+0,0255% TIDAK (bruto −0,287%)</td>
+<td>−0,0106% TIDAK (bruto −0,988%)</td>
+<td>+0,0418% <strong>anggaran OK</strong> (bruto +2,001%)</td>
+<td>kosong</td>
+<td>0,1984</td>
+<td>0/3</td>
+</tr>
+<tr>
+<td><code>hl1d</code></td>
+<td>−0,0183% TIDAK (bruto −0,345%)</td>
+<td>−0,0572% TIDAK (bruto −0,806%)</td>
+<td>−0,0528% TIDAK (bruto −1,211%)</td>
+<td>kosong</td>
+<td>0,3056</td>
+<td>0/3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Putusan: 0/12 di keempat tier, <code>BH-lulus</code> kosong di semua</strong> — hasil sebelumnya <strong>robust</strong>
+terhadap BUG-8, jadi angka kumulatif <strong>41 evaluasi · 0 lulus</strong> tetap sah.</p>
+<p>Perhatikan: dengan tahan 24 jam sejati, tier <code>t1</code> justru <strong>memburuk</strong> dibanding versi tahan
+23 jam (H13a −0,0633% → <strong>−0,0751%</strong>; bruto −0,722% → <strong>−0,988%</strong>; H13c bruto −0,166% →
+<strong>−2,742%</strong>). Eksekusi 1-menit pada kejadian ekstrem memang yang paling mahal.</p>
+<p>Bukti bahwa tier <code>hl1d</code> lama memang degenerat: dengan tahan 24 jam sejati, laju stop naik
+dari 8,9/13,7/21,2% (tahan 0 jam) menjadi <strong>17,5/24,2/33,1%</strong>, dan bruto per trade berbalik
+negatif (+0,036/−0,461/−0,683% → <strong>−0,345/−0,806/−1,211%</strong>). Versi degenerat <strong>mempercantik</strong>
+hasil, bukan menutupinya.</p>
+<p>Catatan: perbaikan lama-tahan <strong>tidak menyelamatkan</strong> apa pun — bruto per trade justru memburuk
+di <code>bar</code> (H13a −0,086% → −0,272%; H13c +0,313% → −0,334%). Konsisten dengan temuan §7d:
+hambatannya <strong>magnitudo edge</strong>, bukan lama tahan, bukan biaya.</p>
+<hr>
+<h2 id="8-kesimpulan">8. Kesimpulan</h2>
+<ol>
+<li><strong>Fee: asumsi harness benar.</strong> HL terverifikasi dari akun (0,045%/0,015%); Binance VIP0 sesuai volume 0.</li>
+<li><strong>Biaya tahan: asumsi 0,40%/24 jam salah 16,6×.</strong> Angka terukur 0,0240%/24 jam; ambang "perlu"
+   yang terbit dilebih-lebihkan 0,376 poin persen.</li>
+<li><strong>Kontrol lebih murah dari mesin (F-2)</strong> → sebagian <code>control_p = 1,00</code> adalah artefak.</li>
+<li><strong>Paper test tidak punya edge yang bertahan</strong>; labanya satu pair satu bulan dengan fill maker,
+   dan fee memakan 93% bruto.</li>
+<li><strong>Spread SoDEX tipis (1,7 bp median)</strong> → hambatan bukan spread, melainkan <em>adverse selection</em>
+   saat kejadian (konsisten dengan R4-C/R4-D).</li>
+<li><strong>Yang benar-benar menghalangi target 0,8%/48 jam bukan sinyal dan bukan fee, melainkan
+   akses eksekusi</strong>: pada akun sekarang, biaya taker HL 0,045%/sisi dan Binance 0,05%/sisi adalah
+   tingkat retail; "maker gratis" butuh 500 juta notional 14 hari.</li>
+<li><strong>Setelah biaya dikoreksi, penghambat bergeser ke STATISTIK.</strong> Di tier <code>bar</code> dan <code>hl4h</code>,
+   H13b/H13c kini lolos anggaran <strong>dan</strong> mengalahkan kontrol, tetapi tetap gagal BH-FDR/segmen.
+   Jadi menghapus cacat biaya <strong>tidak</strong> membuka pintu — ia hanya mengubah alasan penolakan.</li>
+<li><strong>Lead baru (EKSPLORASI, belum boleh dipakai):</strong> pada tape nyata SoDEX, arah <strong>momentum</strong>
+   (bukan fade) setelah kejadian ≥1,5% memberi +3,3% s.d. +4,7% per 24 jam dengan biaya nyata
+   yang sangat kecil. Batas keras: n tidak independen (≤3 episode), tidak lolos BH-FDR,
+   satu rezim. <strong>Wajib pra-registrasi uji forward ≥30 hari sebelum dipakai.</strong></li>
+<li><strong>Mesin terkuat yang pernah diukur</strong> = Alpaca B5 ETF momentum: 456.499 trade, 56 tahun
+   tanggal nyata, t=+25,69, tidak terkonsentrasi, positif di 45/56 tahun (negatif hanya di rezim
+   bear) — <strong>tetapi probabilitasnya tidak terkalibrasi</strong> (Brier 0,2594 &gt; 0,25; overconfident 9,7 pp).</li>
+<li>
+<p><strong>BOTTLENECK SEBENARNYA (temuan inti): magnitudo edge per-trade.</strong> Target 0,8%/48 jam
+    menuntut edge per-trade <strong>0,4–0,8%</strong>; mesin terbaik yang ada hanya <strong>0,024%</strong> → <strong>17–33×
+    kurang</strong>. Menutup celah itu tanpa edge lebih besar berarti <strong>leverage ~18× — DILARANG</strong>.
+    Jadi constraint bukan lagi sinyal/fee/spread/eksekusi, melainkan <strong>skala pergerakan per trade</strong>.</p>
+</li>
+<li>
+<p><strong>BUG-8 (integritas pengukuran):</strong> lama tahan terimplementasi <strong>hb−1 bar</strong>, sehingga tier
+    <code>hl1d</code> (grid harian) menahan posisi <strong>0 jam</strong> — masuk-keluar di bar yang sama. Ketiga
+    evaluasi tier itu (dari 41) <strong>degenerat</strong> dan versi degeneratnya justru <em>mempercantik</em> hasil.
+    Diperbaiki env-gated (<code>R4D_HOLD_EXACT=1</code>), default beku tetap reproducible (terbukti
+    byte-identik), dan dengan tahan 24 jam sejati putusan tetap <strong>0/12</strong> dengan <code>BH-lulus</code> kosong.</p>
+</li>
+</ol>
+<h3 id="rekomendasi-tanpa-mengubah-target-target-adalah-harga-mati">Rekomendasi (tanpa mengubah target — target adalah harga mati)</h3>
+<table>
+<thead>
+<tr>
+<th>Prioritas</th>
+<th>Aksi</th>
+<th>Alasan kuantitatif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cari mesin dengan <strong>pergerakan per-trade 10–30× lebih besar</strong> (swing 3–8%), bukan menambah trade kecil</td>
+<td>target butuh 0,4–0,8%/trade</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pra-registrasi uji <strong>momentum SoDEX forward</strong> (≥30 hari, n≥30 episode independen) — <strong>blokir: recorder tape SoDEX berhenti 2026-08-03</strong></td>
+<td>satu-satunya lead arah baru yang positif</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Perbaiki <strong>kalibrasi</strong> probabilitas mesin (ECE 0,0966 / Brier 0,2594) sebelum dipakai untuk sizing</td>
+<td>sizing berbasis p yang overconfident 9,7 pp</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Perbarui kunci Binance sebelum ada rencana CEX live</td>
+<td>kunci sekarang ditolak 401</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>JANGAN</strong> menaikkan leverage untuk menutup celah 18×</td>
+<td>dilarang batas keamanan</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-cara-memeriksa-ulang">9. Cara memeriksa ulang</h2>
+<pre><code class="language-bash">cd ~/anantara-sakti
+.venv-research/bin/python3 scripts/download_funding_binance.py     # funding (publik)
+R4D_TIER=t1 R4D_FAIR=1 .venv-research/bin/python3 scripts/r4d_harness.py   # putusan terkoreksi
+.venv-research/bin/python3 -c &quot;import sqlite3;c=sqlite3.connect('file:twin_engine.db?mode=ro',uri=True);print(c.execute('SELECT engine,COUNT(*),ROUND(AVG(CAST(net_pnl AS REAL)),5) FROM rts GROUP BY engine').fetchall())&quot;
+.venv-research/bin/python3 -c &quot;import sqlite3;c=sqlite3.connect('file:data/sodex_book_recorder.db?mode=ro',uri=True);print(c.execute('SELECT COUNT(*),AVG((ask-bid)/((ask+bid)/2)*10000) FROM l1 WHERE bid&gt;0 AND ask&gt;bid').fetchone())&quot;
+</code></pre>
+<p><strong>Berkas terkait:</strong> <code>scripts/download_funding_binance.py</code> · <code>scripts/r4d_harness.py</code> (env <code>R4D_FAIR</code>, <code>R4D_HOLD_COST</code>) ·
+<code>data/funding_binance/</code> (24.123 titik + MANIFEST) · <code>reports/sodex/R4D_*_fair_results.json</code> ·
+<code>docs/sodex/R4D_PROTOKOL_H13_2026-10-05.md</code> (spesifikasi beku, tidak diubah).</p>
+</body>
+</html>

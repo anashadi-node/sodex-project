@@ -1,0 +1,41 @@
+{
+  "id": "PRAREG15_MACRO_BTC_OVERLAY_DATA_EXTEND",
+  "judul": "Perpanjangan DATA panel Binance 1h ke belakang s/d 2024-01-01 + koreksi sumber kolom rezim BTC; uji ulang overlay rezim cepat EMA10/30 pada kandidat fade H48 (Opsi A pasca-PRAREG-13/14)",
+  "tanggal_prareg_utc": "2026-10-08",
+  "status": "TERBEKU - ditulis & di-commit SEBELUM backfill dijalankan dan SEBELUM evaluasi dijalankan (disiplin protokol SODEX)",
+  "pilar": "Pilar 4 - ekosistem reaktif-antisipatif",
+  "otoritas": "Keputusan Mas Anas 2026-10-08 (Opsi A pasca-TA14): PRAREG-15 = TAMBAH DATA, BUKAN melonggarkan gerbang. Target 0,8%/48 jam TIDAK berubah. HARD_STOP 20 Nov 2026.",
+  "latar": "PRAREG-13 (rezim lambat EMA50/200) = 0/18; PRAREG-14 (rezim cepat EMA10/30) = 0/18. Near-miss terkuat lintas-prareg MACD_FADE_H48|BEAR|binance gagal HANYA kanal segmen yang struktural: panel 402 hari membuat n maksimum 77 < 90 (3x SEG_MIN), sehingga segmen tidak pernah terhitung pada definisi rezim cepat.",
+  "perubahan_dideklarasikan_sebelum_hasil": {
+    "1_tambah_data": "Panel Binance 1h diperpanjang KE BELAKANG: mulai 2024-01-01T00:00Z (sebelumnya 2025-09-01) + refresh ekor s/d sekarang. Skrip baru scripts/research/binance_backfill_klines_1h.py (merge dedup by open_time, schema tak berubah, resumable). Puller beku TIDAK disentuh. Komposisi universe TIDAK diubah (54 simbol existing). data/ tidak masuk git (gitignored).",
+    "2_bugfix_sumber_rezim_deklarasi_terbuka": "PERBAIKAN BUG dideklarasikan TERBUKA. Pemilih kolom rezim di TA13/TA14 ('BTCUSDT' if in columns else px.columns[0]) secara DIAM-DIAM memakai 1000BONK-USD pada venue SoDEX: kolom panel SoDEX berformat {SYM}-USD, 'BTCUSDT' tak pernah cocok, dan fallback kolom pertama (urut abjad) = 1000BONK-USD; padahal BTC-USD ADA di panel. Bukti (hitungan bar murni, tanpa sinyal/PnL): distribusi rezim SoDEX TA14 1.272/1.427/3.432 bar identik dengan rezim EMA10/30 atas 1000BONK-USD (257 hari), TIDAK identik dengan BTC-USD (98/116/147 hari dari 362 hari). Akibatnya sel SoDEX TA13/TA14 sesungguhnya overlay rezim BONK, bukan BTC, dan R1 lintas-venue membandingkan dua definisi rezim berbeda. FIX: kolom rezim = 'BTCUSDT' bila ada, elif 'BTC-USD' bila ada, else fallback kolom pertama. Kedua venue kini memakai seri BTC venue-nya sendiri - sesuai maksud teks prareg-13/14 ('kolom BTCUSDT pada panel beku venue'). Bug ditemukan lewat inspeksi kode SEBELUM PRAREG-15 dievaluasi. Hasil TA13/TA14 tetap sah sebagai HISTORIS-DESKRIPTIF (0/18 - tidak ada sel yang lolos, tidak ada keputusan yang dibuat darinya); PRAREG-15 menggantikannya dengan sumber benar."
+  },
+  "tidak_diubah": [
+    "ARM_MAP: MACD_FADE_H48 / KONFL_FADE_H48 / BB_POS_H48 (hold 48)",
+    "Kelompok sel: 3 arm x 3 rezim x 2 venue = 18",
+    "N_MIN = 40 (tidak diturunkan)",
+    "Gerbang penuh identik panel beku TA10: gross>0; net>0; to<=1,5; |t_ctrl|<2,0; t>=1,96; S_ann>=2,3; S_fee2x>=1,8; seg 3/3; BH q<=0,10; n>=40",
+    "BH FDR q=0,10 pada keluarga 18 p-value",
+    "Mesin beku run_mech (seed kontrol 20261007), SEG_MIN=30 tidak disentuh",
+    "fee_oneway Binance/SoDEX, turnover, kontrol shuffle arah-acak",
+    "Konvensi no-lookahead: rezim hari D dipakai mulai bar 1h hari ber-data berikutnya (shift 1)",
+    "Tanpa trim warmup EMA di awal panel (konvensi identik TA13/TA14)"
+  ],
+  "definisi_rezim": {
+    "sumber": "kolom BTC venue-nya sendiri dari panel beku 1h (Binance: BTCUSDT; SoDEX: BTC-USD), close 1D via resample('1D').last()",
+    "aturan": "EMA10 & EMA30 atas close 1D (span=10/30, adjust=False). BULL jika close > EMA10 > EMA30; BEAR jika close < EMA10 < EMA30; selain itu CHOP",
+    "no_lookahead": "shift(1) pada baris harian, konvensi identik TA13/TA14",
+    "tiga_rezim": ["BULL", "CHOP", "BEAR"]
+  },
+  "ekspektasi_n_murni_bar_count": {
+    "catatan": "Power analysis murni: HANYA hitungan bar rezim dari harga; TIDAK ada sinyal/PnL yang dilihat sebelum commit prareg ini. Estimasi window = hari_rezim x 24 / 48.",
+    "sodex_BTCUSD": {"hari_1d": 362, "BULL": 98, "CHOP": 116, "BEAR": 147, "est_n_window": "49/58/73", "implikasi": "semua >= 40 (AKTIF) tetapi semua < 90 -> kanal segmen tetap n/a struktural (plafon umur venue)"},
+    "binance_sebelum_backfill": {"hari": 402, "bar": "BULL 3000 / CHOP 3024 / BEAR 3600", "est_n_window": "62/63/75"},
+    "binance_setelah_backfill_2024": {"est_hari_total": "sekitar 1011", "est_n_window": "sekitar 150-190 per rezim (share 402-hari diproyeksikan) - angka AKTUAL dihitung pasca-backfill dari hitungan bar saja dan dilaporkan di hasil", "implikasi": "n >= 90 -> kanal segmen TERHITUNG untuk sel Binance"}
+  },
+  "konsekuensi_jujur_dideklarasikan": "Kanal segmen (SEG_MIN=30 -> butuh n >= 90) hanya mungkin tercapai di sel Binance; sel SoDEX tetap gagal seg struktural karena umur venue. Kandidat lolos gerbang penuh realistis hanya mungkin di sel binance; R1 lintas-venue (tanda IC sama DAN |IC_sodex| >= 0,5|IC_binance|) tetap syarat tambahan.",
+  "venue": {"diuji": ["sodex", "binance"], "r1": "untuk sel yang sama arm|rezim, dilakukan pada IC kondisional rezim - keterbatasan ini diakui (TA13/TA14 sama)"},
+  "keluarga_hipotesis": {"jumlah": 18, "bh": "BH FDR q=0,10 pada keluarga 18 p-value (bukan per-sel)"},
+  "kriteria_keputusan": "0 lolos -> keluarga fade H48 (4 prareg, 70 sel) ditutup atau diputuskan Mas Anas. >=1 lolos -> kandidat forward (PRAREG-16), BUKAN verdict mesin. Hasil historis selalu DESKRIPTIF.",
+  "hard_stop": "20 Nov 2026"
+}

@@ -1,0 +1,58 @@
+{
+  "prereg": "PRAREG-32",
+  "judul": "Maker-donchian Binance USDM: uji forward satu-satunya yang tersisa dari analisis portabilitas venue",
+  "asal": "Analisis VENUE_BHL_TARGET_FEASIBILITY.md + koreksi AUDIT-2 (25-Okt-2026): venue bukan bottleneck; donchian satu-satunya edge di atas kontrol acak (+19,8 bps); era berjalan negatif; equal-weight 0,689% < 0,8%",
+  "frozen_utc": "2026-10-25",
+  "frozen_by_commit": "(diisi saat commit berkas ini — sha256 dihitung dari isi)",
+  "hipotesis_H1": "Donchian-20 breakout + BULL gate + eksekusi MAKER (limit pasif), 20 simbol likuid Binance USDM, size 0,75 wallet per posisi, menghasilkan: (A) mean >= 0,8%/window 30j EQUAL-WEIGHT per simbol; (B) median > 0 DAN hit >= 50% per window; (C) t >= 2,5 pada net bps/trade; (D) fill-rate maker >= 60% terukur",
+  "kriteria_gagal": "Salah satu: mean EW < 0,4%; ATAU hit < 40%; ATAU fill-rate < 40%; ATAU DD kumulatif > 5% wallet (kill-switch, stop evaluasi)",
+  "design": {
+    "instrumen": "20 simbol Binance USDM likuid (spread proxy <= 2 bps, volume 30d teratas dari pool tetap)",
+    "sinyal": "Donchian-20 breakout + volok (volume > SMA24) + BULL (ADX>22, close>SMA50>SMA200) — parameter PRODUKSI, tanpa tuning",
+    "geometri": "TP 4% / SL 2% / time-stop 30 jam (produksi, verbatim)",
+    "eksekusi": "MAKER pasif di TP-side entry; adverse selection diukur: (fill_price - signal_price_at_touch) per trade, dilaporkan per simbol",
+    "sizing": "0,75 wallet per posisi, maks 5 posisi konkuren",
+    "paper_mode": "WAJIB — dry_run=true penuh, TANPA order live sampai verdict lolos"
+  },
+  "jendela": {
+    "forward_start": "2026-10-27T00:00:00Z",
+    "forward_end": "2026-11-26T00:00:00Z",
+    "durasi_hari": 30,
+    "window": "grid tetap 30 jam, jangkar 03-Agu-2026 UTC (konvensi AMANDEMEN_TARGET_AB)",
+    "min_windows": 24,
+    "verdict_date": "2026-11-27",
+    "giveup_date": "2026-12-02"
+  },
+  "statistik": {
+    "multiplisitas": "1 hipotesis primer (tidak perlu BH); hipotesis sekunder tidak boleh dipromosikan",
+    "A_dinilai_pada": "EQUAL-WEIGHT per simbol (WAJIB — cap-weighted dilarang karena tail-dominance AUDIT-2)",
+    "sensitivitas": "leave-one-out simbol terbesar wajib dilaporkan",
+    "adverse_selection_gate": "AS median > 13,4 bps/trade = gagal otomatis (margin A dari AUDIT-2)",
+    "ambang_t": 2.5,
+    "n_min_trade": 60
+  },
+  "konteks_angka": {
+    "biaya_maker_binance_bps_rt": 0.5,
+    "biaya_taker_binance_bps_rt": 12.25,
+    "biaya_taker_sodex_bps_rt": 15.84,
+    "gross_donchian_in_sample_bps": 19.56,
+    "margin_A_bps_per_trade": 13.4,
+    "sigma_window_pct": 16.6,
+    "n_window_butuh_t2.5": 2694,
+    "peringatan": "Jika edge 0,8%/window nyata, bukti t>=2,5 butuh ~2.694 window. Trial 30 hari TIDAK cukup untuk membuktikan H1 secara statistik penuh; verdict C pada t>=2,5 realistisnya hanya tercapai bila edge jauh di atas estimasi in-sample. Trial ini = uji falsifikasi cepat (gagal cepat jika AS tinggi / hit rendah), bukan konfirmasi.",
+    "survivorship_warning": "Agen tanpa edge terlihat 'sukses' 41%/30d, 34%/90d. Window berisi >=0,8% hanya 33,4% in-sample terbaik."
+  },
+  "relasi_trial_lain": {
+    "PRAREG-26": "verdict 2026-11-25 (seleksi mesin, 12 window). Tidak digabung; PRAREG-32 forward terpisah 2026-10-27 mulai.",
+    "PRAREG-31": "gate volatilitas, forward 26-Okt s.d. 25-Nov, evaluator prereg31_gate_eval.py. PRAREG-32 TIDAK menggunakan gate vol7>=median12 (uji jalur mentah maker)."
+  },
+  "red_lines": [
+    "Tidak mengubah dry_run=false tanpa GO-LIVE decision eksplisit user",
+    "Tidak melonggarkan ambang A/B/C/D kapan pun setelah freeze",
+    "Tidak menambah hipotesis sekunder tanpa registrasi + koreksi multiplisitas",
+    "Amandemen hanya sebelum forward pertama (27-Okt-2026 00:00 UTC)"
+  ],
+  "evaluator": "scripts/research/prereg32_maker_eval.py (ditulis divisi; wajib fail-closed: data kurang = verdict GAGAL_DATA, bukan lolos)",
+  "divisi": "sodex",
+  "owner_approval": "Anas — 25-Okt-2026 (perintah langsung: 'daftarkan PRAREG-32 ke registry')"
+}

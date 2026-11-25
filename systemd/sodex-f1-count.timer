@@ -1,0 +1,7 @@
+[Unit]
+Description=SODEX F1 count-only harian
+[Timer]
+OnCalendar=*-*-* 08:40:00
+Persistent=true
+[Install]
+WantedBy=timers.target

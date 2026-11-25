@@ -1,0 +1,59 @@
+{
+ "id": "PRAREG13_MACRO_BTC_OVERLAY",
+ "judul": "Overlay makro rezim BTC (3-state) pada kandidat fade H48 - uji interaksi rezim x sinyal",
+ "tanggal_prareg_utc": "2026-10-08",
+ "status": "TERBEKU - ditulis & di-commit SEBELUM evaluasi dijalankan (disiplin protokol SODEX)",
+ "pilar": "Pilar 4 - ekosistem reaktif-antisipatif",
+ "motivasi": "Seluruh keluarga arm H48 mati di gerbang spesifisitas kontrol (|t_ctrl| 2,92-4,49). Hipotesis berikutnya: edge H48 bergantung REZIM MAKRO BTC - sinyal yang spesifik hanya pada rezim tertentu bisa lolos kontrol ketika bar di luar rezim dikeluarkan. Diuji memakai mesin beku yang sama, tanpa mengubah definisi sinyal.",
+ "definisi_rezim": {
+   "sumber": "kolom BTCUSDT pada panel beku venue (ta7.load_px_sodex / ta7.load_px_binance), close 1D (resample '1D'.last())",
+   "aturan": "EMA50 & EMA200 atas close 1D (span=50/200, adjust=False). BULL jika close > EMA50 > EMA200; BEAR jika close < EMA50 < EMA200; selain itu CHOP",
+   "no_lookahead": "rezim hari D hanya dipakai mulai bar 1h pertama hari D+1 (shift 1 hari penuh)",
+   "tiga_rezim": ["BULL", "CHOP", "BEAR"],
+   "catatan": "Konvensi 3-state ini mengikuti btc_regime() ekosistem CEX (BULL/BEAR/CHOP). Rezim dihitung dari panel beku itu sendiri sehingga reproduksi deterministik (tidak bergantung cache yang ditulis timer lain)."
+ },
+ "definisi_sinyal": {
+   "mesin": "scripts/research/xsec_mech_study.py :: run_mech (BEKU, tidak diubah)",
+   "arms": ["MACD_FADE_H48", "KONFL_FADE_H48", "BB_POS_H48"],
+   "sumber_sinyal": {"MACD_FADE_H48": "build_ta_signals.MACD_HIST * -1", "KONFL_FADE_H48": "build_ta_signals.KONFLUENSI * -1", "BB_POS_H48": "build_ta_signals.BB_POS * +1"},
+   "hold": [48],
+   "overlay": "Sinyal hanya aktif pada bar yang rezimnya == R; bar lain diset NaN. run_mech sudah melewati bar dengan nama < MIN_NAMES, jadi gating tidak menambah logika mesin baru.",
+   "tanpa_ubah": "fee_oneway, turnover, kontrol shuffle arah-acak (seed 20261007), segmen positif, dan BH: identik dengan TA10. Tidak ada parameter yang diubah."
+ },
+ "venue": {
+   "diuji": ["sodex", "binance"],
+   "r1_lintas_venue": "syarat tambahan untuk sel yang sama: tanda IC sama DAN |IC_sodex| >= 0,5 * |IC_binance|"
+ },
+ "keluarga_hipotesis": {
+   "jumlah": 18,
+   "komposisi": "3 arm x 3 rezim x 2 venue",
+   "bh": "BH FDR q=0,10 diterapkan pada keluarga 18 p-value (bukan per-sel)"
+ },
+ "gerbang_prareg": {
+   "R_gross": "gross_bps > 0",
+   "R_net": "net_bps > 0",
+   "R_to": "turnover <= 1,5",
+   "R4prime": "|t_ctrl| < 2,0",
+   "R5": "t >= 1,96",
+   "S_ann_min": 2.3,
+   "S_fee2x_min": 1.8,
+   "seg_min": 3,
+   "bh_q": 0.10,
+   "corr_ic_pos": true,
+   "n_min_per_sel": 40,
+   "bila_n_kurang": "status MONITOR, tanpa verdict dan tanpa klaim"
+ },
+ "status_verdict": "HISTORIS-DESKRIPTIF. Lulus gerbang di sini HANYA menandai kandidat untuk harness FORWARD baru (PRAREG-14). Tidak mengubah status mesin mana pun; tidak dipakai menyatakan edge nyata. Verdict mesin tetap hanya dari data forward.",
+ "deklarasi_risiko_overfit": {
+   "fakta": "Memilih rezim terbaik dari 3 adalah penelitian berganda; 'rezim menang' mudah muncul dari kebetulan pada panel pendek ini.",
+   "mitigasi": "Ketiga rezim dilaporkan seluruhnya (tanpa cherry-pick), BH q=0,10 pada keluarga 18, kontrol shuffle arah-acak pada mesin yang sama, dan syarat n>=40 per sel.",
+   "konsekuensi_tidak_dilonggarkan": "Tidak ada gerbang yang diturunkan. Bila hasil 0/N, dilaporkan apa adanya sebagai 0/N."
+ },
+ "yang_tidak_dilakukan": [
+   "tidak mengubah skrip studi/panel yang beku",
+   "tidak mengubah target 0,8% maupun parameter risiko",
+   "tidak menyentuh berkas proyek lain (Pre-Gain, HL-Harvest, Alpaca, CEX)",
+   "tidak menulis kredensial apa pun"
+ ],
+ "output": {"json": "reports/sodex/TA13_MACRO_OVERLAY.json", "md": "reports/sodex/TA13_MACRO_OVERLAY.md", "skrip": "scripts/research/ta13_macro_overlay.py"}
+}

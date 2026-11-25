@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rencana Paralel A/B — Target Berjenjang & Pencarian Edge Efek Besar</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Rencana Paralel A/B — Target Berjenjang & Pencarian Edge Efek Besar</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-baca-ini-dulu">1. Ringkasan (baca ini dulu)</a></li>
+<li class="t2"><a href="#2-jalur-a-target-berjenjang">2. Jalur A — Target berjenjang</a></li>
+<li class="t3"><a href="#21-tiga-tingkat-target">2.1 Tiga tingkat target</a></li>
+<li class="t3"><a href="#22-rumus-inti-edge-per-trade-yang-wajib-ada">2.2 Rumus inti: edge per trade yang wajib ada</a></li>
+<li class="t3"><a href="#23-yang-berubah-dan-yang-tidak-berubah-ketika-modal-naik">2.3 Yang berubah dan yang tidak berubah ketika modal naik</a></li>
+<li class="t3"><a href="#24-tangga-modal-konfigurasi-yang-bisa-dibuktikan">2.4 Tangga modal — konfigurasi yang bisa dibuktikan</a></li>
+<li class="t3"><a href="#25-aturan-naikturun-tingkat">2.5 Aturan naik/turun tingkat</a></li>
+<li class="t3"><a href="#26-yang-dilarang-jalur-a">2.6 Yang dilarang (jalur A)</a></li>
+<li class="t2"><a href="#3-jalur-b-pencarian-edge-efek-besar">3. Jalur B — Pencarian edge efek besar</a></li>
+<li class="t3"><a href="#31-hukum-biaya-edge-harus-melewati-fee-dan-spread">3.1 Hukum biaya: edge harus melewati fee **dan** spread</a></li>
+<li class="t3"><a href="#32-r01-cascade-reversal-pre-registered-fail">3.2 R01 — Cascade reversal (pre-registered, FAIL)</a></li>
+<li class="t3"><a href="#33-r01b-bounce-1-jam-contoh-sempurna-jebakan-spread">3.3 R01b — Bounce 1 jam: contoh sempurna jebakan spread</a></li>
+<li class="t3"><a href="#33b-uji-ulang-pada-pair-yang-biayanya-benar-benar-terukur">3.3b Uji ulang pada pair yang biayanya benar-benar terukur</a></li>
+<li class="t3"><a href="#33c-uji-konfirmasi-r08-prereg-terkunci-hasil-tutup">3.3c Uji konfirmasi R08 — prereg terkunci, hasil: TUTUP</a></li>
+<li class="t3"><a href="#33d-r07-diuji-likuidasi-paksa-tidak-dibalik-justru-dilanjutkan">3.3d R07 diuji — likuidasi paksa tidak dibalik, justru dilanjutkan</a></li>
+<li class="t3"><a href="#34-registry-hipotesis">3.4 Registry hipotesis</a></li>
+<li class="t3"><a href="#35-gerbang-universal-enam-syarat-semua-wajib">3.5 Gerbang universal (enam syarat, semua wajib)</a></li>
+<li class="t2"><a href="#4-posisi-hari-ini-terhadap-target">4. Posisi hari ini terhadap target</a></li>
+<li class="t2"><a href="#5-keputusan-yang-diminta">5. Keputusan yang diminta</a></li>
+<li class="t2"><a href="#6-lampiran-metode-reproduksibilitas">6. Lampiran — metode & reproduksibilitas</a></li>
+</ul>
+</nav>
+<p><strong>SoDEX · 24 Oktober 2026 · status: read-only, tidak ada perubahan kode trading</strong></p>
+<hr>
+<h2 id="1-ringkasan-baca-ini-dulu">1. Ringkasan (baca ini dulu)</h2>
+<ul>
+<li><strong>Tidak ada edge netto yang lolos uji</strong> pada seluruh keluarga yang diuji hari ini. Gerbang live tetap <strong>DITUTUP</strong>.</li>
+<li><strong>Jalur A</strong> = target berjenjang yang bisa dipertanggungjawabkan secara statistik, dan <strong>berfungsi untuk modal berapa pun</strong> (parameter, bukan konstanta).</li>
+<li><strong>Jalur B</strong> = pencarian keluarga edge dengan efek per-trade besar (≥100 bps) — satu-satunya jenis edge yang bisa dibuktikan dengan jumlah trade yang realistis.</li>
+<li><strong>Temuan paling penting hari ini</strong>: angka "t=5,7" pada bounce 1 jam ternyata <strong>artefak spread</strong>. Gross +20,6 bps &lt; spread implisit median 26,2 bps → net <strong>−25 bps</strong>. Ini persis jenis jebakan yang membuat strategi terlihat hebat di backtest lalu rugi di live.</li>
+<li><strong>Tangga modal</strong>: dengan $243 atau $500 <strong>tidak ada</strong> konfigurasi yang bisa dibuktikan secara ekonomi. Dengan $1.000–$2.000 hanya jalur hold 72 jam. Dengan <strong>$5.000</strong> jalur hold 24 jam (sesuai mandat 1–30 jam) mulai bisa dibuktikan.</li>
+</ul>
+<hr>
+<h2 id="2-jalur-a-target-berjenjang">2. Jalur A — Target berjenjang</h2>
+<h3 id="21-tiga-tingkat-target">2.1 Tiga tingkat target</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>%/30 jam</th>
+<th>%/tahun (simple)</th>
+<th>Sharpe tahunan yang dibutuhkan @vol 20 / 30 / 40 / 60%</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1 North Star</strong></td>
+<td>0,80%</td>
+<td>234%</td>
+<td>11,68 / 7,79 / 5,84 / 3,89</td>
+<td>harga mati, tidak diubah</td>
+</tr>
+<tr>
+<td><strong>T2 Operasional</strong></td>
+<td>0,25%</td>
+<td>73%</td>
+<td>3,65 / 2,43 / 1,82 / 1,22</td>
+<td>diusulkan (butuh approval)</td>
+</tr>
+<tr>
+<td><strong>T3 Lantai</strong></td>
+<td>0,10%</td>
+<td>29%</td>
+<td>1,46 / 0,97 / 0,73 / 0,49</td>
+<td>diusulkan (fase awal)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogi.</strong> T1 itu seperti menargetkan lari 100 m di bawah 9 detik. Boleh tetap dipasang di dinding sebagai cita-cita, tapi Anda tidak boleh menyusun program latihan harian seolah-olah 9 detik sudah pasti tercapai. T2/T3 adalah target latihan yang membuat kemajuan bisa diukur.</p>
+<h3 id="22-rumus-inti-edge-per-trade-yang-wajib-ada">2.2 Rumus inti: edge per trade yang wajib ada</h3>
+<pre><code>edge_netto_per_trade (bps) = target_per_window × 10.000 / (leverage × turnover_per_window)
+turnover_per_window = 30 / hold_hours
+</code></pre>
+<p>Dengan leverage 2×:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>hold 1 jam</th>
+<th>hold 6 jam</th>
+<th>hold 24 jam</th>
+<th>hold 72 jam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 0,80%</td>
+<td>1,3 bps</td>
+<td>8,0 bps</td>
+<td><strong>32,0 bps</strong></td>
+<td><strong>96,0 bps</strong></td>
+</tr>
+<tr>
+<td>T2 0,25%</td>
+<td>0,4 bps</td>
+<td>2,5 bps</td>
+<td>10,0 bps</td>
+<td>30,0 bps</td>
+</tr>
+<tr>
+<td>T3 0,10%</td>
+<td>0,2 bps</td>
+<td>1,0 bps</td>
+<td>4,0 bps</td>
+<td>12,0 bps</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ini angka yang paling penting di seluruh dokumen.</strong> Target 0,8% pada hold 24 jam berarti setiap trade harus menghasilkan <strong>32 bps bersih setelah fee dan setelah spread</strong>. Bukan 32 bps bruto — 32 bps <strong>netto</strong>.</p>
+<p>Pembanding nyata: mesin swing terbaik yang pernah diukur menghasilkan <strong>+3,04 bps bruto</strong> (≈ −5,7 bps netto pada biaya 8,8 bps). Jarak ke syarat T1 adalah <strong>faktor 10</strong> dalam arah yang salah.</p>
+<h3 id="23-yang-berubah-dan-yang-tidak-berubah-ketika-modal-naik">2.3 Yang berubah dan yang tidak berubah ketika modal naik</h3>
+<table>
+<thead>
+<tr>
+<th>Besaran</th>
+<th>Ikut modal?</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$ per window</td>
+<td><strong>Ya, linear</strong></td>
+<td>0,8% × modal. $243 → $1,94; $2.000 → $16,00</td>
+</tr>
+<tr>
+<td>% per window</td>
+<td><strong>Tidak</strong></td>
+<td>target persentase tidak berubah oleh ukuran modal</td>
+</tr>
+<tr>
+<td>Sharpe yang dibutuhkan</td>
+<td><strong>Tidak</strong></td>
+<td>ditentukan target dan volatilitas, bukan modal</td>
+</tr>
+<tr>
+<td>Edge netto per trade</td>
+<td><strong>Tidak</strong></td>
+<td>hanya bergantung target, leverage, turnover</td>
+</tr>
+<tr>
+<td>Biaya spread per trade</td>
+<td><strong>Tidak</strong></td>
+<td>ditentukan likuiditas pair</td>
+</tr>
+<tr>
+<td>Jumlah posisi bersamaan</td>
+<td><strong>Ya</strong></td>
+<td>1 posisi per ~$333, maksimum 10</td>
+</tr>
+<tr>
+<td>Diversifikasi (Sharpe portofolio)</td>
+<td><strong>Ya</strong></td>
+<td>Sharpe naik ≈ √(N₂/N₁) bila edge per trade tetap</td>
+</tr>
+<tr>
+<td>Biaya fee relatif untuk membuktikan edge</td>
+<td><strong>Ya, turun</strong></td>
+<td>fee% = n × biaya × leverage / N</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogi.</strong> Menaikkan modal itu seperti memperbesar kapal. Ia menambah daya angkut dan membuat kapal lebih stabil (diversifikasi), tetapi <strong>tidak menambah kecepatan angin</strong>. Kalau anginnya nol, kapal besar tetap tidak bergerak — hanya lebih mahal.</p>
+<h3 id="24-tangga-modal-konfigurasi-yang-bisa-dibuktikan">2.4 Tangga modal — konfigurasi yang bisa dibuktikan</h3>
+<p>Kriteria "bisa dibuktikan" = biaya fee untuk menjalankan eksperimen ≤ 50% modal.</p>
+<table>
+<thead>
+<tr>
+<th>Modal</th>
+<th>Posisi</th>
+<th>Notional/posisi</th>
+<th>Konfigurasi yang bisa dibuktikan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$243</td>
+<td>1</td>
+<td>$486</td>
+<td><strong>TIDAK ADA</strong></td>
+</tr>
+<tr>
+<td>$500</td>
+<td>2</td>
+<td>$500</td>
+<td><strong>TIDAK ADA</strong></td>
+</tr>
+<tr>
+<td>$1.000</td>
+<td>3</td>
+<td>$667</td>
+<td>T1 @ hold 72 jam (fee 48% modal)</td>
+</tr>
+<tr>
+<td>$2.000</td>
+<td>6</td>
+<td>$667</td>
+<td>T1 @ hold 72 jam (fee 24% modal)</td>
+</tr>
+<tr>
+<td>$5.000</td>
+<td>10</td>
+<td>$1.000</td>
+<td><strong>T1 @ hold 24 jam</strong> (fee 44%) + hold 72 jam</td>
+</tr>
+<tr>
+<td>$10.000</td>
+<td>10</td>
+<td>$2.000</td>
+<td>T1 @ hold 24 jam + hold 72 jam</td>
+</tr>
+</tbody>
+</table>
+<p>Catatan penting: hold 72 jam <strong>di luar mandat 1–30 jam</strong> yang berlaku sekarang. Jadi:</p>
+<ul>
+<li><strong>Untuk menguji T1 di dalam mandat (hold ≤30 jam), tiket modalnya ≈ $5.000.</strong></li>
+<li>Dengan $1.000–$2.000, satu-satunya jalur uji T1 adalah hold 72 jam → butuh amandemen horizon (keputusan Anda, bukan keputusan saya).</li>
+</ul>
+<h3 id="25-aturan-naikturun-tingkat">2.5 Aturan naik/turun tingkat</h3>
+<pre><code>T3 aktif  → naik ke T2 bila: 3 window berturut ≥ T3 DAN t-stat ≥ 2,0 DAN DD &lt; 10%
+T2 aktif  → naik ke T1 bila: 6 window berturut ≥ T2 DAN t-stat ≥ 2,5 DAN DD &lt; 15%
+T1 aktif  → itu hanya boleh setelah edge T1 terbukti OOS, bukan setelah 6 window bagus
+Turun     → 2 window berturut &lt; 0 → turun satu tingkat
+Berhenti  → DD ≥ 20% modal → semua posisi ditutup, evaluasi ulang
+</code></pre>
+<h3 id="26-yang-dilarang-jalur-a">2.6 Yang dilarang (jalur A)</h3>
+<ul>
+<li>Menaikkan frekuensi untuk mengejar nominal. Volume bukan target.</li>
+<li>Menambah notional per posisi melebihi <code>leverage × modal / N</code>.</li>
+<li>Mengaktifkan live tanpa satu hipotesis yang lulus gerbang §3.5.</li>
+<li>Mengubah T1 (0,8%) tanpa keputusan eksplisit Anda.</li>
+</ul>
+<hr>
+<h2 id="3-jalur-b-pencarian-edge-efek-besar">3. Jalur B — Pencarian edge efek besar</h2>
+<h3 id="31-hukum-biaya-edge-harus-melewati-fee-dan-spread">3.1 Hukum biaya: edge harus melewati fee <strong>dan</strong> spread</h3>
+<pre><code>biaya_nyata_per_trade (bps) = fee_taker 2 leg (5,6) + spread_implisit_pair
+</code></pre>
+<p>Spread implisit diukur dengan estimator Roll dari data 1 jam (bukan asumsi):</p>
+<table>
+<thead>
+<tr>
+<th>Statistik spread implisit (94 pair)</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>median</td>
+<td><strong>26,2 bps</strong></td>
+</tr>
+<tr>
+<td>p25</td>
+<td>11,2 bps</td>
+</tr>
+<tr>
+<td>p75</td>
+<td>43,2 bps</td>
+</tr>
+<tr>
+<td>p90</td>
+<td>63,4 bps</td>
+</tr>
+<tr>
+<td>maksimum (CASHCAT)</td>
+<td>147 bps</td>
+</tr>
+<tr>
+<td>pair dengan Roll <strong>terukur</strong> &lt; 6 bps</td>
+<td><strong>4 pair</strong>: BCH 2,8 · SOL 3,4 · BNB 3,6 · TRX 5,0</td>
+</tr>
+<tr>
+<td>pair dengan Roll <strong>tak terdefinisi</strong> (cov ≥ 0)</td>
+<td><strong>17 pair</strong> — biaya tidak terukur; wajib diperlakukan mahal, bukan murah</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aturan biaya terkunci.</strong> Biaya per pair = <strong>fee taker + maksimum(Roll sepanjang sampel, spread snapshot L2)</strong>. Snapshot L2 mengukur satu momen likuiditas; Roll mengukur biaya rata-rata sepanjang tahun. Memakai yang lebih kecil akan melahirkan edge palsu — itu yang terjadi pada LIT (0,6 bps vs 57,4 bps).</p>
+<p><strong>Konsekuensi.</strong> Setiap hipotesis yang efek brutonya &lt; ~30 bps di pair menengah <strong>secara otomatis gugur</strong> — bukan karena sinyalnya salah, tapi karena spread memakan seluruh edge. Ini menjelaskan kenapa seluruh mesin swing negatif: mereka bertaruh pada gerakan 3–100 bps di instrumen dengan pintu masuk 26 bps.</p>
+<p><strong>Analogi.</strong> Anda mencari uang logam di jalan. Di jalan sepi (pair likuid) ongkos masuknya 1 sen. Di jalan ramai (pair tipis) ongkos masuknya 26 sen. Sebagian besar "edge" yang ditemukan adalah uang logam 20 sen di jalan yang ongkosnya 26 sen.</p>
+<h3 id="32-r01-cascade-reversal-pre-registered-fail">3.2 R01 — Cascade reversal (pre-registered, FAIL)</h3>
+<p><strong>Hipotesis.</strong> Setelah gerakan 1 jam ≥5%, harga berbalik karena overshoot likuidasi.</p>
+<p><strong>Pre-registrasi.</strong> <code>data/prereg/R01_cascade_reversal.criteria.json</code>, SHA-256 <code>f8303827a4fa3deb…</code>, dikunci sebelum mean dihitung. Hanya n dan σ yang dipakai untuk power analysis.</p>
+<p><strong>Power analysis (sebelum uji).</strong> n = 1.446 event non-overlap, σ = 580 bps, MDE(80%) = 43 bps &lt; ambang ekonomi 100 bps → <strong>terpower, layak diuji</strong>.</p>
+<p><strong>Hasil.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sampel</th>
+<th>n</th>
+<th>gross</th>
+<th>net (biaya 8,8 bps)</th>
+<th>t</th>
+<th>CI95 blok-harian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Semua</td>
+<td>1.446</td>
+<td>+29,0 bps</td>
+<td>+20,2 bps</td>
+<td>+1,32</td>
+<td>[−21, +56]</td>
+</tr>
+<tr>
+<td>IS 60%</td>
+<td>867</td>
+<td>—</td>
+<td>+27,1 bps</td>
+<td>+1,29</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>OOS 40%</strong></td>
+<td><strong>579</strong></td>
+<td>—</td>
+<td><strong>+9,8 bps</strong></td>
+<td><strong>+0,45</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Kriteria lulus: OOS ≥ 100 bps <strong>dan</strong> t ≥ 1,96. Hasil: <strong>GAGAL</strong>. Keluarga ditutup, dilarang re-tuning threshold/horizon pada dataset ini.</p>
+<h3 id="33-r01b-bounce-1-jam-contoh-sempurna-jebakan-spread">3.3 R01b — Bounce 1 jam: contoh sempurna jebakan spread</h3>
+<p>Pada threshold 3% dan hold 1 jam, hasil awal terlihat spektakuler:</p>
+<table>
+<thead>
+<tr>
+<th>Versi uji</th>
+<th>n</th>
+<th>net</th>
+<th>t</th>
+<th>CI95 blok-harian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Biaya datar 8,8 bps (entry close)</td>
+<td>9.052</td>
+<td><strong>+15,1 bps</strong></td>
+<td><strong>+5,69</strong></td>
+<td>[+8, +22]</td>
+</tr>
+<tr>
+<td>Biaya datar 8,8 bps (entry open berikutnya)</td>
+<td>9.052</td>
+<td>+15,1 bps</td>
+<td>+5,69</td>
+<td>[+8, +22]</td>
+</tr>
+<tr>
+<td><strong>Biaya nyata: fee 5,6 + spread Roll per pair</strong></td>
+<td><strong>7.824</strong></td>
+<td><strong>−25,0 bps</strong></td>
+<td>—</td>
+<td><strong>[−37, −14]</strong></td>
+</tr>
+<tr>
+<td>Biaya nyata, OOS 40%</td>
+<td>3.130</td>
+<td>−35,1 bps</td>
+<td>—</td>
+<td>[−51, −18]</td>
+</tr>
+<tr>
+<td>Biaya nyata, subset 21 pair "murah" (16 di antaranya biaya tak terukur → biaya dirender terlalu rendah, jadi ini batas atas)</td>
+<td>1.504</td>
+<td>−20,2 bps</td>
+<td>—</td>
+<td>[−35, −5]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan.</strong> Gross +20,6 bps &lt; spread median 26,2 bps. Yang terukur bukan edge, melainkan <strong>pantulan bid-ask</strong> — dan untuk memanennya Anda harus menjadi pihak yang mengutip harga, bukan pihak yang menyeberang. Dengan fee taker 5,6 bps dan spread 26 bps, menyeberang dua kali berarti membayar 31 bps untuk memanen 20 bps.</p>
+<p><strong>Pelajaran yang dikunci menjadi aturan.</strong> Setiap uji edge wajib memakai biaya per-pair, bukan konstanta. Ini akan mencegah pengulangan kesalahan yang sama.</p>
+<h3 id="33b-uji-ulang-pada-pair-yang-biayanya-benar-benar-terukur">3.3b Uji ulang pada pair yang biayanya benar-benar terukur</h3>
+<p>Setelah koreksi data (17 pair dengan Roll tak terdefinisi dikeluarkan), uji diulang pada 9 pair yang biayanya terukur — BTC, ETH, SOL, BNB, BCH, TRX (Roll) + CL, LIT, HYPE (spread dari L2):</p>
+<table>
+<thead>
+<tr>
+<th>Varian</th>
+<th>n</th>
+<th>gross</th>
+<th>biaya</th>
+<th>net</th>
+<th>t</th>
+<th>CI95 blok-harian</th>
+<th>OOS net</th>
+<th>OOS t</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>|3%| H=6 jam</td>
+<td>530</td>
+<td>+29,3</td>
+<td>7,0</td>
+<td><strong>+22,4 bps</strong></td>
+<td>1,37</td>
+<td><strong>[−14, +61]</strong></td>
+<td>+15,6</td>
+<td>0,62</td>
+</tr>
+<tr>
+<td>|3%| H=3 jam</td>
+<td>619</td>
+<td>+23,7</td>
+<td>6,9</td>
+<td>+16,8 bps</td>
+<td>1,38</td>
+<td>[−9, +43]</td>
+<td>+23,1</td>
+<td>1,21</td>
+</tr>
+<tr>
+<td>|2%| H=6 jam</td>
+<td>1.308</td>
+<td>+19,0</td>
+<td>7,1</td>
+<td>+11,9 bps</td>
+<td>1,34</td>
+<td>[−11, +32]</td>
+<td>+13,8</td>
+<td>0,98</td>
+</tr>
+<tr>
+<td>|5%| H=6 jam</td>
+<td>89</td>
+<td>+24,0</td>
+<td>6,8</td>
+<td>+17,2 bps</td>
+<td>0,36</td>
+<td>[−95, +126]</td>
+<td>+5,1</td>
+<td>0,06</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Status: bukan edge — kandidat yang belum lulus.</strong> Tiga alasan:</p>
+<ol>
+<li><strong>Semua CI95 memuat nol.</strong> Titik estimasi positif, tapi tidak bisa dibedakan dari kebetulan.</li>
+<li><strong>Konsentrasi ekstrem.</strong> Pada |3%| H=6, LIT menyumbang 267 dari 530 trade (+39 bps); BCH −30 bps, SOL −11 bps, HYPE −5 bps.</li>
+<li><strong>Post-hoc.</strong> Subset ini dipilih <em>setelah</em> melihat hasil, jadi tidak boleh diklaim sebagai temuan. Kalau mau diuji serius, harus masuk registry sebagai R08 dengan prereg baru dan uji forward — bukan di-deploy.</li>
+</ol>
+<p>Yang bisa dikatakan secara jujur: pada pair likuid, arah efeknya <strong>berbeda</strong> dari pair tipis (reversal vs continuation). Itu petunjuk riset, bukan izin trading.</p>
+<h3 id="33c-uji-konfirmasi-r08-prereg-terkunci-hasil-tutup">3.3c Uji konfirmasi R08 — prereg terkunci, hasil: TUTUP</h3>
+<p>Prereg <code>R08_liquid_reversal_replication.criteria.json</code>, SHA-256 <code>55732fbb93079f73…</code>, dikunci <strong>sebelum</strong> uji. Tujuh kriteria, semua wajib. Hasil:</p>
+<table>
+<thead>
+<tr>
+<th>Kriteria</th>
+<th>SoDEX (discovery)</th>
+<th>Binance (replikasi)</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K1 replikasi venue: net &gt; 0 &amp; CI95 &gt; 0</td>
+<td>+22,4 bps, CI [−14, +61]</td>
+<td><strong>−40,2 bps, CI [−72, −10]</strong></td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>K2 tiga segmen positif</td>
+<td>+73,8 / <strong>−13,7</strong> / +7,0</td>
+<td>−4,9 / −41,9 / −73,8</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>K3 t ≥ 3,0</td>
+<td>t = 1,37</td>
+<td>t = −2,79</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>K4 konsentrasi pair ≤ 40%</td>
+<td>LIT = <strong>61%</strong></td>
+<td>LITUSDT = 43%</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+<tr>
+<td>K5 kontrol arah (50 seed)</td>
+<td>4% seed menang</td>
+<td><strong>30% seed menang</strong></td>
+<td>GAGAL di Binance</td>
+</tr>
+<tr>
+<td>K6 kontrol entry acak ≤ 0</td>
+<td>−6,6 bps</td>
+<td>−35,9 bps</td>
+<td>LULUS</td>
+</tr>
+<tr>
+<td>K7 daya: n ≥ n_required</td>
+<td>530 vs <strong>2.201</strong></td>
+<td>713 vs tidak tercapai</td>
+<td><strong>GAGAL</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Penyebab utama kegagalan: estimasi biaya LIT salah.</strong> Snapshot L2 satu waktu memberi spread 0,6 bps; estimator Roll sepanjang satu tahun memberi <strong>57,4 bps</strong> (Binance 64,5 bps). Dengan biaya yang benar:</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>SoDEX gross</th>
+<th>Roll 1 tahun</th>
+<th>Net benar</th>
+<th>Binance gross</th>
+<th>Roll</th>
+<th>Net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LIT</td>
+<td>+45,0</td>
+<td><strong>57,4</strong></td>
+<td><strong>−18,0</strong></td>
+<td>+18,2</td>
+<td>64,5</td>
+<td>−56,3</td>
+</tr>
+<tr>
+<td>BTC</td>
+<td>+73,8 (n=10)</td>
+<td>n/a</td>
+<td>+68,2</td>
+<td>−41,3</td>
+<td>10,2</td>
+<td>−61,5</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>−2,0</td>
+<td>3,4</td>
+<td>−11,1</td>
+<td>+9,1</td>
+<td>24,7</td>
+<td>−25,7</td>
+</tr>
+<tr>
+<td>HYPE</td>
+<td>+2,2</td>
+<td>39,3</td>
+<td>−42,7</td>
+<td>−18,6</td>
+<td>38,4</td>
+<td>−67,0</td>
+</tr>
+<tr>
+<td>BNB</td>
+<td>+125,3 (n=13)</td>
+<td>3,6</td>
+<td>+116,1</td>
+<td>+69,3</td>
+<td>11,6</td>
+<td>+47,7</td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>+28,7</td>
+<td>n/a</td>
+<td>+23,1</td>
+<td>−29,5</td>
+<td>n/a</td>
+<td>−39,5</td>
+</tr>
+<tr>
+<td>BCH</td>
+<td>−21,3</td>
+<td>2,8</td>
+<td>−29,7</td>
+<td>−29,4</td>
+<td>n/a</td>
+<td>−39,4</td>
+</tr>
+</tbody>
+</table>
+<p>Hanya BNB yang positif di kedua venue — dengan n=13 di SoDEX, itu <strong>bukan bukti</strong>, itu kebetulan yang belum punya daya.</p>
+<p><strong>Aturan baru yang dikunci.</strong> Biaya per pair = <strong>maksimum</strong> dari (a) Roll sepanjang sampel dan (b) spread snapshot L2 — bukan snapshot saja. Snapshot satu waktu mengukur satu momen likuiditas, bukan biaya yang akan Anda bayar sepanjang tahun.</p>
+<p><strong>Keputusan: R08 TUTUP.</strong> Tidak ada re-tuning. Keluarga reversal dinyatakan selesai di kedua arah (cascade dan bounce).</p>
+<h3 id="33d-r07-diuji-likuidasi-paksa-tidak-dibalik-justru-dilanjutkan">3.3d R07 diuji — likuidasi paksa tidak dibalik, justru dilanjutkan</h3>
+<p>R07 selama ini disebut "satu-satunya pintu dengan efek ≥100 bps". Uji ini menutupnya, dan sekaligus menemukan sesuatu yang lebih kecil tapi nyata.</p>
+<p><strong>Definisi event (beku, prereg <code>19433e49bcef39b8…</code>):</strong> OI Binance turun ≥2% dalam 15 menit <strong>dan</strong> dominasi taker satu sisi (rasio ≤0,55 atau ≥1,80). Arah trade = fade. Entry open 1 jam berikutnya, exit +1/2/4/8 jam. Biaya per pair.</p>
+<p><strong>Hasil, 1.044 event (2025-09 → 2026-10, 12 simbol):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>SoDEX net</th>
+<th>t</th>
+<th>Binance net</th>
+<th>t</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 jam</td>
+<td><strong>−20,7 bps</strong></td>
+<td>−5,52</td>
+<td><strong>−36,8 bps</strong></td>
+<td>−8,48</td>
+</tr>
+<tr>
+<td>2 jam</td>
+<td>−14,5</td>
+<td>−2,74</td>
+<td>−30,1</td>
+<td>−5,02</td>
+</tr>
+<tr>
+<td>4 jam (utama)</td>
+<td>−7,7</td>
+<td>−1,07</td>
+<td>−27,2</td>
+<td>−3,50</td>
+</tr>
+<tr>
+<td>8 jam</td>
+<td>−19,1</td>
+<td>−2,04</td>
+<td>−30,9</td>
+<td>−3,08</td>
+</tr>
+</tbody>
+</table>
+<p>Kontrol arah: 0% seed mengalahkan efek di SoDEX (16% di Binance). Kontrol entry acak: −22,6 bps. Konsentrasi ENA 33%.</p>
+<p><strong>Yang penting bukan angka negatifnya, tapi tandanya yang konsisten di dua venue dengan arah sama.</strong> Membalik hipotesis (kontinuasi, bukan fade) memberi <strong>+13,7 bps bruto pada 1 jam</strong> dengan <strong>t = +5,52</strong> — signifikan, tapi setelah biaya 7,0 bps hanya tersisa <strong>+6,7 bps net</strong>, dan efeknya hilang di 4 jam.</p>
+<p><strong>Kenapa tidak boleh langsung dipakai.</strong> Arah ini ditemukan dari data yang sama yang sudah dilihat. Menukar tanda setelah melihat hasil adalah data mining. Prereg R09 dikunci sekarang (<code>R09_forced_flow_continuation.criteria.json</code>) dan hanya mengizinkan klaim setelah <strong>n≥60 event baru</strong> terkumpul.</p>
+<p><strong>Collector sudah hidup</strong> (<code>anantara-forced-flow.service</code>, aktif 24-Okt 09:32 WIB): OI Binance per <strong>15 detik</strong> (bukan 5 menit seperti arsip), event OI collapse, dan mid SoDEX pada saat event +30s/+1m/+5m/+15m/+1j/+4j. Alasannya: histori 1m SoDEX tidak bisa di-backfill (endpoint trades tanpa paginasi, klines 1m tidak tersedia), jadi harga pasca-event harus direkam saat kejadian. Self-test jalur follow-up lulus (spread BTC terukur 0,124 bps pada saat uji).</p>
+<h3 id="34-registry-hipotesis">3.4 Registry hipotesis</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hipotesis</th>
+<th>Efek yang diharapkan</th>
+<th>Status</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R01</td>
+<td>Cascade reversal 6 jam</td>
+<td>100–300 bps</td>
+<td><strong>TUTUP</strong></td>
+<td>OOS +9,8 bps, t=0,45</td>
+</tr>
+<tr>
+<td>R01b</td>
+<td>Bounce 1 jam</td>
+<td>24 bps bruto</td>
+<td><strong>TUTUP</strong></td>
+<td>netto −25 bps setelah spread nyata</td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Session-open tokenized equity</td>
+<td>50–150 bps</td>
+<td><strong>TUTUP</strong></td>
+<td>spread nama equity 100+ bps; hanya 5 pair likuid yang tidak punya sesi</td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Funding ekstrem → reversal</td>
+<td>20–50 bps</td>
+<td><strong>TUTUP</strong></td>
+<td>median 0,125 bps/jam; jauh di bawah noise</td>
+</tr>
+<tr>
+<td>R04</td>
+<td>Basis lintas venue (SoDEX–Binance)</td>
+<td>10–30 bps</td>
+<td><strong>TUTUP</strong></td>
+<td>korelasi 0,9815; lag ±1 jam ≈ 0</td>
+</tr>
+<tr>
+<td>R05</td>
+<td>Fade listing baru</td>
+<td>200–500 bps</td>
+<td><strong>DITUNDA</strong></td>
+<td>hanya 6 listing baru → n terlalu kecil, MDE ≫ efek</td>
+</tr>
+<tr>
+<td>R06</td>
+<td>Market making / maker</td>
+<td>spread</td>
+<td><strong>TUTUP</strong></td>
+<td>spread 0,1–1,1 bps &lt; maker fee 2,28 bps</td>
+</tr>
+<tr>
+<td>R07</td>
+<td><strong>Event-driven on-chain flow</strong></td>
+<td>100–400 bps</td>
+<td><strong>TUTUP (fade)</strong></td>
+<td>diuji 1044 event: fade −20,7 bps t=−5,52; lihat §3.3d</td>
+</tr>
+<tr>
+<td>R08</td>
+<td>Reversal pair likuid |3%|/6 jam (post-hoc)</td>
+<td>+22 bps</td>
+<td><strong>TUTUP</strong></td>
+<td>gagal 6 dari 7 kriteria; lihat §3.3c</td>
+</tr>
+<tr>
+<td>R09</td>
+<td>Kontinuasi setelah de-leveraging paksa</td>
+<td>+13,7 bps (post-hoc)</td>
+<td><strong>FORWARD</strong></td>
+<td>inversi R07; collector hidup, butuh n≥60 baru; lihat §3.3d</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tidak ada lagi hipotesis dengan efek ≥100 bps yang bisa diuji.</strong> Yang tersisa hanya R09 (+6,7 bps net, menunggu data forward) dan R05 (ditunda karena n terlalu kecil). Konsekuensinya harus dikatakan apa adanya: pada 60 jendela 30 jam yang sudah terealisasi, capaian rata-rata <strong>−1,36% per jendela</strong> terhadap modal $244 — bukan 0,8%.</p>
+<h3 id="35-gerbang-universal-enam-syarat-semua-wajib">3.5 Gerbang universal (enam syarat, semua wajib)</h3>
+<pre><code>G1  gross ≥ fee + 2 × spread_Roll(pair)          margin 2x, bukan impas
+G2  OOS t ≥ 2,0 dan CI95 blok-harian seluruhnya &gt; 0
+G3  konsentrasi top-3 pair ≤ 50% dari total PnL absolut
+G4  bertahan pada entry open bar berikutnya (bukan hanya harga cetak)
+G5  n ≥ n_required sehingga MDE ≤ 1/2 efek yang diharapkan
+G6  kriteria dikunci + SHA-256 sebelum mean dihitung
+</code></pre>
+<p>Tidak ada pengecualian. Satu hipotesis yang gagal satu syarat = tutup.</p>
+<hr>
+<h2 id="4-posisi-hari-ini-terhadap-target">4. Posisi hari ini terhadap target</h2>
+<table>
+<thead>
+<tr>
+<th>Ukuran</th>
+<th>Nilai terukur</th>
+<th>Syarat T1 (hold 24 jam)</th>
+<th>Selisih</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edge netto per trade</td>
+<td>−5,7 bps (swing)</td>
+<td>+32,0 bps</td>
+<td><strong>−37,7 bps</strong></td>
+</tr>
+<tr>
+<td>Drawdown paper (swing)</td>
+<td>−$554 pada akun $243</td>
+<td>&lt; 20% modal</td>
+<td><strong>11x melewati batas</strong></td>
+</tr>
+<tr>
+<td>Drawdown paper (twoway)</td>
+<td>−$328 pada akun $243</td>
+<td>&lt; 20% modal</td>
+<td><strong>6,7x melewati batas</strong></td>
+</tr>
+<tr>
+<td>Konsistensi</td>
+<td>1 dari 3 bulan positif</td>
+<td>6 window berturut</td>
+<td>belum mulai</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Artinya.</strong> Bukan "hampir sampai". Selisihnya bukan faktor 1,2 yang bisa ditutup dengan tuning; ini faktor 10 pada edge dan faktor 11 pada risiko.</p>
+<hr>
+<h2 id="5-keputusan-yang-diminta">5. Keputusan yang diminta</h2>
+<ol>
+<li><strong>Tier operasional</strong>: pilih T2 (0,25%) atau T3 (0,10%) sebagai target aktif fase ini, dengan T1 tetap sebagai North Star yang tidak diubah.</li>
+<li><strong>Tiket modal</strong>: jika ingin menguji T1 di dalam mandat 1–30 jam, dibutuhkan ±$5.000. Jika modal dijaga $1.000–$2.000, satu-satunya jalur adalah hold 72 jam → butuh amandemen horizon.</li>
+<li><strong>Penutupan keluarga R01–R06</strong>: setujui status tutup dan larangan re-tuning.</li>
+<li><strong>R07</strong>: setujui pembangunan collector on-chain flow (biaya: storage + waktu 6–8 minggu) sebagai satu-satunya jalur B yang tersisa — atau setujui kill total untuk B.</li>
+</ol>
+<p>Sampai empat hal di atas diputuskan, tidak ada perubahan kode maupun konfigurasi trading.</p>
+<hr>
+<h2 id="6-lampiran-metode-reproduksibilitas">6. Lampiran — metode &amp; reproduksibilitas</h2>
+<p><strong>Data.</strong> <code>data/sodex_klines/1h/*.json</code> (94 pair, median 6.524 bar, span 2025-10-28 → 2026-10-23), field <code>o/h/l/c/v/q</code>. Volume quote tersedia sehingga likuiditas per event bisa diukur.</p>
+<p><strong>Spread implisit.</strong> Estimator Roll: <code>s = 2·√(−cov(rₜ, rₜ₋₁))</code>, dalam bps, per pair, minimum 500 bar. Bila cov ≥ 0, spread dilaporkan 0 (konservatif ke arah biaya rendah).</p>
+<p><strong>Power analysis.</strong> <code>MDE = 2,8 × σ / √n</code> (α=0,05 dua sisi, power 80%). <code>n_required = (2,8σ/edge)²</code>.</p>
+<p><strong>Bootstrap.</strong> Blok harian, 1.200–2.000 resampel, CI persentil 2,5/97,5 — untuk menangani korelasi silang antar pair pada jam yang sama.</p>
+<p><strong>Reproduksi.</strong></p>
+<pre><code class="language-bash">python3 scripts/sodex_capital_plan.py --capital 2000          # rencana &amp; tangga
+python3 scripts/sodex_capital_plan.py --capital 5000 --json   # machine-readable
+sha256sum data/prereg/R01_cascade_reversal.criteria.json      # f8303827a4fa3deb…
+</code></pre>
+<p><strong>Berkas terkait.</strong>
+- <code>data/prereg/R01_cascade_reversal.criteria.json</code> + <code>.sha256</code>
+- <code>scripts/sodex_capital_plan.py</code>
+- <code>docs/sodex/PLAN_AB_PARALEL_2026-10-24.md</code> (dokumen ini)</p>
+<p><strong>Batas kejujuran.</strong> Semua uji di atas memakai harga close/open bar, bukan VWAP, dan tidak memodelkan antrean order. Pada pair likuid dengan spread &lt;6 bps, kesalahan model ini kecil (1–3 bps). Pada pair tipis, angka netto bisa lebih buruk dari yang dilaporkan, bukan lebih baik.</p>
+</body>
+</html>

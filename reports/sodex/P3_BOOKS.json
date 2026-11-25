@@ -1,0 +1,14 @@
+[
+ {
+  "mode": "books",
+  "symbols": 10,
+  "span_h": 0.01,
+  "n_events": 0,
+  "hurdle_bps": 17.6,
+  "dislocation_p50": -0.61,
+  "dislocation_p99": 3.45,
+  "share_above_hurdle_pct": 0.0,
+  "verdict": "INSUFFICIENT",
+  "why": "span 0.0 jam, event 0 (butuh 24 jam & 50)"
+ }
+]

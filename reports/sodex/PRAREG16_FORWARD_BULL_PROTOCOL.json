@@ -1,0 +1,52 @@
+{
+  "id": "PRAREG16_FORWARD_BULL_MACDFADE",
+  "judul": "Forward-only MACD_FADE_H48 dikondisikan rezim BULL pada venue SoDEX (lead tunggal pasca-TA15)",
+  "tanggal_prareg_utc": "2026-10-08",
+  "status": "TERBEKU - di-commit SEBELUM jendela forward mana pun dievaluasi (freeze_ts = waktu commit berkas ini, dibaca dari git log)",
+  "otoritas": "Keputusan Mas Anas 2026-10-08 (Opsi B pasca-TA15): buka forward paper untuk lead tunggal MACD_FADE_H48|BULL|sodex. Target 0,8%/48 jam tidak berubah. HARD_STOP 20 Nov 2026.",
+  "latar": "TA15 (PRAREG-15) 0/18 lolos. Satu sel tersisa dengan statistik menarik: MACD_FADE_H48|BULL|sodex n=49 net=+39,97 bps t=9,61 |t_ctrl|=0,95 S_ann=4,59 S_fee2x=4,00 - lolos SEMUA gerbang kecuali seg (struktural: n<90 karena plafon umur venue 2025-10-12). Binance BULL berlawanan tanda (IC -0,0149) sehingga R1 lintas-venue gagal; belum terkonfirmasi. Karena seleksi sel ini bersifat post-hoc (dipilih dari 18 sel TA15 + riwayat), verdict HANYA sah dari data FORWARD.",
+  "hipotesis_tunggal": "Pada bar 1h SoDEX setelah freeze, portfolio fade MACD_HIST (hold 48 jam) yang dibatasi ke rezim BULL menghasilkan net > 0 setelah fee, dengan |t_ctrl| < 2,0 dan S_ann >= 2,3.",
+  "definisi_dibekukan": {
+    "sinyal": "MACD_FADE = -(MACD_HIST) via ta7.build_ta_signals (identik definisi FADE_MAP ta10, dan identik TA15 ARM_MAP)",
+    "hold": 48,
+    "venue_primer": "sodex",
+    "venue_sekunder": "binance (hanya untuk cek tanda IC lintas-venue; bukan verdict)",
+    "rezim": "BULL jika close_1D_BTC > EMA10_1D > EMA30_1D (span 10/30, adjust=False), status hari D di-shift(1); kolom BTC venue-nya sendiri (BTC-USD untuk sodex, BTCUSDT untuk binance) - konvensi FIX PRAREG-15",
+    "masking": "sig = sig_full.mask(~(reg==BULL)) -> bar non-BULL NaN, run_mech skip (konvensi identik TA13/TA14/TA15)",
+    "biaya": "SoDEX taker 4 bps/sisi (xs.FEE_ONEWAY); S_fee2x memakai fee_mult=2,0",
+    "mesin": "xs.run_mech beku (MIN_NAMES=20, SEG_MIN=30, seed kontrol 20261007); PPY=365x24 untuk bar 1h"
+  },
+  "jendela_forward": {
+    "definisi": "bar 1h SoDEX dengan timestamp > freeze_ts (= waktu commit berkas prareg ini); jendela dievaluasi pada panel ter-slice dengan grid anchor di bar pertama sesudah freeze (konvensi identik PRAREG-12/ta12_forward_eval.py)",
+    "tidak_lookahead": "sinyal pada bar entry hanya memakai riwayat <= bar tersebut (MACD/EMA kausal); rezim memakai shift(1)",
+    "idempotent_rebuild": "hasil dihitung ulang penuh dari data tersimpan setiap kali dijalankan; tidak ada state tersembunyi"
+  },
+  "gerbang_identik_tidak_dilonggarkan": {
+    "gross_bps": "> 0",
+    "net_bps": "> 0",
+    "turnover": "<= 1,5",
+    "abs_t_ctrl": "< 2,0",
+    "t": ">= 1,96",
+    "S_ann": ">= 2,3",
+    "S_fee2x": ">= 1,8",
+    "seg_pos": ">= 3 (hanya terhitung bila n >= 90; lihat tier)",
+    "n_min_verdict": 40,
+    "n_stop_futility": 20,
+    "bh_fdr": "TIDAK dipakai - hipotesis tunggal prareg (bukan keluarga). Q_FDR tidak relevan."
+  },
+  "tier_verdict_dideklarasikan": {
+    "n<20": "TIDAK_KONKLUSIF",
+    "n>=20 dan net<=0 dan t<=-1,5": "FALSIFIED (stop_futility)",
+    "n>=40 dan semua gerbang termasuk seg": "LULUS_MESIN (kandidat sertifikasi)",
+    "n>=40 dan semua gerbang KECUALI seg (n<90 struktural)": "PROMISING_UNCERTIFIED - hanya boleh dipakai untuk keputusan lanjut berhenti/meneruskan, BUKAN verdict mesin",
+    "lainnya": "FALSIFIED (daftar gerbang gagal)"
+  },
+  "batas_realistis_dideklarasikan_terbuka": "Rezim BULL hanya ~27-37% hari; jendela 48 jam yang masuk BULL diperkirakan 1 per 6-8 hari. Sampai HARD_STOP 20 Nov 2026 (~43 hari) ekspektasi n hanya ~5-8 window -> ambang n>=40 KEMUNGKINAN BESAR tidak tercapai dalam horizon ini. Karena itu PRAREG-16 adalah instrumentasi forward yang sah (forward-only sesuai protokol), bukan janji verdict; keputusan lanjut tetap di Mas Anas.",
+  "tidak_diubah": [
+    "Semua gerbang, ambang, definisi sinyal, hold, fee",
+    "Tidak ada order, tidak ada perubahan live flag, read-only murni",
+    "Target 0,8%/48 jam dan HARD_STOP 20 Nov 2026"
+  ],
+  "keluaran": "reports/sodex/TA16_FORWARD_BULL.json (diperbarui oleh timer harian) + log logs/sodex_ta16_forward.log",
+  "hard_stop": "20 Nov 2026"
+}

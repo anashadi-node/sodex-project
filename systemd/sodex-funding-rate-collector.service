@@ -1,0 +1,11 @@
+[Unit]
+Description=Anantara Sakti - SoDEX funding rate collector (read-only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/sodex_funding_rate_collector.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_funding_rate_collector.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_funding_rate_collector.log

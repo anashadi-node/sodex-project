@@ -1,0 +1,1093 @@
+{
+ "plan": {
+  "arms": [
+   "A",
+   "B2"
+  ],
+  "L_grid": [
+   1.0,
+   1.25,
+   1.5,
+   2.0,
+   2.5,
+   3.0
+  ],
+  "cost_primary": 0.001,
+  "cost_spot_real": 0.00065,
+  "cost_perp_real": 0.00045,
+  "start_fund": "2020-01-01",
+  "start_main": "2022-01-01",
+  "start_oos": "2024-01-01",
+  "start_oos26": "2026-05-24",
+  "today": "2026-10-25",
+  "target_M": 0.01,
+  "mdd_cap": -35.0,
+  "stress_mult": 1.5,
+  "near_liq": 0.2,
+  "win_days": 31,
+  "p_alpha": 0.05,
+  "seed": 35,
+  "n_boot": 5000,
+  "block": 10,
+  "n_ctrl": 300,
+  "sodex_fund_bps_day": 1.3
+ },
+ "arms": {
+  "A": {
+   "hasil": {
+    "acuan_spot_1x": 0.00606,
+    "hybrid_L=1.0": {
+     "M_2022+": 0.00607,
+     "M_2024+": 0.0084,
+     "M_OOS26": 0.00208,
+     "G5j_geom_2022+": 0.00547,
+     "MDD_2022+": -13.8,
+     "P_win31_M>=target": 0.282,
+     "P_win31_rugi": 0.539,
+     "win31_terburuk_%": -8.6,
+     "tahun_M>=target": "2/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 1.0,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 0.0,
+     "turnover_tahunan_spot": 11.5,
+     "turnover_tahunan_perp": 0.0,
+     "ci95": [
+      -0.00099,
+      0.01359
+     ],
+     "p_M_le_0": 0.0438,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=1.25": {
+     "M_2022+": 0.00712,
+     "M_2024+": 0.00996,
+     "M_OOS26": 0.00242,
+     "G5j_geom_2022+": 0.00618,
+     "MDD_2022+": -17.2,
+     "P_win31_M>=target": 0.31,
+     "P_win31_rugi": 0.547,
+     "win31_terburuk_%": -10.8,
+     "tahun_M>=target": "2/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.698,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 0.83,
+     "turnover_tahunan_spot": 11.5,
+     "turnover_tahunan_perp": 2.88,
+     "ci95": [
+      -0.00168,
+      0.01647
+     ],
+     "p_M_le_0": 0.0514,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=1.5": {
+     "M_2022+": 0.00816,
+     "M_2024+": 0.01152,
+     "M_OOS26": 0.00276,
+     "G5j_geom_2022+": 0.00681,
+     "MDD_2022+": -20.4,
+     "P_win31_M>=target": 0.334,
+     "P_win31_rugi": 0.55,
+     "win31_terburuk_%": -13.2,
+     "tahun_M>=target": "2/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.637,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 1.66,
+     "turnover_tahunan_spot": 11.5,
+     "turnover_tahunan_perp": 5.75,
+     "ci95": [
+      -0.00234,
+      0.01933
+     ],
+     "p_M_le_0": 0.0604,
+     "p_kontrol": 0.103,
+     "kontrol_M_median": 0.00388,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=2.0": {
+     "M_2022+": 0.01025,
+     "M_2024+": 0.01463,
+     "M_OOS26": 0.00344,
+     "G5j_geom_2022+": 0.00785,
+     "MDD_2022+": -26.8,
+     "P_win31_M>=target": 0.359,
+     "P_win31_rugi": 0.557,
+     "win31_terburuk_%": -18.0,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.516,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 3.31,
+     "turnover_tahunan_spot": 11.5,
+     "turnover_tahunan_perp": 11.5,
+     "ci95": [
+      -0.00368,
+      0.02508
+     ],
+     "p_M_le_0": 0.071,
+     "p_kontrol": 0.103,
+     "kontrol_M_median": 0.00475,
+     "vonis": "LAYAK_PAPER_BUKAN_BUKTI",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=2.5": {
+     "M_2022+": 0.01234,
+     "M_2024+": 0.01775,
+     "M_OOS26": 0.00412,
+     "G5j_geom_2022+": 0.00859,
+     "MDD_2022+": -32.8,
+     "P_win31_M>=target": 0.371,
+     "P_win31_rugi": 0.562,
+     "win31_terburuk_%": -22.8,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.395,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 4.97,
+     "turnover_tahunan_spot": 11.5,
+     "turnover_tahunan_perp": 17.26,
+     "ci95": [
+      -0.00499,
+      0.03083
+     ],
+     "p_M_le_0": 0.0782,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "LAYAK_PAPER_BUKAN_BUKTI",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=3.0": {
+     "M_2022+": 0.01443,
+     "M_2024+": 0.02086,
+     "M_OOS26": 0.0048,
+     "G5j_geom_2022+": 0.00903,
+     "MDD_2022+": -38.4,
+     "P_win31_M>=target": 0.388,
+     "P_win31_rugi": 0.568,
+     "win31_terburuk_%": -27.5,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.274,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 6.63,
+     "turnover_tahunan_spot": 11.5,
+     "turnover_tahunan_perp": 23.01,
+     "ci95": [
+      -0.00633,
+      0.03658
+     ],
+     "p_M_le_0": 0.0822,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=1.0": {
+     "M_2022+": 0.00418,
+     "M_2024+": 0.00623,
+     "M_OOS26": 0.00136,
+     "G5j_geom_2022+": 0.00358,
+     "MDD_2022+": -14.2,
+     "P_win31_M>=target": 0.266,
+     "P_win31_rugi": 0.563,
+     "win31_terburuk_%": -9.6,
+     "tahun_M>=target": "1/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.758,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00268,
+      0.01153
+     ],
+     "p_M_le_0": 0.1096,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=1.25": {
+     "M_2022+": 0.00522,
+     "M_2024+": 0.00772,
+     "M_OOS26": 0.00174,
+     "G5j_geom_2022+": 0.00428,
+     "MDD_2022+": -17.5,
+     "P_win31_M>=target": 0.295,
+     "P_win31_rugi": 0.562,
+     "win31_terburuk_%": -11.7,
+     "tahun_M>=target": "2/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.692,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.0033,
+      0.01433
+     ],
+     "p_M_le_0": 0.1092,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=1.5": {
+     "M_2022+": 0.00629,
+     "M_2024+": 0.00931,
+     "M_OOS26": 0.00214,
+     "G5j_geom_2022+": 0.00497,
+     "MDD_2022+": -20.5,
+     "P_win31_M>=target": 0.318,
+     "P_win31_rugi": 0.564,
+     "win31_terburuk_%": -13.8,
+     "tahun_M>=target": "2/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.656,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00391,
+      0.01716
+     ],
+     "p_M_le_0": 0.1058,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=2.0": {
+     "M_2022+": 0.00884,
+     "M_2024+": 0.01328,
+     "M_OOS26": 0.00254,
+     "G5j_geom_2022+": 0.00645,
+     "MDD_2022+": -26.5,
+     "P_win31_M>=target": 0.344,
+     "P_win31_rugi": 0.57,
+     "win31_terburuk_%": -18.5,
+     "tahun_M>=target": "2/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.586,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00512,
+      0.02362
+     ],
+     "p_M_le_0": 0.1008,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=2.5": {
+     "M_2022+": 0.00993,
+     "M_2024+": 0.01449,
+     "M_OOS26": 0.00335,
+     "G5j_geom_2022+": 0.00615,
+     "MDD_2022+": -36.4,
+     "P_win31_M>=target": 0.359,
+     "P_win31_rugi": 0.577,
+     "win31_terburuk_%": -28.4,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.455,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00774,
+      0.02834
+     ],
+     "p_M_le_0": 0.1272,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=3.0": {
+     "M_2022+": 0.01295,
+     "M_2024+": 0.01913,
+     "M_OOS26": 0.0043,
+     "G5j_geom_2022+": 0.00754,
+     "MDD_2022+": -39.3,
+     "P_win31_M>=target": 0.378,
+     "P_win31_rugi": 0.575,
+     "win31_terburuk_%": -29.6,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.392,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00792,
+      0.03489
+     ],
+     "p_M_le_0": 0.106,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    }
+   },
+   "sensitivitas_hybrid": {
+    "fee_riil_spot6.5_perp4.5": {
+     "L=1.0": 0.00629,
+     "L=1.25": 0.00742,
+     "L=1.5": 0.00855,
+     "L=2.0": 0.01082,
+     "L=2.5": 0.01308,
+     "L=3.0": 0.01534
+    },
+    "biaya_7bps": {
+     "L=1.0": 0.00625,
+     "L=1.25": 0.00735,
+     "L=1.5": 0.00844,
+     "L=2.0": 0.01062,
+     "L=2.5": 0.0128,
+     "L=3.0": 0.01498
+    },
+    "biaya_15bps": {
+     "L=1.0": 0.00573,
+     "L=1.25": 0.00669,
+     "L=1.5": 0.00764,
+     "L=2.0": 0.00956,
+     "L=2.5": 0.01148,
+     "L=3.0": 0.0134
+    },
+    "biaya_25bps": {
+     "L=1.0": 0.00507,
+     "L=1.25": 0.00586,
+     "L=1.5": 0.00666,
+     "L=2.0": 0.00824,
+     "L=2.5": 0.00983,
+     "L=3.0": 0.01142
+    },
+    "funding_SoDEX_1.3": {
+     "L=1.0": 0.00606,
+     "L=1.25": 0.00731,
+     "L=1.5": 0.00857,
+     "L=2.0": 0.01109,
+     "L=2.5": 0.0136,
+     "L=3.0": 0.01612
+    },
+    "funding_0": {
+     "L=1.0": 0.00606,
+     "L=1.25": 0.00757,
+     "L=1.5": 0.00908,
+     "L=2.0": 0.01211,
+     "L=2.5": 0.01514,
+     "L=3.0": 0.01817
+    }
+   }
+  },
+  "B2": {
+   "hasil": {
+    "acuan_spot_1x": 0.00906,
+    "hybrid_L=1.0": {
+     "M_2022+": 0.00909,
+     "M_2024+": 0.01348,
+     "M_OOS26": 0.00191,
+     "G5j_geom_2022+": 0.0082,
+     "MDD_2022+": -19.5,
+     "P_win31_M>=target": 0.398,
+     "P_win31_rugi": 0.476,
+     "win31_terburuk_%": -9.4,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 1.0,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 0.0,
+     "turnover_tahunan_spot": 18.53,
+     "turnover_tahunan_perp": 0.0,
+     "ci95": [
+      0.00099,
+      0.01777
+     ],
+     "p_M_le_0": 0.0154,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=1.25": {
+     "M_2022+": 0.01073,
+     "M_2024+": 0.01613,
+     "M_OOS26": 0.00215,
+     "G5j_geom_2022+": 0.00934,
+     "MDD_2022+": -23.9,
+     "P_win31_M>=target": 0.421,
+     "P_win31_rugi": 0.484,
+     "win31_terburuk_%": -11.8,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.698,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 1.1,
+     "turnover_tahunan_spot": 18.53,
+     "turnover_tahunan_perp": 4.63,
+     "ci95": [
+      0.00065,
+      0.02152
+     ],
+     "p_M_le_0": 0.019,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "LAYAK_PAPER_BUKAN_BUKTI",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=1.5": {
+     "M_2022+": 0.01237,
+     "M_2024+": 0.01877,
+     "M_OOS26": 0.00239,
+     "G5j_geom_2022+": 0.01036,
+     "MDD_2022+": -28.3,
+     "P_win31_M>=target": 0.434,
+     "P_win31_rugi": 0.489,
+     "win31_terburuk_%": -14.1,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.637,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 2.21,
+     "turnover_tahunan_spot": 18.53,
+     "turnover_tahunan_perp": 9.27,
+     "ci95": [
+      0.00029,
+      0.02526
+     ],
+     "p_M_le_0": 0.0216,
+     "p_kontrol": 0.0465,
+     "kontrol_M_median": 0.00525,
+     "vonis": "TERBUKTI",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": true
+     }
+    },
+    "hybrid_L=2.0": {
+     "M_2022+": 0.01566,
+     "M_2024+": 0.02405,
+     "M_OOS26": 0.00286,
+     "G5j_geom_2022+": 0.01208,
+     "MDD_2022+": -36.4,
+     "P_win31_M>=target": 0.454,
+     "P_win31_rugi": 0.495,
+     "win31_terburuk_%": -18.6,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.516,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 4.42,
+     "turnover_tahunan_spot": 18.53,
+     "turnover_tahunan_perp": 18.53,
+     "ci95": [
+      -0.0004,
+      0.0328
+     ],
+     "p_M_le_0": 0.0272,
+     "p_kontrol": 0.0465,
+     "kontrol_M_median": 0.0064,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": true
+     }
+    },
+    "hybrid_L=2.5": {
+     "M_2022+": 0.01894,
+     "M_2024+": 0.02934,
+     "M_OOS26": 0.00334,
+     "G5j_geom_2022+": 0.01333,
+     "MDD_2022+": -44.0,
+     "P_win31_M>=target": 0.461,
+     "P_win31_rugi": 0.506,
+     "win31_terburuk_%": -23.4,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.395,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 6.62,
+     "turnover_tahunan_spot": 18.53,
+     "turnover_tahunan_perp": 27.8,
+     "ci95": [
+      -0.0011,
+      0.04036
+     ],
+     "p_M_le_0": 0.0304,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    },
+    "hybrid_L=3.0": {
+     "M_2022+": 0.02223,
+     "M_2024+": 0.03462,
+     "M_OOS26": 0.00381,
+     "G5j_geom_2022+": 0.01411,
+     "MDD_2022+": -51.0,
+     "P_win31_M>=target": 0.468,
+     "P_win31_rugi": 0.52,
+     "win31_terburuk_%": -28.4,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.274,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": 8.83,
+     "turnover_tahunan_spot": 18.53,
+     "turnover_tahunan_perp": 37.07,
+     "ci95": [
+      -0.00179,
+      0.04789
+     ],
+     "p_M_le_0": 0.0324,
+     "p_kontrol": null,
+     "kontrol_M_median": null,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=1.0": {
+     "M_2022+": 0.00657,
+     "M_2024+": 0.01057,
+     "M_OOS26": 0.00095,
+     "G5j_geom_2022+": 0.00568,
+     "MDD_2022+": -19.5,
+     "P_win31_M>=target": 0.365,
+     "P_win31_rugi": 0.503,
+     "win31_terburuk_%": -9.7,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.758,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00138,
+      0.01506
+     ],
+     "p_M_le_0": 0.0524,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=1.25": {
+     "M_2022+": 0.00818,
+     "M_2024+": 0.01319,
+     "M_OOS26": 0.00124,
+     "G5j_geom_2022+": 0.00681,
+     "MDD_2022+": -23.6,
+     "P_win31_M>=target": 0.392,
+     "P_win31_rugi": 0.504,
+     "win31_terburuk_%": -12.0,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.692,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.0017,
+      0.01872
+     ],
+     "p_M_le_0": 0.0524,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=1.5": {
+     "M_2022+": 0.00991,
+     "M_2024+": 0.01604,
+     "M_OOS26": 0.00154,
+     "G5j_geom_2022+": 0.00795,
+     "MDD_2022+": -27.0,
+     "P_win31_M>=target": 0.414,
+     "P_win31_rugi": 0.506,
+     "win31_terburuk_%": -14.5,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.656,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00193,
+      0.02253
+     ],
+     "p_M_le_0": 0.0486,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": false,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=2.0": {
+     "M_2022+": 0.01382,
+     "M_2024+": 0.02227,
+     "M_OOS26": 0.0022,
+     "G5j_geom_2022+": 0.01035,
+     "MDD_2022+": -33.9,
+     "P_win31_M>=target": 0.439,
+     "P_win31_rugi": 0.512,
+     "win31_terburuk_%": -18.8,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.586,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00193,
+      0.03082
+     ],
+     "p_M_le_0": 0.0424,
+     "vonis": "LAYAK_PAPER_BUKAN_BUKTI",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": true,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=2.5": {
+     "M_2022+": 0.0161,
+     "M_2024+": 0.02557,
+     "M_OOS26": 0.00309,
+     "G5j_geom_2022+": 0.0107,
+     "MDD_2022+": -41.0,
+     "P_win31_M>=target": 0.447,
+     "P_win31_rugi": 0.522,
+     "win31_terburuk_%": -24.7,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.455,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00378,
+      0.03753
+     ],
+     "p_M_le_0": 0.0556,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    },
+    "allperp_L=3.0": {
+     "M_2022+": 0.02029,
+     "M_2024+": 0.03262,
+     "M_OOS26": 0.00388,
+     "G5j_geom_2022+": 0.0126,
+     "MDD_2022+": -46.6,
+     "P_win31_M>=target": 0.457,
+     "P_win31_rugi": 0.524,
+     "win31_terburuk_%": -26.6,
+     "tahun_M>=target": "3/5",
+     "hari_likuidasi_dasar": 0,
+     "hari_likuidasi_stres": 0,
+     "eq_stres_min": 0.392,
+     "hari_eq_stres<=0.2": 0,
+     "drag_funding_tahunan_%": null,
+     "turnover_tahunan_spot": null,
+     "turnover_tahunan_perp": null,
+     "ci95": [
+      -0.00328,
+      0.04561
+     ],
+     "p_M_le_0": 0.046,
+     "vonis": "TIDAK_LAYAK",
+     "gerbang": {
+      "A_target": true,
+      "B_oos_positif": true,
+      "C_risiko": false,
+      "D_bukti": false
+     }
+    }
+   },
+   "sensitivitas_hybrid": {
+    "fee_riil_spot6.5_perp4.5": {
+     "L=1.0": 0.00944,
+     "L=1.25": 0.01122,
+     "L=1.5": 0.013,
+     "L=2.0": 0.01657,
+     "L=2.5": 0.02013,
+     "L=3.0": 0.0237
+    },
+    "biaya_7bps": {
+     "L=1.0": 0.00938,
+     "L=1.25": 0.0111,
+     "L=1.5": 0.01282,
+     "L=2.0": 0.01625,
+     "L=2.5": 0.01968,
+     "L=3.0": 0.02311
+    },
+    "biaya_15bps": {
+     "L=1.0": 0.00853,
+     "L=1.25": 0.01004,
+     "L=1.5": 0.01154,
+     "L=2.0": 0.01454,
+     "L=2.5": 0.01755,
+     "L=3.0": 0.02055
+    },
+    "biaya_25bps": {
+     "L=1.0": 0.00747,
+     "L=1.25": 0.0087,
+     "L=1.5": 0.00994,
+     "L=2.0": 0.01241,
+     "L=2.5": 0.01488,
+     "L=3.0": 0.01735
+    },
+    "funding_SoDEX_1.3": {
+     "L=1.0": 0.00906,
+     "L=1.25": 0.01093,
+     "L=1.5": 0.0128,
+     "L=2.0": 0.01653,
+     "L=2.5": 0.02027,
+     "L=3.0": 0.024
+    },
+    "funding_0": {
+     "L=1.0": 0.00906,
+     "L=1.25": 0.01133,
+     "L=1.5": 0.0136,
+     "L=2.0": 0.01813,
+     "L=2.5": 0.02266,
+     "L=3.0": 0.02719
+    }
+   }
+  }
+ },
+ "kelly_kurva": {
+  "A": {
+   "1.00": {
+    "M": 0.00607,
+    "G": 0.00547,
+    "MDD": -13.8,
+    "liq_s": 0,
+    "drag_%": 0.0
+   },
+   "1.25": {
+    "M": 0.00712,
+    "G": 0.00618,
+    "MDD": -17.2,
+    "liq_s": 0,
+    "drag_%": 0.83
+   },
+   "1.50": {
+    "M": 0.00816,
+    "G": 0.00681,
+    "MDD": -20.4,
+    "liq_s": 0,
+    "drag_%": 1.66
+   },
+   "1.75": {
+    "M": 0.00921,
+    "G": 0.00737,
+    "MDD": -23.6,
+    "liq_s": 0,
+    "drag_%": 2.49
+   },
+   "2.00": {
+    "M": 0.01025,
+    "G": 0.00785,
+    "MDD": -26.8,
+    "liq_s": 0,
+    "drag_%": 3.31
+   },
+   "2.25": {
+    "M": 0.0113,
+    "G": 0.00826,
+    "MDD": -29.8,
+    "liq_s": 0,
+    "drag_%": 4.14
+   },
+   "2.50": {
+    "M": 0.01234,
+    "G": 0.00859,
+    "MDD": -32.8,
+    "liq_s": 0,
+    "drag_%": 4.97
+   },
+   "2.75": {
+    "M": 0.01339,
+    "G": 0.00885,
+    "MDD": -35.6,
+    "liq_s": 0,
+    "drag_%": 5.8
+   },
+   "3.00": {
+    "M": 0.01443,
+    "G": 0.00903,
+    "MDD": -38.4,
+    "liq_s": 0,
+    "drag_%": 6.63
+   },
+   "3.25": {
+    "M": 0.01548,
+    "G": 0.00914,
+    "MDD": -41.1,
+    "liq_s": 0,
+    "drag_%": 7.46
+   },
+   "3.50": {
+    "M": 0.01652,
+    "G": 0.00917,
+    "MDD": -43.8,
+    "liq_s": 0,
+    "drag_%": 8.28
+   },
+   "3.75": {
+    "M": 0.01757,
+    "G": 0.00913,
+    "MDD": -46.3,
+    "liq_s": 0,
+    "drag_%": 9.11
+   },
+   "4.00": {
+    "M": 0.01861,
+    "G": 0.00901,
+    "MDD": -48.8,
+    "liq_s": 0,
+    "drag_%": 9.94
+   }
+  },
+  "B2": {
+   "1.00": {
+    "M": 0.00909,
+    "G": 0.0082,
+    "MDD": -19.5,
+    "liq_s": 0,
+    "drag_%": 0.0
+   },
+   "1.25": {
+    "M": 0.01073,
+    "G": 0.00934,
+    "MDD": -23.9,
+    "liq_s": 0,
+    "drag_%": 1.1
+   },
+   "1.50": {
+    "M": 0.01237,
+    "G": 0.01036,
+    "MDD": -28.3,
+    "liq_s": 0,
+    "drag_%": 2.21
+   },
+   "1.75": {
+    "M": 0.01402,
+    "G": 0.01128,
+    "MDD": -32.4,
+    "liq_s": 0,
+    "drag_%": 3.31
+   },
+   "2.00": {
+    "M": 0.01566,
+    "G": 0.01208,
+    "MDD": -36.4,
+    "liq_s": 0,
+    "drag_%": 4.42
+   },
+   "2.25": {
+    "M": 0.0173,
+    "G": 0.01276,
+    "MDD": -40.3,
+    "liq_s": 0,
+    "drag_%": 5.52
+   },
+   "2.50": {
+    "M": 0.01894,
+    "G": 0.01333,
+    "MDD": -44.0,
+    "liq_s": 0,
+    "drag_%": 6.62
+   },
+   "2.75": {
+    "M": 0.02058,
+    "G": 0.01378,
+    "MDD": -47.6,
+    "liq_s": 0,
+    "drag_%": 7.73
+   },
+   "3.00": {
+    "M": 0.02223,
+    "G": 0.01411,
+    "MDD": -51.0,
+    "liq_s": 0,
+    "drag_%": 8.83
+   },
+   "3.25": {
+    "M": 0.02387,
+    "G": 0.01433,
+    "MDD": -54.3,
+    "liq_s": 0,
+    "drag_%": 9.94
+   },
+   "3.50": {
+    "M": 0.02551,
+    "G": 0.01442,
+    "MDD": -57.4,
+    "liq_s": 0,
+    "drag_%": 11.04
+   },
+   "3.75": {
+    "M": 0.02715,
+    "G": 0.0144,
+    "MDD": -60.4,
+    "liq_s": 0,
+    "drag_%": 12.14
+   },
+   "4.00": {
+    "M": 0.02879,
+    "G": 0.01424,
+    "MDD": -63.3,
+    "liq_s": 0,
+    "drag_%": 13.25
+   }
+  }
+ },
+ "L_kritis": {
+  "A": {
+   "L_pertama_M>=target": 2.0,
+   "L_G_maks": 3.5,
+   "L_pertama_MDD<cap": 2.75,
+   "L_pertama_likuidasi_stres": null
+  },
+  "B2": {
+   "L_pertama_M>=target": 1.25,
+   "L_G_maks": 3.5,
+   "L_pertama_MDD<cap": 2.0,
+   "L_pertama_likuidasi_stres": null
+  }
+ }
+}

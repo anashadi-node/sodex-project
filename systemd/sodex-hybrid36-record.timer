@@ -1,0 +1,10 @@
+[Unit]
+Description=PRAREG-36 rekaman harian 00:35 UTC
+
+[Timer]
+OnCalendar=*-*-* 00:35:00 UTC
+Persistent=true
+Unit=sodex-hybrid36-record.service
+
+[Install]
+WantedBy=timers.target

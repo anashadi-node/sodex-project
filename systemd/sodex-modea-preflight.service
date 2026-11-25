@@ -1,0 +1,12 @@
+[Unit]
+Description=Mode A preflight kesiapan live (read-only, log harian)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti/scripts/research/mode_a_20261026
+ExecStart=/bin/sh -c '/home/USER/anantara-sakti/scripts/research/mode_a_20261026/.venv/bin/python -W ignore preflight.py'
+StandardOutput=append:/home/USER/anantara-sakti/logs/modea_preflight.log
+StandardError=append:/home/USER/anantara-sakti/logs/modea_preflight.log
+SuccessExitStatus=0 1
+Nice=10

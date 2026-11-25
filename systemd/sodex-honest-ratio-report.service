@@ -1,0 +1,12 @@
+[Unit]
+Description=Anantara Sakti - Honest Rasio Real 30-min Telegram progress report
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/sodex_honest_ratio_gate.py --report
+StandardOutput=append:/home/USER/anantara-sakti/logs/honest_ratio_gate.log
+StandardError=append:/home/USER/anantara-sakti/logs/honest_ratio_gate.log

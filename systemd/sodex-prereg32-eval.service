@@ -1,0 +1,11 @@
+[Unit]
+Description=PRAREG-32 evaluator maker-donchian Binance USDM (READ-ONLY, fail-closed)
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/research/prereg32_maker_eval.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/prereg32_eval.log
+StandardError=append:/home/USER/anantara-sakti/logs/prereg32_eval.log
+Nice=10

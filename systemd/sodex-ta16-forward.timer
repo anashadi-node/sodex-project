@@ -1,0 +1,11 @@
+[Unit]
+Description=Run SoDEX PRAREG-16 forward eval every 6h
+Requires=sodex-ta16-forward.service
+
+[Timer]
+OnBootSec=35min
+OnUnitActiveSec=6h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

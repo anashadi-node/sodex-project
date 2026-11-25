@@ -1,0 +1,22 @@
+{
+ "generated_utc": "2026-10-25T03:47:30.812288+00:00",
+ "symbols": {
+  "ETH": {
+   "rows": 4,
+   "status": "INSUFFICIENT",
+   "catatan": "data < 100 titik"
+  },
+  "BTC": {
+   "rows": 4,
+   "status": "INSUFFICIENT",
+   "catatan": "data < 100 titik"
+  }
+ },
+ "hypotheses": {
+  "H1": "INSUFFICIENT",
+  "H2": "INSUFFICIENT",
+  "H3": "INSUFFICIENT"
+ },
+ "errors": [],
+ "verdict": "INSUFFICIENT"
+}

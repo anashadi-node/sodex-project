@@ -1,0 +1,331 @@
+{
+ "families": {
+  "momentum": {
+   "label": "momentum",
+   "n": 4997,
+   "gross_mean": -0.02,
+   "gross_median": -300.0,
+   "WR": 37.3,
+   "PF": 1.0,
+   "t": -0.0,
+   "hold_mean_h": 9.6
+  },
+  "donchian": {
+   "label": "donchian",
+   "n": 3476,
+   "gross_mean": 19.56,
+   "gross_median": -200.0,
+   "WR": 38.1,
+   "PF": 1.16,
+   "t": 4.12,
+   "hold_mean_h": 5.7
+  },
+  "twoway": {
+   "label": "twoway",
+   "n": 10125,
+   "gross_mean": 2.97,
+   "gross_median": -241.83,
+   "WR": 39.4,
+   "PF": 1.02,
+   "t": 0.82,
+   "hold_mean_h": 11.1
+  }
+ },
+ "random_control": {
+  "label": "RANDOM tp6/sl3",
+  "n": 6720,
+  "gross_mean": 12.68,
+  "gross_median": -70.46,
+  "WR": 43.4,
+  "PF": 1.09,
+  "t": 3.04,
+  "hold_mean_h": 14.3
+ },
+ "venue_matrix": {
+  "momentum": {
+   "sodex": {
+    "n": 4997,
+    "cost_mean_bps": 15.84,
+    "net_mean": -15.86,
+    "net_median": -312.62,
+    "WR": 36.5,
+    "PF": 0.91,
+    "t": -2.95
+   },
+   "binance": {
+    "n": 4997,
+    "cost_mean_bps": 12.25,
+    "net_mean": -12.27,
+    "net_median": -311.0,
+    "WR": 36.7,
+    "PF": 0.93,
+    "t": -2.28
+   },
+   "hyperliquid": {
+    "n": 4997,
+    "cost_mean_bps": 13.25,
+    "net_mean": -13.27,
+    "net_median": -312.0,
+    "WR": 36.6,
+    "PF": 0.93,
+    "t": -2.47
+   }
+  },
+  "donchian": {
+   "sodex": {
+    "n": 3476,
+    "cost_mean_bps": 15.67,
+    "net_mean": 3.89,
+    "net_median": -215.6,
+    "WR": 37.7,
+    "PF": 1.03,
+    "t": 0.82
+   },
+   "binance": {
+    "n": 3476,
+    "cost_mean_bps": 12.17,
+    "net_mean": 7.4,
+    "net_median": -211.0,
+    "WR": 37.8,
+    "PF": 1.06,
+    "t": 1.56
+   },
+   "hyperliquid": {
+    "n": 3476,
+    "cost_mean_bps": 13.17,
+    "net_mean": 6.4,
+    "net_median": -212.0,
+    "WR": 37.7,
+    "PF": 1.05,
+    "t": 1.35
+   }
+  },
+  "twoway": {
+   "sodex": {
+    "n": 10125,
+    "cost_mean_bps": 15.81,
+    "net_mean": -12.84,
+    "net_median": -257.8,
+    "WR": 38.3,
+    "PF": 0.92,
+    "t": -3.53
+   },
+   "binance": {
+    "n": 10125,
+    "cost_mean_bps": 12.19,
+    "net_mean": -9.22,
+    "net_median": -253.37,
+    "WR": 38.6,
+    "PF": 0.94,
+    "t": -2.53
+   },
+   "hyperliquid": {
+    "n": 10125,
+    "cost_mean_bps": 13.19,
+    "net_mean": -10.22,
+    "net_median": -254.37,
+    "WR": 38.5,
+    "PF": 0.94,
+    "t": -2.81
+   }
+  }
+ },
+ "path_check": {
+  "momentum": {
+   "bin_path_n": 1835,
+   "bin_mean": 31.46,
+   "sdx_path_n": 352,
+   "sdx_mean": 8.64
+  },
+  "donchian": {
+   "bin_path_n": 1392,
+   "bin_mean": 33.14,
+   "sdx_path_n": 172,
+   "sdx_mean": 61.36
+  },
+  "twoway": {
+   "bin_path_n": 3198,
+   "bin_mean": 8.58,
+   "sdx_path_n": 623,
+   "sdx_mean": 0.2
+  }
+ },
+ "random_control_donch_geo": {
+  "label": "RANDOM tp4/sl2",
+  "n": 7382,
+  "gross_mean": -0.22,
+  "gross_median": -200.0,
+  "WR": 38.1,
+  "PF": 1.0,
+  "t": -0.08,
+  "hold_mean_h": 9.9
+ },
+ "era_split": {
+  "momentum": {
+   "pra": {
+    "label": "pra",
+    "n": 4576,
+    "gross_mean": 2.87,
+    "WR": 37.8,
+    "PF": 1.02,
+    "t": 0.51
+   },
+   "pasca": {
+    "label": "pasca",
+    "n": 421,
+    "gross_mean": -31.44,
+    "WR": 32.3,
+    "PF": 0.83,
+    "t": -1.74
+   }
+  },
+  "donchian": {
+   "pra": {
+    "label": "pra",
+    "n": 3241,
+    "gross_mean": 23.03,
+    "WR": 38.8,
+    "PF": 1.19,
+    "t": 4.67
+   },
+   "pasca": {
+    "label": "pasca",
+    "n": 235,
+    "gross_mean": -28.25,
+    "WR": 29.4,
+    "PF": 0.79,
+    "t": -1.66
+   }
+  },
+  "twoway": {
+   "pra": {
+    "label": "pra",
+    "n": 9114,
+    "gross_mean": 4.19,
+    "WR": 39.3,
+    "PF": 1.03,
+    "t": 1.08
+   },
+   "pasca": {
+    "label": "pasca",
+    "n": 1011,
+    "gross_mean": -7.99,
+    "WR": 40.3,
+    "PF": 0.95,
+    "t": -0.74
+   }
+  }
+ },
+ "target_arithmetic": [
+  {
+   "family": "momentum",
+   "venue": "sodex",
+   "trade_per_window": 6.2,
+   "need_net_bps_per_trade": 13.0,
+   "actual_net_bps": -15.86,
+   "gap_bps": 28.82
+  },
+  {
+   "family": "momentum",
+   "venue": "binance",
+   "trade_per_window": 6.2,
+   "need_net_bps_per_trade": 13.0,
+   "actual_net_bps": -12.27,
+   "gap_bps": 25.22
+  },
+  {
+   "family": "momentum",
+   "venue": "hyperliquid",
+   "trade_per_window": 6.2,
+   "need_net_bps_per_trade": 13.0,
+   "actual_net_bps": -13.27,
+   "gap_bps": 26.22
+  },
+  {
+   "family": "donchian",
+   "venue": "sodex",
+   "trade_per_window": 4.3,
+   "need_net_bps_per_trade": 18.6,
+   "actual_net_bps": 3.89,
+   "gap_bps": 14.73
+  },
+  {
+   "family": "donchian",
+   "venue": "binance",
+   "trade_per_window": 4.3,
+   "need_net_bps_per_trade": 18.6,
+   "actual_net_bps": 7.4,
+   "gap_bps": 11.23
+  },
+  {
+   "family": "donchian",
+   "venue": "hyperliquid",
+   "trade_per_window": 4.3,
+   "need_net_bps_per_trade": 18.6,
+   "actual_net_bps": 6.4,
+   "gap_bps": 12.23
+  },
+  {
+   "family": "twoway",
+   "venue": "sodex",
+   "trade_per_window": 12.5,
+   "need_net_bps_per_trade": 6.4,
+   "actual_net_bps": -12.84,
+   "gap_bps": 19.23
+  },
+  {
+   "family": "twoway",
+   "venue": "binance",
+   "trade_per_window": 12.5,
+   "need_net_bps_per_trade": 6.4,
+   "actual_net_bps": -9.22,
+   "gap_bps": 15.61
+  },
+  {
+   "family": "twoway",
+   "venue": "hyperliquid",
+   "trade_per_window": 12.5,
+   "need_net_bps_per_trade": 6.4,
+   "actual_net_bps": -10.22,
+   "gap_bps": 16.61
+  }
+ ],
+ "maker_variant": {
+  "momentum": {
+   "binance": {
+    "net_mean": -0.57,
+    "t": -0.11,
+    "cost_mean": 0.56
+   },
+   "hyperliquid": {
+    "net_mean": -0.47,
+    "t": -0.09,
+    "cost_mean": 0.46
+   }
+  },
+  "donchian": {
+   "binance": {
+    "net_mean": 19.07,
+    "t": 4.02,
+    "cost_mean": 0.49
+   },
+   "hyperliquid": {
+    "net_mean": 19.17,
+    "t": 4.04,
+    "cost_mean": 0.39
+   }
+  },
+  "twoway": {
+   "binance": {
+    "net_mean": 2.39,
+    "t": 0.66,
+    "cost_mean": 0.58
+   },
+   "hyperliquid": {
+    "net_mean": 2.49,
+    "t": 0.68,
+    "cost_mean": 0.48
+   }
+  }
+ }
+}

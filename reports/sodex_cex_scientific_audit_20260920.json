@@ -1,0 +1,1745 @@
+{
+  "sodex_realwide_paper": {
+    "name": "sodex_realwide_paper",
+    "n": 159,
+    "wins": 83,
+    "wr": 0.5220125786163522,
+    "mean_pnl_pct": 0.003457545935142716,
+    "median_pnl_pct": 0.0015730877260075867,
+    "ci95_mean_pnl_pct": [
+      -0.00024901703958974785,
+      0.0072773778198316616
+    ],
+    "total_pnl_pct_units": 0.5497498036876919,
+    "mean_wallet_or_pnl": 0.006537651459364782,
+    "target_0p7_hit_rate": 0.27044025157232704,
+    "target_hits": 43,
+    "binom_p_wr_gt_50": 0.317166953141958,
+    "exit_reasons": [
+      [
+        "SL",
+        52
+      ],
+      [
+        "SL_PROTECT",
+        37
+      ],
+      [
+        "TP",
+        28
+      ],
+      [
+        "TIME_30h",
+        27
+      ],
+      [
+        "SL_BEAR",
+        7
+      ],
+      [
+        "TIME_48h",
+        5
+      ],
+      [
+        "TIME_20h",
+        3
+      ]
+    ],
+    "pairs": [
+      [
+        "SOL",
+        17
+      ],
+      [
+        "ETH",
+        17
+      ],
+      [
+        "BTC",
+        13
+      ],
+      [
+        "UNI",
+        12
+      ],
+      [
+        "ASTER",
+        9
+      ],
+      [
+        "DOGE",
+        8
+      ],
+      [
+        "SUI",
+        7
+      ],
+      [
+        "AVAX",
+        7
+      ]
+    ]
+  },
+  "sodex_shortbear_paper": {
+    "name": "sodex_shortbear_paper",
+    "n": 15,
+    "wins": 10,
+    "wr": 0.6666666666666666,
+    "mean_pnl_pct": -0.0005133333333333337,
+    "median_pnl_pct": 0.006,
+    "ci95_mean_pnl_pct": [
+      -0.006806666666666667,
+      0.005
+    ],
+    "total_pnl_pct_units": -0.0077000000000000055,
+    "mean_wallet_or_pnl": -0.0005333333333333329,
+    "target_0p7_hit_rate": 0.06666666666666667,
+    "target_hits": 1,
+    "binom_p_wr_gt_50": 0.15087890625,
+    "exit_reasons": [
+      [
+        "MR_EXIT",
+        10
+      ],
+      [
+        "SL",
+        5
+      ]
+    ],
+    "pairs": [
+      [
+        "BTC",
+        4
+      ],
+      [
+        "SOL",
+        3
+      ],
+      [
+        "DOGE",
+        3
+      ],
+      [
+        "UNI",
+        2
+      ],
+      [
+        "XRP",
+        2
+      ],
+      [
+        "ETH",
+        1
+      ]
+    ]
+  },
+  "cex_futures_signal": {
+    "name": "cex_futures_signal",
+    "n": 189,
+    "wins": 77,
+    "wr": 0.4074074074074074,
+    "mean_pnl_pct": 0.001674328393604833,
+    "median_pnl_pct": -0.005,
+    "ci95_mean_pnl_pct": [
+      -0.000877428610427443,
+      0.004282051375549658
+    ],
+    "total_pnl_pct_units": 0.31644806639131345,
+    "mean_wallet_or_pnl": 0.001674328393604833,
+    "target_0p7_hit_rate": 0.3915343915343915,
+    "target_hits": 74,
+    "binom_p_wr_gt_50": 0.9956734418067517,
+    "exit_reasons": [
+      [
+        "TP",
+        63
+      ],
+      [
+        "SL",
+        52
+      ],
+      [
+        "EMERGENCY_SL",
+        39
+      ],
+      [
+        "TIME_STOP",
+        31
+      ],
+      [
+        "SYSTEM_UPGRADE",
+        4
+      ]
+    ],
+    "pairs": [
+      [
+        "BTC",
+        22
+      ],
+      [
+        "SOL",
+        19
+      ],
+      [
+        "ADA",
+        18
+      ],
+      [
+        "ETH",
+        13
+      ],
+      [
+        "ZEC",
+        13
+      ],
+      [
+        "LINK",
+        12
+      ],
+      [
+        "DOGE",
+        11
+      ],
+      [
+        "HYPE",
+        11
+      ]
+    ]
+  },
+  "cex_futures_random": {
+    "name": "cex_futures_random",
+    "n": 212,
+    "wins": 90,
+    "wr": 0.42452830188679247,
+    "mean_pnl_pct": 0.0014425537840738354,
+    "median_pnl_pct": -0.00626,
+    "ci95_mean_pnl_pct": [
+      -0.0013142323784967069,
+      0.004204921197724688
+    ],
+    "total_pnl_pct_units": 0.3058214022236531,
+    "mean_wallet_or_pnl": 0.0014425537840738354,
+    "target_0p7_hit_rate": 0.3632075471698113,
+    "target_hits": 77,
+    "binom_p_wr_gt_50": 0.9884011759359075,
+    "exit_reasons": [
+      [
+        "TP",
+        72
+      ],
+      [
+        "SL",
+        56
+      ],
+      [
+        "EMERGENCY_SL",
+        54
+      ],
+      [
+        "TIME_STOP",
+        28
+      ],
+      [
+        "SYSTEM_UPGRADE",
+        2
+      ]
+    ],
+    "pairs": [
+      [
+        "DOGE",
+        16
+      ],
+      [
+        "SOL",
+        14
+      ],
+      [
+        "ADA",
+        13
+      ],
+      [
+        "ETH",
+        13
+      ],
+      [
+        "LINK",
+        12
+      ],
+      [
+        "XRP",
+        12
+      ],
+      [
+        "BCH",
+        11
+      ],
+      [
+        "NEAR",
+        11
+      ]
+    ]
+  },
+  "cex_spot_signal": {
+    "name": "cex_spot_signal",
+    "n": 56,
+    "wins": 14,
+    "wr": 0.25,
+    "mean_pnl_pct": -0.003097900837032141,
+    "median_pnl_pct": -0.008892500000000001,
+    "ci95_mean_pnl_pct": [
+      -0.008549285957217084,
+      0.00290726157358174
+    ],
+    "total_pnl_pct_units": -0.17348244687379988,
+    "mean_wallet_or_pnl": -0.003097900837032141,
+    "target_0p7_hit_rate": 0.21428571428571427,
+    "target_hits": 12,
+    "binom_p_wr_gt_50": 0.9999633339080153,
+    "exit_reasons": [
+      [
+        "EMERGENCY_SL",
+        24
+      ],
+      [
+        "TIME_STOP",
+        11
+      ],
+      [
+        "TP",
+        11
+      ],
+      [
+        "SL",
+        9
+      ],
+      [
+        "SYSTEM_UPGRADE",
+        1
+      ]
+    ],
+    "pairs": [
+      [
+        "ZEC",
+        7
+      ],
+      [
+        "SOL",
+        7
+      ],
+      [
+        "XRP",
+        5
+      ],
+      [
+        "BCH",
+        5
+      ],
+      [
+        "ETH",
+        5
+      ],
+      [
+        "BTC",
+        5
+      ],
+      [
+        "DOGE",
+        4
+      ],
+      [
+        "ADA",
+        4
+      ]
+    ]
+  },
+  "cex_spot_random": {
+    "name": "cex_spot_random",
+    "n": 46,
+    "wins": 17,
+    "wr": 0.3695652173913043,
+    "mean_pnl_pct": 0.0007968313469305504,
+    "median_pnl_pct": -0.006565,
+    "ci95_mean_pnl_pct": [
+      -0.006216330532616985,
+      0.00796159343429884
+    ],
+    "total_pnl_pct_units": 0.03665424195880532,
+    "mean_wallet_or_pnl": 0.0007968313469305504,
+    "target_0p7_hit_rate": 0.34782608695652173,
+    "target_hits": 16,
+    "binom_p_wr_gt_50": 0.9729619840705652,
+    "exit_reasons": [
+      [
+        "EMERGENCY_SL",
+        15
+      ],
+      [
+        "TP",
+        14
+      ],
+      [
+        "SL",
+        10
+      ],
+      [
+        "TIME_STOP",
+        5
+      ],
+      [
+        "SYSTEM_UPGRADE",
+        2
+      ]
+    ],
+    "pairs": [
+      [
+        "XRP",
+        4
+      ],
+      [
+        "PENDLE",
+        4
+      ],
+      [
+        "ETH",
+        3
+      ],
+      [
+        "BNB",
+        3
+      ],
+      [
+        "TRX",
+        2
+      ],
+      [
+        "JUP",
+        2
+      ],
+      [
+        "ADA",
+        2
+      ],
+      [
+        "DOGE",
+        2
+      ]
+    ]
+  },
+  "cex_futures_signal_vs_random": {
+    "delta_mean_pnl_pct": 0.00023177460953099764,
+    "perm_p_delta_ge_obs": 0.4543091381723655,
+    "n_signal": 189,
+    "n_random": 212
+  },
+  "cex_spot_signal_vs_random": {
+    "delta_mean_pnl_pct": -0.003894732183962691,
+    "perm_p_delta_ge_obs": 0.7984403119376124,
+    "n_signal": 56,
+    "n_random": 46
+  },
+  "sodex_realwide_paper_last7d_anchor_2026-09-20T08:05:12.320935+00:00": {
+    "name": "sodex_realwide_paper_last7d",
+    "n": 29,
+    "wins": 20,
+    "wr": 0.6896551724137931,
+    "mean_pnl_pct": 0.0036363490891803793,
+    "median_pnl_pct": 0.0028123737082306277,
+    "ci95_mean_pnl_pct": [
+      -0.002715909272151599,
+      0.011227884354555
+    ],
+    "total_pnl_pct_units": 0.105454123586231,
+    "mean_wallet_or_pnl": 0.006875738855124883,
+    "target_0p7_hit_rate": 0.13793103448275862,
+    "target_hits": 4,
+    "binom_p_wr_gt_50": 0.03071417286992073,
+    "exit_reasons": [
+      [
+        "SL_PROTECT",
+        16
+      ],
+      [
+        "SL",
+        6
+      ],
+      [
+        "TIME_30h",
+        5
+      ],
+      [
+        "TP",
+        2
+      ]
+    ],
+    "pairs": [
+      [
+        "BCH",
+        4
+      ],
+      [
+        "ASTER",
+        3
+      ],
+      [
+        "BNB",
+        3
+      ],
+      [
+        "AVAX",
+        3
+      ],
+      [
+        "DOGE",
+        3
+      ],
+      [
+        "ETH",
+        2
+      ],
+      [
+        "XRP",
+        2
+      ],
+      [
+        "TRX",
+        1
+      ]
+    ]
+  },
+  "sodex_shortbear_paper_last7d_anchor_2026-09-16T19:41:10.316851+00:00": {
+    "name": "sodex_shortbear_paper_last7d",
+    "n": 14,
+    "wins": 10,
+    "wr": 0.7142857142857143,
+    "mean_pnl_pct": 0.0005499999999999999,
+    "median_pnl_pct": 0.00645,
+    "ci95_mean_pnl_pct": [
+      -0.0054142857142857135,
+      0.006342857142857142
+    ],
+    "total_pnl_pct_units": 0.0076999999999999985,
+    "mean_wallet_or_pnl": 0.00022142857142857145,
+    "target_0p7_hit_rate": 0.07142857142857142,
+    "target_hits": 1,
+    "binom_p_wr_gt_50": 0.08978271484375,
+    "exit_reasons": [
+      [
+        "MR_EXIT",
+        10
+      ],
+      [
+        "SL",
+        4
+      ]
+    ],
+    "pairs": [
+      [
+        "BTC",
+        4
+      ],
+      [
+        "DOGE",
+        3
+      ],
+      [
+        "UNI",
+        2
+      ],
+      [
+        "SOL",
+        2
+      ],
+      [
+        "XRP",
+        2
+      ],
+      [
+        "ETH",
+        1
+      ]
+    ]
+  },
+  "cex_futures_signal_last7d_anchor_2026-09-14T00:03:43+00:00": {
+    "name": "cex_futures_signal_last7d",
+    "n": 57,
+    "wins": 13,
+    "wr": 0.22807017543859648,
+    "mean_pnl_pct": -0.002650815605670396,
+    "median_pnl_pct": -0.00692,
+    "ci95_mean_pnl_pct": [
+      -0.007062781222519903,
+      0.002074586868750152
+    ],
+    "total_pnl_pct_units": -0.15109648952321258,
+    "mean_wallet_or_pnl": -0.002650815605670396,
+    "target_0p7_hit_rate": 0.22807017543859648,
+    "target_hits": 13,
+    "binom_p_wr_gt_50": 0.9999934362784177,
+    "exit_reasons": [
+      [
+        "EMERGENCY_SL",
+        24
+      ],
+      [
+        "TIME_STOP",
+        17
+      ],
+      [
+        "SL",
+        9
+      ],
+      [
+        "TP",
+        7
+      ]
+    ],
+    "pairs": [
+      [
+        "BTC",
+        8
+      ],
+      [
+        "ADA",
+        8
+      ],
+      [
+        "SOL",
+        6
+      ],
+      [
+        "LINK",
+        5
+      ],
+      [
+        "DOGE",
+        4
+      ],
+      [
+        "HYPE",
+        4
+      ],
+      [
+        "BCH",
+        4
+      ],
+      [
+        "ETH",
+        4
+      ]
+    ]
+  },
+  "cex_futures_random_last7d_anchor_2026-09-20T03:05:15+00:00": {
+    "name": "cex_futures_random_last7d",
+    "n": 45,
+    "wins": 17,
+    "wr": 0.37777777777777777,
+    "mean_pnl_pct": 0.002082331266736401,
+    "median_pnl_pct": -0.010069999999999999,
+    "ci95_mean_pnl_pct": [
+      -0.004668881379369781,
+      0.009183682777444245
+    ],
+    "total_pnl_pct_units": 0.09370490700313804,
+    "mean_wallet_or_pnl": 0.002082331266736401,
+    "target_0p7_hit_rate": 0.35555555555555557,
+    "target_hits": 16,
+    "binom_p_wr_gt_50": 0.9637728699187278,
+    "exit_reasons": [
+      [
+        "EMERGENCY_SL",
+        19
+      ],
+      [
+        "TP",
+        15
+      ],
+      [
+        "SL",
+        7
+      ],
+      [
+        "TIME_STOP",
+        4
+      ]
+    ],
+    "pairs": [
+      [
+        "SUI",
+        5
+      ],
+      [
+        "JUP",
+        4
+      ],
+      [
+        "ADA",
+        3
+      ],
+      [
+        "ZEC",
+        3
+      ],
+      [
+        "ENA",
+        3
+      ],
+      [
+        "BCH",
+        3
+      ],
+      [
+        "AAVE",
+        3
+      ],
+      [
+        "ETH",
+        3
+      ]
+    ]
+  },
+  "cex_spot_signal_last7d_anchor_2026-09-15T21:03:35+00:00": {
+    "name": "cex_spot_signal_last7d",
+    "n": 28,
+    "wins": 3,
+    "wr": 0.10714285714285714,
+    "mean_pnl_pct": -0.008874714064704883,
+    "median_pnl_pct": -0.0102475,
+    "ci95_mean_pnl_pct": [
+      -0.014444381169877177,
+      -0.0023848709656830785
+    ],
+    "total_pnl_pct_units": -0.2484919938117367,
+    "mean_wallet_or_pnl": -0.008874714064704883,
+    "target_0p7_hit_rate": 0.07142857142857142,
+    "target_hits": 2,
+    "binom_p_wr_gt_50": 0.9999984838068485,
+    "exit_reasons": [
+      [
+        "EMERGENCY_SL",
+        14
+      ],
+      [
+        "TIME_STOP",
+        6
+      ],
+      [
+        "SL",
+        5
+      ],
+      [
+        "TP",
+        2
+      ],
+      [
+        "SYSTEM_UPGRADE",
+        1
+      ]
+    ],
+    "pairs": [
+      [
+        "ZEC",
+        4
+      ],
+      [
+        "XRP",
+        4
+      ],
+      [
+        "DOGE",
+        3
+      ],
+      [
+        "BCH",
+        3
+      ],
+      [
+        "ETH",
+        3
+      ],
+      [
+        "PENDLE",
+        2
+      ],
+      [
+        "BTC",
+        2
+      ],
+      [
+        "SOL",
+        2
+      ]
+    ]
+  },
+  "cex_spot_random_last7d_anchor_2026-09-20T05:08:16+00:00": {
+    "name": "cex_spot_random_last7d",
+    "n": 15,
+    "wins": 7,
+    "wr": 0.4666666666666667,
+    "mean_pnl_pct": -0.0006565790251107777,
+    "median_pnl_pct": -0.00979,
+    "ci95_mean_pnl_pct": [
+      -0.012730333333333335,
+      0.011905420974889221
+    ],
+    "total_pnl_pct_units": -0.009848685376661667,
+    "mean_wallet_or_pnl": -0.0006565790251107777,
+    "target_0p7_hit_rate": 0.4,
+    "target_hits": 6,
+    "binom_p_wr_gt_50": 0.696380615234375,
+    "exit_reasons": [
+      [
+        "TP",
+        6
+      ],
+      [
+        "SL",
+        5
+      ],
+      [
+        "EMERGENCY_SL",
+        3
+      ],
+      [
+        "TIME_STOP",
+        1
+      ]
+    ],
+    "pairs": [
+      [
+        "TRX",
+        2
+      ],
+      [
+        "DOGE",
+        2
+      ],
+      [
+        "ONDO",
+        2
+      ],
+      [
+        "BTC",
+        2
+      ],
+      [
+        "JUP",
+        1
+      ],
+      [
+        "ETH",
+        1
+      ],
+      [
+        "ADA",
+        1
+      ],
+      [
+        "BNB",
+        1
+      ]
+    ]
+  },
+  "sodex_shortbear_gate_drag": {
+    "all": {
+      "rows": 14592,
+      "decisions": [
+        [
+          "blocked_signal",
+          13659
+        ],
+        [
+          "fetch_error",
+          357
+        ],
+        [
+          "no_candidate",
+          327
+        ],
+        [
+          "candidate",
+          153
+        ],
+        [
+          "blocked_risk",
+          80
+        ],
+        [
+          "short_entry",
+          8
+        ],
+        [
+          "close",
+          8
+        ]
+      ],
+      "top_block_reasons": [
+        [
+          "chk_below_4",
+          13022
+        ],
+        [
+          "bear_stack_failed",
+          11679
+        ],
+        [
+          "return_1h_not_negative",
+          7765
+        ],
+        [
+          "weekend",
+          6255
+        ],
+        [
+          "fetch_error:ConnectionError",
+          357
+        ],
+        [
+          "funding_negative",
+          105
+        ],
+        [
+          "cooldown",
+          69
+        ],
+        [
+          "max_positions",
+          11
+        ]
+      ],
+      "funnel": [
+        [
+          "sufficient=1",
+          14235
+        ],
+        [
+          "adx=1",
+          14235
+        ],
+        [
+          "rsi=1",
+          14235
+        ],
+        [
+          "volume_ratio=1",
+          14235
+        ],
+        [
+          "r24=1",
+          14235
+        ],
+        [
+          "close=1",
+          14235
+        ],
+        [
+          "sma24=1",
+          14235
+        ],
+        [
+          "sma50=1",
+          14235
+        ],
+        [
+          "sma200=1",
+          14235
+        ],
+        [
+          "signal_index=1",
+          14235
+        ],
+        [
+          "signal_candle_ts=1",
+          14235
+        ],
+        [
+          "r1=1",
+          14128
+        ],
+        [
+          "candidate=0",
+          13923
+        ],
+        [
+          "chk=1",
+          12364
+        ],
+        [
+          "bear_stack=0",
+          11679
+        ]
+      ]
+    },
+    "last24h": {
+      "rows": 1710,
+      "decisions": [
+        [
+          "blocked_signal",
+          1710
+        ]
+      ],
+      "top_block_reasons": [
+        [
+          "bear_stack_failed",
+          1710
+        ],
+        [
+          "weekend",
+          1710
+        ],
+        [
+          "chk_below_4",
+          1440
+        ],
+        [
+          "return_1h_not_negative",
+          783
+        ]
+      ],
+      "funnel": [
+        [
+          "sufficient=1",
+          1710
+        ],
+        [
+          "bear_stack=0",
+          1710
+        ],
+        [
+          "weekend=1",
+          1710
+        ],
+        [
+          "candidate=0",
+          1710
+        ],
+        [
+          "adx=1",
+          1710
+        ],
+        [
+          "r1=1",
+          1710
+        ],
+        [
+          "rsi=1",
+          1710
+        ],
+        [
+          "volume_ratio=1",
+          1710
+        ],
+        [
+          "r24=1",
+          1710
+        ],
+        [
+          "close=1",
+          1710
+        ],
+        [
+          "sma24=1",
+          1710
+        ],
+        [
+          "sma50=1",
+          1710
+        ],
+        [
+          "sma200=1",
+          1710
+        ],
+        [
+          "signal_index=1",
+          1710
+        ],
+        [
+          "signal_candle_ts=1",
+          1710
+        ]
+      ]
+    },
+    "anchor": "2026-09-20T17:49:31.286373+00:00"
+  },
+  "log_logs/realwide_micro_live.log": {
+    "counts_last2000": {
+      "KILL": 1976,
+      "HALT": 1977,
+      "GATE": 23
+    },
+    "last10": [
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))",
+      "  [GATE] LONG diblokir macro-BTC (BTC regime not ok (regime_filter))"
+    ]
+  },
+  "log_logs/spot_live_test.log": {
+    "counts_last2000": {
+      "KILL": 1884,
+      "HALT": 2,
+      "NO_FILL": 114
+    },
+    "last10": [
+      "[2026-09-20T17:45:46.554680+00:00] ETH:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:45:46.554722+00:00] BTC:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:45:46.554733+00:00] BNB:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:45:46.554741+00:00] LINK:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:45:46.554749+00:00] HYPE:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:51:01.822926+00:00] ETH:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:51:01.822966+00:00] BTC:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:51:01.822978+00:00] BNB:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:51:01.822989+00:00] LINK:NO_FILL (held=0.0) — order tidak terisi, state NOT saved",
+      "[2026-09-20T17:51:01.822999+00:00] HYPE:NO_FILL (held=0.0) — order tidak terisi, state NOT saved"
+    ]
+  },
+  "log_logs/paper_cex_momadx.log": {
+    "counts_last2000": {
+      "opened=[]": 286,
+      "GATE": 2,
+      "KILL": 38
+    },
+    "last10": [
+      "  [KILL] Futures SIGNAL entries blocked; existing positions still managed",
+      "[spot-swing] 2026-09-20T17:30:19+00:00 opened=[] open_total=0 signal=9 random=7",
+      "  [KILL] Futures SIGNAL entries blocked; existing positions still managed",
+      "[spot-swing] 2026-09-20T17:35:23+00:00 opened=[] open_total=0 signal=9 random=7",
+      "  [KILL] Futures SIGNAL entries blocked; existing positions still managed",
+      "[spot-swing] 2026-09-20T17:40:27+00:00 opened=[] open_total=0 signal=9 random=7",
+      "  [KILL] Futures SIGNAL entries blocked; existing positions still managed",
+      "[spot-swing] 2026-09-20T17:45:31+00:00 opened=[] open_total=0 signal=9 random=7",
+      "  [KILL] Futures SIGNAL entries blocked; existing positions still managed",
+      "[spot-swing] 2026-09-20T17:50:35+00:00 opened=[] open_total=0 signal=9 random=7"
+    ]
+  },
+  "log_logs/paper_cex_spot_momadx.log": {
+    "counts_last2000": {
+      "GATE": 2,
+      "KILL": 2,
+      "opened=[]": 279
+    },
+    "last10": [
+      "[spot-swing-spot] 2026-09-20T17:04:40+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:09:45+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:14:48+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:19:52+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:24:56+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:29:59+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:35:06+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:40:09+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:45:14+00:00 opened=[] n_sig=7 n_rnd=5",
+      "[spot-swing-spot] 2026-09-20T17:50:17+00:00 opened=[] n_sig=7 n_rnd=5"
+    ]
+  },
+  "cex_go_no_go_gate": {
+    "futures": {
+      "venue": "futures",
+      "n_total": 401,
+      "generated_ts": "2026-09-20T17:47:08.195192+00:00",
+      "g0": {
+        "status": "INFO",
+        "paths_tested": [
+          "adx+momentum",
+          "momentum+adx",
+          "momentum+adx+regime",
+          "momentum+adx+regime+harbar",
+          "ofi-breadth-long",
+          "r6-bear-short",
+          "random",
+          "regime-long",
+          "regime-short"
+        ],
+        "n_paths": 9,
+        "n_trials_registered": 99,
+        "n_trials_used_for_dsr": 99,
+        "trials_source": "registry",
+        "note": "N trial dibaca dari data/cex_trial_registry.json"
+      },
+      "path_stats": {
+        "adx+momentum": {
+          "n": 11,
+          "wr": 9.090909090909092,
+          "pf": 0.8705518308406395,
+          "expectancy_pct": -0.06845454545454553,
+          "ci95_lo_pct": -0.8176818181818181,
+          "ci95_hi_pct": 1.0907272727272725,
+          "sum_usd": -0.7530000000000009,
+          "binom_p": 0.99951171875
+        },
+        "momentum+adx": {
+          "n": 3,
+          "wr": 33.33333333333333,
+          "pf": 0.4441029965488843,
+          "expectancy_pct": -0.36978687620136064,
+          "ci95_lo_pct": -1.7000000000000002,
+          "ci95_hi_pct": 0.8862619808306829,
+          "sum_usd": -1.1093606286040818,
+          "binom_p": 0.875
+        },
+        "momentum+adx+regime": {
+          "n": 17,
+          "wr": 70.58823529411765,
+          "pf": 4.319248826291079,
+          "expectancy_pct": 1.2476470588235296,
+          "ci95_lo_pct": 0.4217647058823528,
+          "ci95_hi_pct": 1.9303529411764706,
+          "sum_usd": 21.21,
+          "binom_p": 0.0717315673828125
+        },
+        "momentum+adx+regime+harbar": {
+          "n": 3,
+          "wr": 100.0,
+          "pf": 99.0,
+          "expectancy_pct": 2.3000000000000003,
+          "ci95_lo_pct": 2.3000000000000003,
+          "ci95_hi_pct": 2.3000000000000003,
+          "sum_usd": 6.9,
+          "binom_p": 0.125
+        },
+        "ofi-breadth-long": {
+          "n": 66,
+          "wr": 40.909090909090914,
+          "pf": 1.2695135384947778,
+          "expectancy_pct": 0.1796367658835992,
+          "ci95_lo_pct": -0.2313348457805399,
+          "ci95_hi_pct": 0.6064661501150017,
+          "sum_usd": 11.856026548317548,
+          "binom_p": 0.9455715177951419
+        },
+        "r6-bear-short": {
+          "n": 23,
+          "wr": 26.08695652173913,
+          "pf": 0.9082957730082938,
+          "expectancy_pct": -0.07681661537466927,
+          "ci95_lo_pct": -0.8349504063368802,
+          "ci95_hi_pct": 0.785148656299349,
+          "sum_usd": -1.766782153617393,
+          "binom_p": 0.9946889877319336
+        },
+        "random": {
+          "n": 212,
+          "wr": 42.45283018867924,
+          "pf": 1.1764076416171818,
+          "expectancy_pct": 0.14425537840738353,
+          "ci95_lo_pct": -0.12830559644407682,
+          "ci95_hi_pct": 0.42182559129078784,
+          "sum_usd": 30.582140222365307,
+          "binom_p": 0.9884011759359074
+        },
+        "regime-long": {
+          "n": 56,
+          "wr": 42.857142857142854,
+          "pf": 0.978728619316624,
+          "expectancy_pct": -0.019752821656408747,
+          "ci95_lo_pct": -0.5051456159105054,
+          "ci95_hi_pct": 0.4800847868571496,
+          "sum_usd": -1.10615801275889,
+          "binom_p": 0.8855972293828219
+        },
+        "regime-short": {
+          "n": 10,
+          "wr": 30.0,
+          "pf": 0.5840679662773292,
+          "expectancy_pct": -0.35859191142058366,
+          "ci95_lo_pct": -1.205667416794978,
+          "ci95_hi_pct": 0.6169724643182556,
+          "sum_usd": -3.5859191142058364,
+          "binom_p": 0.9453125
+        }
+      },
+      "g1": {
+        "status": "FAIL",
+        "detail": {
+          "n_oos": 57,
+          "net_usd": -10.79,
+          "pf_oos": 0.77,
+          "wr_oos": 24.6,
+          "binom_p": 1.0,
+          "delta_vs_random_pct": -0.207,
+          "delta_ci95": [
+            -0.959,
+            0.55
+          ],
+          "checks": {
+            "net>0": "False",
+            "PF>1.2": "False",
+            "WR>=60% p<0.05": "False"
+          }
+        }
+      },
+      "g2": {
+        "status": "FAIL",
+        "detail": {
+          "sharpe_ann": 3.18,
+          "sharpe_per_trade": 0.091,
+          "trials_N": 99,
+          "trials_source": "registry",
+          "e_max_sr_annualized": 3.03,
+          "median_hold_h": 7.1,
+          "annualization": "sqrt(8760/7.1h)",
+          "threshold_per_trade": 0.08631,
+          "emax_heuristic_pass": true,
+          "dsr": 0.2247,
+          "dsr_threshold": 0.95,
+          "dsr_pass": false,
+          "sr0_per_trade": 0.1446,
+          "expected_max_sharpe_exact": 2.553,
+          "var_across_trials": 0.003209,
+          "var_source": "across_trials",
+          "skew": 0.411,
+          "kurtosis_excess": -1.061
+        }
+      },
+      "g3": {
+        "status": "WARN",
+        "detail": {
+          "pbo": 0.25,
+          "n_splits": 8
+        }
+      },
+      "g4": {
+        "status": "FAIL",
+        "detail": {
+          "expectancy_pct": 0.167,
+          "ci95_lo_pct": -0.09,
+          "ci95_hi_pct": 0.433,
+          "delta_vs_random_pct": 0.021,
+          "delta_ci95": [
+            -0.36,
+            0.403
+          ],
+          "checks": {
+            "CI95_lo>0": false,
+            "delta_vs_random>0": false
+          }
+        }
+      },
+      "g5": {
+        "status": "PASS",
+        "detail": {
+          "positive_regimes": [
+            "bull",
+            "sideways"
+          ],
+          "regimes": {
+            "bull": {
+              "n": 68,
+              "expectancy_pct": 2.178
+            },
+            "sideways": {
+              "n": 20,
+              "expectancy_pct": 0.948
+            },
+            "bear": {
+              "n": 101,
+              "expectancy_pct": -1.341
+            }
+          }
+        }
+      },
+      "g6": {
+        "status": "WARN",
+        "detail": {
+          "ljung_box_q": 32.836,
+          "ljung_box_p": 0.0,
+          "t_newey_west": 0.88,
+          "checks": {
+            "p_white_noise>0.05": false,
+            "t_NW>2.045": false
+          }
+        }
+      },
+      "kill": {
+        "status": "TRIGGERED",
+        "detail": {
+          "last50_pf": 0.71,
+          "last50_wr": 24.0,
+          "baseline_wr": 39.3,
+          "checks": {
+            "PF50<0.8": "True",
+            "WR50_drop>15pp_vs_baseline": "True"
+          }
+        }
+      },
+      "window": {
+        "method": "non_overlapping_30h_exit_windows",
+        "window_hours": 30,
+        "target_pct": 0.7,
+        "anchor_ts": "2026-08-16T14:15:27+00:00",
+        "windows_with_data": 23,
+        "windows_achieved": 8,
+        "days_with_data": 23,
+        "days_achieved": 8,
+        "achieve_rate": 34.8,
+        "windows": {
+          "2026-08-16T14:15:27+00:00": {
+            "n": 2,
+            "usd": -2.0,
+            "ret_modal_pct": -0.499,
+            "achieved": false
+          },
+          "2026-08-17T20:15:27+00:00": {
+            "n": 1,
+            "usd": 0.89,
+            "ret_modal_pct": 0.222,
+            "achieved": false
+          },
+          "2026-08-19T02:15:27+00:00": {
+            "n": 5,
+            "usd": 11.5,
+            "ret_modal_pct": 2.875,
+            "achieved": true
+          },
+          "2026-08-20T08:15:27+00:00": {
+            "n": 9,
+            "usd": 20.7,
+            "ret_modal_pct": 5.175,
+            "achieved": true
+          },
+          "2026-08-21T14:15:27+00:00": {
+            "n": 17,
+            "usd": 11.1,
+            "ret_modal_pct": 2.775,
+            "achieved": true
+          },
+          "2026-08-22T20:15:27+00:00": {
+            "n": 9,
+            "usd": -3.3,
+            "ret_modal_pct": -0.825,
+            "achieved": false
+          },
+          "2026-08-24T02:15:27+00:00": {
+            "n": 5,
+            "usd": 5.73,
+            "ret_modal_pct": 1.433,
+            "achieved": true
+          },
+          "2026-08-25T08:15:27+00:00": {
+            "n": 5,
+            "usd": -7.81,
+            "ret_modal_pct": -1.953,
+            "achieved": false
+          },
+          "2026-08-26T14:15:27+00:00": {
+            "n": 5,
+            "usd": -4.75,
+            "ret_modal_pct": -1.188,
+            "achieved": false
+          },
+          "2026-08-27T20:15:27+00:00": {
+            "n": 5,
+            "usd": 3.55,
+            "ret_modal_pct": 0.887,
+            "achieved": true
+          },
+          "2026-08-29T02:15:27+00:00": {
+            "n": 4,
+            "usd": 0.28,
+            "ret_modal_pct": 0.07,
+            "achieved": false
+          },
+          "2026-08-30T08:15:27+00:00": {
+            "n": 9,
+            "usd": 0.7,
+            "ret_modal_pct": 0.175,
+            "achieved": false
+          },
+          "2026-08-31T14:15:27+00:00": {
+            "n": 7,
+            "usd": -6.32,
+            "ret_modal_pct": -1.581,
+            "achieved": false
+          },
+          "2026-09-01T20:15:27+00:00": {
+            "n": 12,
+            "usd": -2.32,
+            "ret_modal_pct": -0.58,
+            "achieved": false
+          },
+          "2026-09-03T02:15:27+00:00": {
+            "n": 14,
+            "usd": 10.63,
+            "ret_modal_pct": 2.658,
+            "achieved": true
+          },
+          "2026-09-04T08:15:27+00:00": {
+            "n": 12,
+            "usd": -3.25,
+            "ret_modal_pct": -0.811,
+            "achieved": false
+          },
+          "2026-09-05T14:15:27+00:00": {
+            "n": 8,
+            "usd": 4.64,
+            "ret_modal_pct": 1.16,
+            "achieved": true
+          },
+          "2026-09-06T20:15:27+00:00": {
+            "n": 15,
+            "usd": 5.49,
+            "ret_modal_pct": 1.372,
+            "achieved": true
+          },
+          "2026-09-08T02:15:27+00:00": {
+            "n": 12,
+            "usd": 1.61,
+            "ret_modal_pct": 0.402,
+            "achieved": false
+          },
+          "2026-09-09T08:15:27+00:00": {
+            "n": 7,
+            "usd": -6.52,
+            "ret_modal_pct": -1.631,
+            "achieved": false
+          },
+          "2026-09-10T14:15:27+00:00": {
+            "n": 18,
+            "usd": -4.8,
+            "ret_modal_pct": -1.2,
+            "achieved": false
+          },
+          "2026-09-11T20:15:27+00:00": {
+            "n": 5,
+            "usd": -4.55,
+            "ret_modal_pct": -1.138,
+            "achieved": false
+          },
+          "2026-09-13T02:15:27+00:00": {
+            "n": 3,
+            "usd": 0.46,
+            "ret_modal_pct": 0.114,
+            "achieved": false
+          }
+        },
+        "daily": null
+      },
+      "projection": {
+        "start_date": "2026-09-15",
+        "deadline": "2026-12-24",
+        "total_days": 100,
+        "days_left": 95,
+        "signal_per_day": 0.0,
+        "projected_n_by_deadline": 189,
+        "projected_n_in_33d": 189,
+        "target_n_g1": 158,
+        "on_track_g1": true
+      }
+    },
+    "spot": {
+      "venue": "spot",
+      "n_total": 102,
+      "generated_ts": "2026-09-20T17:47:08.195195+00:00",
+      "g0": {
+        "status": "INFO",
+        "paths_tested": [
+          "random",
+          "spot-mom-adx",
+          "spot-ofi-long"
+        ],
+        "n_paths": 3,
+        "n_trials_registered": 99,
+        "n_trials_used_for_dsr": 99,
+        "trials_source": "registry",
+        "note": "N trial dibaca dari data/cex_trial_registry.json"
+      },
+      "path_stats": {
+        "random": {
+          "n": 46,
+          "wr": 36.95652173913043,
+          "pf": 1.082445771657164,
+          "expectancy_pct": 0.07968313469305503,
+          "ci95_lo_pct": -0.6162201306813543,
+          "ci95_hi_pct": 0.782422455994987,
+          "sum_usd": 3.6654241958805316,
+          "binom_p": 0.9729619840705652
+        },
+        "spot-mom-adx": {
+          "n": 7,
+          "wr": 14.285714285714285,
+          "pf": 0.4028054212870817,
+          "expectancy_pct": -0.9001428571428575,
+          "ci95_lo_pct": -2.341714285714286,
+          "ci95_hi_pct": 0.992642857142857,
+          "sum_usd": -6.301000000000003,
+          "binom_p": 0.9921875
+        },
+        "spot-ofi-long": {
+          "n": 49,
+          "wr": 26.53061224489796,
+          "pf": 0.7533349295176239,
+          "expectancy_pct": -0.22545397321183633,
+          "ci95_lo_pct": -0.7618280022487546,
+          "ci95_hi_pct": 0.36351367101195187,
+          "sum_usd": -11.04724468737998,
+          "binom_p": 0.9997651213409959
+        }
+      },
+      "g1": {
+        "status": "PENDING",
+        "detail": {}
+      },
+      "g2": {
+        "status": "FAIL",
+        "detail": {
+          "sharpe_ann": -5.01,
+          "sharpe_per_trade": -0.147,
+          "trials_N": 99,
+          "trials_source": "registry",
+          "e_max_sr_annualized": 3.03,
+          "median_hold_h": 7.6,
+          "annualization": "sqrt(8760/7.6h)",
+          "threshold_per_trade": 0.08929,
+          "emax_heuristic_pass": false,
+          "dsr": 0.0127,
+          "dsr_threshold": 0.95,
+          "dsr_pass": false,
+          "sr0_per_trade": 0.1809,
+          "expected_max_sharpe_exact": 2.553,
+          "var_across_trials": 0.005019,
+          "var_source": "across_trials",
+          "skew": 1.233,
+          "kurtosis_excess": 1.186
+        }
+      },
+      "g3": {
+        "status": "PENDING",
+        "detail": {}
+      },
+      "g4": {
+        "status": "FAIL",
+        "detail": {
+          "expectancy_pct": -0.31,
+          "ci95_lo_pct": -0.836,
+          "ci95_hi_pct": 0.249,
+          "delta_vs_random_pct": 0.0,
+          "delta_ci95": [
+            0.0,
+            0.0
+          ],
+          "checks": {
+            "CI95_lo>0": false,
+            "delta_vs_random>0": false
+          }
+        }
+      },
+      "g5": {
+        "status": "FAIL",
+        "detail": {
+          "positive_regimes": [
+            "bull"
+          ],
+          "regimes": {
+            "bull": {
+              "n": 14,
+              "expectancy_pct": 2.714
+            },
+            "sideways": {
+              "n": 3,
+              "expectancy_pct": -0.157
+            },
+            "bear": {
+              "n": 39,
+              "expectancy_pct": -1.407
+            }
+          }
+        }
+      },
+      "g6": {
+        "status": "WARN",
+        "detail": {
+          "ljung_box_q": 2.793,
+          "ljung_box_p": 0.7574,
+          "t_newey_west": -0.949,
+          "checks": {
+            "p_white_noise>0.05": true,
+            "t_NW>2.045": false
+          }
+        }
+      },
+      "kill": {
+        "status": "TRIGGERED",
+        "detail": {
+          "last50_pf": 0.49,
+          "last50_wr": 20.0,
+          "baseline_wr": 26.5,
+          "checks": {
+            "PF50<0.8": "True",
+            "WR50_drop>15pp_vs_baseline": "False"
+          }
+        }
+      },
+      "window": {
+        "method": "non_overlapping_30h_exit_windows",
+        "window_hours": 30,
+        "target_pct": 0.7,
+        "anchor_ts": "2026-09-05T17:04:25+00:00",
+        "windows_with_data": 7,
+        "windows_achieved": 2,
+        "days_with_data": 7,
+        "days_achieved": 2,
+        "achieve_rate": 28.6,
+        "windows": {
+          "2026-09-05T17:04:25+00:00": {
+            "n": 10,
+            "usd": 16.99,
+            "ret_modal_pct": 4.247,
+            "achieved": true
+          },
+          "2026-09-06T23:04:25+00:00": {
+            "n": 14,
+            "usd": -11.02,
+            "ret_modal_pct": -2.755,
+            "achieved": false
+          },
+          "2026-09-08T05:04:25+00:00": {
+            "n": 8,
+            "usd": 6.71,
+            "ret_modal_pct": 1.678,
+            "achieved": true
+          },
+          "2026-09-09T11:04:25+00:00": {
+            "n": 5,
+            "usd": -11.07,
+            "ret_modal_pct": -2.768,
+            "achieved": false
+          },
+          "2026-09-10T17:04:25+00:00": {
+            "n": 5,
+            "usd": -6.78,
+            "ret_modal_pct": -1.694,
+            "achieved": false
+          },
+          "2026-09-14T11:04:25+00:00": {
+            "n": 11,
+            "usd": -10.81,
+            "ret_modal_pct": -2.703,
+            "achieved": false
+          },
+          "2026-09-15T17:04:25+00:00": {
+            "n": 3,
+            "usd": -1.37,
+            "ret_modal_pct": -0.343,
+            "achieved": false
+          }
+        },
+        "daily": null
+      },
+      "projection": {
+        "start_date": "2026-09-15",
+        "deadline": "2026-12-24",
+        "total_days": 100,
+        "days_left": 95,
+        "signal_per_day": 0.0,
+        "projected_n_by_deadline": 56,
+        "projected_n_in_33d": 56,
+        "target_n_g1": 158,
+        "on_track_g1": false
+      }
+    }
+  }
+}

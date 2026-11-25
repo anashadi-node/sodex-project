@@ -1,0 +1,161 @@
+{
+ "panel": "data/binance_klines/1h/*.json",
+ "since": "",
+ "symbols": 54,
+ "capital": 1000.0,
+ "hold_h": 30,
+ "fee_rt_bps": 6.49,
+ "generated_utc": "2026-11-07T02:16:25.098592+00:00",
+ "results": [
+  {
+   "strategy": "donchian30",
+   "verdict": "NO-GO",
+   "why": "mean uji <= 0",
+   "train": {
+    "n": 499,
+    "mean_pct": 0.5889,
+    "median_pct": 0.0,
+    "sd_pct": 14.2439,
+    "t": 0.92,
+    "hit_pct": 32.1,
+    "target_hit_pct": 29.3,
+    "best_pct": 96.579,
+    "worst_pct": -61.518
+   },
+   "test": {
+    "n": 333,
+    "mean_pct": -1.1564,
+    "median_pct": -1.9985,
+    "sd_pct": 53.341,
+    "t": -0.4,
+    "hit_pct": 33.0,
+    "target_hit_pct": 30.6,
+    "best_pct": 496.763,
+    "worst_pct": -165.231
+   },
+   "trades": 3646,
+   "avg_net_bps": -2.5,
+   "avg_cost_bps": 9.58
+  },
+  {
+   "strategy": "reversal6",
+   "verdict": "WATCH",
+   "why": "mean>0 tapi t uji 1.03 < 2.5",
+   "train": {
+    "n": 499,
+    "mean_pct": 0.148,
+    "median_pct": 0.0,
+    "sd_pct": 11.0267,
+    "t": 0.3,
+    "hit_pct": 24.6,
+    "target_hit_pct": 22.2,
+    "best_pct": 55.143,
+    "worst_pct": -89.832
+   },
+   "test": {
+    "n": 333,
+    "mean_pct": 1.6385,
+    "median_pct": 0.0,
+    "sd_pct": 29.051,
+    "t": 1.03,
+    "hit_pct": 39.9,
+    "target_hit_pct": 37.8,
+    "best_pct": 206.499,
+    "worst_pct": -130.492
+   },
+   "trades": 2576,
+   "avg_net_bps": 24.05,
+   "avg_cost_bps": 9.85
+  },
+  {
+   "strategy": "trend30",
+   "verdict": "NO-GO",
+   "why": "mean uji <= 0",
+   "train": {
+    "n": 499,
+    "mean_pct": 0.615,
+    "median_pct": 0.0,
+    "sd_pct": 16.4083,
+    "t": 0.84,
+    "hit_pct": 34.9,
+    "target_hit_pct": 31.9,
+    "best_pct": 114.179,
+    "worst_pct": -46.988
+   },
+   "test": {
+    "n": 333,
+    "mean_pct": -1.3844,
+    "median_pct": -3.1449,
+    "sd_pct": 61.351,
+    "t": -0.41,
+    "hit_pct": 33.9,
+    "target_hit_pct": 31.8,
+    "best_pct": 505.905,
+    "worst_pct": -175.389
+   },
+   "trades": 4737,
+   "avg_net_bps": -3.25,
+   "avg_cost_bps": 9.78
+  },
+  {
+   "strategy": "xs_mom30",
+   "verdict": "WATCH",
+   "why": "mean>0 tapi t uji 1.04 < 2.5",
+   "train": {
+    "n": 499,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "sd_pct": 0.0,
+    "t": 0.0,
+    "hit_pct": 0.0,
+    "target_hit_pct": 0.0,
+    "best_pct": 0.0,
+    "worst_pct": 0.0
+   },
+   "test": {
+    "n": 333,
+    "mean_pct": 0.2113,
+    "median_pct": 0.0,
+    "sd_pct": 3.6975,
+    "t": 1.04,
+    "hit_pct": 42.9,
+    "target_hit_pct": 34.2,
+    "best_pct": 27.11,
+    "worst_pct": -16.069
+   },
+   "trades": 1155,
+   "avg_net_bps": 24.36,
+   "avg_cost_bps": 8.76
+  },
+  {
+   "strategy": "xs_rev30",
+   "verdict": "NO-GO",
+   "why": "mean uji <= 0",
+   "train": {
+    "n": 499,
+    "mean_pct": 0.0,
+    "median_pct": 0.0,
+    "sd_pct": 0.0,
+    "t": 0.0,
+    "hit_pct": 0.0,
+    "target_hit_pct": 0.0,
+    "best_pct": 0.0,
+    "worst_pct": 0.0
+   },
+   "test": {
+    "n": 333,
+    "mean_pct": -0.3632,
+    "median_pct": 0.0,
+    "sd_pct": 3.6996,
+    "t": -1.79,
+    "hit_pct": 39.3,
+    "target_hit_pct": 29.1,
+    "best_pct": 15.898,
+    "worst_pct": -27.282
+   },
+   "trades": 1155,
+   "avg_net_bps": -41.88,
+   "avg_cost_bps": 8.76
+  }
+ ]
+}

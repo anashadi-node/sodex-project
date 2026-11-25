@@ -1,0 +1,18 @@
+[Unit]
+Description=Anantara Sakti — SoDEX Twin Watchdog (runs E1+PVE live engine, rate-limited restarts)
+# Watchdog mem-load .env penuh (set -a) lalu start engine dengan env lengkap;
+# restart engine dicek halaman halaman (rate limit 5/jam, cooldown 300s).
+# Jangan jalankan unit engine terpisah — engine hanya self-load SODEX_*, bukan TE_*.
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+Environment=PATH=/home/USER/anantara-sakti/.venv-research/bin:/usr/bin:/bin
+ExecStart=/bin/bash /home/USER/anantara-sakti/scripts/watchdog_twin.sh
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target

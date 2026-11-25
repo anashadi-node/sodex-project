@@ -1,0 +1,690 @@
+[
+  {
+    "path": "data/paper_test_realwide_state.json",
+    "mtime": "2026-09-18T04:18:57",
+    "n": 133,
+    "open": 1,
+    "wr": 0.48872180451127817,
+    "avg_pct": 0.0033284314944715767,
+    "sum_pct": 0.4426813887647199,
+    "pf": 1.4121076334086216,
+    "wallet_n": 133,
+    "wallet_avg": 0.006293517259179838,
+    "wallet_median": -0.0027141833321500117,
+    "target_hits": 39,
+    "target_rate": 0.2932330827067669,
+    "dup_extra": 0,
+    "exits": {
+      "SL": {
+        "n": 46,
+        "wr": 0.0,
+        "avg_pct": -0.019507232093684643,
+        "sum_pct": -0.8973326763094933,
+        "wallet_avg": -0.03688497181460603
+      },
+      "TIME_48h": {
+        "n": 5,
+        "wr": 0.6,
+        "avg_pct": -0.0009347001834535467,
+        "sum_pct": -0.004673500917267734,
+        "wallet_avg": -0.001767364521845859
+      },
+      "TP": {
+        "n": 26,
+        "wr": 1.0,
+        "avg_pct": 0.0472309021857685,
+        "sum_pct": 1.228003456829981,
+        "wallet_avg": 0.08930587832932403
+      },
+      "TIME_30h": {
+        "n": 23,
+        "wr": 0.6086956521739131,
+        "avg_pct": 0.006393749312799384,
+        "sum_pct": 0.14705623419438588,
+        "wallet_avg": 0.012089529773350658
+      },
+      "SL_PROTECT": {
+        "n": 23,
+        "wr": 0.9565217391304348,
+        "avg_pct": 0.0026334793250171323,
+        "sum_pct": 0.060570024475394044,
+        "wallet_avg": 0.004979476853051429
+      },
+      "SL_BEAR": {
+        "n": 7,
+        "wr": 0.0,
+        "avg_pct": -0.011788891860391934,
+        "sum_pct": -0.08252224302274354,
+        "wallet_avg": -0.022290858175454308
+      },
+      "TIME_20h": {
+        "n": 3,
+        "wr": 0.0,
+        "avg_pct": -0.002806635495178798,
+        "sum_pct": -0.008419906485536394,
+        "wallet_avg": -0.005306886729822509
+      }
+    },
+    "pairs": {
+      "AAVE": {
+        "n": 4,
+        "wr": 0.5,
+        "avg_pct": 0.0004959706086001688,
+        "sum_pct": 0.0019838824344006745,
+        "wallet_avg": 0.0009377989573934864,
+        "target_hit": 1,
+        "exit": {
+          "TP": 1,
+          "SL": 2,
+          "SL_PROTECT": 1
+        }
+      },
+      "ADA": {
+        "n": 6,
+        "wr": 0.3333333333333333,
+        "avg_pct": -0.012401908317633905,
+        "sum_pct": -0.07441144990580344,
+        "wallet_avg": -0.02344997160777872,
+        "target_hit": 0,
+        "exit": {
+          "SL": 4,
+          "SL_PROTECT": 2
+        }
+      },
+      "ARB": {
+        "n": 6,
+        "wr": 0.3333333333333333,
+        "avg_pct": -0.00037741687450829065,
+        "sum_pct": -0.0022645012470497473,
+        "wallet_avg": -0.0007136333187475532,
+        "target_hit": 2,
+        "exit": {
+          "SL": 4,
+          "TP": 2
+        }
+      },
+      "ASTER": {
+        "n": 6,
+        "wr": 0.5,
+        "avg_pct": 0.0023502894712887057,
+        "sum_pct": 0.014101736827732234,
+        "wallet_avg": 0.004444011353754013,
+        "target_hit": 1,
+        "exit": {
+          "TIME_30h": 1,
+          "SL": 2,
+          "TP": 1,
+          "SL_PROTECT": 2
+        }
+      },
+      "AVAX": {
+        "n": 4,
+        "wr": 0.5,
+        "avg_pct": -9.183216983980301e-05,
+        "sum_pct": -0.00036732867935921205,
+        "wallet_avg": -0.00017363954967818438,
+        "target_hit": 1,
+        "exit": {
+          "SL": 1,
+          "TIME_30h": 1,
+          "SL_PROTECT": 2
+        }
+      },
+      "BCH": {
+        "n": 2,
+        "wr": 0.5,
+        "avg_pct": -0.00712520187476101,
+        "sum_pct": -0.01425040374952202,
+        "wallet_avg": -0.013472586426498822,
+        "target_hit": 0,
+        "exit": {
+          "SL_PROTECT": 1,
+          "SL": 1
+        }
+      },
+      "BNB": {
+        "n": 4,
+        "wr": 0.5,
+        "avg_pct": 0.007127404303718749,
+        "sum_pct": 0.028509617214875,
+        "wallet_avg": 0.013476750857907635,
+        "target_hit": 1,
+        "exit": {
+          "SL": 2,
+          "TP": 1,
+          "SL_PROTECT": 1
+        }
+      },
+      "BTC": {
+        "n": 12,
+        "wr": 0.5833333333333334,
+        "avg_pct": 0.009156968595112325,
+        "sum_pct": 0.1098836231413479,
+        "wallet_avg": 0.017314323575782792,
+        "target_hit": 6,
+        "exit": {
+          "TIME_48h": 2,
+          "TIME_30h": 7,
+          "TP": 2,
+          "SL": 1
+        }
+      },
+      "DOGE": {
+        "n": 5,
+        "wr": 0.2,
+        "avg_pct": -0.0004746288163065337,
+        "sum_pct": -0.0023731440815326684,
+        "wallet_avg": -0.0008974451335683885,
+        "target_hit": 1,
+        "exit": {
+          "TP": 1,
+          "SL": 3,
+          "SL_BEAR": 1
+        }
+      },
+      "ENA": {
+        "n": 5,
+        "wr": 0.6,
+        "avg_pct": 0.004590426846109778,
+        "sum_pct": 0.022952134230548885,
+        "wallet_avg": 0.008679743185635531,
+        "target_hit": 1,
+        "exit": {
+          "SL": 2,
+          "TP": 1,
+          "SL_PROTECT": 2
+        }
+      },
+      "ETH": {
+        "n": 16,
+        "wr": 0.6875,
+        "avg_pct": 0.0070628781604480705,
+        "sum_pct": 0.11300605056716914,
+        "wallet_avg": 0.013354742519440448,
+        "target_hit": 6,
+        "exit": {
+          "TIME_48h": 2,
+          "TIME_30h": 5,
+          "TP": 3,
+          "SL": 2,
+          "SL_PROTECT": 3,
+          "SL_BEAR": 1
+        }
+      },
+      "HYPE": {
+        "n": 6,
+        "wr": 0.3333333333333333,
+        "avg_pct": -0.008774866457178824,
+        "sum_pct": -0.052649198743072945,
+        "wallet_avg": -0.016591831193455482,
+        "target_hit": 1,
+        "exit": {
+          "TIME_30h": 2,
+          "SL": 2,
+          "SL_PROTECT": 1,
+          "SL_BEAR": 1
+        }
+      },
+      "LINK": {
+        "n": 3,
+        "wr": 0.6666666666666666,
+        "avg_pct": 0.024935389286784713,
+        "sum_pct": 0.07480616786035414,
+        "wallet_avg": 0.04714872548868911,
+        "target_hit": 2,
+        "exit": {
+          "TIME_30h": 1,
+          "TP": 1,
+          "SL": 1
+        }
+      },
+      "ONDO": {
+        "n": 6,
+        "wr": 0.3333333333333333,
+        "avg_pct": -0.010302212811653473,
+        "sum_pct": -0.061813276869920844,
+        "wallet_avg": -0.019479792282213804,
+        "target_hit": 0,
+        "exit": {
+          "SL_PROTECT": 2,
+          "SL": 4
+        }
+      },
+      "SILVER": {
+        "n": 4,
+        "wr": 0.25,
+        "avg_pct": -0.007934186233599047,
+        "sum_pct": -0.0317367449343962,
+        "wallet_avg": -0.015002242972896221,
+        "target_hit": 0,
+        "exit": {
+          "TIME_30h": 1,
+          "SL": 1,
+          "TIME_20h": 1,
+          "SL_BEAR": 1
+        }
+      },
+      "SOL": {
+        "n": 16,
+        "wr": 0.625,
+        "avg_pct": 0.015362241587591073,
+        "sum_pct": 0.2457958654014572,
+        "wallet_avg": 0.02904747558475559,
+        "target_hit": 9,
+        "exit": {
+          "SL": 3,
+          "TP": 7,
+          "TIME_48h": 1,
+          "TIME_30h": 3,
+          "SL_PROTECT": 1,
+          "SL_BEAR": 1
+        }
+      },
+      "SUI": {
+        "n": 7,
+        "wr": 0.14285714285714285,
+        "avg_pct": -0.01482004855601615,
+        "sum_pct": -0.10374033989211305,
+        "wallet_avg": -0.028022277617577494,
+        "target_hit": 0,
+        "exit": {
+          "SL": 6,
+          "SL_PROTECT": 1
+        }
+      },
+      "TRX": {
+        "n": 5,
+        "wr": 0.2,
+        "avg_pct": -0.003154932202715771,
+        "sum_pct": -0.015774661013578856,
+        "wallet_avg": -0.005965458595832164,
+        "target_hit": 1,
+        "exit": {
+          "TIME_30h": 2,
+          "TIME_20h": 2,
+          "SL_BEAR": 1
+        }
+      },
+      "UNI": {
+        "n": 12,
+        "wr": 0.6666666666666666,
+        "avg_pct": 0.01757611358454467,
+        "sum_pct": 0.21091336301453603,
+        "wallet_avg": 0.033233543901193756,
+        "target_hit": 6,
+        "exit": {
+          "TP": 6,
+          "SL": 4,
+          "SL_PROTECT": 2
+        }
+      },
+      "XRP": {
+        "n": 4,
+        "wr": 0.5,
+        "avg_pct": -0.004972500702838127,
+        "sum_pct": -0.019890002811352506,
+        "wallet_avg": -0.009402182092849098,
+        "target_hit": 0,
+        "exit": {
+          "SL": 1,
+          "SL_PROTECT": 2,
+          "SL_BEAR": 1
+        }
+      }
+    },
+    "hold_avg": 12.934586466165413,
+    "hold_p95": 36.2,
+    "recent_n": 5,
+    "recent_wr": 0.4,
+    "recent_avg": -0.0029441899665582413
+  },
+  {
+    "path": "data/paper_test_shortbear_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 15,
+    "open": 0,
+    "wr": 0.6666666666666666,
+    "avg_pct": -0.0005133333333333334,
+    "sum_pct": -0.0077000000000000055,
+    "pf": 0.9088757396449706,
+    "wallet_n": 15,
+    "wallet_avg": -0.0005333333333333333,
+    "wallet_median": 0.0044,
+    "target_hits": 1,
+    "target_rate": 0.06666666666666667,
+    "dup_extra": 0,
+    "exits": {
+      "SL": {
+        "n": 5,
+        "wr": 0.0,
+        "avg_pct": -0.016900000000000002,
+        "sum_pct": -0.08449999999999999,
+        "wallet_avg": -0.013
+      },
+      "MR_EXIT": {
+        "n": 10,
+        "wr": 1.0,
+        "avg_pct": 0.00768,
+        "sum_pct": 0.07680000000000001,
+        "wallet_avg": 0.0057
+      }
+    },
+    "pairs": {
+      "BTC": {
+        "n": 4,
+        "wr": 0.75,
+        "avg_pct": -0.00015000000000000018,
+        "sum_pct": -0.0006000000000000016,
+        "wallet_avg": -0.0011249999999999997,
+        "target_hit": 0,
+        "exit": {
+          "MR_EXIT": 3,
+          "SL": 1
+        }
+      },
+      "DOGE": {
+        "n": 3,
+        "wr": 1.0,
+        "avg_pct": 0.009133333333333334,
+        "sum_pct": 0.0274,
+        "wallet_avg": 0.0069,
+        "target_hit": 1,
+        "exit": {
+          "MR_EXIT": 3
+        }
+      },
+      "SOL": {
+        "n": 3,
+        "wr": 0.6666666666666666,
+        "avg_pct": 3.333333333333313e-05,
+        "sum_pct": 9.99999999999994e-05,
+        "wallet_avg": 0.0002999999999999999,
+        "target_hit": 0,
+        "exit": {
+          "SL": 1,
+          "MR_EXIT": 2
+        }
+      },
+      "UNI": {
+        "n": 2,
+        "wr": 0.0,
+        "avg_pct": -0.017,
+        "sum_pct": -0.034,
+        "wallet_avg": -0.013049999999999999,
+        "target_hit": 0,
+        "exit": {
+          "SL": 2
+        }
+      },
+      "XRP": {
+        "n": 2,
+        "wr": 0.5,
+        "avg_pct": -0.005600000000000001,
+        "sum_pct": -0.011200000000000002,
+        "wallet_avg": -0.00285,
+        "target_hit": 0,
+        "exit": {
+          "MR_EXIT": 1,
+          "SL": 1
+        }
+      }
+    },
+    "hold_avg": 5.673333333333333,
+    "hold_p95": 13.6,
+    "recent_n": 12,
+    "recent_wr": 0.75,
+    "recent_avg": 0.0015583333333333332
+  },
+  {
+    "path": "data/paper_test_shortbear_baseline_control_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 5,
+    "open": 0,
+    "wr": 0.6,
+    "avg_pct": -0.0014199999999999998,
+    "sum_pct": -0.007099999999999999,
+    "pf": 0.7828746177370031,
+    "wallet_n": 5,
+    "wallet_avg": -0.00088,
+    "wallet_median": 0.0042,
+    "target_hits": 0,
+    "target_rate": 0.0,
+    "dup_extra": 0,
+    "exits": {
+      "MR_EXIT": {
+        "n": 3,
+        "wr": 1.0,
+        "avg_pct": 0.008533333333333334,
+        "sum_pct": 0.0256,
+        "wallet_avg": 0.0054
+      },
+      "SL": {
+        "n": 2,
+        "wr": 0.0,
+        "avg_pct": -0.01635,
+        "sum_pct": -0.0327,
+        "wallet_avg": -0.0103
+      }
+    },
+    "pairs": {},
+    "hold_avg": 5.9,
+    "hold_p95": 7.4,
+    "recent_n": 5,
+    "recent_wr": 0.6,
+    "recent_avg": -0.0014199999999999998
+  },
+  {
+    "path": "data/paper_test_shortbear_fast_exit_2h_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 5,
+    "open": 0,
+    "wr": 0.4,
+    "avg_pct": -0.0029000000000000002,
+    "sum_pct": -0.014500000000000002,
+    "pf": 0.3933054393305439,
+    "wallet_n": 5,
+    "wallet_avg": -0.00182,
+    "wallet_median": -0.0005,
+    "target_hits": 0,
+    "target_rate": 0.0,
+    "dup_extra": 0,
+    "exits": {
+      "TIME_2.0h": {
+        "n": 4,
+        "wr": 0.5,
+        "avg_pct": 0.0004749999999999999,
+        "sum_pct": 0.0018999999999999998,
+        "wallet_avg": 0.0003
+      },
+      "SL": {
+        "n": 1,
+        "wr": 0.0,
+        "avg_pct": -0.0164,
+        "sum_pct": -0.0164,
+        "wallet_avg": -0.0103
+      }
+    },
+    "pairs": {},
+    "hold_avg": 1.92,
+    "hold_p95": 2.0,
+    "recent_n": 5,
+    "recent_wr": 0.4,
+    "recent_avg": -0.0029000000000000002
+  },
+  {
+    "path": "data/paper_test_shortbear_closed_candle_entry_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 5,
+    "open": 0,
+    "wr": 0.6,
+    "avg_pct": -0.0031599999999999996,
+    "sum_pct": -0.0158,
+    "pf": 0.6127450980392156,
+    "wallet_n": 5,
+    "wallet_avg": -0.002,
+    "wallet_median": 0.0037,
+    "target_hits": 0,
+    "target_rate": 0.0,
+    "dup_extra": 0,
+    "exits": {
+      "MR_EXIT": {
+        "n": 3,
+        "wr": 1.0,
+        "avg_pct": 0.008333333333333333,
+        "sum_pct": 0.024999999999999998,
+        "wallet_avg": 0.005266666666666667
+      },
+      "SL": {
+        "n": 2,
+        "wr": 0.0,
+        "avg_pct": -0.0204,
+        "sum_pct": -0.0408,
+        "wallet_avg": -0.0129
+      }
+    },
+    "pairs": {},
+    "hold_avg": 5.6000000000000005,
+    "hold_p95": 7.4,
+    "recent_n": 5,
+    "recent_wr": 0.6,
+    "recent_avg": -0.0031599999999999996
+  },
+  {
+    "path": "data/paper_test_shortbear_venue_native_guard_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 5,
+    "open": 0,
+    "wr": 0.6,
+    "avg_pct": -0.0014199999999999998,
+    "sum_pct": -0.007099999999999999,
+    "pf": 0.7828746177370031,
+    "wallet_n": 5,
+    "wallet_avg": -0.00088,
+    "wallet_median": 0.0042,
+    "target_hits": 0,
+    "target_rate": 0.0,
+    "dup_extra": 0,
+    "exits": {
+      "MR_EXIT": {
+        "n": 3,
+        "wr": 1.0,
+        "avg_pct": 0.008533333333333334,
+        "sum_pct": 0.0256,
+        "wallet_avg": 0.0054
+      },
+      "SL": {
+        "n": 2,
+        "wr": 0.0,
+        "avg_pct": -0.01635,
+        "sum_pct": -0.0327,
+        "wallet_avg": -0.0103
+      }
+    },
+    "pairs": {},
+    "hold_avg": 5.9,
+    "hold_p95": 7.4,
+    "recent_n": 5,
+    "recent_wr": 0.6,
+    "recent_avg": -0.0014199999999999998
+  },
+  {
+    "path": "data/paper_test_shortbear_sodex_mark_execution_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 5,
+    "open": 0,
+    "wr": 0.6,
+    "avg_pct": -0.0027599999999999994,
+    "sum_pct": -0.013799999999999998,
+    "pf": 0.6434108527131783,
+    "wallet_n": 5,
+    "wallet_avg": -0.00174,
+    "wallet_median": 0.0034,
+    "target_hits": 1,
+    "target_rate": 0.2,
+    "dup_extra": 0,
+    "exits": {
+      "MR_EXIT": {
+        "n": 3,
+        "wr": 1.0,
+        "avg_pct": 0.0083,
+        "sum_pct": 0.0249,
+        "wallet_avg": 0.005233333333333333
+      },
+      "SL": {
+        "n": 2,
+        "wr": 0.0,
+        "avg_pct": -0.01935,
+        "sum_pct": -0.0387,
+        "wallet_avg": -0.012199999999999999
+      }
+    },
+    "pairs": {},
+    "hold_avg": 5.36,
+    "hold_p95": 6.2,
+    "recent_n": 5,
+    "recent_wr": 0.6,
+    "recent_avg": -0.0027599999999999994
+  },
+  {
+    "path": "data/paper_test_shortbear_strict_rsi_volume_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 1,
+    "open": 0,
+    "wr": 1.0,
+    "avg_pct": 0.0092,
+    "sum_pct": 0.0092,
+    "pf": Infinity,
+    "wallet_n": 1,
+    "wallet_avg": 0.0058,
+    "wallet_median": 0.0058,
+    "target_hits": 0,
+    "target_rate": 0.0,
+    "dup_extra": 0,
+    "exits": {
+      "MR_EXIT": {
+        "n": 1,
+        "wr": 1.0,
+        "avg_pct": 0.0092,
+        "sum_pct": 0.0092,
+        "wallet_avg": 0.0058
+      }
+    },
+    "pairs": {},
+    "hold_avg": 2.6,
+    "hold_p95": 2.6,
+    "recent_n": 1,
+    "recent_wr": 1.0,
+    "recent_avg": 0.0092
+  },
+  {
+    "path": "data/paper_test_shortbear_strict_all_5_state.json",
+    "mtime": "2026-09-18T04:15:36",
+    "n": 1,
+    "open": 0,
+    "wr": 1.0,
+    "avg_pct": 0.0092,
+    "sum_pct": 0.0092,
+    "pf": Infinity,
+    "wallet_n": 1,
+    "wallet_avg": 0.0058,
+    "wallet_median": 0.0058,
+    "target_hits": 0,
+    "target_rate": 0.0,
+    "dup_extra": 0,
+    "exits": {
+      "MR_EXIT": {
+        "n": 1,
+        "wr": 1.0,
+        "avg_pct": 0.0092,
+        "sum_pct": 0.0092,
+        "wallet_avg": 0.0058
+      }
+    },
+    "pairs": {},
+    "hold_avg": 2.6,
+    "hold_p95": 2.6,
+    "recent_n": 1,
+    "recent_wr": 1.0,
+    "recent_avg": 0.0092
+  }
+]

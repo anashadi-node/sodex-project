@@ -1,0 +1,36 @@
+# Rahasia & kredensial — JANGAN PERNAH commit
+secrets/*
+!secrets/*.template
+.env
+.env.*
+*.pem
+*.key
+*.p12
+id_rsa*
+*credential*
+*.token
+config*.json
+!config/*.template.json
+
+# Runtime / state / log
+data/*
+!data/sodex_data_README.md
+logs/
+*.log
+*.pid
+*.sqlite*
+LIVE_ARMED.json
+KILL
+KILL_*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv*/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Hasil riset beku yang dibangkitkan ulang
+scripts/research/mode_a_20261026/forward36/ledger.jsonl
+scripts/research/mode_a_20261026/lev_20261026/improve_20261026/shadow37/

@@ -1,0 +1,123 @@
+{
+ "prereg": "docs/sodex/SODEX_FORWARD_MOMENTUM_PRAREG_2026-10-05.md (beku d9ffcec)",
+ "phase": "DEV",
+ "range": [
+  "20260522",
+  "20260831"
+ ],
+ "lockbox_read": false,
+ "symbols": [
+  "BTC-USD",
+  "ETH-USD",
+  "SOL-USD"
+ ],
+ "half_spread_bp": {
+  "BTC-USD": 0.078,
+  "ETH-USD": 0.268,
+  "SOL-USD": 0.658
+ },
+ "fee_taker_bp_per_side": 2.0,
+ "hypotheses": {
+  "0.010": {
+   "theta_pct": 1.0,
+   "n_episode": 452,
+   "ep_per_symbol": {
+    "BTC-USD": 84,
+    "ETH-USD": 166,
+    "SOL-USD": 212
+   },
+   "mean_net_24h_pct": -0.16586609336275968,
+   "median_net_24h_pct": -0.1657661709819288,
+   "sr_annual": -0.8814567560157339,
+   "win_rate_pct": 47.56637168141593,
+   "segments_pct": [
+    -0.073,
+    -0.391,
+    -0.033
+   ],
+   "segments_positive": 0,
+   "p_signflip": 0.32856714328567144,
+   "p_day_cluster": 0.48735126487351266,
+   "control_fade_mean_net_pct": 0.06944884116220246,
+   "control_fade_p": 0.6763323667633236,
+   "beats_control": false,
+   "cost_bp_roundtrip": 4.156078070250739,
+   "passes_040pct": false,
+   "bh_pass": false,
+   "verdict": "GAGAL",
+   "fail_reasons": [
+    "mean<=0",
+    "BH gagal",
+    "day_cluster>=0,05",
+    "segmen<2/3",
+    "kalah kontrol",
+    "<0,40%"
+   ]
+  },
+  "0.015": {
+   "theta_pct": 1.5,
+   "n_episode": 165,
+   "ep_per_symbol": {
+    "BTC-USD": 24,
+    "ETH-USD": 60,
+    "SOL-USD": 84
+   },
+   "mean_net_24h_pct": 0.10390017389946707,
+   "median_net_24h_pct": -0.08376249798661536,
+   "sr_annual": 0.5176921355417176,
+   "win_rate_pct": 49.696969696969695,
+   "segments_pct": [
+    0.1011,
+    -0.0587,
+    0.2693
+   ],
+   "segments_positive": 2,
+   "p_signflip": 0.7363263673632636,
+   "p_day_cluster": 0.4791520847915208,
+   "control_fade_mean_net_pct": -0.20136267554378895,
+   "control_fade_p": 0.5155484451554845,
+   "beats_control": true,
+   "cost_bp_roundtrip": 4.156078070250739,
+   "passes_040pct": false,
+   "bh_pass": false,
+   "verdict": "GAGAL",
+   "fail_reasons": [
+    "BH gagal",
+    "day_cluster>=0,05",
+    "<0,40%"
+   ]
+  },
+  "0.020": {
+   "theta_pct": 2.0,
+   "n_episode": 53,
+   "ep_per_symbol": {
+    "BTC-USD": 6,
+    "ETH-USD": 18,
+    "SOL-USD": 30
+   },
+   "mean_net_24h_pct": 0.8231724179738975,
+   "median_net_24h_pct": -0.6396055552904909,
+   "sr_annual": 3.4367854356218106,
+   "win_rate_pct": 49.056603773584904,
+   "segments_pct": [
+    1.557,
+    0.607,
+    0.3463
+   ],
+   "segments_positive": 3,
+   "p_signflip": 0.19588041195880412,
+   "p_day_cluster": 0.49525047495250474,
+   "control_fade_mean_net_pct": -0.921569415394843,
+   "control_fade_p": 0.14928507149285072,
+   "beats_control": true,
+   "cost_bp_roundtrip": 4.156078070250739,
+   "passes_040pct": true,
+   "bh_pass": false,
+   "verdict": "GAGAL",
+   "fail_reasons": [
+    "BH gagal",
+    "day_cluster>=0,05"
+   ]
+  }
+ }
+}

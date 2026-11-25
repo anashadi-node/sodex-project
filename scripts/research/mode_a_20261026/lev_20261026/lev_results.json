@@ -1,0 +1,631 @@
+{
+ "plan": {
+  "arms": [
+   "A",
+   "B2"
+  ],
+  "L_grid": [
+   1.0,
+   1.5,
+   2.0,
+   3.0
+  ],
+  "cost_primary": 0.001,
+  "cost_sens": [
+   0.0007,
+   0.0015,
+   0.0025
+  ],
+  "start_fund": "2020-01-01",
+  "start_main": "2022-01-01",
+  "start_oos": "2024-01-01",
+  "start_oos26": "2026-05-24",
+  "today": "2026-10-25",
+  "target_M": 0.01,
+  "mdd_cap": -35.0,
+  "stress_mult": 1.5,
+  "near_liq": 0.2,
+  "xaut_adv": 0.006,
+  "win_days": 31,
+  "p_alpha": 0.05,
+  "seed": 34,
+  "n_boot": 5000,
+  "block": 10,
+  "n_ctrl": 300,
+  "sodex_fund_bps_day": 1.3
+ },
+ "cek_close_vs_ohlc_frac_beda>0.5%": {
+  "btc": 0.0,
+  "eth": 0.0
+ },
+ "triangulasi_funding_bps_hari": {
+  "sodex_BTC_24hari": 1.23,
+  "binance_BTC_jendela_sama": 1.0,
+  "binance_BTC_2022+_rata2": 1.79,
+  "binance_ETH_2022+_rata2": 1.63
+ },
+ "arms": {
+  "A": {
+   "spot_L1_tanpa_funding_M": 0.00606,
+   "L=1.0": {
+    "M_2022+": 0.00418,
+    "M_2024+": 0.00623,
+    "M_OOS26": 0.00136,
+    "G5j_geom_2022+": 0.00358,
+    "MDD_2022+": -14.2,
+    "P_win31_M>=target": 0.266,
+    "P_win31_rugi": 0.563,
+    "win31_terburuk_%": -9.6,
+    "tahun_M>=target": "1/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.758,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 0.379,
+    "gross_maks": 1.0,
+    "biaya_turnover_tahunan": 11.5,
+    "ci95": [
+     -0.00268,
+     0.01153
+    ],
+    "p_M_le_0": 0.1096,
+    "kontrol": {
+     "p_kontrol": 0.1661,
+     "kontrol_M_median": 0.00175,
+     "kontrol_M_p95": 0.00603
+    },
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": false,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": true,
+     "D_bukti_edge": false
+    }
+   },
+   "L=1.5": {
+    "M_2022+": 0.00629,
+    "M_2024+": 0.00931,
+    "M_OOS26": 0.00214,
+    "G5j_geom_2022+": 0.00497,
+    "MDD_2022+": -20.5,
+    "P_win31_M>=target": 0.318,
+    "P_win31_rugi": 0.564,
+    "win31_terburuk_%": -13.8,
+    "tahun_M>=target": "2/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.656,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 0.566,
+    "gross_maks": 1.5,
+    "biaya_turnover_tahunan": 17.44,
+    "ci95": [
+     -0.00391,
+     0.01716
+    ],
+    "p_M_le_0": 0.1058,
+    "kontrol": null,
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": false,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": true,
+     "D_bukti_edge": false
+    }
+   },
+   "L=2.0": {
+    "M_2022+": 0.00884,
+    "M_2024+": 0.01328,
+    "M_OOS26": 0.00254,
+    "G5j_geom_2022+": 0.00645,
+    "MDD_2022+": -26.5,
+    "P_win31_M>=target": 0.344,
+    "P_win31_rugi": 0.57,
+    "win31_terburuk_%": -18.5,
+    "tahun_M>=target": "2/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.586,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 0.756,
+    "gross_maks": 2.0,
+    "biaya_turnover_tahunan": 23.44,
+    "ci95": [
+     -0.00512,
+     0.02362
+    ],
+    "p_M_le_0": 0.1008,
+    "kontrol": {
+     "p_kontrol": 0.1329,
+     "kontrol_M_median": 0.00352,
+     "kontrol_M_p95": 0.01188
+    },
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": false,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": true,
+     "D_bukti_edge": false
+    }
+   },
+   "L=3.0": {
+    "M_2022+": 0.01295,
+    "M_2024+": 0.01913,
+    "M_OOS26": 0.0043,
+    "G5j_geom_2022+": 0.00754,
+    "MDD_2022+": -39.3,
+    "P_win31_M>=target": 0.378,
+    "P_win31_rugi": 0.575,
+    "win31_terburuk_%": -29.6,
+    "tahun_M>=target": "3/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.392,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 1.133,
+    "gross_maks": 3.05,
+    "biaya_turnover_tahunan": 35.96,
+    "ci95": [
+     -0.00792,
+     0.03489
+    ],
+    "p_M_le_0": 0.106,
+    "kontrol": null,
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": true,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": false,
+     "D_bukti_edge": false
+    }
+   }
+  },
+  "B2": {
+   "spot_L1_tanpa_funding_M": 0.00906,
+   "L=1.0": {
+    "M_2022+": 0.00657,
+    "M_2024+": 0.01057,
+    "M_OOS26": 0.00095,
+    "G5j_geom_2022+": 0.00568,
+    "MDD_2022+": -19.5,
+    "P_win31_M>=target": 0.365,
+    "P_win31_rugi": 0.503,
+    "win31_terburuk_%": -9.7,
+    "tahun_M>=target": "3/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.758,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 0.59,
+    "gross_maks": 1.13,
+    "biaya_turnover_tahunan": 18.53,
+    "ci95": [
+     -0.00138,
+     0.01506
+    ],
+    "p_M_le_0": 0.0524,
+    "kontrol": {
+     "p_kontrol": 0.0698,
+     "kontrol_M_median": 0.00245,
+     "kontrol_M_p95": 0.00709
+    },
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": false,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": true,
+     "D_bukti_edge": false
+    }
+   },
+   "L=1.5": {
+    "M_2022+": 0.00991,
+    "M_2024+": 0.01604,
+    "M_OOS26": 0.00154,
+    "G5j_geom_2022+": 0.00795,
+    "MDD_2022+": -27.0,
+    "P_win31_M>=target": 0.414,
+    "P_win31_rugi": 0.506,
+    "win31_terburuk_%": -14.5,
+    "tahun_M>=target": "3/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.656,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 0.883,
+    "gross_maks": 1.71,
+    "biaya_turnover_tahunan": 27.77,
+    "ci95": [
+     -0.00193,
+     0.02253
+    ],
+    "p_M_le_0": 0.0486,
+    "kontrol": null,
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": false,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": true,
+     "D_bukti_edge": false
+    }
+   },
+   "L=2.0": {
+    "M_2022+": 0.01382,
+    "M_2024+": 0.02227,
+    "M_OOS26": 0.0022,
+    "G5j_geom_2022+": 0.01035,
+    "MDD_2022+": -33.9,
+    "P_win31_M>=target": 0.439,
+    "P_win31_rugi": 0.512,
+    "win31_terburuk_%": -18.8,
+    "tahun_M>=target": "3/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.586,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 1.175,
+    "gross_maks": 2.26,
+    "biaya_turnover_tahunan": 37.05,
+    "ci95": [
+     -0.00193,
+     0.03082
+    ],
+    "p_M_le_0": 0.0424,
+    "kontrol": {
+     "p_kontrol": 0.0598,
+     "kontrol_M_median": 0.00507,
+     "kontrol_M_p95": 0.01422
+    },
+    "vonis": "LAYAK_PAPER_BUKAN_BUKTI",
+    "gerbang": {
+     "A_target": true,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": true,
+     "D_bukti_edge": false
+    }
+   },
+   "L=3.0": {
+    "M_2022+": 0.02029,
+    "M_2024+": 0.03262,
+    "M_OOS26": 0.00388,
+    "G5j_geom_2022+": 0.0126,
+    "MDD_2022+": -46.6,
+    "P_win31_M>=target": 0.457,
+    "P_win31_rugi": 0.524,
+    "win31_terburuk_%": -26.6,
+    "tahun_M>=target": "3/5",
+    "hari_likuidasi_dasar": 0,
+    "hari_likuidasi_stres": 0,
+    "eq_stres_min": 0.392,
+    "hari_eq_stres<=0.2": 0,
+    "gross_rata2": 1.765,
+    "gross_maks": 3.32,
+    "biaya_turnover_tahunan": 56.08,
+    "ci95": [
+     -0.00328,
+     0.04561
+    ],
+    "p_M_le_0": 0.046,
+    "kontrol": null,
+    "vonis": "TIDAK_LAYAK",
+    "gerbang": {
+     "A_target": true,
+     "B_oos_positif": true,
+     "C_risiko_likuidasi": false,
+     "D_bukti_edge": false
+    }
+   }
+  }
+ },
+ "sensitivitas": {
+  "A": {
+   "biaya7bps": {
+    "L=1.0": 0.00436,
+    "L=1.5": 0.00657,
+    "L=2.0": 0.00921,
+    "L=3.0": 0.01352
+   },
+   "biaya15bps": {
+    "L=1.0": 0.00384,
+    "L=1.5": 0.00577,
+    "L=2.0": 0.00814,
+    "L=3.0": 0.01187
+   },
+   "biaya25bps": {
+    "L=1.0": 0.00318,
+    "L=1.5": 0.00477,
+    "L=2.0": 0.0068,
+    "L=3.0": 0.00981
+   },
+   "funding_SoDEX_1.3bps/hari": {
+    "L=1.0": 0.00503,
+    "L=1.5": 0.00755,
+    "L=2.0": 0.01054,
+    "L=3.0": 0.0155
+   },
+   "funding_0": {
+    "L=1.0": 0.00606,
+    "L=1.5": 0.00908,
+    "L=2.0": 0.01259,
+    "L=3.0": 0.01857
+   }
+  },
+  "B2": {
+   "biaya7bps": {
+    "L=1.0": 0.00686,
+    "L=1.5": 0.01035,
+    "L=2.0": 0.01442,
+    "L=3.0": 0.0212
+   },
+   "biaya15bps": {
+    "L=1.0": 0.00601,
+    "L=1.5": 0.00907,
+    "L=2.0": 0.01272,
+    "L=3.0": 0.01862
+   },
+   "biaya25bps": {
+    "L=1.0": 0.00495,
+    "L=1.5": 0.00748,
+    "L=2.0": 0.01059,
+    "L=3.0": 0.01539
+   },
+   "funding_SoDEX_1.3bps/hari": {
+    "L=1.0": 0.00747,
+    "L=1.5": 0.01124,
+    "L=2.0": 0.01563,
+    "L=3.0": 0.02301
+   },
+   "funding_0": {
+    "L=1.0": 0.00906,
+    "L=1.5": 0.01363,
+    "L=2.0": 0.01881,
+    "L=3.0": 0.02779
+   }
+  }
+ },
+ "kelly_kurva": {
+  "A": {
+   "0.5": {
+    "M": 0.00214,
+    "G": 0.00199,
+    "MDD": -7.3,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "1.0": {
+    "M": 0.00418,
+    "G": 0.00358,
+    "MDD": -14.2,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "1.5": {
+    "M": 0.00629,
+    "G": 0.00497,
+    "MDD": -20.5,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "2.0": {
+    "M": 0.00884,
+    "G": 0.00645,
+    "MDD": -26.5,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "2.5": {
+    "M": 0.00993,
+    "G": 0.00615,
+    "MDD": -36.4,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "3.0": {
+    "M": 0.01295,
+    "G": 0.00754,
+    "MDD": -39.3,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "3.5": {
+    "M": 0.01479,
+    "G": 0.00744,
+    "MDD": -47.7,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "4.0": {
+    "M": 0.01664,
+    "G": 0.00709,
+    "MDD": -53.2,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "4.5": {
+    "M": 0.01969,
+    "G": 0.00765,
+    "MDD": -57.0,
+    "liq": 0,
+    "liq_s": 1
+   },
+   "5.0": {
+    "M": 0.02235,
+    "G": 0.0076,
+    "MDD": -63.1,
+    "liq": 0,
+    "liq_s": 1
+   },
+   "5.5": {
+    "M": 0.02399,
+    "G": 0.0061,
+    "MDD": -66.3,
+    "liq": 0,
+    "liq_s": 2
+   },
+   "6.0": {
+    "M": 0.02714,
+    "G": 0.00553,
+    "MDD": -70.8,
+    "liq": 0,
+    "liq_s": 4
+   },
+   "6.5": {
+    "M": 0.03015,
+    "G": 0.0046,
+    "MDD": -75.0,
+    "liq": 1,
+    "liq_s": 4
+   },
+   "7.0": {
+    "M": 0.03112,
+    "G": 0.00158,
+    "MDD": -77.5,
+    "liq": 1,
+    "liq_s": 6
+   },
+   "7.5": {
+    "M": 0.0326,
+    "G": -0.00134,
+    "MDD": -80.5,
+    "liq": 2,
+    "liq_s": 7
+   },
+   "8.0": {
+    "M": 0.03353,
+    "G": -0.00502,
+    "MDD": -83.2,
+    "liq": 2,
+    "liq_s": 7
+   }
+  },
+  "B2": {
+   "0.5": {
+    "M": 0.00326,
+    "G": 0.00303,
+    "MDD": -10.4,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "1.0": {
+    "M": 0.00657,
+    "G": 0.00568,
+    "MDD": -19.5,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "1.5": {
+    "M": 0.00991,
+    "G": 0.00795,
+    "MDD": -27.0,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "2.0": {
+    "M": 0.01382,
+    "G": 0.01035,
+    "MDD": -33.9,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "2.5": {
+    "M": 0.0161,
+    "G": 0.0107,
+    "MDD": -41.0,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "3.0": {
+    "M": 0.02029,
+    "G": 0.0126,
+    "MDD": -46.6,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "3.5": {
+    "M": 0.02215,
+    "G": 0.01125,
+    "MDD": -57.7,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "4.0": {
+    "M": 0.02556,
+    "G": 0.0113,
+    "MDD": -64.0,
+    "liq": 0,
+    "liq_s": 0
+   },
+   "4.5": {
+    "M": 0.03094,
+    "G": 0.0134,
+    "MDD": -64.8,
+    "liq": 0,
+    "liq_s": 1
+   },
+   "5.0": {
+    "M": 0.0336,
+    "G": 0.01201,
+    "MDD": -68.9,
+    "liq": 0,
+    "liq_s": 1
+   },
+   "5.5": {
+    "M": 0.03733,
+    "G": 0.01117,
+    "MDD": -72.7,
+    "liq": 0,
+    "liq_s": 2
+   },
+   "6.0": {
+    "M": 0.0399,
+    "G": 0.00609,
+    "MDD": -83.5,
+    "liq": 0,
+    "liq_s": 5
+   },
+   "6.5": {
+    "M": 0.04286,
+    "G": 0.00227,
+    "MDD": -87.3,
+    "liq": 1,
+    "liq_s": 6
+   },
+   "7.0": {
+    "M": 0.04673,
+    "G": -0.00126,
+    "MDD": -90.7,
+    "liq": 1,
+    "liq_s": 8
+   },
+   "7.5": {
+    "M": 0.04599,
+    "G": -0.01117,
+    "MDD": -93.8,
+    "liq": 3,
+    "liq_s": 8
+   },
+   "8.0": {
+    "M": 0.04837,
+    "G": -0.02003,
+    "MDD": -96.6,
+    "liq": 3,
+    "liq_s": 8
+   }
+  }
+ },
+ "L_kritis": {
+  "A": {
+   "L_pertama_M>=target(grid 0.5)": 3.0,
+   "L_G_maks(Kelly-geometrik)": 4.5,
+   "L_pertama_MDD<cap": 2.5,
+   "L_pertama_likuidasi_dasar": 6.5,
+   "L_pertama_likuidasi_stres": 4.5
+  },
+  "B2": {
+   "L_pertama_M>=target(grid 0.5)": 2.0,
+   "L_G_maks(Kelly-geometrik)": 4.5,
+   "L_pertama_MDD<cap": 2.5,
+   "L_pertama_likuidasi_dasar": 6.5,
+   "L_pertama_likuidasi_stres": 4.5
+  }
+ }
+}

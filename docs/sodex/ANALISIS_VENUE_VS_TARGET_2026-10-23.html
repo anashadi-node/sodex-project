@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analisis: Apakah Pindah Venue (Aster / Hyperliquid / Binance) Membuat Target 0,8% per 30–48 Jam Jauh Lebih Mudah?</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Analisis: Apakah Pindah Venue (Aster / Hyperliquid / Binance) Membuat Target 0,8% per 30–48 Jam Jauh Lebih Mudah?</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#0-jawaban-singkat-verdict">0. Jawaban singkat (verdict)</a></li>
+<li class="t2"><a href="#1-metode-dan-sumber-data">1. Metode dan sumber data</a></li>
+<li class="t2"><a href="#2-fakta-pertama-seberapa-besar-sebenarnya-target-08-itu">2. Fakta pertama: seberapa besar sebenarnya target 0,8% itu?</a></li>
+<li class="t3"><a href="#21-dalam-satuan-tahunan-compounded">2.1 Dalam satuan tahunan (compounded)</a></li>
+<li class="t3"><a href="#22-relatif-terhadap-volatilitas">2.2 Relatif terhadap volatilitas</a></li>
+<li class="t2"><a href="#3-fakta-kedua-biaya-per-venue-terukur-bukan-asumsi">3. Fakta kedua: biaya per venue (terukur, bukan asumsi)</a></li>
+<li class="t3"><a href="#31-fee-resmi">3.1 Fee resmi</a></li>
+<li class="t3"><a href="#32-spread-dan-slippage-live-diukur-23-okt-2026">3.2 Spread dan slippage live (diukur 23 Okt 2026)</a></li>
+<li class="t3"><a href="#33-biaya-funding-yang-paling-sering-diabaikan">3.3 Biaya funding — yang paling sering diabaikan</a></li>
+<li class="t3"><a href="#34-koreksi-penting-funding-berbeda-23×-antar-venue">3.4 Koreksi penting: funding berbeda 2–3× antar-venue</a></li>
+<li class="t2"><a href="#4-fakta-ketiga-akurasi-yang-dibutuhkan-dan-seberapa-kecil-venue-menggesernya">4. Fakta ketiga: akurasi yang dibutuhkan (dan seberapa kecil venue menggesernya)</a></li>
+<li class="t2"><a href="#5-fakta-keempat-sharpe-yang-tersirat">5. Fakta keempat: Sharpe yang tersirat</a></li>
+<li class="t2"><a href="#6-fakta-kelima-diversifikasi-tidak-menyelamatkan-edge-yang-kurang">6. Fakta kelima: diversifikasi tidak menyelamatkan edge yang kurang</a></li>
+<li class="t2"><a href="#7-verdict-per-venue">7. Verdict per venue</a></li>
+<li class="t3"><a href="#sodex">SoDEX</a></li>
+<li class="t3"><a href="#aster">Aster</a></li>
+<li class="t3"><a href="#hyperliquid">Hyperliquid</a></li>
+<li class="t3"><a href="#binance">Binance</a></li>
+<li class="t2"><a href="#8-di-mana-venue-benar-benar-mengubah-hasil">8. Di mana venue BENAR-BENAR mengubah hasil</a></li>
+<li class="t2"><a href="#9-kesimpulan">9. Kesimpulan</a></li>
+<li class="t2"><a href="#10-rekomendasi-konkret">10. Rekomendasi konkret</a></li>
+<li class="t2"><a href="#11-keterbatasan-analisis-ini">11. Keterbatasan analisis ini</a></li>
+</ul>
+</nav>
+<p><strong>Tanggal:</strong> 23 Oktober 2026 · <strong>Penulis:</strong> Hermes Anantara v3
+<strong>Sifat:</strong> analisis kuantitatif, bukan opini. Setiap angka punya sumber atau pengukuran.</p>
+<hr>
+<h2 id="0-jawaban-singkat-verdict">0. Jawaban singkat (verdict)</h2>
+<p><strong>Tidak. Tidak "jauh lebih mudah".</strong></p>
+<p>Perpindahan venue mengubah <strong>hambatan biaya sebesar 0–10 bps</strong> dari target <strong>80 bps</strong> —
+artinya <strong>0–12%</strong> dari persoalan. Dalam satuan yang lebih tajam: win-rate yang dibutuhkan
+pada RR 2:1 bergeser dari <strong>52,6% (SoDEX)</strong> menjadi <strong>51,1% (Aster maker)</strong> atau <strong>53,3%
+(Binance taker)</strong> — selisih <strong>2,2 poin persentase</strong>.</p>
+<p>Yang menentukan target ini bukan venue, melainkan <strong>edge arah</strong> dan <strong>ukuran risiko</strong>.
+Venue hanya membantu pada tiga hal yang berbeda: <strong>kapasitas</strong>, <strong>ketersediaan data untuk
+validasi</strong>, dan <strong>pilihan instrumen (spot vs perp)</strong>.</p>
+<hr>
+<h2 id="1-metode-dan-sumber-data">1. Metode dan sumber data</h2>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Sumber</th>
+<th>Ukuran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Volatilitas 30/48 jam</td>
+<td>Binance klines 1h, 2024-01 → 2026-10</td>
+<td>24.276 bar/simbol, jendela non-overlap</td>
+</tr>
+<tr>
+<td>Spread &amp; slippage</td>
+<td>Orderbook live Binance USDM, Hyperliquid <code>l2Book</code>, Aster <code>depth</code></td>
+<td>top-50, klip $250 / $2.500 / $25.000</td>
+</tr>
+<tr>
+<td>Funding</td>
+<td>Binance funding history, 249 simbol</td>
+<td>6.500–7.700 sampel/simbol, interval 4 jam</td>
+</tr>
+<tr>
+<td>Fee</td>
+<td>Dokumentasi resmi (lihat §3)</td>
+<td>maker/taker per leg</td>
+</tr>
+<tr>
+<td>Biaya efektif SoDEX</td>
+<td>Ledger internal, 861 trade berharga</td>
+<td>6,49 bps RT tersirat</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-fakta-pertama-seberapa-besar-sebenarnya-target-08-itu">2. Fakta pertama: seberapa besar sebenarnya target 0,8% itu?</h2>
+<h3 id="21-dalam-satuan-tahunan-compounded">2.1 Dalam satuan tahunan (compounded)</h3>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Per tahun</th>
+<th>Per bulan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,8% per <strong>30 jam</strong></td>
+<td><strong>10,2×</strong> (924%)</td>
+<td>19,2%</td>
+</tr>
+<tr>
+<td>0,8% per <strong>48 jam</strong></td>
+<td><strong>4,3×</strong> (328%)</td>
+<td>12,1%</td>
+</tr>
+</tbody>
+</table>
+<p>Angka ini penting: 0,8% terlihat kecil sebagai satu kejadian, tetapi sebagai <strong>laju
+berulang</strong> ia berarti portofolio berlipat 10× setahun.</p>
+<h3 id="22-relatif-terhadap-volatilitas">2.2 Relatif terhadap volatilitas</h3>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>σ 30 jam</th>
+<th>σ 48 jam</th>
+<th>P(|gerak| ≥ 0,8%) per 30 jam</th>
+<th>Rata-rata |gerak| 30 jam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC</td>
+<td>2,76%</td>
+<td>3,37%</td>
+<td>66,6%</td>
+<td>1,95%</td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>3,88%</td>
+<td>4,81%</td>
+<td>76,9%</td>
+<td>2,69%</td>
+</tr>
+<tr>
+<td>BNB</td>
+<td>3,22%</td>
+<td>3,77%</td>
+<td>71,7%</td>
+<td>2,19%</td>
+</tr>
+<tr>
+<td>XRP</td>
+<td>4,57%</td>
+<td>5,72%</td>
+<td>74,4%</td>
+<td>3,02%</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>4,70%</td>
+<td>5,60%</td>
+<td>82,1%</td>
+<td>3,43%</td>
+</tr>
+<tr>
+<td>LINK</td>
+<td>5,05%</td>
+<td>6,06%</td>
+<td>82,6%</td>
+<td>3,55%</td>
+</tr>
+<tr>
+<td>AAVE</td>
+<td>5,50%</td>
+<td>6,88%</td>
+<td>83,8%</td>
+<td>3,95%</td>
+</tr>
+<tr>
+<td>SUI</td>
+<td>6,30%</td>
+<td>7,81%</td>
+<td>84,4%</td>
+<td>4,36%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretasi:</strong> 0,8% hanya <strong>0,29σ</strong> untuk BTC dan <strong>0,13σ</strong> untuk SUI dalam 30 jam.
+Pasarnya hampir selalu bergerak lebih dari 0,8% dalam satu window (67–85% window).</p>
+<p><strong>Kesimpulan bagian ini:</strong> masalahnya <strong>bukan kekurangan peluang pergerakan</strong>, melainkan
+<strong>arah</strong>. Tidak ada venue yang bisa menambah besar pergerakan; yang bisa dilakukan venue
+hanya mengubah biaya masuk-keluar.</p>
+<hr>
+<h2 id="3-fakta-kedua-biaya-per-venue-terukur-bukan-asumsi">3. Fakta kedua: biaya per venue (terukur, bukan asumsi)</h2>
+<h3 id="31-fee-resmi">3.1 Fee resmi</h3>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>Maker / leg</th>
+<th>Taker / leg</th>
+<th><strong>RT maker</strong></th>
+<th><strong>RT taker</strong></th>
+<th>Sumber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SoDEX</strong></td>
+<td>1,14 bps</td>
+<td>2,80 bps</td>
+<td><strong>2,28</strong></td>
+<td><strong>5,60</strong> (efektif terukur <strong>6,49</strong>)</td>
+<td>ledger internal</td>
+</tr>
+<tr>
+<td><strong>Aster</strong> (Crypto General)</td>
+<td><strong>0 bps</strong></td>
+<td>4,00 bps</td>
+<td><strong>0,00</strong></td>
+<td><strong>8,00</strong></td>
+<td>docs.asterdex.com</td>
+</tr>
+<tr>
+<td><strong>Hyperliquid</strong></td>
+<td>1,50 bps</td>
+<td>4,50 bps</td>
+<td><strong>3,00</strong></td>
+<td><strong>9,00</strong></td>
+<td>docs Hyperliquid</td>
+</tr>
+<tr>
+<td><strong>Binance USDⓈ-M</strong></td>
+<td>2,00 bps</td>
+<td>5,00 bps</td>
+<td><strong>4,00</strong></td>
+<td><strong>10,00</strong></td>
+<td>Binance fee schedule (VIP 0)</td>
+</tr>
+<tr>
+<td><strong>Binance Spot</strong></td>
+<td>10,0 bps</td>
+<td>10,0 bps</td>
+<td><strong>20,0</strong></td>
+<td><strong>20,0</strong> (7,5/7,5 dgn BNB = 15)</td>
+<td>Binance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Temuan yang berlawanan dengan intuisi umum:</strong> SoDEX adalah venue <strong>termurah untuk taker</strong>
+(5,6 bps RT) — lebih murah dari Binance (10) dan Hyperliquid (9). Yang paling murah untuk
+maker justru <strong>Aster: 0 bps</strong>.</p>
+<h3 id="32-spread-dan-slippage-live-diukur-23-okt-2026">3.2 Spread dan slippage live (diukur 23 Okt 2026)</h3>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>BTC spread</th>
+<th>ETH spread</th>
+<th>Slippage $250</th>
+<th>Slippage $25.000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binance</td>
+<td>0,012 bps</td>
+<td>0,042 bps</td>
+<td><strong>0,00</strong></td>
+<td><strong>0,00</strong></td>
+</tr>
+<tr>
+<td>Hyperliquid</td>
+<td>0,245 bps</td>
+<td>0,418 bps</td>
+<td><strong>0,00</strong></td>
+<td><strong>0,00</strong></td>
+</tr>
+<tr>
+<td>Aster</td>
+<td>0,012 bps</td>
+<td>0,042 bps</td>
+<td><strong>0,00</strong></td>
+<td>0,024 bps (ETH)</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk ukuran wallet sekarang (~$250–$2.500), <strong>slippage praktis nol di ketiga venue</strong>.
+Ini berarti selisih 0,9 bps antara fee SoDEX (5,6) dan biaya efektif SoDEX (6,49) memang
+biaya venue, bukan slippage yang bisa dihilangkan dengan pindah tempat.</p>
+<h3 id="33-biaya-funding-yang-paling-sering-diabaikan">3.3 Biaya funding — yang paling sering diabaikan</h3>
+<p>Ini bagian yang <strong>mengubah kesimpulan</strong>. Untuk hold 30–48 jam, posisi perp melewati
+7–12 periode funding.</p>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>Funding median / 4 jam</th>
+<th>Akumulasi 30 jam</th>
+<th>Akumulasi 48 jam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC</td>
+<td>+0,95 bps</td>
+<td><strong>±10 bps</strong></td>
+<td><strong>±16 bps</strong></td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>+1,00 bps</td>
+<td><strong>±12 bps</strong></td>
+<td><strong>±19 bps</strong></td>
+</tr>
+<tr>
+<td>XRP</td>
+<td>+1,00 bps</td>
+<td><strong>±15 bps</strong></td>
+<td><strong>±23 bps</strong></td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>+0,84 bps</td>
+<td>±11 bps</td>
+<td>±18 bps</td>
+</tr>
+<tr>
+<td>SUI</td>
+<td>+0,64 bps</td>
+<td>±8 bps</td>
+<td>±13 bps</td>
+</tr>
+</tbody>
+</table>
+<p>(dihitung dari 249 simbol, 6.500–7.700 sampel per simbol)</p>
+<p><strong>Perbandingan biaya total per window 30 jam, posisi long 1×:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Venue / instrumen</th>
+<th>Fee RT</th>
+<th>Funding 30 jam</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoDEX perp (taker)</td>
+<td>5,6–6,5</td>
+<td>~10</td>
+<td><strong>~16–17 bps</strong></td>
+</tr>
+<tr>
+<td>Aster perp (maker)</td>
+<td><strong>0</strong></td>
+<td>~10</td>
+<td><strong>~10 bps</strong></td>
+</tr>
+<tr>
+<td>Hyperliquid perp (maker)</td>
+<td>3,0</td>
+<td>~10</td>
+<td><strong>~13 bps</strong></td>
+</tr>
+<tr>
+<td>Binance perp (taker)</td>
+<td>10,0</td>
+<td>~10</td>
+<td><strong>~20 bps</strong></td>
+</tr>
+<tr>
+<td><strong>Binance spot (BNB)</strong></td>
+<td>15,0</td>
+<td><strong>0</strong></td>
+<td><strong>15 bps</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan:</strong> untuk hold 30–48 jam, <strong>funding lebih besar dari fee</strong>. Venue termurah
+sekalipun tetap membayar ~10 bps funding. Satu-satunya cara menghindarinya adalah <strong>spot</strong>,
+dan itu hanya masuk akal untuk posisi long.</p>
+<h3 id="34-koreksi-penting-funding-berbeda-23×-antar-venue">3.4 Koreksi penting: funding berbeda 2–3× antar-venue</h3>
+<p>Angka di §3.3 berasal dari <strong>Binance</strong> (interval 4 jam). Pengukuran langsung pada
+<strong>Hyperliquid</strong> (interval 1 jam, 60 hari terakhir) memberi hasil berbeda:</p>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>BTC funding / jam</th>
+<th>BTC funding 30 jam</th>
+<th>BTC funding 48 jam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Binance</strong> (4 jam)</td>
+<td>0,238 bps</td>
+<td><strong>7,1 bps</strong></td>
+<td>11,4 bps</td>
+</tr>
+<tr>
+<td><strong>Hyperliquid</strong> (1 jam)</td>
+<td>0,102 bps</td>
+<td><strong>3,1 bps</strong></td>
+<td>4,9 bps</td>
+</tr>
+</tbody>
+</table>
+<p>Hyperliquid memakai lantai bunga tetap 0,01%/8 jam (11,6% APR) yang <strong>lebih rendah</strong> dari
+rata-rata funding Binance (≈20,8% APR). Median seluruh aset HL = 0,125 bps/jam.</p>
+<p><strong>Konsekuensi pada tabel biaya total 30 jam (long, maker):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Venue</th>
+<th>Fee RT</th>
+<th>Funding 30 j</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hyperliquid (maker)</strong></td>
+<td>3,0</td>
+<td><strong>3,1</strong></td>
+<td><strong>≈6,1 bps</strong></td>
+</tr>
+<tr>
+<td>Aster (maker)</td>
+<td>0,0</td>
+<td>7,1 (proksi Binance)</td>
+<td>≈7,1 bps</td>
+</tr>
+<tr>
+<td>SoDEX (maker)</td>
+<td>2,28</td>
+<td>belum terukur</td>
+<td>≥2,3 bps</td>
+</tr>
+<tr>
+<td>Binance (maker)</td>
+<td>4,0</td>
+<td>7,1</td>
+<td>≈11,1 bps</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Jadi untuk hold 30–48 jam, Hyperliquid adalah venue perp termurah secara total</strong> —
+bukan karena fee (3 bps, di atas SoDEX 2,28), tetapi karena funding-nya <strong>kurang dari
+setengah</strong> Binance. Ini tidak mengubah besaran persoalan (selisih ~5 bps dari 80 bps),
+tetapi mengubah peringkat venue.</p>
+<hr>
+<h2 id="4-fakta-ketiga-akurasi-yang-dibutuhkan-dan-seberapa-kecil-venue-menggesernya">4. Fakta ketiga: akurasi yang dibutuhkan (dan seberapa kecil venue menggesernya)</h2>
+<p>Rumus: <code>E = p·TP − (1−p)·SL − c</code>. Agar <code>E = 0,8%</code> per window dengan satu trade 100% notional:</p>
+<table>
+<thead>
+<tr>
+<th>TP / SL</th>
+<th>RR</th>
+<th>Aster (c=0)</th>
+<th>HL maker (0,03)</th>
+<th>SoDEX (0,065)</th>
+<th>Binance (0,10)</th>
+<th>+ funding 30j (0,22)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3% / 1,5%</td>
+<td>2,0</td>
+<td><strong>51,1%</strong></td>
+<td>51,8%</td>
+<td><strong>52,6%</strong></td>
+<td>53,3%</td>
+<td>56,0%</td>
+</tr>
+<tr>
+<td>6% / 3%</td>
+<td>2,0</td>
+<td>42,2%</td>
+<td>42,6%</td>
+<td>42,9%</td>
+<td>43,3%</td>
+<td>44,7%</td>
+</tr>
+<tr>
+<td>4% / 2%</td>
+<td>2,0</td>
+<td>46,7%</td>
+<td>47,2%</td>
+<td>47,8%</td>
+<td>48,3%</td>
+<td>50,3%</td>
+</tr>
+<tr>
+<td>3% / 3%</td>
+<td>1,0</td>
+<td>63,3%</td>
+<td>63,8%</td>
+<td>64,4%</td>
+<td>65,0%</td>
+<td>67,0%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baca tabel ini dengan urutan:</strong>
+1. <strong>RR (rasio TP/SL) menggeser kebutuhan win-rate jauh lebih besar</strong> daripada venue:
+   2:1 → 51%, 1:1 → 63%. Selisih 12 poin.
+2. <strong>Venue hanya menggeser 2,2 poin</strong> (Aster 51,1% vs Binance 53,3%).
+3. <strong>Funding menggeser 3–4 poin</strong> — lebih besar dari perbedaan venue.</p>
+<p><strong>Untuk pembanding, buku SoDEX nyata:</strong> RR 1,98:1, WR 45% (219 TP dari 486 trade
+berkeputusan). Kebutuhan: 52,3%. <strong>Defisit 7,3 poin.</strong> Kekurangan itu setara −30 bps/trade,
+dan itulah sumber seluruh kerugian — bukan fee.</p>
+<hr>
+<h2 id="5-fakta-keempat-sharpe-yang-tersirat">5. Fakta keempat: Sharpe yang tersirat</h2>
+<p>Bila 0,8% dicapai <strong>setiap</strong> window, maka Sharpe tahunan yang tersirat adalah:</p>
+<table>
+<thead>
+<tr>
+<th>Simpangan baku per window</th>
+<th>Sharpe tersirat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,8% (risiko sangat kecil)</td>
+<td><strong>17,1</strong></td>
+</tr>
+<tr>
+<td>1,5%</td>
+<td>9,1</td>
+</tr>
+<tr>
+<td>2,5%</td>
+<td>5,5</td>
+</tr>
+<tr>
+<td>4,0%</td>
+<td><strong>3,4</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Dana kuantitatif terbaik dunia beroperasi pada Sharpe <strong>1–2,5</strong> setelah biaya. Sharpe 17
+berarti mesin cetak uang; Sharpe 3,4 tergolong elit tetapi mungkin.</p>
+<p><strong>Implikasi:</strong> target 0,8%/window hanya konsisten dengan Sharpe realistis <strong>jika simpangan
+baku per window 4%+</strong> — artinya <strong>harus ada risiko nyata</strong>, bukan posisi kecil yang aman.</p>
+<p><strong>Leverage yang dibutuhkan pada Sharpe 2:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>σ 30 jam</th>
+<th>Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BTC</td>
+<td>2,76%</td>
+<td><strong>2,48×</strong></td>
+</tr>
+<tr>
+<td>ETH</td>
+<td>3,88%</td>
+<td>1,76×</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>4,70%</td>
+<td>1,45×</td>
+</tr>
+<tr>
+<td>SUI</td>
+<td>6,30%</td>
+<td>1,08×</td>
+</tr>
+</tbody>
+</table>
+<p>Jadi pada aset volatil (SUI/SOL), <strong>1,1–1,5× tanpa leverage tambahan</strong> sudah cukup untuk
+mencapai target <em>jika</em> Sharpe-nya 2. Pada BTC butuh 2,5×.</p>
+<hr>
+<h2 id="6-fakta-kelima-diversifikasi-tidak-menyelamatkan-edge-yang-kurang">6. Fakta kelima: diversifikasi tidak menyelamatkan edge yang kurang</h2>
+<p>Simulasi 20.000 window, N trade masing-masing notional 1/N, TP 3% / SL 1,5%:</p>
+<table>
+<thead>
+<tr>
+<th>Win-rate per trade</th>
+<th>E per window</th>
+<th>N=1</th>
+<th>N=3</th>
+<th>N=5</th>
+<th>N=10</th>
+<th>N=20</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>45%</td>
+<td>+0,53%</td>
+<td>46%</td>
+<td>42%</td>
+<td>40%</td>
+<td>26%</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>+0,75%</td>
+<td>50%</td>
+<td>50%</td>
+<td>50%</td>
+<td>38%</td>
+<td>41%</td>
+</tr>
+<tr>
+<td>52%</td>
+<td>+0,84%</td>
+<td>51%</td>
+<td>53%</td>
+<td>54%</td>
+<td>43%</td>
+<td>49%</td>
+</tr>
+<tr>
+<td>55%</td>
+<td>+0,98%</td>
+<td>55%</td>
+<td>58%</td>
+<td>59%</td>
+<td>51%</td>
+<td>59%</td>
+</tr>
+<tr>
+<td>60%</td>
+<td>+1,20%</td>
+<td>60%</td>
+<td>65%</td>
+<td>68%</td>
+<td>63%</td>
+<td>75%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pola penting:</strong> bila edge per trade <strong>di bawah</strong> target, menambah jumlah trade justru
+<strong>menurunkan</strong> peluang mencapai target (karena hasil mengecil menuju rata-rata yang kurang).
+Diversifikasi hanya membantu bila edge sudah <strong>di atas</strong> target.</p>
+<p>Ini menjelaskan kegagalan buku SoDEX: 21 trade/window dengan edge negatif — memperbanyak
+trade hanya mempercepat kerugian.</p>
+<hr>
+<h2 id="7-verdict-per-venue">7. Verdict per venue</h2>
+<h3 id="sodex">SoDEX</h3>
+<ul>
+<li><strong>Kekuatan:</strong> fee taker terendah (5,6–6,5 bps RT).</li>
+<li><strong>Kelemahan:</strong> spread sangat tipis (0,08–1,03 bps) sehingga maker tidak ekonomis; hanya 15
+  simbol; <strong>riwayat API 7 hari (1m) / 30 hari (5m)</strong> → edge <strong>tidak bisa divalidasi</strong>.</li>
+<li><strong>Cocok untuk:</strong> tidak ada strategi berkelanjutan pada tier sekarang.</li>
+</ul>
+<h3 id="aster">Aster</h3>
+<ul>
+<li><strong>Kekuatan:</strong> <strong>maker 0 bps</strong> — satu-satunya venue di mana round-trip pasif benar-benar gratis.
+  API kompatibel Binance (integrasi murah). Depth memadai untuk $2.500.</li>
+<li><strong>Kelemahan:</strong> taker 4 bps/leg (8 RT) lebih mahal dari SoDEX; spread majors ~0,01–0,04 bps
+  (terlalu tipis untuk MM), alt lebih lebar tapi adverse selection belum diukur.</li>
+<li><strong>Cocok untuk:</strong> strategi <strong>limit-order</strong> (entry &amp; exit pasif) — tapi harus mengatasi adverse
+  selection yang sudah terbukti 111 bps di SoDEX.</li>
+</ul>
+<h3 id="hyperliquid">Hyperliquid</h3>
+<ul>
+<li><strong>Kekuatan:</strong> maker 1,5 bps/leg, funding per jam (lebih halus), depth besar (top-1 bid
+  $349k BTC), satu venue untuk perp + spot.</li>
+<li><strong>Kelemahan:</strong> taker 4,5 bps/leg; spread BTC 0,245 bps (2× lebih lebar dari SoDEX).</li>
+<li><strong>Cocok untuk:</strong> eksekusi maker dengan biaya menengah; riset funding per jam.</li>
+</ul>
+<h3 id="binance">Binance</h3>
+<ul>
+<li><strong>Kekuatan:</strong> likuiditas terdalam ($25k slippage 0), <strong>2,8 tahun data historis</strong> untuk
+  validasi, spot tersedia (bebas funding), instrumen lengkap.</li>
+<li><strong>Kelemahan:</strong> fee taker tertinggi (10 bps RT); maker 4 bps RT.</li>
+<li><strong>Cocok untuk:</strong> <strong>validasi strategi</strong> dan eksekusi skala besar; bukan untuk strategi
+  frekuensi tinggi berbiaya.</li>
+</ul>
+<hr>
+<h2 id="8-di-mana-venue-benar-benar-mengubah-hasil">8. Di mana venue BENAR-BENAR mengubah hasil</h2>
+<p>Ini bagian yang jujur: venue <strong>tidak</strong> membuat target mudah, tetapi ada tiga efek nyata.</p>
+<ol>
+<li><strong>Kapasitas.</strong> SoDEX tidak bisa menyerap &gt;$10–20k tanpa slippage; Binance/HL bisa.
+   Jika tujuan adalah menumbuhkan modal, ini pembatas keras.</li>
+<li><strong>Kemampuan validasi.</strong> Binance menyediakan 2,8 tahun 1h (dan 1m berbulan-bulan); SoDEX
+   7 hari. Tanpa data, Anda tidak bisa tahu apakah edge ada — dan itulah yang terjadi: 8
+   keluarga sinyal gagal diuji karena sampel 30 hari hanya mampu mendeteksi efek &gt;6–25 bps.</li>
+<li><strong>Instrumen.</strong> Untuk long 30–48 jam, <strong>spot menghapus funding 10–16 bps</strong>. Itu penghematan
+   yang lebih besar daripada memilih venue perp mana pun.</li>
+</ol>
+<hr>
+<h2 id="9-kesimpulan">9. Kesimpulan</h2>
+<ol>
+<li><strong>Target 0,8% per 30 jam = 10,2× per tahun.</strong> Itu target kelas dunia, bukan target biasa.</li>
+<li><strong>Pergerakan 0,8% tersedia di 67–85% window</strong> — peluang bukan masalah; arah adalah masalah.</li>
+<li><strong>Biaya venue berbeda 0–20 bps</strong> dari target 80 bps. Pindah venue menggeser kebutuhan
+   win-rate hanya <strong>2,2 poin</strong>.</li>
+<li><strong>Funding 10–16 bps per 30 jam</strong> lebih besar dari fee, dan hanya hilang dengan spot.</li>
+<li><strong>Target ini menuntut Sharpe 17 bila risiko kecil, atau Sharpe ~3,4 dengan risiko 4%/window.</strong>
+   Artinya: harus ada edge nyata <strong>dan</strong> ukuran posisi yang berani.</li>
+<li><strong>Kesimpulan langsung:</strong> pindah ke Aster/HL/Binance <strong>tidak</strong> membuat target "jauh lebih
+   mudah". Yang berubah: biaya kecil, kapasitas besar, dan — paling penting — <strong>data cukup
+   untuk membuktikan atau membantah edge</strong>.</li>
+</ol>
+<hr>
+<h2 id="10-rekomendasi-konkret">10. Rekomendasi konkret</h2>
+<table>
+<thead>
+<tr>
+<th>Prioritas</th>
+<th>Tindakan</th>
+<th>Alasan kuantitatif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Pindahkan <strong>riset</strong> ke Binance (data 2,8 th), bukan eksekusi</td>
+<td>tanpanya, edge tidak terukur; MDE 30 hari = 6–25 bps</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jika tetap perp, gunakan <strong>Aster maker</strong> untuk entry/exit pasif</td>
+<td>fee 0 vs 5,6 (SoDEX) vs 10 (Binance)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Untuk long &gt;24 jam, pertimbangkan <strong>spot</strong></td>
+<td>hemat funding 10–16 bps/window</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Naikkan RR (TP/SL) sebelum mengejar win-rate</td>
+<td>2:1 → 51% WR; 1:1 → 63% WR</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Jangan menambah jumlah trade bila edge per trade &lt; target</td>
+<td>diversifikasi memperburuk (tabel §6)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="11-keterbatasan-analisis-ini">11. Keterbatasan analisis ini</h2>
+<ol>
+<li>Fee dapat berubah (promo/VIP); angka diambil dari dokumentasi resmi 23 Okt 2026.</li>
+<li>Funding historis Binance dipakai sebagai proksi; funding HL/Aster punya formula berbeda.</li>
+<li>Volatilitas 2,8 tahun mencakup berbagai rezim, tetapi masa depan bisa berbeda.</li>
+<li>Model win-rate mengasumsikan trade independen dan TP/SL tercapai penuh; slippage ekor
+   (gap) tidak dimodelkan — dan itu membuat hasil nyata <strong>lebih buruk</strong>, bukan lebih baik.</li>
+<li>Analisis ini tidak membuktikan adanya edge; ia hanya menunjukkan <strong>venue bukan penyebab</strong>
+   dan <strong>berapa besar edge yang dibutuhkan</strong>.</li>
+</ol>
+</body>
+</html>

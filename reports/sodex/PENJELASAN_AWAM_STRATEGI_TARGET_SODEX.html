@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mencari Kunci Rezim Pasar</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Mencari Kunci Rezim Pasar</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#1-ringkasan-dua-menit-buat-yang-sibuk">1. Ringkasan Dua Menit (buat yang sibuk)</a></li>
+<li class="t2"><a href="#2-target-kita-sebenarnya-mengejar-apa">2. Target Kita: Sebenarnya Mengejar Apa?</a></li>
+<li class="t2"><a href="#3-sodex-dan-twoway-itu-apa">3. SoDEX dan "twoway" Itu Apa?</a></li>
+<li class="t2"><a href="#4-kamus-sederhana-12-istilah-yang-sering-muncul">4. Kamus Sederhana: 12 Istilah yang Sering Muncul</a></li>
+<li class="t2"><a href="#5-prediktor-ex-ante-itu-apa-analogi-cuaca">5. "Prediktor Ex-Ante" Itu Apa? (Analogi Cuaca)</a></li>
+<li class="t3"><a href="#51-bedanya-meramal-dan-mengintip">5.1 Bedanya "meramal" dan "mengintip"</a></li>
+<li class="t3"><a href="#52-pengukur-apa-saja-yang-saya-uji">5.2 Pengukur apa saja yang saya uji?</a></li>
+<li class="t3"><a href="#53-kenapa-saya-hanya-menguji-lima-ini">5.3 Kenapa saya hanya menguji lima ini?</a></li>
+<li class="t2"><a href="#6-masalah-sebenarnya-strategi-ini-menang-karena-apa">6. Masalah Sebenarnya: Strategi Ini Menang Karena Apa?</a></li>
+<li class="t3"><a href="#61-potong-waktu-menjadi-tiga-bagian">6.1 Potong waktu menjadi tiga bagian</a></li>
+<li class="t3"><a href="#62-batas-yang-menohok">6.2 Batas yang menohok</a></li>
+<li class="t3"><a href="#63-dugaan-itu-gugur">6.3 Dugaan itu gugur</a></li>
+<li class="t3"><a href="#64-jawaban-sebenarnya">6.4 Jawaban sebenarnya</a></li>
+<li class="t2"><a href="#7-cara-saya-menyelidiki-8-langkah">7. Cara Saya Menyelidiki: 8 Langkah</a></li>
+<li class="t3"><a href="#71-apa-itu-uji-permutasi-analogi">7.1 Apa itu "uji permutasi"? (analogi)</a></li>
+<li class="t3"><a href="#72-apa-itu-koreksi-bh-fdr-analogi">7.2 Apa itu koreksi BH-FDR? (analogi)</a></li>
+<li class="t2"><a href="#8-yang-ditemukan-angka-sebenarnya">8. Yang Ditemukan: Angka Sebenarnya</a></li>
+<li class="t3"><a href="#81-lima-prediktor-diuji">8.1 Lima prediktor diuji</a></li>
+<li class="t3"><a href="#82-tapi-arahnya-kebalikan-dari-dugaan-saya">8.2 Tapi arahnya KEBALIKAN dari dugaan saya</a></li>
+<li class="t3"><a href="#83-bahan-bacaan-penting-kembarannya">8.3 Bahan bacaan penting: kembarannya</a></li>
+<li class="t2"><a href="#9-empat-jebakan-yang-hampir-menipu-saya">9. Empat Jebakan yang Hampir Menipu Saya</a></li>
+<li class="t3"><a href="#jebakan-1-volatilitas-tinggi-bisa-jadi-cuma-nama-lain-untuk-bulan-tertentu">Jebakan 1 — "Volatilitas tinggi" bisa jadi cuma nama lain untuk "bulan tertentu"</a></li>
+<li class="t3"><a href="#jebakan-2-untung-besar-bisa-jadi-cuma-2-3-trade-keberuntungan">Jebakan 2 — "Untung besar" bisa jadi cuma 2-3 trade keberuntungan</a></li>
+<li class="t3"><a href="#jebakan-3-uji-saya-sendiri-salah">Jebakan 3 — UJI SAYA SENDIRI SALAH ⚠️</a></li>
+<li class="t3"><a href="#jebakan-4-angka-yang-tampak-sah-tapi-artinya-salah">Jebakan 4 — Angka yang tampak sah tapi artinya salah</a></li>
+<li class="t2"><a href="#10-kenapa-temuannya-belum-bisa-dipakai">10. Kenapa Temuannya Belum Bisa Dipakai?</a></li>
+<li class="t3"><a href="#101-masalahnya-presisi">10.1 Masalahnya: presisi</a></li>
+<li class="t3"><a href="#102-angka-per-segmen">10.2 Angka per segmen</a></li>
+<li class="t3"><a href="#103-amandemen-aturan-penting">10.3 Amandemen aturan (penting)</a></li>
+<li class="t3"><a href="#104-jadi-kenapa-tetap-tidak-dijalankan">10.4 Jadi kenapa tetap tidak dijalankan?</a></li>
+<li class="t2"><a href="#11-apa-artinya-untuk-target-08-per-48-jam">11. Apa Artinya untuk Target 0,8% per 48 Jam</a></li>
+<li class="t2"><a href="#12-langkah-berikutnya">12. Langkah Berikutnya</a></li>
+<li class="t2"><a href="#13-catatan-verifikasi-dan-cara-mengulang">13. Catatan Verifikasi dan Cara Mengulang</a></li>
+<li class="t3"><a href="#131-cara-mengulang">13.1 Cara mengulang</a></li>
+<li class="t3"><a href="#132-berkas-terkait">13.2 Berkas terkait</a></li>
+<li class="t3"><a href="#133-jaminan-yang-dipegang">13.3 Jaminan yang dipegang</a></li>
+<li class="t3"><a href="#penutup">Penutup</a></li>
+</ul>
+</nav>
+<p><em>Penjelasan Sederhana A–Z tentang Strategi, Metode, dan Target Proyek SoDEX</em></p>
+<p><strong>Disusun untuk:</strong> Mas Anas
+<strong>Tanggal:</strong> 5 Oktober 2026
+<strong>Oleh:</strong> Hermes Anantara v3 — Divisi SoDEX
+<strong>Berkas pendamping:</strong> <code>D07_RCA_FILTER_DAN_FAKTOR_2026-10-05.md</code>, <code>D08_PREDIKTOR_REZIM_EXANTE_2026-10-05.md</code></p>
+<hr>
+<hr>
+<h2 id="1-ringkasan-dua-menit-buat-yang-sibuk">1. Ringkasan Dua Menit (buat yang sibuk)</h2>
+<p>Kita punya mesin trading otomatis di bursa SoDEX. Bulan-bulan ini hasilnya <strong>tidak mencapai target</strong>. Saya diminta mencari tahu <strong>kenapa</strong> — bukan menambal dengan trik.</p>
+<p><strong>Tiga hal yang saya temukan, berurutan:</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Temuan</th>
+<th>Artinya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Masalahnya <strong>bukan biaya transaksi</strong></td>
+<td>Bahkan kalau biaya nol, periode terakhir tetap rugi. Jadi menurunkan fee tidak akan menolong.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Masalahnya <strong>bukan strategi masuk yang buruk</strong></td>
+<td>Saya uji 12 cara menyaring entry. <strong>Nol</strong> yang lolos uji.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Masalahnya <strong>bukan bug</strong></td>
+<td>Kode tidak berubah di periode kritis. Tidak ada kesalahan program.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lalu apa masalahnya?</strong> Strategi ini sebenarnya <strong>bertaruh bahwa koin kecil (altcoin) akan naik lebih cepat dari Bitcoin</strong>. Betnya menang di satu musim, kalah di musim lain.</p>
+<p><strong>Kemudian saya kejar satu pertanyaan lanjutan yang lebih menguntungkan:</strong> <em>bisakah kita tahu lebih dulu musim mana yang sedang berjalan, lalu hanya berdagang di musim yang bagus?</em></p>
+<p><strong>Jawabannya: BISA — tapi belum cukup kuat.</strong> Saya menemukan satu pengukur yang <strong>terbukti secara statistik</strong> (peluang kebetulan cuma 1,2%): <strong>kalau volatilitas Bitcoin sedang tinggi, strategi ini bekerja lebih baik (+75 poin basis per trade).</strong></p>
+<p><strong>Tapi</strong> pada rezim pasar yang sedang berjalan sekarang, angkanya masih <strong>−1,44 poin basis</strong>, sementara biaya pulang-pergi butuh <strong>+16 poin basis</strong>. Artinya: <strong>masih belum layak dijalankan dengan uang.</strong></p>
+<p><strong>Keputusan:</strong> tetap <strong>jangan GO-LIVE</strong>. Tapi sekarang kita punya peta yang jelas, bukan tebakan.</p>
+<blockquote>
+<p><strong>Analogi cepat:</strong> Saya seperti dokter yang mendapati pasien tidak sakit karena infeksi (biaya), bukan karena salah makan (filter). Ternyata pasiennya <strong>alergi musim</strong>. Saya menemukan tes alerginya — tapi tesnya belum cukup tajam untuk dipakai memutuskan operasi.</p>
+</blockquote>
+<hr>
+<h2 id="2-target-kita-sebenarnya-mengejar-apa">2. Target Kita: Sebenarnya Mengejar Apa?</h2>
+<p>Target proyek SoDEX adalah <strong>0,8% dari TOTAL modal wallet per 48 jam</strong> — dihitung dari seluruh isi wallet (spot + perps), <strong>bukan</strong> dari ukuran satu posisi.</p>
+<p><strong>Kenapa pembedaan ini penting?</strong></p>
+<p>Bayangkan kamu punya tabungan Rp100 juta, lalu kamu memakai Rp5 juta untuk berdagang dan untung 10%.</p>
+<table>
+<thead>
+<tr>
+<th>Cara menghitung</th>
+<th>Hasil</th>
+<th>Jujur?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dari uang yang dipakai (Rp5 juta)</td>
+<td>+10%</td>
+<td>❌ Menyesatkan</td>
+</tr>
+<tr>
+<td>Dari <strong>seluruh</strong> tabungan (Rp100 juta)</td>
+<td>+0,5%</td>
+<td>✅ Inilah yang dipakai</td>
+</tr>
+</tbody>
+</table>
+<p>Banyak orang tertipu angka pertama. Kita memakai angka kedua <strong>sengaja</strong>, karena itulah ukuran yang benar-benar menentukan kekayaan bertambah atau tidak.</p>
+<p><strong>Konsekuensinya:</strong> kalau kita hanya memakai sebagian kecil modal, maka persentase yang kita butuhkan dari modal tersebut menjadi <strong>sangat besar</strong>. Itulah kenapa target ini <strong>sulit tetapi jujur</strong> — dan itu memang harga mati yang sudah disepakati.</p>
+<hr>
+<h2 id="3-sodex-dan-twoway-itu-apa">3. SoDEX dan "twoway" Itu Apa?</h2>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Penjelasan bahasa awam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SoDEX</strong></td>
+<td>Sebuah bursa kripto terdesentralisasi (tanpa perantara bank). Kita berdagang kontrak berjangka di sini.</td>
+</tr>
+<tr>
+<td><strong>Perpetual / perps</strong></td>
+<td>Kontrak "taruhan harga" tanpa tanggal kedaluwarsa. Bisa bertaruh harga naik (LONG) atau turun (SHORT).</td>
+</tr>
+<tr>
+<td><strong>twoway</strong></td>
+<td>Nama mesin kita. Namanya begitu karena ia bisa membuka dua arah: LONG saat pasar naik, SHORT saat pasar turun.</td>
+</tr>
+<tr>
+<td><strong>LONG</strong></td>
+<td>Bertaruh harga akan NAIK. Untung kalau benar.</td>
+</tr>
+<tr>
+<td><strong>SHORT</strong></td>
+<td>Bertaruh harga akan TURUN. Untung kalau benar.</td>
+</tr>
+<tr>
+<td><strong>Swing trading</strong></td>
+<td>Gaya berdagang yang menahan posisi <strong>1–30 jam</strong>, bukan hitungan detik. Seperti menunggu ombak besar, bukan riak kecil.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Penting dicatat:</strong> mesin <code>twoway</code> saat ini <strong>hampir hanya membuka LONG</strong>. Sisi SHORT-nya praktis mati sejak 1 September 2026 karena filter "death-cross" menahannya. Jadi dalam praktiknya, kita sedang menilai <strong>sisi LONG-nya saja</strong>.</p>
+<hr>
+<h2 id="4-kamus-sederhana-12-istilah-yang-sering-muncul">4. Kamus Sederhana: 12 Istilah yang Sering Muncul</h2>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Arti sederhana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alpha</strong></td>
+<td>Keuntungan dari <strong>kecerdasan</strong> kita sendiri. Kalau ini yang ada, hasilnya bertahan di musim apa pun.</td>
+</tr>
+<tr>
+<td><strong>Beta</strong></td>
+<td>Keuntungan karena <strong>ikut arus pasar</strong>. Naik saat pasar naik — bukan karena kita pintar.</td>
+</tr>
+<tr>
+<td><strong>Basis poin (bps)</strong></td>
+<td>Satuan kecil. 1 bps = 0,01%. Jadi 100 bps = 1%. Dipakai supaya tidak salah baca koma.</td>
+</tr>
+<tr>
+<td><strong>Fee pulang-pergi</strong></td>
+<td>Biaya masuk + biaya keluar. Kita: <strong>8 bps</strong> sekali jalan penuh, jadi bolak-balik <strong>16 bps</strong>.</td>
+</tr>
+<tr>
+<td><strong>Excess (kelebihan)</strong></td>
+<td>Hasil setelah dikurangi "apa yang seharusnya didapat kalau cuma ikut pasar". Ini penentu apakah kita benar-benar punya skill.</td>
+</tr>
+<tr>
+<td><strong>Rezim</strong></td>
+<td>"Musim" pasar. Musim altcoin menang, musim Bitcoin menang, musim sepi, musim panik.</td>
+</tr>
+<tr>
+<td><strong>Ex-ante</strong></td>
+<td>Diketahui <strong>sebelum</strong> kejadian. Contoh: ramalan cuaca pagi.</td>
+</tr>
+<tr>
+<td><strong>Ex-post</strong></td>
+<td>Diketahui <strong>sesudah</strong> kejadian. Contoh: laporan cuaca sore.</td>
+</tr>
+<tr>
+<td><strong>Filter</strong></td>
+<td>Menyaring mana trade yang boleh jalan. Seperti <strong>menyortir ikan</strong> dari jaring.</td>
+</tr>
+<tr>
+<td><strong>Gate (gerbang)</strong></td>
+<td>Mematikan/menyalakan <strong>seluruh mesin</strong>. Seperti <strong>memilih kolam</strong> mana yang digarap.</td>
+</tr>
+<tr>
+<td><strong>DSR</strong></td>
+<td>Uji yang mengetatkan penilaian sesuai <strong>berapa banyak ide yang sudah dicoba</strong>. Makin banyak mencoba, makin ketat.</td>
+</tr>
+<tr>
+<td><strong>Holdout / jendela forward</strong></td>
+<td>Uji kejujuran: jalankan sistem di masa depan yang belum pernah dilihat, tanpa mengubah apa pun.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-prediktor-ex-ante-itu-apa-analogi-cuaca">5. "Prediktor Ex-Ante" Itu Apa? (Analogi Cuaca)</h2>
+<h3 id="51-bedanya-meramal-dan-mengintip">5.1 Bedanya "meramal" dan "mengintip"</h3>
+<p>Bayangkan kamu petani.</p>
+<p><strong>Pengintip</strong> adalah orang yang sore baru bilang, <em>"tadi pagi sepertinya hujan ya"</em> — setelah melihat tanah basah. Dia tidak meramal apa pun; dia membaca masa lalu.</p>
+<p><strong>Peramal</strong> adalah orang yang pagi-pagi buta sudah bilang, <em>"bawa payung, siang hujan"</em> — <strong>sebelum</strong> setitik air jatuh.</p>
+<p><strong>Prediktor ex-ante = sang peramal.</strong> Syaratnya satu dan mutlak:</p>
+<blockquote>
+<p>Setiap angka yang dipakai untuk memutuskan <strong>harus sudah ada sebelum keputusan itu diambil</strong>.</p>
+</blockquote>
+<p>Dalam sistem kita: kalau kita memutuskan membuka posisi jam 14:00, maka semua pengukur yang kita pakai hanya boleh berasal dari data <strong>sebelum jam 14:00</strong>. Data jam 14:05 tidak boleh "bocor" masuk.</p>
+<p><strong>Kenapa ini sangat penting?</strong> Karena meramal dengan data masa depan selalu terlihat hebat di uji coba, lalu <strong>hancur total</strong> saat uang sungguhan dipakai. Ini kesalahan paling mematikan di dunia kuantitatif. Kita menyebutnya <strong>look-ahead bias</strong> (mengintip ke depan).</p>
+<h3 id="52-pengukur-apa-saja-yang-saya-uji">5.2 Pengukur apa saja yang saya uji?</h3>
+<p>Semuanya <strong>hanya</strong> dari data yang sudah ada sebelum posisi dibuka:</p>
+<table>
+<thead>
+<tr>
+<th>Kode</th>
+<th>Nama manusiawi</th>
+<th>Cara kerjanya</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K1</td>
+<td><strong>Kekuatan alt (1 hari)</strong></td>
+<td>Apakah koin kecil naik lebih cepat dari Bitcoin dalam 24 jam terakhir?</td>
+</tr>
+<tr>
+<td>K2</td>
+<td><strong>Kekuatan alt (7 hari)</strong></td>
+<td>Sama, tapi jendela seminggu.</td>
+</tr>
+<tr>
+<td>K3</td>
+<td><strong>Keluasan pasar</strong></td>
+<td>Berapa persen koin yang sedang naik?</td>
+</tr>
+<tr>
+<td>K4</td>
+<td><strong>Volatilitas Bitcoin</strong></td>
+<td>Seberapa "goncang" harga Bitcoin 24 jam terakhir?</td>
+</tr>
+<tr>
+<td>K5</td>
+<td><strong>Tren Bitcoin</strong></td>
+<td>Bitcoin sedang di atas atau di bawah rata-rata jangka panjangnya?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-kenapa-saya-hanya-menguji-lima-ini">5.3 Kenapa saya hanya menguji lima ini?</h3>
+<p>Karena <strong>aturan anti-menipu-diri-sendiri</strong> (anti-p-hacking) berbunyi:</p>
+<blockquote>
+<p>Kandidat harus <strong>dideklarasikan lebih dulu</strong>, sebelum melihat hasil. Setelah hasil keluar, <strong>tidak boleh</strong> menambah ide baru lalu mengaku "ini dia yang benar!".</p>
+</blockquote>
+<p><strong>Analogi:</strong> Kalau kamu menembak panah dulu, baru menggambar sasarannya di tempat panah menancap — itu bukan jago menembak, itu menipu diri. Limanya sudah saya tulis di kode sebelum dijalankan. Dan setiap kandidat <strong>membayar penalti</strong> karena sudah ikut diuji — itulah gunanya uji DSR.</p>
+<hr>
+<h2 id="6-masalah-sebenarnya-strategi-ini-menang-karena-apa">6. Masalah Sebenarnya: Strategi Ini Menang Karena Apa?</h2>
+<h3 id="61-potong-waktu-menjadi-tiga-bagian">6.1 Potong waktu menjadi tiga bagian</h3>
+<p>Angka rata-rata sepanjang masa itu <strong>menipu</strong>. Contohnya begini:</p>
+<blockquote>
+<p>Rata-rata cuaca tahun ini "sejuk". Padahal itu gabungan musim hujan yang dingin dan kemarau yang terik. Rata-ratanya nyaman; kenyataannya ekstrem bergantian.</p>
+</blockquote>
+<p>Maka saya potong periode studi menjadi <strong>tiga segmen waktu yang setara</strong>, dan menilai masing-masing.</p>
+<p><strong>Hasil untuk sisi LONG:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Segmen</th>
+<th style="text-align: right;">Jumlah trade</th>
+<th style="text-align: right;">Menang?</th>
+<th style="text-align: right;">Kelebihan (excess)</th>
+<th style="text-align: right;">Setelah biaya 2×</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 (06 Agu – 04 Sep)</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">38,9%</td>
+<td style="text-align: right;">−10,19 bps</td>
+<td style="text-align: right;">−26,19 bps</td>
+</tr>
+<tr>
+<td>S2 (04 Sep – 19 Sep)</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">50,9%</td>
+<td style="text-align: right;"><strong>+62,96 bps</strong></td>
+<td style="text-align: right;">+46,96 bps</td>
+</tr>
+<tr>
+<td>S3 (19 Sep – 03 Okt)</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">29,4%</td>
+<td style="text-align: right;"><strong>−28,40 bps</strong></td>
+<td style="text-align: right;">−44,40 bps</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rata-rata sederhananya +8,01 bps — tampak lumayan.</strong> Tetapi rata-rata itu cuma gabungan dari: rugi, untung besar, rugi.</p>
+<h3 id="62-batas-yang-menohok">6.2 Batas yang menohok</h3>
+<p>Batas antara "untung besar" dan "rugi" adalah <strong>19 September 2026</strong> — <strong>tepat tanggal mesin SoDEX dihentikan sementara (halt)</strong>.</p>
+<p>Saya punya dugaan: mungkin kodenya berubah saat itu, dan perubahan itulah biang keroknya.</p>
+<h3 id="63-dugaan-itu-gugur">6.3 Dugaan itu gugur</h3>
+<p>Saya periksa riwayat perubahan kode mesin pada 10–25 September: <strong>tidak ada satu pun perubahan.</strong> Kode sama persis. Berarti perubahan hasil <strong>bukan</strong> dari perubahan program.</p>
+<h3 id="64-jawaban-sebenarnya">6.4 Jawaban sebenarnya</h3>
+<p>Lalu saya periksa kondisi pasar di tiap segmen:</p>
+<table>
+<thead>
+<tr>
+<th>Segmen</th>
+<th>Pergerakan Bitcoin</th>
+<th>Volatilitas</th>
+<th>Hasil strategi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td><strong>meledak +23,36%</strong></td>
+<td>0,428% (tinggi)</td>
+<td>rugi secara relatif</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>tenang +2,08%</td>
+<td>0,341% (rendah)</td>
+<td><strong>untung besar</strong></td>
+</tr>
+<tr>
+<td>S3</td>
+<td>naik +4,50%</td>
+<td>0,371%</td>
+<td>rugi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Inilah kuncinya:</strong></p>
+<blockquote>
+<p>Strategi ini, secara diam-diam, adalah <strong>taruhan bahwa koin kecil mengalahkan Bitcoin</strong>. Ia menang saat "musim altcoin" datang (September), dan kalah saat Bitcoin yang memimpin (Agustus &amp; Oktober).</p>
+</blockquote>
+<p><strong>Bukti paling kuat:</strong> pada periode terakhir (S3) strategi <strong>rugi −28,40 bps sebelum biaya apa pun dihitung</strong>. Kalau biaya nol saja rugi, maka <strong>menurunkan fee tidak akan menyelamatkan apa pun.</strong> Masalahnya di arah taruhan, bukan di ongkos.</p>
+<p>Ini konsisten dengan analisis lebih lama yang menunjukkan angka <strong>beta = 0,887</strong> dan <strong>alpha ≈ 0</strong>. Beta tinggi = ikut arus. Alpha nol = tidak ada kecerdasan sendiri.</p>
+<hr>
+<h2 id="7-cara-saya-menyelidiki-8-langkah">7. Cara Saya Menyelidiki: 8 Langkah</h2>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Yang saya lakukan</th>
+<th>Kenapa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Kumpulkan semua trade yang sudah tertutup</td>
+<td>Dasar penilaian</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Uji 12 cara menyaring entry</td>
+<td>Mungkin entry-nya yang salah pilih</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Potong waktu jadi 3 segmen</td>
+<td>Cek apakah hasilnya bertahan, bukan sekali mujur</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Cek riwayat kode di periode kritis</td>
+<td>Mungkin ada bug</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Ambil data harga alt (234.634 batang 15 menit)</td>
+<td>Perlu bahan mentah untuk meramal</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Bangun 5 prediktor <strong>ex-ante</strong> dari data itu</td>
+<td>Calon "kunci rezim"</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Uji tiap prediktor dengan uji permutasi</td>
+<td>Membuang hasil yang cuma kebetulan</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>Koreksi multiple-testing (BH-FDR)</td>
+<td>Menghukum diri karena menguji banyak ide</td>
+</tr>
+</tbody>
+</table>
+<h3 id="71-apa-itu-uji-permutasi-analogi">7.1 Apa itu "uji permutasi"? (analogi)</h3>
+<p><strong>Pertanyaan:</strong> <em>"Kita menang lebih besar saat volatilitas tinggi. Itu nyata, atau cuma kebetulan?"</em></p>
+<p><strong>Cara mengujinya (analogi):</strong> Ambil 316 kartu hasil trade. Acak kartunya berulang kali <strong>10.000 kali</strong>, lalu lihat: seberapa sering pengacakan murni menghasilkan selisih <strong>sebesar</strong> yang kita amati?</p>
+<ul>
+<li>Kalau pengacakan <strong>sering</strong> menghasilkan selisih sebesar itu → hasil kita <strong>cuma kebetulan</strong>. ❌</li>
+<li>Kalau pengacakan <strong>hampir tidak pernah</strong> sebesar itu → hasil kita <strong>nyata</strong>. ✅</li>
+</ul>
+<p>Hasil kita: dari 10.000 pengacakan, hanya <strong>1,22%</strong> yang mencapai selisih sebesar milik kita. Maka nilainya nyata.</p>
+<h3 id="72-apa-itu-koreksi-bh-fdr-analogi">7.2 Apa itu koreksi BH-FDR? (analogi)</h3>
+<p><strong>Analogi:</strong> Kalau kamu melempar 100 koin, hampir pasti ada yang muncul "kepala" 7 kali berturut-turut. Itu bukan koin ajaib — itu <strong>hukum peluang</strong>.</p>
+<p>Karena saya menguji <strong>5 prediktor</strong>, maka salah satunya bisa tampak hebat <strong>hanya karena saya menguji lima</strong>. Koreksi BH-FDR mengetatkan ambang: dari 5% menjadi <strong>2%</strong>. Prediktor terbaik kita mencapai <strong>1,22%</strong> — jadi <strong>tetap lolos</strong> meski sudah dihukum.</p>
+<hr>
+<h2 id="8-yang-ditemukan-angka-sebenarnya">8. Yang Ditemukan: Angka Sebenarnya</h2>
+<h3 id="81-lima-prediktor-diuji">8.1 Lima prediktor diuji</h3>
+<p>Ambang "layak" = 16 bps (biaya pulang-pergi). Yang lebih besar dari nol berarti menguntungkan.</p>
+<table>
+<thead>
+<tr>
+<th>Prediktor</th>
+<th style="text-align: right;">Selisih (vol tinggi vs rendah)</th>
+<th style="text-align: right;">Peluang kebetulan (p)</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volatilitas BTC ≥ median</strong></td>
+<td style="text-align: right;"><strong>+75,16 bps</strong></td>
+<td style="text-align: right;"><strong>0,0122</strong></td>
+<td>✅ <strong>NYATA</strong></td>
+</tr>
+<tr>
+<td>Kekuatan alt 1 hari &gt; BTC</td>
+<td style="text-align: right;">−38,02 bps</td>
+<td style="text-align: right;">0,2633</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Kekuatan alt 7 hari &gt; BTC</td>
+<td style="text-align: right;">−37,79 bps</td>
+<td style="text-align: right;">0,2688</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Keluasan pasar &gt; 50%</td>
+<td style="text-align: right;">−46,34 bps</td>
+<td style="text-align: right;">0,1560</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Tren BTC &gt; rata-rata</td>
+<td style="text-align: right;">−18,84 bps</td>
+<td style="text-align: right;">0,5388</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hanya satu yang nyata: volatilitas Bitcoin.</strong> Empat lainnya tidak berbeda dari kebetulan.</p>
+<h3 id="82-tapi-arahnya-kebalikan-dari-dugaan-saya">8.2 Tapi arahnya KEBALIKAN dari dugaan saya</h3>
+<p>Saya menduga: <em>"pasar tenang = lebih aman = lebih untung."</em></p>
+<p>Kenyataannya: <strong>pasar goncang = lebih untung.</strong> Dugaan saya salah, dan data yang menang. (Ini alasan kenapa saya wajib mendeklarasikan kandidat lebih dulu — supaya tidak "memindahkan sasaran" setelah melihat hasil.)</p>
+<h3 id="83-bahan-bacaan-penting-kembarannya">8.3 Bahan bacaan penting: kembarannya</h3>
+<p>Lihat tabel di atas — empat prediktor lain <strong>negatif</strong>. Artinya: kalau kita memakai <strong>kebalikannya</strong>, angkanya jadi positif besar:</p>
+<table>
+<thead>
+<tr>
+<th>Kandidat (kebalikan)</th>
+<th style="text-align: right;">Edge</th>
+<th style="text-align: right;">Setelah biaya 2×</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Koin kecil sedang KALAH dari BTC"</td>
+<td style="text-align: right;">+56,53 bps</td>
+<td style="text-align: right;">+40,53 bps</td>
+</tr>
+<tr>
+<td>"Pasar sedang menyempit (mayoritas turun)"</td>
+<td style="text-align: right;">+41,11 bps</td>
+<td style="text-align: right;">+25,11 bps</td>
+</tr>
+<tr>
+<td>"BTC di bawah rata-rata panjang"</td>
+<td style="text-align: right;">+39,38 bps</td>
+<td style="text-align: right;">+23,38 bps</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan sederhananya:</strong> mesin LONG ini punya kecenderungan <strong>membeli saat pasar sedang lesu</strong>, lalu menuai saat pasar pulih. Itu masuk akal secara nalar dagang — tetapi harus saya sampaikan dengan jujur: <strong>ketiga kebalikan ini tidak lolos</strong> uji 3-segmen (mereka juga tidak cukup presisi untuk dinilai).</p>
+<hr>
+<h2 id="9-empat-jebakan-yang-hampir-menipu-saya">9. Empat Jebakan yang Hampir Menipu Saya</h2>
+<p>Bagian ini saya tulis sengaja. Karena kejujuran yang paling berguna adalah <strong>mengakui di mana diri sendiri hampir salah</strong>.</p>
+<h3 id="jebakan-1-volatilitas-tinggi-bisa-jadi-cuma-nama-lain-untuk-bulan-tertentu">Jebakan 1 — "Volatilitas tinggi" bisa jadi cuma nama lain untuk "bulan tertentu"</h3>
+<p>Volatilitas Bitcoin <strong>menurun</strong> dari bulan ke bulan (Agustus tinggi, Oktober rendah).</p>
+<p><strong>Bahayanya:</strong> kalau begitu, "volatilitas tinggi" sebenarnya cuma cara lain bilang <strong>"jangan trading bulan Agustus"</strong> — bukan kecerdasan, hanya penanggalan.</p>
+<p><strong>Cara saya membuang jebakan ini:</strong> Saya belah data <strong>di dalam setiap segmen</strong>, memakai ambang masing-masing. Dengan begitu, faktor waktu <strong>mati total</strong> — tiap segmen dibandingkan dengan dirinya sendiri. Hasilnya: pemisahannya <strong>masih ada</strong>, jadi ini bukan sekadar penanggalan.</p>
+<h3 id="jebakan-2-untung-besar-bisa-jadi-cuma-2-3-trade-keberuntungan">Jebakan 2 — "Untung besar" bisa jadi cuma 2-3 trade keberuntungan</h3>
+<p>Selisih di segmen S2 mencapai <strong>+136 bps</strong>. Angka sebesar itu <strong>wajib dicurigai</strong>.</p>
+<p><strong>Cara saya memeriksa:</strong> Saya potong 10% nilai teratas dan terbawah, dan menghitung sumbangan 3 trade terbaik.</p>
+<p><strong>Hasilnya:</strong> 3 trade teratas hanya menyumbang <strong>0,25 pp</strong> masing-masing. Distribusinya memang lebar (10% terburuk ≈ −2,2%; 10% terbaik ≈ +4,2%). Jadi ini <strong>bukan</strong> 2-3 trade mujur — ini memang variasi yang lebar. Curiga itu terjawab, tapi dengan hasil yang menenangkan.</p>
+<h3 id="jebakan-3-uji-saya-sendiri-salah">Jebakan 3 — UJI SAYA SENDIRI SALAH ⚠️</h3>
+<p>Ini yang paling penting.</p>
+<p>Uji pertama saya melaporkan <strong>semua prediktor "tidak signifikan"</strong>. Termasuk yang sebenarnya nyata.</p>
+<p><strong>Kenapa?</strong> Saya memakai prosedur yang salah: saya membangun "dunia tanpa efek" (data diacak), lalu memeriksa apakah <strong>dunia tanpa efek itu</strong> terpisah dari nol. Tentu saja tidak — dunia tanpa efek <strong>selalu</strong> berpusat di nol. Jadi syaratnya tidak pernah terpenuhi, dan <strong>semua</strong> dilaporkan gagal.</p>
+<p><strong>Bagaimana saya tahu itu bug?</strong> Ada kejanggalan yang tidak masuk akal: nilai yang saya amati (<strong>+71,35</strong>) berada <strong>di luar rentang kepercayaannya sendiri</strong>. Itu mustahil untuk prosedur yang benar. Kejanggalan itulah yang membongkar kesalahannya.</p>
+<p><strong>Setelah diperbaiki:</strong> p = 0,0122 → <strong>NYATA</strong>.</p>
+<blockquote>
+<p><strong>Pelajaran:</strong> kalau saya tidak memeriksa kejanggalan itu, saya akan melaporkan "tidak ada apa-apa" dan <strong>membuang temuan nyata</strong>. Kecurigaan terhadap hasil yang "terlalu rapi" bekerja dua arah.</p>
+</blockquote>
+<h3 id="jebakan-4-angka-yang-tampak-sah-tapi-artinya-salah">Jebakan 4 — Angka yang tampak sah tapi artinya salah</h3>
+<p>Saat data masih sedikit ("pemanasan"), program saya melaporkan <strong>"return 24 jam"</strong> padahal yang dihitung hanya <strong>15 menit</strong>.</p>
+<p><strong>Bahayanya:</strong> angkanya tampak normal, tidak error, tidak crash — tapi <strong>artinya bohong</strong>. Prediktor menelan angka palsu itu sebagai sinyal.</p>
+<p><strong>Bagaimana ketahuan?</strong> Bukan dari mata saya, tapi dari <strong>unit test</strong> yang sengaja saya tulis untuk memeriksa kasus ekstrem. Test itu <strong>gagal</strong>, dan kegagalan itulah yang mengungkap bug.</p>
+<p><strong>Perbaikannya:</strong> jendela waktu harus benar-benar terpenuhi. Kalau belum, kembalikan "tidak ada data" — bukan angka palsu.</p>
+<hr>
+<h2 id="10-kenapa-temuannya-belum-bisa-dipakai">10. Kenapa Temuannya Belum Bisa Dipakai?</h2>
+<p>Ini bagian yang paling penting untuk dipahami, karena di sinilah banyak orang keliru mengambil kesimpulan.</p>
+<h3 id="101-masalahnya-presisi">10.1 Masalahnya: presisi</h3>
+<p>Setiap trade punya variasi hasil ±264 bps (sekitar 2,6%). Ketika saya memotong data menjadi segmen-segmen kecil (53 trade per kelompok), ketelitian hasilnya jadi:</p>
+<blockquote>
+<p><strong>± 146 bps</strong></p>
+</blockquote>
+<p>Artinya: efek sebesar <strong>75 bps</strong> yang kita cari itu <strong>lebih kecil dari ketelitian alat ukurnya</strong>. Seperti mencoba menimbang bulu mata dengan timbangan beras.</p>
+<h3 id="102-angka-per-segmen">10.2 Angka per segmen</h3>
+<table>
+<thead>
+<tr>
+<th>Segmen</th>
+<th style="text-align: right;">Setelah biaya 2×</th>
+<th style="text-align: right;">Ketelitian</th>
+<th>Kesimpulan JUJUR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td style="text-align: right;">−24,96 bps</td>
+<td style="text-align: right;">±119 bps</td>
+<td><strong>terlalu bising untuk dinilai</strong></td>
+</tr>
+<tr>
+<td>S2</td>
+<td style="text-align: right;">+89,30 bps</td>
+<td style="text-align: right;">±157 bps</td>
+<td>tampak layak</td>
+</tr>
+<tr>
+<td>S3 (terkini)</td>
+<td style="text-align: right;"><strong>−1,44 bps</strong></td>
+<td style="text-align: right;">±146 bps</td>
+<td><strong>terlalu bising untuk dinilai</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="103-amandemen-aturan-penting">10.3 Amandemen aturan (penting)</h3>
+<p>Aturan lama saya: <em>"sebuah temuan harus positif di KETIGA segmen waktu, kalau tidak, dianggap gagal."</em></p>
+<p><strong>Aturan itu terlalu keras.</strong> Menyebut S1 "gagal" padahal alat ukurnya hanya presisi ±119 bps adalah <strong>kesalahan statistik</strong> — kita menuntut bukti yang instrumen kita sendiri tidak mampu berikan.</p>
+<p><strong>Aturan yang diperbaiki:</strong></p>
+<blockquote>
+<p>Segmen yang <strong>tidak cukup presisi</strong> dilaporkan sebagai <strong>"belum dinilai"</strong> — bukan <strong>"gagal"</strong>.</p>
+</blockquote>
+<h3 id="104-jadi-kenapa-tetap-tidak-dijalankan">10.4 Jadi kenapa tetap tidak dijalankan?</h3>
+<p>Karena <strong>kehati-hatian adalah kebijakan yang benar</strong>, walaupun secara statistik belum tuntas:</p>
+<ol>
+<li><strong>Titik estimasi di rezim terkini = −1,44 bps</strong>, sementara butuh <strong>+16 bps</strong>. Kita tidak boleh mempertaruhkan uang pada perkiraan yang belum terpisah dari nol.</li>
+<li><strong>Ini lead, bukan obat.</strong> Ia layak dipantau, bukan dipasang sekarang.</li>
+<li><strong>Aturan kami tegas:</strong> tidak ada gerbang yang dipasang ke produksi sebelum lolos uji 3-segmen yang presisi.</li>
+</ol>
+<hr>
+<h2 id="11-apa-artinya-untuk-target-08-per-48-jam">11. Apa Artinya untuk Target 0,8% per 48 Jam</h2>
+<p>Mari saya sambungkan kembali ke target besar.</p>
+<table>
+<thead>
+<tr>
+<th>Pertanyaan</th>
+<th>Jawaban berdasarkan bukti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apakah masalahnya biaya?</td>
+<td><strong>Bukan.</strong> Periode terakhir rugi sebelum biaya apa pun.</td>
+</tr>
+<tr>
+<td>Apakah masalahnya entry?</td>
+<td><strong>Bukan.</strong> 12 filter diuji, nol layak.</td>
+</tr>
+<tr>
+<td>Apakah masalahnya bug?</td>
+<td><strong>Bukan.</strong> Kode tidak berubah di periode kritis.</td>
+</tr>
+<tr>
+<td>Apakah masalahnya strategi?</td>
+<td><strong>Ya.</strong> Ini taruhan arah (beta 0,887, alpha ≈ 0), bukan kecerdasan.</td>
+</tr>
+<tr>
+<td>Apakah ada jalan keluar?</td>
+<td><strong>Ada petunjuknya</strong> — rezim volatilitas — <strong>tapi belum cukup kuat.</strong></td>
+</tr>
+<tr>
+<td>Aman dijalankan dengan uang sekarang?</td>
+<td><strong>Tidak.</strong> Estimasi di rezim terkini masih di bawah ambang biaya.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kesimpulan yang jujur:</strong></p>
+<blockquote>
+<p>Target 0,8%/48 jam <strong>belum bisa dicapai</strong> oleh mesin <code>twoway</code> sebagaimana adanya. Bukan karena kesalahan teknis, tetapi karena mesin ini <strong>tidak memiliki alpha</strong> — ia hanya meminjam gerakan pasar, dan pinjaman itu sedang mahal.</p>
+</blockquote>
+<p><strong>Yang TIDAK saya lakukan (dan ini sengaja):</strong></p>
+<ul>
+<li>❌ Tidak menurunkan target supaya terlihat tercapai</li>
+<li>❌ Tidak memasang leverage untuk mengejar angka (itu memperbesar risiko, bukan menambah kecerdasan)</li>
+<li>❌ Tidak melonggarkan gerbang T1</li>
+<li>❌ Tidak memasang gerbang rezim yang belum lolos uji, hanya supaya ada "kemajuan"</li>
+<li>❌ Tidak mengubah fee tier atau mengaktifkan jalur maker yang sudah terbukti nol fill</li>
+</ul>
+<hr>
+<h2 id="12-langkah-berikutnya">12. Langkah Berikutnya</h2>
+<table>
+<thead>
+<tr>
+<th>Prioritas</th>
+<th>Langkah</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Lanjutkan jendela forward 30 hari (sedang berjalan, hari ke-3 dari 30)</td>
+<td>Ini <strong>satu-satunya</strong> cara sah menguji T1, sekaligus <strong>menambah presisi</strong></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Kumpulkan lebih banyak trade (≈5,5 trade/hari)</td>
+<td>Presisi naik seiring jumlah data — itu menghukum atau menguatkan temuan ini</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Uji ulang <strong>volatilitas</strong> saat data cukup (±100 trade/kelompok)</td>
+<td>Untuk memisahkan efek 75 bps dari derau secara meyakinkan</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Cari mesin <strong>kedua</strong> yang tidak berkorelasi</td>
+<td>Menurunkan risiko total, bukan menambah taruhan sejenis</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Biarkan sisi SHORT dinilai ulang saat rezim berubah</td>
+<td>Sisi itu praktis mati; jangan dipaksa hidup tanpa bukti</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perkiraan waktu:</strong> dengan 5,5 trade/hari, untuk mendapatkan presisi ±40 bps (cukup untuk menilai efek 75 bps) dibutuhkan sekitar <strong>1.700 trade</strong> per kelompok — artinya butuh <strong>berbulan-bulan</strong>, bukan berminggu-minggu. Karena itu <strong>sabar adalah bagian dari strategi</strong>, bukan kegagalan.</p>
+<hr>
+<h2 id="13-catatan-verifikasi-dan-cara-mengulang">13. Catatan Verifikasi dan Cara Mengulang</h2>
+<p>Semua angka dalam dokumen ini dihasilkan oleh program yang bisa dijalankan ulang. <strong>Tidak ada angka yang saya karang.</strong></p>
+<h3 id="131-cara-mengulang">13.1 Cara mengulang</h3>
+<pre><code class="language-bash">cd ~/anantara-sakti
+
+# 1. Cek sumber data yang tersedia
+python3 scripts/sodex_regime_source_discovery.py
+
+# 2. Jalankan studi prediktor rezim (read-only)
+python3 scripts/sodex_regime_gate_study.py --dry-run
+
+# 3. Jalankan test yang mengunci anti-look-ahead
+python3 -m pytest tests/test_sodex_regime_gate_study.py -q
+</code></pre>
+<h3 id="132-berkas-terkait">13.2 Berkas terkait</h3>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reports/sodex/D07_RCA_FILTER_DAN_FAKTOR_2026-10-05.md</code></td>
+<td>Analisis akar masalah: kenapa filter gagal, kenapa ini soal faktor</td>
+</tr>
+<tr>
+<td><code>reports/sodex/D08_PREDIKTOR_REZIM_EXANTE_2026-10-05.md</code></td>
+<td>Laporan teknis lengkap studi prediktor rezim</td>
+</tr>
+<tr>
+<td><code>scripts/sodex_regime_gate_study.py</code></td>
+<td>Program studi (5 prediktor, uji 3 segmen)</td>
+</tr>
+<tr>
+<td><code>tests/test_sodex_regime_gate_study.py</code></td>
+<td>12 test, termasuk 4 test anti-look-ahead</td>
+</tr>
+</tbody>
+</table>
+<h3 id="133-jaminan-yang-dipegang">13.3 Jaminan yang dipegang</h3>
+<table>
+<thead>
+<tr>
+<th>Jaminan</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tidak ada data masa depan dipakai</td>
+<td>✅ dikunci 4 unit test</td>
+</tr>
+<tr>
+<td>Kandidat dideklarasikan sebelum melihat hasil</td>
+<td>✅ 5 prediktor, di kode</td>
+</tr>
+<tr>
+<td>Penalti multiple-testing diterapkan</td>
+<td>✅ <code>n_trials</code> + BH-FDR</td>
+</tr>
+<tr>
+<td>Registri uji tidak pernah direset</td>
+<td>✅ append-only</td>
+</tr>
+<tr>
+<td>Jendela forward tidak disentuh</td>
+<td>✅ read-only</td>
+</tr>
+<tr>
+<td>Gerbang T1 tidak dilonggarkan</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Perubahan kode lewat review sebelum commit</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Suite test hijau</td>
+<td>✅ <strong>4.486 lulus, 0 gagal</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="penutup">Penutup</h3>
+<p>Tiga kalimat yang saya ingin Anda bawa:</p>
+<ol>
+<li><strong>Masalahnya bukan ongkos, bukan bug, bukan cara masuk</strong> — tetapi bahwa mesin ini <strong>tidak punya kecerdasan sendiri</strong>; ia meminjam gerakan pasar.</li>
+<li><strong>Saya menemukan satu kunci rezim yang nyata secara statistik</strong> (volatilitas Bitcoin, peluang kebetulan 1,2%) — <strong>tetapi kuncinya belum cukup tajam</strong> untuk dipakai memutuskan.</li>
+<li><strong>Karena itu: jangan dijalankan dengan uang sekarang.</strong> Tapi sekarang kita tahu persis apa yang harus ditunggu dan diuji — dan itu jauh lebih berharga daripada optimisme tanpa dasar.</li>
+</ol>
+<hr>
+<p><em>Dokumen ini disusun oleh Hermes Anantara v3 — Divisi SoDEX | 5 Oktober 2026</em>
+<em>Semua angka dapat direproduksi dari <code>scripts/sodex_regime_gate_study.py</code>.</em></p>
+</body>
+</html>

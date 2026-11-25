@@ -1,0 +1,150 @@
+{
+ "wallet": 242.79,
+ "fee_rt_bps": 2.4,
+ "tracks": {
+  "TWO-WAY": {
+   "n": 422,
+   "arms": {
+    "NONE": 353,
+    "RANDOM": 32,
+    "SIGNAL": 37
+   },
+   "cost_bps_median": 5.9,
+   "cost_bps_mean": 7.44,
+   "sum_net_usd": 178.14,
+   "sum_fee_usd": 30.38,
+   "sum_slip_usd": 27.15,
+   "windows": {
+    "A": {
+     "n_windows": 50,
+     "span_h": 1519.6,
+     "mean": 1.467,
+     "median": -1.771,
+     "hit": 20,
+     "hit_rate": 0.4,
+     "worst": -28.63,
+     "best": 60.34,
+     "total": 73.37
+    },
+    "B": {
+     "n_windows": 50,
+     "span_h": 1519.6,
+     "mean": 1.941,
+     "median": -1.576,
+     "hit": 21,
+     "hit_rate": 0.42,
+     "worst": -27.5,
+     "best": 60.7,
+     "total": 97.07
+    },
+    "D": {
+     "n_windows": 50,
+     "span_h": 1519.6,
+     "mean": 0.993,
+     "median": -1.966,
+     "hit": 20,
+     "hit_rate": 0.4,
+     "worst": -29.75,
+     "best": 59.99,
+     "total": 49.67
+    }
+   },
+   "windows_signal_only": {
+    "A": {
+     "n_windows": 50,
+     "span_h": 1516.7,
+     "mean": 1.804,
+     "median": -1.771,
+     "hit": 20,
+     "hit_rate": 0.4,
+     "worst": -23.67,
+     "best": 60.34,
+     "total": 90.21
+    },
+    "B": {
+     "n_windows": 50,
+     "span_h": 1516.7,
+     "mean": 2.236,
+     "median": -1.576,
+     "hit": 21,
+     "hit_rate": 0.42,
+     "worst": -22.76,
+     "best": 60.7,
+     "total": 111.78
+    }
+   }
+  },
+  "REAL-WIDE": {
+   "n": 187,
+   "arms": {
+    "NONE": 144,
+    "SIGNAL": 25,
+    "RANDOM": 18
+   },
+   "cost_bps_median": 4.4,
+   "cost_bps_mean": 7.32,
+   "sum_net_usd": 16.66,
+   "sum_fee_usd": 13.46,
+   "sum_slip_usd": 18.45,
+   "windows": {
+    "A": {
+     "n_windows": 27,
+     "span_h": 824.3,
+     "mean": 0.254,
+     "median": -0.418,
+     "hit": 9,
+     "hit_rate": 0.333,
+     "worst": -14.64,
+     "best": 42.54,
+     "total": 6.86
+    },
+    "B": {
+     "n_windows": 27,
+     "span_h": 824.3,
+     "mean": 0.741,
+     "median": -0.279,
+     "hit": 9,
+     "hit_rate": 0.333,
+     "worst": -14.21,
+     "best": 42.93,
+     "total": 20.0
+    },
+    "D": {
+     "n_windows": 27,
+     "span_h": 824.3,
+     "mean": -0.233,
+     "median": -0.539,
+     "hit": 9,
+     "hit_rate": 0.333,
+     "worst": -15.06,
+     "best": 42.15,
+     "total": -6.28
+    }
+   },
+   "windows_signal_only": {
+    "A": {
+     "n_windows": 25,
+     "span_h": 757.7,
+     "mean": 0.38,
+     "median": -0.308,
+     "hit": 8,
+     "hit_rate": 0.32,
+     "worst": -21.75,
+     "best": 42.54,
+     "total": 9.51
+    },
+    "B": {
+     "n_windows": 25,
+     "span_h": 757.7,
+     "mean": 0.873,
+     "median": 0.0,
+     "hit": 8,
+     "hit_rate": 0.32,
+     "worst": -21.08,
+     "best": 42.93,
+     "total": 21.81
+    }
+   }
+  }
+ }
+}

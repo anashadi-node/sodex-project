@@ -1,0 +1,18 @@
+[Unit]
+Description=SoDEX QIP XAUT research-gated live micro pilot (disabled by default)
+After=network-online.target sodex-public-trade-recorder.service
+Wants=network-online.target sodex-public-trade-recorder.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+Environment=CONFIRM_LIVE=YES
+ExecStart=/usr/bin/python3 -u /home/USER/anantara-sakti/scripts/sodex_pin_maker.py --approved-live --pair XAUT-USD --notional 10 --tick-size 0.1 --qty-step 0.0001 --min-notional 10 --inside-ticks 1 --min-net-capture-bps 1.5 --ttl 30 --close-ttl 120 --loss-cap 0.05 --max-rt 10 --min-ratio-rt 5 --interval 1 --state /home/USER/anantara-sakti/data/sodex_qip_xaut_pilot_state.json --research-gate /home/USER/anantara-sakti/data/sodex_queue_trade_validation_forward.json
+Restart=no
+TimeoutStopSec=20
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_qip_xaut_pilot.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_qip_xaut_pilot.log
+
+[Install]
+WantedBy=default.target

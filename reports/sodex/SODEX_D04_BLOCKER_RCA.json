@@ -1,0 +1,293 @@
+{
+  "generated_utc": "2026-11-24T23:04:43.460622+00:00",
+  "verdict": "T1_FAIL_BLOCKER_RCA_READY",
+  "t1_status": "FAIL",
+  "harness_generated_utc": "2026-11-24T23:04:41.761954+00:00",
+  "fee_bps": 8.0,
+  "forward_archive": {
+    "verdict": "READY",
+    "n_rows": 100657,
+    "unique_symbols": 100,
+    "span_hours": 1284.91,
+    "bad_rows": 0
+  },
+  "funding_blocker": {
+    "verdict": "FAIL_CLOSED",
+    "n_exact": 0,
+    "n_rate_estimated": 0,
+    "n_missing": 0,
+    "coverage_pct": 0.0
+  },
+  "tracks": [
+    {
+      "track": "swing",
+      "n": 445,
+      "passed": false,
+      "wr_pct": 34.83,
+      "excess_mean_bps": -16.49,
+      "cost_1x_bps": -24.49,
+      "cost_2x_bps": -32.49,
+      "fee_drag_bps": -8.0,
+      "dsr": 5.820434576531142e-07,
+      "n_failing_checks": 4,
+      "failing_checks": [
+        {
+          "check": "net_pos_1x",
+          "need": "> 8.0 bps gross",
+          "gap_bps": 24.49
+        },
+        {
+          "check": "net_pos_2x",
+          "need": "> 16.0 bps gross",
+          "gap_bps": 32.49
+        },
+        {
+          "check": "ci95_lower_positive",
+          "need": "CI95 low > 0",
+          "gap_bps": 31.24
+        },
+        {
+          "check": "dsr_passed",
+          "need": "DSR >= 0.95",
+          "gap_bps": 0.95
+        }
+      ],
+      "worst_symbols": [
+        {
+          "symbol": "ASTER",
+          "n": 15,
+          "mean_bps": -84.98,
+          "contrib_bps": -1274.76
+        },
+        {
+          "symbol": "PUMP",
+          "n": 18,
+          "mean_bps": -66.54,
+          "contrib_bps": -1197.71
+        },
+        {
+          "symbol": "SUI",
+          "n": 28,
+          "mean_bps": -41.65,
+          "contrib_bps": -1166.23
+        },
+        {
+          "symbol": "ONDO",
+          "n": 24,
+          "mean_bps": -42.09,
+          "contrib_bps": -1010.24
+        },
+        {
+          "symbol": "BCH",
+          "n": 21,
+          "mean_bps": -44.46,
+          "contrib_bps": -933.73
+        }
+      ]
+    },
+    {
+      "track": "twoway",
+      "n": 512,
+      "passed": false,
+      "wr_pct": 41.41,
+      "excess_mean_bps": 2.92,
+      "cost_1x_bps": -5.08,
+      "cost_2x_bps": -13.08,
+      "fee_drag_bps": -8.0,
+      "dsr": 0.006002437301734054,
+      "n_failing_checks": 4,
+      "failing_checks": [
+        {
+          "check": "net_pos_1x",
+          "need": "> 8.0 bps gross",
+          "gap_bps": 5.08
+        },
+        {
+          "check": "net_pos_2x",
+          "need": "> 16.0 bps gross",
+          "gap_bps": 13.08
+        },
+        {
+          "check": "ci95_lower_positive",
+          "need": "CI95 low > 0",
+          "gap_bps": 15.03
+        },
+        {
+          "check": "dsr_passed",
+          "need": "DSR >= 0.95",
+          "gap_bps": 0.944
+        }
+      ],
+      "worst_symbols": [
+        {
+          "symbol": "ETH",
+          "n": 47,
+          "mean_bps": -32.15,
+          "contrib_bps": -1511.07
+        },
+        {
+          "symbol": "ADA",
+          "n": 19,
+          "mean_bps": -74.38,
+          "contrib_bps": -1413.15
+        },
+        {
+          "symbol": "BTC",
+          "n": 47,
+          "mean_bps": -23.21,
+          "contrib_bps": -1090.77
+        },
+        {
+          "symbol": "HYPE",
+          "n": 20,
+          "mean_bps": -35.22,
+          "contrib_bps": -704.39
+        },
+        {
+          "symbol": "ENA",
+          "n": 20,
+          "mean_bps": -19.32,
+          "contrib_bps": -386.37
+        }
+      ]
+    },
+    {
+      "track": "realwide",
+      "n": 298,
+      "passed": false,
+      "wr_pct": 39.6,
+      "excess_mean_bps": -11.24,
+      "cost_1x_bps": -19.24,
+      "cost_2x_bps": -27.24,
+      "fee_drag_bps": -8.0,
+      "dsr": 0.00012651218547782284,
+      "n_failing_checks": 4,
+      "failing_checks": [
+        {
+          "check": "net_pos_1x",
+          "need": "> 8.0 bps gross",
+          "gap_bps": 19.24
+        },
+        {
+          "check": "net_pos_2x",
+          "need": "> 16.0 bps gross",
+          "gap_bps": 27.24
+        },
+        {
+          "check": "ci95_lower_positive",
+          "need": "CI95 low > 0",
+          "gap_bps": 33.71
+        },
+        {
+          "check": "dsr_passed",
+          "need": "DSR >= 0.95",
+          "gap_bps": 0.9499
+        }
+      ],
+      "worst_symbols": [
+        {
+          "symbol": "ETH",
+          "n": 24,
+          "mean_bps": -54.37,
+          "contrib_bps": -1304.97
+        },
+        {
+          "symbol": "AAVE",
+          "n": 20,
+          "mean_bps": -40.2,
+          "contrib_bps": -804.05
+        },
+        {
+          "symbol": "ASTER",
+          "n": 16,
+          "mean_bps": -34.8,
+          "contrib_bps": -556.81
+        },
+        {
+          "symbol": "TRX",
+          "n": 10,
+          "mean_bps": -43.98,
+          "contrib_bps": -439.81
+        },
+        {
+          "symbol": "DOGE",
+          "n": 9,
+          "mean_bps": -45.12,
+          "contrib_bps": -406.09
+        }
+      ]
+    }
+  ],
+  "nearest_to_pass": {
+    "track": "twoway",
+    "n": 512,
+    "passed": false,
+    "wr_pct": 41.41,
+    "excess_mean_bps": 2.92,
+    "cost_1x_bps": -5.08,
+    "cost_2x_bps": -13.08,
+    "fee_drag_bps": -8.0,
+    "dsr": 0.006002437301734054,
+    "n_failing_checks": 4,
+    "failing_checks": [
+      {
+        "check": "net_pos_1x",
+        "need": "> 8.0 bps gross",
+        "gap_bps": 5.08
+      },
+      {
+        "check": "net_pos_2x",
+        "need": "> 16.0 bps gross",
+        "gap_bps": 13.08
+      },
+      {
+        "check": "ci95_lower_positive",
+        "need": "CI95 low > 0",
+        "gap_bps": 15.03
+      },
+      {
+        "check": "dsr_passed",
+        "need": "DSR >= 0.95",
+        "gap_bps": 0.944
+      }
+    ],
+    "worst_symbols": [
+      {
+        "symbol": "ETH",
+        "n": 47,
+        "mean_bps": -32.15,
+        "contrib_bps": -1511.07
+      },
+      {
+        "symbol": "ADA",
+        "n": 19,
+        "mean_bps": -74.38,
+        "contrib_bps": -1413.15
+      },
+      {
+        "symbol": "BTC",
+        "n": 47,
+        "mean_bps": -23.21,
+        "contrib_bps": -1090.77
+      },
+      {
+        "symbol": "HYPE",
+        "n": 20,
+        "mean_bps": -35.22,
+        "contrib_bps": -704.39
+      },
+      {
+        "symbol": "ENA",
+        "n": 20,
+        "mean_bps": -19.32,
+        "contrib_bps": -386.37
+      }
+    ]
+  },
+  "safety": {
+    "unfreeze_real_money": "NO",
+    "build_new_strategy_machine_now": "NO",
+    "change_leverage_exit_gate_or_position_sizing": "NO",
+    "reason": "D0.4 is read-only RCA; T1 must pass and RISET must confirm before any build."
+  }
+}

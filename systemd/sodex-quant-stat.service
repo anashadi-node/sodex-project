@@ -1,0 +1,13 @@
+[Unit]
+Description=Anantara Sakti - SoDEX quant-stat paper-test engine (read-only calibration harvest)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+EnvironmentFile=/home/USER/anantara-sakti/.env
+ExecStartPre=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/sodex_quant_calibration_harvest.py
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/sodex_quant_stat_engine.py --min-ratio 4100
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_quant_stat.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_quant_stat.log

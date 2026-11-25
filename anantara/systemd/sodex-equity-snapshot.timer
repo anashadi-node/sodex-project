@@ -1,0 +1,11 @@
+[Unit]
+Description=Timer sampling ekuitas SoDEX tiap 5 jam
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5h
+AccuracySec=1min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

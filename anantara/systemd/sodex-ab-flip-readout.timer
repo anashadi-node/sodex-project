@@ -1,0 +1,12 @@
+[Unit]
+Description=Jadwal readout A/B exit REGIME_FLIP tiap 6 jam
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=6h
+AccuracySec=1min
+Persistent=true
+Unit=sodex-ab-flip-readout.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,438 @@
+<html><head><meta charset="utf-8"><style>
+body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 32px auto; padding: 0 24px; color: #1f2933; line-height: 1.6; }
+h1 { color: #0b5394; border-bottom: 3px solid #0b5394; padding-bottom: 8px; }
+h2 { color: #0b5394; margin-top: 28px; border-left: 4px solid #0b5394; padding-left: 10px; }
+h3 { color: #1a56db; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th { background: #0b5394; color: white; padding: 8px; text-align: left; }
+td { border: 1px solid #d1d5db; padding: 8px; }
+tr:nth-child(even) { background: #f3f4f6; }
+blockquote { border-left: 4px solid #f59e0b; background: #fffbeb; padding: 8px 16px; }
+code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+mark, .ok { color: #047857; font-weight: bold; }
+.x { color: #b91c1c; font-weight: bold; }
+</style></head><body><h1>LAPORAN RISET &amp; STATUS PAPER TEST SISTEM TRADING SODEX</h1>
+<p><strong>Tanggal:</strong> 05 September 2026 | <strong>Wallet:</strong> $139,37 | <strong>Target:</strong> ≥0,7% per trade (HARGA MATI)</p>
+<hr />
+<h2>📋 DAFTAR ISI</h2>
+<ol>
+<li>Ringkasan Eksekutif</li>
+<li>Metodologi &amp; Sumber Data</li>
+<li>Hasil 5 Riset Paralel (Scientific)</li>
+<li>Status Semua Paper Test (13 Track)</li>
+<li>Temuan Kunci &amp; Implementasi</li>
+<li>Falsifikasi Jujur</li>
+<li>Roadmap Menuju Real Live</li>
+<li>Verifikasi Data &amp; File</li>
+</ol>
+<hr />
+<h2>1. RINGKASAN EKSEKUTIF</h2>
+<p>Sistem trading SoDEX telah menjalankan <strong>5 riset paralel</strong> dengan rigor statistik
+(549 trades nyata, 6 track, periode 2026-08-06 s/d 2026-09-05) dan
+<strong>13 paper test aktif</strong> mengumpulkan bukti forward. Temuan terbesar:</p>
+<ul>
+<li>✅ <strong>Dead zone jam UTC 5/12/17/18 ditemukan</strong> — WR 27,3% vs 71,6% di prime zone</li>
+<li>✅ <strong>Volatility gate (ATR14)</strong> — SL-cepat masuk saat ATR 2× normal (q=0,016)</li>
+<li>✅ <strong>Geometri TP6%/SL1,5% unggul</strong> (bootstrap P=100%)</li>
+<li>❌ <strong>Hipotesis short-bear DIFALSIFIKASI</strong> di market sideways (kejujuran ilmiah)</li>
+<li>🎯 <strong>Portfolio 2-3 posisi L2 optimal</strong> (Simulasi Monte Carlo 10.000 jalur)</li>
+</ul>
+<hr />
+<h2>2. METODOLOGI &amp; SUMBER DATA</h2>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset</td>
+<td>549 trades, 6 track, 29 pair</td>
+</tr>
+<tr>
+<td>Periode</td>
+<td>2026-08-06 s/d 2026-09-05</td>
+</tr>
+<tr>
+<td>Sumber harga</td>
+<td>Binance API (1h klines) + SoDEX</td>
+</tr>
+<tr>
+<td>Uji statistik</td>
+<td>Mann-Whitney U, Wilcoxon, t-test, Fisher exact</td>
+</tr>
+<tr>
+<td>Koreksi ganda</td>
+<td>Benjamini-Hochberg FDR (q&lt;0,05)</td>
+</tr>
+<tr>
+<td>Bootstrap</td>
+<td>10.000-20.000 resamples (iid + moving-block)</td>
+</tr>
+<tr>
+<td>Monte Carlo</td>
+<td>10.000 jalur × 30 hari utk portfolio</td>
+</tr>
+<tr>
+<td>Falsifikasi</td>
+<td>H1 (local-top) &amp; short-bear DIUJI &amp; DITOLAK</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. HASIL 5 RISET PARALEL</h2>
+<h3>Riset 1 — Entry Timing (Anti Local-Top)</h3>
+<p><strong>HASIL: FALSIFIKASI H1</strong> — "entry di local top" DITOLAK secara statistik.
+| Metrik | p-value | FDR lolos? |
+|---|---|---|
+| ext_atr | 0,99 | ❌ |
+| ext_pct | 0,37 | ❌ |
+| vol_ratio | 0,35 | ❌ |</p>
+<p><strong>Namun 3 filter aturan LOLOS BH-FDR:</strong>
+| Filter | Formula | Dampak |
+|---|---|---|
+| Vol gate | ATR14/C &gt; 2% → skip | Buang 13/59 trade, hilangkan 7/12 SL-cepat |
+| Extension | C/SMA50 -1 &gt; 5% → skip | Buang 20, hilangkan 8/12 (tapi potong PnL) |
+| <strong>Combo</strong> | ATR&gt;1,8% DAN C&gt;SMA24×1,015 | <strong>TERBAIK: WR 52,5→55,3%, exp +$2,61</strong> |</p>
+<h3>Riset 2 — Sizing &amp; Exit Geometry</h3>
+<ul>
+<li><strong>Kelly full f*=4,69 DILARANG</strong> (ruin 42,6%)</li>
+<li>Batas aman: quarter-to-half Kelly = <strong>1,2×-2,4× exposure</strong></li>
+<li><strong>TP6%/SL1,5%/T30 optimal</strong>: degradasi IS→OOS 39,9% (vs baseline 62,3%),
+  PF 4,50 (vs 2,85), paired bootstrap CI95 selisih [+0,40%, +0,99%], P=100%</li>
+<li>Target 0,7%/trade REALISTIS dengan exposure ≥ 1,73× wallet</li>
+</ul>
+<h3>Riset 3 — Metode Web Scientific (8 metode)</h3>
+<ol>
+<li><strong>RSI(2) Pullback</strong> + anti-overbought (Connors backtest verifikasi)</li>
+<li>Regime filter EMA multi-timeframe</li>
+<li>Funding rate filter (crowding detection)</li>
+<li>Volume profile / POC</li>
+<li>Chandelier exit (ATR-based trailing)</li>
+<li>SuperTrend</li>
+<li>Breakout retest + volume confirmation</li>
+<li>Multi-timeframe confluence (15m-1h-4h)</li>
+</ol>
+<h3>Riset 4 — Forensik 549 Trades</h3>
+<p><strong>Dead zone &amp; prime zone (paling actionable):</strong>
+| Zona | Jam UTC | n | WR | avg |
+|---|---|---|---|---|
+| 🔴 DEAD | 5/12/17/18 | 88 | 27,3% | -0,73% |
+| 🟢 PRIME | 3/10/15 | 95 | <strong>71,6%</strong> | <strong>+1,25%</strong> |</p>
+<p><strong>Pair konsisten profit (BH-FDR lolos):</strong> BTC (+0,70%), SOL (+0,80%),
+DOGE (+0,72%), UNI (+1,12%)</p>
+<p><strong>Hold 8-30 jam = sweet spot</strong> (+1,62%, p=0,0085); &lt;8 jam rugi; &gt;30 jam flat.</p>
+<h3>Riset 5 — Portfolio Multi-Posisi (Monte Carlo 10k×30hari)</h3>
+<table>
+<thead>
+<tr>
+<th>Skenario</th>
+<th>E[daily ROI]</th>
+<th>P(≥0,7%)</th>
+<th>maxDD p95</th>
+<th>P(ruin)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 besar BTC L2</td>
+<td>+4,12%</td>
+<td>58,5%</td>
+<td>41,6%</td>
+<td>1,5%</td>
+</tr>
+<tr>
+<td><strong>2-3 sedang L2</strong></td>
+<td><strong>+4,93%</strong></td>
+<td><strong>61,3%</strong></td>
+<td><strong>38,6%</strong></td>
+<td><strong>1,0%</strong></td>
+</tr>
+<tr>
+<td>5 kecil L2</td>
+<td>+4,16%</td>
+<td>60,1%</td>
+<td>39,8%</td>
+<td>1,4%</td>
+</tr>
+<tr>
+<td>Ultra-aman 5×L1</td>
+<td>+2,09%</td>
+<td>—</td>
+<td>22,4%</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Verdict: 2-3 posisi (SOL+UNI+DOGE) @L2 = optimal.</strong></p>
+<hr />
+<h2>4. STATUS ALL PAPER TEST (13 TRACK)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Track</th>
+<th>Service</th>
+<th>n</th>
+<th>WR</th>
+<th>ROI</th>
+<th>Open</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>REALWIDE</td>
+<td>active</td>
+<td>62</td>
+<td>50,0%</td>
+<td>+1,51%</td>
+<td>0</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SWING</td>
+<td>active</td>
+<td>143</td>
+<td>46,2%</td>
+<td>+0,57%</td>
+<td>0</td>
+<td>dekat</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SWING_PARTIAL</td>
+<td>active</td>
+<td>137</td>
+<td>56,9%</td>
+<td>+0,56%</td>
+<td>0</td>
+<td>dekat</td>
+</tr>
+<tr>
+<td>4</td>
+<td>TWOWAY</td>
+<td>active</td>
+<td>150</td>
+<td>48,7%</td>
+<td>+1,19%*</td>
+<td>2</td>
+<td>✅ LONG</td>
+</tr>
+<tr>
+<td>5</td>
+<td>DONCHIAN</td>
+<td>active</td>
+<td>48</td>
+<td>37,5%</td>
+<td>-0,29%</td>
+<td>0</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SPOT_V4</td>
+<td>active</td>
+<td>10</td>
+<td>50,0%</td>
+<td>+0,45%</td>
+<td>5</td>
+<td>❌ n kecil</td>
+</tr>
+<tr>
+<td>7</td>
+<td>HYPERLIQUID</td>
+<td>active</td>
+<td>0</td>
+<td>—</td>
+<td>—</td>
+<td>0</td>
+<td>collect</td>
+</tr>
+<tr>
+<td>8</td>
+<td>ASTER</td>
+<td>active</td>
+<td>16</td>
+<td>31,2%</td>
+<td>-0,89%</td>
+<td>5</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>SHORT_BEAR</strong> (baru)</td>
+<td>active</td>
+<td>0</td>
+<td>—</td>
+<td>—</td>
+<td>1</td>
+<td>collect</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>PORTFOLIO</strong> (baru)</td>
+<td>active</td>
+<td>0</td>
+<td>—</td>
+<td>—</td>
+<td>1</td>
+<td>collect</td>
+</tr>
+<tr>
+<td>11</td>
+<td>CEX SIGNAL</td>
+<td>active</td>
+<td>120</td>
+<td>45,8%</td>
+<td>+0,28%</td>
+<td>5</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>12</td>
+<td>CEX RANDOM</td>
+<td>active</td>
+<td>122</td>
+<td>49,2%</td>
+<td>+0,36%</td>
+<td>3</td>
+<td>baseline+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>CEX SPOT</td>
+<td>active</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>active</td>
+</tr>
+</tbody>
+</table>
+<p>*TWOWAY LONG-only: ROI +1,19% (SHORT disabled 2026-09-02).</p>
+<hr />
+<h2>5. TEMUAN KUNCI &amp; IMPLEMENTASI</h2>
+<table>
+<thead>
+<tr>
+<th>Temuan</th>
+<th>Status</th>
+<th>Di mana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dead zone UTC 5/12/17/18</td>
+<td>✅ Implement</td>
+<td>paper_test_realwide.py</td>
+</tr>
+<tr>
+<td>Vol gate ATR14/C&gt;2%</td>
+<td>✅ Implement</td>
+<td>paper_test_realwide.py</td>
+</tr>
+<tr>
+<td>Breakeven-trail</td>
+<td>✅ Implement</td>
+<td>paper_test_realwide + portfolio</td>
+</tr>
+<tr>
+<td>TP6/SL1,5 (paper)</td>
+<td>✅ Implement</td>
+<td>paper_test_realwide.py</td>
+</tr>
+<tr>
+<td>Sizing $50@3x (live)</td>
+<td>✅ Implement</td>
+<td>realwide_micro_live.py</td>
+</tr>
+<tr>
+<td>Portfolio adaptif L/S</td>
+<td>✅ Implement</td>
+<td>paper_test_portfolio.py (baru)</td>
+</tr>
+<tr>
+<td>Paper SHORT-BEAR</td>
+<td>✅ Implement</td>
+<td>paper_test_shortbear.py (baru)</td>
+</tr>
+<tr>
+<td>Denominator wallet jujur</td>
+<td>✅ Fix</td>
+<td>$94,57 → $139,37</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. FALSIFIKASI JUJUR (Scientific Integrity)</h2>
+<h3>6.1 Hipotesis "Entry Local-Top" — DITOLAK</h3>
+<p>6 metrik diuji, SEMUA p&gt;0,13, 0 lolos BH-FDR. Median ext_atr SL-cepat 1,47 vs
+profitable 1,34 — tidak ada beda. <strong>Filter entry TIDAK dipasang</strong> (hindari
+overfitting pada hipotesis tertolak).</p>
+<h3>6.2 Strategi Short-Bear — DITOLAK (market sideways)</h3>
+<p>Backtest 500h dengan TP4%/SL2%: <strong>0 TP di SEMUA pair</strong> (BTC/ETH/SOL/DOGE negatif).
+Adaptasi TP2,5%/SL1,5%/L2 masih mayoritas negatif (hanya ETH PF=1,05).
+<strong>Kesimpulan: hipotesis "short-bear profitable" BELUM terbukti.</strong> Paper tetap
+jalan (permintaan user) utk kumpulkan n≥30 data forward — transparan.</p>
+<hr />
+<h2>7. ROADMAP MENUJU REAL LIVE</h2>
+<pre><code>TAHAP 1 (SUDAH): 5 riset selesai + 13 paper test aktif
+TAHAP 2 (SEDANG): Paper mengumpulkan n≥30 forward evidence
+                  (realwide geometri baru + shortbear + portfolio)
+TAHAP 3 (GATE):  n≥30 + WR≥50% + PF≥1,5 + ROI≥0,7% 
+TAHAP 4 (LIVE):  Promosi ke live SETELAH bukti + approval user
+</code></pre>
+<p><strong>Kondisi live saat ini:</strong>
+- REALWIDE live: $50@3x TP4/SL2 (pinned) — MENUNGGU gate LONG terbuka
+  (BTC &lt; SMA50 = blokir aktif, sistem proteksi bekerja)
+- SPOT live: $6/trade — posisi BTC dikelola exit engine
+- PERPS-SHORT: OFF permanen (belum tervalidasi)</p>
+<hr />
+<h2>8. VERIFIKASI DATA &amp; FILE</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test suite (48 test)</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>Watchdog 0 CRITICAL</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sync realtime match exchange</td>
+<td>✅ 100%</td>
+</tr>
+<tr>
+<td>13 paper service</td>
+<td>✅ ACTIVE</td>
+</tr>
+<tr>
+<td>2 live service</td>
+<td>✅ ACTIVE</td>
+</tr>
+<tr>
+<td>Error log baru</td>
+<td>✅ 0</td>
+</tr>
+<tr>
+<td>Deep learner kontaminasi phantom</td>
+<td>✅ Fixed (337→328)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Dokumen dibuat oleh Hermes Anantara v3 — 2026-09-05</em>
+<em>Sumber: 5 subagent riset paralel + state files + verifikasi langsung</em></p></body></html>

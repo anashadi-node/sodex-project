@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Variational Omni vs SoDEX.com - Audit Market Komprehensif</title>
+  <style>
+    :root {
+      --paper: #f7f7f3;
+      --surface: #ffffff;
+      --ink: #19211f;
+      --muted: #66716d;
+      --line: #d9dfdb;
+      --line-strong: #aeb9b4;
+      --var: #0a7568;
+      --var-soft: #e1f1ed;
+      --sodex: #2559a8;
+      --sodex-soft: #e6edf8;
+      --good: #137333;
+      --good-soft: #e5f3e8;
+      --warn: #9b5c05;
+      --warn-soft: #fff1d4;
+      --risk: #ad2e24;
+      --risk-soft: #fbe8e5;
+      --neutral: #47514e;
+      --shadow: 0 1px 2px rgba(23, 31, 29, .06), 0 8px 26px rgba(23, 31, 29, .05);
+      --sidebar: 260px;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.58;
+      letter-spacing: 0;
+    }
+    a { color: var(--sodex); text-underline-offset: 3px; }
+    a:hover { color: #173d78; }
+    button, input { font: inherit; }
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 3px solid rgba(37, 89, 168, .28);
+      outline-offset: 2px;
+    }
+
+    .shell { display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); min-height: 100vh; }
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      background: #202a27;
+      color: #eef3f1;
+      border-right: 1px solid #303c38;
+      padding: 26px 18px;
+    }
+    .doc-mark {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 11px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .doc-mark__symbol {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #6a7e77;
+      border-radius: 4px;
+      background: #2b3733;
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .doc-mark strong { display: block; font-size: 13px; line-height: 1.25; }
+    .doc-mark span { color: #aebdb7; font-size: 11px; }
+    .sidebar-label {
+      color: #82948d;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 18px 8px 8px;
+    }
+    .sidebar nav { display: grid; gap: 2px; }
+    .sidebar nav a {
+      color: #cbd6d2;
+      text-decoration: none;
+      padding: 7px 9px;
+      border-left: 2px solid transparent;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    .sidebar nav a:hover, .sidebar nav a.active {
+      background: #2a3632;
+      color: #fff;
+      border-left-color: #55b7a7;
+    }
+    .sidebar-foot {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #3a4843;
+      color: #91a29c;
+      font-size: 10px;
+    }
+
+    main { min-width: 0; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: 54px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 9px clamp(20px, 4vw, 56px);
+      background: rgba(247, 247, 243, .95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .topbar__meta { color: var(--muted); font-size: 12px; }
+    .topbar__actions { display: flex; gap: 8px; }
+    .control {
+      min-height: 34px;
+      padding: 6px 11px;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .control:hover { border-color: var(--neutral); }
+
+    .content { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 34px 0 96px; }
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 36px;
+      align-items: end;
+      padding: 24px 0 30px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--var);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { letter-spacing: 0; }
+    h1 { margin: 0; font-size: clamp(32px, 5vw, 56px); line-height: 1.02; max-width: 850px; }
+    .dek { margin: 16px 0 0; max-width: 780px; color: var(--muted); font-size: 17px; }
+    .identity-pair { display: grid; gap: 8px; }
+    .identity {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .identity__mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      font-weight: 900;
+      color: white;
+    }
+    .identity__mark.var { background: var(--var); }
+    .identity__mark.sodex { background: var(--sodex); }
+    .identity strong { font-size: 14px; }
+    .identity small { display: block; color: var(--muted); }
+    .identity__model { color: var(--muted); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+
+    section { scroll-margin-top: 72px; padding: 54px 0 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(200px, 420px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .section-index { color: var(--var); font-weight: 800; font-size: 11px; letter-spacing: .08em; }
+    h2 { margin: 3px 0 0; font-size: 27px; line-height: 1.2; }
+    h3 { margin: 28px 0 10px; font-size: 17px; line-height: 1.3; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 13px; }
+    p { margin: 0 0 12px; }
+    .lede { font-size: 18px; max-width: 880px; }
+    .muted { color: var(--muted); }
+    .small { font-size: 12px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    .decision-band {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 24px;
+      margin-top: 28px;
+      padding: 20px 22px;
+      border: 1px solid #dfbd80;
+      border-left: 5px solid var(--warn);
+      background: var(--warn-soft);
+    }
+    .decision-band__status { font-size: 22px; font-weight: 900; line-height: 1.1; }
+    .decision-band__status small { display: block; margin-top: 8px; color: var(--warn); font-size: 10px; text-transform: uppercase; }
+    .decision-band p { margin: 0; }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .kpi { min-width: 0; padding: 18px; border-right: 1px solid var(--line); }
+    .kpi:last-child { border-right: 0; }
+    .kpi__label { color: var(--muted); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+    .kpi__value { margin-top: 5px; font-size: 25px; font-weight: 850; line-height: 1.1; }
+    .kpi__detail { margin-top: 7px; color: var(--muted); font-size: 11px; }
+    .kpi__accent { color: var(--var); }
+
+    .status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .status.good { color: var(--good); }
+    .status.warn { color: var(--warn); }
+    .status.risk { color: var(--risk); }
+    .status.neutral { color: var(--neutral); }
+    .tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      color: var(--muted);
+      background: #fafbf9;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .tag.fact { color: var(--sodex); border-color: #aabfe0; background: var(--sodex-soft); }
+    .tag.snapshot { color: var(--var); border-color: #a6d2c9; background: var(--var-soft); }
+    .tag.inference { color: var(--warn); border-color: #dfbd80; background: var(--warn-soft); }
+    .tag.user { color: #68528c; border-color: #c8b7dc; background: #f0ebf6; }
+
+    .table-wrap { overflow: auto; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 10px 11px;
+      background: #eef1ee;
+      border-bottom: 1px solid var(--line-strong);
+      color: #4e5955;
+      font-size: 10px;
+      line-height: 1.25;
+      text-align: left;
+      text-transform: uppercase;
+      vertical-align: bottom;
+    }
+    td { padding: 10px 11px; border-bottom: 1px solid #e7ebe8; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #fafbf9; }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    td.var-col { background: rgba(10, 117, 104, .035); }
+    td.sodex-col { background: rgba(37, 89, 168, .035); }
+    .table-note { margin: 9px 0 0; color: var(--muted); font-size: 11px; }
+    .source-link { font-size: 10px; white-space: nowrap; }
+
+    .bar-compare { display: grid; gap: 16px; padding: 20px; border: 1px solid var(--line); background: var(--surface); }
+    .bar-row { display: grid; grid-template-columns: 150px 1fr 90px; gap: 12px; align-items: center; }
+    .bar-row__label { font-size: 12px; font-weight: 750; }
+    .track { height: 24px; display: flex; overflow: hidden; background: #edf0ed; border-radius: 3px; }
+    .bar { min-width: 2px; height: 100%; }
+    .bar.var { background: var(--var); }
+    .bar.sodex { background: var(--sodex); }
+    .bar-row__value { text-align: right; font-variant-numeric: tabular-nums; font-size: 11px; }
+    .legend { display: flex; gap: 18px; align-items: center; color: var(--muted); font-size: 11px; }
+    .legend span { display: inline-flex; gap: 6px; align-items: center; }
+    .legend i { width: 12px; height: 8px; border-radius: 1px; }
+
+    .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .panel { padding: 18px 20px; border: 1px solid var(--line); background: var(--surface); }
+    .panel.var { border-top: 4px solid var(--var); }
+    .panel.sodex { border-top: 4px solid var(--sodex); }
+    .panel.risk { border-top: 4px solid var(--risk); }
+    .panel.good { border-top: 4px solid var(--good); }
+    .panel h3 { margin: 0 0 11px; }
+    .panel ul { margin: 0; padding-left: 18px; }
+    .panel li { margin: 5px 0; }
+    .facts { display: grid; grid-template-columns: 135px 1fr; gap: 0; margin: 0; }
+    .facts dt, .facts dd { margin: 0; padding: 7px 0; border-bottom: 1px solid #e8ece9; }
+    .facts dt { color: var(--muted); font-size: 11px; font-weight: 750; }
+    .facts dd { font-size: 12px; }
+
+    .callout { margin: 18px 0; padding: 15px 17px; border-left: 4px solid var(--sodex); background: var(--sodex-soft); }
+    .callout.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+    .callout.risk { border-left-color: var(--risk); background: var(--risk-soft); }
+    .callout.good { border-left-color: var(--good); background: var(--good-soft); }
+    .callout strong { display: block; margin-bottom: 3px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .formula {
+      overflow: auto;
+      padding: 16px 18px;
+      border: 1px solid #b6c3be;
+      background: #26312e;
+      color: #eff7f4;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .formula + .small { margin-top: 8px; }
+
+    .filterbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+    .filterbar input {
+      min-width: 230px;
+      min-height: 36px;
+      padding: 7px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+    .filterbar .filter-count { margin-left: auto; color: var(--muted); font-size: 11px; }
+
+    .winner-var { color: var(--var); font-weight: 850; }
+    .winner-sodex { color: var(--sodex); font-weight: 850; }
+    .loser { color: var(--muted); }
+
+    .timeline { position: relative; display: grid; gap: 0; border-left: 2px solid var(--line-strong); margin-left: 10px; }
+    .timeline-item { position: relative; padding: 0 0 26px 28px; }
+    .timeline-item::before { content: ""; position: absolute; left: -7px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 3px solid var(--var); }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item time { display: block; color: var(--var); font-size: 10px; font-weight: 850; text-transform: uppercase; }
+    .timeline-item h3 { margin: 3px 0 5px; font-size: 15px; }
+    .timeline-item p { color: var(--muted); font-size: 12px; }
+
+    .checklist { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .checklist li { position: relative; padding: 9px 12px 9px 34px; border: 1px solid var(--line); background: var(--surface); }
+    .checklist li::before { content: ""; position: absolute; left: 12px; top: 13px; width: 10px; height: 10px; border: 2px solid var(--line-strong); background: #fff; }
+
+    .sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 22px; padding: 0; list-style: none; }
+    .sources li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
+    .sources strong { display: block; color: var(--ink); }
+    .sources a { overflow-wrap: anywhere; }
+
+    .method-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .method-step { padding: 15px; border-top: 3px solid var(--line-strong); background: var(--surface); }
+    .method-step b { display: block; margin-bottom: 5px; font-size: 12px; }
+    .method-step p { margin: 0; color: var(--muted); font-size: 11px; }
+
+    .score-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 14px 0 18px; }
+    .score-card { min-width: 0; padding: 14px; border: 1px solid var(--line); background: var(--surface); }
+    .score-card b { display: block; font-size: 20px; line-height: 1.1; }
+    .score-card span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; }
+    .playbook { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .playbook-card { border: 1px solid var(--line); background: var(--surface); padding: 16px; }
+    .playbook-card h3 { margin-top: 0; }
+    .playbook-card .badge { display: inline-block; margin-bottom: 9px; padding: 3px 7px; border-radius: 3px; background: var(--var-soft); color: var(--var); font-size: 10px; font-weight: 850; text-transform: uppercase; }
+    .matrix-note { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; margin-top: 18px; }
+
+    .footer {
+      margin-top: 64px;
+      padding: 22px 0;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (max-width: 980px) {
+      .shell { display: block; }
+      .sidebar { position: relative; height: auto; padding: 14px 18px; }
+      .doc-mark { margin: 0; }
+      .sidebar-label, .sidebar-foot { display: none; }
+      .sidebar nav { display: flex; overflow-x: auto; margin-top: 12px; padding-bottom: 3px; }
+      .sidebar nav a { white-space: nowrap; border-left: 0; border-bottom: 2px solid transparent; }
+      .sidebar nav a.active { border-bottom-color: #55b7a7; border-left: 0; }
+      .topbar { top: 0; }
+      .masthead { grid-template-columns: 1fr; }
+      .identity-pair { grid-template-columns: 1fr 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .kpi:nth-child(2) { border-right: 0; }
+      .kpi:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 700px) {
+      body { font-size: 14px; }
+      .content { width: min(100% - 28px, 1180px); padding-top: 20px; }
+      .topbar { padding: 8px 14px; }
+      .topbar__meta { max-width: 190px; line-height: 1.25; }
+      .masthead { gap: 22px; }
+      h1 { font-size: 36px; }
+      .dek { font-size: 15px; }
+      .identity-pair, .split, .sources, .method-grid, .score-grid, .playbook, .matrix-note { grid-template-columns: 1fr; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; }
+      .decision-band { grid-template-columns: 1fr; gap: 10px; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi { border-right: 0; border-bottom: 1px solid var(--line); }
+      .kpi:last-child { border-bottom: 0; }
+      .bar-row { grid-template-columns: 90px 1fr 66px; }
+      .facts { grid-template-columns: 105px 1fr; }
+      .filterbar input { width: 100%; min-width: 0; }
+      .filterbar .filter-count { margin-left: 0; width: 100%; }
+      .footer { display: block; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 13mm; }
+      body { background: #fff; font-size: 10px; color: #000; }
+      .shell { display: block; }
+      .sidebar, .topbar, .filterbar { display: none !important; }
+      .content { width: 100%; padding: 0; }
+      .masthead { grid-template-columns: 1fr 240px; padding-top: 0; }
+      h1 { font-size: 30px; }
+      h2 { font-size: 19px; }
+      section { padding-top: 28px; break-inside: auto; }
+      .panel, .callout, .decision-band, .kpi-grid, .bar-compare, .table-wrap { box-shadow: none; break-inside: avoid; }
+      table { font-size: 8px; }
+      th, td { padding: 5px; }
+      a { color: #000; text-decoration: none; }
+      a[href^="http"]::after { content: ""; }
+      .footer { margin-top: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navigasi dokumen">
+      <div class="doc-mark">
+        <div class="doc-mark__symbol">V/S</div>
+        <div><strong>Market Comparison</strong><span>Operator intelligence dossier</span></div>
+      </div>
+      <div class="sidebar-label">Isi dokumen</div>
+      <nav id="toc">
+        <a href="#executive">01 Ringkasan eksekutif</a>
+        <a href="#method">02 Metodologi</a>
+        <a href="#overview">03 Perbandingan inti</a>
+        <a href="#snapshot">04 Snapshot pasar</a>
+        <a href="#assets">05 Intelijen aset</a>
+        <a href="#structure">06 Struktur market</a>
+        <a href="#cost">07 Biaya &amp; expectancy</a>
+        <a href="#rewards">08 Reward &amp; farming</a>
+        <a href="#recommendations">09 Rekomendasi Variational</a>
+        <a href="#automation">10 API &amp; otomasi</a>
+        <a href="#risk">11 Risiko &amp; keamanan</a>
+        <a href="#local">12 Audit kesiapan lokal</a>
+        <a href="#migration">13 Rencana migrasi</a>
+        <a href="#verdict">14 Putusan akhir</a>
+        <a href="#sources">15 Sumber primer</a>
+      </nav>
+      <div class="sidebar-foot">
+        Baseline data: 22 Juli 2026, 23:36 UTC<br>
+        Dokumen versi 1.1: 23 Juli 2026, Asia/Jakarta
+      </div>
+    </aside>
+
+    <main>
+      <div class="topbar">
+        <div class="topbar__meta"><strong>As-of 23 Jul 2026 06:36 WIB</strong> &nbsp;|&nbsp; Data pasar dapat berubah</div>
+        <div class="topbar__actions">
+          <button class="control" type="button" onclick="window.print()" title="Cetak dokumen atau simpan sebagai PDF">Print / PDF</button>
+        </div>
+      </div>
+
+      <article class="content">
+        <header class="masthead">
+          <div>
+            <p class="eyebrow">Audit market, reward, execution, API, dan risiko</p>
+            <h1>Variational Omni vs SoDEX.com</h1>
+            <p class="dek">Perbandingan komprehensif untuk menentukan kelayakan perpindahan proyek trading dan reward farming setelah 1 Agustus 2026.</p>
+          </div>
+          <div class="identity-pair" aria-label="Platform yang dibandingkan">
+            <div class="identity">
+              <div class="identity__mark var">V</div>
+              <div><strong>Variational Omni</strong><small>Arbitrum One</small></div>
+              <span class="identity__model">RFQ</span>
+            </div>
+            <div class="identity">
+              <div class="identity__mark sodex">S</div>
+              <div><strong>SoDEX.com</strong><small>ValueChain</small></div>
+              <span class="identity__model">Order book</span>
+            </div>
+          </div>
+        </header>
+
+        <section id="executive">
+          <div class="section-head">
+            <div><span class="section-index">01</span><h2>Ringkasan eksekutif</h2></div>
+            <p>Kesimpulan dibuat dari dokumentasi resmi, API publik Variational, scan ticker SoDEX lokal, dan audit kode proyek.</p>
+          </div>
+          <p class="lede"><strong>Variational unggul besar dalam volume dan jumlah market, tetapi SoDEX unggul dalam kesiapan otomasi resmi, transparansi order book, dan kompatibilitas dengan engine saat ini.</strong></p>
+          <div class="decision-band">
+            <div class="decision-band__status">GO bersyarat<small>Manual pilot + read-only research</small></div>
+            <p>Perpindahan riset setelah 1 Agustus layak. Perpindahan bot farming atau engine live belum layak karena trading API Variational belum tersedia dan Terms secara eksplisit melarang resource farming, botting, wash trading, serta arbitrase antarplatform tanpa izin. Porting engine SoDEX secara langsung berisiko secara teknis dan kontraktual.</p>
+          </div>
+          <div class="kpi-grid" style="margin-top:18px">
+            <div class="kpi"><div class="kpi__label">Rasio volume 24 jam</div><div class="kpi__value kpi__accent">10,32x</div><div class="kpi__detail">Variational terhadap SoDEX</div></div>
+            <div class="kpi"><div class="kpi__label">Rasio jumlah market</div><div class="kpi__value kpi__accent">6,27x</div><div class="kpi__detail">514 dibanding 82 perpetual</div></div>
+            <div class="kpi"><div class="kpi__label">Official trading API</div><div class="kpi__value">0 vs 1</div><div class="kpi__detail">Variational belum tersedia; SoDEX tersedia</div></div>
+            <div class="kpi"><div class="kpi__label">Rekomendasi sekarang</div><div class="kpi__value">Manual</div><div class="kpi__detail">Shadow test lalu pilot terbatas</div></div>
+          </div>
+          <div class="callout risk">
+            <strong>Temuan paling kritis</strong>
+            <p>Market yang lebih besar tidak otomatis membuat farming lebih menguntungkan. Reward harus dianggap bernilai nol sampai benar-benar dikreditkan dan dapat dinilai; strategi wajib tetap positif setelah spread, slippage, funding, dan risiko likuidasi tanpa bergantung pada points.</p>
+          </div>
+        </section>
+
+        <section id="method">
+          <div class="section-head">
+            <div><span class="section-index">02</span><h2>Metodologi dan batas audit</h2></div>
+            <p>Label digunakan untuk membedakan data resmi, snapshot observasi, input pengguna, dan kesimpulan analitis.</p>
+          </div>
+          <div class="method-grid">
+            <div class="method-step"><b>1. Sumber primer</b><p>Dokumentasi Variational, SoDEX, API publik, Terms, audit smart contract, dan publikasi regulator.</p></div>
+            <div class="method-step"><b>2. Snapshot sejajar</b><p>Data Variational dan scan SoDEX diambil dalam jendela sekitar dua menit agar perbandingan volume dan spread lebih relevan.</p></div>
+            <div class="method-step"><b>3. Normalisasi</b><p>Volume dibandingkan dalam USD 24 jam. Spread Variational memakai quote RFQ ukuran $1.000; SoDEX memakai top-of-book.</p></div>
+            <div class="method-step"><b>4. Audit struktur</b><p>Perbedaan RFQ vs order book, counterparty, margin, order, fee, funding, dan likuidasi dianalisis terpisah.</p></div>
+            <div class="method-step"><b>5. Audit reward</b><p>Reward dibedakan dari profit trading. Nilai points tidak dimasukkan sebagai pendapatan yang pasti.</p></div>
+            <div class="method-step"><b>6. Audit implementasi</b><p>Kode lokal dicek untuk memastikan nama modul tidak disalahartikan sebagai konektor resmi venue.</p></div>
+          </div>
+          <h3>Klasifikasi bukti</h3>
+          <p><span class="tag fact">Fakta resmi</span> klaim dari dokumentasi venue. <span class="tag snapshot">Snapshot</span> observasi API/scan pada waktu tertentu. <span class="tag inference">Inferensi</span> kesimpulan analitis yang dapat berubah jika input berubah. <span class="tag user">Input pengguna</span> informasi yang diberikan pengguna tetapi belum ditemukan pada halaman dokumentasi resmi.</p>
+          <div class="callout">
+            <strong>Batas perbandingan spread</strong>
+            <p>RFQ spread $1.000 Variational dan top-of-book SoDEX bukan ukuran identik. RFQ sudah merefleksikan quote untuk ukuran tertentu, sedangkan top-of-book dapat memiliki depth terbatas. Hasil dipakai untuk screening, bukan jaminan harga eksekusi.</p>
+          </div>
+        </section>
+
+        <section id="overview">
+          <div class="section-head">
+            <div><span class="section-index">03</span><h2>Perbandingan inti platform</h2></div>
+            <p>Perbedaan arsitektur adalah faktor utama. Strategi yang cocok untuk satu venue belum tentu valid untuk venue lain.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Dimensi</th><th>Variational Omni</th><th>SoDEX.com</th><th>Dampak untuk proyek</th><th>Bukti</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Model pasar</strong></td><td class="var-col">Request for Quote; OLP menjadi sole counterparty</td><td class="sodex-col">Central limit order book</td><td>Maker strategy SoDEX tidak dapat dipindahkan langsung.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Network</strong></td><td class="var-col">Arbitrum One</td><td class="sodex-col">ValueChain</td><td>Wallet, deposit, settlement, dan tooling berbeda.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Collateral utama</strong></td><td class="var-col">USDC dalam settlement pool per pengguna</td><td class="sodex-col">Mengikuti mekanisme account dan produk SoDEX</td><td>Jangan asumsikan alur collateral identik.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Cakupan produk</strong></td><td class="var-col">Perpetual multi-asset: crypto, commodity, equity/index proxies, dan lainnya</td><td class="sodex-col">Spot dan perpetual</td><td>Variational memberi universe lebih luas; model sesi pasar non-crypto perlu diperhatikan.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Jumlah perp market</strong></td><td class="var-col"><strong>514</strong></td><td class="sodex-col">82, dengan 80 live book pada snapshot</td><td>Variational unggul 6,27x dalam breadth.</td><td><span class="tag snapshot">Snapshot</span></td></tr>
+                <tr><td><strong>Volume 24 jam</strong></td><td class="var-col"><strong>$897,3M</strong></td><td class="sodex-col">$87,0M perpetual</td><td>Variational unggul 10,32x secara reported volume.</td><td><span class="tag snapshot">Snapshot</span></td></tr>
+                <tr><td><strong>TVL</strong></td><td class="var-col">$140,2M</td><td class="sodex-col">Tidak tersedia dalam ticker scan lokal</td><td>Tidak dibandingkan langsung.</td><td><span class="tag snapshot">Snapshot</span></td></tr>
+                <tr><td><strong>Open interest</strong></td><td class="var-col">$1,350B; OI/TVL 9,63x</td><td class="sodex-col">Tidak tersedia dalam ticker scan lokal</td><td>Leverage dan konsentrasi cross-margin memerlukan stress test.</td><td><span class="tag snapshot">Snapshot</span></td></tr>
+                <tr><td><strong>Trading fee</strong></td><td class="var-col">0; OLP memperoleh spread</td><td class="sodex-col">Tier 0 perp: taker 4 bps/sisi, maker 1,2 bps/sisi</td><td>Variational unggul pada fee eksplisit, bukan selalu total cost.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Deposit/withdraw</strong></td><td class="var-col">Dokumentasi menyebut biaya $0,10</td><td class="sodex-col">Tergantung mekanisme venue/network</td><td>Masukkan biaya transfer dalam PnL kecil.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Margin</strong></td><td class="var-col">Cross margin saat ini; isolated pada roadmap</td><td class="sodex-col">Sesuai konfigurasi produk SoDEX</td><td>Kerugian satu posisi Variational dapat memakan collateral posisi lain.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Leverage</strong></td><td class="var-col">1-50x, tergantung market</td><td class="sodex-col">Asset-dependent</td><td>Gunakan leverage berdasarkan risk budget, bukan maksimum venue.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Limit order</strong></td><td class="var-col">All-or-nothing; partial fill masih roadmap</td><td class="sodex-col">Order-book execution</td><td>Variational dapat gagal fill walau harga tampak menyentuh.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Official trading API</strong></td><td class="var-col"><span class="status risk">Belum tersedia</span></td><td class="sodex-col"><span class="status good">REST dan WebSocket</span></td><td>Automated execution Variational saat ini NO-GO.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Public market API</strong></td><td class="var-col">Read-only metadata/stats; cache sampai 600 detik</td><td class="sodex-col">Public market data plus trading API</td><td>Variational cukup untuk intelijen, belum untuk execution.</td><td><span class="tag fact">Resmi</span></td></tr>
+                <tr><td><strong>Reward runway</strong></td><td class="var-col">Points berakhir paling lambat akhir Q3 2026</td><td class="sodex-col">Pengguna menyampaikan event berakhir 1 Agustus 2026</td><td>Runway Variational mungkin tersisa sekitar delapan minggu setelah Aug 1, tetapi dapat berakhir lebih awal.</td><td><span class="tag fact">Resmi V</span> <span class="tag user">User S</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="snapshot">
+          <div class="section-head">
+            <div><span class="section-index">04</span><h2>Snapshot pasar sejajar</h2></div>
+            <p>Variational diambil 23:36:05 UTC dan SoDEX 23:36:00 UTC pada 22 Juli 2026. Seluruh 514 quote Variational dinilai fresh.</p>
+          </div>
+          <div class="bar-compare" aria-label="Perbandingan visual ukuran pasar">
+            <div class="legend"><span><i style="background:var(--var)"></i>Variational</span><span><i style="background:var(--sodex)"></i>SoDEX</span></div>
+            <div class="bar-row">
+              <div class="bar-row__label">Volume 24h</div>
+              <div class="track"><div class="bar var" style="width:91.17%"></div><div class="bar sodex" style="width:8.83%"></div></div>
+              <div class="bar-row__value">10,32x</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-row__label">Perp markets</div>
+              <div class="track"><div class="bar var" style="width:86.24%"></div><div class="bar sodex" style="width:13.76%"></div></div>
+              <div class="bar-row__value">6,27x</div>
+            </div>
+          </div>
+          <div class="split" style="margin-top:18px">
+            <div class="panel var">
+              <h3>Variational Omni</h3>
+              <dl class="facts">
+                <dt>Volume 24h</dt><dd>$897.290.579</dd>
+                <dt>Cumulative</dt><dd>$276.743.871.479</dd>
+                <dt>TVL</dt><dd>$140.189.291</dd>
+                <dt>Open interest</dt><dd>$1.350.112.903</dd>
+                <dt>Markets</dt><dd>514</dd>
+                <dt>Quote freshness</dt><dd>514 fresh; 0 stale/missing</dd>
+                <dt>Loss refund pool</dt><dd>$0 pada snapshot</dd>
+              </dl>
+            </div>
+            <div class="panel sodex">
+              <h3>SoDEX local scan</h3>
+              <dl class="facts">
+                <dt>Perp volume 24h</dt><dd>$86.988.594</dd>
+                <dt>Perp markets</dt><dd>82</dd>
+                <dt>Live books</dt><dd>80</dd>
+                <dt>Median spread</dt><dd>3,36 bps top-of-book</dd>
+                <dt>Spot markets</dt><dd>Terpisah dari perbandingan volume perpetual</dd>
+                <dt>Data source</dt><dd>Scanner ticker lokal melalui CLI SoDEX</dd>
+                <dt>Execution API</dt><dd>Tersedia</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="callout warn">
+            <strong>OI/TVL bukan bukti insolvency</strong>
+            <p>Rasio OI/TVL Variational sekitar 9,63x mencerminkan notional leveraged exposure. Rasio ini adalah sinyal untuk mengaudit collateral, liquidation cascade, OLP hedging, dan stress behavior; bukan kesimpulan bahwa venue bermasalah.</p>
+          </div>
+        </section>
+
+        <section id="assets">
+          <div class="section-head">
+            <div><span class="section-index">05</span><h2>Intelijen aset dan spread</h2></div>
+            <p>Tabel dapat difilter. Volume dan spread adalah snapshot, bukan sinyal buy/sell dan bukan jaminan fill.</p>
+          </div>
+          <h3>Top volume Variational</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>Aset</th><th>Nama</th><th class="num">Volume 24h</th><th class="num">RFQ spread $1k</th><th class="num">Base spread</th><th class="num">Funding window</th><th>Catatan</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><strong>BTC</strong></td><td>Bitcoin</td><td class="num">$374,89M</td><td class="num">0,76 bps</td><td class="num">0,72 bps</td><td class="num">8 jam</td><td><span class="status good">Prioritas likuid</span></td></tr>
+                <tr><td>2</td><td><strong>ETH</strong></td><td>Ethereum</td><td class="num">$136,65M</td><td class="num">1,14 bps</td><td class="num">1,09 bps</td><td class="num">8 jam</td><td><span class="status good">Prioritas likuid</span></td></tr>
+                <tr><td>3</td><td><strong>XAU</strong></td><td>Gold</td><td class="num">$119,32M</td><td class="num">2,57 bps</td><td class="num">2,57 bps</td><td class="num">4 jam</td><td>Sesi dan oracle non-crypto perlu diuji</td></tr>
+                <tr><td>4</td><td><strong>HYPE</strong></td><td>Hyperliquid</td><td class="num">$45,99M</td><td class="num">3,18 bps</td><td class="num">3,01 bps</td><td class="num">8 jam</td><td>Lebih lebar dari BTC/ETH/SOL</td></tr>
+                <tr><td>5</td><td><strong>SOL</strong></td><td>Solana</td><td class="num">$28,70M</td><td class="num">1,15 bps</td><td class="num">1,04 bps</td><td class="num">8 jam</td><td><span class="status good">Spread kompetitif</span></td></tr>
+                <tr><td>6</td><td><strong>CL</strong></td><td>WTI Crude Oil</td><td class="num">$27,55M</td><td class="num">3,85 bps</td><td class="num">3,85 bps</td><td class="num">4 jam</td><td>Sesi commodity dan gap risk</td></tr>
+                <tr><td>7</td><td><strong>MU</strong></td><td>Micron Technology</td><td class="num">$16,89M</td><td class="num">3,20 bps</td><td class="num">3,13 bps</td><td class="num">8 jam</td><td>Sesi equity dan event earnings</td></tr>
+                <tr><td>8</td><td><strong>XAG</strong></td><td>Silver</td><td class="num">$14,84M</td><td class="num">4,47 bps</td><td class="num">4,49 bps</td><td class="num">4 jam</td><td>Spread lebih lebar</td></tr>
+                <tr><td>9</td><td><strong>SNDK</strong></td><td>Sandisk Corporation</td><td class="num">$10,74M</td><td class="num">4,60 bps</td><td class="num">4,00 bps</td><td class="num">8 jam</td><td>Size impact terlihat</td></tr>
+                <tr><td>10</td><td><strong>SPCX</strong></td><td>SPAC and New Issue ETF</td><td class="num">$9,69M</td><td class="num">4,21 bps</td><td class="num">4,21 bps</td><td class="num">8 jam</td><td>Market non-crypto</td></tr>
+                <tr><td>11</td><td><strong>QQQ</strong></td><td>Invesco QQQ Trust</td><td class="num">$8,66M</td><td class="num">3,18 bps</td><td class="num">3,18 bps</td><td class="num">8 jam</td><td>Index proxy; perhatikan sesi</td></tr>
+                <tr><td>12</td><td><strong>US500</strong></td><td>SPDR S&amp;P 500 ETF Trust</td><td class="num">$8,15M</td><td class="num">3,17 bps</td><td class="num">3,17 bps</td><td class="num">8 jam</td><td>Index proxy; perhatikan sesi</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Head-to-head aset yang tersedia di kedua venue</h3>
+          <div class="filterbar">
+            <label for="asset-filter" class="small"><strong>Filter aset</strong></label>
+            <input id="asset-filter" type="search" placeholder="Contoh: BTC, Gold, SOL" autocomplete="off">
+            <button id="clear-filter" class="control" type="button">Reset</button>
+            <span id="filter-count" class="filter-count">20 aset ditampilkan</span>
+          </div>
+          <div class="table-wrap">
+            <table id="asset-table">
+              <thead><tr><th>Aset</th><th class="num">Variational volume</th><th class="num">SoDEX volume</th><th class="num">Volume ratio V/S</th><th class="num">Variational spread</th><th class="num">SoDEX spread</th><th>Lebih tipis</th></tr></thead>
+              <tbody>
+                <tr data-search="btc bitcoin"><td><strong>BTC</strong></td><td class="num">$351,18M</td><td class="num">$29,41M</td><td class="num">11,94x</td><td class="num">0,76 bps</td><td class="num">0,15 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="eth ethereum"><td><strong>ETH</strong></td><td class="num">$124,30M</td><td class="num">$13,58M</td><td class="num">9,15x</td><td class="num">1,19 bps</td><td class="num">0,52 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="xau xaut gold emas"><td><strong>XAU / XAUT</strong></td><td class="num">$115,68M</td><td class="num">$2,10M</td><td class="num">55,04x</td><td class="num">2,59 bps</td><td class="num">6,06 bps</td><td class="winner-var">Variational</td></tr>
+                <tr data-search="hype hyperliquid"><td><strong>HYPE</strong></td><td class="num">$46,79M</td><td class="num">$0,29M</td><td class="num">161,91x</td><td class="num">3,18 bps</td><td class="num">16,43 bps</td><td class="winner-var">Variational</td></tr>
+                <tr data-search="sol solana"><td><strong>SOL</strong></td><td class="num">$29,32M</td><td class="num">$6,25M</td><td class="num">4,69x</td><td class="num">1,08 bps</td><td class="num">1,28 bps</td><td class="winner-var">Variational</td></tr>
+                <tr data-search="cl wti oil crude minyak"><td><strong>CL</strong></td><td class="num">$26,46M</td><td class="num">$3,59M</td><td class="num">7,37x</td><td class="num">3,85 bps</td><td class="num">1,14 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="mu micron stock"><td><strong>MU</strong></td><td class="num">$16,82M</td><td class="num">$0,58M</td><td class="num">29,23x</td><td class="num">3,51 bps</td><td class="num">0,92 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="xag silver perak"><td><strong>XAG / SILVER</strong></td><td class="num">$14,17M</td><td class="num">$0,27M</td><td class="num">51,52x</td><td class="num">4,48 bps</td><td class="num">1,17 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="sndk sandisk stock"><td><strong>SNDK</strong></td><td class="num">$10,48M</td><td class="num">$8,08M</td><td class="num">1,30x</td><td class="num">5,33 bps</td><td class="num">1,24 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="spcx etf"><td><strong>SPCX</strong></td><td class="num">$9,50M</td><td class="num">$3,76M</td><td class="num">2,52x</td><td class="num">4,15 bps</td><td class="num">0,86 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="us500 sp500 index"><td><strong>US500</strong></td><td class="num">$8,15M</td><td class="num">$0,05M</td><td class="num">176,44x</td><td class="num">3,17 bps</td><td class="num">0,27 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="googl google alphabet stock"><td><strong>GOOGL</strong></td><td class="num">$6,51M</td><td class="num">$1,35M</td><td class="num">4,81x</td><td class="num">5,24 bps</td><td class="num">3,02 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="zec zcash crypto"><td><strong>ZEC</strong></td><td class="num">$6,11M</td><td class="num">$0,49M</td><td class="num">12,37x</td><td class="num">7,01 bps</td><td class="num">6,44 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="xrp ripple crypto"><td><strong>XRP</strong></td><td class="num">$5,44M</td><td class="num">$0,02M</td><td class="num">228,32x</td><td class="num">2,89 bps</td><td class="num">4,38 bps</td><td class="winner-var">Variational</td></tr>
+                <tr data-search="dram stock"><td><strong>DRAM</strong></td><td class="num">$3,51M</td><td class="num">$0,02M</td><td class="num">201,65x</td><td class="num">7,52 bps</td><td class="num">2,38 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="tsla tesla stock"><td><strong>TSLA</strong></td><td class="num">$2,68M</td><td class="num">$0,67M</td><td class="num">4,03x</td><td class="num">8,80 bps</td><td class="num">1,95 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="crcl circle stock"><td><strong>CRCL</strong></td><td class="num">$2,45M</td><td class="num">$3,54M</td><td class="num">0,69x</td><td class="num">9,73 bps</td><td class="num">2,72 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="nvda nvidia stock"><td><strong>NVDA</strong></td><td class="num">$2,39M</td><td class="num">$0,28M</td><td class="num">8,63x</td><td class="num">5,35 bps</td><td class="num">3,31 bps</td><td class="winner-sodex">SoDEX</td></tr>
+                <tr data-search="ewy korea etf"><td><strong>EWY</strong></td><td class="num">$2,26M</td><td class="num">$0,02M</td><td class="num">130,77x</td><td class="num">3,83 bps</td><td class="num">11,03 bps</td><td class="winner-var">Variational</td></tr>
+                <tr data-search="aapl apple stock"><td><strong>AAPL</strong></td><td class="num">$1,59M</td><td class="num">$0,03M</td><td class="num">59,30x</td><td class="num">4,91 bps</td><td class="num">7,07 bps</td><td class="winner-var">Variational</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">Variational spread = RFQ size $1.000. SoDEX spread = top-of-book. Pemenang spread dapat berubah menurut waktu, size, depth, dan kondisi OLP/order book.</p>
+          <div class="callout good">
+            <strong>Universe penelitian awal</strong>
+            <p>BTC, ETH, dan SOL layak menjadi baseline karena kombinasi volume tinggi serta spread rendah. XAU dan HYPE layak sebagai lane kedua karena Variational jauh lebih aktif dan spread relatif lebih baik daripada SoDEX pada snapshot. Ini prioritas pengumpulan data, bukan rekomendasi membuka posisi.</p>
+          </div>
+        </section>
+
+        <section id="structure">
+          <div class="section-head">
+            <div><span class="section-index">06</span><h2>Struktur market dan kualitas eksekusi</h2></div>
+            <p>Volume harus dibaca bersama model pembentukan harga, counterparty, depth, fill behavior, dan margin.</p>
+          </div>
+          <div class="split">
+            <div class="panel var">
+              <h3>Variational: RFQ dan OLP</h3>
+              <ul>
+                <li>Trader meminta quote untuk market, sisi, dan ukuran tertentu.</li>
+                <li>OLP menjadi sole counterparty dan memperoleh pendapatan dari spread.</li>
+                <li>Indicative price bukan firm execution price.</li>
+                <li>Quote berubah menurut size, inventory/risk OLP, dan kondisi pasar.</li>
+                <li>Limit order bersifat all-or-nothing; partial fill belum tersedia.</li>
+                <li>Dokumentasi menyebut evaluasi limit sekitar setiap 0,1 detik; crossing yang lebih singkat dapat terlewat.</li>
+              </ul>
+            </div>
+            <div class="panel sodex">
+              <h3>SoDEX: central limit order book</h3>
+              <ul>
+                <li>Bid dan ask terlihat sebagai order-book liquidity.</li>
+                <li>Trader dapat berperan sebagai maker atau taker.</li>
+                <li>Spread top-of-book belum menjamin depth untuk seluruh order.</li>
+                <li>Maker logic, post-only behavior, queue position, dan cancellation cadence relevan.</li>
+                <li>REST/WebSocket trading API memungkinkan execution engine resmi.</li>
+                <li>Robotic repetition tetap menjadi risiko reward menurut Season 1 docs.</li>
+              </ul>
+            </div>
+          </div>
+          <h3>Konsekuensi strategi</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Strategi / kebutuhan</th><th>Variational</th><th>SoDEX</th><th>Kesimpulan</th></tr></thead>
+              <tbody>
+                <tr><td>Passive market making</td><td><span class="status risk">Tidak tersedia untuk user</span></td><td><span class="status good">Didukung order book</span></td><td>Engine maker tidak portable.</td></tr>
+                <tr><td>Directional scalping manual</td><td><span class="status warn">Mungkin</span></td><td><span class="status good">Mungkin</span></td><td>Harus lolos cost dan signal gate.</td></tr>
+                <tr><td>Automated execution resmi</td><td><span class="status risk">Belum</span></td><td><span class="status good">Tersedia</span></td><td>Variational NO-GO untuk bot sekarang.</td></tr>
+                <tr><td>Wide asset discovery</td><td><span class="status good">Sangat kuat</span></td><td><span class="status warn">Lebih terbatas</span></td><td>Keunggulan utama Variational.</td></tr>
+                <tr><td>Execution transparency</td><td>RFQ per size; OLP risk internal</td><td>Book visible</td><td>SoDEX lebih mudah dimodelkan dari public depth.</td></tr>
+                <tr><td>Partial fills</td><td>Belum untuk limit order</td><td>Natural pada order book</td><td>Fill model harus berbeda.</td></tr>
+                <tr><td>Cross-venue arbitrage</td><td>Dilarang Terms Variational</td><td>Teknis mungkin, tetapi perlu mematuhi Terms</td><td>Jangan dijadikan metode migrasi.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="cost">
+          <div class="section-head">
+            <div><span class="section-index">07</span><h2>Biaya, funding, dan expectancy</h2></div>
+            <p>Zero fee hanya menghapus komisi eksplisit. Total execution cost tetap harus diukur untuk setiap size dan arah.</p>
+          </div>
+          <div class="split">
+            <div class="panel var">
+              <h3>Cost stack Variational</h3>
+              <dl class="facts">
+                <dt>Trading fee</dt><dd>0</dd>
+                <dt>Spread</dt><dd>RFQ bid/ask; berubah menurut size</dd>
+                <dt>Slippage</dt><dd>Dibatasi user; order dapat ditolak bila limit terlampaui</dd>
+                <dt>Funding</dt><dd>Window 1-8 jam menurut market; normalisasi wajib</dd>
+                <dt>Liquidation</dt><dd>Penalty/offset terdokumentasi 0,5%</dd>
+                <dt>Transfer</dt><dd>$0,10 deposit/withdraw menurut fee docs</dd>
+              </dl>
+            </div>
+            <div class="panel sodex">
+              <h3>Cost stack SoDEX</h3>
+              <dl class="facts">
+                <dt>Taker Tier 0</dt><dd>4 bps per sisi; 8 bps round trip sebelum spread</dd>
+                <dt>Maker Tier 0</dt><dd>1,2 bps per sisi; 2,4 bps round trip sebelum rebate</dd>
+                <dt>Maker rebate</dt><dd>-0,1 / -0,2 / -0,3 bps pada threshold share tertentu</dd>
+                <dt>Spread</dt><dd>Order-book bid/ask</dd>
+                <dt>Slippage</dt><dd>Tergantung depth dan market impact</dd>
+                <dt>Funding</dt><dd>Perpetual funding tetap harus dimasukkan</dd>
+              </dl>
+            </div>
+          </div>
+          <h3>Gate matematis minimum</h3>
+          <div class="formula">net_edge_bps = expected_move_bps - round_trip_spread_bps - slippage_bps - normalized_funding_bps - liquidation_risk_buffer_bps - explicit_fee_bps</div>
+          <p class="small muted">Pada quote simetris, crossing ask saat entry dan bid saat exit dengan mid yang sama membayar kira-kira satu full bid/ask spread untuk round trip, bukan dua full spread. Slippage dan perubahan mid dihitung terpisah.</p>
+          <div class="table-wrap" style="margin-top:16px">
+            <table>
+              <thead><tr><th>Contoh baseline</th><th class="num">Spread</th><th class="num">Explicit fee RT</th><th class="num">Minimum cost sebelum slippage/funding</th><th>Catatan</th></tr></thead>
+              <tbody>
+                <tr><td>Variational BTC $1k RFQ</td><td class="num">0,76 bps</td><td class="num">0</td><td class="num"><strong>0,76 bps</strong></td><td>Firm quote aktual dapat berubah.</td></tr>
+                <tr><td>Variational ETH $1k RFQ</td><td class="num">1,19 bps</td><td class="num">0</td><td class="num"><strong>1,19 bps</strong></td><td>Belum termasuk funding.</td></tr>
+                <tr><td>SoDEX BTC taker Tier 0</td><td class="num">0,15 bps</td><td class="num">8,00 bps</td><td class="num"><strong>8,15 bps</strong></td><td>Asumsi spread stabil dan depth cukup.</td></tr>
+                <tr><td>SoDEX BTC maker Tier 0</td><td class="num">Tidak otomatis dibayar penuh</td><td class="num">2,40 bps</td><td class="num">Tergantung fill/adverse selection</td><td>Maker order dapat tidak fill atau terkena selection.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>Interpretasi ekonomi</strong>
+            <p>Variational berpotensi sangat efisien untuk taker-like manual directional trade pada market likuid. SoDEX masih relevan bila maker execution berkualitas, fill rate tinggi, dan adverse selection terkontrol. Perbandingan final wajib memakai realized execution, bukan headline fee.</p>
+          </div>
+        </section>
+
+        <section id="rewards">
+          <div class="section-head">
+            <div><span class="section-index">08</span><h2>Reward, points, dan risiko farming</h2></div>
+            <p>Reward adalah variabel yang tidak pasti. Profitability harus tetap positif ketika nilai reward diasumsikan nol.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Aspek</th><th>Variational Points</th><th>SoDEX SoPoints Season 1</th><th>Implikasi</th></tr></thead>
+              <tbody>
+                <tr><td>Peluncuran / periode</td><td>Points diluncurkan 17 Des 2025; berakhir paling lambat akhir Q3 2026</td><td>Season 1 berjalan; end-date 1 Aug 2026 berasal dari konfirmasi Telegram yang disampaikan pengguna</td><td>Runway Variational lebih panjang tetapi tidak pasti.</td></tr>
+                <tr><td>Distribusi</td><td>Mingguan, Jumat 00:00 UTC untuk aktivitas sampai Kamis 00:00 UTC</td><td>Snapshot Sabtu; distribusi Selasa menurut docs</td><td>Gunakan cohort mingguan, bukan satu hari.</td></tr>
+                <tr><td>Input reward</td><td>Aktivitas dan tier/boost; formula tidak deterministik secara penuh</td><td>Volume trading, referral, vault, dan dynamic model</td><td>Tidak ada rasio reward/volume yang dijamin.</td></tr>
+                <tr><td>Weekly pool</td><td>Tidak ada nilai konversi token yang dijamin</td><td>Docs menyebut 1 juta SoPoints per minggu</td><td>Points bukan PnL sampai nilainya terealisasi.</td></tr>
+                <tr><td>Boost</td><td>Pre-launch 10%; referral; tier Iron sampai Infinity</td><td>Mengikuti model Season 1</td><td>Threshold live harus diverifikasi di UI.</td></tr>
+                <tr><td>Anti-abuse</td><td>Inorganic activity dapat didiskualifikasi; Terms melarang farming/botting tanpa izin</td><td>Robotic repetition dan pola bot dapat ditindak</td><td>Volume mekanis berisiko kehilangan reward.</td></tr>
+                <tr><td>Nilai ekonomi</td><td>Points dapat diubah/dikurangi; `$VAR` belum live</td><td>Nilai akhir SoPoints tergantung keputusan program</td><td>Gunakan reward value = 0 pada base case.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout risk">
+            <strong>Konflik langsung dengan konsep volume farming agresif</strong>
+            <p>Terms Variational melarang resource farming, account boosting, botting, unauthorized code controlling an account, wash trading, dan arbitrase antara Variational dan platform lain. Metode yang sengaja memproduksi volume repetitif tanpa economic purpose dapat membuat points dibatalkan dan akun dibatasi.</p>
+          </div>
+          <h3>Model evaluasi reward yang benar</h3>
+          <div class="formula">reward_adjusted_pnl = realized_trading_pnl - all_execution_costs + min(observed_claimable_reward_value, conservative_haircut_value)</div>
+          <p class="small muted">Sebelum reward dapat diklaim dan dinilai, gunakan conservative haircut 100%, yaitu nilai reward nol.</p>
+          <div class="split" style="margin-top:16px">
+            <div class="panel good"><h3>Aktivitas yang defensible</h3><ul><li>Genuine directional trade dengan thesis dan risk limit.</li><li>Size sesuai liquidity dan expected edge.</li><li>Keputusan tercatat dengan timestamp dan alasan.</li><li>Points sebagai efek sekunder, bukan satu-satunya tujuan.</li></ul></div>
+            <div class="panel risk"><h3>Aktivitas berisiko tinggi</h3><ul><li>Self-offsetting atau wash-like volume.</li><li>Robotic repetition tanpa sinyal ekonomi.</li><li>Multi-account boosting atau referral abuse.</li><li>Browser automation/private endpoint tanpa izin tertulis.</li></ul></div>
+          </div>
+        </section>
+
+        <section id="recommendations">
+          <div class="section-head">
+            <div><span class="section-index">09</span><h2>Rekomendasi Variational untuk profit dan reward</h2></div>
+            <p>Rekomendasi ini bersifat operator playbook untuk riset dan pilot manual kecil. Ini bukan jaminan profit, bukan nasihat hukum, dan bukan persetujuan otomasi live.</p>
+          </div>
+          <div class="decision-band">
+            <div class="decision-band__status">V-OMEGA<small>Opportunity Matrix</small></div>
+            <p><strong>Nama metode yang saya rekomendasikan: V-OMEGA, Variational Opportunity Matrix for Edge, Guardrails, and Allocation.</strong> Intinya: pilih aset hanya bila likuiditas besar, spread kecil, thesis arah jelas, funding tidak melawan posisi, dan aktivitas trading tetap memiliki economic purpose sehingga reward farming menjadi efek samping dari trading yang wajar.</p>
+          </div>
+
+          <h3>Formula seleksi aset</h3>
+          <div class="formula">v_omega_score = 0.35*liquidity + 0.25*cost_efficiency + 0.20*signal_quality + 0.10*reward_fit + 0.10*operational_safety</div>
+          <div class="score-grid">
+            <div class="score-card"><b>35%</b><span>Liquidity: volume 24h, quote freshness, OI, dan depth RFQ size pilot.</span></div>
+            <div class="score-card"><b>25%</b><span>Cost: RFQ spread, slippage cap, funding normalisasi, dan reject rate.</span></div>
+            <div class="score-card"><b>20%</b><span>Signal: trend 1m-15m, volatility expansion, breakout/reversion context.</span></div>
+            <div class="score-card"><b>10%</b><span>Reward fit: aktivitas alami, non-repetitif, dan weekly points window.</span></div>
+            <div class="score-card"><b>10%</b><span>Safety: cross-margin exposure, event risk, session risk, dan kill criteria.</span></div>
+          </div>
+          <p class="small muted">Ambang awal: <span class="mono">v_omega_score >= 75</span> untuk shadow trade, <span class="mono">>= 82</span> untuk pilot manual kecil. Di bawah itu, trade dilewati walaupun volume terlihat menarik.</p>
+
+          <h3>Prioritas aset untuk diuji setelah 1 Agustus</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Lane</th><th>Aset</th><th>Alasan masuk watchlist</th><th>Metode yang cocok</th><th>Gate sebelum entry</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A</strong></td><td>BTC</td><td>Volume tertinggi, spread RFQ $1k sekitar 0,76 bps, funding 8 jam, paling cocok sebagai benchmark eksekusi.</td><td>Momentum continuation 1m-5m dan pullback entry 5m-15m.</td><td>Expected move minimal 3x total cost; quote fresh; spread tidak melebar &gt;1,5x median.</td><td><span class="status good">Prioritas 1</span></td></tr>
+                <tr><td><strong>A</strong></td><td>ETH</td><td>Volume besar dan spread sekitar 1,14 bps; korelasi tinggi dengan BTC tetapi sering memberi volatilitas intraday lebih baik.</td><td>BTC-led confirmation, ETH/BTC relative strength, dan breakout retest.</td><td>Jangan entry bila ETH hanya mengekor lemah BTC tanpa volume expansion.</td><td><span class="status good">Prioritas 1</span></td></tr>
+                <tr><td><strong>A</strong></td><td>SOL</td><td>Spread sekitar 1,15 bps, volume cukup, dan sering lebih responsif pada regime crypto risk-on.</td><td>High-beta scalping saat BTC/ETH sudah memberi arah pasar.</td><td>Entry hanya saat spread stabil dan funding tidak agresif melawan posisi.</td><td><span class="status good">Prioritas 1</span></td></tr>
+                <tr><td><strong>B</strong></td><td>XAU</td><td>Volume Variational sangat besar dan spread lebih baik daripada SoDEX pada snapshot; diversifikasi dari crypto.</td><td>Session-based scalp mengikuti London/NY overlap, breakout dari range, dan mean reversion setelah spike.</td><td>Wajib cek sesi, data makro, gap risk, dan mark/index divergence.</td><td><span class="status warn">Prioritas 2</span></td></tr>
+                <tr><td><strong>B</strong></td><td>HYPE</td><td>Volume jauh lebih tinggi daripada SoDEX dan spread jauh lebih tipis pada snapshot, tetapi spread absolut lebih lebar dari BTC/ETH/SOL.</td><td>Event/momentum scalp, bukan high-frequency churning.</td><td>Expected move harus besar; hindari ukuran terlalu kecil yang membuat spread dominan.</td><td><span class="status warn">Prioritas 2</span></td></tr>
+                <tr><td><strong>C</strong></td><td>CL, MU, XAG, SNDK, SPCX</td><td>Volume cukup untuk riset, tetapi spread/session/event risk lebih kompleks.</td><td>Hanya tactical trade saat ada katalis dan quote behavior terukur.</td><td>Minimal 50 shadow sample per aset sebelum deposit dialokasikan.</td><td><span class="status neutral">Eksperimen</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Playbook profit yang paling realistis</h3>
+          <div class="playbook">
+            <div class="playbook-card">
+              <span class="badge">Mode 1</span>
+              <h3>Low-cost directional scalp</h3>
+              <ul>
+                <li>Target hanya BTC, ETH, SOL pada fase awal.</li>
+                <li>Timeframe keputusan 1m-5m; validasi arah 15m.</li>
+                <li>Entry bila expected move minimal 3-4x biaya round trip.</li>
+                <li>Stop cepat berbasis invalidation, bukan berharap loss refund.</li>
+              </ul>
+            </div>
+            <div class="playbook-card">
+              <span class="badge">Mode 2</span>
+              <h3>Session alpha non-crypto</h3>
+              <ul>
+                <li>Fokus XAU saat London/NY overlap dan event makro jelas.</li>
+                <li>Hindari posisi saat liquidity gap atau data besar dalam beberapa menit.</li>
+                <li>Gunakan ukuran lebih kecil daripada crypto lane sampai slippage terbukti.</li>
+                <li>Exit cepat bila quote melebar atau mark/index divergen.</li>
+              </ul>
+            </div>
+            <div class="playbook-card">
+              <span class="badge">Mode 3</span>
+              <h3>Reward-aware genuine trading</h3>
+              <ul>
+                <li>Points dianggap bonus, bukan sumber break-even.</li>
+                <li>Volume dibangun dari trade yang punya thesis, bukan bolak-balik mekanis.</li>
+                <li>Evaluasi weekly cohort Jumat 00:00 UTC, bukan mengejar volume acak harian.</li>
+                <li>Dokumentasikan alasan trade untuk membedakan aktivitas genuine dari farming repetitif.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="matrix-note">
+            <div>
+              <h3>Pre-trade checklist wajib</h3>
+              <ul class="checklist">
+                <li>Quote <span class="mono">updated_at</span> fresh dan tidak melewati batas cache yang didokumentasikan.</li>
+                <li>Spread RFQ ukuran pilot tidak lebih dari 1,5x median aset 24 jam terakhir.</li>
+                <li>Expected move dari setup minimal 3x total cost untuk BTC/ETH/SOL dan 4x untuk XAU/HYPE.</li>
+                <li>Funding sampai exit terencana tidak menghapus edge.</li>
+                <li>Posisi tidak menambah risiko cross-margin di luar loss budget harian.</li>
+                <li>Ada thesis tertulis: arah, invalidation, take profit, stop, dan alasan market saat itu.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>No-trade conditions</h3>
+              <ul class="checklist">
+                <li>Trading dilakukan hanya untuk menaikkan volume tanpa peluang PnL positif.</li>
+                <li>Spread melebar tiba-tiba, quote stale, atau slippage cap terlalu longgar.</li>
+                <li>Market sedang masuk event makro/earnings tanpa rencana khusus.</li>
+                <li>Posisi akan dibuka berulang dengan interval tetap dan pola sama.</li>
+                <li>Loss harian, drawdown mingguan, atau reject-rate limit sudah tercapai.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Rekomendasi alokasi pilot</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Fase</th><th>Durasi</th><th>Modal kerja</th><th>Aset</th><th>Target pembelajaran</th><th>Kriteria naik fase</th></tr></thead>
+              <tbody>
+                <tr><td>Shadow only</td><td>3-5 hari</td><td>$0 live risk</td><td>BTC, ETH, SOL, XAU, HYPE</td><td>Ukur spread drift, quote reject, signal hit-rate, funding drag, dan waktu sesi.</td><td>Minimal 100 keputusan shadow dengan expectancy positif setelah cost konservatif.</td></tr>
+                <tr><td>Micro manual</td><td>3-7 hari</td><td>Nominal kecil sesuai loss budget pribadi</td><td>BTC lalu ETH/SOL</td><td>Menguji realized execution dan psikologi manual tanpa mengejar volume.</td><td>Realized net PnL tidak bergantung pada points; tidak ada pelanggaran risk limit.</td></tr>
+                <tr><td>Selective expansion</td><td>7-14 hari</td><td>Naik bertahap, tidak otomatis</td><td>Tambah XAU/HYPE bila lolos</td><td>Menguji apakah market non-crypto dan high-beta memberi edge tambahan.</td><td>Per aset punya log profit factor, win rate, average win/loss, cost, dan drawdown.</td></tr>
+                <tr><td>Automation review</td><td>Saat API resmi tersedia</td><td>Belum disarankan sekarang</td><td>Hanya aset yang sudah lolos manual</td><td>Mendesain adapter resmi, idempotency, reconciliation, dan kill switch.</td><td>Trading API resmi, izin automation, dan security audit lulus.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>Rekomendasi inti saya</strong>
+            <p>Jalur yang paling masuk akal untuk memperoleh keuntungan dari Variational adalah <strong>directional scalping manual pada aset sangat likuid</strong>, lalu menjadikan points sebagai upside opsional. Jalur yang paling berbahaya adalah mengejar volume murni, karena biaya spread tetap nyata dan Terms memberi venue hak untuk mengubah, mengurangi, atau menolak reward pada aktivitas inorganic.</p>
+          </div>
+        </section>
+
+        <section id="automation">
+          <div class="section-head">
+            <div><span class="section-index">10</span><h2>API, data, dan otomasi</h2></div>
+            <p>Ketersediaan public data tidak sama dengan izin atau kemampuan melakukan automated trading.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Capability</th><th>Variational</th><th>SoDEX</th><th>Status migrasi</th></tr></thead>
+              <tbody>
+                <tr><td>Public market metadata</td><td><span class="status good">Tersedia</span> endpoint <span class="mono">/metadata/stats</span></td><td><span class="status good">Tersedia</span></td><td>Collector read-only aktif.</td></tr>
+                <tr><td>Quote freshness</td><td><span class="mono">updated_at</span>; cache dapat mencapai 600 detik</td><td>Real-time ticker/book channels</td><td>Reject stale data sebelum analisis.</td></tr>
+                <tr><td>Rate limit publik</td><td>10 request/10 detik/IP; global 1.000/menit menurut docs</td><td>Mengikuti API docs venue</td><td>Interval kolektor lima menit konservatif.</td></tr>
+                <tr><td>Place/cancel order API</td><td><span class="status risk">Tidak tersedia</span></td><td><span class="status good">Tersedia</span></td><td>Jangan membangun live adapter Variational sekarang.</td></tr>
+                <tr><td>WebSocket trading</td><td>Belum tersedia secara resmi</td><td>Tersedia</td><td>Engine event-driven belum portable.</td></tr>
+                <tr><td>API key / signing</td><td>Tidak relevan sampai API resmi dirilis</td><td>Didukung untuk trading</td><td>Jangan reverse-engineer session wallet.</td></tr>
+                <tr><td>History export</td><td>CSV hingga 365 hari, maksimum 10.000 rows menurut docs</td><td>API/history lokal tersedia</td><td>Gunakan untuk realized-cost audit.</td></tr>
+                <tr><td>Automated farming permission</td><td>Tidak; perlu express authorization</td><td>Reward docs tetap mengawasi pola bot</td><td>Izin dan anti-abuse gate wajib.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout good">
+            <strong>Tooling yang sudah aman</strong>
+            <p><span class="mono">scripts/variational_market_intel.py</span> mengambil endpoint publik resmi, memeriksa freshness, menghitung RFQ spread $1.000, membandingkan SoDEX, dan menyimpan history. Tool ini tidak memiliki wallet, auth, signing, place order, atau cancel order.</p>
+          </div>
+          <div class="callout risk">
+            <strong>Yang tidak boleh dijadikan shortcut</strong>
+            <p>Browser automation, wallet pop-up automation, scraping private endpoints, replay signature, dan penggunaan session token bukan pengganti trading API resmi. Selain security risk, metode ini bertentangan dengan larangan unauthorized code dalam Terms.</p>
+          </div>
+        </section>
+
+        <section id="risk">
+          <div class="section-head">
+            <div><span class="section-index">11</span><h2>Risiko, keamanan, legal, dan counterparty</h2></div>
+            <p>Bagian ini adalah risk review operasional, bukan pendapat hukum atau jaminan keamanan protokol.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Risk domain</th><th>Variational</th><th>SoDEX</th><th>Kontrol minimum</th><th>Severity</th></tr></thead>
+              <tbody>
+                <tr><td>Counterparty / liquidity</td><td>OLP sole counterparty, proprietary hedging</td><td>Liquidity tersebar dalam order book</td><td>Limit exposure per venue dan stress withdrawal.</td><td><span class="status warn">Tinggi</span></td></tr>
+                <tr><td>Cross margin contagion</td><td>Cross margin only saat ini</td><td>Tergantung konfigurasi account/produk</td><td>Satu posisi per pilot atau collateral kecil terpisah.</td><td><span class="status warn">Tinggi</span></td></tr>
+                <tr><td>Liquidation</td><td>0,5% documented penalty/offset</td><td>Venue-specific</td><td>Leverage rendah, hard stop sebelum maintenance margin.</td><td><span class="status warn">Tinggi</span></td></tr>
+                <tr><td>Oracle / mark price</td><td>In-house oracle dan quoted/index/mark model</td><td>Venue oracle/mark framework</td><td>Monitor divergence dan event halt.</td><td><span class="status warn">Sedang</span></td></tr>
+                <tr><td>Smart contract</td><td>Spearbit Mar 2025 public; Zellic Nov 2024 masih "available soon" di docs</td><td>Perlu audit terpisah berdasarkan contract set</td><td>Verifikasi alamat kontrak resmi dan approval.</td><td><span class="status warn">Tinggi</span></td></tr>
+                <tr><td>Wallet compromise</td><td>Wallet signing pada Arbitrum</td><td>API credentials/wallet exposure</td><td>Dedicated wallet, limited funds, revoke approvals.</td><td><span class="status risk">Kritis</span></td></tr>
+                <tr><td>Terms disqualification</td><td>Larangan farming/botting/arbitrage tanpa izin</td><td>Anti-robotic repetition Season 1</td><td>Written authorization dan genuine trading log.</td><td><span class="status risk">Kritis</span></td></tr>
+                <tr><td>Reward valuation</td><td>Points discretionary; token belum live</td><td>SoPoints bergantung hasil program</td><td>Base case reward = 0.</td><td><span class="status warn">Tinggi</span></td></tr>
+                <tr><td>Jurisdiction</td><td>Indonesia tidak ada di restricted list yang dipublikasikan</td><td>Periksa eligibility venue</td><td>Independent Indonesian legal review; tanpa VPN.</td><td><span class="status warn">Tinggi</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Security baseline sebelum deposit</h3>
+          <ul class="checklist">
+            <li>Gunakan wallet baru khusus proyek; jangan simpan aset lain di wallet tersebut.</li>
+            <li>Batasi USDC sesuai loss budget pilot dan jangan memberi unlimited approval bila tidak diperlukan.</li>
+            <li>Verifikasi domain, network Arbitrum One, contract address, token decimals, dan isi signature.</li>
+            <li>Seed phrase dan private key tidak pernah masuk ke script, Telegram, browser automation, atau LLM.</li>
+            <li>Uji deposit dan withdrawal dengan nominal minimum sebelum menambah modal.</li>
+            <li>Aktifkan monitoring approval, balance, open positions, margin ratio, dan abnormal quote divergence.</li>
+            <li>Dokumentasikan emergency close, revoke approval, dan withdrawal procedure sebelum live.</li>
+          </ul>
+        </section>
+
+        <section id="local">
+          <div class="section-head">
+            <div><span class="section-index">12</span><h2>Audit kesiapan proyek lokal</h2></div>
+            <p>Nama file atau engine tidak membuktikan adanya integrasi venue yang benar.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Komponen lokal</th><th>Temuan</th><th>Risiko jika disalahgunakan</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><span class="mono">anantara/astronacci_market_variational.py</span></td><td>Mengambil public klines Binance/Bybit dan melakukan paper simulation. Tidak memakai official Variational API.</td><td>Venue-model mismatch, basis data salah, dan asumsi execution keliru.</td><td><span class="status risk">Bukan connector</span></td></tr>
+                <tr><td><span class="mono">scripts/variational_market_intel.py</span></td><td>Mengambil official public stats, freshness, RFQ spread, rankings, dan comparison.</td><td>Read-only; tidak dapat mengeksekusi trade.</td><td><span class="status good">Siap riset</span></td></tr>
+                <tr><td>SoDEX maker/PVE engines</td><td>Dibangun untuk order-book execution dan API SoDEX.</td><td>Tidak kompatibel dengan OLP/RFQ dan Terms Variational.</td><td><span class="status risk">Jangan port langsung</span></td></tr>
+                <tr><td>Continuous monitor</td><td>Sesi <span class="mono">tmux variational-intel</span> mengambil data lima-menit.</td><td>Hanya public intelligence; cache maksimum API tetap diperhitungkan.</td><td><span class="status good">Aktif</span></td></tr>
+                <tr><td>Unit tests</td><td>Schema validation, spread calculation, freshness, risk flag, dan comparison.</td><td>Belum menguji live trading karena API tidak ada.</td><td><span class="status good">3/3 lulus</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn">
+            <strong>Architecture decision</strong>
+            <p>Bangun venue adapter Variational baru hanya setelah official trading API dirilis. Pisahkan signal engine, market-data adapter, execution adapter, cost model, dan reward attribution. Jangan menambahkan browser automation ke engine existing.</p>
+          </div>
+        </section>
+
+        <section id="migration">
+          <div class="section-head">
+            <div><span class="section-index">13</span><h2>Rencana migrasi bertahap</h2></div>
+            <p>Tujuan fase awal adalah mengurangi ketidakpastian, bukan segera mengejar volume.</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item"><time>23-25 Juli</time><h3>Baseline intelligence</h3><p>Kumpulkan snapshot lima-menit untuk spread $1k, volume, OI, quote freshness, dan cross-venue comparison pada BTC, ETH, SOL, XAU, dan HYPE.</p></div>
+            <div class="timeline-item"><time>25-28 Juli</time><h3>Shadow execution study</h3><p>Catat hypothetical entry/exit dari firm UI quote secara manual. Ukur reject, spread drift, slippage, funding, dan missed limit behavior tanpa transaksi.</p></div>
+            <div class="timeline-item"><time>28-30 Juli</time><h3>Terms dan eligibility gate</h3><p>Minta jawaban tertulis support tentang automation, reward-seeking activity, API availability, eligibility Indonesia, dan penggunaan strategi yang direncanakan.</p></div>
+            <div class="timeline-item"><time>30 Juli-1 Agustus</time><h3>Wallet dan operational rehearsal</h3><p>Dedicated wallet, limited approvals, small deposit/withdrawal test, incident procedure, monitoring, dan daily loss limit.</p></div>
+            <div class="timeline-item"><time>Setelah 1 Agustus</time><h3>Manual pilot bersyarat</h3><p>Mulai hanya bila shadow expectancy positif. Gunakan ukuran kecil, leverage rendah, satu posisi pada satu waktu, dan jangan memasukkan points dalam break-even.</p></div>
+            <div class="timeline-item"><time>Ketika API resmi tersedia</time><h3>Automation review baru</h3><p>Audit API, scope credential, Terms, sandbox, idempotency, order reconciliation, kill switch, dan reward policy sebelum satu order otomatis pun diizinkan.</p></div>
+          </div>
+          <h3>Readiness gates yang wajib lulus</h3>
+          <ul class="checklist">
+            <li>Trading API resmi sudah dirilis dan didokumentasikan.</li>
+            <li>Terms atau izin tertulis mengizinkan metode automation yang direncanakan.</li>
+            <li>Credential dapat dibatasi tanpa withdrawal authority.</li>
+            <li>Minimum 100 shadow decisions dan sampel lintas regime menunjukkan net expectancy positif.</li>
+            <li>Observed round-trip cost lebih rendah daripada conservative expected edge.</li>
+            <li>Points aktual teramati tetapi tidak diperlukan untuk break-even.</li>
+            <li>Daily loss, max exposure, stale quote, divergence, dan kill-switch controls teruji.</li>
+            <li>Deposit/withdrawal, contract, wallet, dan jurisdiction checks selesai.</li>
+          </ul>
+        </section>
+
+        <section id="verdict">
+          <div class="section-head">
+            <div><span class="section-index">14</span><h2>Putusan akhir per tujuan</h2></div>
+            <p>Keputusan berbeda menurut tujuan: riset, manual trading, automated trading, atau pure reward farming.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Tujuan</th><th>Variational</th><th>SoDEX</th><th>Putusan</th><th>Alasan utama</th></tr></thead>
+              <tbody>
+                <tr><td>Market intelligence</td><td><span class="status good">Sangat layak</span></td><td><span class="status good">Layak</span></td><td class="winner-var">Variational unggul</td><td>514 markets, volume tinggi, public stats cukup untuk screening.</td></tr>
+                <tr><td>Manual directional scalping</td><td><span class="status warn">Layak bersyarat</span></td><td><span class="status warn">Layak bersyarat</span></td><td>Uji per aset</td><td>Variational fee eksplisit nol; SoDEX punya tighter top book pada beberapa aset.</td></tr>
+                <tr><td>Automated trading sekarang</td><td><span class="status risk">Tidak layak</span></td><td><span class="status good">Secara teknis layak</span></td><td class="winner-sodex">SoDEX unggul</td><td>Official Variational trading API belum tersedia.</td></tr>
+                <tr><td>Passive market making</td><td><span class="status risk">Tidak tersedia</span></td><td><span class="status good">Tersedia</span></td><td class="winner-sodex">SoDEX unggul</td><td>Variational memakai sole OLP.</td></tr>
+                <tr><td>Pure volume farming</td><td><span class="status risk">NO-GO</span></td><td><span class="status risk">Berisiko</span></td><td>Jangan dijadikan base strategy</td><td>Anti-abuse, reward uncertainty, dan negative cost drag.</td></tr>
+                <tr><td>Reward opportunity setelah Aug 1</td><td><span class="status warn">Ada runway terbatas</span></td><td><span class="status risk">Event dilaporkan selesai</span></td><td class="winner-var">Variational bersyarat</td><td>Points sampai paling lambat akhir Q3, tetapi dapat berakhir lebih awal.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="decision-band">
+            <div class="decision-band__status">Kesimpulan<small>Read-only now, manual pilot next</small></div>
+            <p><strong>Pindahkan research pipeline, bukan live engine.</strong> Gunakan periode sebelum 1 Agustus untuk membangun evidence. Setelah 1 Agustus, pilot manual hanya pada market dengan net expectancy positif. Automated farming tetap ditunda sampai official API dan izin tertulis tersedia. Dengan kondisi sekarang, Variational adalah market research opportunity yang kuat, tetapi belum merupakan automated farming venue yang siap operasional.</p>
+          </div>
+        </section>
+
+        <section id="sources">
+          <div class="section-head">
+            <div><span class="section-index">15</span><h2>Sumber primer dan jejak bukti</h2></div>
+            <p>Tautan diarahkan langsung ke dokumentasi yang mendukung klaim. Diakses 22-23 Juli 2026.</p>
+          </div>
+          <ul class="sources">
+            <li><strong>Variational public API</strong><a href="https://docs.variational.io/technical-documentation/api">docs.variational.io/technical-documentation/api</a></li>
+            <li><strong>Variational Terms of Use</strong><a href="https://docs.variational.io/legal/terms-of-use">docs.variational.io/legal/terms-of-use</a></li>
+            <li><strong>Variational Points</strong><a href="https://docs.variational.io/omni/rewards/points">docs.variational.io/omni/rewards/points</a></li>
+            <li><strong>Restricted persons</strong><a href="https://docs.variational.io/legal/restricted-persons">docs.variational.io/legal/restricted-persons</a></li>
+            <li><strong>About Omni</strong><a href="https://docs.variational.io/omni/about-omni">docs.variational.io/omni/about-omni</a></li>
+            <li><strong>Omni Liquidity Provider</strong><a href="https://docs.variational.io/omni/the-omni-liquidity-provider-olp">docs.variational.io/omni/the-omni-liquidity-provider-olp</a></li>
+            <li><strong>Fees</strong><a href="https://docs.variational.io/omni/trading/fees">docs.variational.io/omni/trading/fees</a></li>
+            <li><strong>Slippage</strong><a href="https://docs.variational.io/omni/trading/slippage">docs.variational.io/omni/trading/slippage</a></li>
+            <li><strong>Quoted, index, and mark prices</strong><a href="https://docs.variational.io/omni/trading/quoted-index-and-mark-prices">docs.variational.io/omni/trading/quoted-index-and-mark-prices</a></li>
+            <li><strong>Funding rates</strong><a href="https://docs.variational.io/omni/trading/funding-rates">docs.variational.io/omni/trading/funding-rates</a></li>
+            <li><strong>Market vs limit orders</strong><a href="https://docs.variational.io/variational-protocol/key-concepts/market-vs.-limit-orders">docs.variational.io/variational-protocol/key-concepts/market-vs.-limit-orders</a></li>
+            <li><strong>Liquidation</strong><a href="https://docs.variational.io/omni/trading/liquidation">docs.variational.io/omni/trading/liquidation</a></li>
+            <li><strong>Loss refunds</strong><a href="https://docs.variational.io/omni/rewards/loss-refunds">docs.variational.io/omni/rewards/loss-refunds</a></li>
+            <li><strong>Security audits</strong><a href="https://docs.variational.io/technical-documentation/audits">docs.variational.io/technical-documentation/audits</a></li>
+            <li><strong>Mainnet contracts</strong><a href="https://docs.variational.io/technical-documentation/mainnet-contracts">docs.variational.io/technical-documentation/mainnet-contracts</a></li>
+            <li><strong>Trade and transfer history</strong><a href="https://docs.variational.io/technical-documentation/trade-and-transfer-history">docs.variational.io/technical-documentation/trade-and-transfer-history</a></li>
+            <li><strong>Variational roadmap</strong><a href="https://docs.variational.io/roadmap">docs.variational.io/roadmap</a></li>
+            <li><strong>`$VAR` token plan</strong><a href="https://docs.variational.io/getting-started/usdvar-token">docs.variational.io/getting-started/usdvar-token</a></li>
+            <li><strong>SoDEX trading fees</strong><a href="https://sodex.com/documentation/trading-mechanics/trading-fees">sodex.com/documentation/trading-mechanics/trading-fees</a></li>
+            <li><strong>SoDEX trading API</strong><a href="https://sodex.com/documentation/trading-api/trading-api">sodex.com/documentation/trading-api/trading-api</a></li>
+            <li><strong>SoDEX Season 1</strong><a href="https://sodex.com/documentation/sopoints/season-1">sodex.com/documentation/sopoints/season-1</a></li>
+            <li><strong>How SoDEX works</strong><a href="https://sodex.com/documentation/about-sodex/how-sodex-works">sodex.com/documentation/about-sodex/how-sodex-works</a></li>
+            <li><strong>OJK/Bappebti oversight transition</strong><a href="https://www.ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Documents/Pages/Bappebti-Kemendag-Alihkan-Tugas-Aset-Keuangan-Digital-termasuk-Aset-Kripto-serta-Derivatif-Keuangan-kepada-OJK-dan-BI/SPB%20Bappebti%20Kemendag%20Alihkan%20Tugas%20Pengaturan%20dan%20Pengawasan%20Aset%20Keuangan%20Digital%20termasuk%20Aset%20Kripto%20serta%20Derivatif%20Keuangan%20kepada%20OJK%20dan%20BI.pdf">OJK: transisi pengawasan aset keuangan digital</a></li>
+            <li><strong>Local Variational snapshot</strong><span class="mono">data/variational_market_intel/latest.json</span></li>
+            <li><strong>Local SoDEX snapshot</strong><span class="mono">data/sodex_market_scan/latest.json</span></li>
+          </ul>
+        </section>
+
+        <footer class="footer">
+          <div><strong>Variational Omni vs SoDEX.com</strong><br>Independent local research artifact for Anantara Sakti.</div>
+          <div>Versi 1.1 &nbsp;|&nbsp; 23 Juli 2026 &nbsp;|&nbsp; Asia/Jakarta<br>Bukan nasihat hukum, bukan nasihat finansial, dan bukan jaminan profit.</div>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const input = document.getElementById('asset-filter');
+      const clear = document.getElementById('clear-filter');
+      const count = document.getElementById('filter-count');
+      const rows = Array.from(document.querySelectorAll('#asset-table tbody tr'));
+
+      function updateFilter() {
+        const query = input.value.trim().toLowerCase();
+        let visible = 0;
+        rows.forEach((row) => {
+          const match = !query || row.dataset.search.includes(query) || row.textContent.toLowerCase().includes(query);
+          row.hidden = !match;
+          if (match) visible += 1;
+        });
+        count.textContent = `${visible} aset ditampilkan`;
+      }
+
+      input.addEventListener('input', updateFilter);
+      clear.addEventListener('click', () => {
+        input.value = '';
+        updateFilter();
+        input.focus();
+      });
+
+      const sections = Array.from(document.querySelectorAll('section[id]'));
+      const links = Array.from(document.querySelectorAll('#toc a'));
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        links.forEach((link) => link.classList.toggle('active', link.hash === `#${visible.target.id}`));
+      }, { rootMargin: '-20% 0px -68% 0px', threshold: [0, 0.1, 0.5] });
+      sections.forEach((section) => observer.observe(section));
+    })();
+  </script>
+</body>
+</html>

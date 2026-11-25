@@ -1,0 +1,52 @@
+{
+ "generated_utc": "2026-10-07T10:47:28.071443+00:00",
+ "dim1_sharpe": {
+  "sharpe_portfolio_required": 4.598895688887249,
+  "multiplier": 2.0,
+  "sharpe_machine_required": 2.2994478444436246,
+  "mean_net_pct_48h_per_machine": 0.3999999999999999
+ },
+ "dim2_evidence": {
+  "available_windows": 180.5,
+  "required": {
+   "1 mesin tanpa koreksi": {
+    "t_crit": 1.96,
+    "n_windows": 132.59522500000006,
+    "days": 265.1904500000001
+   },
+   "keluarga 5 BH q=0,10": {
+    "t_crit": 2.33,
+    "n_windows": 187.38187656250005,
+    "days": 374.7637531250001
+   },
+   "keluarga 10 BH q=0,10": {
+    "t_crit": 2.58,
+    "n_windows": 229.74980625000006,
+    "days": 459.4996125000001
+   },
+   "keluarga 21 BH q=0,10 (D14)": {
+    "t_crit": 2.82,
+    "n_windows": 274.4820562500001,
+    "days": 548.9641125000002
+   }
+  }
+ },
+ "dim3_ic": {
+  "n_eff": 6.1,
+  "breadth_per_year": 1113.25,
+  "ic_required": 0.06891713448331199,
+  "ic_observed": 0.036,
+  "ratio_observed_over_required": 0.5223664661901642
+ },
+ "dim4_cost": {
+  "round_trip_fee_bps": 8.0,
+  "round_trip_total_bps": 9.71,
+  "pct_of_target": 12.137500000000001,
+  "pct_of_required_machine_mean": 24.27500000000001
+ },
+ "summary": {
+  "best_sodex_machine_sharpe_observed": 0.75,
+  "gap_sharpe": 3.065930459258166,
+  "ic_gap": 1.9143648467586667
+ }
+}

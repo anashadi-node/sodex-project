@@ -1,0 +1,138 @@
+{
+ "S1  Order flow (Anastasopoulos 2026 JFM)": {
+  "doi": "10.1016/j.finmar.2026.101047",
+  "title": "Order flow and cryptocurrency returns",
+  "journal": "Journal of Financial Markets",
+  "year": 2026,
+  "type": "journal-article",
+  "cites": 2
+ },
+ "S2  Deprez-Fr\u00f6mmel 2024 IREF": {
+  "doi": "10.1016/j.iref.2024.05.003",
+  "title": "Are simple technical trading rules profitable in bitcoin markets?",
+  "journal": "International Review of Economics &amp; Finance",
+  "year": 2024,
+  "type": "journal-article",
+  "cites": 3
+ },
+ "S3  Gerritsen 2020 FRL": {
+  "doi": "10.1016/j.frl.2019.08.011",
+  "title": "The profitability of technical trading rules in the Bitcoin market",
+  "journal": "Finance Research Letters",
+  "year": 2020,
+  "type": "journal-article",
+  "cites": 87
+ },
+ "S4  TA crypto 2022 JIFM": {
+  "doi": "10.1016/j.intfin.2022.101601",
+  "title": "Technical analysis in cryptocurrency markets: Do transaction costs and bubbles matter?",
+  "journal": "Journal of International Financial Markets, Institution",
+  "year": 2022,
+  "type": "journal-article",
+  "cites": 25
+ },
+ "S5  Guo 2024 JEDC": {
+  "doi": "10.1016/j.jedc.2024.104863",
+  "title": "Cross-cryptocurrency return predictability",
+  "journal": "Journal of Economic Dynamics and Control",
+  "year": 2024,
+  "type": "journal-article",
+  "cites": 9
+ },
+ "S6  Yang 2025 FRL momentum": {
+  "doi": "10.1016/j.frl.2025.107879",
+  "title": "Cryptocurrency market risk-managed momentum strategies",
+  "journal": "Finance Research Letters",
+  "year": 2025,
+  "type": "journal-article",
+  "cites": 2
+ },
+ "S7  Hsieh 2025 FRL states": {
+  "doi": "10.1016/j.frl.2025.108356",
+  "title": "State transitions and momentum effect in cryptocurrency market",
+  "journal": "Finance Research Letters",
+  "year": 2025,
+  "type": "journal-article",
+  "cites": 4
+ },
+ "S8  Zhang 2026 Physica A ProSP": {
+  "doi": "10.1016/j.physa.2026.131911",
+  "title": "Probability-based portfolio in crypto-perpetual futures market",
+  "journal": "Physica A: Statistical Mechanics and its Applications",
+  "year": 2026,
+  "type": "journal-article",
+  "cites": 0
+ },
+ "S9  Chi 2023 JFM basis": {
+  "doi": "10.1002/fut.22425",
+  "title": "An empirical investigation on risk factors in cryptocurrency futures",
+  "journal": "Journal of Futures Markets",
+  "year": 2023,
+  "type": "journal-article",
+  "cites": 7
+ },
+ "S11 Bailey-LdP 2014 DSR": {
+  "doi": "10.3905/jpm.2014.40.5.094",
+  "title": "The Deflated Sharpe Ratio:\n                    <i>Correcting for Selection Bias, Backtest</i>\n                ",
+  "journal": "The Journal of Portfolio Management",
+  "year": 2014,
+  "type": "journal-article",
+  "cites": 100
+ },
+ "S12 Bailey PBO JCF": {
+  "doi": "10.21314/jcf.2016.322",
+  "title": "The probability of backtest overfitting",
+  "journal": "The Journal of Computational Finance",
+  "year": 2016,
+  "type": "journal-article",
+  "cites": 59
+ },
+ "S13 Arian 2024 KBS CPCV": {
+  "doi": "10.1016/j.knosys.2024.112477",
+  "title": "Backtest overfitting in the machine learning era: A comparison of out-of-sample testing methods in a synthetic",
+  "journal": "Knowledge-Based Systems",
+  "year": 2024,
+  "type": "journal-article",
+  "cites": 10
+ },
+ "E1  Fieberg 2025 JFQA CTREND": {
+  "doi": "10.1017/S0022109024000747",
+  "title": "A Trend Factor for the Cross Section of Cryptocurrency Returns",
+  "journal": "Journal of Financial and Quantitative Analysis",
+  "year": 2025,
+  "type": "journal-article",
+  "cites": 20
+ },
+ "E2  Fieberg 2024 IRFA size/vol": {
+  "doi": "10.1016/j.irfa.2024.103218",
+  "title": "Cryptocurrency anomalies and economic constraints",
+  "journal": "International Review of Financial Analysis",
+  "year": 2024,
+  "type": "journal-article",
+  "cites": 17
+ },
+ "E3  Fieberg 2023 QuantFin": {
+  "doi": "10.1080/14697688.2023.2269999",
+  "title": "Cryptocurrency factor momentum",
+  "journal": "Quantitative Finance",
+  "year": 2023,
+  "type": "journal-article",
+  "cites": 10
+ },
+ "E4  Mercik 2025 IRFA liquidity": {
+  "doi": "10.1016/j.irfa.2024.103809",
+  "title": "Cross-sectional interactions in cryptocurrency returns",
+  "journal": "International Review of Financial Analysis",
+  "year": 2025,
+  "type": "journal-article",
+  "cites": 2
+ },
+ "E5  Liu-Tsyvinski-Wu 2022 JF": {
+  "doi": "10.1111/jofi.13119",
+  "title": "Common Risk Factors in Cryptocurrency",
+  "journal": "The Journal of Finance",
+  "year": 2022,
+  "type": "journal-article",
+  "cites": 585
+ }
+}

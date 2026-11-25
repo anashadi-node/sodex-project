@@ -1,0 +1,11 @@
+[Unit]
+Description=Anantara Sakti - jalankan guard anti-jeda collector SoDEX tiap 10 menit
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=10min
+AccuracySec=30s
+Unit=sodex-collector-guard.service
+
+[Install]
+WantedBy=timers.target

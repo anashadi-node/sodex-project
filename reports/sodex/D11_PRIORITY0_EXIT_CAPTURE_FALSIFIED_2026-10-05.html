@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D11 — PRIORITY 0: Panen Exit-Capture Dieksekusi → **FALSIFIED**</title>
+<style>
+:root{--fg:#111827;--mut:#6b7280;--bd:#e5e7eb;--acc:#1d4ed8;--ok:#047857;
+--bad:#b91c1c;--warn:#b45309;--card:#f9fafb}
+*{box-sizing:border-box}
+body{font:15px/1.7 -apple-system,"Segoe UI",Inter,Roboto,Helvetica,sans-serif;
+color:var(--fg);max-width:900px;margin:0 auto;padding:44px 30px 80px;background:#fff}
+h1{font-size:31px;line-height:1.25;margin:0 0 6px;letter-spacing:-.4px}
+h2{font-size:22px;margin:44px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--bd)}
+h3{font-size:17px;margin:28px 0 10px;color:var(--acc)}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:11px 0}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;
+page-break-inside:avoid}
+th,td{padding:9px 11px;text-align:left;border:1px solid var(--bd);vertical-align:top}
+th{background:var(--card);font-size:12px;text-transform:uppercase;letter-spacing:.4px;
+color:var(--mut)}
+tr:nth-child(even) td{background:#fcfcfd}
+code{background:#f3f4f6;padding:1.5px 5px;border-radius:4px;font-size:13px;
+font-family:ui-monospace,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:15px 18px;border-radius:9px;
+overflow-x:auto;font-size:12.5px;page-break-inside:avoid}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid var(--acc);margin:16px 0;padding:12px 18px;
+background:#f8fafc;border-radius:0 8px 8px 0;color:#1f2937}
+blockquote p{margin:6px 0}
+ul,ol{margin:11px 0;padding-left:24px}
+li{margin:5px 0}
+hr{border:none;border-top:1px solid var(--bd);margin:38px 0}
+.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:30px 32px;
+border-radius:12px;margin-bottom:34px}
+.hero h1{color:#fff;margin:0 0 8px}
+.hero p{margin:3px 0;color:#cbd5e1;font-size:14px}
+.toc{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:18px 24px;margin:26px 0}
+.toc-title{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;
+color:var(--mut);margin-bottom:8px}
+.toc ul{list-style:none;padding-left:0;margin:0}
+.toc li.t2{font-weight:600;margin-top:8px}
+.toc li.t3{padding-left:24px;font-size:13.5px;color:var(--mut)}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{padding:0;max-width:none}.hero{border-radius:0}
+a{color:var(--fg)}th{background:#f3f4f6}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>D11 — PRIORITY 0: Panen Exit-Capture Dieksekusi → **FALSIFIED**</h1>
+<p>Riset kapabilitas</p>
+</div>
+<nav class="toc">
+<div class="toc-title">Daftar Isi</div>
+<ul>
+<li class="t2"><a href="#0-ringkasan-dalam-satu-tabel">0. Ringkasan dalam Satu Tabel</a></li>
+<li class="t2"><a href="#1-kesalahan-saya-sendiri-yang-ditemukan-lebih-dulu">1. Kesalahan Saya Sendiri yang Ditemukan Lebih Dulu</a></li>
+<li class="t2"><a href="#2-eksperimen-ab-exit-struktur-arm-rusak">2. Eksperimen A/B Exit — Struktur Arm Rusak</a></li>
+<li class="t2"><a href="#3-hasil-semua-arm-dan-jendela-yang-adil">3. Hasil — Semua Arm, dan Jendela yang Adil</a></li>
+<li class="t3"><a href="#31-seluruh-riwayat-tidak-sebanding-periode-berbeda">3.1 Seluruh riwayat (TIDAK sebanding — periode berbeda)</a></li>
+<li class="t3"><a href="#32-jendela-bersama-26-sep-30-sep-45-hari-perbandingan-adil">3.2 Jendela bersama (26-Sep → 30-Sep, 4,5 hari) — perbandingan ADIL</a></li>
+<li class="t2"><a href="#4-mengapa-geometri-atr-gagal-mekanismenya-terlihat">4. Mengapa Geometri ATR Gagal — Mekanismenya Terlihat</a></li>
+<li class="t2"><a href="#5-capture-leak-diagnosis-d10-terbalik">5. Capture Leak — Diagnosis D10 TERBALIK</a></li>
+<li class="t3"><a href="#mengapa-memanen-mfe-akan-merusak-bukan-memperbaiki">Mengapa memanen MFE akan MERUSAK, bukan memperbaiki</a></li>
+<li class="t3"><a href="#klarifikasi-penting">KLARIFIKASI PENTING</a></li>
+<li class="t2"><a href="#6-rekonsiliasi-dua-pandangan-yang-tampak-bertentangan">6. REKONSILIASI — Dua Pandangan yang Tampak Bertentangan</a></li>
+<li class="t3"><a href="#61-gate-resmi-sudah-menangkap-masalahnya">6.1 Gate RESMI sudah menangkap masalahnya</a></li>
+<li class="t3"><a href="#62-uang-nyata-sudah-menjawab">6.2 Uang nyata sudah menjawab</a></li>
+<li class="t2"><a href="#7-putusan-priority-0">7. Putusan PRIORITY 0</a></li>
+<li class="t2"><a href="#8-yang-sebenarnya-ditinggalkan">8. Yang Sebenarnya Ditinggalkan</a></li>
+<li class="t3"><a href="#satu-temuan-yang-muncul-dari-sesi-ini">Satu temuan yang MUNCUL dari sesi ini</a></li>
+<li class="t2"><a href="#9-rekomendasi-langkah-berikutnya">9. Rekomendasi Langkah Berikutnya</a></li>
+<li class="t3"><a href="#r1-tutup-eksperimen-exit-secara-bersih-biaya-rendah">R1 — Tutup eksperimen exit secara bersih (biaya rendah)</a></li>
+<li class="t3"><a href="#r2-serang-bentuk-distribusi-bukan-mean-alamat-baru">R2 — Serang BENTUK DISTRIBUSI, bukan mean (alamat baru)</a></li>
+<li class="t3"><a href="#r3-lanjutkan-order-flow-acuan-resmi-1">R3 — Lanjutkan Order Flow (acuan resmi #1)</a></li>
+<li class="t2"><a href="#10-verifikasi">10. Verifikasi</a></li>
+</ul>
+</nav>
+<p><strong>Divisi SoDEX · Hermes Anantara v3 · 5 Oktober 2026</strong>
+<strong>Pemicu:</strong> rekomendasi D10 (<code>PRIORITAS 0 — panen exit-capture, bukti terkuat, biaya terendah</code>).
+<strong>Hasil:</strong> <strong>hipotesis D10 ditolak oleh data.</strong> Exit bukan tuas yang bisa dipanen pada lane ini.</p>
+<hr>
+<h2 id="0-ringkasan-dalam-satu-tabel">0. Ringkasan dalam Satu Tabel</h2>
+<table>
+<thead>
+<tr>
+<th>Hipotesis D10</th>
+<th>Uji</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometri exit ATR-adaptif mengalahkan SL/TP tetap</td>
+<td>A/B 3 arm, 59,6 hari</td>
+<td><strong>❌ FALSIFIED</strong> — kontrol menang</td>
+</tr>
+<tr>
+<td>Vol gate ATR&gt;2% adalah penyebab (bukan sekadar pengecualian)</td>
+<td>A2 = gate DIMATIKAN</td>
+<td><strong>❌ FALSIFIED</strong> — gate-OFF sedikit lebih buruk</td>
+</tr>
+<tr>
+<td>PEAK_TRAIL bernilai +1,80 pp/trade</td>
+<td>Hitung ulang dari data mentah</td>
+<td><strong>❌ TIDAK TERVALIDASI</strong> — n hanya <strong>5</strong></td>
+</tr>
+<tr>
+<td>Capture leak (median MFE &gt; median realized) adalah kebocoran yang bisa dipanen</td>
+<td>Analisis <code>peak_g</code> + kontribusi ekor</td>
+<td><strong>⚠️ TERBALIK</strong> — memanen MFE justru membunuh profit</td>
+</tr>
+<tr>
+<td>Lane REAL-WIDE punya edge positif</td>
+<td>bootstrap cluster 10.000</td>
+<td><strong>❌ TIDAK SIGNIFIKAN</strong> — CI95 memuat nol</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Kesimpulan utama: kesimpulan saya sendiri di D10 ("prioritas 0 = panen exit") SALAH.</strong>
+Data menolaknya. Ini dilaporkan apa adanya — itulah gunanya falsifikasi.</p>
+</blockquote>
+<hr>
+<h2 id="1-kesalahan-saya-sendiri-yang-ditemukan-lebih-dulu">1. Kesalahan Saya Sendiri yang Ditemukan Lebih Dulu</h2>
+<p><strong>Skala <code>pnl_pct</code> salah 100×.</strong> Nilai disimpan sebagai <strong>fraksi</strong> (<code>-0.00219</code>), bukan persen.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sempat saya laporkan</th>
+<th><strong>Benar</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mean KONTROL</td>
+<td>+0,002%</td>
+<td><strong>+0,203%</strong></td>
+</tr>
+<tr>
+<td><code>atr_pct</code> ONDO</td>
+<td>0,014%</td>
+<td><strong>0,916%</strong></td>
+</tr>
+<tr>
+<td>SL / TP median</td>
+<td>—</td>
+<td><strong>1,50% / 6,00%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Diperbaiki sebelum kesimpulan apa pun ditarik. <strong>Pelajaran:</strong> selalu cek skala terhadap nilai yang punya arti fisik (SL=1,5%, TP=6% → <code>min≈−3%</code>, <code>max≈+6,6%</code> → konsisten).</p>
+<hr>
+<h2 id="2-eksperimen-ab-exit-struktur-arm-rusak">2. Eksperimen A/B Exit — Struktur Arm Rusak</h2>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>Unit systemd</th>
+<th>Status</th>
+<th>n</th>
+<th>Rentang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KONTROL (SL1,5 / TP6)</td>
+<td><code>anantara-paper-realwide.service</code></td>
+<td><strong>running</strong></td>
+<td><strong>245</strong></td>
+<td>06-Agu → 04-Okt</td>
+</tr>
+<tr>
+<td><strong>A1</strong> <code>_atrvol</code> (SL=1×ATR, gate ON)</td>
+<td><code>...-atrvol.service</code></td>
+<td><strong><code>inactive (dead)</code> + <code>disabled</code></strong></td>
+<td><strong>25</strong></td>
+<td>26-Sep → <strong>30-Sep</strong></td>
+</tr>
+<tr>
+<td>A2 <code>_atrvolopen</code> (SL=1×ATR, gate OFF)</td>
+<td><code>...-atrvolopen.service</code></td>
+<td><strong>running</strong></td>
+<td><strong>63</strong></td>
+<td>26-Sep → 04-Okt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dua cacat desain:</strong></p>
+<ol>
+<li><strong>A1 mati sejak 1-Okt 11:17</strong> pada <strong>n=25</strong>, di bawah kriteria pra-registrasi sendiri (<strong>n ≥ 30/arm</strong>). Penyebab terdeteksi: baris <code>Documentation=docs/cex/AB_REALWIDE_ATR_ARM_20260925.md</code> di unit file (systemd mengharapkan URL) membanjiri log. Unit kini <code>disabled</code>.</li>
+<li><strong>Kontrol berjalan 3× lebih lama</strong> dari kedua arm → akumulasi n tidak sebanding. Perbandingan mentah menyesatkan.</li>
+</ol>
+<hr>
+<h2 id="3-hasil-semua-arm-dan-jendela-yang-adil">3. Hasil — Semua Arm, dan Jendela yang Adil</h2>
+<h3 id="31-seluruh-riwayat-tidak-sebanding-periode-berbeda">3.1 Seluruh riwayat (TIDAK sebanding — periode berbeda)</h3>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>n</th>
+<th>mean</th>
+<th>median</th>
+<th>WR</th>
+<th>SD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>KONTROL</strong></td>
+<td>245</td>
+<td><strong>+0,203%</strong></td>
+<td>−0,044%</td>
+<td><strong>49,4%</strong></td>
+<td>2,36</td>
+</tr>
+<tr>
+<td>A1 <code>_atrvol</code></td>
+<td>25</td>
+<td><strong>−0,905%</strong></td>
+<td>−1,549%</td>
+<td>32,0%</td>
+<td>1,11</td>
+</tr>
+<tr>
+<td>A2 <code>_atrvolopen</code></td>
+<td>63</td>
+<td>−0,123%</td>
+<td>−0,889%</td>
+<td>42,9%</td>
+<td>3,28</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-jendela-bersama-26-sep-30-sep-45-hari-perbandingan-adil">3.2 Jendela bersama (26-Sep → 30-Sep, 4,5 hari) — perbandingan ADIL</h3>
+<table>
+<thead>
+<tr>
+<th>Arm</th>
+<th>n</th>
+<th>mean</th>
+<th>WR</th>
+<th>CI95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KONTROL</td>
+<td>25</td>
+<td><strong>−0,504%</strong></td>
+<td>28,0%</td>
+<td>[−1,382%, +0,375%]</td>
+</tr>
+<tr>
+<td>A1 <code>_atrvol</code></td>
+<td>24</td>
+<td><strong>−0,962%</strong></td>
+<td>29,2%</td>
+<td>[−1,401%, −0,523%]</td>
+</tr>
+<tr>
+<td>A2 <code>_atrvolopen</code></td>
+<td>34</td>
+<td><strong>−0,606%</strong></td>
+<td>38,2%</td>
+<td>[−1,282%, +0,070%]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bacaan:</strong>
+- <strong>Ketiga arm RUGI</strong> di jendela yang sama.
+- <strong>Semua CI95 tumpang-tindih</strong> → <strong>tidak ada perbedaan signifikan</strong> antar arm.
+- Uji A1 vs KONTROL: selisih −0,458 pp, SE(gabungan) 0,501 → <strong>t = −0,91 → tidak signifikan.</strong>
+- <strong>Kontrol tidak kalah</strong> — bahkan unggul pada WR sepanjang riwayat (49,4% vs 32,0%).</p>
+<blockquote>
+<p><strong>Putusan A/B: geometri exit ATR-adaptif TIDAK memperbaiki expectancy. Vol gate BUKAN akar masalah.</strong></p>
+</blockquote>
+<hr>
+<h2 id="4-mengapa-geometri-atr-gagal-mekanismenya-terlihat">4. Mengapa Geometri ATR Gagal — Mekanismenya Terlihat</h2>
+<p>Distribusi alasan keluar (KONTROL vs A2):</p>
+<table>
+<thead>
+<tr>
+<th>Alasan</th>
+<th>KONTROL</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TP tercapai</strong></td>
+<td><strong>33 (13,5%)</strong></td>
+<td><strong>3 (4,8%)</strong> ← anjlok</td>
+</tr>
+<tr>
+<td>SL</td>
+<td>80 (32,7%)</td>
+<td>24 (38,1%)</td>
+</tr>
+<tr>
+<td>SL_PROTECT</td>
+<td>57 (23,3%)</td>
+<td>15 (23,8%)</td>
+</tr>
+</tbody>
+</table>
+<p>Menaikkan SL/TP secara proporsional ATR (A2: TP = 4×SL) <strong>melebarkan target</strong> → <strong>hit-rate TP jatuh dari 13,5% ke 4,8%</strong> sementara SL naik. Menang lebih besar <em>saat</em> menang, tapi <strong>jauh lebih jarang</strong> — dan hasilnya lebih buruk.</p>
+<hr>
+<h2 id="5-capture-leak-diagnosis-d10-terbalik">5. Capture Leak — Diagnosis D10 TERBALIK</h2>
+<p><code>peak_g</code> = MFE (puncak menguntungkan selama posisi). Ini pengukuran capture langsung.</p>
+<p><strong>KONTROL (n=245):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ukuran</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>median MFE (<code>peak_g</code>)</td>
+<td><strong>+0,548%</strong></td>
+</tr>
+<tr>
+<td>median realized</td>
+<td><strong>−0,044%</strong></td>
+</tr>
+<tr>
+<td><strong>capture ratio</strong></td>
+<td><strong>−8,0%</strong></td>
+</tr>
+<tr>
+<td>trade menyentuh MFE ≥ 0,5%</td>
+<td><strong>125 (51,0%)</strong></td>
+</tr>
+<tr>
+<td>trade menyentuh MFE ≥ 1,0%</td>
+<td><strong>98 (40,0%)</strong></td>
+</tr>
+<tr>
+<td>batas atas teoretis (exit persis di puncak)</td>
+<td>+1,363% vs aktual +0,203%</td>
+</tr>
+</tbody>
+</table>
+<p>Sekilas: "kita memberi balik 1,16 pp/trade — panen!" <strong>Itu jebakan.</strong></p>
+<h3 id="mengapa-memanen-mfe-akan-merusak-bukan-memperbaiki">Mengapa memanen MFE akan MERUSAK, bukan memperbaiki</h3>
+<pre><code>10 trade terbaik  = +62,2%   = 125% dari seluruh profit
+33 trade terbaik  = +167,0%  = 336% dari seluruh profit
+buang 33 terbaik  -&gt; sisanya = -117,2%
+</code></pre>
+<p><strong>Seluruh profit berasal dari 33 trade (13,5%) — dan trade itu adalah pemenang TP besar (mean +5,03%).</strong></p>
+<p>Aturan exit yang "memanen lebih cepat" (trailing lebih ketat, TP lebih kecil) akan <strong>memotong justru 33 trade yang menopang semuanya.</strong> Menangkap median MFE +0,548% berarti membunuh ekor +5,03%.</p>
+<blockquote>
+<p><strong>Ini profil lotere klasik, bukan kebocoran yang bisa dipanen.</strong> Diagnosis "bottleneck = capture exit" (H1) <strong>tidak sahih sebagai tuas aksi</strong> pada lane ini.</p>
+</blockquote>
+<h3 id="klarifikasi-penting">KLARIFIKASI PENTING</h3>
+<p><strong><code>PEAK_TRAIL</code> — yang di memori tercatat +1,80 pp/trade — hanya memiliki n = 5.</strong>
+<code>PEAK_TRAIL</code> KONTROL n=5 (mean +1,626%), A2 n=4 (mean +1,941%). <strong>Total n = 9.</strong>
+Kriteria pra-registrasi sendiri: <strong>n ≥ 30 per arm.</strong> Angka "+1,80 pp" <strong>BELUM TERVALIDASI</strong> — ia estimasi dari 5 titik. Memori sudah dikoreksi.</p>
+<hr>
+<h2 id="6-rekonsiliasi-dua-pandangan-yang-tampak-bertentangan">6. REKONSILIASI — Dua Pandangan yang Tampak Bertentangan</h2>
+<p>Ini bagian tersulit dan terpenting.</p>
+<table>
+<thead>
+<tr>
+<th>Pandangan</th>
+<th>Angka</th>
+<th>Tafsir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. Mean per trade</strong></td>
+<td>+0,203%</td>
+<td>bootstrap cluster 10.000 → CI95 <strong>[−0,261%, +0,749%]</strong>, P(mean≤0)=<strong>0,209</strong> → <strong>TIDAK SIGNIFIKAN</strong></td>
+</tr>
+<tr>
+<td><strong>B. Jalur wallet kronologis</strong></td>
+<td>$243,57 → <strong>$392,81</strong> = <strong>+61,3%</strong> / 59,6 hari = <strong>+0,805%/hari</strong></td>
+<td><strong>201% dari target 0,4%/hari</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Keduanya benar, dan keduanya menggambarkan data yang sama.</strong> Yang menjelaskan jurangnya:</p>
+<pre><code>n hari              : 49     hari positif: 26 (53,1%)
+median harian       : +$0,47 = +0,194% wallet
+mean harian         : +$3,05 = +1,250% wallet   &lt;- mean 6,4x median
+hari terburuk       : -$59,38 = -24,38% wallet
+drawdown maks       : -26,08%
+</code></pre>
+<h3 id="61-gate-resmi-sudah-menangkap-masalahnya">6.1 Gate RESMI sudah menangkap masalahnya</h3>
+<p><code>data/sodex_maturation_status.json</code> — REAL-WIDE (n=145):</p>
+<table>
+<thead>
+<tr>
+<th>Kriteria gate</th>
+<th>Nilai</th>
+<th>Lulus?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n ≥ 50</td>
+<td>145</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>WR ≥ 50%</td>
+<td>54,48%</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>PF ≥ 1,5</td>
+<td><strong>1,405</strong></td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>window_mean ≥ 0,8%</strong></td>
+<td><strong>2,016%</strong></td>
+<td><strong>✅</strong></td>
+</tr>
+<tr>
+<td><strong>window_median &gt; 0</strong></td>
+<td><strong>0,00%</strong></td>
+<td><strong>❌</strong></td>
+</tr>
+<tr>
+<td><strong>window_hit ≥ 50%</strong></td>
+<td><strong>39,1%</strong> (9/23)</td>
+<td><strong>❌</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Veridkt: NO-GO.</strong> Catatan tracker: <em>"median window +0,00% &lt; 0,8%; hanya 9/23 window capai 0,8%; window terburuk −13,4%"</em>.</p>
+<blockquote>
+<p><strong>Inilah inti seluruh persoalan:</strong></p>
+<p><strong>Target 0,8%/48 jam terlampaui pada MEAN (+2,016%) — tetapi NOL pada MEDIAN, dan hanya 39% jendela mencapainya.</strong></p>
+<p>Mean tinggi itu <strong>ekor</strong>, bukan edge. Jendela khas menghasilkan <strong>persis nol</strong>.</p>
+</blockquote>
+<h3 id="62-uang-nyata-sudah-menjawab">6.2 Uang nyata sudah menjawab</h3>
+<pre><code>live: n_real=8   usd_real=-22.69   wr_real=0.375
+      best_real=+2.17   worst_real=-19.06
+</code></pre>
+<p><strong>Satu-satunya uji forward dengan uang sungguhan: 8 trade, RUGI $22,69, WR 37,5%.</strong> n kecil, tetapi inilah satu-satunya angka yang tidak bisa dibantah sebagai "paper".</p>
+<hr>
+<h2 id="7-putusan-priority-0">7. Putusan PRIORITY 0</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Putusan</th>
+<th>Dasar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0-1</td>
+<td><strong>Geometri exit ATR-adaptif: GUGUR</strong></td>
+<td>A/B: kontrol ≥ kedua arm; CI95 tumpang-tindih</td>
+</tr>
+<tr>
+<td>P0-2</td>
+<td><strong>Vol gate BUKAN akar masalah</strong></td>
+<td>A2 (gate OFF) tidak lebih baik</td>
+</tr>
+<tr>
+<td>P0-3</td>
+<td><strong>PEAK_TRAIL belum terbukti</strong> (n=9)</td>
+<td>di bawah ambang pra-registrasi n≥30</td>
+</tr>
+<tr>
+<td>P0-4</td>
+<td><strong>"Capture leak" bukan tuas aksi</strong></td>
+<td>profit = 33 trade ekor; memanen MFE membunuh mereka</td>
+</tr>
+<tr>
+<td>P0-5</td>
+<td><strong>Lane REAL-WIDE tidak punya edge signifikan</strong></td>
+<td>bootstrap CI95 memuat nol; live −$22,69</td>
+</tr>
+<tr>
+<td>P0-6</td>
+<td><strong>A1 harus diputuskan</strong></td>
+<td>mati di n=25 (di bawah ambang); menunjukkan negatif</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Konsekuensi: D10 salah menempatkan "panen exit" sebagai PRIORITAS 0. Jalur itu sudah dieksekusi dan ditolak data. Tidak ada gain yang bisa dipanen dari exit pada lane ini.</strong></p>
+</blockquote>
+<hr>
+<h2 id="8-yang-sebenarnya-ditinggalkan">8. Yang Sebenarnya Ditinggalkan</h2>
+<p>Setelah exit gugur, apa yang tersisa:</p>
+<table>
+<thead>
+<tr>
+<th>Kandidat</th>
+<th>Bukti</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌ Exit geometry / PEAK_TRAIL</td>
+<td>FALSIFIED hari ini</td>
+<td>tutup</td>
+</tr>
+<tr>
+<td>❌ Model LightGBM (<code>sodex_model_server</code>)</td>
+<td>0/57 BH-FDR (D09)</td>
+<td>tutup</td>
+</tr>
+<tr>
+<td>❌ Regime-adaptive trend (#1 dokumen)</td>
+<td>T1 fail struktural, β 0,887</td>
+<td>tutup</td>
+</tr>
+<tr>
+<td>⚠️ <strong>Order Flow</strong></td>
+<td>acuan resmi #1 (92/100); punya 1,6 GB data <strong>SEGAR</strong></td>
+<td><strong>BELUM DIUJI</strong></td>
+</tr>
+<tr>
+<td>⚠️ Funding/carry</td>
+<td><code>mv_funding</code> SR 12,2 = 0,19%/48h</td>
+<td>belum cukup</td>
+</tr>
+<tr>
+<td>⚠️ Masalah <strong>bentuk distribusi</strong></td>
+<td>median window 0,00% vs mean 2,02%</td>
+<td><strong>belum diserang langsung</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="satu-temuan-yang-muncul-dari-sesi-ini">Satu temuan yang MUNCUL dari sesi ini</h3>
+<p>Semua kegagalan hari ini punya bentuk yang sama: <strong>mean terpenuhi, median nol, ekor yang menentukan.</strong></p>
+<ul>
+<li>REAL-WIDE: mean window +2,02% ✅ / median 0,00% ❌</li>
+<li>A2: max +19,46% tetapi median −0,889%</li>
+<li>33 trade menopang 336% profit</li>
+</ul>
+<blockquote>
+<p><strong>Target 0,8%/48 jam adalah target MEDIAN (harga mati = harus hampir selalu terpenuhi), bukan target MEAN.</strong> Seluruh mesin kita dioptimalkan untuk mean. <strong>Ini kesenjangan yang belum pernah diserang secara langsung.</strong></p>
+</blockquote>
+<hr>
+<h2 id="9-rekomendasi-langkah-berikutnya">9. Rekomendasi Langkah Berikutnya</h2>
+<p><strong>Bukan</strong> lanjut ke Order Flow dulu. Yang lebih murah dan lebih mendasar:</p>
+<h3 id="r1-tutup-eksperimen-exit-secara-bersih-biaya-rendah">R1 — Tutup eksperimen exit secara bersih (biaya rendah)</h3>
+<ul>
+<li>Putuskan A1: <strong>hentikan permanen</strong> (matikan unit + arsipkan) atau <strong>hidupkan ulang</strong> untuk mencapai n=30.</li>
+<li>Alasan permintaan putusan: arm yang <code>disabled</code> tapi masih ada = utang operasional.</li>
+</ul>
+<h3 id="r2-serang-bentuk-distribusi-bukan-mean-alamat-baru">R2 — Serang BENTUK DISTRIBUSI, bukan mean (alamat baru)</h3>
+<p>Target adalah median. Mesin kita menghasilkan ekor. Kandidat uji:
+- Apakah ada sub-populasi (rezim/sesi/simbol) di mana <strong>median</strong> window &gt; 0?
+- Kalau tidak ada di mana pun → masalahnya bukan pemilihan trade, melainkan <strong>distribusi payoff</strong> yang perlu diubah (mis. exit parsial berlapis: sebagian di TP kecil agar median &gt; 0 tanpa membunuh ekor).</p>
+<h3 id="r3-lanjutkan-order-flow-acuan-resmi-1">R3 — Lanjutkan Order Flow (acuan resmi #1)</h3>
+<p>Setelah R1 ditutup. Ini kandidat terkuat yang <strong>belum</strong> diuji, dengan data segar 1,6 GB.</p>
+<hr>
+<h2 id="10-verifikasi">10. Verifikasi</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Nilai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data</td>
+<td><code>data/paper_test_realwide_state.json</code> (245 closed), <code>..._atrvol.json</code> (25), <code>..._atrvolopen.json</code> (63)</td>
+</tr>
+<tr>
+<td>Gate resmi</td>
+<td><code>data/sodex_maturation_status.json</code> (REAL-WIDE &amp; TWO-WAY keduanya NO-GO)</td>
+</tr>
+<tr>
+<td>Bootstrap</td>
+<td>10.000 resample, cluster per hari (49 cluster), seed 20261005</td>
+</tr>
+<tr>
+<td>Skrip</td>
+<td><code>/home/USER/.hermes/cache/scratch/{ab_arm_analysis,capture_leak,wallet_check,reconcile}.py</code></td>
+</tr>
+<tr>
+<td>Produksi disentuh</td>
+<td><strong>tidak</strong> (read-only; tidak ada unit diubah)</td>
+</tr>
+<tr>
+<td>Memori dikoreksi</td>
+<td>klaim <code>PEAK_TRAIL +1,80pp</code> → ditandai <strong>belum tervalidasi</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>D11 · Divisi SoDEX · Hermes Anantara v3 · 5 Oktober 2026</em>
+<em>Berkas terkait: <code>D10_ANALISIS_DOKUMEN_SWING_STRATEGIES_V1</code>, <code>D09_FALSIFIKASI_MODEL_LIGHTGBM</code>, <code>AB_REALWIDE_ATR_ARM_20260925</code></em></p>
+</body>
+</html>

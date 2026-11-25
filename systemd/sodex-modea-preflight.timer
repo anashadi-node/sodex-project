@@ -1,0 +1,10 @@
+[Unit]
+Description=Mode A preflight harian 01:00 UTC
+
+[Timer]
+OnCalendar=*-*-* 01:00:00 UTC
+Persistent=true
+Unit=sodex-modea-preflight.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,118 @@
+{
+ "n_loaded_total": 1230,
+ "per_tag": {
+  "realwide": 269,
+  "twoway": 422,
+  "swing": 539
+ },
+ "matriks": {
+  "D1_3track_snap14Sep|binance|inklusif": {
+   "n": 463,
+   "med_mfe_R": 1.0194843534737212,
+   "frac_ge1R": 0.5053995680345572,
+   "frac_ge05R": 0.7062634989200864,
+   "drop": 94
+  },
+  "D1_3track_snap14Sep|binance|interior": {
+   "n": 463,
+   "med_mfe_R": 1.0194843534737212,
+   "frac_ge1R": 0.5053995680345572,
+   "frac_ge05R": 0.7062634989200864,
+   "drop": 94
+  },
+  "D1_3track_snap14Sep|sodex|inklusif": {
+   "n": 514,
+   "med_mfe_R": 0.9879156754338472,
+   "frac_ge1R": 0.4961089494163424,
+   "frac_ge05R": 0.6945525291828794,
+   "drop": 43
+  },
+  "D1_3track_snap14Sep|sodex|interior": {
+   "n": 514,
+   "med_mfe_R": 0.9879156754338472,
+   "frac_ge1R": 0.4961089494163424,
+   "frac_ge05R": 0.6945525291828794,
+   "drop": 43
+  },
+  "D2_3track_semua|binance|inklusif": {
+   "n": 870,
+   "med_mfe_R": 0.9750555359820271,
+   "frac_ge1R": 0.4908045977011494,
+   "frac_ge05R": 0.671264367816092,
+   "drop": 360
+  },
+  "D2_3track_semua|binance|interior": {
+   "n": 870,
+   "med_mfe_R": 0.9750555359820271,
+   "frac_ge1R": 0.4908045977011494,
+   "frac_ge05R": 0.671264367816092,
+   "drop": 360
+  },
+  "D2_3track_semua|sodex|inklusif": {
+   "n": 1014,
+   "med_mfe_R": 0.9128347933013765,
+   "frac_ge1R": 0.47633136094674555,
+   "frac_ge05R": 0.6548323471400395,
+   "drop": 216
+  },
+  "D2_3track_semua|sodex|interior": {
+   "n": 1014,
+   "med_mfe_R": 0.9128347933013765,
+   "frac_ge1R": 0.47633136094674555,
+   "frac_ge05R": 0.6548323471400395,
+   "drop": 216
+  },
+  "D3_2track_semua|binance|inklusif": {
+   "n": 535,
+   "med_mfe_R": 0.8900587286614181,
+   "frac_ge1R": 0.45794392523364486,
+   "frac_ge05R": 0.6504672897196262,
+   "drop": 156
+  },
+  "D3_2track_semua|binance|interior": {
+   "n": 535,
+   "med_mfe_R": 0.8900587286614181,
+   "frac_ge1R": 0.45794392523364486,
+   "frac_ge05R": 0.6504672897196262,
+   "drop": 156
+  },
+  "D3_2track_semua|sodex|inklusif": {
+   "n": 654,
+   "med_mfe_R": 0.8378679423325177,
+   "frac_ge1R": 0.4418960244648318,
+   "frac_ge05R": 0.6284403669724771,
+   "drop": 37
+  },
+  "D3_2track_semua|sodex|interior": {
+   "n": 654,
+   "med_mfe_R": 0.8378679423325177,
+   "frac_ge1R": 0.4418960244648318,
+   "frac_ge05R": 0.6284403669724771,
+   "drop": 37
+  }
+ },
+ "validasi_vs_tersimpan": {
+  "tersimpan": {
+   "med": 1.0873,
+   "frac1R": 0.5219,
+   "n": 732
+  },
+  "hitung_ulang": {
+   "med": 1.0194843534737212,
+   "frac1R": 0.5053995680345572,
+   "n": 463
+  },
+  "cocok": false,
+  "catatan": "n bisa beda karena state file live (trade baru dibekukan? tidak - filter exit<=14Sep)"
+ },
+ "capture_D2_binance_inklusif": {
+  "n": 870,
+  "sentuh_1R": 427,
+  "frac_sentuh": 0.4908045977011494,
+  "med_delta_1R_pct": 0.0,
+  "mean_delta_1R_pct": -0.0013683257029873952,
+  "med_delta_05R_pct": 0.0,
+  "mean_delta_05R_pct": -0.0024513419475728124,
+  "catatan": "delta gross vs gross; konvensi H1 (inklusif); TANPA biaya tambahan per leg"
+ }
+}

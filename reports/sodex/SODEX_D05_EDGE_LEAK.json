@@ -1,0 +1,547 @@
+{
+  "generated_utc": "2026-11-24T23:04:46.064472+00:00",
+  "track": "twoway",
+  "source": "/home/USER/anantara-sakti/data/paper_test_twoway_state.json",
+  "fee_bps": 8.0,
+  "cluster_hours": 30.0,
+  "duplication": {
+    "all": {
+      "n_rows": 602,
+      "n_unique": 601,
+      "ratio": 1.002
+    },
+    "signal": {
+      "n_rows": 512,
+      "n_unique": 512,
+      "ratio": 1.0
+    }
+  },
+  "arms": {
+    "n_all": 602,
+    "n_signal": 512,
+    "n_control": 90,
+    "control_track_label": "RANDOM"
+  },
+  "contamination": {
+    "excess_all_bps": -0.16,
+    "excess_signal_only_bps": 2.92,
+    "delta_bps": 3.08
+  },
+  "clustered": {
+    "all": {
+      "p_pos": 0.486,
+      "n_blocks": 69,
+      "n": 602,
+      "ci95_bps": [
+        -24.17,
+        23.93
+      ],
+      "mean_bps": -0.16
+    },
+    "signal": {
+      "p_pos": 0.5801,
+      "n_blocks": 67,
+      "n": 512,
+      "ci95_bps": [
+        -22.97,
+        29.77
+      ],
+      "mean_bps": 2.92
+    },
+    "control": {
+      "p_pos": 0.2416,
+      "n_blocks": 25,
+      "n": 90,
+      "ci95_bps": [
+        -63.75,
+        31.51
+      ],
+      "mean_bps": -17.7
+    }
+  },
+  "cost_gate": {
+    "gross_signal_bps": 2.92,
+    "cost_1x_bps": -5.08,
+    "cost_2x_bps": -13.08,
+    "gap_to_2x_bps": 13.08
+  },
+  "breakdown": {
+    "symbol": [
+      {
+        "bucket": "LIT",
+        "n": 1,
+        "excess_bps": 177.61,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "SUI",
+        "n": 20,
+        "excess_bps": 59.18,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "BNB",
+        "n": 17,
+        "excess_bps": 57.42,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "AVAX",
+        "n": 15,
+        "excess_bps": 46.04,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "UNI",
+        "n": 24,
+        "excess_bps": 42.34,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "ASTER",
+        "n": 21,
+        "excess_bps": 34.98,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "BCH",
+        "n": 17,
+        "excess_bps": 29.46,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "DOGE",
+        "n": 49,
+        "excess_bps": 23.97,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "AAVE",
+        "n": 24,
+        "excess_bps": 20.18,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "SOL",
+        "n": 45,
+        "excess_bps": 17.98,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "PUMP",
+        "n": 18,
+        "excess_bps": 16.1,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "XRP",
+        "n": 19,
+        "excess_bps": 6.98,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "ONDO",
+        "n": 19,
+        "excess_bps": -6.18,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "TRX",
+        "n": 16,
+        "excess_bps": -14.08,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "LINK",
+        "n": 20,
+        "excess_bps": -18.77,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "ENA",
+        "n": 20,
+        "excess_bps": -19.32,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "SILVER",
+        "n": 10,
+        "excess_bps": -22.79,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "BTC",
+        "n": 47,
+        "excess_bps": -23.21,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "ARB",
+        "n": 13,
+        "excess_bps": -23.86,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "XAUT",
+        "n": 11,
+        "excess_bps": -28.44,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "ETH",
+        "n": 47,
+        "excess_bps": -32.15,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "HYPE",
+        "n": 20,
+        "excess_bps": -35.22,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "ADA",
+        "n": 19,
+        "excess_bps": -74.38,
+        "meets_min_n": false
+      }
+    ],
+    "side": [
+      {
+        "bucket": "SHORT",
+        "n": 42,
+        "excess_bps": 60.94,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "LONG",
+        "n": 470,
+        "excess_bps": -2.27,
+        "meets_min_n": true
+      }
+    ],
+    "regime": [
+      {
+        "bucket": "BEAR_MOMENTUM",
+        "n": 42,
+        "excess_bps": 60.94,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "MOMENTUM",
+        "n": 470,
+        "excess_bps": -2.27,
+        "meets_min_n": true
+      }
+    ],
+    "exit_reason": [
+      {
+        "bucket": "TP",
+        "n": 137,
+        "excess_bps": 198.78,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "TIME_30.0h",
+        "n": 26,
+        "excess_bps": 42.76,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "TIME_30h",
+        "n": 121,
+        "excess_bps": -6.17,
+        "meets_min_n": true
+      },
+      {
+        "bucket": "TIME_48h",
+        "n": 8,
+        "excess_bps": -8.09,
+        "meets_min_n": false
+      },
+      {
+        "bucket": "SL",
+        "n": 220,
+        "excess_bps": -118.36,
+        "meets_min_n": true
+      }
+    ]
+  },
+  "tests": {
+    "symbol": [
+      {
+        "bucket": "DOGE",
+        "n": 49,
+        "n_blocks": 38,
+        "t": 0.738,
+        "p": 0.46038205607098637,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "SOL",
+        "n": 45,
+        "n_blocks": 37,
+        "t": 0.825,
+        "p": 0.40925873198893425,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "ETH",
+        "n": 47,
+        "n_blocks": 40,
+        "t": -1.292,
+        "p": 0.1963735312532331,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "BTC",
+        "n": 47,
+        "n_blocks": 42,
+        "t": -1.314,
+        "p": 0.1889521726064456,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "AAVE",
+        "n": 24,
+        "n_blocks": 21,
+        "t": 0.284,
+        "p": 0.7765792919084458,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "BCH",
+        "n": 17,
+        "n_blocks": 17,
+        "t": 0.525,
+        "p": 0.5996013844889516,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "ONDO",
+        "n": 19,
+        "n_blocks": 19,
+        "t": -0.115,
+        "p": 0.9081408290319126,
+        "q": 0.9284291647271625
+      },
+      {
+        "bucket": "ADA",
+        "n": 19,
+        "n_blocks": 17,
+        "t": -1.201,
+        "p": 0.22980748473099366,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "XAUT",
+        "n": 11,
+        "n_blocks": 11,
+        "t": -0.558,
+        "p": 0.5770750925515926,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "SILVER",
+        "n": 10,
+        "n_blocks": 10,
+        "t": -0.422,
+        "p": 0.6727503706666409,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "ARB",
+        "n": 13,
+        "n_blocks": 13,
+        "t": -0.285,
+        "p": 0.7755366219575948,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "UNI",
+        "n": 24,
+        "n_blocks": 20,
+        "t": 0.995,
+        "p": 0.31970443153202566,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "HYPE",
+        "n": 20,
+        "n_blocks": 18,
+        "t": -0.671,
+        "p": 0.5023848529583366,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "AVAX",
+        "n": 15,
+        "n_blocks": 13,
+        "t": 0.651,
+        "p": 0.5153307359786152,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "SUI",
+        "n": 20,
+        "n_blocks": 18,
+        "t": 1.183,
+        "p": 0.23700212035454804,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "ENA",
+        "n": 20,
+        "n_blocks": 19,
+        "t": -0.09,
+        "p": 0.9284291647271625,
+        "q": 0.9284291647271625
+      },
+      {
+        "bucket": "LIT",
+        "n": 1,
+        "n_blocks": 1,
+        "p": null
+      },
+      {
+        "bucket": "XRP",
+        "n": 19,
+        "n_blocks": 16,
+        "t": 0.293,
+        "p": 0.7691523840034109,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "LINK",
+        "n": 20,
+        "n_blocks": 18,
+        "t": -0.107,
+        "p": 0.9144277168003576,
+        "q": 0.9284291647271625
+      },
+      {
+        "bucket": "ASTER",
+        "n": 21,
+        "n_blocks": 21,
+        "t": 0.669,
+        "p": 0.5033129761586466,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "BNB",
+        "n": 17,
+        "n_blocks": 16,
+        "t": 1.216,
+        "p": 0.2238946905928798,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "PUMP",
+        "n": 18,
+        "n_blocks": 17,
+        "t": 0.429,
+        "p": 0.6678536573107421,
+        "q": 0.8991970748413582
+      },
+      {
+        "bucket": "TRX",
+        "n": 16,
+        "n_blocks": 16,
+        "t": -0.342,
+        "p": 0.7322493824115308,
+        "q": 0.8991970748413582
+      }
+    ],
+    "side": [
+      {
+        "bucket": "SHORT",
+        "n": 42,
+        "n_blocks": 13,
+        "t": 1.387,
+        "p": 0.16543192513685634,
+        "q": 0.3308638502737127
+      },
+      {
+        "bucket": "LONG",
+        "n": 470,
+        "n_blocks": 62,
+        "t": -0.601,
+        "p": 0.5479616145827939,
+        "q": 0.5479616145827939
+      }
+    ],
+    "regime": [
+      {
+        "bucket": "BEAR_MOMENTUM",
+        "n": 42,
+        "n_blocks": 13,
+        "t": 1.387,
+        "p": 0.16543192513685634,
+        "q": 0.3308638502737127
+      },
+      {
+        "bucket": "MOMENTUM",
+        "n": 470,
+        "n_blocks": 62,
+        "t": -0.601,
+        "p": 0.5479616145827939,
+        "q": 0.5479616145827939
+      }
+    ],
+    "exit_reason": [
+      {
+        "bucket": "SL",
+        "n": 220,
+        "n_blocks": 54,
+        "t": -8.219,
+        "p": 2.220446049250313e-16,
+        "q": 5.551115123125783e-16
+      },
+      {
+        "bucket": "TIME_48h",
+        "n": 8,
+        "n_blocks": 4,
+        "t": -1.264,
+        "p": 0.20634977987785685,
+        "q": 0.25793722484732107
+      },
+      {
+        "bucket": "TP",
+        "n": 137,
+        "n_blocks": 45,
+        "t": 8.314,
+        "p": 0.0,
+        "q": 0.0
+      },
+      {
+        "bucket": "TIME_30h",
+        "n": 121,
+        "n_blocks": 41,
+        "t": -0.634,
+        "p": 0.5258175230776101,
+        "q": 0.5258175230776101
+      },
+      {
+        "bucket": "TIME_30.0h",
+        "n": 26,
+        "n_blocks": 10,
+        "t": 1.804,
+        "p": 0.07120943601607066,
+        "q": 0.11868239336011777
+      }
+    ]
+  },
+  "selection_null": {
+    "n": 200,
+    "p50_bps": 33.91,
+    "p95_bps": 67.21,
+    "p99_bps": 95.79
+  },
+  "verdict": "FAIL_CI95_SPANS_ZERO_AND_COST_2X_GAP",
+  "safety": {
+    "changed_strategy": "NO",
+    "changed_gate_exit_leverage": "NO",
+    "placed_order": "NO",
+    "measurement_only": "YES — RISET must confirm before any pipeline change"
+  }
+}

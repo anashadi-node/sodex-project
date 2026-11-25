@@ -1,0 +1,15 @@
+[Unit]
+Description=Anantara Sakti - SoDEX PRAREG-16 forward-only MACD_FADE_H48 rezim BULL (read-only)
+After=network-online.target sodex-klines-forward.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# READ-ONLY: import mesin beku, baca data/sodex_klines + data/binance_klines,
+# tulis reports/sodex/TA16_FORWARD_BULL.json. Tanpa auth, tanpa order,
+# tidak menyentuh live flag / ambang / target.
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 /home/USER/anantara-sakti/scripts/research/ta16_forward_bull_eval.py
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_ta16_forward.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_ta16_forward.log
+TimeoutStartSec=1800

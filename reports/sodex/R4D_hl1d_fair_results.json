@@ -1,0 +1,106 @@
+{
+ "phase": "DEV",
+ "tier": "hl1d",
+ "fill_model": "bar",
+ "range": [
+  "2022-10-01",
+  "2025-09-30"
+ ],
+ "theta": [
+  0.03,
+  0.05,
+  0.08
+ ],
+ "stop_atr": 1.5,
+ "hold_h": 24,
+ "cluster_h": 24,
+ "protocol": "docs/sodex/R4D_PROTOKOL_H13_2026-10-05.md (beku d63e7ee)",
+ "hypotheses": {
+  "H13a": {
+   "n_windows": 732,
+   "mean48_pct": -0.0093,
+   "sr_annual": -0.358,
+   "p_signflip": 0.48,
+   "p_day_cluster": 0.4762,
+   "segments_pct": [
+    -0.04,
+    -0.009,
+    0.0213
+   ],
+   "trades": 446,
+   "events_clustered": 918,
+   "gross_median_pct": 0.036,
+   "min_gross_required_pct": 0.154,
+   "budget_ok": false,
+   "slip_median_pct": 0.02,
+   "stop_rate_pct": 8.9,
+   "p5_pct": -7.081,
+   "worst_pct": -14.662,
+   "skew": -0.158,
+   "control_p": 1.0,
+   "dsr": 0.057,
+   "segments_positive": 1
+  },
+  "H13b": {
+   "n_windows": 732,
+   "mean48_pct": -0.0383,
+   "sr_annual": -1.17,
+   "p_signflip": 0.0186,
+   "p_day_cluster": 0.019,
+   "segments_pct": [
+    -0.0276,
+    -0.0875,
+    0.0001
+   ],
+   "trades": 363,
+   "events_clustered": 775,
+   "gross_median_pct": -0.461,
+   "min_gross_required_pct": 0.154,
+   "budget_ok": false,
+   "slip_median_pct": 0.02,
+   "stop_rate_pct": 13.7,
+   "p5_pct": -8.721,
+   "worst_pct": -20.792,
+   "skew": -0.219,
+   "control_p": 1.0,
+   "dsr": 0.0,
+   "segments_positive": 1
+  },
+  "H13c": {
+   "n_windows": 732,
+   "mean48_pct": -0.0322,
+   "sr_annual": -0.804,
+   "p_signflip": 0.1066,
+   "p_day_cluster": 0.1068,
+   "segments_pct": [
+    -0.0008,
+    -0.0799,
+    -0.016
+   ],
+   "trades": 225,
+   "events_clustered": 548,
+   "gross_median_pct": -0.683,
+   "min_gross_required_pct": 0.154,
+   "budget_ok": false,
+   "slip_median_pct": 0.02,
+   "stop_rate_pct": 21.2,
+   "p5_pct": -10.647,
+   "worst_pct": -15.11,
+   "skew": 0.41,
+   "control_p": 1.0,
+   "dsr": 0.016,
+   "segments_positive": 0
+  }
+ },
+ "bh_pass": {
+  "H13a": false,
+  "H13b": false,
+  "H13c": false
+ },
+ "pbo": 0.25793650793650796,
+ "verdict": {
+  "H13a": "FAIL",
+  "H13b": "FAIL",
+  "H13c": "FAIL"
+ }
+}

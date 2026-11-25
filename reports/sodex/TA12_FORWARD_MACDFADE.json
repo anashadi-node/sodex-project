@@ -1,0 +1,58 @@
+{
+ "prareg": "reports/sodex/PRAREG12_FORWARD_MACDFADE_PROTOCOL.json",
+ "freeze_commit": "f4d0552",
+ "freeze_ts": "2026-10-08T09:00:34+07:00",
+ "hold": 48,
+ "n_min_verdict": 40,
+ "venue": {
+  "sodex": {
+   "venue": "sodex",
+   "bar_forward": 573,
+   "bar_pertama": "2026-10-08 03:00:00+00:00",
+   "n_window": 11,
+   "fee_oneway": 0.0004,
+   "net_bps": 31.2397246936346,
+   "gross_bps": 36.01851852982261,
+   "t": 0.8177783801389397,
+   "p": 0.41348374529516796,
+   "to": 1.1946984590470013,
+   "S_ann": 3.4804861883158975,
+   "S_fee2x": 2.957516783586281,
+   "seg_pos": null,
+   "segments": [],
+   "ic": 0.04866472940815567,
+   "ctrl_t": -2.2408541254111833,
+   "ctrl_ic": -0.03745871912451793,
+   "verdict_protokol": "TIDAK_KONKLUSIF (n=11<40)"
+  },
+  "binance": {
+   "venue": "binance",
+   "bar_forward": 552,
+   "bar_pertama": "2026-10-08 03:00:00+00:00",
+   "n_window": 11,
+   "fee_oneway": 0.0005,
+   "net_bps": 5.525975502717745,
+   "gross_bps": 11.456625880008438,
+   "t": 0.1522850027346294,
+   "p": 0.8789621530433825,
+   "to": 1.1861300754581385,
+   "S_ann": 0.609032675650821,
+   "S_fee2x": -0.04470878107414296,
+   "seg_pos": null,
+   "segments": [],
+   "ic": 0.03826805605461733,
+   "ctrl_t": -1.3974866440355644,
+   "ctrl_ic": -0.05970774943106958,
+   "verdict_protokol": "TIDAK_KONKLUSIF (n=11<40)"
+  },
+  "bh_pass": {
+   "sodex": false,
+   "binance": false
+  },
+  "r1_lintas_venue": {
+   "tanda_sama": true,
+   "rasio": 1.2716802060365933,
+   "lulus": true
+  }
+ }
+}

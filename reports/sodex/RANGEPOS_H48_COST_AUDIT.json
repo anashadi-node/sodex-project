@@ -1,0 +1,274 @@
+{
+ "generated_utc": "2026-10-08",
+ "disclaimer": "DESKRIPTIF \u2014 jendela historis sudah terpakai; tidak sah sebagai verdict lulus/gagal. Tidak ada ambang yang diubah.",
+ "model_biaya": "net = gross - turnover*fee_per_leg (xsec_mech_study.py, beku)",
+ "rangepos_semua_panel": [
+  {
+   "panel": "binance_1d",
+   "key": "RANGEPOS_H5",
+   "mech": "RANGEPOS",
+   "hold": 5,
+   "n": 460,
+   "turnover": 0.9233283538579169,
+   "gross_bps": -40.48778680400519,
+   "net_bps": -45.104428573294776,
+   "sd_bps": 234.7097090804847,
+   "sharpe_net": -1.6419108019450908,
+   "sharpe_gross": -1.4738538232963143,
+   "t_nw": -3.976454988234451,
+   "p": 6.995023174131243e-05,
+   "seg_pos": 1,
+   "ic": 0.008734084181582837,
+   "winrate": 0.42391304347826086
+  },
+  {
+   "panel": "binance_1d",
+   "key": "RANGEPOS_H2",
+   "mech": "RANGEPOS",
+   "hold": 2,
+   "n": 1152,
+   "turnover": 0.6804848173942424,
+   "gross_bps": -20.216149935049597,
+   "net_bps": -23.61857402202081,
+   "sd_bps": 149.91867330256437,
+   "sharpe_net": -2.1282830072021386,
+   "sharpe_gross": -1.82168865646595,
+   "t_nw": -5.099558829533077,
+   "p": 3.404460473760319e-07,
+   "seg_pos": 0,
+   "ic": 0.01948307128451525,
+   "winrate": 0.453125
+  },
+  {
+   "panel": "sodex_1d",
+   "key": "RANGEPOS_H5",
+   "mech": "RANGEPOS",
+   "hold": 5,
+   "n": 55,
+   "turnover": 0.8886831536441774,
+   "gross_bps": -18.88373344968478,
+   "net_bps": -22.43846606426149,
+   "sd_bps": 198.03980723992723,
+   "sharpe_net": -0.9680596076321496,
+   "sharpe_gross": -0.8146982748989267,
+   "t_nw": -0.6315976015926811,
+   "p": 0.527649854188527,
+   "seg_pos": null,
+   "ic": -0.01809118681322842,
+   "winrate": 0.43636363636363634
+  },
+  {
+   "panel": "sodex_1d",
+   "key": "RANGEPOS_H2",
+   "mech": "RANGEPOS",
+   "hold": 2,
+   "n": 138,
+   "turnover": 0.6306613081091986,
+   "gross_bps": -10.432555219474107,
+   "net_bps": -12.955200451910903,
+   "sd_bps": 114.71658111483046,
+   "sharpe_net": -1.5256305483556518,
+   "sharpe_gross": -1.2285587551745865,
+   "t_nw": -1.5786369888194292,
+   "p": 0.11441934537466772,
+   "seg_pos": 0,
+   "ic": -0.01638196468375111,
+   "winrate": 0.42028985507246375
+  },
+  {
+   "panel": "sodex_1h",
+   "key": "RANGEPOS_H48",
+   "mech": "RANGEPOS",
+   "hold": 48,
+   "n": 146,
+   "turnover": 1.3068241025455676,
+   "gross_bps": 16.925051154158115,
+   "net_bps": 11.697754743975844,
+   "sd_bps": 97.80129316580404,
+   "sharpe_net": 1.615806492465567,
+   "sharpe_gross": 2.337850992668837,
+   "t_nw": 2.305462968720163,
+   "p": 0.021140658411582774,
+   "seg_pos": 3,
+   "ic": 0.03728094439628337,
+   "winrate": 0.5616438356164384
+  },
+  {
+   "panel": "sodex_1h",
+   "key": "RANGEPOS_H24",
+   "mech": "RANGEPOS",
+   "hold": 24,
+   "n": 293,
+   "turnover": 1.3175925979474374,
+   "gross_bps": 11.68126685502912,
+   "net_bps": 6.410896463239371,
+   "sd_bps": 81.36594589767239,
+   "sharpe_net": 1.5052981146313107,
+   "sharpe_gross": 2.7427972163031344,
+   "t_nw": 1.651986903779761,
+   "p": 0.0985372206145281,
+   "seg_pos": 3,
+   "ic": 0.03880047536773872,
+   "winrate": 0.5119453924914675
+  }
+ ],
+ "rangepos_h48_audit": {
+  "arm": {
+   "panel": "sodex_1h",
+   "key": "RANGEPOS_H48",
+   "mech": "RANGEPOS",
+   "hold": 48,
+   "n": 146,
+   "turnover": 1.3068241025455676,
+   "gross_bps": 16.925051154158115,
+   "net_bps": 11.697754743975844,
+   "sd_bps": 97.80129316580404,
+   "sharpe_net": 1.615806492465567,
+   "sharpe_gross": 2.337850992668837,
+   "t_nw": 2.305462968720163,
+   "p": 0.021140658411582774,
+   "seg_pos": 3,
+   "ic": 0.03728094439628337,
+   "winrate": 0.5616438356164384
+  },
+  "need_net_bps_for_sharpe": 16.651025996368055,
+  "cost_budget_bps": 0.2740251577900601,
+  "scenarios": [
+   {
+    "fee_bps_per_leg": 0.0,
+    "label": "Ongkos~0 (implisit)",
+    "cost_bps": 0.0,
+    "net_bps": 16.925051154158115,
+    "sharpe_annual": 2.337850992668837
+   },
+   {
+    "fee_bps_per_leg": 1.14,
+    "label": "maker 1,14",
+    "cost_bps": 1.489779476901947,
+    "net_bps": 15.435271677256168,
+    "sharpe_annual": 2.1320683101109053
+   },
+   {
+    "fee_bps_per_leg": 2.8,
+    "label": "primer 2,80",
+    "cost_bps": 3.659107487127589,
+    "net_bps": 13.265943667030527,
+    "sharpe_annual": 1.8324198425265483
+   },
+   {
+    "fee_bps_per_leg": 4.0,
+    "label": "taker 4,00",
+    "cost_bps": 5.22729641018227,
+    "net_bps": 11.697754743975846,
+    "sharpe_annual": 1.6158064924655675
+   },
+   {
+    "fee_bps_per_leg": 4.46,
+    "label": "pesimis 4,46",
+    "cost_bps": 5.828435497353231,
+    "net_bps": 11.096615656804884,
+    "sharpe_annual": 1.5327713749421914
+   }
+  ],
+  "net_vs_target_pct": 14.622193429969805,
+  "n_mesin_utk_target": {
+   "Ongkos~0 (implisit)": 5,
+   "maker 1,14": 6,
+   "primer 2,80": 7,
+   "taker 4,00": 7,
+   "pesimis 4,46": 8
+  }
+ },
+ "bukti_gerbang_pr5": {
+  "gap": {
+   "H1": {
+    "shadow_gross": 3.185619900641729,
+    "gated_gross": 0.9494404082833224,
+    "to_shadow": 0.5119818178881066,
+    "to_gated": 0.5242187298954929,
+    "gap_bps": -2.236179492358407
+   },
+   "H2": {
+    "shadow_gross": 3.3879537190751567,
+    "gated_gross": 0.8651037388312063,
+    "to_shadow": 0.6662751927375816,
+    "to_gated": 0.6792407017905091,
+    "gap_bps": -2.5228499802439504
+   },
+   "H4": {
+    "shadow_gross": 2.3815243271935995,
+    "gated_gross": -0.29848213722079614,
+    "to_shadow": 0.8454340353526167,
+    "to_gated": 0.8625586548778712,
+    "gap_bps": -2.6800064644143955
+   }
+  },
+  "kontrol_acak": {
+   "C_a_shuffle_H1": -3.8604757296561596,
+   "C_b_fullrandom_H1": -3.850649868125452,
+   "C_c_synthetic_H1": 0.06297486874320689,
+   "C_a_shuffle_H2": -4.376837961447715,
+   "C_b_fullrandom_H2": -4.090531836181117,
+   "C_c_synthetic_H2": 0.2707870609506561,
+   "C_a_shuffle_H4": -4.672357681758447,
+   "C_b_fullrandom_H4": -4.7888263870306425,
+   "C_c_synthetic_H4": 0.6885352257449728
+  },
+  "catatan": "sinyal PRAREG-5 \u2260 RANGEPOS H=48; dipakai hanya sebagai batas atas biaya seleksi, BUKAN transfer."
+ },
+ "ekstrapolasi_gerbang": {
+  "label": "EKSTRAPOLASI (hipotesis, BUKAN bukti): gap vs turnover dari 3 arm OOS PRAREG-5",
+  "slope_bps_per_unit_turnover": -1.2980807096014115,
+  "intercept_bps": -1.5857259043868566,
+  "turnover_H48": 1.3068241025455676,
+  "gate_cost_H48_bps": -3.2820890627434345,
+  "fee_maker_bps": 1.14,
+  "net_bps": 12.153182614512733,
+  "sharpe_annual": 1.6787145740734706,
+  "n_mesin_utk_80bps": 7
+ },
+ "aritmetika_sertifikasi": {
+  "43h": {
+   "n_window_48h": 21,
+   "S_ann_min_F1": 5.778004269064997,
+   "S_ann_min_F5": 6.868749972919105,
+   "S_ann_min_F8": 7.605740313361068
+  },
+  "90h": {
+   "n_window_48h": 45,
+   "S_ann_min_F1": 3.947128351374227,
+   "S_ann_min_F5": 4.692249519745892,
+   "S_ann_min_F8": 5.195709768645666
+  },
+  "180h": {
+   "n_window_48h": 90,
+   "S_ann_min_F1": 2.7910412234703936,
+   "S_ann_min_F5": 3.3179214544316413,
+   "S_ann_min_F8": 3.6739216104865386
+  },
+  "266h": {
+   "n_window_48h": 133,
+   "S_ann_min_F1": 2.295946084090964,
+   "S_ann_min_F5": 2.729364477516299,
+   "S_ann_min_F8": 3.022214743344228
+  },
+  "376h": {
+   "n_window_48h": 188,
+   "S_ann_min_F1": 1.9311169736599196,
+   "S_ann_min_F5": 2.2956645656263333,
+   "S_ann_min_F8": 2.54198050614418
+  },
+  "550h": {
+   "n_window_48h": 275,
+   "S_ann_min_F1": 1.5966920349727602,
+   "S_ann_min_F5": 1.8981083885135366,
+   "S_ann_min_F8": 2.101768086851899
+  }
+ },
+ "target": {
+  "bps_per_48h": 80.0,
+  "sharpe": 2.3,
+  "rho_max": 0.1
+ },
+ "s_ann_terbaik_pernah_diukur": 3.06
+}

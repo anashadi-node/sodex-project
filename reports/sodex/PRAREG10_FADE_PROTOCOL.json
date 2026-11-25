@@ -1,0 +1,64 @@
+{
+  "id": "PRAREG-10",
+  "judul": "Keluarga FADE (cermin TA7) — 8 mekanisme x holds {24,48} jam di SoDEX 1h + Binance 1h",
+  "tanggal_prareg_utc": "2026-10-08",
+  "status": "TERBEKU sebelum evaluasi apa pun dari keluarga ini",
+  "motivasi": [
+    "PRAREG-4: momentum GAGAL 7/7; MOM_L21 t=-4,71 (ikut tren = rugi).",
+    "PRAREG-8/TA7: 5/7 sinyal tren ber-IC NEGATIF konsisten di 2 venue (MACD_HIST_H48 t=-2,85 IC -0,066 gross -30,9bps; MACD_HIST_H24 t=-5,58; KONFLUENSI_H48 t=-2,36; ATR_BREAK; RSTR; OBV_SLOPE).",
+    "Dua sinyal fade bawaan (BB_POS +11,1bps; RSI_REV +5,0bps) positif tapi t<1,37 (ns).",
+    "Pertanyaan prareg ini: apakah SISI CERMIN (fade) dari keluarga yang sama lolos gerbang penuh setelah biaya, kontrol, BH, dan replikasi lintas-venue?"
+  ],
+  "deklarasi_risiko_overfit": {
+    "fakta": "Keluarga fade ini dipilih SETELAH hasil TA7 terlihat (seleksi post-hoc berbasis tanda IC).",
+    "konsekuensi_tidak_dilonggarkan": [
+      "Gerbang TIDAK dilonggarkan sedikit pun dibanding panel beku; justru dinilai dengan gerbang MESIN penuh.",
+      "Hasil keluarga ini = DESCRIPTIVE/historis. Verdict MESIN tetap HANYA dari data forward dengan prareg forward terpisah.",
+      "n_trial kumulatif keluarga TA tercatat: 16 (TA7) + 16 (PRAREG-10) + saringan awal 48j — dipakai bila perlu deflasi Sharpe."
+    ],
+    "catatan_deterministik": "Negasi sinyal membalik tanda IC/gross/net/t secara deterministik: jawaban ARAH sebagian besar sudah diketahui dari TA7. Yang diuji = apakah lolos GERBANG PENUH (net>0 setelah fee, |t_ctrl|<2, t>=1,96, BH q=0,10, S_ann>=2,3, S_fee2x>=1,8, seg+>=3) + R1 lintas-venue."
+  },
+  "definisi_sinyal": {
+    "kerangka": "Parameter IDENTIK prareg TA7 (sudah terkunci di PRAREG8_TA7_SWING_PROTOCOL.json); perubahan HANYA tanda.",
+    "mekanisme": {
+      "EMA_FADE": "-(EMA20-EMA50)/close, z-xsec",
+      "MACD_FADE": "-MACD_hist(12,26,9)/close, z-xsec",
+      "ATR_FADE": "-(close-SMA20)/ATR14, z-xsec",
+      "OBV_FADE": "-OBV_slope(10,20) dinormalisasi volume, z-xsec",
+      "RSTR_FADE": "-(sum ret 24bar)/ATR14, z-xsec",
+      "BB_POS": "0,5-(close-SMA20)/(2*std20) — SUDAH fade, tidak diubah",
+      "RSI_REV": "50-RSI14 — SUDAH fade, tidak diubah",
+      "KONFL_FADE": "-(jumlah tanda 7 sinyal TA7 ter-z)"
+    },
+    "holds": [24, 48],
+    "total_arm": 16
+  },
+  "venue": {
+    "kernel": "SoDEX 1h (panel beku, fee FEE_ONEWAY=0,0004/sisi)",
+    "replikasi": "Binance 1h (fee FEE_ONEWAY_BN=0,0005/sisi)",
+    "r1": "tanda IC sama DAN |IC_sodex| >= 0,5*|IC_binance|"
+  },
+  "gerbang_saringan": {
+    "R_gross": "gross_bps > 0",
+    "R_net": "net_bps > 0",
+    "R3": "turnover <= 1,5",
+    "R4prime": "|t_NW kontrol acak| < 2,0 (PRAREG-9)",
+    "R5": "|t_NW| >= 1,96",
+    "BH": "q=0,10 lintas 16 arm per venue"
+  },
+  "gerbang_mesin_penuh": {
+    "aturan": "gerbang_saringan + S_ann>=2,3 + S_ann(fee 2x)>=1,8 + segmen positif >=3 + R1 lulus",
+    "catatan": "Identik aturan lulus panel skrip beku; |t| dibaca sebagai batas atas (korelasi cross-sectional, breadth efektif < jumlah nama)."
+  },
+  "larangan": [
+    "Tidak ada sign-flip pasca-hasil kedua.",
+    "Tidak ada tuning ambang/parameter setelah hasil terlihat.",
+    "Skrip beku dan ta7_swing_study.py tidak diubah.",
+    "Tidak menulis kredensial apa pun."
+  ],
+  "rencana_eksekusi": [
+    "Commit prareg ini SEBELUM menjalankan skrip evaluasi.",
+    "Skrip: scripts/research/ta10_fade_study.py (import beku; guard cakupan sinyal nonnull sebelum run penuh).",
+    "Laporkan hasil jujur lulus/ditolak; verdict mesin tetap forward-only."
+  ]
+}

@@ -1,0 +1,10 @@
+[Unit]
+Description=SoDEX spot book collector tiap 30 menit
+
+[Timer]
+OnCalendar=*:00,30:00 UTC
+Persistent=true
+Unit=sodex-spot-book-collector.service
+
+[Install]
+WantedBy=timers.target

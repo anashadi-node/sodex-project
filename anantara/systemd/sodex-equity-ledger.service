@@ -1,0 +1,12 @@
+[Unit]
+Description=SoDEX Equity Ledger snapshot (venue spot+perps)
+Documentation=file:///home/USER/anantara-sakti/docs/SODEX_GO_LIVE_1DEC2026.md
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+# .env dimuat lewat shell: isinya memakai format shell (export/set -a), bukan EnvironmentFile.
+ExecStart=/bin/bash -lc 'set -a; . ./.env; set +a; exec ./.venv-research/bin/python scripts/sodex_equity_ledger.py snapshot --from-venue --force'
+TimeoutStartSec=180
+Nice=10

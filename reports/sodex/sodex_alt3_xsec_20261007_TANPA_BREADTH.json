@@ -1,0 +1,228 @@
+{
+ "meta": {
+  "symbols": 91,
+  "dropped": [
+   "QNT-USD"
+  ],
+  "bars": 8531,
+  "start": "2025-10-12 07:00:00+00:00",
+  "end": "2026-10-07 09:00:00+00:00",
+  "fee_spread_bp": 16.0,
+  "stress_x": 1.5,
+  "is": [
+   "2025-10-12",
+   "2026-05-31"
+  ],
+  "oos": [
+   "2026-06-01",
+   "2026-10-07"
+  ],
+  "pass": {
+   "n_min": 100,
+   "p_max": 0.05,
+   "single_sym_share": 0.3,
+   "q_fdr": 0.1
+  },
+  "nperm": 1000
+ },
+ "H6a": {
+  "code": "H6a",
+  "n_rebal": 127,
+  "net_bp": -99.0728208034696,
+  "stress_bp": -107.0728208034696,
+  "wr": 0.3700787401574803,
+  "p": 1.0,
+  "oos_ex3_bp": -106.1990536148626,
+  "top_sym": "NIULAI-USD",
+  "top_share": 0.2476508310757778,
+  "c1_n": true,
+  "c2_net": false,
+  "c3_stress": false,
+  "c4_p": false,
+  "c5_conc": true,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": false
+ },
+ "H6b": {
+  "code": "H6b",
+  "n_rebal": 42,
+  "net_bp": -57.383872680771915,
+  "stress_bp": -65.38387268077192,
+  "wr": 0.3333333333333333,
+  "p": 0.8171828171828172,
+  "oos_ex3_bp": -53.18826136270985,
+  "top_sym": "ARB-USD",
+  "top_share": -0.2934174094960992,
+  "c1_n": false,
+  "c2_net": false,
+  "c3_stress": false,
+  "c4_p": false,
+  "c5_conc": true,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": false
+ },
+ "H6c": {
+  "code": "H6c",
+  "n_rebal": 17,
+  "net_bp": 6.428809786277939,
+  "stress_bp": -1.5711902137220615,
+  "wr": 0.5294117647058824,
+  "p": 0.4015984015984016,
+  "oos_ex3_bp": 24.359709255837924,
+  "top_sym": "MINIMAX-USD",
+  "top_share": -0.3689241326008138,
+  "c1_n": false,
+  "c2_net": true,
+  "c3_stress": false,
+  "c4_p": false,
+  "c5_conc": false,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": false
+ },
+ "H7a": {
+  "code": "H7a",
+  "n_rebal": 769,
+  "net_bp": 7.78753974227462,
+  "stress_bp": -0.21246025772538013,
+  "wr": 0.5201560468140443,
+  "p": 0.000999000999000999,
+  "oos_ex3_bp": 8.40627139382874,
+  "top_sym": "MINIMAX-USD",
+  "top_share": 0.08281957980207184,
+  "c1_n": true,
+  "c2_net": true,
+  "c3_stress": false,
+  "c4_p": true,
+  "c5_conc": true,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": true
+ },
+ "H7b": {
+  "code": "H7b",
+  "n_rebal": 384,
+  "net_bp": 9.31203199774727,
+  "stress_bp": 1.31203199774727,
+  "wr": 0.5182291666666666,
+  "p": 0.000999000999000999,
+  "oos_ex3_bp": 10.567196881092345,
+  "top_sym": "LIT-USD",
+  "top_share": 0.14285121180906793,
+  "c1_n": true,
+  "c2_net": true,
+  "c3_stress": true,
+  "c4_p": true,
+  "c5_conc": true,
+  "c6_indep": true,
+  "LAYAK": true,
+  "pass_bh": true
+ },
+ "H8a": {
+  "code": "H8a",
+  "n_rebal": 42,
+  "net_bp": 26.78439010548905,
+  "stress_bp": 18.78439010548905,
+  "wr": 0.5238095238095238,
+  "p": 0.16283716283716285,
+  "oos_ex3_bp": 27.044582262092735,
+  "top_sym": "MINIMAX-USD",
+  "top_share": -1.5922767235788295,
+  "c1_n": false,
+  "c2_net": true,
+  "c3_stress": true,
+  "c4_p": false,
+  "c5_conc": false,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": false
+ },
+ "H8b": {
+  "code": "H8b",
+  "n_rebal": 17,
+  "net_bp": 85.2773384446597,
+  "stress_bp": 77.2773384446597,
+  "wr": 0.7058823529411765,
+  "p": 0.16983016983016982,
+  "oos_ex3_bp": 183.01531386715058,
+  "top_sym": "MINIMAX-USD",
+  "top_share": -21.522819951819855,
+  "c1_n": false,
+  "c2_net": true,
+  "c3_stress": true,
+  "c4_p": false,
+  "c5_conc": false,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": false
+ },
+ "H8c": {
+  "code": "H8c",
+  "n_rebal": 8,
+  "net_bp": 113.62262881792113,
+  "stress_bp": 105.62262881792113,
+  "wr": 0.625,
+  "p": 0.1088911088911089,
+  "oos_ex3_bp": 251.992935189219,
+  "top_sym": "MINIMAX-USD",
+  "top_share": 0.37503133806191447,
+  "c1_n": false,
+  "c2_net": true,
+  "c3_stress": true,
+  "c4_p": false,
+  "c5_conc": false,
+  "c6_indep": true,
+  "LAYAK": false,
+  "pass_bh": false
+ },
+ "BH_FDR": [
+  {
+   "name": "H7a",
+   "p": 0.000999000999000999,
+   "pass_bh": true
+  },
+  {
+   "name": "H7b",
+   "p": 0.000999000999000999,
+   "pass_bh": true
+  },
+  {
+   "name": "H8c",
+   "p": 0.1088911088911089,
+   "pass_bh": false
+  },
+  {
+   "name": "H8a",
+   "p": 0.16283716283716285,
+   "pass_bh": false
+  },
+  {
+   "name": "H8b",
+   "p": 0.16983016983016982,
+   "pass_bh": false
+  },
+  {
+   "name": "H6c",
+   "p": 0.4015984015984016,
+   "pass_bh": false
+  },
+  {
+   "name": "H6b",
+   "p": 0.8171828171828172,
+   "pass_bh": false
+  },
+  {
+   "name": "H6a",
+   "p": 1.0,
+   "pass_bh": false
+  }
+ ],
+ "VERDICT": {
+  "hasil": "LULUS",
+  "lulus": [
+   "H7b"
+  ]
+ }
+}

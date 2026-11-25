@@ -1,0 +1,16 @@
+[Unit]
+Description=SoDEX public trade recorder for queue-fill research (read-only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/usr/bin/python3 -u /home/USER/anantara-sakti/scripts/sodex_public_trade_recorder.py --record --pairs CRCL-USD,MSTR-USD,MU-USD,AMD-USD,HOOD-USD,INTC-USD,COIN-USD,SKHY-USD,PLTR-USD,SPCX-USD,ZEC-USD,XAUT-USD --interval 20 --retention-h 72
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_public_trade_recorder.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_public_trade_recorder.log
+
+[Install]
+WantedBy=default.target

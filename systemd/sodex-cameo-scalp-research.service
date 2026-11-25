@@ -1,0 +1,9 @@
+[Unit]
+Description=SoDEX CAMEO directional scalp research (read-only)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/USER/anantara-sakti
+ExecStart=/home/USER/anantara-sakti/.venv-research/bin/python /home/USER/anantara-sakti/scripts/sodex_mtf_scalp_lab.py --ratio-floor 4500 --taker-fee-bps 3.6
+StandardOutput=append:/home/USER/anantara-sakti/logs/sodex_cameo_scalp_research.log
+StandardError=append:/home/USER/anantara-sakti/logs/sodex_cameo_scalp_research.log

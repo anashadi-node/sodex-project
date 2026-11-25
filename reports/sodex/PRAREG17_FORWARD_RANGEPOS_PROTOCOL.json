@@ -1,0 +1,75 @@
+{
+  "id": "PRAREG17_FORWARD_RANGEPOS_SODEX",
+  "judul": "Forward-only rangepos kuintil (PRAREG-3 verbatim) pada panel SoDEX 1h - hold 48 jam (primer) / 55 jam (sekunder), leverage 1x",
+  "tanggal_prareg_utc": "2026-10-09",
+  "status": "TERBEKU - di-commit SEBELUM jendela forward mana pun dievaluasi (freeze_ts = waktu commit berkas ini, dibaca dari git log). Lihat amandemen_1 (arah dibalik ke REVERSAL sebelum satu pun jendela terpakai).",
+  "amandemen_1": {
+    "tanggal": "2026-10-09",
+    "isi": "ARAH DIBALIK: mekanisme forward = REVERSAL (short yang dekat puncak rentang, long yang dekat dasar) = -range_sig. Versi 1 berkas ini membekukan arah MOMENTUM (+range_sig).",
+    "alasan": "Versi 1 salah arah. Bukti: (a) PRAREG-4 (SoDEX 1h, rank-proporsional) menemukan arah momentum NEGATIF di seluruh grid (bruto -1,93..-16,93 bps) sedangkan arah REVERSAL positif (+10,58 bps net @48 jam, t=4,35, lolos uji null 10-seed, z=+2,28); (b) pengukuran kuintil kami sendiri (reports/sodex/RANGEPOS_H55_DESCRIPTIVE.json) memberi momentum H48 bruto -20,5 bps, negatif signifikan t=-3,79.",
+    "jendela_terpakai": "NOL. Tidak satu pun jendela forward dievaluasi pada arah versi 1: RANGEPOS_FORWARD_EVAL.json mencatat bar_forward=0 untuk semua sel (data 1h terakhir 2026-10-08T21:00Z lebih tua dari freeze_ts versi 1). Pembalikan arah karena itu TIDAK membakar data dan TIDAK mengubah gerbang/ambang mana pun.",
+    "arah_dipilih_dari_data_historis_bukan_forward": "Benar - dan itu dicatat terbuka: arah berasal dari lead historis yang sudah lulus uji null, dengan konsekuensi seleksi post-hoc. Karena itu verdict tetap hanya boleh datang dari jendela forward (bar > freeze_ts baru).",
+    "yang_tidak_berubah": "Semua gerbang, hold (48 primer / 55 sekunder), biaya, leverage 1x, keluarga 2 sel, BH q=0,10, n_min 40, n_stop 20.",
+    "freeze_ts_baru": "= waktu commit amandemen ini (semua sel forward dihitung dari bar > freeze_ts baru)"
+  },
+  "amandemen_2": {
+    "tanggal": "2026-10-09",
+    "isi": "Keluarga sel diperluas menjadi 4: {varian rank-proporsional, varian kuintil} x {hold 48 PRIMER, hold 55 sekunder}, atas kedua venue (sodex primer, binance sekunder). BH-FDR q=0,10 atas 4 sel venue primer.",
+    "alasan": "Lead terkuat secara statistik adalah varian RANK-PROPORSIONAL (PRAREG-4: +10,58 bps net @48 jam, t=4,35, S_ann=3,06, lolos null 10-seed), sedangkan versi kuintil dari lead yang sama memberi +13,14 bps net tetapi t=1,89 (SE 3x lebih besar karena hanya 40% nama ekstrem yang diberi bobot). Membekukan hanya salah satu akan membuang bukti atau memaksakan varian yang lebih lemah; keduanya dibekukan dan multiplisitasnya dibayar lewat BH.",
+    "catatan_arah_rank": "Di modul beku xsec_mech_study, arm RANGEPOS = -((px-lo20)/(hi20-lo20)) yaitu SUDAH arah reversal (long dekat dasar rentang, short dekat puncak). Karena itu varian rank TIDAK dibalik lagi; hanya varian kuintil yang menerapkan -range_sig (AMANDEMEN-1).",
+    "catatan_annualisasi_rank": "PPY modul beku = 365 (komentar modul sendiri memperingatkan bug 365/hold untuk panel 1h). Harness menyetel xs.PPY = 8760 untuk panel 1h. Varian kuintil memakai koreksi eksplisit 5,8962x (lihat definisi_dibekukan).",
+    "jendela_terpakai": "Masih NOL (bar_forward=0 pada arah/varian apa pun saat amandemen ini ditulis).",
+    "yang_tidak_berubah": "Semua gerbang, biaya, leverage 1x, n_min 40, n_stop 20, HARD_STOP 20 Nov 2026."
+  },
+  "otoritas": "Keputusan Mas Anas 2026-10-09 (jawaban memo Target Utama): mode D kumpulkan bukti; R2 leverage diizinkan; R3 horizon maksimum 55 jam; R4 venue utama SoDEX. Leverage simulasi tetap 1x sampai pagar AMANDEMEN_ATURAN_2026-10-09 paragraf 4 disetujui.",
+  "latar": "Mekanisme terbaik yang lolos BH-FDR sejauh ini = rangepos kuintil (Binance 1d, +22,74 bps/48 jam, t=3,75, 7 tahun, 245 nama). Di SoDEX tanda sama tetapi BELUM signifikan (kuintil H2 +15,73 bps; H1 +13,38 bps dengan kontrol bocor; t<=1,46). Jendela historis SoDEX sudah terpakai (PRAREG-2/3/4) sehingga angka historis hanya DESKRIPTIF; verdict sah HANYA dari data forward. Ini instrumentasi forward, bukan janji verdict.",
+  "hipotesis_tunggal": "Pada bar 1h SoDEX setelah freeze, portofolio rangepos kuintil arah REVERSAL (SHORT kuintil yang range-nya paling dekat puncak, LONG kuintil yang paling dekat dasar, dollar-neutral, SUM|w|=1) dengan hold 48 jam menghasilkan net > 0 setelah biaya nyata 9,71 bps round-trip, dengan |t_ctrl| < 2,0 dan S_ann >= 2,3.",
+  "definisi_dibekukan": {
+    "arah": "REVERSAL = -range_sig (short dekat puncak rentang, long dekat dasar). Wajib - hasil D1/D2 menunjukkan arah momentum negatif signifikan di SoDEX 1h.",
+    "mekanisme": "rangepos kuintil VERBATIM PRAREG-3 (scripts/research/rangepos_quintile_validation.py): range_sig(px, 20) + quantile_w(q=5), excess = fwd - fwd.mean(), biaya dibebankan per turnover, seed 20261007; tanda dibalik dengan memonkeypatch rq.range_sig = -range_sig (modul beku tidak diubah)",
+    "hold_primer": 48,
+    "hold_sekunder": 55,
+    "venue_primer": "sodex (panel 1h)",
+    "venue_sekunder": "binance (panel 1h; hanya untuk cek tanda lintas-venue, BUKAN verdict)",
+    "leverage": "1,0x (simulasi notional = wallet). Leverage > 1x DILARANG di prareg ini sampai pagar AMANDEMEN_ATURAN_2026-10-09 paragraf 4 (tangga leverage, lantai jarak likuidasi 30%, SL wajib) disetujui Mas Anas.",
+    "biaya": "primer = taker 4 bps/sisi x FEE_REAL_MULT (9,71/8,0) = 9,71 bps round-trip; pelaporan tambahan pada 1x dan 2x (stress)",
+    "grid": "anchor grid di bar pertama SESUDAH freeze_ts (konvensi PRAREG-12/16), jendela non-overlap sepanjang hold",
+    "warmup": "range_sig(20) butuh 19 bar pemanasan; bar pemanasan di jendela forward otomatis tidak menghasilkan sel (konservatif, tanpa look-ahead) - jumlah bar pemanasan dilaporkan di keluaran",
+    "annualisasi": "PPY = 365x24 untuk bar 1h; koreksi eksplisit 5,8962x atas konvensi harian modul beku (sqrt(8760/252))"
+  },
+  "jendela_forward": {
+    "definisi": "bar 1h SoDEX dengan timestamp > freeze_ts (= waktu commit berkas prareg ini); panel ter-slice dengan grid anchor di bar pertama sesudah freeze",
+    "tidak_lookahead": "harga/sinyal per bar hanya memakai riwayat <= bar tersebut (rolling range_sig kausal); tidak ada shuffle (time-series)",
+    "idempotent_rebuild": "hasil dihitung ulang penuh dari data tersimpan setiap kali dijalankan; tanpa state tersembunyi"
+  },
+  "gerbang_identik_tidak_dilonggarkan": {
+    "gross_bps": "> 0",
+    "net_bps": "> 0",
+    "turnover": "<= 1,5",
+    "abs_t_ctrl": "< 2,0",
+    "t": ">= 1,96",
+    "S_ann": ">= 2,3",
+    "S_fee2x": ">= 1,8",
+    "seg_pos": ">= 3 (hanya terhitung bila n >= 90)",
+    "kontrol_negatif": "gross kontrol (shuffle-dalam-baris) harus lebih kecil dari gross nyata dan kontrol TIDAK boleh lolos gerbang net",
+    "n_min_verdict": 40,
+    "n_stop_futility": 20
+  },
+  "keluarga_dan_multiplikasi": "Keluarga venue primer = 4 sel ({rank, kuintil} x {hold 48 PRIMER, hold 55 sekunder}) per AMANDEMEN-2. BH-FDR q=0,10 atas 4 sel. Hold 55 TIDAK boleh dipakai menggantikan hold 48 sebagai dasar verdict target 0,8%/48 jam. Varian PRIMER untuk verdict = rank-proporsional (lead dengan t historis tertinggi), kuintil dilaporkan berdampingan.",
+  "tier_verdict_dideklarasikan": {
+    "n<20": "TIDAK_KONKLUSIF",
+    "n>=20 dan net<=0 dan t<=-1,5": "FALSIFIED (stop_futility)",
+    "n>=40 dan semua gerbang termasuk seg": "LULUS_MESIN (kandidat sertifikasi)",
+    "n>=40 dan semua gerbang KECUALI seg (n<90 struktural)": "PROMISING_UNCERTIFIED - hanya untuk keputusan lanjut/berhenti, BUKAN verdict mesin",
+    "lainnya": "FALSIFIED (daftar gerbang gagal)"
+  },
+  "batas_realistis_dideklarasikan_terbuka": "hold 48 jam memberi ~21 jendela non-overlap sampai HARD_STOP 20 Nov 2026 (42 hari). Ambang n>=40 kemungkinan besar TIDAK tercapai dalam horizon ini. Karena itu PRAREG-17 adalah instrumentasi forward yang sah, bukan janji verdict; keputusan lanjut tetap di Mas Anas.",
+  "tidak_diubah": [
+    "Semua gerbang, ambang, definisi mekanisme, hold, biaya",
+    "Target 0,8%/48 jam dan HARD_STOP 20 Nov 2026",
+    "Tidak ada order, tidak ada perubahan live flag, read-only murni",
+    "Lane uang tetap freeze (unfreeze = execution arbiter + persetujuan)"
+  ],
+  "keluaran": "reports/sodex/RANGEPOS_FORWARD_EVAL.json (diperbarui timer 6 jam) + logs/sodex_rangepos_forward.log",
+  "hard_stop": "20 Nov 2026"
+}

@@ -1,0 +1,447 @@
+{
+ "generated_utc": "2026-10-25T03:39:08.177818+00:00",
+ "root": "data/sodex_venue_7d",
+ "sufficiency": {
+  "days": 0.04,
+  "symbols": 10,
+  "problems": [
+   "hanya 0.0 hari data (butuh >= 6.0)",
+   "book tipis: ARB-USD,BTC-USD,ETH-USD,HYPE-USD"
+  ],
+  "ok": false
+ },
+ "hypotheses": {
+  "H1": {
+   "per_symbol": {
+    "LIT-USD": {
+     "n": 277,
+     "insufficient": true
+    },
+    "BTC-USD": {
+     "n": 279,
+     "insufficient": true
+    },
+    "SOL-USD": {
+     "n": 281,
+     "insufficient": true
+    },
+    "ETH-USD": {
+     "n": 279,
+     "insufficient": true
+    },
+    "SUI-USD": {
+     "n": 280,
+     "insufficient": true
+    },
+    "ZEC-USD": {
+     "n": 281,
+     "insufficient": true
+    },
+    "ARB-USD": {
+     "n": 278,
+     "insufficient": true
+    },
+    "XAUT-USD": {
+     "n": 280,
+     "insufficient": true
+    },
+    "SNDK-USD": {
+     "n": 279,
+     "insufficient": true
+    },
+    "HYPE-USD": {
+     "n": 279,
+     "insufficient": true
+    }
+   },
+   "n_symbols": 10,
+   "n_pass": 0,
+   "status": "INSUFFICIENT",
+   "raw_status": "FAIL"
+  },
+  "H2": {
+   "per_symbol": {
+    "LIT-USD": {
+     "as_5s": {
+      "n": 1052,
+      "mean_bps": 0.101,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 1047,
+      "mean_bps": 0.046,
+      "median_bps": 0.0
+     },
+     "as_300s": {
+      "n": 905,
+      "mean_bps": 0.07,
+      "median_bps": -0.154
+     },
+     "spread_half_bps": 0.154,
+     "pass_": true
+    },
+    "BTC-USD": {
+     "as_5s": {
+      "n": 1585,
+      "mean_bps": 0.092,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 1543,
+      "mean_bps": 0.101,
+      "median_bps": -0.0
+     },
+     "as_300s": {
+      "n": 1323,
+      "mean_bps": 0.053,
+      "median_bps": 0.0
+     },
+     "spread_half_bps": 0.062,
+     "pass_": false
+    },
+    "SOL-USD": {
+     "as_5s": {
+      "n": 798,
+      "mean_bps": 0.045,
+      "median_bps": -0.0
+     },
+     "as_30s": {
+      "n": 781,
+      "mean_bps": 0.032,
+      "median_bps": 0.0
+     },
+     "as_300s": {
+      "n": 663,
+      "mean_bps": -0.124,
+      "median_bps": -0.0
+     },
+     "spread_half_bps": 0.488,
+     "pass_": true
+    },
+    "ETH-USD": {
+     "as_5s": {
+      "n": 1299,
+      "mean_bps": 0.019,
+      "median_bps": -0.0
+     },
+     "as_30s": {
+      "n": 1275,
+      "mean_bps": 0.017,
+      "median_bps": -0.0
+     },
+     "as_300s": {
+      "n": 1075,
+      "mean_bps": -0.038,
+      "median_bps": 0.0
+     },
+     "spread_half_bps": 0.211,
+     "pass_": true
+    },
+    "SUI-USD": {
+     "as_5s": {
+      "n": 312,
+      "mean_bps": 0.069,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 310,
+      "mean_bps": -0.01,
+      "median_bps": 0.0
+     },
+     "as_300s": {
+      "n": 260,
+      "mean_bps": -0.102,
+      "median_bps": 0.533
+     },
+     "spread_half_bps": 0.533,
+     "pass_": true
+    },
+    "ZEC-USD": {
+     "as_5s": {
+      "n": 1134,
+      "mean_bps": -0.085,
+      "median_bps": -0.082
+     },
+     "as_30s": {
+      "n": 1098,
+      "mean_bps": 0.003,
+      "median_bps": 0.0
+     },
+     "as_300s": {
+      "n": 920,
+      "mean_bps": -0.227,
+      "median_bps": -0.701
+     },
+     "spread_half_bps": 0.041,
+     "pass_": true
+    },
+    "ARB-USD": {
+     "as_5s": {
+      "n": 205,
+      "mean_bps": -0.148,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 203,
+      "mean_bps": -0.107,
+      "median_bps": -0.296
+     },
+     "as_300s": {
+      "n": 170,
+      "mean_bps": -0.221,
+      "median_bps": 0.889
+     },
+     "spread_half_bps": 0.296,
+     "pass_": true
+    },
+    "XAUT-USD": {
+     "as_5s": {
+      "n": 965,
+      "mean_bps": 0.003,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 945,
+      "mean_bps": 0.001,
+      "median_bps": -0.0
+     },
+     "as_300s": {
+      "n": 806,
+      "mean_bps": 0.004,
+      "median_bps": 0.0
+     },
+     "spread_half_bps": 0.125,
+     "pass_": true
+    },
+    "SNDK-USD": {
+     "as_5s": {
+      "n": 311,
+      "mean_bps": -0.052,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 306,
+      "mean_bps": -0.045,
+      "median_bps": 0.0
+     },
+     "as_300s": {
+      "n": 260,
+      "mean_bps": -0.099,
+      "median_bps": 0.121
+     },
+     "spread_half_bps": 0.04,
+     "pass_": true
+    },
+    "HYPE-USD": {
+     "as_5s": {
+      "n": 1032,
+      "mean_bps": 0.008,
+      "median_bps": 0.0
+     },
+     "as_30s": {
+      "n": 1017,
+      "mean_bps": 0.018,
+      "median_bps": -0.0
+     },
+     "as_300s": {
+      "n": 857,
+      "mean_bps": -0.027,
+      "median_bps": -0.0
+     },
+     "spread_half_bps": 0.065,
+     "pass_": true
+    }
+   },
+   "n_symbols": 10,
+   "n_pass": 9,
+   "status": "INSUFFICIENT",
+   "catatan": "horizon 1s tidak diukur (book 10s); AS5 memakai snapshot pertama >=5s",
+   "raw_status": "PASS"
+  },
+  "H3": {
+   "per_symbol": {
+    "LIT-USD": {
+     "insufficient": true
+    },
+    "BTC-USD": {
+     "insufficient": true
+    },
+    "SOL-USD": {
+     "insufficient": true
+    },
+    "ETH-USD": {
+     "insufficient": true
+    },
+    "SUI-USD": {
+     "insufficient": true
+    },
+    "ZEC-USD": {
+     "insufficient": true
+    },
+    "ARB-USD": {
+     "insufficient": true
+    },
+    "XAUT-USD": {
+     "insufficient": true
+    },
+    "SNDK-USD": {
+     "insufficient": true
+    },
+    "HYPE-USD": {
+     "insufficient": true
+    }
+   },
+   "n_symbols": 10,
+   "n_pass": 0,
+   "status": "INSUFFICIENT",
+   "raw_status": "FAIL"
+  },
+  "H4": {
+   "per_symbol": {
+    "LIT-USD": {
+     "n": 3,
+     "median_usd_10lvl": 1481.3,
+     "median_usd_20lvl": 76154.1,
+     "pass": false
+    },
+    "BTC-USD": {
+     "n": 3,
+     "median_usd_10lvl": 455573.4,
+     "median_usd_20lvl": 924921.8,
+     "pass": true
+    },
+    "SOL-USD": {
+     "n": 3,
+     "median_usd_10lvl": 244341.3,
+     "median_usd_20lvl": 602390.6,
+     "pass": true
+    },
+    "ETH-USD": {
+     "n": 3,
+     "median_usd_10lvl": 984546.4,
+     "median_usd_20lvl": 3675904.5,
+     "pass": true
+    },
+    "SUI-USD": {
+     "n": 3,
+     "median_usd_10lvl": 19201.3,
+     "median_usd_20lvl": 338519.2,
+     "pass": true
+    },
+    "ZEC-USD": {
+     "n": 3,
+     "median_usd_10lvl": 20927.3,
+     "median_usd_20lvl": 306518.4,
+     "pass": true
+    },
+    "ARB-USD": {
+     "n": 3,
+     "median_usd_10lvl": 14680.0,
+     "median_usd_20lvl": 233264.1,
+     "pass": true
+    },
+    "XAUT-USD": {
+     "n": 3,
+     "median_usd_10lvl": 101788.9,
+     "median_usd_20lvl": 191223.3,
+     "pass": true
+    },
+    "SNDK-USD": {
+     "n": 3,
+     "median_usd_10lvl": 1825.9,
+     "median_usd_20lvl": 102875.1,
+     "pass": false
+    },
+    "HYPE-USD": {
+     "n": 3,
+     "median_usd_10lvl": 44917.2,
+     "median_usd_20lvl": 397558.9,
+     "pass": true
+    }
+   },
+   "n_symbols": 10,
+   "n_pass": 8,
+   "status": "INSUFFICIENT",
+   "raw_status": "PASS"
+  },
+  "H5": {
+   "per_symbol": {
+    "LIT-USD": {
+     "insufficient": true
+    },
+    "BTC-USD": {
+     "insufficient": true
+    },
+    "SOL-USD": {
+     "insufficient": true
+    },
+    "ETH-USD": {
+     "insufficient": true
+    },
+    "SUI-USD": {
+     "insufficient": true
+    },
+    "ZEC-USD": {
+     "insufficient": true
+    },
+    "ARB-USD": {
+     "insufficient": true
+    },
+    "XAUT-USD": {
+     "insufficient": true
+    },
+    "SNDK-USD": {
+     "insufficient": true
+    },
+    "HYPE-USD": {
+     "insufficient": true
+    }
+   },
+   "n_symbols": 10,
+   "n_pass": 0,
+   "status": "INSUFFICIENT",
+   "catatan": "H5 hanya informatif untuk penjadwalan MM; TIDAK masuk syarat GO",
+   "raw_status": "FAIL"
+  },
+  "H6": {
+   "per_symbol": {
+    "LIT-USD": {
+     "insufficient": true
+    },
+    "BTC-USD": {
+     "insufficient": true
+    },
+    "SOL-USD": {
+     "insufficient": true
+    },
+    "ETH-USD": {
+     "insufficient": true
+    },
+    "SUI-USD": {
+     "insufficient": true
+    },
+    "ZEC-USD": {
+     "insufficient": true
+    },
+    "ARB-USD": {
+     "insufficient": true
+    },
+    "XAUT-USD": {
+     "insufficient": true
+    },
+    "SNDK-USD": {
+     "insufficient": true
+    },
+    "HYPE-USD": {
+     "insufficient": true
+    }
+   },
+   "n_symbols": 10,
+   "n_pass": 0,
+   "status": "INSUFFICIENT",
+   "raw_status": "FAIL"
+  }
+ },
+ "errors": [],
+ "verdict": "INSUFFICIENT"
+}

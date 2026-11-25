@@ -1,0 +1,22 @@
+{
+ "as_of": "2026-10-25T07:52:05Z",
+ "cumulative_tests": 1277,
+ "breakdown": {
+  "registry_entries_sampai_20261025": 163,
+  "PRAREG_SIG_04_grid_18": 18,
+  "PRAREG_SIG_05_grid_1080": 1080,
+  "PRAREG_SIG_07_xs_momentum": 1,
+  "PRAREG_SIG_06_deribit": 3,
+  "KAMPANYE_venue_7h": 6,
+  "PRAREG_SIG_08_funding_carry": 1,
+  "PAPER_ARENA_v1_5_strategi": 5
+ },
+ "threshold_t_two_sided_alpha_005": 4.11,
+ "threshold_t_alpha_010": 3.79,
+ "rule": "Klaim 'signifikan' hanya sah bila |t| >= 4,11. 2,5 <= |t| < 4,11 = 'menarik, belum sah'. |t| < 2,5 = tidak boleh diputuskan.",
+ "defect_diketahui": "Field n_trials_total di sodex_trial_registry.json adalah ordinal entri (163), BUKAN jumlah uji kumulatif. Jangan pakai untuk Bonferroni.",
+ "konsekuensi": "Ambang t naik dari 3,61 (N=163) ke 4,11 (N=1261). Beberapa temuan lama dengan t 2,4-3,6 otomatis tidak lagi memenuhi ambang.",
+ "catatan_20261025": "Ditambah 10 uji: XS momentum (1), Deribit (3), kampanye venue (6). N 1.261 -> 1.271; ambang tetap 4,11. Hasil XS: mean -72,05 bps/48j, t=-1,28, NO-GO.",
+ "catatan_20261025b": "SIG-08 carry: v1 markPrice INVALID (data); v2 klines tersinkron 550 hari mean -0.97 bps/hari t=-2.16 -> NO-GO. B1 P(edge>0)=1.56%, kill=true. Hipotesis lanjut: SIG-09 basis-z (belum dijalankan).",
+ "catatan_20261025c": "Arena paper 3 tier modal (250/1k/10k) + panel Binance. xs_mom30 PROMISING di 2024-2026 (t=2,86) tapi WATCH 180h (t=1,12) dan datar di SoDEX; reversal6 tanda berbalik antar-venue (+2,00% SoDEX / -1,14% Binance) -> rapuh. Kapasitas: pada $10k 97% trade XS ditolak (partisipasi >5% volume jam)."
+}

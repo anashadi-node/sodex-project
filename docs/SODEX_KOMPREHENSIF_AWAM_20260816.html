@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoDEX — Dokumen Komprehensif (Bahasa Awam)</title>
+<style>
+  :root{
+    --bg:#0f172a; --panel:#1e293b; --panel2:#273449; --text:#e2e8f0;
+    --muted:#94a3b8; --accent:#38bdf8; --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+    --border:#334155;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.7}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{background:linear-gradient(135deg,#0ea5e9,#6366f1);border-radius:16px;padding:36px 32px;margin-bottom:28px}
+  header.hero h1{margin:0 0 8px;font-size:1.9rem;color:#fff}
+  header.hero p{margin:0;color:#e0f2fe;font-size:1.02rem}
+  h2{font-size:1.45rem;margin:44px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border);color:#f1f5f9}
+  h3{font-size:1.12rem;margin:22px 0 8px;color:#cbd5e1}
+  p{margin:10px 0}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0}
+  .card h4{margin:0 0 8px;font-size:1rem}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--panel);border-radius:10px;overflow:hidden}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:var(--panel2);color:#f8fafc;font-weight:600}
+  tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.78rem;font-weight:600}
+  .good{background:rgba(74,222,128,.15);color:var(--good)}
+  .warn{background:rgba(251,191,36,.15);color:var(--warn)}
+  .bad{background:rgba(248,113,113,.15);color:var(--bad)}
+  .muted{color:var(--muted)}
+  .callout{border-left:4px solid var(--accent);background:rgba(56,189,248,.08);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0}
+  .callout.warn{border-left-color:var(--warn);background:rgba(251,191,36,.08)}
+  .callout.bad{border-left-color:var(--bad);background:rgba(248,113,113,.08)}
+  .callout.good{border-left-color:var(--good);background:rgba(74,222,128,.08)}
+  code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:#0b1220;padding:1px 6px;border-radius:6px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .kpi .num{font-size:1.6rem;font-weight:700}
+  .kpi .lbl{color:var(--muted);font-size:.85rem}
+  ul,ol{padding-left:22px}
+  li{margin:6px 0}
+  .toc{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px 22px}
+  .toc a{color:var(--accent);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  .note{font-size:.85rem;color:var(--muted);font-style:italic}
+  /* Diagram alur sistem */
+  .flow{display:flex;flex-direction:column;align-items:center;margin:18px 0}
+  .fbox{background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--accent);border-radius:10px;padding:10px 16px;width:100%;max-width:680px;text-align:left}
+  .fbox .ft{font-weight:700;color:#f8fafc}
+  .fbox .fd{color:var(--muted);font-size:.84rem}
+  .fbox.data{border-left-color:#38bdf8}
+  .fbox.scan{border-left-color:#a78bfa}
+  .fbox.decide{border-left-color:#fbbf24}
+  .fbox.gate{border-left-color:#4ade80}
+  .fbox.exec{border-left-color:#fb7185}
+  .fbox.learn{border-left-color:#22d3ee}
+  .farr{color:var(--muted);font-size:1.15rem;line-height:1.1;margin:1px 0;font-weight:700}
+  .farr.lbl{font-size:.78rem;color:var(--muted)}
+  .row{display:flex;flex-direction:row;flex-wrap:wrap;gap:10px;justify-content:center;width:100%;max-width:720px}
+  .row .fbox{width:auto;max-width:340px;flex:1 1 300px}
+  .legend{font-size:.8rem;color:var(--muted)}
+  .analogi{background:rgba(56,189,248,.06);border:1px dashed var(--border);border-radius:12px;padding:14px 18px;margin:14px 0;font-size:.95rem}
+  .analogi b{color:#7dd3fc}
+  @media print{body{background:#fff;color:#111}.card,.toc,.kpi{background:#f5f5f5;border-color:#ccc}th{background:#eee;color:#111}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>📘 SoDEX — Dokumen Komprehensif Bahasa Awam</h1>
+  <p>Semua hal penting tentang proyek <b>SoDEX Swing Trading</b> ANANTARA SAKTI — dijelaskan dengan bahasa sederhana, jujur, dan lengkap.</p>
+</header>
+
+<div class="card note">
+  <b>Cara dokumen ini dibuat:</b> disusun dengan <b>membaca langsung</b> dokumen-dokumen resmi proyek
+  (CLAUDE.md, SODEX.md, docs/, data/ state, laporan paper test, dan laporan deep-learning).
+  <b>Tidak ada</b> kode yang dijalankan dan tidak ada angka yang direkayasa. Semua angka di bawah
+  adalah angka yang benar-benar tertulis di file proyek, per <b>16 Agustus 2026</b>.
+</div>
+
+<div class="toc">
+  <b>Daftar Isi</b>
+  <ol>
+    <li><a href="#s0">Ringkasan Eksekutif</a></li>
+    <li><a href="#s1">Latar Belakang</a></li>
+    <li><a href="#s2">Filosofi</a></li>
+    <li><a href="#s3">Visi</a></li>
+    <li><a href="#s4">Tujuan</a></li>
+    <li><a href="#s5">Target</a></li>
+    <li><a href="#s6">Arsitektur Sistem</a></li>
+    <li><a href="#s7">Struktur Maps</a></li>
+    <li><a href="#s8">Metodologi</a></li>
+    <li><a href="#s9">Konfigurasi Sistem</a></li>
+    <li><a href="#s10">Kelebihan</a></li>
+    <li><a href="#s11">Kekurangan</a></li>
+    <li><a href="#s12">Kelemahan &amp; Risiko</a></li>
+    <li><a href="#s13">Roadmap</a></li>
+    <li><a href="#s14">Hasil Semua Paper Test (Paling Update)</a></li>
+    <li><a href="#s15">Hal-hal Penting Lainnya</a></li>
+    <li><a href="#s16">Kesimpulan Jujur</a></li>
+  </ol>
+</div>
+
+<h2 id="s0">0. Ringkasan Eksekutif</h2>
+<p>
+  Proyek <b>SoDEX</b> adalah sistem <b>swing trading otomatis</b> di bursa <b>sodex.com</b>
+  (bursa kripto terdesentralisasi / DEX). Sistem ini bekerja 24 jam nonstop, mencoba membeli saat
+  murah dan menjual saat mahal dalam rentang <b>1 sampai 30 jam</b> per transaksi, dengan target
+  keuntungan <b>minimal 0,7% per transaksi</b>.
+</p>
+<p>
+  Status jujurnya: sistem <b>belum menghasilkan keuntungan yang konsisten</b>. Sistem sudah punya
+  fondasi yang sangat rapi (disiplin ilmiah, pengujian otomatis, pembelajaran mandiri 678 putaran),
+  tetapi dari semua jalur uji-coba kertas (paper test), <b>belum ada satu pun yang mencapai target
+  0,7% per transaksi</b>. Yang paling mendekati baru "seri" (impas / mendekati nol), bukan untung.
+  Ini normal dalam tahap riset — dan proyek ini jujur mencatatnya, tidak mengklaim sukses palsu.
+</p>
+
+<h2 id="s1">1. Latar Belakang</h2>
+<p>
+  ANANTARA SAKTI adalah proyek <b>agen trading kripto otomatis (AI agent)</b> yang berjalan 24/7 di
+  komputer lokal (Ubuntu 22.04). Proyek ini punya beberapa "jalur" trading sekaligus, salah satunya
+  adalah <b>SoDEX</b>.
+</p>
+<ul>
+  <li><b>SoDEX</b> adalah venue (bursa) terdesentralisasi — pasarnya lebih "tipis" (thin books), biayanya model maker/taker, dan spread-nya kecil.</li>
+  <li>Awalnya SoDEX dipakai untuk <b>farming airdrop SoPoints</b> (mengumpulkan poin). Lalu arahnya ditegaskan ulang oleh user: SoDEX harus menjadi mesin <b>swing trading yang untung</b>, bukan sekadar farming poin.</li>
+  <li>Karena itu seluruh riset SoDEX kini fokus ke satu pertanyaan: <b>"apakah ada cara swing trading 1–30 jam yang benar-benar menghasilkan profit ≥0,7% per transaksi?"</b></li>
+</ul>
+
+<h2 id="s2">2. Filosofi</h2>
+<p>Filosofi proyek tertuang dalam 5 prinsip dasar:</p>
+<ol>
+  <li><b>Profit adalah bukti, bukan target.</b> Setiap transaksi harus punya harapan untung positif (positive expectancy), bukan sekadar berharap.</li>
+  <li><b>Sederhana yang dijalankan &gt; canggih yang berhenti.</b> Pelajaran dari proyek lain (Quant Engine, Pre-Gain, CEX-v8, HL-Harvest) yang rumit tapi berhenti di tengah jalan.</li>
+  <li><b>Data adalah hakim.</b> Tidak ada klaim tanpa backtest; tidak ada uang asli tanpa paper test dulu.</li>
+  <li><b>Edge = kualitas sinyal masuk + aturan risiko yang dihormati.</b> "Berapa lama memegang posisi" adalah <i>hasil</i>, bukan aturan yang memaksa masuk/keluar.</li>
+  <li><b>SoDEX adalah venue.</b> Semua strategi harus cocok dengan buku order tipis, biaya maker, dan spread asli SoDEX.</li>
+</ol>
+<p>Ditambah "Konstitusi" 3 pasal:</p>
+<ul>
+  <li><b>F1</b> — Volume transaksi adalah <i>hasil</i> dari profit, bukan tujuan.</li>
+  <li><b>F2</b> — Keamanan nomor satu: dana tidak boleh ditarik (no-withdraw flag WAJIB), selalu pakai mode simulasi (dry_run) sebelum uang asli.</li>
+  <li><b>F3</b> — Setiap strategi harus lolos gerbang bertingkat (Gate 1→2→3→4) sebelum menyentuh uang asli besar.</li>
+</ul>
+
+<h2 id="s3">3. Visi</h2>
+<p>
+  Visinya adalah membangun <b>sistem trading yang khas dan unik</b> untuk SoDEX yang mampu
+  <b>belajar dari pengalamannya sendiri secara otomatis, terus-menerus, 24/7 (Deep Loop Learning)</b>.
+  Sistem ini diharapkan tidak diam di satu aturan, tetapi menyesuaikan diri: jika sebuah pola
+  terbukti rugi, sistem otomatis memblokirnya; jika sebuah pola terbukti untung, sistem memperkuatnya.
+</p>
+<p class="muted">Dengan kata lain: mesin yang makin hari makin pintar, tanpa harus diawasi manusia terus-menerus.</p>
+
+<h2 id="s4">4. Tujuan</h2>
+<p>Tujuan tertinggi (North Star) proyek SoDEX, ditegaskan user pada 13 Agustus 2026:</p>
+<div class="callout good">
+  <b>Setiap aktivitas trading Swing di venue SoDEX harus menghasilkan Profit PNL
+  (laba bersih) sebesar-besarnya</b>, dengan <b>kerangka waktu 1 jam sampai 30 jam</b>,
+  dan sistem <b>wajib</b> punya kemampuan <b>belajar-berpengalaman otomatis 24/7
+  (Deep Loop Learning)</b>.
+</div>
+<ul>
+  <li>Semua keputusan di proyek ini diuji terhadap tujuan tersebut.</li>
+  <li>Tujuan ini <b>menggantikan</b> versi lama yang menuliskan "1–48 jam" tanpa angka target.</li>
+</ul>
+
+<h2 id="s5">5. Target</h2>
+<p>Target angka yang harus dicapai (juga ditegaskan user):</p>
+<div class="callout">
+  🎯 <b>PROFIT MINIMAL 0,7% dari MODAL di SETIAP transaksi swing trading (1–30 jam).</b>
+</div>
+<ul>
+  <li>Artinya: setiap selesai satu siklus swing (buka → tutup posisi dalam 1–30 jam), labanya minimal <b>0,7%</b>.</li>
+  <li>Ini batas bawah yang eksplisit. Kurang dari itu dianggap belum memenuhi target.</li>
+  <li>Dalam praktik paper test saat ini, biaya transaksi (fee) ikut dihitung, jadi "0,7%" adalah laba <b>setelah biaya</b>.</li>
+</ul>
+
+<h2 id="s6">6. Arsitektur Sistem (dengan Diagram Lengkap)</h2>
+
+<div class="analogi">
+  <b>Analogi:</b> bayangkan SoDEX seperti <b>pabrik sosis otomatis</b>. Di pintu masuk ada
+  <b>bahan mentah</b> (data harga). Bahan itu masuk ke <b>mesin penyortir</b> (pemindai pasar),
+  lalu ke <b>otak pengambil keputusan</b> (mesin aturan + AI), lalu melewati <b>4 pos pemeriksaan
+  bertingkat</b> (gerbang), lalu baru <b>dieksekusi</b> (beli/jual), dan hasilnya <b>dikembalikan
+  ke otak untuk dipelajari</b> supaya besok lebih pintar. Begitulah siklusnya, 24 jam tanpa henti.
+</div>
+
+<h3>6.1 Diagram alur sistem (dari data sampai belajar)</h3>
+<div class="flow">
+  <div class="fbox data"><div class="ft">1️⃣ SUMBER DATA</div><div class="fd">Harga kripto historis dari Binance (untuk latihan di masa lalu) + harga &amp; buku order LIVE dari SoDEX (untuk kondisi nyata).</div></div>
+  <div class="farr">▼</div>
+  <div class="fbox scan"><div class="ft">2️⃣ PEMINDAI PASAR</div><div class="fd">Memantau pasar tiap 5 menit: koin apa yang naik/turun, tren kuat/tidak, volume ramai/sepi. Menghitung "skor peluang" tiap koin.</div></div>
+  <div class="farr">▼</div>
+  <div class="fbox decide"><div class="ft">3️⃣ OTAK PENGAMBIL KEPUTUSAN</div><div class="fd">Gabungan aturan teknikal + mesin statistik + filter AI: memutuskan BELI (LONG), JUAL (SHORT), atau DIAM (tidak melakukan apa-apa). Hanya bertindak jika peluang benar-benar memenuhi syarat.</div></div>
+  <div class="farr">▼</div>
+  <div class="fbox gate"><div class="ft">4️⃣ POS PEMERIKSAAN 4 TINGKAT (GATE)</div><div class="fd">Gerbang bertahap yang memastikan strategi terbukti dulu sebelum naik level: <b>Backtest → Paper Test → Micro-Live → Full Live</b>.</div></div>
+  <div class="farr">▼</div>
+  <div class="fbox exec"><div class="ft">5️⃣ EKSEKUSI (PELAKSANA)</div><div class="fd">Menjalankan perintah beli/jual di SoDEX — saat ini masih dengan <b>uang pura-pura</b> (paper) plus uang asli super kecil ($3 &amp; $10) untuk latihan eksekusi.</div></div>
+  <div class="farr">▼</div>
+  <div class="fbox learn"><div class="ft">6️⃣ PENGAWAS &amp; OTAK PEMBELAJAR</div><div class="fd">Watchdog mengawasi tiap 15 menit &amp; lapor Telegram. Mesin belajar membaca hasil semua transaksi, mencatat pelajaran, lalu <b>mengubah aturan</b> supaya putaran berikutnya lebih baik.</div></div>
+  <div class="farr lbl">▲ hasil pembelajaran dikembalikan ke "Otak Pengambil Keputusan" (langkah 3) → siklus berulang terus-menerus ▲</div>
+</div>
+<p class="legend">Warna tepi kotak = jenis peran: <span style="color:#38bdf8">biru</span> = data · <span style="color:#a78bfa">ungu</span> = pemindai · <span style="color:#fbbf24">kuning</span> = keputusan · <span style="color:#4ade80">hijau</span> = gerbang · <span style="color:#fb7185">merah</span> = eksekusi · <span style="color:#22d3ee">toska</span> = belajar.</p>
+
+<h3>6.2 Penjelasan setiap bagian (bahasa awam)</h3>
+<table>
+  <tr><th>Bagian</th><th>Apa yang dilakukan</th><th>Analogi sehari-hari</th></tr>
+  <tr><td><b>1. Sumber Data</b></td><td>Mengumpulkan dua jenis data: (a) riwayat harga lama untuk latihan, (b) harga &amp; antrian order sekarang dari SoDEX.</td><td>Seperti rekaman pertandingan bola lama + siaran langsung pertandingan sekarang.</td></tr>
+  <tr><td><b>2. Pemindai Pasar</b></td><td>Setiap 5 menit memeriksa semua koin: tren, volume, momentum. Menghasilkan daftar koin yang "layak dilihat".</td><td>Seperti radar yang memindai jalan raya dan menandai mobil yang melaju kencang.</td></tr>
+  <tr><td><b>3. Otak Keputusan</b></td><td>Menggabungkan indikator teknikal (ADX, RSI, SMA) + mesin statistik + AI. Output-nya hanya tiga pilihan: beli, jual, atau diam.</td><td>Seperti juri yang menilai apakah peluang ini cukup bagus untuk diambil, atau lebih baik menunggu.</td></tr>
+  <tr><td><b>4. Gerbang 4 Tingkat</b></td><td>Pintu bertahap: strategi wajib membuktikan untung di data lama dulu, baru di uang pura-pura, baru di uang asli kecil, baru di uang asli besar.</td><td>Seperti ujian SIM bertingkat: tidak boleh nyetir di jalan raya sebelum lolos ujian di halaman.</td></tr>
+  <tr><td><b>5. Eksekusi</b></td><td>Benar-benar mengirim perintah beli/jual ke SoDEX. Saat ini mayoritas masih uang pura-pura.</td><td>Seperti juru masak yang benar-benar menyalakan kompor — tapi masih pakai bahan latihan.</td></tr>
+  <tr><td><b>6. Pengawas + Pembelajar</b></td><td>Mengawasi supaya sistem tidak mati/error, dan mempelajari hasil tiap transaksi untuk memperbaiki aturan.</td><td>Seperti pelatih yang menonton ulang rekaman dan mengubah strategi tim.</td></tr>
+</table>
+
+<h3>6.3 Komponen teknis utama (peta mesin)</h3>
+<div class="card">
+  <table>
+    <tr><th>Komponen</th><th>Fungsi (bahasa awam)</th><th>Status</th></tr>
+    <tr><td><code>paper_test_swing.py</code></td><td>Mesin uji-coba kertas (uang pura-pura) jalur SWING.</td><td>🟢 jalan</td></tr>
+    <tr><td><code>paper_test_watchdog.py</code></td><td>Pengawas tiap 15 menit + lapor Telegram.</td><td>🟢 jalan</td></tr>
+    <tr><td><code>paper_test_learning.py</code></td><td>Otak pembelajar (deep loop) yang menulis laporan pelajaran.</td><td>🟢 jalan</td></tr>
+    <tr><td><code>anantara_daemon.py</code></td><td>Penjadwal pusat + kendali lewat Telegram.</td><td>🟢 jalan</td></tr>
+    <tr><td>systemd service</td><td>Menjalankan paper test otomatis &amp; restart sendiri kalau mati.</td><td>🟢 auto-restart</td></tr>
+    <tr><td>PostgreSQL 16 + Redis 7</td><td>Lemari penyimpanan data &amp; antrian tugas.</td><td>🟢 jalan</td></tr>
+    <tr><td>Model ML death-zone (XGBoost)</td><td>Memprediksi "jam buruk" (zona mati) untuk trading.</td><td>🟡 hanya paper</td></tr>
+    <tr><td>AI Framework (River + XGBoost + ChromaDB)</td><td>Filter cerdas arah/regime + memori pengalaman.</td><td>⏳ belum terintegrasi penuh</td></tr>
+    <tr><td>SoDEX API + Binance API</td><td>Sumber harga live (SoDEX) &amp; data historis (Binance).</td><td>🟢 jalan</td></tr>
+  </table>
+</div>
+
+<h2 id="s7">7. Struktur Maps (Peta Proyek)</h2>
+<p>Peta perjalanan proyek SoDEX (versi terbaru 2 Agustus 2026):</p>
+<pre class="mono" style="overflow-x:auto;background:#0b1220;padding:16px;border-radius:10px;font-size:.82rem;line-height:1.5">
+GATE 4: FULL LIVE            → ~$3.000 margin, 3× leverage, 1–2 posisi     ⏳
+GATE 3: MICRO-LIVE           → $500–1.500 SOL perps, cek eksekusi         ⏳
+GATE 2: PAPER TEST           → 0→(49) trade, harga live SoDEX, 24/7       🔴 SEDANG JALAN
+GATE 1: BACKTEST             → PF 1.19, WR 46%, 361 trade, 17 bulan       ✅ LOLOS BERSYARAT
+RISET &amp; AUDIT                → 8 paper + double audit + model ML          ✅ SELESAI
+</pre>
+
+<h3>Strategi aktif (aturan main saat ini)</h3>
+<ul>
+  <li><b>Jenis:</b> swing momentum yang berpindah-pindah mengikuti kondisi pasar (regime-switched).</li>
+  <li><b>Arah:</b> <b>DUA ARAH</b> (bisa beli/LONG saat bullish, bisa jual/SHORT saat bearish) — mandat user 2 Agustus 2026, bukan long-only.</li>
+  <li><b>Syarat beli (entry):</b> tren kuat (ADX &gt; 25), harga di atas rata-rata 50 &amp; 200 jam (SMA50 &gt; SMA200), RSI di zona 40–60, volume &gt; 1,1× rata-rata, tren 24 jam &gt; 1,2%, dan koreksi kecil (&lt; 0,3%).</li>
+  <li><b>Ambil untung (TP):</b> +4,0% &nbsp;|&nbsp; <b>Batas rugi (SL):</b> −2,0% (aktif sejak awal, tanpa aturan "minimal tahan 12 jam").</li>
+  <li><b>Batas waktu (time stop):</b> 48 jam.</li>
+  <li><b>Leverage:</b> 3× (versi 5× ditolak karena risiko drawdown 32% &gt; batas 25%).</li>
+  <li><b>Koin yang diperdagangkan:</b> BTC + SOL (inti), ETH (pinggiran). <b>DOGE dibuang</b> (rugi), saham tidak dipakai.</li>
+</ul>
+
+<h3>Jalur uji-coba paralel (track)</h3>
+<p>SoDEX tidak menguji satu strategi saja, tapi banyak jalur sekaligus supaya cepat tahu mana yang bagus:</p>
+<table>
+  <tr><th>Track</th><th>Artinya</th></tr>
+  <tr><td>SWING</td><td>Strategi swing lama (long-only, 4 koin)</td></tr>
+  <tr><td>REAL-wide</td><td>Strategi swing terkoreksi (stop aktif dari awal, BTC/SOL/ETH)</td></tr>
+  <tr><td>TWO-WAY</td><td>Strategi dua arah (bisa long &amp; short)</td></tr>
+  <tr><td>FAST</td><td>Strategi cepat dengan banyak koin (ADA, AVAX, BNB, XRP, dll.)</td></tr>
+  <tr><td>COMBINED / COMBINED-SCS</td><td>Gabungan sinyal + intelijen pasar</td></tr>
+  <tr><td>SWING-PARTIAL / SPOT-SWING</td><td>Varian lain (spot, sebagian)</td></tr>
+  <tr><td>SPOT-LIVE / PERPS-SHORT</td><td>Uang asli mini ($3 &amp; $10) untuk uji eksekusi dua arah</td></tr>
+</table>
+
+<h2 id="s8">8. Metodologi — Cara Kami Mengejar Tujuan &amp; Target</h2>
+
+<p>
+  Pertanyaan besarnya satu: <b>"dengan cara apa sistem ini berusaha mencapai target ≥0,7% profit per
+  transaksi (1–30 jam)?"</b> Jawabannya bukan menebak-nebak, melainkan <b>metode ilmiah bertingkat</b>
+  yang dijalankan dengan sabar, langkah demi langkah, dan setiap langkahnya diukur.
+</p>
+
+<div class="analogi">
+  <b>Analogi:</b> kami tidak langsung naik panggung dan menyanyi. Kami seperti <b>siswa yang
+  belajar dari ulangan</b>: belajar teori dulu → latihan soal (data lama) → ujian percobaan
+  (uang pura-pura) → ujian kecil (uang asli sedikit) → baru ujian besar (uang asli penuh).
+  Nilai tiap ujian dicatat, lalu cara belajarnya diperbaiki, lalu diulang.
+</div>
+
+<h3>8.1 Tangga 7 langkah menuju target</h3>
+<p>Inilah <b>urutan konkret</b> yang harus dilalui sebelum target 0,7% boleh dianggap terbukti:</p>
+<ol>
+  <li><b>Menulis resep (aturan main).</b> Tentukan kapan beli, kapan jual, berapa ambil untung (+4%), berapa batas rugi (−2%), berapa lama maksimal (48 jam), dan berapa leverage (3×). Semua ditulis hitam di atas putih, bukan di kepala.</li>
+  <li><b>Latihan di masa lalu (backtest).</b> Jalankan resep itu di data harga 17 bulan terakhir. Kalau di masa lalu saja tidak untung, mustahil di masa depan — jadi tidak perlu lanjut.</li>
+  <li><b>Mengukur dengan angka baku.</b> Hasil diukur pakai 4 angka: <b>PF</b> (rasio untung/rugi), <b>WR</b> (persentase menang), <b>DSR</b> (kestabilan hasil), dan <b>DD</b> (penurunan terparah). Kalau tidak lolos → perbaiki resep → ulang.</li>
+  <li><b>Ujian percobaan (paper test).</b> Jika backtest lolos, resep dijalankan 24/7 dengan <b>harga live SoDEX</b> tapi <b>uang pura-pura</b>. Ini menguji apakah resep tetap bekerja di kondisi pasar yang benar-benar hidup.</li>
+  <li><b>Mengumpulkan bukti statistik.</b> Tunggu sampai jumlah transaksi cukup (minimal 25) dan hitung uji statistik SPRT. Bukti harus menunjukkan PF &gt; 1,2 dan selisih dengan backtest tidak lebih dari 15%.</li>
+  <li><b>Naik ke uang asli bertahap.</b> Baru setelah terbukti, naik ke uang asli sangat kecil (micro-live $500–1.500), lalu jika tetap stabil, baru uang asli penuh (~$3.000).</li>
+  <li><b>Belajar dan ulangi.</b> Setiap hasil (menang atau kalah) dikembalikan ke mesin belajar untuk memperbaiki aturan — lalu seluruh tangga diulang dengan aturan yang lebih baik.</li>
+</ol>
+<div class="callout">
+  <b>Kuncinya di sini:</b> sistem <b>dilarang melompat tangga</b>. Tidak ada uang asli besar tanpa bukti
+  dari ujian sebelumnya. Ini yang membuat target 0,7% dikejar dengan cara yang benar, bukan dengan judi.
+</div>
+
+<h3>8.2 Kegiatan nyata yang dijalankan setiap hari</h3>
+<p>Supaya jelas "apa yang sebenarnya dilakukan sistem", berikut rutinitas mesinnya:</p>
+<table>
+  <tr><th>Frekuensi</th><th>Kegiatan</th><th>Kenapa dilakukan</th></tr>
+  <tr><td>Setiap 5 menit</td><td>Memindai pasar &amp; mengecek sinyal beli/jual</td><td>Agar tidak ketinggalan peluang swing 1–30 jam.</td></tr>
+  <tr><td>Setiap 12 jam</td><td>Cooldown antar sinyal (istirahat sejenak setelah transaksi)</td><td>Mencegah overtrading / masuk terlalu sering.</td></tr>
+  <tr><td>Setiap 15 menit</td><td>Watchdog memeriksa kesehatan sistem</td><td>Jika ada yang mati/error, langsung lapor &amp; pulihkan.</td></tr>
+  <tr><td>Setiap selesai transaksi</td><td>Mencatat hasil (untung/rugi) ke buku laporan</td><td>Data ini bahan baku mesin belajar.</td></tr>
+  <tr><td>Setiap siklus belajar</td><td>Membaca semua hasil, menulis pelajaran, menyesuaikan aturan</td><td>Agar sistem makin pintar dari pengalamannya sendiri.</td></tr>
+  <tr><td>Otomatis &amp; 24/7</td><td>systemd restart sendiri jika crash; laporan dikirim ke Telegram</td><td>Sistem jalan terus tanpa ditunggui manusia.</td></tr>
+</table>
+
+<h3>8.3 Metode ilmiah 5 fase (PAHAMI → RENCANA → EKSEKUSI → VERIFIKASI → ULANGI)</h3>
+<p>Seluruh pekerjaan proyek diorganisir dalam 5 fase. Berikut detail tiap fase dan apa yang sudah benar-benar dikerjakan:</p>
+<div class="card">
+  <h4>Fase 1 — PAHAMI (memahami masalah) ✅ selesai</h4>
+  <ul>
+    <li>Membaca <b>8 paper akademik</b> tentang momentum, mean-reversion, pairs trading, funding, ML, regime-switching, dan sentimen — supaya tidak mulai dari nol.</li>
+    <li>Mengaudit seluruh modul SoDEX (18 modul, 62 script, 47 file test) — supaya tahu persis apa yang sudah ada.</li>
+    <li>Mengaudit pasar SoDEX asli: spread nyata, volume, dan likuiditas — supaya asumsi tidak meleset.</li>
+  </ul>
+</div>
+<div class="card">
+  <h4>Fase 2 — RENCANA (menyusun rencana) ✅ selesai</h4>
+  <ul>
+    <li>Backtest 4 putaran pada 8 koin dengan data 17 bulan.</li>
+    <li>Menemukan temuan penting: transaksi yang ditahan 24–48 jam menang 62%, sedangkan 6–12 jam hanya 22%.</li>
+    <li>Audit ganda menemukan 3 celah (perkiraan spread, sumber harga, integrasi AI) — semuanya diperbaiki.</li>
+  </ul>
+</div>
+<div class="card">
+  <h4>Fase 3 — EKSEKUSI (menjalankan) 🔴 berjalan</h4>
+  <ul>
+    <li>Paper test otomatis 24/7 dengan harga live SoDEX (banyak jalur paralel: SWING, REAL-wide, TWO-WAY, FAST, dll.).</li>
+    <li>Model ML "death zone" (prediksi jam buruk) dibangun — masih sebatas paper.</li>
+    <li>Pengawasan watchdog 15 menit + laporan Telegram aktif.</li>
+  </ul>
+</div>
+<div class="card">
+  <h4>Fase 4 — VERIFIKASI (membuktikan) ⏳ menunggu data</h4>
+  <ul>
+    <li>Evaluasi Gate 2 saat tiap jalur punya ≥25 transaksi.</li>
+    <li>Melatih ulang model ML saat data cukup (≥50 transaksi).</li>
+    <li>Uji micro-live SOL perps ($500–1.500).</li>
+  </ul>
+</div>
+<div class="card">
+  <h4>Fase 5 — ULANGI (belajar &amp; perbaiki) 🔁 terus-menerus</h4>
+  <ul>
+    <li>Belajar → riset → analisa → perbaiki → verifikasi → ulangi. Siklus ini tidak pernah berhenti selama target belum tercapai.</li>
+  </ul>
+</div>
+
+<h3>8.4 Metode belajar mandiri (Deep Loop Learning) — detailnya</h3>
+<p>Inilah mesin yang membuat sistem "tambah pintar" — dijelaskan langkah per langkah:</p>
+<ol>
+  <li><b>Membaca buku nilai.</b> Mesin mengambil hasil semua jalur uji-coba (berapa menang, berapa kalah, berapa untung/rugi).</li>
+  <li><b>Menilai arah.</b> Menghitung apakah arah LONG atau SHORT punya "keunggulan" (favorable) atau justru merugikan (adverse).</li>
+  <li><b>Menghitung angka baku.</b> Menghitung PF (rasio untung/rugi), WR (win-rate), dan kerugian per arah.</li>
+  <li><b>Menulis pelajaran.</b> Menyimpan pelajaran ke buku catatan dan menyesuaikan ambang intelijen pasar.</li>
+  <li><b>Memberi keputusan pada tiap jalur:</b>
+    <ul>
+      <li><span class="tag good">KEEP</span> = jalur ini bagus, teruskan.</li>
+      <li><span class="tag warn">WATCH</span> = awasi, tanda-tandanya meragukan.</li>
+      <li><span class="tag muted">COLLECT</span> = data belum cukup, kumpulkan dulu.</li>
+      <li><span class="tag bad">PAUSE</span> = jalur ini anti-prediktif (berbahaya), hentikan dulu.</li>
+    </ul>
+  </li>
+  <li><b>Mengulang.</b> Siklus berputar lagi, dan aturan yang sudah diperbaiki dipakai pada putaran berikutnya.</li>
+</ol>
+<p class="note">Per 16 Agustus 2026 pukul 05:55 UTC, mesin ini sudah berputar <b>678 iterasi</b> dan mencatat <b>49 transaksi</b> total dari seluruh jalur.</p>
+
+<h3>8.5 Bagaimana target 0,7% dijadikan tolak ukur (bukan sekadar slogan)</h3>
+<ul>
+  <li>Target 0,7% diubah menjadi <b>syarat gerbang</b>: strategi baru boleh naik level hanya jika angkanya (PF, WR, DSR, DD) terbukti cukup.</li>
+  <li>Prinsip <b>"profit adalah bukti"</b>: target bukan sesuatu yang "diharapkan", tapi sesuatu yang harus <b>terlihat di angka</b> sebelum dianggap tercapai.</li>
+  <li>Tidak ada <b>jadwal paksa</b>: maju ke uang asli besar hanya jika bukti sudah ada, bukan karena tanggal di kalender.</li>
+  <li>Hasil yang <b>belum mencapai 0,7%</b> dicatat jujur sebagai "belum lolos" — dan menjadi bahan perbaikan, bukan disembunyikan.</li>
+</ul>
+
+<h2 id="s9">9. Konfigurasi Sistem</h2>
+<p>Berikut pengaturan penting proyek SoDEX (bukan rahasia/API key — hanya angka &amp; nama pengaturan yang tercatat di dokumen proyek):</p>
+
+<h3>9.1 Akun &amp; Modal</h3>
+<table>
+  <tr><th>Item</th><th>Nilai</th></tr>
+  <tr><td>Venue</td><td>sodex.com (DEX)</td></tr>
+  <tr><td>Jaringan</td><td>zkLink Nova</td></tr>
+  <tr><td>Alamat dompet (master)</td><td><code>0x0794…ef47</code> (dipendekkan)</td></tr>
+  <tr><td>ID akun (aid)</td><td><code>180570</code></td></tr>
+  <tr><td>Modal aktif</td><td>± <b>$123 vUSDC</b> (kecil, untuk riset)</td></tr>
+  <tr><td>Akun turunan</td><td>SWING (utama), SPOT, PERPS-SHORT (uji dua arah)</td></tr>
+</table>
+
+<h3>9.2 Biaya (fees)</h3>
+<table>
+  <tr><th>Jenis</th><th>Nilai</th></tr>
+  <tr><td>Biaya maker</td><td>0,0114% (≈ 0,01%)</td></tr>
+  <tr><td>Biaya taker</td><td>0,038% (≈ 0,04%)</td></tr>
+  <tr><td>Catatan</td><td>Tier 0 + diskon staking 5%</td></tr>
+</table>
+
+<h3>9.3 Pengaturan Trading Swing</h3>
+<table>
+  <tr><th>Parameter</th><th>Nilai</th></tr>
+  <tr><td>Kerangka waktu target</td><td>1 – 30 jam</td></tr>
+  <tr><td>Target profit minimum</td><td>≥ 0,7% per transaksi</td></tr>
+  <tr><td>Ambil untung (TP)</td><td>+4,0%</td></tr>
+  <tr><td>Batas rugi (SL)</td><td>−2,0% (aktif dari awal)</td></tr>
+  <tr><td>Batas waktu posisi</td><td>48 jam (time stop)</td></tr>
+  <tr><td>Leverage</td><td>3×</td></tr>
+  <tr><td>Cooldown antar sinyal</td><td>12 jam</td></tr>
+  <tr><td>Universe koin</td><td>BTC + SOL (inti), ETH (pinggiran)</td></tr>
+  <tr><td>Arah</td><td>Dua arah (LONG &amp; SHORT)</td></tr>
+  <tr><td>Siklus pengecekan</td><td>tiap 5 menit</td></tr>
+</table>
+
+<h3>9.4 Pengaturan Keamanan</h3>
+<ul>
+  <li><b>No-withdraw flag</b> — dilarang menarik dana (WAJIB).</li>
+  <li><b>dry_run sebelum go-live</b> — selalu simulasi dulu sebelum uang asli.</li>
+  <li><b>Watchdog 15 menit</b> — otomatis melaporkan &amp; memulihkan sistem.</li>
+  <li><b>Laporan Telegram</b> — status dikirim otomatis ke chat.</li>
+</ul>
+
+<h2 id="s10">10. Kelebihan</h2>
+<div class="grid">
+  <div class="card"><h4>🧪 Disiplin ilmiah tinggi</h4><p>4 gerbang validasi (backtest → paper → micro-live → full-live). Tidak ada uang asli besar tanpa bukti.</p></div>
+  <div class="card"><h4>🤖 Otomatis 24/7</h4><p>Systemd auto-restart + watchdog + Telegram. Sistem jalan terus tanpa ditunggui.</p></div>
+  <div class="card"><h4>🧠 Belajar mandiri</h4><p>Mesin deep-loop sudah 678 iterasi; otomatis memblokir arah yang merugikan.</p></div>
+  <div class="card"><h4>📊 Jujur pada data</h4><p>Laporan paper test menulis rugi/untung apa adanya, termasuk track yang gagal.</p></div>
+  <div class="card"><h4>🔀 Uji paralel banyak jalur</h4><p>10 track sekaligus mempercepat pembelajaran dibanding satu strategi.</p></div>
+  <div class="card"><h4>🔐 Aman</h4><p>No-withdraw, modal riset kecil ($123), dry-run, secret tidak pernah di-commit.</p></div>
+  <div class="card"><h4>✅ Banyak tes otomatis</h4><p>Ribuan unit test lolos (2.758–2.853+), mencegah perubahan merusak sistem.</p></div>
+  <div class="card"><h4>📚 Pengetahuan terpusat</h4><p>CLAUDE.md + docs + memory terstruktur; konteks proyek tidak hilang antar sesi.</p></div>
+</div>
+
+<h2 id="s11">11. Kekurangan</h2>
+<div class="grid">
+  <div class="card"><h4>📉 Belum ada profit konsisten</h4><p>Belum ada track yang mencapai target 0,7%. Yang terbaik baru impas (PF ≈ 1,0).</p></div>
+  <div class="card"><h4>🪙 Modal riset kecil</h4><p>±$123 membatasi pengujian dan ukuran posisi; belum bisa menggambarkan kondisi full-live.</p></div>
+  <div class="card"><h4>🐌 Sinyal jarang</h4><p>Sinyal swing rata-rata hanya ~1–2 per hari; butuh waktu lama mengumpulkan 25 transaksi.</p></div>
+  <div class="card"><h4>🧩 ML belum terlatih</h4><p>Model prediksi hasil (outcome model) belum punya data cukup; AI framework belum terintegrasi penuh.</p></div>
+  <div class="card"><h4>💸 Biaya menggerus edge</h4><p>Edge kotor positif, tapi setelah biaya (≈0,16%) sisa keuntungannya tipis sekali.</p></div>
+  <div class="card"><h4>⏳ Kecepatan riset lambat</h4><p>Karena sinyal jarang, siklus belajar memakan waktu berminggu-minggu.</p></div>
+</div>
+
+<h2 id="s12">12. Kelemahan &amp; Risiko</h2>
+<div class="callout bad"><b>Ini bagian paling jujur:</b> risiko-risiko nyata yang bisa menggagalkan target.</div>
+<ol>
+  <li><b>Edge tidak stabil (regime-dependent).</b> Laporan temporal menunjukkan arah LONG/SHORT yang tadinya unggul bisa berbalik jadi rugi di minggu berikutnya. Artinya keunggulan saat ini <b>belum terbukti stabil</b>.</li>
+  <li><b>Net edge terlalu tipis.</b> Keunggulan kotor sinyal sekitar +1,1% sampai +1,5%, tetapi setelah biaya turun jadi +0,9%–1,2%, dan banyak track tetap rugi bersih karena kebanyakan posisi kena SL.</li>
+  <li><b>Risiko kerugian besar per posisi.</b> Konfigurasi lama pernah mencatat drawdown ~90% dan transaksi terburuk −8% (8× stop). Sudah dikoreksi, tapi menunjukkan betapa sensitifnya sistem pada aturan risiko.</li>
+  <li><b>Buku order SoDEX tipis.</b> Likuiditas rendah bisa membuat harga isi (fill) berbeda dari asumsi, dan mempersulit posisi besar.</li>
+  <li><b>Ketergantungan satu venue.</b> Jika SoDEX bermasalah (down/ubah biaya), strategi ikut berhenti.</li>
+  <li><b>Data backtest vs live bisa berbeda.</b> Backtest memakai data Binance; live memakai harga SoDEX. Selisih ini harus terus diverifikasi.</li>
+  <li><b>Sample masih kecil.</b> Sebagian besar kesimpulan masih dari &lt;25 transaksi; secara statistik belum kuat (DSR 0,828 &lt; 0,95 yang disyaratkan).</li>
+  <li><b>Kesalahan eksekusi pada uang asli mini.</b> Track SPOT-LIVE dan PERPS-SHORT masih 1 transaksi dan langsung rugi kecil — bukti bahwa eksekusi live dua arah masih perlu dilatih.</li>
+</ol>
+
+<h2 id="s13">13. Roadmap</h2>
+<p>Perkiraan tahapan (jadwal fleksibel, berdasarkan kemajuan data):</p>
+<table>
+  <tr><th>Tahap</th><th>Target</th><th>Perkiraan</th><th>Status</th></tr>
+  <tr><td>Gate 2: Paper Test</td><td>Kumpulkan ≥25 transaksi per track</td><td>evaluasi ~21 Agustus 2026</td><td><span class="tag warn">berjalan</span></td></tr>
+  <tr><td>Gate 2 → Gate 3</td><td>Bukti PF &gt; 1,2 di paper</td><td>~10 September 2026</td><td><span class="tag muted">menunggu</span></td></tr>
+  <tr><td>Gate 3: Micro-Live</td><td>$500–1.500 SOL, uji eksekusi nyata</td><td>setelah Gate 2 lolos</td><td><span class="tag muted">menunggu</span></td></tr>
+  <tr><td>Gate 4: Full Live</td><td>~$3.000 margin, 3× leverage</td><td>~Oktober 2026</td><td><span class="tag muted">menunggu</span></td></tr>
+</table>
+<p class="note">Roadmap ini tidak boleh maju otomatis: setiap lompat tahap harus dibuktikan dengan angka paper test yang cukup.</p>
+
+<h2 id="s14">14. Hasil Semua Paper Test (Paling Update)</h2>
+<p class="note">Sumber: laporan pembelajaran paling baru <code>docs/PAPER_TEST_LEARNING_REPORT.md</code>
+(16 Agustus 2026, 05:11 UTC) dan state <code>data/swing_deep_learning.json</code> (05:55 UTC).
+Angka PnL adalah laba/rugi bersih dalam dolar uji-coba.</p>
+
+<div class="card">
+<h4>Tabel Ringkasan Semua Track</h4>
+<table>
+  <tr><th>Track</th><th>Transaksi (n)</th><th>Win-rate</th><th>Profit Factor</th><th>PnL</th><th>Kesimpulan jujur</th></tr>
+  <tr><td><b>SWING</b></td><td>22</td><td>36%</td><td>0,62</td><td class="bad">−$31,82</td><td>Rugi. Arah LONG sempat unggul tapi net tetap tipis.</td></tr>
+  <tr><td><b>SWING-PARTIAL</b></td><td>4</td><td>0%</td><td>—</td><td class="bad">−$21,00</td><td>Data kurang, semua kena rugi.</td></tr>
+  <tr><td><b>SPOT-SWING</b></td><td>4</td><td>25%</td><td>0,17</td><td class="bad">−$10,46</td><td>Data kurang, merugi.</td></tr>
+  <tr><td><b>REAL-wide</b></td><td>10</td><td>40%</td><td>1,00</td><td class="warn">+$0,04</td><td>Impas. <b>Layak dikejar</b> (edge kotor positif).</td></tr>
+  <tr><td><b>COMBINED</b></td><td>5</td><td>20%</td><td>0,03</td><td class="bad">−$21,34</td><td>Rugi, data kurang.</td></tr>
+  <tr><td><b>COMBINED-SCS</b></td><td>6</td><td>17%</td><td>0,03</td><td class="bad">−$22,42</td><td>Rugi, data kurang.</td></tr>
+  <tr><td><b>TWO-WAY</b></td><td>24</td><td>54%</td><td>1,007</td><td class="warn">+$0,32</td><td>Impas-sedikit-untung. LONG &amp; SHORT sama-sama <b>punya edge</b>.</td></tr>
+  <tr><td><b>FAST</b></td><td>45</td><td>38%</td><td>0,62</td><td class="bad">−$41,66</td><td>Rugi. Track dengan sinyal terbanyak tapi merugi.</td></tr>
+  <tr><td><b>SPOT-LIVE</b></td><td>1</td><td>0%</td><td>—</td><td class="bad">−$0,06</td><td>Uang asli mini, data belum cukup.</td></tr>
+  <tr><td><b>PERPS-SHORT</b></td><td>1</td><td>0%</td><td>—</td><td class="bad">−$0,21</td><td>Uang asli mini (SHORT), data belum cukup.</td></tr>
+</table>
+<p class="muted">Profit Factor (PF) = total untung dibagi total rugi. PF = 1 berarti impas; &lt; 1 berarti rugi; &gt; 1 berarti untung.</p>
+</div>
+
+<h3>14.1 Analisis Arah (LONG vs SHORT) — paling penting</h3>
+<div class="card">
+<h4>LONG — SIGNIFICANT (n=41) · arah paling banyak diuji</h4>
+<p>Keunggulan kotor +1,12% vs kerugian +1,29% → <b>net +1,12%</b> (positif tipis).
+Win-rate 41%. Kesimpulan: ada harapan di arah LONG, tapi belum tebal.</p>
+<h4>SHORT — REGIME_DEPENDENT (n=46) · baru dua arah</h4>
+<p>Win-rate masih ~47%, dan tanda-nya <b>berbalik antar minggu</b> (W1 0%, W2 47%, W3 48%).
+Artinya keunggulan SHORT <b>belum stabil</b> — tergantung kondisi pasar.</p>
+<div class="callout warn">
+  <b>Jujur:</b> baik LONG maupun SHORT sama-sama <b>regime-dependent</b> (berubah-ubah sesuai kondisi pasar),
+  <b>bukan edge yang stabil</b>. Ini alasan utama kenapa belum boleh naik ke uang asli besar.
+</div>
+</div>
+
+<h3>14.2 Keputusan Gerbang (Edge Gate) — 16 Agustus 2026</h3>
+<table>
+  <tr><th>Track</th><th>Keputusan</th></tr>
+  <tr><td>SWING — LONG</td><td><span class="tag good">KEEP</span> (lanjut)</td></tr>
+  <tr><td>REAL-wide — LONG</td><td><span class="tag good">KEEP</span></td></tr>
+  <tr><td>TWO-WAY — LONG &amp; SHORT</td><td><span class="tag good">KEEP</span></td></tr>
+  <tr><td>FAST — LONG / SHORT</td><td><span class="tag good">KEEP</span> / <span class="tag warn">WATCH</span></td></tr>
+  <tr><td>SWING-PARTIAL, COMBINED, COMBINED-SCS, SPOT-LIVE, PERPS-SHORT</td><td><span class="tag muted">COLLECT</span> (kumpulkan data dulu)</td></tr>
+  <tr><td>Agregat LONG / SHORT</td><td><span class="tag muted">COLLECT</span> / <span class="tag good">KEEP</span></td></tr>
+  <tr><td>Mode standby (berhenti total)</td><td><span class="tag warn">OFF</span> — sistem tetap jalan</td></tr>
+</table>
+
+<h3>14.3 Pelajaran dari mesin belajar</h3>
+<ul>
+  <li>Penyebab posisi ditutup: <b>SL (rugi) = 23×</b> jauh lebih sering daripada TP (untung) = 4×. Ini akar masalahnya.</li>
+  <li>20 transaksi terakhir: win-rate hanya 10% (sangat buruk).</li>
+  <li>BTC LONG: PF 0,30 (rugi). ETH LONG: PF 0,22 (rugi). SOL LONG: PF 0,99 (hampir impas).</li>
+  <li>Sinyal pasar (intelijen) saat ini belum bisa diandalkan untuk menyaring arah (WR 0–29%).</li>
+  <li>Model prediksi hasil (outcome model) <b>belum terlatih</b> — data belum cukup.</li>
+</ul>
+
+<h2 id="s15">15. Hal-hal Penting Lainnya</h2>
+
+<div class="card">
+<h4>📅 Perubahan arah proyek (kronologi penting)</h4>
+<table>
+  <tr><th>Tanggal</th><th>Kejadian</th></tr>
+  <tr><td>Juni 2026</td><td>SoDEX awal = farming airdrop SoPoints.</td></tr>
+  <tr><td>2 Agustus 2026</td><td>Filosofi swing &amp; peta proyek ditulis; target 1–48 jam.</td></tr>
+  <tr><td>13 Agustus 2026</td><td>User menegaskan tujuan SoDEX = swing trading profit, <b>1–30 jam, target ≥0,7%</b> (supersede versi lama).</td></tr>
+  <tr><td>16 Agustus 2026</td><td>Paper test berjalan; laporan pembelajaran paling baru (678 iterasi, 49 trade).</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h4>🗂️ File penting (untuk cek ulang sendiri)</h4>
+<table>
+  <tr><th>File</th><th>Isi</th></tr>
+  <tr><td><code>CLAUDE.md</code></td><td>Memori utama proyek + tujuan North Star SoDEX.</td></tr>
+  <tr><td><code>SODEX.md</code></td><td>Spesifikasi SoDEX (fees, akun, temuan riset).</td></tr>
+  <tr><td><code>ARCHITECTURE.md</code></td><td>Peta arsitektur &amp; layanan.</td></tr>
+  <tr><td><code>docs/SODEX_SWING_PHILOSOPHY_AND_MAP_20260802.md</code></td><td>Filosofi &amp; peta proyek SoDEX.</td></tr>
+  <tr><td><code>docs/PAPER_TEST_LEARNING_REPORT.md</code></td><td>Laporan paper test paling update.</td></tr>
+  <tr><td><code>data/swing_deep_learning.json</code></td><td>State mesin belajar (iterasi, track, lessons).</td></tr>
+  <tr><td><code>data/paper_test_edge_gate.json</code></td><td>Keputusan gerbang (KEEP/WATCH/COLLECT/PAUSE).</td></tr>
+  <tr><td><code>scripts/paper_test_*.py</code></td><td>Kode mesin paper test, watchdog, dan pembelajaran.</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h4>💡 Mengapa proyek ini "tidak cepat untung"?</h4>
+<p>Ini bukan bug — ini <b>pilihan sadar</b>. Proyek memakai prinsip "profit adalah bukti":</p>
+<ul>
+  <li>Tidak akan pakai uang asli besar sebelum paper test membuktikan angka PF &gt; 1,2.</li>
+  <li>Sinyal swing memang jarang (~1–2/hari), jadi butuh waktu untuk kumpulkan data cukup.</li>
+  <li>Setiap track yang rugi <b>tidak disembunyikan</b> — justru dicatat sebagai pelajaran.</li>
+</ul>
+</div>
+
+<h2 id="s16">16. Kesimpulan Jujur</h2>
+<div class="callout">
+  <b>Di mana proyek SoDEX berdiri hari ini (16 Agustus 2026):</b>
+</div>
+<div class="grid">
+  <div class="kpi"><div class="num" style="color:var(--accent)">678</div><div class="lbl">iterasi belajar mandiri</div></div>
+  <div class="kpi"><div class="num" style="color:var(--accent)">10</div><div class="lbl">jalur uji paralel</div></div>
+  <div class="kpi"><div class="num" style="color:var(--warn)">49</div><div class="lbl">transaksi terkumpul</div></div>
+  <div class="kpi"><div class="num" style="color:var(--bad)">0,7%</div><div class="lbl">target — belum tercapai</div></div>
+</div>
+<ol>
+  <li><b>Fondasi sudah sangat kuat:</b> disiplin ilmiah, 4 gerbang, belajar mandiri 24/7, ribuan tes otomatis, keamanan ketat, dan kejujuran data.</li>
+  <li><b>Masalah inti belum terpecahkan:</b> tidak ada jalur yang konsisten profit ≥0,7%. Yang terbaik (REAL-wide, TWO-WAY) baru <b>impas</b>.</li>
+  <li><b>Akar masalahnya jelas:</b> sinyal punya keunggulan kotor positif, tapi terlalu tipis setelah biaya, dan terlalu sering kena batas rugi (23× SL vs 4× TP).</li>
+  <li><b>Keunggulan arah belum stabil:</b> LONG &amp; SHORT sama-sama berubah-ubah antar minggu (regime-dependent).</li>
+  <li><b>Keputusan yang benar:</b> tetap di paper test &amp; uang asli mini sampai PF &gt; 1,2 terbukti stabil. Ini bukan kegagalan — ini proses ilmiah yang sehat.</li>
+</ol>
+<div class="callout good">
+  <b>Verdict singkat:</b> SoDEX adalah mesin riset yang <b>jujur dan terstruktur</b>, sedang dalam perjalanan
+  menuju target 0,7% per transaksi. Ia belum untung, tetapi ia <b>tahu persis mengapa belum untung</b> —
+  dan itu modal paling berharga untuk perbaikan berikutnya.
+</div>
+
+<footer style="margin-top:48px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem">
+  Dokumen ini dibuat otomatis dari file proyek ANANTARA SAKTI, per 16 Agustus 2026.
+  Disusun tanpa menjalankan kode apa pun — murni membaca dokumen, laporan, dan state proyek.
+  Bukan saran keuangan; hanya dokumentasi internal proyek.
+</footer>
+
+</div>
+</body>
+</html>

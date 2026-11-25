@@ -1,0 +1,1169 @@
+{
+ "protocol_sha256": "7586262101d9309880629b131c16d95365fec0a068d9638a2274f21532a3b592",
+ "generated_utc": "2026-11-25T01:15:00+00:00",
+ "btc_source": "sodex_klines_1h",
+ "n_trades_total": 3472,
+ "audit_data": {
+  "n_tanpa_entry_time_dilewati": 40,
+  "n_duplikat_dibuang": 1
+ },
+ "btc_last_bar_closed_utc": "2026-11-25T00:00+00:00",
+ "regime_now": "BEAR",
+ "btc_ret24_now": -0.02093,
+ "n_terklasifikasi": 3472,
+ "retrospektif_1_10_Okt_LABEL_BUKAN_VERDICT": {
+  "signal": {
+   "n": 259,
+   "k": 68,
+   "wr": 0.2625,
+   "mean_usd_POOLED_CAVEAT": -2.602,
+   "sum_usd_POOLED_CAVEAT": -673.8,
+   "per_track": {
+    "aster": {
+     "n": 44,
+     "k": 14,
+     "usd": -136.66,
+     "wr": 0.3182
+    },
+    "spot_swing_v2": {
+     "n": 49,
+     "k": 19,
+     "usd": -23.98,
+     "wr": 0.3878
+    },
+    "realwide": {
+     "n": 26,
+     "k": 7,
+     "usd": -79.7,
+     "wr": 0.2692
+    },
+    "hyperliquid": {
+     "n": 44,
+     "k": 9,
+     "usd": -170.08,
+     "wr": 0.2045
+    },
+    "swing": {
+     "n": 31,
+     "k": 6,
+     "usd": -90.55,
+     "wr": 0.1935
+    },
+    "twoway": {
+     "n": 48,
+     "k": 8,
+     "usd": -141.19,
+     "wr": 0.1667
+    },
+    "donchian": {
+     "n": 17,
+     "k": 5,
+     "usd": -31.63,
+     "wr": 0.2941
+    }
+   },
+   "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+  },
+  "kontrol_random": {
+   "n": 219,
+   "k": 47,
+   "wr": 0.2146,
+   "mean_usd_POOLED_CAVEAT": -1.126,
+   "sum_usd_POOLED_CAVEAT": -246.55,
+   "per_track": {
+    "swing": {
+     "n": 141,
+     "k": 18,
+     "usd": -122.74,
+     "wr": 0.1277
+    },
+    "twoway": {
+     "n": 33,
+     "k": 13,
+     "usd": -16.49,
+     "wr": 0.3939
+    },
+    "realwide": {
+     "n": 20,
+     "k": 10,
+     "usd": -20.66,
+     "wr": 0.5
+    },
+    "donchian": {
+     "n": 25,
+     "k": 6,
+     "usd": -86.67,
+     "wr": 0.24
+    }
+   },
+   "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+  },
+  "G1": {
+   "gate": "G1",
+   "kept": {
+    "n": 172,
+    "k": 39,
+    "wr": 0.2267,
+    "mean_usd_POOLED_CAVEAT": -2.92,
+    "sum_usd_POOLED_CAVEAT": -502.19,
+    "per_track": {
+     "realwide": {
+      "n": 16,
+      "k": 4,
+      "usd": -49.93,
+      "wr": 0.25
+     },
+     "hyperliquid": {
+      "n": 33,
+      "k": 8,
+      "usd": -103.69,
+      "wr": 0.2424
+     },
+     "aster": {
+      "n": 33,
+      "k": 11,
+      "usd": -95.46,
+      "wr": 0.3333
+     },
+     "spot_swing_v2": {
+      "n": 29,
+      "k": 8,
+      "usd": -20.9,
+      "wr": 0.2759
+     },
+     "twoway": {
+      "n": 23,
+      "k": 3,
+      "usd": -83.87,
+      "wr": 0.1304
+     },
+     "swing": {
+      "n": 24,
+      "k": 2,
+      "usd": -106.33,
+      "wr": 0.0833
+     },
+     "donchian": {
+      "n": 14,
+      "k": 3,
+      "usd": -42.0,
+      "wr": 0.2143
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "dropped": {
+    "n": 87,
+    "k": 29,
+    "wr": 0.3333,
+    "mean_usd_POOLED_CAVEAT": -1.972,
+    "sum_usd_POOLED_CAVEAT": -171.61,
+    "per_track": {
+     "aster": {
+      "n": 11,
+      "k": 3,
+      "usd": -41.2,
+      "wr": 0.2727
+     },
+     "spot_swing_v2": {
+      "n": 20,
+      "k": 11,
+      "usd": -3.08,
+      "wr": 0.55
+     },
+     "hyperliquid": {
+      "n": 11,
+      "k": 1,
+      "usd": -66.39,
+      "wr": 0.0909
+     },
+     "realwide": {
+      "n": 10,
+      "k": 3,
+      "usd": -29.77,
+      "wr": 0.3
+     },
+     "swing": {
+      "n": 7,
+      "k": 4,
+      "usd": 15.78,
+      "wr": 0.5714
+     },
+     "twoway": {
+      "n": 25,
+      "k": 5,
+      "usd": -57.32,
+      "wr": 0.2
+     },
+     "donchian": {
+      "n": 3,
+      "k": 2,
+      "usd": 10.37,
+      "wr": 0.6667
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "delta_wr": -0.1066,
+   "binom_p_vs_0.409": 1.0,
+   "windows_kept": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -17.516,
+    "mean": -29.549,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all": {
+    "n_windows": 9,
+    "n_windows_span": 9,
+    "n_empty": 0,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -13.321,
+    "mean": -30.836,
+    "hit": 2,
+    "share_pos": 0.222,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_kept_twoway_only": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -5.343,
+    "mean": -4.935,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all_twoway_only": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -7.039,
+    "mean": -8.308,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "tracker_style_kept": {
+    "n_windows": 7,
+    "mean": -29.549,
+    "median": -32.939,
+    "hit": 1,
+    "hit_rate": 0.143,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "tracker_style_all": {
+    "n_windows": 7,
+    "mean": -39.646,
+    "median": -52.707,
+    "hit": 1,
+    "hit_rate": 0.143,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "caveat_window": "windows_kept/windows_all menggabungkan skala notional antar track = HANYA indikatif; windows_kept_twoway_only = metrik resmi track gate (wallet 242,79)"
+  },
+  "G2": {
+   "gate": "G2",
+   "kept": {
+    "n": 259,
+    "k": 68,
+    "wr": 0.2625,
+    "mean_usd_POOLED_CAVEAT": -2.602,
+    "sum_usd_POOLED_CAVEAT": -673.8,
+    "per_track": {
+     "aster": {
+      "n": 44,
+      "k": 14,
+      "usd": -136.66,
+      "wr": 0.3182
+     },
+     "spot_swing_v2": {
+      "n": 49,
+      "k": 19,
+      "usd": -23.98,
+      "wr": 0.3878
+     },
+     "realwide": {
+      "n": 26,
+      "k": 7,
+      "usd": -79.7,
+      "wr": 0.2692
+     },
+     "hyperliquid": {
+      "n": 44,
+      "k": 9,
+      "usd": -170.08,
+      "wr": 0.2045
+     },
+     "swing": {
+      "n": 31,
+      "k": 6,
+      "usd": -90.55,
+      "wr": 0.1935
+     },
+     "twoway": {
+      "n": 48,
+      "k": 8,
+      "usd": -141.19,
+      "wr": 0.1667
+     },
+     "donchian": {
+      "n": 17,
+      "k": 5,
+      "usd": -31.63,
+      "wr": 0.2941
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "dropped": {
+    "n": 0
+   },
+   "windows_kept": {
+    "n_windows": 9,
+    "n_windows_span": 9,
+    "n_empty": 0,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -13.321,
+    "mean": -30.836,
+    "hit": 2,
+    "share_pos": 0.222,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all": {
+    "n_windows": 9,
+    "n_windows_span": 9,
+    "n_empty": 0,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -13.321,
+    "mean": -30.836,
+    "hit": 2,
+    "share_pos": 0.222,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_kept_twoway_only": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -7.039,
+    "mean": -8.308,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all_twoway_only": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -7.039,
+    "mean": -8.308,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "tracker_style_kept": {
+    "n_windows": 7,
+    "mean": -39.646,
+    "median": -52.707,
+    "hit": 1,
+    "hit_rate": 0.143,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "tracker_style_all": {
+    "n_windows": 7,
+    "mean": -39.646,
+    "median": -52.707,
+    "hit": 1,
+    "hit_rate": 0.143,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "caveat_window": "windows_kept/windows_all menggabungkan skala notional antar track = HANYA indikatif; windows_kept_twoway_only = metrik resmi track gate (wallet 242,79)"
+  },
+  "G12": {
+   "gate": "G12",
+   "kept": {
+    "n": 172,
+    "k": 39,
+    "wr": 0.2267,
+    "mean_usd_POOLED_CAVEAT": -2.92,
+    "sum_usd_POOLED_CAVEAT": -502.19,
+    "per_track": {
+     "realwide": {
+      "n": 16,
+      "k": 4,
+      "usd": -49.93,
+      "wr": 0.25
+     },
+     "hyperliquid": {
+      "n": 33,
+      "k": 8,
+      "usd": -103.69,
+      "wr": 0.2424
+     },
+     "aster": {
+      "n": 33,
+      "k": 11,
+      "usd": -95.46,
+      "wr": 0.3333
+     },
+     "spot_swing_v2": {
+      "n": 29,
+      "k": 8,
+      "usd": -20.9,
+      "wr": 0.2759
+     },
+     "twoway": {
+      "n": 23,
+      "k": 3,
+      "usd": -83.87,
+      "wr": 0.1304
+     },
+     "swing": {
+      "n": 24,
+      "k": 2,
+      "usd": -106.33,
+      "wr": 0.0833
+     },
+     "donchian": {
+      "n": 14,
+      "k": 3,
+      "usd": -42.0,
+      "wr": 0.2143
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "dropped": {
+    "n": 87,
+    "k": 29,
+    "wr": 0.3333,
+    "mean_usd_POOLED_CAVEAT": -1.972,
+    "sum_usd_POOLED_CAVEAT": -171.61,
+    "per_track": {
+     "aster": {
+      "n": 11,
+      "k": 3,
+      "usd": -41.2,
+      "wr": 0.2727
+     },
+     "spot_swing_v2": {
+      "n": 20,
+      "k": 11,
+      "usd": -3.08,
+      "wr": 0.55
+     },
+     "hyperliquid": {
+      "n": 11,
+      "k": 1,
+      "usd": -66.39,
+      "wr": 0.0909
+     },
+     "realwide": {
+      "n": 10,
+      "k": 3,
+      "usd": -29.77,
+      "wr": 0.3
+     },
+     "swing": {
+      "n": 7,
+      "k": 4,
+      "usd": 15.78,
+      "wr": 0.5714
+     },
+     "twoway": {
+      "n": 25,
+      "k": 5,
+      "usd": -57.32,
+      "wr": 0.2
+     },
+     "donchian": {
+      "n": 3,
+      "k": 2,
+      "usd": 10.37,
+      "wr": 0.6667
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "delta_wr": -0.1066,
+   "binom_p_vs_0.409": 1.0,
+   "windows_kept": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -17.516,
+    "mean": -29.549,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all": {
+    "n_windows": 9,
+    "n_windows_span": 9,
+    "n_empty": 0,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -13.321,
+    "mean": -30.836,
+    "hit": 2,
+    "share_pos": 0.222,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_kept_twoway_only": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -5.343,
+    "mean": -4.935,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all_twoway_only": {
+    "n_windows": 7,
+    "n_windows_span": 9,
+    "n_empty": 2,
+    "w_pertama": 47,
+    "w_terakhir": 55,
+    "median": -7.039,
+    "mean": -8.308,
+    "hit": 1,
+    "share_pos": 0.143,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "tracker_style_kept": {
+    "n_windows": 7,
+    "mean": -29.549,
+    "median": -32.939,
+    "hit": 1,
+    "hit_rate": 0.143,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "tracker_style_all": {
+    "n_windows": 7,
+    "mean": -39.646,
+    "median": -52.707,
+    "hit": 1,
+    "hit_rate": 0.143,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "caveat_window": "windows_kept/windows_all menggabungkan skala notional antar track = HANYA indikatif; windows_kept_twoway_only = metrik resmi track gate (wallet 242,79)"
+  }
+ },
+ "FORWARD_11_Okt_dst_VERDICT": {
+  "signal": {
+   "n": 557,
+   "k": 152,
+   "wr": 0.2729,
+   "mean_usd_POOLED_CAVEAT": -1.882,
+   "sum_usd_POOLED_CAVEAT": -1048.11,
+   "per_track": {
+    "spot_swing_v2": {
+     "n": 185,
+     "k": 60,
+     "usd": -81.88,
+     "wr": 0.3243
+    },
+    "twoway": {
+     "n": 110,
+     "k": 34,
+     "usd": -172.06,
+     "wr": 0.3091
+    },
+    "realwide": {
+     "n": 46,
+     "k": 15,
+     "usd": -110.92,
+     "wr": 0.3261
+    },
+    "hyperliquid": {
+     "n": 74,
+     "k": 16,
+     "usd": -255.33,
+     "wr": 0.2162
+    },
+    "aster": {
+     "n": 75,
+     "k": 15,
+     "usd": -269.46,
+     "wr": 0.2
+    },
+    "donchian": {
+     "n": 27,
+     "k": 5,
+     "usd": -61.06,
+     "wr": 0.1852
+    },
+    "swing": {
+     "n": 40,
+     "k": 7,
+     "usd": -97.39,
+     "wr": 0.175
+    }
+   },
+   "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+  },
+  "kontrol_random": {
+   "n": 818,
+   "k": 170,
+   "wr": 0.2078,
+   "mean_usd_POOLED_CAVEAT": -1.438,
+   "sum_usd_POOLED_CAVEAT": -1176.23,
+   "per_track": {
+    "swing": {
+     "n": 481,
+     "k": 80,
+     "usd": -602.34,
+     "wr": 0.1663
+    },
+    "twoway": {
+     "n": 55,
+     "k": 20,
+     "usd": -67.36,
+     "wr": 0.3636
+    },
+    "realwide": {
+     "n": 162,
+     "k": 41,
+     "usd": -253.71,
+     "wr": 0.2531
+    },
+    "donchian": {
+     "n": 120,
+     "k": 29,
+     "usd": -252.82,
+     "wr": 0.2417
+    }
+   },
+   "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+  },
+  "G1": {
+   "gate": "G1",
+   "kept": {
+    "n": 268,
+    "k": 57,
+    "wr": 0.2127,
+    "mean_usd_POOLED_CAVEAT": -2.92,
+    "sum_usd_POOLED_CAVEAT": -782.63,
+    "per_track": {
+     "spot_swing_v2": {
+      "n": 60,
+      "k": 15,
+      "usd": -45.06,
+      "wr": 0.25
+     },
+     "twoway": {
+      "n": 62,
+      "k": 14,
+      "usd": -165.58,
+      "wr": 0.2258
+     },
+     "realwide": {
+      "n": 31,
+      "k": 12,
+      "usd": -85.73,
+      "wr": 0.3871
+     },
+     "hyperliquid": {
+      "n": 36,
+      "k": 4,
+      "usd": -194.36,
+      "wr": 0.1111
+     },
+     "aster": {
+      "n": 35,
+      "k": 4,
+      "usd": -189.7,
+      "wr": 0.1143
+     },
+     "donchian": {
+      "n": 15,
+      "k": 3,
+      "usd": -35.67,
+      "wr": 0.2
+     },
+     "swing": {
+      "n": 29,
+      "k": 5,
+      "usd": -66.54,
+      "wr": 0.1724
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "dropped": {
+    "n": 289,
+    "k": 95,
+    "wr": 0.3287,
+    "mean_usd_POOLED_CAVEAT": -0.919,
+    "sum_usd_POOLED_CAVEAT": -265.48,
+    "per_track": {
+     "hyperliquid": {
+      "n": 38,
+      "k": 12,
+      "usd": -60.97,
+      "wr": 0.3158
+     },
+     "aster": {
+      "n": 40,
+      "k": 11,
+      "usd": -79.76,
+      "wr": 0.275
+     },
+     "spot_swing_v2": {
+      "n": 125,
+      "k": 45,
+      "usd": -36.82,
+      "wr": 0.36
+     },
+     "donchian": {
+      "n": 12,
+      "k": 2,
+      "usd": -25.39,
+      "wr": 0.1667
+     },
+     "twoway": {
+      "n": 48,
+      "k": 20,
+      "usd": -6.48,
+      "wr": 0.4167
+     },
+     "realwide": {
+      "n": 15,
+      "k": 3,
+      "usd": -25.19,
+      "wr": 0.2
+     },
+     "swing": {
+      "n": 11,
+      "k": 2,
+      "usd": -30.86,
+      "wr": 0.1818
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "delta_wr": -0.116,
+   "binom_p_vs_0.409": 1.0,
+   "windows_kept": {
+    "n_windows": 15,
+    "n_windows_span": 36,
+    "n_empty": 21,
+    "w_pertama": 55,
+    "w_terakhir": 90,
+    "median": -25.631,
+    "mean": -21.49,
+    "hit": 2,
+    "share_pos": 0.133,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all": {
+    "n_windows": 31,
+    "n_windows_span": 36,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 90,
+    "median": -4.819,
+    "mean": -13.926,
+    "hit": 2,
+    "share_pos": 0.129,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_kept_twoway_only": {
+    "n_windows": 11,
+    "n_windows_span": 21,
+    "n_empty": 10,
+    "w_pertama": 55,
+    "w_terakhir": 75,
+    "median": -6.285,
+    "mean": -6.2,
+    "hit": 2,
+    "share_pos": 0.182,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all_twoway_only": {
+    "n_windows": 17,
+    "n_windows_span": 22,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 76,
+    "median": -5.431,
+    "mean": -4.169,
+    "hit": 5,
+    "share_pos": 0.294,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "tracker_style_kept": {
+    "n_windows": 34,
+    "mean": -9.481,
+    "median": 0.0,
+    "hit": 2,
+    "hit_rate": 0.059,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "tracker_style_all": {
+    "n_windows": 35,
+    "mean": -12.334,
+    "median": -5.61,
+    "hit": 3,
+    "hit_rate": 0.086,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "caveat_window": "windows_kept/windows_all menggabungkan skala notional antar track = HANYA indikatif; windows_kept_twoway_only = metrik resmi track gate (wallet 242,79)"
+  },
+  "G2": {
+   "gate": "G2",
+   "kept": {
+    "n": 557,
+    "k": 152,
+    "wr": 0.2729,
+    "mean_usd_POOLED_CAVEAT": -1.882,
+    "sum_usd_POOLED_CAVEAT": -1048.11,
+    "per_track": {
+     "spot_swing_v2": {
+      "n": 185,
+      "k": 60,
+      "usd": -81.88,
+      "wr": 0.3243
+     },
+     "twoway": {
+      "n": 110,
+      "k": 34,
+      "usd": -172.06,
+      "wr": 0.3091
+     },
+     "realwide": {
+      "n": 46,
+      "k": 15,
+      "usd": -110.92,
+      "wr": 0.3261
+     },
+     "hyperliquid": {
+      "n": 74,
+      "k": 16,
+      "usd": -255.33,
+      "wr": 0.2162
+     },
+     "aster": {
+      "n": 75,
+      "k": 15,
+      "usd": -269.46,
+      "wr": 0.2
+     },
+     "donchian": {
+      "n": 27,
+      "k": 5,
+      "usd": -61.06,
+      "wr": 0.1852
+     },
+     "swing": {
+      "n": 40,
+      "k": 7,
+      "usd": -97.39,
+      "wr": 0.175
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "dropped": {
+    "n": 0
+   },
+   "windows_kept": {
+    "n_windows": 31,
+    "n_windows_span": 36,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 90,
+    "median": -4.819,
+    "mean": -13.926,
+    "hit": 2,
+    "share_pos": 0.129,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all": {
+    "n_windows": 31,
+    "n_windows_span": 36,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 90,
+    "median": -4.819,
+    "mean": -13.926,
+    "hit": 2,
+    "share_pos": 0.129,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_kept_twoway_only": {
+    "n_windows": 17,
+    "n_windows_span": 22,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 76,
+    "median": -5.431,
+    "mean": -4.169,
+    "hit": 5,
+    "share_pos": 0.294,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all_twoway_only": {
+    "n_windows": 17,
+    "n_windows_span": 22,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 76,
+    "median": -5.431,
+    "mean": -4.169,
+    "hit": 5,
+    "share_pos": 0.294,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "tracker_style_kept": {
+    "n_windows": 35,
+    "mean": -12.334,
+    "median": -5.61,
+    "hit": 3,
+    "hit_rate": 0.086,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "tracker_style_all": {
+    "n_windows": 35,
+    "mean": -12.334,
+    "median": -5.61,
+    "hit": 3,
+    "hit_rate": 0.086,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "caveat_window": "windows_kept/windows_all menggabungkan skala notional antar track = HANYA indikatif; windows_kept_twoway_only = metrik resmi track gate (wallet 242,79)"
+  },
+  "G12": {
+   "gate": "G12",
+   "kept": {
+    "n": 268,
+    "k": 57,
+    "wr": 0.2127,
+    "mean_usd_POOLED_CAVEAT": -2.92,
+    "sum_usd_POOLED_CAVEAT": -782.63,
+    "per_track": {
+     "spot_swing_v2": {
+      "n": 60,
+      "k": 15,
+      "usd": -45.06,
+      "wr": 0.25
+     },
+     "twoway": {
+      "n": 62,
+      "k": 14,
+      "usd": -165.58,
+      "wr": 0.2258
+     },
+     "realwide": {
+      "n": 31,
+      "k": 12,
+      "usd": -85.73,
+      "wr": 0.3871
+     },
+     "hyperliquid": {
+      "n": 36,
+      "k": 4,
+      "usd": -194.36,
+      "wr": 0.1111
+     },
+     "aster": {
+      "n": 35,
+      "k": 4,
+      "usd": -189.7,
+      "wr": 0.1143
+     },
+     "donchian": {
+      "n": 15,
+      "k": 3,
+      "usd": -35.67,
+      "wr": 0.2
+     },
+     "swing": {
+      "n": 29,
+      "k": 5,
+      "usd": -66.54,
+      "wr": 0.1724
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "dropped": {
+    "n": 289,
+    "k": 95,
+    "wr": 0.3287,
+    "mean_usd_POOLED_CAVEAT": -0.919,
+    "sum_usd_POOLED_CAVEAT": -265.48,
+    "per_track": {
+     "hyperliquid": {
+      "n": 38,
+      "k": 12,
+      "usd": -60.97,
+      "wr": 0.3158
+     },
+     "aster": {
+      "n": 40,
+      "k": 11,
+      "usd": -79.76,
+      "wr": 0.275
+     },
+     "spot_swing_v2": {
+      "n": 125,
+      "k": 45,
+      "usd": -36.82,
+      "wr": 0.36
+     },
+     "donchian": {
+      "n": 12,
+      "k": 2,
+      "usd": -25.39,
+      "wr": 0.1667
+     },
+     "twoway": {
+      "n": 48,
+      "k": 20,
+      "usd": -6.48,
+      "wr": 0.4167
+     },
+     "realwide": {
+      "n": 15,
+      "k": 3,
+      "usd": -25.19,
+      "wr": 0.2
+     },
+     "swing": {
+      "n": 11,
+      "k": 2,
+      "usd": -30.86,
+      "wr": 0.1818
+     }
+    },
+    "note": "mean_usd/sum_usd pooled mencampur skala notional antar track -> pakai per_track; WR bebas skala"
+   },
+   "delta_wr": -0.116,
+   "binom_p_vs_0.409": 1.0,
+   "windows_kept": {
+    "n_windows": 15,
+    "n_windows_span": 36,
+    "n_empty": 21,
+    "w_pertama": 55,
+    "w_terakhir": 90,
+    "median": -25.631,
+    "mean": -21.49,
+    "hit": 2,
+    "share_pos": 0.133,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all": {
+    "n_windows": 31,
+    "n_windows_span": 36,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 90,
+    "median": -4.819,
+    "mean": -13.926,
+    "hit": 2,
+    "share_pos": 0.129,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_kept_twoway_only": {
+    "n_windows": 11,
+    "n_windows_span": 21,
+    "n_empty": 10,
+    "w_pertama": 55,
+    "w_terakhir": 75,
+    "median": -6.285,
+    "mean": -6.2,
+    "hit": 2,
+    "share_pos": 0.182,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "windows_all_twoway_only": {
+    "n_windows": 17,
+    "n_windows_span": 22,
+    "n_empty": 5,
+    "w_pertama": 55,
+    "w_terakhir": 76,
+    "median": -5.431,
+    "mean": -4.169,
+    "hit": 5,
+    "share_pos": 0.294,
+    "note": "grid tetap (jangkar 2026-08-03Z), window kosong DILEWATI (bukan 0%)"
+   },
+   "tracker_style_kept": {
+    "n_windows": 34,
+    "mean": -9.481,
+    "median": 0.0,
+    "hit": 2,
+    "hit_rate": 0.059,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "tracker_style_all": {
+    "n_windows": 35,
+    "mean": -12.334,
+    "median": -5.61,
+    "hit": 3,
+    "hit_rate": 0.086,
+    "gate_mean_ok": false,
+    "gate_median_ok": false,
+    "gate_hit_ok": false,
+    "note": "grid span + window kosong=0,0% (definisi resmi tracker)"
+   },
+   "caveat_window": "windows_kept/windows_all menggabungkan skala notional antar track = HANYA indikatif; windows_kept_twoway_only = metrik resmi track gate (wallet 242,79)"
+  }
+ },
+ "verdict_status": "SIAP_DIAMBIL_SEKALI"
+}

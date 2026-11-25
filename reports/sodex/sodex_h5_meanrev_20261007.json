@@ -1,0 +1,214 @@
+{
+ "meta": {
+  "symbols": [
+   "BTC-USD",
+   "ETH-USD",
+   "SOL-USD"
+  ],
+  "bars4h": 2307,
+  "range": [
+   123585,
+   124400
+  ],
+  "nperm": 1000,
+  "fee_rt": 0.0008,
+  "h_primary": 12,
+  "pass": {
+   "n_min": 100,
+   "p_max": 0.05,
+   "single_sym_share": 0.3,
+   "q_fdr": 0.1
+  }
+ },
+ "h1_FADE_BREAKDOWN": {
+  "n": 37,
+  "mean_net_bp": 15.1623873692134,
+  "wr": 0.4864864864864865,
+  "median_bp": -7.554016085152597,
+  "sum_net_bp": 561.0083326608958,
+  "mean_stress_bp": 11.1623873692134,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": 0.0,
+   "ETH-USD": 0.02,
+   "SOL-USD": 0.04
+  },
+  "top_sym": "SOL-USD",
+  "top_sym_share": 0.6519893500431785,
+  "days": 13
+ },
+ "h1_FADE_BREAKOUT": {
+  "n": 61,
+  "mean_net_bp": -34.42129455094877,
+  "wr": 0.45901639344262296,
+  "median_bp": -6.223879934282632,
+  "sum_net_bp": -2099.698967607875,
+  "mean_stress_bp": -38.42129455094878,
+  "p_random": 0.022977022977022976,
+  "by_sym": {
+   "BTC-USD": -0.07,
+   "ETH-USD": -0.04,
+   "SOL-USD": -0.1
+  },
+  "top_sym": "ETH-USD",
+  "top_sym_share": 0.19147151119418604,
+  "days": 22
+ },
+ "h2_FADE_BREAKDOWN": {
+  "n": 37,
+  "mean_net_bp": -2.7951802395884644,
+  "wr": 0.5945945945945946,
+  "median_bp": 18.587522413898945,
+  "sum_net_bp": -103.42166886477318,
+  "mean_stress_bp": -6.795180239588461,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": -0.0,
+   "ETH-USD": -0.02,
+   "SOL-USD": 0.01
+  },
+  "top_sym": "SOL-USD",
+  "top_sym_share": -1.3960113126620866,
+  "days": 13
+ },
+ "h2_FADE_BREAKOUT": {
+  "n": 61,
+  "mean_net_bp": -39.34807083399796,
+  "wr": 0.3770491803278688,
+  "median_bp": -21.570771573756524,
+  "sum_net_bp": -2400.2323208738753,
+  "mean_stress_bp": -43.34807083399796,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": -0.09,
+   "ETH-USD": -0.06,
+   "SOL-USD": -0.09
+  },
+  "top_sym": "ETH-USD",
+  "top_sym_share": 0.2560588693940509,
+  "days": 22
+ },
+ "h6_FADE_BREAKDOWN": {
+  "n": 36,
+  "mean_net_bp": -157.9963034448142,
+  "wr": 0.2777777777777778,
+  "median_bp": -148.64966033074944,
+  "sum_net_bp": -5687.866924013311,
+  "mean_stress_bp": -161.99630344481415,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": -0.16,
+   "ETH-USD": -0.14,
+   "SOL-USD": -0.27
+  },
+  "top_sym": "ETH-USD",
+  "top_sym_share": 0.2431919571732183,
+  "days": 12
+ },
+ "h6_FADE_BREAKOUT": {
+  "n": 61,
+  "mean_net_bp": -123.27033012310831,
+  "wr": 0.3770491803278688,
+  "median_bp": -94.12032500532553,
+  "sum_net_bp": -7519.490137509607,
+  "mean_stress_bp": -127.27033012310828,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": -0.23,
+   "ETH-USD": -0.26,
+   "SOL-USD": -0.26
+  },
+  "top_sym": "BTC-USD",
+  "top_sym_share": 0.3085671557570376,
+  "days": 22
+ },
+ "h12_FADE_BREAKDOWN": {
+  "n": 36,
+  "mean_net_bp": -233.56555758566503,
+  "wr": 0.3888888888888889,
+  "median_bp": -221.17905985199891,
+  "sum_net_bp": -8408.36007308394,
+  "mean_stress_bp": -237.56555758566503,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": -0.33,
+   "ETH-USD": -0.25,
+   "SOL-USD": -0.27
+  },
+  "top_sym": "ETH-USD",
+  "top_sym_share": 0.2952255433039891,
+  "days": 12
+ },
+ "h12_FADE_BREAKOUT": {
+  "n": 61,
+  "mean_net_bp": -125.66103006470293,
+  "wr": 0.5737704918032787,
+  "median_bp": 8.752289479562421,
+  "sum_net_bp": -7665.32283394688,
+  "mean_stress_bp": -129.6610300647029,
+  "p_random": 0.000999000999000999,
+  "by_sym": {
+   "BTC-USD": -0.05,
+   "ETH-USD": -0.3,
+   "SOL-USD": -0.42
+  },
+  "top_sym": "BTC-USD",
+  "top_sym_share": 0.05902455154570055,
+  "days": 22
+ },
+ "BH_FDR": [
+  {
+   "name": "h12_FADE_BREAKDOWN",
+   "p": 0.000999000999000999,
+   "pass_bh": true
+  },
+  {
+   "name": "h12_FADE_BREAKOUT",
+   "p": 0.000999000999000999,
+   "pass_bh": true
+  }
+ ],
+ "VERDICT": {
+  "hasil": "BELUM CUKUP BUKTI",
+  "sisi": {
+   "FADE_BREAKDOWN": {
+    "n": 36,
+    "net_bp": -233.56555758566503,
+    "stress_bp": -237.56555758566503,
+    "p": 0.000999000999000999,
+    "top_sym": "ETH-USD",
+    "top_share": 0.2952255433039891,
+    "days": 12,
+    "c1_n": false,
+    "c2_net": false,
+    "c3_stress": false,
+    "c4_p": true,
+    "c5_conc": true,
+    "gagal": [
+     "c1_n",
+     "c2_net",
+     "c3_stress"
+    ]
+   },
+   "FADE_BREAKOUT": {
+    "n": 61,
+    "net_bp": -125.66103006470293,
+    "stress_bp": -129.6610300647029,
+    "p": 0.000999000999000999,
+    "top_sym": "BTC-USD",
+    "top_share": 0.05902455154570055,
+    "days": 22,
+    "c1_n": false,
+    "c2_net": false,
+    "c3_stress": false,
+    "c4_p": true,
+    "c5_conc": true,
+    "gagal": [
+     "c1_n",
+     "c2_net",
+     "c3_stress"
+    ]
+   }
+  }
+ }
+}

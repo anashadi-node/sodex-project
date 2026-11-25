@@ -1,0 +1,96 @@
+{
+ "audit": "PRAREG-26 independen (double-check)",
+ "generated_utc": "2026-11-25T00:02:08+00:00",
+ "wallet_usd": 242.66,
+ "wallet_source": "onchain_snapshot@11-25 00:01Z",
+ "n_trades_universe_dibaca": 2741,
+ "keys_sumber_per_mesin": {
+  "twoway": "closed_trades",
+  "portfolio": "closed",
+  "shortbear": "closed",
+  "pasar_anantara_trade": "closed",
+  "swing": "closed_trades",
+  "hyperliquid": "closed",
+  "aster": "closed",
+  "donchian": "closed",
+  "realwide": "closed",
+  "spot_swing_v2": "closed"
+ },
+ "n_titik_keputusan": 45,
+ "n_trade_forward_penuh": 712,
+ "n_trade_forward_subset": 57,
+ "n_window": 31,
+ "window_rate_per_day": 0.705,
+ "mesin_terpilih_terakhir": [
+  "shortbear"
+ ],
+ "n_decision_dengan_seleksi_nonkosong": 16,
+ "per_mesin_14d": {
+  "aster": {
+   "n": 2,
+   "net_usd": -13.3
+  },
+  "donchian": {
+   "n": 1,
+   "net_usd": -3.25
+  },
+  "hyperliquid": {
+   "n": 2,
+   "net_usd": -13.47
+  },
+  "portfolio": {
+   "n": 27,
+   "net_usd": -2.76
+  },
+  "realwide": {
+   "n": 3,
+   "net_usd": -5.16
+  },
+  "shortbear": {
+   "n": 36,
+   "net_usd": 13.52
+  },
+  "spot_swing_v2": {
+   "n": 67,
+   "net_usd": -30.46
+  }
+ },
+ "mesin_lolos_sekarang": [
+  "shortbear"
+ ],
+ "window_full_usd": {
+  "56": -2.94,
+  "61": -31.85,
+  "62": -97.3,
+  "63": 100.88,
+  "64": -228.94,
+  "65": -74.88,
+  "66": 15.68,
+  "67": -63.42,
+  "68": 26.54,
+  "69": -119.24,
+  "70": -90.55,
+  "71": -54.98,
+  "72": -69.29,
+  "73": -70.48,
+  "74": 17.78,
+  "75": -228.39,
+  "76": -20.47,
+  "77": -1.2,
+  "78": -9.55,
+  "79": -11.43,
+  "80": -0.11,
+  "81": 6.8,
+  "82": -10.74,
+  "83": -6.07,
+  "84": -1.73,
+  "85": -10.17,
+  "86": -11.29,
+  "87": -18.27,
+  "88": -7.77,
+  "89": 8.09,
+  "90": -3.62
+ },
+ "subset_semua_nol": false,
+ "verdict_state": "PERLU_EVALUASI"
+}
