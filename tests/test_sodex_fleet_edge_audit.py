@@ -75,3 +75,40 @@ def test_net_pct_dibaca_sebelum_gross(tmp_path):
     p = tmp_path / "n_state.json"; p.write_text(json.dumps({"closed": tr}))
     r = fa.audit([str(p)])[0]
     assert r["basis"] == "net_pct" and r["mean_pct"] < 0
+
+
+def _state_track(tmp, name, sig, rnd, track_key="track"):
+    """Bangun state dengan dua lengan: SIGNAL dan RANDOM (kontrol)."""
+    import datetime as dt
+    t0 = dt.datetime(2026, 11, 1, tzinfo=dt.timezone.utc); tr = []
+    for i, (v, tk) in enumerate([(v, "SIGNAL") for v in sig] + [(v, "RANDOM") for v in rnd]):
+        tr.append({"pair": f"P{i}", "side": "SHORT", "entry_time": (t0 + dt.timedelta(hours=i)).isoformat(),
+                   "exit_time": (t0 + dt.timedelta(hours=i + 1)).isoformat(), "pnl_pct": float(v), track_key: tk})
+    p = tmp / f"{name}_state.json"; p.write_text(json.dumps({"closed_trades": tr})); return str(p)
+
+
+def test_alpha_terdeteksi_bila_sinyal_lebih_baik(tmp_path):           # KONTROL POSITIF alpha
+    rng = np.random.default_rng(11)
+    f = _state_track(tmp_path, "alpha", rng.normal(0.02, 0.01, 80), rng.normal(0.0, 0.01, 80))
+    r = fa.audit([f])[0]
+    assert r["ab_alpha"] == "ALPHA" and r["ab_delta_lo"] > 0 and r["ab_delta_p"] < 0.05
+
+
+def test_tanpa_alpha_bila_sinyal_setara_random(tmp_path):             # KONTROL NEGATIF alpha
+    rng = np.random.default_rng(12)
+    f = _state_track(tmp_path, "beta", rng.normal(0.01, 0.01, 120), rng.normal(0.01, 0.01, 120))
+    r = fa.audit([f])[0]
+    assert r["ab_alpha"] == "TIDAK_TERBUKTI", r["ab_alpha"]
+
+
+def test_alpha_data_kurang_bila_salah_satu_lengan_kecil(tmp_path):
+    rng = np.random.default_rng(13)
+    f = _state_track(tmp_path, "kecil2", rng.normal(0.05, 0.005, 40), rng.normal(0.0, 0.005, 5))
+    assert fa.audit([f])[0]["ab_alpha"] == "DATA_KURANG"
+
+
+def test_label_kontrol_dikenali(tmp_path):
+    rng = np.random.default_rng(14)
+    f = _state_track(tmp_path, "ctl", rng.normal(0.02, 0.01, 60), rng.normal(0.0, 0.01, 60), track_key="arm")
+    r = fa.audit([f])[0]
+    assert r["ab_n_sig"] == 60 and r["ab_n_rnd"] == 60

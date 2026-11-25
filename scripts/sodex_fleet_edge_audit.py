@@ -7,7 +7,7 @@ n>=MIN_N; "KANDIDAT" hanya bila n>=MIN_N & CI95 bawah>0 & q<0.05. Selain itu BUK
 Sizing/leverage menskala mean DAN risiko, tidak membuat edge -> lane mean<=0 tidak bisa 'diselamatkan' dengan sizing.
 """
 from __future__ import annotations
-import argparse, datetime as dt, glob, json, os, sys
+import argparse, datetime as dt, glob, json, math, os, sys
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,7 +35,7 @@ def _ts(r, keys):
 
 
 def load_trades(path):
-    """-> (list[(key, exit_dt, pnl)], status). Skema tak dikenal => status eksplisit, bukan 0 diam-diam."""
+    """-> (list[(key, exit_dt, pnl, track)], status, basis). Skema tak dikenal => status eksplisit, bukan 0 diam-diam."""
     try:
         s = json.load(open(path))
     except (OSError, json.JSONDecodeError):
@@ -54,8 +54,55 @@ def load_trades(path):
         key = (r.get("pair") or r.get("symbol"), str(en), str(ex), r.get("side") or r.get("direction"))
         if key in seen or ex is None:
             continue                                  # DEDUP; tanpa exit_time tak bisa difilter epoch
-        seen.add(key); out.append((key, ex, float(r[fld])))
+        seen.add(key)
+        tk = r.get("track") or r.get("arm") or r.get("leg")
+        out.append((key, ex, float(r[fld]), str(tk).upper() if tk else "-"))
     return out, ("OK" if out else "NOL_TRADE"), basis
+
+
+SIG_TRACK, RND_TRACK = ("SIGNAL", "SIG"), ("RANDOM", "RND", "CONTROL")
+
+
+def welch(a, b):
+    """Uji beda dua mean (Welch). -> (delta, t, df, p two-sided) atau None bila sampel kurang."""
+    if len(a) < 2 or len(b) < 2:
+        return None
+    va, vb = a.var(ddof=1) / len(a), b.var(ddof=1) / len(b)
+    if not np.isfinite(va + vb) or va + vb <= 0:
+        return None
+    t = float((a.mean() - b.mean()) / np.sqrt(va + vb))
+    df = (va + vb) ** 2 / (va ** 2 / (len(a) - 1) + vb ** 2 / (len(b) - 1))
+    return float(a.mean() - b.mean()), t, float(df), float(math.erfc(abs(t) / math.sqrt(2)))
+
+
+def split_tracks(tr, cut):
+    """Pisahkan trade per label track (SIGNAL vs RANDOM) setelah filter epoch."""
+    sig, rnd = [], []
+    for _, ex, p, tk in tr:
+        if cut is not None and ex < cut:
+            continue
+        if tk in SIG_TRACK:
+            sig.append(p)
+        elif tk in RND_TRACK:
+            rnd.append(p)
+    return np.array(sig, float), np.array(rnd, float)
+
+
+def alpha_block(sig, rnd, rng):
+    """Sinyal vs kontrol RANDOM: delta, CI95 bootstrap, p Welch, verdict.
+    ALPHA hanya bila n>=MIN_N keduanya DAN CI95 bawah delta > 0 — mean positif saja = beta."""
+    if len(sig) < 2 or len(rnd) < 2:
+        return {"n_sig": int(len(sig)), "n_rnd": int(len(rnd)), "alpha": "-"}
+    d = welch(sig, rnd)
+    m = np.array([rng.choice(sig, len(sig)).mean() - rng.choice(rnd, len(rnd)).mean() for _ in range(2000)])
+    lo, hi = float(np.percentile(m, 2.5)), float(np.percentile(m, 97.5))
+    out = {"n_sig": int(len(sig)), "mean_sig": float(sig.mean() * 100), "n_rnd": int(len(rnd)),
+           "mean_rnd": float(rnd.mean() * 100), "delta_lo": lo * 100, "delta_hi": hi * 100}
+    if d:
+        out.update(delta_pp=d[0] * 100, delta_p=d[3])
+    enough = len(sig) >= MIN_N and len(rnd) >= MIN_N
+    out["alpha"] = ("ALPHA" if lo > 0 else "TIDAK_TERBUKTI") if enough else "DATA_KURANG"
+    return out
 
 
 def boot(x, rng):
@@ -77,8 +124,10 @@ def audit(files, since=None):
         cut = _ts({"x": EPOCH.get(name)}, ("x",)) if name in EPOCH else None
         if since:
             cut = max(cut, since) if cut else since
-        x = np.array([p for _, ex, p in tr if cut is None or ex >= cut])
+        x = np.array([p for _, ex, p, _ in tr if cut is None or ex >= cut])
         r = {"lane": name, "status": st, "n": int(len(x)), "epoch_dari": cut.isoformat() if cut else "semua", "basis": "/".join(sorted(basis)) or "-"}
+        sig, rnd = split_tracks(tr, cut)
+        r.update({f"ab_{k}": v for k, v in alpha_block(sig, rnd, rng).items()})
         if len(x):
             r.update(mean_pct=float(x.mean() * 100), hit=float((x > 0).mean()), p_ge_target=float((x >= TARGET).mean()))
             if len(x) >= 2:
@@ -108,7 +157,22 @@ def render(rows, now):
                  f"{r.get('hit', float('nan')):.0%} | {r.get('p_ge_target', float('nan')):.0%} | — | {r['verdict']} |")
     k = [r["lane"] for r in rows if r["verdict"] == "KANDIDAT"]
     L += ["", f"**Kandidat edge terbukti: {len(k)}** {k}", "",
-          "Catatan: mean pnl_pct dihitung per posisi (notional), bukan % total wallet. n<20 = belum tahu, bukan 'gagal'."]
+          "Catatan: mean pnl_pct dihitung per posisi (notional), bukan % total wallet. n<20 = belum tahu, bukan 'gagal'.",
+          "", "## Sinyal vs kontrol RANDOM (alpha, bukan beta)", "",
+          "Mean positif pada lane mana pun TIDAK cukup: bila entry acak menghasilkan hal sama, itu beta arah/rezim.",
+          "ALPHA hanya bila n>=%d di kedua lengan DAN CI95 bawah delta > 0." % MIN_N, "",
+          "| lane | n SIGNAL | mean SIGNAL | n RANDOM | mean RANDOM | delta (pp) | CI95 delta | p | verdict |",
+          "|---|---:|---:|---:|---:|---:|---|---:|---|"]
+    for r in rows:
+        a = {k[3:]: v for k, v in r.items() if k.startswith("ab_")}
+        if not a or a.get("alpha", "-") == "-":
+            continue
+        ci = f"[{a.get('delta_lo', float('nan')):+.2f}, {a.get('delta_hi', float('nan')):+.2f}]"
+        L.append(f"| {r['lane']} | {a.get('n_sig', 0)} | {a.get('mean_sig', float('nan')):+.3f} | "
+                 f"{a.get('n_rnd', 0)} | {a.get('mean_rnd', float('nan')):+.3f} | "
+                 f"{a.get('delta_pp', float('nan')):+.3f} | {ci} | {a.get('delta_p', float('nan')):.3f} | {a['alpha']} |")
+    al = [r["lane"] for r in rows if r.get("ab_alpha") == "ALPHA"]
+    L += ["", f"**Lane dengan alpha terbukti: {len(al)}** {al}"]
     return "\n".join(L)
 
 
