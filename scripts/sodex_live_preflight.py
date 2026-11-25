@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Preflight kesiapan live SoDEX 01-Des-2026 (read-only, tanpa order).
 
-Memeriksa 12 gerbang yang menentukan boleh-tidaknya meng-arm. TIDAK membaca isi
-rahasia: hanya `exists()`/`stat()` pada path kredensial. TIDAK memanggil API
-ber-auth, TIDAK menulis state trading.
+Memeriksa 12 gerbang yang menentukan boleh-tidaknya meng-arm. TIDAK pernah mencetak
+nilai rahasia: pada berkas kredensial hanya NAMA kunci yang diperiksa (keberadaan),
+bukan isinya. TIDAK memanggil API ber-auth, TIDAK menulis state trading.
 
 Level: BLOCKER menggagalkan arm, WARN hanya dicatat.
 Fase (eskalasi otomatis): PERSIAPAN (<25-Nov) -> BEKU (25-30 Nov) -> LIVE (>=1-Des).
@@ -26,6 +26,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ARM = ROOT / "secrets/LIVE_ARMED.json"
 KILL = ROOT / "secrets/KILL"
 ENVFILE = ROOT / "secrets/sodex.env"
+ENV_CANDIDATES = (ROOT / "secrets/sodex.env", ROOT / ".env")
+ENV_REQUIRED = ("SODEX_PRIVATE_KEY", "SODEX_ACCOUNT_ID", "SODEX_ADDRESS")
 ENGINE = ROOT / "scripts/research/mode_a_20261026/mode_a_live.py"
 EQUITY = ROOT / "reports/sodex/EQUITY_LEDGER.jsonl"
 DEADMAN_HB = ROOT / "data/DEADMAN_HEARTBEAT.json"
@@ -107,15 +109,46 @@ def check_kill() -> dict:
             "detail": "tidak ada KILL" if not KILL.exists() else f"KILL aktif: {KILL}"}
 
 
+def _env_keys(path: Path) -> set[str]:
+    """Hanya NAMA kunci yang terisi; nilai tidak pernah dikembalikan/dicetak."""
+    try:
+        isi = path.read_text(errors="replace")
+    except OSError:
+        return set()
+    nama = set()
+    for ln in isi.splitlines():
+        ln = ln.split("#", 1)[0].strip()
+        if "=" not in ln:
+            continue
+        k, v = ln.split("=", 1)
+        if k.strip() and v.strip().strip("\"'").strip():
+            nama.add(k.strip())
+    return nama
+
+
 def check_env() -> dict:
-    if not ENVFILE.exists():
-        return {"nama": "secret_env", "ok": False, "level": "BLOCKER",
-                "detail": "secrets/sodex.env TIDAK ADA (hanya .template) — kredensial venue belum tersedia"}
-    mode = oct(ENVFILE.stat().st_mode & 0o777)
-    if mode not in ("0o600", "0o400"):
-        return {"nama": "secret_env", "ok": False, "level": "WARN",
-                "detail": f"ada, tetapi permission {mode} (disarankan 600)"}
-    return {"nama": "secret_env", "ok": True, "level": "BLOCKER", "detail": "ada, permission aman"}
+    """Selaras dengan loader engine (`mode_a_live.load_env`): `secrets/sodex.env`
+    lalu fallback `.env` di root repo. Wajib mode 600/400 DAN tiga kunci terisi —
+    jadi file kosong/palsu tidak lagi dianggap siap. Nilai rahasia tidak dibaca
+    ke output, hanya keberadaan namanya."""
+    alasan = []
+    for path in ENV_CANDIDATES:
+        rel = os.path.relpath(path, ROOT)
+        if not path.exists():
+            alasan.append(f"{rel} tidak ada")
+            continue
+        mode = oct(path.stat().st_mode & 0o777)
+        if mode not in ("0o600", "0o400"):
+            alasan.append(f"{rel} mode {mode} (wajib 600)")
+            continue
+        kurang = [k for k in ENV_REQUIRED if k not in _env_keys(path)]
+        if kurang:
+            alasan.append(f"{rel} kurang {kurang}")
+            continue
+        return {"nama": "secret_env", "ok": True, "level": "BLOCKER",
+                "detail": f"{rel} siap (mode {mode}, {len(ENV_REQUIRED)} kunci terisi)"}
+    return {"nama": "secret_env", "ok": False, "level": "BLOCKER",
+            "detail": "kredensial venue belum siap: " + "; ".join(alasan)}
 
 
 def check_engine() -> dict:

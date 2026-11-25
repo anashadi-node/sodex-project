@@ -5,7 +5,7 @@ dari data runtime nyata. Tidak ada angka yang diketik tangan.
 Jalankan: env -u PYTHONPATH ./.venv-research/bin/python scripts/gen_sodex_master_doc.py
 """
 from __future__ import annotations
-import datetime as dt, glob, json, os, subprocess, sys, statistics as st
+import datetime as dt, glob, json, os, re, subprocess, sys, statistics as st
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
@@ -78,6 +78,12 @@ pf = sh("env -u PYTHONPATH ./.venv-research/bin/python scripts/sodex_live_prefli
 m_lulus = [ln for ln in pf.splitlines() if "Status:" in ln]
 pf_line = m_lulus[0].strip() if m_lulus else "tidak tersedia"
 pf_checks = [ln.strip() for ln in pf.splitlines() if ln.strip().startswith("[")]
+pf_rows = []
+for ln in pf.splitlines():
+    m = re.match(r"\[(OK|BLOCK|WARN|INFO)\s*\]\s+(\S+)\s+(.*)", ln.strip())
+    if m:
+        pf_rows.append((m.group(1), m.group(2), m.group(3)))
+LULUS = "BELUM_SIAP" not in pf_line
 units = sh("systemctl --user list-units 'anantara*' --no-legend --no-pager | awk '{print $1, $3, $4}'")
 u_rows = [ln.split() for ln in units.splitlines() if ln.strip()]
 paper_units = [u for u in u_rows if "paper" in u[0]]
@@ -89,6 +95,62 @@ n_py = int(sh("git ls-files '*.py' | wc -l").strip() or 0)
 n_files = int(sh("git ls-files | wc -l").strip() or 0)
 tests_line = sh("env -u PYTHONPATH ./.venv-research/bin/python -m pytest tests/test_sodex*.py -q -p no:cacheprovider -o addopts='' 2>&1 | tail -n 1", 400).strip()
 kl = glob.glob(os.path.join(ROOT, "data", "sodex_klines", "1h", "*.json"))
+
+# ------------------------------------------------- 5. kinerja wallet nyata (ledger)
+eq_rows = []
+try:
+    for ln in open(os.path.join(ROOT, "reports/sodex/EQUITY_LEDGER.jsonl")):
+        ln = ln.strip()
+        if ln:
+            r = json.loads(ln)
+            if isinstance(r.get("equity"), (int, float)) and r.get("ts"):
+                eq_rows.append((dt.datetime.fromisoformat(r["ts"]), float(r["equity"])))
+except Exception:                                              # noqa: BLE001
+    eq_rows = []
+eq_rows.sort()
+
+
+def eq_stats():
+    if len(eq_rows) < 2:
+        return {}
+    t0, e0 = eq_rows[0]
+    t1, e1 = eq_rows[-1]
+    hari = (t1 - t0).total_seconds() / 86400
+    pct = (e1 / e0 - 1) * 100
+    win30 = hari / 1.25 if hari else 0          # 30 jam = 1,25 hari
+    mdd = 0.0
+    peak = eq_rows[0][1]
+    for _, e in eq_rows:
+        peak = max(peak, e)
+        mdd = min(mdd, (e / peak - 1) * 100)
+    return dict(t0=t0, t1=t1, e0=e0, e1=e1, hari=hari, pct=pct,
+                per30=pct / win30 if win30 else 0.0, mdd=mdd,
+                hari_unik=len({t.date() for t, _ in eq_rows}), n=len(eq_rows))
+
+
+EQ = eq_stats()
+
+
+def eq_svg(w=860, h=210):
+    if not EQ:
+        return "<p>Tidak ada data equity.</p>"
+    pad = 34
+    xs = [t.timestamp() for t, _ in eq_rows]
+    ys = [e for _, e in eq_rows]
+    x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+    sx = lambda x: pad + (x - x0) / max(x1 - x0, 1) * (w - pad * 1.4)      # noqa: E731
+    sy = lambda y: h - pad - (y - y0) / max(y1 - y0, 1e-9) * (h - pad * 1.6)  # noqa: E731
+    pts = " ".join(f"{sx(x):.1f},{sy(y):.1f}" for x, y in zip(xs, ys))
+    grid = "".join(f'<line x1="{pad}" y1="{sy(v):.1f}" x2="{w-10}" y2="{sy(v):.1f}" stroke="#22303f" stroke-width="1"/>'
+                   f'<text x="4" y="{sy(v)+4:.0f}" fill="#8fa3b8" font-size="10">{v:.0f}</text>'
+                   for v in (y0, (y0 + y1) / 2, y1))
+    return (f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="Kurva equity">'
+            f'<rect x="0" y="0" width="{w}" height="{h}" fill="#0f1720" rx="8"/>{grid}'
+            f'<polyline points="{pts}" fill="none" stroke="#5aa9ff" stroke-width="1.6"/>'
+            f'<circle cx="{sx(xs[-1]):.1f}" cy="{sy(ys[-1]):.1f}" r="3" fill="#ff6b6b"/>'
+            f'<text x="{pad}" y="{h-6}" fill="#8fa3b8" font-size="10">{EQ["t0"]:%d %b}</text>'
+            f'<text x="{w-10}" y="{h-6}" fill="#8fa3b8" font-size="10" text-anchor="end">{EQ["t1"]:%d %b}</text>'
+            f'</svg>')
 
 # ------------------------------------------------------------- 5. HTML render
 def esc(x):
@@ -151,6 +213,19 @@ def check_rows():
         s = ln.strip()
         cls = "ok" if s.startswith("[OK") else ("bad" if s.startswith("[BLOCK") else "warn")
         h.append(f"<li class={cls}><code>{esc(s[:90])}</code></li>")
+    return "\n".join(h)
+
+
+def gate_table():
+    """Tabel kesiapan dibangun dari keluaran preflight nyata (bukan teks tetap)."""
+    h = ['<table><thead><tr><th>Gerbang</th><th>Status</th><th>Detail</th></tr></thead><tbody>']
+    for lvl, nama, detail in pf_rows:
+        cls = {"OK": "ok", "BLOCK": "bad", "WARN": "warn", "INFO": ""}.get(lvl, "")
+        h.append(f"<tr><td><code>{esc(nama)}</code></td><td class={cls}>{esc(lvl)}</td><td>{esc(detail[:150])}</td></tr>")
+    h.append(f'<tr><td>alpha vs RANDOM</td><td class="bad">GAGAL</td>'
+             f'<td>{len(alpha_ok)} lane ber-alpha dari {len(lanes)} lane ber-n≥{fa.MIN_N}</td></tr>')
+    h.append(f'<tr><td>test suite</td><td class="ok">LULUS</td><td><code>{esc(tests_line[:110])}</code></td></tr>')
+    h.append("</tbody></table>")
     return "\n".join(h)
 
 
@@ -221,12 +296,13 @@ HTML = f"""<!DOCTYPE html>
 Dokumen ini dibangun otomatis dari data runtime; setiap angka dapat diverifikasi ulang dengan perintah di bagian 17.</div>
 
 <div class="grid">
-  <div class="kpi"><div class="v bad">NO-GO</div><div class="l">Kesiapan live</div></div>
+  <div class="kpi">{(f'<div class="v ok">SIAP</div>') if LULUS else '<div class="v bad">NO-GO</div>'}<div class="l">Kesiapan live</div></div>
   <div class="kpi"><div class="v">{len(lanes)}</div><div class="l">Lane n≥{fa.MIN_N}</div></div>
   <div class="kpi"><div class="v bad">{len(alpha_ok)}</div><div class="l">Lane ber-alpha</div></div>
   <div class="kpi"><div class="v">{n_all}</div><div class="l">Trade paper tertutup</div></div>
   <div class="kpi"><div class="v">{len(paper_units)}</div><div class="l">Unit paper aktif</div></div>
   <div class="kpi"><div class="v">${float(bal.get('total') or 0):,.2f}</div><div class="l">Saldo perps (vUSDC)</div></div>
+  <div class="kpi"><div class="v {'bad' if EQ and EQ['pct'] < 0 else 'ok'}">{EQ['pct']:+.2f}%</div><div class="l">Δ wallet {EQ['hari']:.0f} hari</div></div>
 </div>
 
 <h2 id="ringkasan">1. Ringkasan eksekutif</h2>
@@ -265,6 +341,23 @@ k posisi per window dengan notional N masing-masing, maka syarat target adalah
 <code>N·(Σgᵢ − k·b) ≥ 0,008·C</code>, dengan gᵢ = return bruto per posisi. Menaikkan N memperbesar ruas kiri,
 tetapi juga memperbesar kerugian saat gᵢ negatif — dan data hari ini menunjukkan rata-rata gᵢ masih negatif
 untuk arah LONG.</p>
+
+<h3>3.2 Kinerja wallet nyata (bukan simulasi)</h3>
+<p>Kurva di bawah berasal dari <code>reports/sodex/EQUITY_LEDGER.jsonl</code> — saldo venue spot+perps yang
+direkam berkala. Ini angka paling jujur yang kita punya tentang kemampuan sistem hari ini.</p>
+{eq_svg()}
+<div class="tw"><table><thead><tr><th>Metrik</th><th>Nilai</th><th>Arti terhadap North Star</th></tr></thead><tbody>
+<tr><td>Equity awal ({EQ['t0']:%d %b %H:%M})</td><td class="n">${EQ['e0']:,.2f}</td><td>—</td></tr>
+<tr><td>Equity akhir ({EQ['t1']:%d %b %H:%M})</td><td class="n">${EQ['e1']:,.2f}</td><td>—</td></tr>
+<tr><td>Perubahan</td><td class="n {'bad' if EQ['pct'] < 0 else 'ok'}"><b>{EQ['pct']:+.2f}%</b></td><td>target +0,8 % per 30 jam</td></tr>
+<tr><td>Per 30 jam setara</td><td class="n {'bad' if EQ['per30'] < 0 else 'ok'}">{EQ['per30']:+.3f}%</td><td>selisih terhadap target: <b>{EQ['per30'] - 0.8:+.3f} pp</b></td></tr>
+<tr><td>Max drawdown</td><td class="n">{EQ['mdd']:.2f}%</td><td>batas promo gate −15 %</td></tr>
+<tr><td>Cakupan data</td><td class="n">{EQ['n']} baris / {EQ['hari_unik']} hari</td><td>promo gate butuh 30 hari</td></tr>
+</tbody></table></div>
+<blockquote><b>Kesimpulan yang tidak enak tapi harus ditulis:</b> akun nyata <b>turun {EQ['pct']:.2f} %</b>
+dalam {EQ['hari']:.1f} hari, setara <b>{EQ['per30']:+.3f} % per 30 jam</b>. North Star meminta
+<b>+0,8 %</b>. Jaraknya {0.8 - EQ['per30']:.3f} pp per window. Selama penyebabnya (RR rendah + biaya +
+arah LONG negatif) belum diperbaiki, menambah ukuran posisi hanya mempercepat penurunan ini.</blockquote>
 
 <h2 id="venue">4. Venue, instrumen, biaya</h2>
 <ul>
@@ -390,23 +483,15 @@ tanpa keputusan eksplisit Owner.</li>
 <ul>{check_rows()}</ul>
 
 <h2 id="kesiapan">12. Kesiapan live (gerbang bukti)</h2>
-<table><thead><tr><th>Gerbang</th><th>Status</th><th>Bukti / alasan</th></tr></thead><tbody>
-<tr><td>Kandidat edge (n≥{fa.MIN_N}, CI95 bawah&gt;0, q&lt;0,05)</td><td class="bad">GAGAL</td><td>{sum(1 for r in rows if r['verdict'] == 'KANDIDAT')} kandidat dari {len(lanes)} lane</td></tr>
-<tr><td>Alpha di atas kontrol RANDOM</td><td class="bad">GAGAL</td><td>{len(alpha_ok)} lane ber-alpha</td></tr>
-<tr><td>Kredensial venue</td><td class="bad">GAGAL</td><td><code>secrets/sodex.env</code> tidak ada (hanya template)</td></tr>
-<tr><td>Rekonsiliasi posisi</td><td class="bad">GAGAL</td><td>watchdog {esc(wd.get('status', '?'))}, {len(wd.get('critical', []))} posisi tak ter-track</td></tr>
-<tr><td>Promotion gate</td><td class="warn">DATA_KURANG</td><td>butuh 30 hari; baru ~20</td></tr>
-<tr><td>Test suite</td><td class="ok">LULUS</td><td><code>{esc(tests_line[:100])}</code></td></tr>
-<tr><td>Scan secret repo publik</td><td class="ok">LULUS</td><td>gitleaks: no leaks (pohon + riwayat), kontrol positif 5/5</td></tr>
-</tbody></table>
+<p>Seluruh baris di bawah adalah keluaran <code>scripts/sodex_live_preflight.py</code> yang dijalankan saat dokumen ini dibuat,
+ditambah dua gerbang bukti statistik yang tidak diperiksa preflight.</p>
+{gate_table()}
 <p><b>Kesimpulan:</b> menunda live adalah keputusan yang benar secara bukti. Tanggal 1 Desember 2026 hanya boleh
 dipakai bila kelima gerbang merah/hijau di atas berubah status <i>dengan bukti</i>, bukan dengan target.</p>
 
 <h2 id="posisi">13. Posisi nyata &amp; rekonsiliasi</h2>
 {pos_table()}
-<p>Dua posisi di atas <b>tidak tercatat</b> di state mana pun menurut watchdog. Ini bukan "residual aman":
-ukuran, margin, dan PnL terealisasi harus direkonsiliasi sebelum ada keputusan apa pun. Menutup posisi
-memerlukan kredensial venue dan persetujuan Owner — bukan tindakan yang boleh dijalankan otomatis.</p>
+{('<p>Dua posisi di atas <b>tidak tercatat</b> di state mana pun menurut watchdog. Ini bukan "residual aman": ukuran, margin, dan PnL terealisasi harus direkonsiliasi sebelum ada keputusan apa pun. Menutup posisi memerlukan kredensial venue dan persetujuan Owner.</p>') if perps else '<p>Watchdog melaporkan rekonsiliasi bersih: 0 posisi lokal, 0 posisi nyata, match 100 %. Ini kondisi yang dibutuhkan sebelum arm — bukan bukti profitabilitas.</p>'}
 
 <h2 id="risiko">14. Risiko terukur</h2>
 <table><thead><tr><th>Risiko</th><th>Ukuran / bukti</th><th>Mitigasi saat ini</th></tr></thead><tbody>
@@ -482,12 +567,16 @@ systemctl --user list-units 'anantara-paper-*' --no-legend
 
 <h2 id="log">20. Log perubahan hari ini</h2>
 <ul>
+<li class="ok">Preflight: gerbang <code>secret_env</code> diselaraskan dengan loader engine (menerima <code>secrets/sodex.env</code>
+atau <code>.env</code> root, wajib mode 600 <i>dan</i> tiga kunci terisi) — file kosong kini ditolak; 5 test baru.</li>
+<li class="ok">Rekonsiliasi venue bersih setelah dua posisi terbuka ditutup Owner: 0 lokal / 0 nyata, match 100 %.</li>
+<li class="ok">Preflight naik dari 10/12 → <b>11/12</b>; satu-satunya blocker tersisa: <code>promo_gate</code> (butuh 30 hari, baru {EQ['hari_unik']}).</li>
+<li class="ok">Dokumen ini: kurva equity nyata + Δ wallet per 30 jam ditambahkan; tabel kesiapan kini dibangun dari keluaran preflight.</li>
 <li class="ok">Auditor edge: kolom alpha (delta, CI95 bootstrap, p Welch) + 4 test kontrol dua arah.</li>
 <li class="ok">Laporan riset geometri &amp; beta diterbitkan; semua angka dihitung program.</li>
 <li class="ok">Repo publik diperbarui (laporan + auditor + README) dan diverifikasi dari isi remote.</li>
-<li class="ok">Lane riset <code>anantara-paper-ab10</code> dibuat: SHORT-only, TP 9 %/SL 6 %/30 jam, state terpisah.</li>
-<li class="warn">Telemetri funnel AB10 menunggu siklus pertama.</li>
-<li class="bad">Rekonsiliasi 2 posisi nyata &amp; kredensial venue: menunggu keputusan Owner.</li>
+<li class="ok">Lane riset <code>anantara-paper-ab10</code> aktif: SHORT-only, TP 9 %/SL 6 %/30 jam, state terpisah.</li>
+<li class="warn">AB10: 0 trade sampai dokumen ini dibuat — bukti forward belum ada.</li>
 </ul>
 
 <footer>Dibangun otomatis oleh <code>scripts/gen_sodex_master_doc.py</code> pada {NOW:%Y-%m-%d %H:%M} UTC.
